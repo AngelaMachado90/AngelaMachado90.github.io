@@ -40,3 +40,29 @@ setInterval(updateCountdown, 1000);
 document.querySelector('.subscribe-btn').addEventListener('click', function() {
     alert('Obrigado por se inscrever! Nós entraremos em contato em breve.');
 });
+
+document.getElementById('subscription-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // Simulação de envio (substitua por código real de API)
+    setTimeout(() => {
+        // Mostra mensagem de sucesso
+        document.getElementById('success-message').classList.remove('hidden');
+        
+        // Limpa o formulário
+        this.reset();
+        
+        // Esconde a mensagem após 5 segundos
+        setTimeout(() => {
+            document.getElementById('success-message').classList.add('hidden');
+        }, 5000);
+    }, 1000);
+});
+
+// Validação em tempo real
+document.getElementById('email').addEventListener('blur', function() {
+    if (!this.value.includes('@')) {
+        alert('Por favor, insira um e-mail válido');
+        this.focus();
+    }
+});
