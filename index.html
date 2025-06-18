@@ -3,49 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CONHECEMOS O CAMINHO</title>
+    <title>Plug&Go - Data Science & Web Design</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="page-container">
         <header>
-            <img src="logo.png" alt="Logo" class="logo">
-            <h1>CONHECEMOS O CAMINHO</h1>
+            <div class="logo-container">
+                <img src="logo.png" alt="PlugGo Logo" class="logo">
+                <div class="logo-text">
+                    <span class="plug">Plug</span><span class="and">&</span><span class="go">Go</span>
+                </div>
+            </div>
+            <h1 class="main-heading">DESCUBRA O PODER DOS SEUS DADOS</h1>
+            <p class="subheading">Soluções inteligentes em Data Science & Web Design</p>
         </header>
 
-        <div class="white-container">
-            <p class="coming-soon">Nosso website esta chegando</p>
-            
-            <div class="countdown-box">
-                <div class="countdown-label">Dias</div>
-                <div class="countdown-value" id="days">29:23:25:45</div>
+        <div class="content-container">
+            <div class="launch-message">
+                <p class="coming-soon">Nova Plataforma em Lançamento</p>
+                <p class="launch-text">Estamos preparando uma experiência revolucionária em análise de dados e design digital</p>
+                
+                <div class="countdown-container">
+                    <div class="countdown-box">
+                        <div class="countdown-value" id="days">00</div>
+                        <div class="countdown-label">Dias</div>
+                    </div>
+                    <div class="countdown-box">
+                        <div class="countdown-value" id="hours">00</div>
+                        <div class="countdown-label">Horas</div>
+                    </div>
+                    <div class="countdown-box">
+                        <div class="countdown-value" id="minutes">00</div>
+                        <div class="countdown-label">Minutos</div>
+                    </div>
+                    <div class="countdown-box">
+                        <div class="countdown-value" id="seconds">00</div>
+                        <div class="countdown-label">Segundos</div>
+                    </div>
+                </div>
             </div>
 
-            <form class="signup-form">
+            <form class="signup-form" id="early-access-form">
+                <h2 class="form-title">Acesso Antecipado</h2>
+                <p class="form-subtitle">Cadastre-se para ser notificado sobre nosso lançamento e receber ofertas exclusivas</p>
+                
                 <div class="form-group">
                     <input type="text" id="nome" name="nome" required placeholder="Nome completo">
+                    <i class="fas fa-user icon"></i>
                 </div>
                 
                 <div class="form-group">
-                    <input type="email" id="email" name="email" required placeholder="E-mail">
+                    <input type="email" id="email" name="email" required placeholder="E-mail corporativo">
+                    <i class="fas fa-envelope icon"></i>
                 </div>
                 
                 <div class="form-group">
-                    <input type="tel" id="telefone" name="telefone" placeholder="Telefone">
+                    <input type="tel" id="telefone" name="telefone" placeholder="Telefone (WhatsApp)">
+                    <i class="fas fa-phone icon"></i>
                 </div>
                 
                 <div class="form-group">
                     <select id="interesse" name="interesse" required>
-                        <option value="" disabled selected>Selecione seu interesse</option>
-                        <option value="enriquecimento">Enriquecimento de dados</option>
-                        <option value="consultoria">Consultoria</option>
-                        <option value="website">Website</option>
+                        <option value="" disabled selected>Selecione seu interesse principal</option>
+                        <option value="data-science">Data Science & Analytics</option>
+                        <option value="bi">Business Intelligence</option>
+                        <option value="web-design">Web Design & Desenvolvimento</option>
+                        <option value="data-vis">Visualização de Dados</option>
+                        <option value="consultoria">Consultoria em Dados</option>
                     </select>
+                    <i class="fas fa-chevron-down icon"></i>
                 </div>
                 
-                <button type="submit" class="subscribe-btn">Se inscrever</button>
+                <button type="submit" class="subscribe-btn">
+                    <span class="btn-text">Garantir Acesso Antecipado</span>
+                    <i class="fas fa-arrow-right btn-icon"></i>
+                </button>
             </form>
         </div>
+
+        <footer class="footer">
+            <div class="social-links">
+                <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <p class="copyright">© 2025 PlugnGo Tecnologia. Todos os direitos reservados.</p>
+        </footer>
     </div>
 
     <script src="script.js"></script>
