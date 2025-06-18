@@ -119,3 +119,21 @@ h1 {
         font-size: 1.5rem;
     }
 }
+
+/* Estilos para o logo */
+.logo-container {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.logo {
+    max-width: 200px; /* Ajuste conforme necessário */
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Se quiser animação no logo */
+.logo:hover {
+    transform: scale(1.05);
+    tr
