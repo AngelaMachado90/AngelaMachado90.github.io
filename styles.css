@@ -1,273 +1,231 @@
+/* Variáveis de cores para fácil manutenção */
+:root {
+  --teal: #008080;
+  --dark-teal: #006666;
+  --light-green: #d4f1c4;
+  --light-blue: #b3d9ff;
+  --bright-green: #a3d977;
+  --white: #ffffff;
+  --light-gray: #f5f5f5;
+  --medium-gray: #dddddd;
+  --dark-gray: #333333;
+}
+
+/* Reset e estilos base */
 body {
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(135deg, #d4f1c4, #b3d9ff);
-    color: #006666;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    margin: 0;
-    padding: 20px;
-    text-align: center;
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, var(--light-green), var(--light-blue));
+  color: var(--dark-teal);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 20px;
+  text-align: center;
 }
 
+/* Container principal */
 .container {
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 2rem;
-    border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
-    width: 100%;
+  background-color: rgba(255, 255, 255, 0.85);
+  padding: 2.5rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+  max-width: 600px;
+  width: 100%;
+  backdrop-filter: blur(5px);
 }
 
+/* Cabeçalho e logo */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  gap: 1rem;
+}
+
+.logo {
+  width: 70px;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.08);
+}
+
+/* Tipografia */
 h1 {
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
-    text-transform: uppercase;
-    color: #008080;
+  font-size: 2.4rem;
+  margin: 0;
+  text-transform: uppercase;
+  color: var(--teal);
+  letter-spacing: 1px;
+  line-height: 1.2;
 }
 
 .coming-soon {
-    font-size: 1.5rem;
-    margin-bottom: 3rem;
-    color: #006666;
+  font-size: 1.3rem;
+  margin-bottom: 2.5rem;
+  color: var(--dark-teal);
+  opacity: 0.9;
 }
 
+/* Contadores */
 .countdown-container {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    margin-bottom: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+  margin-bottom: 2.5rem;
 }
 
 .countdown-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .countdown-label {
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
-    font-weight: bold;
-    color: #008080;
+  font-size: 1.1rem;
+  margin-bottom: 0.6rem;
+  font-weight: bold;
+  color: var(--teal);
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .countdown-timer {
-    font-size: 2rem;
-    font-weight: bold;
-    letter-spacing: 2px;
-    color: #006666;
-    background-color: rgba(255, 255, 255, 0.7);
-    padding: 0.5rem 1.5rem;
-    border-radius: 8px;
+  font-size: 2.2rem;
+  font-weight: bold;
+  font-family: 'Courier New', monospace;
+  letter-spacing: 3px;
+  color: var(--dark-teal);
+  background-color: rgba(255, 255, 255, 0.75);
+  padding: 0.8rem 2rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 96, 96, 0.1);
 }
 
+/* Seção de inscrição */
 .tiba-section {
-    margin-top: 2rem;
-    text-align: left;
-    max-width: 300px;
-    margin-left: auto;
-    margin-right: auto;
+  margin-top: 2rem;
+  text-align: center;
+  max-width: 100%;
 }
 
 .tiba-section ul {
-    list-style-type: none;
-    padding: 0;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
 
 .tiba-section li {
-    margin-bottom: 0.5rem;
-    font-weight: bold;
-    color: #008080;
+  margin-bottom: 1rem;
 }
 
+/* Botão */
 .subscribe-btn {
-    background-color: #a3d977;
-    color: #006666;
-    border: none;
-    padding: 12px 24px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 1rem;
-    margin-top: 1rem;
-    cursor: pointer;
-    border-radius: 25px;
-    font-weight: bold;
-    transition: all 0.3s;
-    width: 100%;
+  background-color: var(--bright-green);
+  color: var(--dark-teal);
+  border: none;
+  padding: 14px 28px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  max-width: 280px;
+  display: inline-block;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
 }
 
 .subscribe-btn:hover {
-    background-color: #8bc34a;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #8bc34a;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
-@media (max-width: 600px) {
-    h1 {
-        font-size: 2rem;
-    }
-    
-    .coming-soon {
-        font-size: 1.2rem;
-    }
-    
-    .countdown-timer {
-        font-size: 1.5rem;
-    }
+.subscribe-btn:active {
+  transform: translateY(1px);
 }
 
-/* Estilos para o logo */
-/* Novo estilo para o cabeçalho com logo */
-.header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 1rem;
+/* Efeito de onda no botão */
+.subscribe-btn::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.5);
+  opacity: 0;
+  border-radius: 100%;
+  transform: scale(1, 1) translate(-50%);
+  transform-origin: 50% 50%;
 }
 
-.logo-container {
-    text-align: center;
-    margin-bottom: 2rem;
+.subscribe-btn:focus:not(:active)::after {
+  animation: ripple 0.6s ease-out;
 }
 
-.logo {
-    max-width: 120px; /* Ajuste conforme necessário */
-    height: auto;
-    display: block;
-    margin: 0 auto;
+@keyframes ripple {
+  0% {
+    transform: scale(0, 0);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(20, 20);
+    opacity: 0;
+  }
 }
 
-/* Se quiser animação no logo */
-.logo:hover {
-    transform: scale(1.05);
-    transition: transform 0.3s ease;
-}
-
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f5f5f5;
-    margin: 0;
-    padding: 0;
-    color: #333;
-}
-
-.page-container {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-header {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.logo {
-    width: 60px;
-    height: auto;
-    margin-right: 15px;
-}
-
-h1 {
+/* Responsividade */
+@media (max-width: 640px) {
+  .container {
+    padding: 1.8rem;
+  }
+  
+  h1 {
+    font-size: 2rem;
+  }
+  
+  .coming-soon {
+    font-size: 1.1rem;
+  }
+  
+  .countdown-timer {
     font-size: 1.8rem;
-    margin: 0;
-    color: #006666;
-}
-
-.white-container {
-    background-color: white;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
-
-.coming-soon {
-    font-size: 1.2rem;
-    margin-bottom: 25px;
-    text-align: center;
-    color: #666;
-}
-
-.countdown-box {
-    background-color: #f0f8ff;
-    padding: 15px;
-    border-radius: 6px;
-    margin-bottom: 30px;
-    text-align: center;
-}
-
-.countdown-label {
+    padding: 0.6rem 1.5rem;
+  }
+  
+  .subscribe-btn {
+    padding: 12px 24px;
     font-size: 1rem;
-    color: #008080;
-    margin-bottom: 5px;
+  }
 }
 
-.countdown-value {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #006666;
-}
-
-.signup-form {
-    display: flex;
+@media (max-width: 480px) {
+  .header {
     flex-direction: column;
-    gap: 20px;
-}
-
-.form-group {
-    display: flex;
-    flex-direction: column;
-}
-
-.form-group input,
-.form-group select {
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 1rem;
-}
-
-.form-group select {
-    appearance: none;
-    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
-    background-repeat: no-repeat;
-    background-position: right 10px center;
-    background-size: 15px;
-}
-
-.subscribe-btn {
-    background-color: #008080;
-    color: white;
-    border: none;
-    padding: 14px;
-    font-size: 1rem;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    margin-top: 10px;
-}
-
-.subscribe-btn:hover {
-    background-color: #006666;
-}
-
-@media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        text-align: center;
-    }
-    
-    .logo {
-        margin-right: 0;
-        margin-bottom: 10px;
-    }
-    
-    .white-container {
-        padding: 20px;
-    }
+    gap: 0.5rem;
+  }
+  
+  .logo {
+    width: 60px;
+    margin-bottom: 0.5rem;
+  }
+  
+  h1 {
+    font-size: 1.8rem;
+  }
+  
+  .countdown-timer {
+    font-size: 1.6rem;
+    letter-spacing: 2px;
+  }
 }
