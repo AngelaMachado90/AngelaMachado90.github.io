@@ -119,7 +119,6 @@ h1 {
         font-size: 1.5rem;
     }
 }
-
 /* Estilos para o logo */
 .logo-container {
     text-align: center;
@@ -136,4 +135,5 @@ h1 {
 /* Se quiser animação no logo */
 .logo:hover {
     transform: scale(1.05);
-    tr
+    transition: transform 0.3s ease;
+}
