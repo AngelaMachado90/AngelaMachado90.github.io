@@ -3,49 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CONHECEMOS O CAMINHO</title>
+    <title>Conhecemos o caminho</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="page-container">
-        <header>
-            <img src="logo.png" alt="Logo" class="logo">
-            <h1>CONHECEMOS O CAMINHO</h1>
-        </header>
-
-        <div class="white-container">
-            <p class="coming-soon">Nosso website esta chegando</p>
-            
-            <div class="countdown-box">
-                <div class="countdown-label">Dias</div>
-                <div class="countdown-value" id="days">29:23:25:45</div>
-            </div>
-
-            <form class="signup-form">
-                <div class="form-group">
-                    <input type="text" id="nome" name="nome" required placeholder="Nome completo">
-                </div>
-                
-                <div class="form-group">
-                    <input type="email" id="email" name="email" required placeholder="E-mail">
-                </div>
-                
-                <div class="form-group">
-                    <input type="tel" id="telefone" name="telefone" placeholder="Telefone">
-                </div>
-                
-                <div class="form-group">
-                    <select id="interesse" name="interesse" required>
-                        <option value="" disabled selected>Selecione seu interesse</option>
-                        <option value="enriquecimento">Enriquecimento de dados</option>
-                        <option value="consultoria">Consultoria</option>
-                        <option value="website">Website</option>
-                    </select>
-                </div>
-                
-                <button type="submit" class="subscribe-btn">Se inscrever</button>
-            </form>
+    <div class="header">
+        <img src="logo.png" alt="Logo" class="logo">
+        <h1>CONHECEMOS O CAMINHO</h1>
+    </div>
+    
+    <p class="coming-soon">Nosso website esta chegando</p>
+    
+    <div class="countdown-container">
+        <div class="countdown-section">
+            <div class="countdown-label">Dias</div>
+            <div class="countdown-timer" id="days">29:23:25:22</div>
         </div>
+    </div>
+    
+    <div class="tiba-section">
+        <ul>
+             <li><button class="subscribe-btn">Se inscrever</button></li>
+        </ul>
     </div>
 
     <script src="script.js"></script>
