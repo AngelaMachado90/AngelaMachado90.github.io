@@ -76,3 +76,22 @@ whatsappBtn.addEventListener('click', () => {
     // Evento de analytics (opcional)
     console.log('WhatsApp button clicked');
 });
+
+// Botão Sobre
+const aboutBtn = document.querySelector('.about-float');
+const aboutSection = document.getElementById('sobre');
+const closeAbout = document.querySelector('.close-about');
+
+aboutBtn.addEventListener('click', (e) => {
+    if (window.location.hash === '#sobre') {
+        e.preventDefault();
+        aboutSection.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    }
+});
+
+closeAbout.addEventListener('click', () => {
+    aboutSection.style.display = 'none';
+    document.body.style.overflow = 'auto';
+    history.pushState(null, null, ' ');
+});

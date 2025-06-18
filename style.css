@@ -313,3 +313,62 @@ footer {
         margin-top: 30px;
     }
 }
+
+/* Botão Sobre */
+.about-float {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    background-color: var(--accent);
+    color: var(--dark);
+    padding: 15px 20px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(163, 217, 119, 0.3);
+    z-index: 999;
+    transition: all 0.3s ease;
+    animation: float 3s ease-in-out infinite;
+}
+
+.about-float:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(163, 217, 119, 0.4);
+    animation: none;
+}
+
+.about-float i {
+    font-size: 24px;
+}
+
+.about-text {
+    display: inline-block;
+}
+
+/* Animação de flutuação */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .about-float {
+        bottom: 20px;
+        left: 20px;
+        padding: 12px 15px;
+        font-size: 14px;
+    }
+    
+    .about-text {
+        display: none;
+    }
+    
+    .about-float i {
+        font-size: 20px;
+    }
+}
