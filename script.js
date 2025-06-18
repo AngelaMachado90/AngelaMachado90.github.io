@@ -51,3 +51,28 @@ document.getElementById('early-access-form').addEventListener('submit', function
         this.reset();
     }, 3000);
 });
+
+// WhatsApp Button Tooltip
+const whatsappBtn = document.querySelector('.whatsapp-float');
+
+whatsappBtn.addEventListener('mouseenter', () => {
+    // Mostra o tooltip
+    whatsappBtn.style.transform = 'scale(1.1)';
+});
+
+whatsappBtn.addEventListener('mouseleave', () => {
+    // Volta ao normal
+    whatsappBtn.style.transform = 'scale(1)';
+});
+
+// Clique no WhatsApp
+whatsappBtn.addEventListener('click', () => {
+    // Animação de clique
+    whatsappBtn.style.transform = 'scale(0.9)';
+    setTimeout(() => {
+        whatsappBtn.style.transform = 'scale(1.1)';
+    }, 100);
+    
+    // Evento de analytics (opcional)
+    console.log('WhatsApp button clicked');
+});
