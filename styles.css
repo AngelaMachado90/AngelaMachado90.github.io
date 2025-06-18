@@ -1,148 +1,92 @@
 body {
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(135deg, #d4f1c4, #b3d9ff);
-    color: #006666;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: white;
     margin: 0;
-    padding: 20px;
-    text-align: center;
-}
-
-.container {
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 2rem;
-    border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
-    width: 100%;
-}
-
-h1 {
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
-    text-transform: uppercase;
-    color: #008080;
-}
-
-.coming-soon {
-    font-size: 1.5rem;
-    margin-bottom: 3rem;
-    color: #006666;
-}
-
-.countdown-container {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    margin-bottom: 3rem;
-}
-
-.countdown-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.countdown-label {
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
-    font-weight: bold;
-    color: #008080;
-}
-
-.countdown-timer {
-    font-size: 2rem;
-    font-weight: bold;
-    letter-spacing: 2px;
-    color: #006666;
-    background-color: rgba(255, 255, 255, 0.7);
-    padding: 0.5rem 1.5rem;
-    border-radius: 8px;
-}
-
-.tiba-section {
-    margin-top: 2rem;
-    text-align: left;
-    max-width: 300px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.tiba-section ul {
-    list-style-type: none;
     padding: 0;
-}
-
-.tiba-section li {
-    margin-bottom: 0.5rem;
-    font-weight: bold;
-    color: #008080;
-}
-
-.subscribe-btn {
-    background-color: #a3d977;
-    color: #006666;
-    border: none;
-    padding: 12px 24px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 1rem;
-    margin-top: 1rem;
-    cursor: pointer;
-    border-radius: 25px;
-    font-weight: bold;
-    transition: all 0.3s;
-    width: 100%;
-}
-
-.subscribe-btn:hover {
-    background-color: #8bc34a;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-@media (max-width: 600px) {
-    h1 {
-        font-size: 2rem;
-    }
-    
-    .coming-soon {
-        font-size: 1.2rem;
-    }
-    
-    .countdown-timer {
-        font-size: 1.5rem;
-    }
-}
-
-/* Estilos para o logo */
-/* Novo estilo para o cabeçalho com logo */
-.header {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    margin-bottom: 1rem;
+    min-height: 100vh;
+    text-align: center;
 }
 
-.logo-container {
-    text-align: center;
-    margin-bottom: 2rem;
+.main-container {
+    max-width: 500px;
+    width: 90%;
+    padding: 2rem;
 }
 
 .logo {
-    max-width: 120px; /* Ajuste conforme necessário */
-    height: auto;
-    display: block;
-    margin: 0 auto;
+    width: 100px;
+    margin-bottom: 1.5rem;
 }
 
-/* Se quiser animação no logo */
-.logo:hover {
-    transform: scale(1.05);
-    transition: transform 0.3s ease;
+h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+.coming-soon {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.8;
+}
+
+.counters-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.counter-box {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.counter-label {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    opacity: 0.7;
+}
+
+.counter-value {
+    font-size: 1.8rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.subscribe-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s;
+    width: 100%;
+    max-width: 200px;
+}
+
+.subscribe-btn:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+    
+    .counter-value {
+        font-size: 1.5rem;
+    }
+    
+    .logo {
+        width: 80px;
+    }
 }
