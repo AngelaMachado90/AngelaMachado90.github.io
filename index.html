@@ -1,58 +1,39 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PlugNGo - Mobilidade Elétrica</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <title>Conhecemos o caminho</title>
+    <link rel="stylesheet" href="styles.css">
     <header>
         <img src="logo.png" alt="Logo PlugNGo" id="logo">
         <h1>PlugNGo</h1>
         <p>Sua solução em mobilidade elétrica</p>
     </header>
-
-    <main>
-        <section class="form-section">
-            <h2>Cadastre-se para Novidades</h2>
-            <form id="subscription-form">
-                <div class="form-group">
-                    <label for="name">Nome Completo:</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="email">E-mail:</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="phone">Telefone:</label>
-                    <input type="tel" id="phone" name="phone">
-                </div>
-
-                <div class="form-group">
-                    <label for="interest">Interesse:</label>
-                    <select id="interest" name="interest">
-                        <option value="carros">Data Science</option>
-                        <option value="bicicletas">Web Designer</option>
-                        <option value="infra">Enriquecimento dados</option>
-                        <option value="todos">Todos Acima</option>
-                    </select>
-                </div>
-
-                <button type="submit" class="submit-btn">Enviar Cadastro</button>
-            </form>
-            <div id="success-message" class="hidden">
-                <p>✅ Cadastro realizado com sucesso!</p>
+</head>
+<body>
+    <div class="container">
+        <h1>Conhecemos o caminho</h1>
+        <p class="coming-soon">Nosso website esta chegando</p>
+        
+        <div class="countdown-container">
+            <div class="countdown-section">
+                <div class="countdown-label">Dias</div>
+                <div class="countdown-timer" id="days">29:23:25:46</div>
             </div>
-        </section>
-    </main>
-
-    <footer>
-        <p>© 2023 PlugNGo. Todos os direitos reservados.</p>
-    </footer>
+            
+            <div class="countdown-section">
+                <div class="countdown-label">Horas</div>
+                <div class="countdown-timer" id="hours">25:46</div>
+            </div>
+        </div>
+        
+         <div class="tiba-section">
+            <ul>
+                <li><button class="subscribe-btn">Se inscrever</button></li>
+            </ul>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
