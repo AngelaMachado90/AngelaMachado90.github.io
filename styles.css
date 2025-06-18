@@ -119,14 +119,23 @@ h1 {
         font-size: 1.5rem;
     }
 }
+
 /* Estilos para o logo */
+/* Novo estilo para o cabeçalho com logo */
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
 .logo-container {
     text-align: center;
     margin-bottom: 2rem;
 }
 
 .logo {
-    max-width: 200px; /* Ajuste conforme necessário */
+    max-width: 120px; /* Ajuste conforme necessário */
     height: auto;
     display: block;
     margin: 0 auto;
