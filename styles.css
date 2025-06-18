@@ -1,0 +1,121 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #d4f1c4, #b3d9ff);
+    color: #006666;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 100%;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    color: #008080;
+}
+
+.coming-soon {
+    font-size: 1.5rem;
+    margin-bottom: 3rem;
+    color: #006666;
+}
+
+.countdown-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.countdown-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.countdown-label {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: #008080;
+}
+
+.countdown-timer {
+    font-size: 2rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: #006666;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 0.5rem 1.5rem;
+    border-radius: 8px;
+}
+
+.tiba-section {
+    margin-top: 2rem;
+    text-align: left;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.tiba-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.tiba-section li {
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: #008080;
+}
+
+.subscribe-btn {
+    background-color: #a3d977;
+    color: #006666;
+    border: none;
+    padding: 12px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1rem;
+    margin-top: 1rem;
+    cursor: pointer;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: all 0.3s;
+    width: 100%;
+}
+
+.subscribe-btn:hover {
+    background-color: #8bc34a;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .coming-soon {
+        font-size: 1.2rem;
+    }
+    
+    .countdown-timer {
+        font-size: 1.5rem;
+    }
+}
