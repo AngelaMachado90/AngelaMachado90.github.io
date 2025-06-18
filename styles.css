@@ -229,3 +229,160 @@ h1 {
     letter-spacing: 2px;
   }
 }
+
+/* Adições ao seu CSS existente */
+
+/* Estilos para o formulário */
+.form-container {
+  margin-top: 2rem;
+  width: 100%;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--dark-teal);
+  font-weight: bold;
+  font-size: 0.95rem;
+}
+
+.form-control {
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 1rem;
+  border: 2px solid var(--medium-gray);
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.9);
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--teal);
+  box-shadow: 0 0 0 3px rgba(0, 128, 128, 0.2);
+  background-color: var(--white);
+}
+
+/* Estilo específico para select */
+.select-wrapper {
+  position: relative;
+}
+
+.select-wrapper::after {
+  content: "▼";
+  font-size: 0.8rem;
+  color: var(--teal);
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+select.form-control {
+  appearance: none;
+  padding-right: 40px;
+}
+
+/* Estilo para textarea */
+textarea.form-control {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* Estilo para checkbox/radio */
+.input-check {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.input-check input {
+  margin-right: 10px;
+}
+
+.input-check label {
+  margin-bottom: 0;
+  font-weight: normal;
+}
+
+/* Validação */
+.form-control.invalid {
+  border-color: #e74c3c;
+}
+
+.form-control.invalid:focus {
+  box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.2);
+}
+
+.validation-message {
+  color: #e74c3c;
+  font-size: 0.85rem;
+  margin-top: 0.3rem;
+  display: none;
+}
+
+.form-control.invalid + .validation-message {
+  display: block;
+}
+
+/* Grupo de botões */
+.form-actions {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+/* Adaptações responsivas */
+@media (max-width: 640px) {
+  .form-control {
+    padding: 10px 14px;
+  }
+  
+  .form-actions {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+  
+  .form-actions .btn {
+    width: 100%;
+  }
+}
+
+/* Estilos adicionais para botões do formulário */
+.btn {
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  font-size: 1rem;
+}
+
+.btn-primary {
+  background-color: var(--bright-green);
+  color: var(--dark-teal);
+}
+
+.btn-primary:hover {
+  background-color: #8bc34a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-secondary {
+  background-color: var(--light-gray);
+  color: var(--dark-teal);
+}
+
+.btn-secondary:hover {
+  background-color: var(--medium-gray);
+}
