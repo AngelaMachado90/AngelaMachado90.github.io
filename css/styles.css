@@ -566,3 +566,26 @@ footer {
     transform: translateY(-2px);
 }
 
+.whatsapp-float i {
+    font-size: 2.2rem; /* Ajuste conforme necessário */
+    margin-top: 3px; /* Alinhamento fino */
+}
+
+.whatsapp-text {
+    position: absolute;
+    bottom: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #25d366;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.whatsapp-float:hover .whatsapp-text {
+    opacity: 1;
+}
