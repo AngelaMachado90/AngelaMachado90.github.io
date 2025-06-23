@@ -1,0 +1,47 @@
+/* button.css - Estilos modulares para botões */
+
+/* Estilo base para o botão CTA */
+.cta-button {
+    background-color: var(--verde-militar);
+    color: var(--branco);
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 2rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+    width: 100%;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-button:hover {
+    background-color: #1B5E20;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.cta-button i {
+    font-size: 1.1rem;
+}
+
+/* Estilo específico para o botão do formulário */
+.cta-form .cta-button {
+    margin-top: 1.5rem;
+    grid-column: 1 / -1;
+}
+
+/* Efeito de clique */
+.cta-button:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}

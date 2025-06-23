@@ -125,29 +125,6 @@ body {
     gap: 6.5rem; /* Espaço uniforme entre todos os filhos */
 }
 
-.cta-button {
-    background-color: var(--verde-militar);
-    color: var(--branco);
-    border: none;
-    padding: 1rem 2rem;
-    font-size: 1.2rem;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    margin-top: 2rem;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-weight: bold;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.cta-button:hover {
-    background-color: #1B5E20;
-    transform: translateY(-3px);
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
-}
-
 
 @keyframes float {
     0% { transform: translateY(0px); }
