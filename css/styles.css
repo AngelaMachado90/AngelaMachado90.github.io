@@ -71,6 +71,8 @@ body {
 }
 
 .go-green {
+    font-size: 5.5rem;
+    font-weight: 900;
     color: #81ce90; /* Verde claro */
     text-shadow: 0 0 10px rgba(147, 248, 168, 0.548);
     animation: pulse 2s infinite;
