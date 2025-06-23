@@ -30,7 +30,7 @@ body {
     background: 
         linear-gradient(rgba(10, 101, 228, 0.336), 
         rgba(10, 101, 228, 0.363)),
-        url('imgs/capa.jpg') no-repeat center center;
+        url('imagem/background.jpeg') no-repeat center center;
     background-size: cover;
     padding: 2rem;
 }
