@@ -1,0 +1,9 @@
+/* Suaviza o scroll para âncoras */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Garante que o conteúdo não fique escondido atrás do header fixo (se tiver) */
+:target {
+  scroll-margin-top: 100px; /* Ajuste conforme a altura do seu header */
+}

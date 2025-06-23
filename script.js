@@ -95,3 +95,4 @@ closeAbout.addEventListener('click', () => {
     document.body.style.overflow = 'auto';
     history.pushState(null, null, ' ');
 });
+
