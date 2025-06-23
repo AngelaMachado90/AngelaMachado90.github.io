@@ -61,6 +61,15 @@ body {
     text-transform: uppercase;
 }
 
+/* Estilo especial para o logo footer */
+.logo-highlight p {
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin-bottom: 0.5rem;
+    line-height: 1;
+    text-transform: uppercase;
+}
+
 .go-green {
     color: #81ce90; /* Verde claro */
     text-shadow: 0 0 10px rgba(147, 248, 168, 0.548);
@@ -522,3 +531,38 @@ footer {
         font-size: 25px;
     }
 }
+
+/* Estilos para os botões de contato */
+.contact-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.contact-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.email-button {
+    background-color: #4285f4;
+    color: white;
+}
+
+.phone-button {
+    background-color: #34a853;
+    color: white;
+}
+
+.contact-button:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
