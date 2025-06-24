@@ -52,6 +52,30 @@ body {
     margin-bottom: 1rem;
 }
 
+/* Estilo especial para o logo */
+.logo-highlight {
+    font-size: 5.5rem;
+    font-weight: 900;
+    margin-bottom: 0.5rem;
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+/* Estilo especial para o logo footer */
+.logo-highlight p {
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin-bottom: 0.5rem;
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.go-green {
+    color: #81ce90; /* Verde claro */
+    text-shadow: 0 0 10px rgba(147, 248, 168, 0.548);
+    animation: pulse 2s infinite;
+}
+
 @keyframes pulse {
     0% { opacity: 0.9; }
     50% { opacity: 1; text-shadow: 0 0 15px rgba(110, 255, 138, 0.8); }
