@@ -1,13 +1,14 @@
 /* button.css - Estilos modulares para botões */
 /* button.css - Estilos atualizados */
+/* button.css - Estilos atualizados com bordas mais arredondadas */
 
 .cta-button {
     background-color: var(--verde-militar);
     color: var(--branco);
-    border: 2px solid rgba(255, 255, 255, 0.2); /* borda sutil */
+    border: 2px solid rgba(255, 255, 255, 0.2);
     padding: 1rem 2rem;
     font-size: 1.1rem;
-    border-radius: 8px; /* menos arredondado para aspecto mais técnico */
+    border-radius: 50px; /* Aumentado para bordas bem arredondadas */
     cursor: pointer;
     transition: all 0.3s ease;
     margin-top: 2rem;
@@ -15,18 +16,19 @@
     align-items: center;
     justify-content: center;
     gap: 0.8rem;
-    font-weight: 600; /* semibold */
+    font-weight: 600;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     text-decoration: none;
     width: auto;
     min-width: 280px;
     letter-spacing: 0.5px;
     text-transform: uppercase;
-    font-family: 'Roboto', sans-serif; /* ou outra fonte tech/militar */
+    font-family: 'Roboto', sans-serif;
     position: relative;
     overflow: hidden;
 }
 
+/* Manter os demais estilos como estão */
 .cta-button:hover {
     background-color: #1B5E20;
     transform: translateY(-2px);
@@ -39,7 +41,6 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-/* Efeito de "sinalização" ao passar o mouse */
 .cta-button:hover::after {
     content: '';
     position: absolute;
