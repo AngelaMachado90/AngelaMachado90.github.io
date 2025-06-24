@@ -1,0 +1,148 @@
+/* header.css - Estilos modulares para o cabeçalho */
+
+/* Variáveis específicas para o header */
+:root {
+    --verde-destaque: #81ce90;
+    --sombra-verde: rgba(147, 248, 168, 0.548);
+    --sombra-verde-intensa: rgba(110, 255, 138, 0.8);
+}
+
+/* Container principal do header */
+.header-container {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--branco);
+    text-align: center;
+    overflow: hidden;
+    background: 
+        linear-gradient(rgba(10, 101, 228, 0.336), 
+        rgba(10, 101, 228, 0.363)),
+        url('imagens/capa.jpeg') no-repeat center center;
+    background-size: cover;
+    padding: 2rem;
+}
+
+/* Estilo do logo principal */
+.header-logo {
+    font-size: 5.5rem;
+    font-weight: 900;
+    margin-bottom: 0.5rem;
+    line-height: 1;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Estilo específico para a parte "GO" que deve piscar */
+.header-logo-go {
+    color: var(--verde-destaque);
+    display: inline-block; /* necessário para animações */
+    position: relative;
+    animation: pulse-glow 2s infinite ease-in-out;
+}
+
+/* Efeito de pulsação e brilho */
+@keyframes pulse-glow {
+    0% {
+        opacity: 0.9;
+        text-shadow: 0 0 10px var(--sombra-verde);
+    }
+    50% {
+        opacity: 1;
+        text-shadow: 0 0 15px var(--sombra-verde-intensa);
+        transform: scale(1.05);
+    }
+    100% {
+        opacity: 0.9;
+        text-shadow: 0 0 10px var(--sombra-verde);
+    }
+}
+
+/* Efeito adicional de "sinalização militar" */
+.header-logo-go::after {
+    content: '';
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    width: 120%;
+    height: 120%;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--sombra-verde-intensa) 0%, transparent 70%);
+    opacity: 0;
+    animation: radar-scan 4s infinite linear;
+    pointer-events: none;
+}
+
+@keyframes radar-scan {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.3;
+    }
+    100% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+}
+
+/* Subtítulo do header */
+.header-subtitle {
+    font-size: 1.5rem;
+    font-weight: 300;
+    margin-bottom: 1rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Lista de features no header */
+.header-features {
+    text-align: center;
+    max-width: 600px;
+    margin: 2.5rem auto;
+    padding: 0;
+    list-style-type: none;
+}
+
+.header-features li {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    position: relative;
+    display: inline-block;
+    padding: 0 1.5rem;
+}
+
+.header-features li:before {
+    content: "•";
+    color: var(--verde-militar);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+/* Container de conteúdo do header */
+.header-content {
+    max-width: 900px;
+    padding: 4rem 2rem;
+    gap: 6.5rem;
+    position: relative;
+    z-index: 2;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .header-logo {
+        font-size: 3.5rem;
+    }
+    
+    .header-subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .header-features li {
+        display: block;
+        padding-left: 1.5rem;
+    }
+}
