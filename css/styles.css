@@ -433,3 +433,13 @@ input:focus:invalid {
     font-size: 0.8rem;
     margin-top: 4px;
 }
+
+/* Feedback visual */
+.fa-spinner {
+    animation: spin 1s linear infinite;
+    margin-right: 8px;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

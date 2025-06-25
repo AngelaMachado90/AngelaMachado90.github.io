@@ -151,37 +151,42 @@
     <!-- CTA Final -->
     <section class="final-cta" id="form-navegacao">
         <h2>Sua equipe está pronta para operar com tecnologia de ponta?</h2>
-        <form class="cta-form" action="https://formsubmit.co/contato@plugngo.eng.br" method="POST">
+        <form class="cta-form" id="formPlugnGO">
             <select name="segmento" required>
                 <option value="" disabled selected>Selecione seu segmento</option>
-                <option value="gd">Comércio</option>
-                <option value="varejo">Energia</option>
-                <option value="livre">Indústria</option>
-                <option value="livre">Outro</option>
+                <option value="comercio">Comércio</option>
+                <option value="energia">Energia</option>
+                <option value="industria">Indústria</option>
+                <option value="outro">Outro</option>
             </select>
+            <!--Token-->
+            <input type="hidden" name="_autoresponse" value="Recebemos seu cadastro! Em breve entraremos em contato.">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_captcha" value="false">
             <!--Protege contra spam-->
             <input type="text" name="_honey" style="display:none">
             <!--Dados Coletados-->
             <input type="text" name="nome" placeholder="Seu nome completo." required autocomplete="name">
-            
+
             <input type="text" name="cnpj" placeholder="Seu cnpj completo." required maxlength="18" autocomplete="off">
-            
+
             <input type="text" name="empresa" placeholder="Nome da sua empresa." required>
-            
-            <input type="email" name="email" placeholder="Seu melhor e-mail para contato." required autocomplete="email">
 
-            <input type="tel" name="telefone" placeholder="Seu melhor telefone para contato," required maxlength="15" autocomplete="tel">
+            <input type="email" name="email" placeholder="Seu melhor e-mail para contato." required
+                autocomplete="email">
+
+            <input type="tel" name="telefone" placeholder="Seu melhor telefone para contato," required maxlength="15"
+                autocomplete="tel">
 
 
-            <!--Assunto email-->
-            <input type="hidden" name="_subject" value="Nova inscrição no site!">
-            <!--Direcionamento-->
-            <input type="hidden" name="_next" value="https://plugngo.eng.br/obrigado.html">
 
 
             <button type="submit" class="cta-button">Iniciar Navegação Guiada <i
                     class="fas fa-satellite-dish"></i></button>
         </form>
+        <p id="mensagem-sucesso" style="display:none; color:green; margin-top:10px;">Seu contato foi adicionado com
+            sucesso! 🚀</p>
+
     </section>
 
     <!-- Botão do WhatsApp Flutuante -->

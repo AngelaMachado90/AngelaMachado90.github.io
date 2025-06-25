@@ -193,3 +193,63 @@ document.addEventListener('DOMContentLoaded', function() {
         requestAnimationFrame(updateNumber);
     }
 });
+
+// Verificação de envio
+document.querySelector('.cta-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    // Validação adicional
+    if (!validarCNPJ(this.cnpj.value)) {
+        alert('CNPJ inválido!');
+        return;
+    }
+
+    // Feedback visual
+    const btn = this.querySelector('button[type="submit"]');
+    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+    btn.disabled = true;
+
+    try {
+        // Envio real
+        const response = await fetch(this.action, {
+            method: 'POST',
+            body: new FormData(this),
+            headers: {
+                'Accept': 'application/json'
+            }
+        });
+        
+        if (response.ok) {
+            window.location.href = this.querySelector('[name="_next"]').value;
+        } else {
+            throw new Error('Falha no envio');
+        }
+    } catch (error) {
+        btn.innerHTML = 'Tentar Novamente <i class="fas fa-redo"></i>';
+        alert('Erro ao enviar: ' + error.message);
+        btn.disabled = false;
+    }
+});
+
+
+  document.getElementById('formPlugnGO').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const form = e.target;
+    const data = new FormData(form);
+
+    fetch("COLE_AQUI_SEU_WEBAPP_URL", {
+      method: "POST",
+      body: data
+    })
+      .then(response => {
+        if (response.ok) {
+          document.getElementById('mensagem-sucesso').style.display = 'block';
+          form.reset();
+        } else {
+          alert("Erro ao enviar. Tente novamente.");
+        }
+      })
+      .catch(() => alert("Erro de conexão."));
+  });
+
