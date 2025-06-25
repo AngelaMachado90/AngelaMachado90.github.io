@@ -417,3 +417,12 @@ video {
         font-size: 25px;
     }
 }
+
+/* Adicionando visibilidade de erro */
+input:invalid {
+    border-color: #ff0000;
+}
+
+input:focus:invalid {
+    box-shadow: 0 0 5px #ff0000;
+}

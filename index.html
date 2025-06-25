@@ -151,24 +151,29 @@
     <!-- CTA Final -->
     <section class="final-cta" id="form-navegacao">
         <h2>Sua equipe está pronta para operar com tecnologia de ponta?</h2>
-        <form class="cta-form" action="https://formsubmit.co/contato@plugngo" method="POST">
+        <form class="cta-form" action="https://formsubmit.co/contato@plugngo.eng.br" method="POST">
             <select name="segmento" required>
                 <option value="" disabled selected>Selecione seu segmento</option>
-                <option value="gd">Comercio</option>
+                <option value="gd">Comércio</option>
                 <option value="varejo">Energia</option>
-                <option value="livre">Industria</option>
+                <option value="livre">Indústria</option>
                 <option value="livre">Outro</option>
             </select>
+            <!--Protege contra spam-->
+            <input type="text" name="_honey" style="display:none">
+            <!--Dados Coletados-->
+            <input type="text" name="nome" placeholder="Seu nome completo" required autocomplete="name">
+            
+            <input type="text" name="cnpj" placeholder="CNPJ da sua empresa. Exemplo: .999.999/999-99" required maxlength="18" autocomplete="off">
+            
+            <input type="text" name="empresa" placeholder="Sua empresa" required>
+            
+            <input type="email" name="email" placeholder="seu@email.com" required autocomplete="email">
 
-            <input type="text" name="nome" placeholder="Seu nome completo" required>
-
-            <input type="email" name="email" placeholder="Seu melhor e-mail" required>
-
-            <input type="tel" name="telefone" placeholder="Telefone para contato" required>
+            <input type="tel" name="telefone" placeholder="Seu telefone para contato. Exemplo: (41) 99701-4802" required maxlength="15" autocomplete="tel">
 
             <input type="text" name="empresa" placeholder="Sua empresa" required>
 
-            <input type="text" name="cnpj" placeholder="Seu cnpj" required>
             <!--Assunto email-->
             <input type="hidden" name="_subject" value="Nova inscrição no site!">
             <!--Direcionamento-->
@@ -234,7 +239,7 @@
 
                     <!-- Botão de Contato -->
                     <div class="footer-contact">
-                        <a href="mailto:contato@plugngo.com" class="contact-button">
+                        <a href="mailto:contato@plugngo.eng.br" class="contact-button">
                             <i class="bi bi-envelope"></i> Envie um Email
                         </a>
 
