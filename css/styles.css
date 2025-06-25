@@ -426,3 +426,10 @@ input:invalid {
 input:focus:invalid {
     box-shadow: 0 0 5px #ff0000;
 }
+
+.error-message {
+    display: block;
+    color: #ff4444;
+    font-size: 0.8rem;
+    margin-top: 4px;
+}
