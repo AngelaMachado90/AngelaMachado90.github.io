@@ -238,7 +238,7 @@ document.querySelector('.cta-form').addEventListener('submit', async function(e)
     const form = e.target;
     const data = new FormData(form);
 
-    fetch("https://script.google.com/macros/s/AKfycbz0ZbfKKTU3qBNLvDxZGGO-U2UbLVZ03hJaNtwL7ewqvXBSrndJyKD7ZZNqtBZaucp4/exec", {
+    fetch("https://script.google.com/macros/s/AKfycbxTj53sii8euxQpAhaVj_9YY9ir4LC45uBBVyoDqLonGbZT_v8hhDu-v-1xKOBgzwIV/exec", {
       method: "POST",
       body: data
     })
