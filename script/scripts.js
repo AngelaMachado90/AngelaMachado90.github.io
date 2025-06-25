@@ -1,7 +1,3 @@
-// Este é seu script revisado, mantendo todas as funcionalidades originais
-// Corrigido para evitar conflitos e separar responsabilidades adequadamente
-
-// ==================== FRONTEND ====================
 document.addEventListener('DOMContentLoaded', function () {
     // ======= ANIMAÇÕES =======
     const featureCards = document.querySelectorAll('.feature-card');
@@ -65,10 +61,12 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    // ======= FORMULÁRIO =======
     const form = document.querySelector('#formPlugnGO');
     form.addEventListener('submit', async function (e) {
         e.preventDefault();
 
+        // Validação dos campos
         const campos = [
             { el: form.querySelector('[name="segmento"]'), validator: validar.required, msg: 'Selecione seu segmento' },
             { el: form.querySelector('[name="nome"]'), validator: validar.required, msg: 'Nome é obrigatório' },
@@ -90,13 +88,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (!formValido) return;
 
+        // Botão de submit - feedback visual
         const btn = form.querySelector('button[type="submit"]');
-        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
         btn.disabled = true;
+        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
 
         try {
-            const response = await fetch(form.action, {
-                method: "POST",
+            // Enviar para o Google Apps Script - ajuste abaixo para URL do seu deploy correto
+            const response = await fetch('https://script.google.com/macros/s/AKfycbxTj53sii8euxQpAhaVj_9YY9ir4LC45uBBVyoDqLonGbZT_v8hhDu-v-1xKOBgzwIV/exec', {
+                method: 'POST',
                 body: new FormData(form)
             });
 
@@ -104,10 +104,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 document.getElementById('mensagem-sucesso').style.display = 'block';
                 form.reset();
             } else {
-                alert("Erro ao enviar. Tente novamente.");
+                alert('Erro ao enviar. Tente novamente.');
             }
         } catch (error) {
-            alert("Erro de conexão.");
+            alert('Erro de conexão. Tente novamente.');
         } finally {
             btn.disabled = false;
             btn.innerHTML = 'Enviar';
