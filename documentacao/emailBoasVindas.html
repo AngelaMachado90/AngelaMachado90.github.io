@@ -121,72 +121,6 @@
             border-radius: 4px;
         }
 
-        /* Botão CTA Verde Militar */
-        .cta-button {
-            background-color: var(--verde-militar);
-            color: var(--branco);
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            padding: 1rem 2rem;
-            font-size: 1.1rem;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin: 2rem auto;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.8rem;
-            font-weight: 700;
-            box-shadow: 0 4px 15px rgba(46, 125, 50, 0.4);
-            text-decoration: none;
-            width: auto;
-            min-width: 280px;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-            font-family: 'Roboto', sans-serif;
-            position: relative;
-            overflow: hidden;
-            text-align: center;
-        }
-
-        .cta-button:hover {
-            background-color: var(--verde-militar-claro);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(56, 142, 60, 0.6);
-            border-color: rgba(255, 255, 255, 0.5);
-        }
-
-        .cta-button:active {
-            transform: translateY(1px);
-            box-shadow: 0 2px 10px rgba(46, 125, 50, 0.4);
-        }
-
-        .cta-button:hover::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0) 70%);
-            animation: pulse-btn 1.5s infinite;
-        }
-
-        @keyframes pulse-btn {
-            0% {
-                transform: scale(0.8);
-                opacity: 0.8;
-            }
-
-            70% {
-                transform: scale(1.3);
-                opacity: 0;
-            }
-
-            100% {
-                opacity: 0;
-            }
-        }
 
         .next-steps {
             margin: 30px 0;
@@ -261,7 +195,6 @@
             <h3>🔭 O que você pode esperar:</h3>
 
             <div class="benefit-item">
-                <div class="benefit-icon">📡</div>
                 <div class="benefit-content">
                     <h3>GPS de Leads</h3>
                     <p>IA que cruza dados geográficos e comportamentais para criar listas qualificadas com precisão de
@@ -270,7 +203,6 @@
             </div>
 
             <div class="benefit-item">
-                <div class="benefit-icon">⚠️</div>
                 <div class="benefit-content">
                     <h3>Alerta de Colisão</h3>
                     <p>Identifica pontos de atrito no funil de vendas e permite ações corretivas imediatas.</p>
@@ -278,7 +210,6 @@
             </div>
 
             <div class="benefit-item">
-                <div class="benefit-icon">📊</div>
                 <div class="benefit-content">
                     <h3>Painel de Missão</h3>
                     <p>Dashboard com dados em tempo real e previsões baseadas em histórico de desempenho.</p>
@@ -286,22 +217,37 @@
             </div>
 
             <div class="next-steps">
-                <h3>🚀 Próximos Passos para Sua Missão:</h3>
                 <div class="step-item">Complete seu cadastro acessando o painel administrativo</div>
                 <div class="step-item">Assista ao vídeo tutorial de introdução em nossa área de membros</div>
                 <div class="step-item">Agende uma sessão de onboarding com nosso time especializado</div>
             </div>
 
             <div class="success-case">
-                <h3>🎖️ Caso de Sucesso Real:</h3>
+                <h3>Caso de Sucesso Real:</h3>
                 <p>Clientes do setor solar reduziram prazos de fechamento de 90 para 30 dias com o sistema Plug'n GO
                     CRM, aumentando a taxa de conversão em 65%.</p>
             </div>
 
-            <div style="text-align: center;">
+            <!-- Botão CTA Verde Militar -->
+            <div style="text-align: center; margin: 30px 0;">
                 <a href="https://wa.me/5541997014802?text=🚀%20Olá,%20Plug'n%20GO!%0AAcabei%20de%20receber%20o%20email%20de%20boas-vindas%20e%20quero%20saber%20mais%20sobre%20como%20começar."
-                    target="_blank" class="cta-button">
-                    📡 INICIAR MISSÃO AGORA
+                    target="_blank" style="background-color: #2E7D32;
+                        color: #FFFFFF;
+                        border: 2px solid rgba(255, 255, 255, 0.3);
+                        padding: 15px 30px;
+                        font-size: 16px;
+                        border-radius: 50px;
+                        text-decoration: none;
+                        font-weight: 600;
+                        display: inline-block;
+                        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                        min-width: 280px;
+                        letter-spacing: 0.5px;
+                        text-transform: uppercase;
+                        font-family: 'Roboto', sans-serif;">
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH4AkEEjIXfVTpJQAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAAAJklEQVQ4y2NgGAWjFDCK+3p6/icVMP7//5+RXIWMjIxUcQEA4XoMD6QjNH0AAAAASUVORK5CYII="
+                        alt="Ícone satélite" style="vertical-align:middle; margin-right:8px; width:16px; height:16px;">
+                    INICIAR MISSÃO AGORA
                 </a>
             </div>
 

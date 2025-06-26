@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         try {
             // Enviar para o Google Apps Script - ajuste abaixo para URL do seu deploy correto
-            const response = await fetch('https://script.google.com/macros/s/AKfycbyAHaLzVBouVS6W8h1Wr6ADGiyRtWiUJPFWoTErDIc9eir__3U0anw-p0mFG-xnOwSd/exec', {
+            const response = await fetch('https://script.google.com/macros/s/AKfycbygzz_cUhmUBj08trY2CLg7Q2SpM9DJpN50U5jG9wtNORiNtd3AyPpsWooQ8o6_xY0v/exec', {
                 method: 'POST',
                 body: new FormData(form)
             });
