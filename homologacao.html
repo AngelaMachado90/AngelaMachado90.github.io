@@ -142,16 +142,16 @@
             </div>
 
             <div class="form-group">
-                <div class="input-group">
-                    <input type="text" name="cnpj" id="cnpj" class="form-control"
-                        placeholder="Digite o CNPJ (apenas números)" required maxlength="18" autocomplete="off">
-                </div>
+                <label for="cnpj">CNPJ</label>
+                <input type="text" name="cnpj" id="cnpj" class="form-control"
+                    placeholder="Digite o CNPJ (apenas números)" required maxlength="18" autocomplete="off">
+                <small class="form-text text-muted">O CNPJ será validado automaticamente</small>
             </div>
 
             <div class="form-group" id="empresa-group" style="display: none;">
                 <label for="empresa">Empresa</label>
                 <input type="text" name="empresa" id="empresa" class="form-control"
-                    placeholder="Nome da empresa (será preenchido automaticamente)" required readonly>
+                    placeholder="Aguarde, será preenchido automaticamente..." required>
             </div>
 
             <div class="form-group">
