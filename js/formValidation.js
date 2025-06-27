@@ -261,7 +261,7 @@ document.addEventListener('DOMContentLoaded', function() {
          *   message: string,
          *   data: Object (dados completos da empresa)
          * }
-         */
+         
         cnpjReceita: async (cnpj) => {
             const cnpjNumeros = cnpj.replace(/\D/g, '');
             
@@ -322,6 +322,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 toggleCnpjLoading(false);
             }
         }
+            */
     };
 
     // ========== CONTROLE DE LOADING ==========
