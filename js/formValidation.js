@@ -3,12 +3,9 @@
  * 
  * Sistema completo de validação e envio de formulários com:
  * - Validação automática de CNPJ ao sair do campo (evento blur)
- * - Validação rigorosa do formato do CNPJ (incluindo dígitos verificadores)
+ * - Validação rigorosa do formato do CNPJ
  * - Fallback para cadastro manual quando API indisponível
  * - Exibição condicional do campo "Nome da empresa"
- * - Sanitização de dados contra XSS/SQL Injection
- * - Sistema de notificações estilo popup
- * - Modal de confirmação pós-envio
  */
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -23,16 +20,16 @@ document.addEventListener('DOMContentLoaded', function() {
     // ========== CONFIGURAÇÕES ==========
     const config = {
         apiReceitaWS: 'https://receitaws.com.br/v1/cnpj',
-        timeoutAlertas: 5000, // 5 segundos para fechar alertas
-        timeoutAPI: 10000, // 10 segundos timeout para API
-        cacheCNPJ: true, // Ativa cache local
-        cacheExpiration: 24 * 60 * 60 * 1000 // 24 horas em milissegundos
+        timeoutAlertas: 1000,
+        timeoutAPI: 10000,
+        cacheCNPJ: true,
+        cacheExpiration: 24 * 60 * 60 * 1000
     };
 
     // Oculta o campo empresa inicialmente
     empresaGroup.style.display = 'none';
 
-    // ========== SANITIZAÇÃO DE DADOS ==========
+    // ========== FUNÇÕES AUXILIARES ==========
     const sanitizeInput = (value) => {
         if (!value) return '';
         return value.toString()
@@ -44,43 +41,32 @@ document.addEventListener('DOMContentLoaded', function() {
             .replace(/\$/g, '&#36;');
     };
 
-    // ========== SISTEMA DE CACHE LOCAL ==========
     const setCnpjCache = (cnpj, data) => {
         if (!config.cacheCNPJ) return;
-        
-        const cache = {
-            data: data,
-            timestamp: Date.now()
-        };
-        
+        const cache = { data, timestamp: Date.now() };
         localStorage.setItem(`cnpj_${cnpj}`, JSON.stringify(cache));
     };
 
     const getCnpjCache = (cnpj) => {
         if (!config.cacheCNPJ) return null;
-        
         const cached = localStorage.getItem(`cnpj_${cnpj}`);
         if (!cached) return null;
-        
         const parsed = JSON.parse(cached);
         if (Date.now() - parsed.timestamp > config.cacheExpiration) {
             localStorage.removeItem(`cnpj_${cnpj}`);
             return null;
         }
-        
         return parsed.data;
     };
 
-    // ========== SISTEMA DE ALERTAS ==========
     function showAlert(type, message, timeout = config.timeoutAlertas) {
         const alertContainer = document.getElementById('alert-container');
         const alertId = 'alert-' + Date.now();
         
         const alertHTML = `
             <div id="${alertId}" class="alert-popup alert-${type}">
-                <i class="bi ${getIconForType(type)}"></i>
                 <div class="alert-content">
-                    <span class="alert-title">${getTitleForType(type)}</span>
+                    <span class="alert-title">${type === 'success' ? 'Sucesso!' : type === 'danger' ? 'Erro!' : type === 'warning' ? 'Aviso!' : 'Informação'}</span>
                     <span class="alert-message">${message}</span>
                 </div>
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Fechar"></button>
@@ -88,58 +74,23 @@ document.addEventListener('DOMContentLoaded', function() {
         `;
         
         alertContainer.insertAdjacentHTML('afterbegin', alertHTML);
-        alertContainer.style.display = 'block';
-
+        
         if (timeout > 0) {
             setTimeout(() => {
                 const alertElement = document.getElementById(alertId);
                 if (alertElement) {
-                    fadeOutAndRemove(alertElement, alertContainer);
+                    alertElement.remove();
                 }
             }, timeout);
         }
     }
 
-    function fadeOutAndRemove(element, container) {
-        element.classList.add('fade-out');
-        element.addEventListener('animationend', () => {
-            element.remove();
-            if (container.children.length === 0) {
-                container.style.display = 'none';
-            }
-        });
-    }
-
-    function getIconForType(type) {
-        const icons = {
-            success: 'bi-check-circle-fill',
-            danger: 'bi-exclamation-triangle-fill',
-            warning: 'bi-exclamation-circle-fill',
-            info: 'bi-info-circle-fill'
-        };
-        return icons[type] || 'bi-info-circle-fill';
-    }
-
-    function getTitleForType(type) {
-        const titles = {
-            success: 'Sucesso!',
-            danger: 'Erro!',
-            warning: 'Aviso!',
-            info: 'Informação'
-        };
-        return titles[type] || 'Alerta';
-    }
-
     // ========== VALIDAÇÃO DE CNPJ ==========
     function validarFormatoCNPJ(cnpj) {
         const nums = cnpj.replace(/\D/g, '');
+        if (nums.length !== 14 || /^(\d)\1{13}$/.test(nums)) return false;
         
-        // Verifica se tem 14 dígitos e não é sequência repetida
-        if (nums.length !== 14 || /^(\d)\1{13}$/.test(nums)) {
-            return false;
-        }
-        
-        // Cálculo do primeiro dígito verificador
+        // Cálculo dos dígitos verificadores
         let tamanho = nums.length - 2;
         let numeros = nums.substring(0, tamanho);
         const digitos = nums.substring(tamanho);
@@ -152,11 +103,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         let resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
-        if (resultado !== parseInt(digitos.charAt(0))) {
-            return false;
-        }
+        if (resultado !== parseInt(digitos.charAt(0))) return false;
         
-        // Cálculo do segundo dígito verificador
         tamanho = tamanho + 1;
         numeros = nums.substring(0, tamanho);
         soma = 0;
@@ -206,13 +154,12 @@ document.addEventListener('DOMContentLoaded', function() {
                     message: 'CNPJ válido e ativo',
                     fromAPI: true
                 };
-            } else {
-                return {
-                    success: false,
-                    message: data.message || 'CNPJ não encontrado ou inativo',
-                    allowManual: true
-                };
             }
+            return {
+                success: false,
+                message: data.message || 'CNPJ não encontrado ou inativo',
+                allowManual: true
+            };
         } catch (error) {
             console.error('Erro na consulta:', error);
             return {
@@ -232,7 +179,6 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
         
-        // Verifica formato primeiro
         if (!validarFormatoCNPJ(cnpj)) {
             cnpjInput.classList.add('is-invalid');
             cnpjInput.classList.remove('is-valid');
@@ -241,28 +187,21 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
         
-        // Mostra loading
         cnpjInput.classList.add('loading');
-        
         const resultado = await consultarReceitaFederal(cnpj);
-        
-        // Remove loading
         cnpjInput.classList.remove('loading');
         
-        // Mostra campo empresa
         empresaGroup.style.display = 'block';
         
         if (resultado.success) {
             empresaInput.value = resultado.nomeEmpresa;
             empresaInput.readOnly = true;
-            empresaInput.placeholder = 'Nome da empresa (preenchido automaticamente)';
             cnpjInput.classList.add('is-valid');
             cnpjInput.classList.remove('is-invalid');
             showAlert('success', resultado.message, 5000);
         } else {
             empresaInput.value = '';
             empresaInput.readOnly = false;
-            empresaInput.placeholder = 'Digite o nome da empresa';
             cnpjInput.classList.remove('is-valid');
             showAlert(resultado.allowManual ? 'warning' : 'danger', resultado.message, 5000);
         }
@@ -271,13 +210,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // ========== EVENT LISTENERS ==========
     cnpjInput.addEventListener('input', function(e) {
         let value = e.target.value.replace(/\D/g, '');
-        
-        // Limita a 14 caracteres
         value = value.substring(0, 14);
         
-        // Aplica máscara progressiva
         if (value.length > 12) {
-            e.target.value = `${value.substring(0, 2)}.${value.substring(2, 5)}.${value.substring(5, 8)}/${value.substring(8, 12)}-${value.substring(12, 14)}`;
+            e.target.value = `${value.substring(0, 2)}.${value.substring(2, 5)}.${value.substring(5, 8)}/${value.substring(8, 12)}-${value.substring(12)}`;
         } else if (value.length > 8) {
             e.target.value = `${value.substring(0, 2)}.${value.substring(2, 5)}.${value.substring(5, 8)}/${value.substring(8)}`;
         } else if (value.length > 5) {
@@ -288,7 +224,6 @@ document.addEventListener('DOMContentLoaded', function() {
             e.target.value = value;
         }
         
-        // Validação em tempo real para números repetidos
         const nums = value.replace(/\D/g, '');
         if (nums.length === 14 && /^(\d)\1{13}$/.test(nums)) {
             cnpjInput.classList.add('is-invalid');
@@ -300,8 +235,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     cnpjInput.addEventListener('blur', function() {
         const cnpj = cnpjInput.value.trim();
-        
-        // Só valida se completo
         if (cnpj.replace(/\D/g, '').length === 14) {
             validarCNPJ();
         } else if (cnpj !== '') {
@@ -337,8 +270,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 email: sanitizeInput(form.email.value.trim()),
                 telefone: form.telefone.value.replace(/\D/g, ''),
                 cnpj: form.cnpj.value.replace(/\D/g, ''),
-                empresa: sanitizeInput(form.empresa.value.trim()),
-                cnpj_data: JSON.stringify(getCnpjCache(form.cnpj.value.replace(/\D/g, '')))
+                empresa: sanitizeInput(form.empresa.value.trim())
             };
 
             try {
