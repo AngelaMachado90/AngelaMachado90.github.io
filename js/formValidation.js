@@ -2,37 +2,51 @@
  * FORM-VALIDATION.JS
  * 
  * Sistema completo de validação e envio de formulários com:
- * - Validação automática de CNPJ ao sair do campo (evento blur)
- * - Fallback para cadastro manual quando API indisponível
- * - Exibição condicional do campo "Nome da empresa"
+ * - Validação em tempo real
  * - Sanitização de dados contra XSS/SQL Injection
+ * - Integração com APIs de validação de CNPJ
+ * - Exibição condicional do campo "Nome da empresa" após validação
  * - Sistema de notificações estilo popup
  * - Modal de confirmação pós-envio
  * 
+ * Funcionalidades principais:
+ * 1. Validação de campos obrigatórios e formatos específicos
+ * 2. Máscaras para telefone e CNPJ
+ * 3. Consulta à Receita Federal para validação de CNPJ
+ * 4. Sistema de alertas visualmente ricos
+ * 5. Proteção contra injeção de código
+ * 6. Feedback visual durante o processamento
+ * 
  * Fluxo de validação de CNPJ:
  * 1. Usuário digita o CNPJ (com máscara automática)
- * 2. Ao sair do campo, valida formato localmente
- * 3. Se formato válido, tenta consultar a Receita Federal
- * 4. Se API disponível, preenche automaticamente o nome da empresa
- * 5. Se API indisponível, permite cadastro manual do nome
- * 6. Bloqueia envio se CNPJ não foi validado corretamente
+ * 2. Validação pode ser acionada manualmente ou ao sair do campo
+ * 3. Se válido, consulta a Receita Federal
+ * 4. Em caso de sucesso, exibe o campo "Nome da empresa" e preenche automaticamente
+ * 5. Bloqueia envio se CNPJ não foi validado corretamente
+ * 
+ * Dependências:
+ * - Bootstrap 5 (CSS e JS)
+ * - Bootstrap Icons (v1.11.1 ou superior)
+ * - API da ReceitaWS (para consulta de CNPJ)
  */
 
 document.addEventListener('DOMContentLoaded', function() {
     // ========== SELEÇÃO DE ELEMENTOS ==========
     const telefone = document.querySelector('input[name="telefone"]');
     const cnpjInput = document.querySelector('input[name="cnpj"]');
-    const empresaGroup = document.querySelector('.form-group:has(#empresa)');
+    const empresaGroup = document.querySelector('.form-group:has(#empresa)'); // Grupo do campo empresa
     const empresaInput = document.querySelector('input[name="empresa"]');
     const form = document.querySelector('#formPlugnGO');
     const thankYouModal = new bootstrap.Modal('#thankYouModal');
+    const validarCnpjBtn = document.getElementById('validar-cnpj');
 
     // ========== CONFIGURAÇÕES ==========
     const config = {
         apiReceitaWS: 'https://receitaws.com.br/v1/cnpj',
         timeoutAlertas: 10000, // 10 segundos para fechar alertas
         timeoutAPI: 10000, // 10 segundos timeout para API
-        cacheCNPJ: true, // Ativa cache local
+        validacaoAutomatica: true, // Ativa validação automática ao sair do campo
+        cacheCNPJ: true, // Ativa cache local para consultas repetidas
         cacheExpiration: 24 * 60 * 60 * 1000 // 24 horas em milissegundos
     };
 
@@ -41,9 +55,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // ========== SANITIZAÇÃO DE DADOS ==========
     /**
-     * Sanitiza entradas do usuário para prevenir ataques XSS/SQL Injection
+     * Sanitiza entradas do usuário para prevenir ataques XSS e SQL Injection
      * @param {string} value - Valor a ser sanitizado
      * @returns {string} Valor sanitizado seguro para processamento
+     * 
+     * Substitui caracteres perigosos por suas entidades HTML:
+     * < → &lt;
+     * > → &gt;
+     * ' → &apos;
+     * " → &quot;
+     * ` → &grave;
+     * $ → &#36;
      */
     const sanitizeInput = (value) => {
         if (!value) return '';
@@ -98,7 +120,10 @@ document.addEventListener('DOMContentLoaded', function() {
      * Exibe notificações estilo popup para feedback ao usuário
      * @param {string} type - Tipo de alerta (success, danger, warning, info)
      * @param {string} message - Mensagem a ser exibida
-     * @param {number} [timeout=5000] - Tempo em ms até fechar automaticamente
+     * @param {number} [timeout=5000] - Tempo em ms até fechar automaticamente (0 = não fecha)
+     * 
+     * Exemplo de uso:
+     * showAlert('success', 'Cadastro realizado com sucesso!', 3000);
      */
     function showAlert(type, message, timeout = config.timeoutAlertas) {
         const alertContainer = document.getElementById('alert-container');
@@ -118,6 +143,7 @@ document.addEventListener('DOMContentLoaded', function() {
         alertContainer.insertAdjacentHTML('afterbegin', alertHTML);
         alertContainer.style.display = 'block';
 
+        // Fechamento automático
         if (timeout > 0) {
             setTimeout(() => {
                 const alertElement = document.getElementById(alertId);
@@ -128,193 +154,321 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // ... [funções auxiliares fadeOutAndRemove, getIconForType, getTitleForType] ...
-
-    // ========== VALIDAÇÃO DE CNPJ ==========
     /**
-     * Valida o formato do CNPJ (dígitos verificadores)
-     * @param {string} cnpj - CNPJ a ser validado
-     * @returns {boolean} True se o formato for válido
+     * Animação de fade out e remoção do alerta
+     * @param {HTMLElement} element - Elemento do alerta
+     * @param {HTMLElement} container - Container principal
      */
-    function validarFormatoCNPJ(cnpj) {
-        const nums = cnpj.replace(/\D/g, '');
-        if (nums.length !== 14 || /^(\d)\1+$/.test(nums)) return false;
-        
-        // Cálculo dos dígitos verificadores
-        let tamanho = nums.length - 2;
-        let numeros = nums.substring(0, tamanho);
-        const digitos = nums.substring(tamanho);
-        
-        // Primeiro dígito
-        let soma = 0;
-        let pos = tamanho - 7;
-        for (let i = tamanho; i >= 1; i--) {
-            soma += numeros.charAt(tamanho - i) * pos--;
-            if (pos < 2) pos = 9;
-        }
-        let resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
-        if (resultado !== parseInt(digitos.charAt(0))) return false;
-        
-        // Segundo dígito
-        tamanho = tamanho + 1;
-        numeros = nums.substring(0, tamanho);
-        soma = 0;
-        pos = tamanho - 7;
-        for (let i = tamanho; i >= 1; i--) {
-            soma += numeros.charAt(tamanho - i) * pos--;
-            if (pos < 2) pos = 9;
-        }
-        resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
-        return resultado === parseInt(digitos.charAt(1));
+    function fadeOutAndRemove(element, container) {
+        element.classList.add('fade-out');
+        element.addEventListener('animationend', () => {
+            element.remove();
+            if (container.children.length === 0) {
+                container.style.display = 'none';
+            }
+        });
     }
 
+    // Helper: Obtém ícone correspondente ao tipo de alerta
+    function getIconForType(type) {
+        const icons = {
+            success: 'bi-check-circle-fill',
+            danger: 'bi-exclamation-triangle-fill',
+            warning: 'bi-exclamation-circle-fill',
+            info: 'bi-info-circle-fill'
+        };
+        return icons[type] || 'bi-info-circle-fill';
+    }
+
+    // Helper: Obtém título correspondente ao tipo de alerta
+    function getTitleForType(type) {
+        const titles = {
+            success: 'Sucesso!',
+            danger: 'Erro!',
+            warning: 'Aviso!',
+            info: 'Informação'
+        };
+        return titles[type] || 'Alerta';
+    }
+
+    // ========== VALIDAÇÃO DE CAMPOS ==========
     /**
-     * Consulta a Receita Federal para validar CNPJ
-     * @param {string} cnpj - CNPJ a ser validado
-     * @returns {Promise<Object>} Resultado da validação
+     * Objeto com funções de validação reutilizáveis
+     * @namespace validar
+     * @property {function} email - Valida formato de e-mail
+     * @property {function} telefone - Valida telefone com DDD
+     * @property {function} cnpj - Valida estrutura do CNPJ
+     * @property {function} required - Verifica campo obrigatório
+     * @property {function} cnpjReceita - Valida CNPJ na Receita Federal
      */
-    async function consultarReceitaFederal(cnpj) {
-        const cnpjNumeros = cnpj.replace(/\D/g, '');
+    const validar = {
+        // Valida formato de e-mail
+        email: (email) => /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email),
         
-        try {
+        // Valida telefone com DDD (10 ou 11 dígitos)
+        telefone: (tel) => {
+            const nums = tel.replace(/\D/g, '');
+            return nums.length >= 10 && nums.length <= 11;
+        },
+        
+        // Valida estrutura do CNPJ (dígitos verificadores)
+        cnpj: (cnpj) => {
+            const nums = cnpj.replace(/\D/g, '');
+            if (nums.length !== 14 || /^(\d)\1+$/.test(nums)) return false;
+            
+            // Cálculo do primeiro dígito verificador
+            let tamanho = nums.length - 2;
+            let numeros = nums.substring(0, tamanho);
+            const digitos = nums.substring(tamanho);
+            let soma = 0;
+            let pos = tamanho - 7;
+            
+            for (let i = tamanho; i >= 1; i--) {
+                soma += numeros.charAt(tamanho - i) * pos--;
+                if (pos < 2) pos = 9;
+            }
+            
+            let resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
+            if (resultado !== parseInt(digitos.charAt(0))) return false;
+            
+            // Cálculo do segundo dígito verificador
+            tamanho = tamanho + 1;
+            numeros = nums.substring(0, tamanho);
+            soma = 0;
+            pos = tamanho - 7;
+            
+            for (let i = tamanho; i >= 1; i--) {
+                soma += numeros.charAt(tamanho - i) * pos--;
+                if (pos < 2) pos = 9;
+            }
+            
+            resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
+            return resultado === parseInt(digitos.charAt(1));
+        },
+        
+        // Verifica se campo não está vazio
+        required: (value) => value.trim() !== '',
+        
+        /**
+         * Valida CNPJ na Receita Federal
+         * @param {string} cnpj - CNPJ a ser validado
+         * @returns {Promise<Object>} Objeto com status e dados da empresa
+         * 
+         * Retorno:
+         * {
+         *   isValid: boolean,
+         *   empresa: string,
+         *   message: string,
+         *   data: Object (dados completos da empresa)
+         * }
+         */
+        cnpjReceita: async (cnpj) => {
+            const cnpjNumeros = cnpj.replace(/\D/g, '');
+            
             // Verifica cache primeiro
             const cached = getCnpjCache(cnpjNumeros);
             if (cached) {
                 return {
-                    success: true,
-                    nomeEmpresa: cached.nome,
+                    isValid: true,
+                    empresa: cached.nome,
                     message: 'CNPJ válido (dados em cache)',
-                    fromCache: true
+                    data: cached
                 };
             }
             
-            const controller = new AbortController();
-            const timeoutId = setTimeout(() => controller.abort(), config.timeoutAPI);
-            
-            const response = await fetch(`${config.apiReceitaWS}/${cnpjNumeros}`, {
-                signal: controller.signal
-            });
-            
-            clearTimeout(timeoutId);
-            
-            if (!response.ok) throw new Error('Erro na consulta à Receita Federal');
-            
-            const data = await response.json();
-            
-            if (data.status === 'OK' && data.situacao === 'ATIVA') {
-                setCnpjCache(cnpjNumeros, data);
+            try {
+                // Exibe loading
+                toggleCnpjLoading(true);
+                
+                const controller = new AbortController();
+                const timeoutId = setTimeout(() => controller.abort(), config.timeoutAPI);
+                
+                const response = await fetch(`${config.apiReceitaWS}/${cnpjNumeros}`, {
+                    signal: controller.signal
+                });
+                
+                clearTimeout(timeoutId);
+                
+                if (!response.ok) {
+                    throw new Error('Erro na consulta à Receita Federal');
+                }
+                
+                const data = await response.json();
+                
+                if (data.status === 'OK' && data.situacao === 'ATIVA') {
+                    // Armazena no cache
+                    setCnpjCache(cnpjNumeros, data);
+                    
+                    return {
+                        isValid: true,
+                        empresa: data.nome,
+                        message: 'CNPJ válido e ativo',
+                        data: data
+                    };
+                } else {
+                    return {
+                        isValid: false,
+                        message: data.message || 'CNPJ não encontrado ou inativo',
+                        data: data
+                    };
+                }
+            } catch (error) {
+                console.error('Erro na validação do CNPJ:', error);
                 return {
-                    success: true,
-                    nomeEmpresa: data.nome,
-                    message: 'CNPJ válido e ativo',
-                    fromAPI: true
+                    isValid: false,
+                    message: error.message || 'Erro ao validar CNPJ'
                 };
-            } else {
-                return {
-                    success: false,
-                    message: data.message || 'CNPJ não encontrado ou inativo',
-                    allowManual: true
-                };
+            } finally {
+                toggleCnpjLoading(false);
             }
-        } catch (error) {
-            console.error('Erro na consulta:', error);
-            return {
-                success: false,
-                message: 'API indisponível. Você pode cadastrar o nome manualmente',
-                allowManual: true
-            };
+        }
+    };
+
+    // ========== CONTROLE DE LOADING ==========
+    /**
+     * Ativa/desativa visual de loading na validação do CNPJ
+     * @param {boolean} isLoading - Estado desejado
+     */
+    function toggleCnpjLoading(isLoading) {
+        const loadingElement = document.getElementById('cnpj-loading');
+        const textElement = document.getElementById('cnpj-text');
+        
+        if (loadingElement && textElement) {
+            loadingElement.style.display = isLoading ? 'inline-block' : 'none';
+            textElement.textContent = isLoading ? 'Validando...' : 'Validar CNPJ';
+            if (validarCnpjBtn) validarCnpjBtn.disabled = isLoading;
         }
     }
 
+    // ========== VALIDAÇÃO DO CNPJ ==========
     /**
-     * Processa a validação do CNPJ ao sair do campo
+     * Valida o CNPJ e consulta a Receita Federal se necessário
+     * @param {boolean} forcarValidacao - Ignora verificação de formato válido
      */
-    async function validarCNPJ() {
-        const cnpj = cnpjInput.value.trim();
+    async function validarCNPJ(forcarValidacao = false) {
+        const cnpj = cnpjInput.value;
         
-        // Se campo vazio, apenas reseta o estado
-        if (cnpj === '') {
+        // Verifica se o campo está vazio
+        if (cnpj.trim() === '') {
             cnpjInput.classList.remove('is-valid', 'is-invalid');
-            empresaGroup.style.display = 'none';
+            empresaGroup.style.display = 'none'; // Garante que está oculto
             return;
         }
         
         // Valida formato primeiro
-        if (!validarFormatoCNPJ(cnpj)) {
+        const formatoValido = validar.cnpj(cnpj);
+        
+        if (!formatoValido && !forcarValidacao) {
             cnpjInput.classList.add('is-invalid');
             cnpjInput.classList.remove('is-valid');
-            empresaGroup.style.display = 'none';
+            empresaGroup.style.display = 'none'; // Mantém oculto se inválido
             showAlert('danger', 'Formato de CNPJ inválido. Verifique os dígitos.');
             return;
         }
         
-        // Mostra loading enquanto consulta
-        cnpjInput.classList.add('loading');
+        // Se formato válido, consulta Receita Federal
+        const resultado = await validar.cnpjReceita(cnpj);
         
-        // Consulta a Receita Federal
-        const resultado = await consultarReceitaFederal(cnpj);
-        
-        // Remove loading
-        cnpjInput.classList.remove('loading');
-        
-        // Mostra o campo empresa em qualquer caso
-        empresaGroup.style.display = 'block';
-        
-        if (resultado.success) {
-            // Preenchimento automático
-            empresaInput.value = resultado.nomeEmpresa;
+        if (resultado.isValid) {
+            // Mostra o campo empresa apenas quando o CNPJ é válido
+            empresaGroup.style.display = 'block';
+            
+            empresaInput.value = resultado.empresa;
             empresaInput.readOnly = true;
-            empresaInput.placeholder = 'Nome da empresa (preenchido automaticamente)';
+            empresaInput.classList.add('is-valid');
             cnpjInput.classList.add('is-valid');
             cnpjInput.classList.remove('is-invalid');
-            showAlert('success', resultado.message, 5000);
+            
+            showAlert('success', `${resultado.message}: ${resultado.empresa}`, 5000);
         } else {
-            // Permite cadastro manual
+            empresaGroup.style.display = 'none'; // Oculta novamente se falhar
             empresaInput.value = '';
-            empresaInput.readOnly = false;
-            empresaInput.placeholder = 'Digite o nome da empresa';
             cnpjInput.classList.remove('is-valid');
-            showAlert(resultado.allowManual ? 'warning' : 'danger', resultado.message, 5000);
+            cnpjInput.classList.add('is-invalid');
+            
+            showAlert('danger', resultado.message, 5000);
         }
     }
 
-    // ========== EVENT LISTENERS ==========
-    // Máscara automática para CNPJ
-    cnpjInput.addEventListener('input', function(e) {
-        let value = e.target.value.replace(/\D/g, '');
-        if (value.length > 2) value = `${value.substring(0, 2)}.${value.substring(2)}`;
-        if (value.length > 6) value = `${value.substring(0, 6)}.${value.substring(6)}`;
-        if (value.length > 10) value = `${value.substring(0, 10)}/${value.substring(10)}`;
-        if (value.length > 15) value = `${value.substring(0, 15)}-${value.substring(15, 17)}`;
-        e.target.value = value.substring(0, 18);
-    });
-    
-    // Validação ao sair do campo
-    cnpjInput.addEventListener('blur', validarCNPJ);
+    // ========== EVENT LISTENERS PARA CNPJ ==========
+    if (cnpjInput) {
+        // Máscara automática
+        cnpjInput.addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length > 2) value = `${value.substring(0, 2)}.${value.substring(2)}`;
+            if (value.length > 6) value = `${value.substring(0, 6)}.${value.substring(6)}`;
+            if (value.length > 10) value = `${value.substring(0, 10)}/${value.substring(10)}`;
+            if (value.length > 15) value = `${value.substring(0, 15)}-${value.substring(15, 17)}`;
+            e.target.value = value.substring(0, 18);
+        });
+        
+        // Validação automática ao sair do campo
+        cnpjInput.addEventListener('blur', function() {
+            if (config.validacaoAutomatica && cnpjInput.value.trim() !== '') {
+                validarCNPJ();
+            }
+        });
+    }
+
+    // Validação manual pelo botão
+    if (validarCnpjBtn) {
+        validarCnpjBtn.addEventListener('click', () => validarCNPJ(true));
+    }
 
     // ========== ENVIO DO FORMULÁRIO ==========
     if (form) {
         form.addEventListener('submit', async function(e) {
             e.preventDefault();
             
-            // Validações básicas
-            if (!validarFormatoCNPJ(cnpjInput.value)) {
-                showAlert('danger', 'Por favor, insira um CNPJ válido antes de enviar.');
-                cnpjInput.focus();
-                return;
+            // Validação dos campos
+            const campos = [
+                { el: form.querySelector('[name="segmento"]'), validator: validar.required, msg: 'Selecione seu segmento' },
+                { el: form.querySelector('[name="nome"]'), validator: validar.required, msg: 'Nome é obrigatório' },
+                { el: form.querySelector('[name="email"]'), validator: validar.email, msg: 'E-mail inválido' },
+                { el: telefone, validator: validar.telefone, msg: 'Telefone inválido (DDD + número)' },
+                { 
+                    el: cnpjInput, 
+                    validator: (value) => validar.cnpj(value) && cnpjInput.classList.contains('is-valid'), 
+                    msg: 'CNPJ inválido ou não validado' 
+                }
+            ];
+
+            // Se o campo empresa estiver visível, adiciona à validação
+            if (empresaGroup.style.display === 'block') {
+                campos.push({
+                    el: empresaInput,
+                    validator: validar.required,
+                    msg: 'Nome da empresa é obrigatório'
+                });
             }
-            
-            if (empresaInput.value.trim() === '') {
-                showAlert('danger', 'Por favor, preencha o nome da empresa.');
-                empresaInput.focus();
-                return;
-            }
-            
-            // Prepara e envia os dados
+
+            // Valida cada campo
+            let formValido = true;
+            campos.forEach(({ el, validator, msg }) => {
+                el.classList.remove('is-invalid');
+                const value = el.value.trim();
+                
+                if (!validator(value)) {
+                    el.classList.add('is-invalid');
+                    showAlert('danger', msg);
+                    formValido = false;
+                    
+                    // Rolagem para o primeiro campo inválido
+                    if (formValido === false) {
+                        el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        formValido = null; // Impede que outros campos sobrescrevam
+                    }
+                }
+            });
+
+            if (!formValido) return;
+
+            // Prepara dados para envio
             const btn = form.querySelector('button[type="submit"]');
             btn.disabled = true;
             btn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Enviando...';
 
+            // Sanitiza os dados
             const formData = {
                 segmento: sanitizeInput(form.segmento.value),
                 nome: sanitizeInput(form.nome.value.trim()),
@@ -325,6 +479,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 cnpj_data: JSON.stringify(getCnpjCache(form.cnpj.value.replace(/\D/g, '')))
             };
 
+            // Envia para o servidor
             try {
                 const response = await fetch('https://script.google.com/macros/s/AKfycbw472ayDEOXRK9ZI6cgayCPuZkauKKtSK_cHH7xA8QNuA6_tEz94J-0igHy2ISNUNNs/exec', {
                     method: 'POST',
@@ -337,6 +492,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (response.ok && data.success) {
                     thankYouModal.show();
                     form.reset();
+                    
+                    // Limpa classes de validação
+                    document.querySelectorAll('.is-valid').forEach(el => {
+                        el.classList.remove('is-valid');
+                    });
+                    
+                    // Oculta o campo empresa novamente após envio
                     empresaGroup.style.display = 'none';
                 } else {
                     throw new Error(data.message || 'Erro no processamento');
