@@ -59,34 +59,39 @@ document.addEventListener('DOMContentLoaded', function() {
         return parsed.data;
     };
 
-    function showAlert(type, message, timeout = config.timeoutAlertas) {
-        const alertContainer = document.getElementById('alert-container');
-        const alertId = 'alert-' + Date.now();
-        
-        const alertHTML = `
-            <div id="${alertId}" class="alert-popup alert-${type}">
-                <div class="alert-content">
-                    <span class="alert-title">${type === 'success' ? 'Sucesso!' : type === 'danger' ? 'Erro!' : type === 'warning' ? 'Aviso!' : 'Informação'}</span>
-                    <span class="alert-message">${message}</span>
-                </div>
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Fechar"></button>
-            </div>
-        `;
-        
-        alertContainer.insertAdjacentHTML('afterbegin', alertHTML);
-        
-        if (timeout > 0) {
-            setTimeout(() => {
-                const alertElement = document.getElementById(alertId);
-                if (alertElement) {
-                    alertElement.remove();
-                }
-            }, timeout);
-        }
+    function showAlert(type, message, timeout = 5000) {
+    const alertContainer = document.getElementById('alert-container');
+    
+    // Cria o elemento do alerta
+    const alertElement = document.createElement('div');
+    alertElement.className = `alert alert-${type} alert-dismissible fade show`;
+    alertElement.setAttribute('role', 'alert');
+    
+    // Conteúdo do alerta
+    alertElement.innerHTML = `
+        <strong>${type === 'success' ? 'Sucesso!' : 
+                  type === 'danger' ? 'Erro!' : 
+                  type === 'warning' ? 'Aviso!' : 'Informação'}</strong>
+        ${message}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    `;
+    
+    // Adiciona ao container
+    alertContainer.appendChild(alertElement);
+    
+    // Remove após o timeout
+    if (timeout > 0) {
+        setTimeout(() => {
+            alertElement.remove();
+        }, timeout);
     }
+    
+    // Retorna o elemento para controle externo se necessário
+    return alertElement;
+}
 
-    // ========== VALIDAÇÃO DE CNPJ ==========
-    function validarFormatoCNPJ(cnpj) {
+// ========== VALIDAÇÃO DE CNPJ ==========
+function validarFormatoCNPJ(cnpj) {
         const nums = cnpj.replace(/\D/g, '');
         if (nums.length !== 14 || /^(\d)\1{13}$/.test(nums)) return false;
         
