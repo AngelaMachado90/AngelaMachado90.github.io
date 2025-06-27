@@ -1,0 +1,181 @@
+/**
+ * ALERT.CSS
+ * 
+ * Estilos para o sistema de notificações em formato de popup
+ * 
+ * Funcionalidades:
+ * - Alertas estilizados como popups modernos
+ * - 4 tipos de alertas (sucesso, erro, aviso, informação)
+ * - Animações de entrada e saída
+ * - Design responsivo
+ * - Ícones correspondentes ao tipo de mensagem
+ * 
+ * Dependências:
+ * - Bootstrap Icons (para os ícones)
+ * - Bootstrap 5 (para o botão de fechar)
+ */
+
+/* ========== CONTAINER PRINCIPAL ========== */
+/**
+ * Container que agrupa todos os alertas
+ * Posicionado no canto superior direito da tela
+ */
+#alert-container {
+    position: fixed;       /* Fixo na janela do navegador */
+    top: 20px;             /* 20px do topo */
+    right: 20px;           /* 20px da direita */
+    width: 350px;          /* Largura fixa para desktop */
+    z-index: 9999;         /* Garante que fique acima de outros elementos */
+    animation: fadeIn 0.3s ease-out; /* Animação de entrada */
+}
+
+/* ========== ESTILO BASE DOS ALERTAS ========== */
+/**
+ * Estilo base que todos os popups de alerta herdam
+ */
+.alert-popup {
+    position: relative;    /* Para posicionar o botão de fechar */
+    padding: 15px 20px;    /* Espaçamento interno */
+    margin-bottom: 15px;   /* Espaço entre alertas */
+    border-radius: 8px;    /* Cantos arredondados */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Sombra sutil */
+    border: none;          /* Remove borda padrão */
+    display: flex;         /* Layout flex para alinhar ícone e texto */
+    align-items: center;   /* Centraliza verticalmente */
+    opacity: 0.95;         /* Leve transparência */
+    transition: all 0.3s ease; /* Transição suave para hover */
+    transform: translateX(0);  /* Posição padrão */
+}
+
+/* Efeito hover para interatividade */
+.alert-popup:hover {
+    opacity: 1;            /* Remove transparência ao passar mouse */
+    transform: translateY(-2px); /* Levanta levemente */
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2); /* Sombra mais pronunciada */
+}
+
+/* ========== ÍCONES DOS ALERTAS ========== */
+/**
+ * Estilização dos ícones do Bootstrap Icons
+ */
+.alert-popup i.bi {
+    font-size: 1.5rem;     /* Tamanho médio para ícones */
+    margin-right: 12px;    /* Espaço entre ícone e texto */
+    flex-shrink: 0;        /* Impede que o ícone diminua */
+}
+
+/* ========== VARIAÇÕES DE ALERTAS ========== */
+/**
+ * Modificadores para cada tipo de alerta
+ * Cada tipo tem combinação única de cores
+ */
+
+/* Alerta de Sucesso */
+.alert-popup.alert-success {
+    background-color: #d1fae5; /* Verde claro de fundo */
+    color: #065f46;        /* Verde escuro para texto */
+    border-left: 4px solid #10b981; /* Borda lateral verde */
+}
+
+/* Alerta de Erro */
+.alert-popup.alert-danger {
+    background-color: #fee2e2; /* Vermelho claro de fundo */
+    color: #b91c1c;        /* Vermelho escuro para texto */
+    border-left: 4px solid #ef4444; /* Borda lateral vermelha */
+}
+
+/* Alerta de Aviso */
+.alert-popup.alert-warning {
+    background-color: #fef3c7; /* Amarelo claro de fundo */
+    color: #92400e;        /* Marrom escuro para texto */
+    border-left: 4px solid #f59e0b; /* Borda lateral amarela */
+}
+
+/* Alerta de Informação */
+.alert-popup.alert-info {
+    background-color: #dbeafe; /* Azul claro de fundo */
+    color: #1e40af;        /* Azul escuro para texto */
+    border-left: 4px solid #3b82f6; /* Borda lateral azul */
+}
+
+/* ========== BOTÃO DE FECHAR ========== */
+/**
+ * Estilização do botão de fechar (herdado do Bootstrap)
+ */
+.alert-popup .btn-close {
+    position: absolute;    /* Posicionamento absoluto no alerta */
+    top: 10px;             /* 10px do topo */
+    right: 10px;           /* 10px da direita */
+    padding: 0.5rem;       /* Espaçamento interno */
+    opacity: 0.7;          /* Leve transparência */
+    background-size: 0.8rem; /* Tamanho do ícone X */
+}
+
+/* Efeito hover no botão de fechar */
+.alert-popup .btn-close:hover {
+    opacity: 1;            /* Opacidade total ao passar mouse */
+}
+
+/* ========== CONTEÚDO DO ALERTA ========== */
+/**
+ * Estilização do conteúdo textual do alerta
+ */
+.alert-popup .alert-content {
+    flex-grow: 1;          /* Ocupa todo espaço disponível */
+    padding-right: 20px;   /* Espaço para o botão de fechar */
+}
+
+/* Título do alerta (negrito) */
+.alert-popup .alert-title {
+    font-weight: 600;      /* Peso semi-negrito */
+    margin-bottom: 4px;    /* Pequeno espaço abaixo */
+    display: block;        /* Garante quebra de linha */
+}
+
+/* Mensagem do alerta */
+.alert-popup .alert-message {
+    font-size: 0.9rem;     /* Tamanho ligeiramente menor */
+    line-height: 1.4;      /* Espaçamento entre linhas */
+}
+
+/* ========== ANIMAÇÕES ========== */
+/**
+ * Animações para entrada e saída suave dos alertas
+ */
+
+/* Animação de entrada - desliza da direita */
+@keyframes fadeIn {
+    from {
+        opacity: 0;        /* Começa invisível */
+        transform: translateX(100%); /* Começa fora da tela à direita */
+    }
+    to {
+        opacity: 0.95;     /* Termina quase opaco */
+        transform: translateX(0); /* Posição normal */
+    }
+}
+
+/* Animação de saída - desliza para a direita */
+@keyframes fadeOut {
+    to {
+        opacity: 0;        /* Termina invisível */
+        transform: translateX(100%); /* Sai pela direita */
+    }
+}
+
+/* Classe para aplicar animação de saída */
+.alert-popup.fade-out {
+    animation: fadeOut 0.3s ease-out forwards; /* "forwards" mantém o estado final */
+}
+
+/* ========== RESPONSIVIDADE ========== */
+/**
+ * Ajustes para dispositivos móveis
+ */
+@media (max-width: 576px) {
+    #alert-container {
+        width: calc(100% - 40px); /* Largura quase total */
+        left: 20px;        /* Centraliza na tela */
+        right: 20px;       /* Centraliza na tela */
+    }
+}
