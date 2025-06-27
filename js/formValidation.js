@@ -11,10 +11,16 @@
  * Funcionalidades principais:
  * 1. Validação de campos obrigatórios e formatos específicos
  * 2. Máscaras para telefone e CNPJ
- * 3. Consulta à Receita Federal para validação de CNPJ
+ * 3. Consulta à Receita Federal para validação de CNPJ e nome da empresa
  * 4. Sistema de alertas visualmente ricos
  * 5. Proteção contra injeção de código
  * 6. Feedback visual durante o processamento
+ * 
+ * Fluxo de validação de CNPJ:
+ * 1. Validação da estrutura do CNPJ (dígitos verificadores)
+ * 2. Consulta à API da ReceitaWS para verificar situação cadastral
+ * 3. Preenchimento automático do nome da empresa quando válido
+ * 4. Bloqueio de envio se CNPJ for inválido ou inativo
  * 
  * Dependências:
  * - Bootstrap 5 (CSS e JS)
@@ -25,8 +31,8 @@
 document.addEventListener('DOMContentLoaded', function() {
     // ========== SELEÇÃO DE ELEMENTOS ==========
     const telefone = document.querySelector('input[name="telefone"]');
-    const cnpj = document.querySelector('input[name="cnpj"]');
-    const empresa = document.querySelector('input[name="empresa"]');
+    const cnpjInput = document.querySelector('input[name="cnpj"]');
+    const empresaInput = document.querySelector('input[name="empresa"]');
     const form = document.querySelector('#formPlugnGO');
     const thankYouModal = new bootstrap.Modal('#thankYouModal');
     const validarCnpjBtn = document.getElementById('validar-cnpj');
@@ -35,7 +41,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const config = {
         apiReceitaWS: 'https://receitaws.com.br/v1/cnpj',
         timeoutAlertas: 5000, // 5 segundos
-        timeoutAPI: 10000 // 10 segundos
+        timeoutAPI: 10000, // 10 segundos
+        cacheCNPJ: true, // Ativa cache local para consultas repetidas
+        cacheExpiration: 24 * 60 * 60 * 1000 // 24 horas em milissegundos
     };
 
     // ========== SANITIZAÇÃO DE DADOS ==========
@@ -61,6 +69,43 @@ document.addEventListener('DOMContentLoaded', function() {
             .replace(/"/g, '&quot;')
             .replace(/`/g, '&grave;')
             .replace(/\$/g, '&#36;');
+    };
+
+    // ========== SISTEMA DE CACHE LOCAL ==========
+    /**
+     * Armazena dados de CNPJ no localStorage para consultas futuras
+     * @param {string} cnpj - CNPJ consultado (apenas números)
+     * @param {Object} data - Dados da empresa retornados pela API
+     */
+    const setCnpjCache = (cnpj, data) => {
+        if (!config.cacheCNPJ) return;
+        
+        const cache = {
+            data: data,
+            timestamp: Date.now()
+        };
+        
+        localStorage.setItem(`cnpj_${cnpj}`, JSON.stringify(cache));
+    };
+
+    /**
+     * Obtém dados de CNPJ do cache se ainda forem válidos
+     * @param {string} cnpj - CNPJ a ser consultado (apenas números)
+     * @returns {Object|null} Dados em cache ou null se expirado/não existir
+     */
+    const getCnpjCache = (cnpj) => {
+        if (!config.cacheCNPJ) return null;
+        
+        const cached = localStorage.getItem(`cnpj_${cnpj}`);
+        if (!cached) return null;
+        
+        const parsed = JSON.parse(cached);
+        if (Date.now() - parsed.timestamp > config.cacheExpiration) {
+            localStorage.removeItem(`cnpj_${cnpj}`);
+            return null;
+        }
+        
+        return parsed.data;
     };
 
     // ========== SISTEMA DE ALERTAS ==========
@@ -162,7 +207,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Valida estrutura do CNPJ (dígitos verificadores)
         cnpj: (cnpj) => {
             const nums = cnpj.replace(/\D/g, '');
-            if (nums.length !== 14) return false;
+            if (nums.length !== 14 || /^(\d)\1+$/.test(nums)) return false;
             
             // Cálculo do primeiro dígito verificador
             let tamanho = nums.length - 2;
@@ -199,11 +244,30 @@ document.addEventListener('DOMContentLoaded', function() {
         
         /**
          * Valida CNPJ na Receita Federal
-         * @param {string} cnpj - CNPJ a ser validado
+         * @param {string} cnpj - CNPJ a ser validado (com ou sem formatação)
          * @returns {Promise<Object>} Objeto com status e dados da empresa
+         * 
+         * Retorno:
+         * {
+         *   isValid: boolean,
+         *   empresa: string,
+         *   message: string,
+         *   data: Object (dados completos da empresa)
+         * }
          */
         cnpjReceita: async (cnpj) => {
             const cnpjNumeros = cnpj.replace(/\D/g, '');
+            
+            // Verifica cache primeiro
+            const cached = getCnpjCache(cnpjNumeros);
+            if (cached) {
+                return {
+                    isValid: true,
+                    empresa: cached.nome,
+                    message: 'CNPJ válido (dados em cache)',
+                    data: cached
+                };
+            }
             
             try {
                 // Exibe loading
@@ -225,15 +289,20 @@ document.addEventListener('DOMContentLoaded', function() {
                 const data = await response.json();
                 
                 if (data.status === 'OK' && data.situacao === 'ATIVA') {
+                    // Armazena no cache
+                    setCnpjCache(cnpjNumeros, data);
+                    
                     return {
                         isValid: true,
                         empresa: data.nome,
-                        message: 'CNPJ válido e ativo'
+                        message: 'CNPJ válido e ativo',
+                        data: data
                     };
                 } else {
                     return {
                         isValid: false,
-                        message: data.message || 'CNPJ não encontrado ou inativo'
+                        message: data.message || 'CNPJ não encontrado ou inativo',
+                        data: data
                     };
                 }
             } catch (error) {
@@ -259,7 +328,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         if (loadingElement && textElement) {
             loadingElement.style.display = isLoading ? 'inline-block' : 'none';
-            textElement.textContent = isLoading ? 'Validando...' : 'Validar';
+            textElement.textContent = isLoading ? 'Validando...' : 'Validar CNPJ';
             validarCnpjBtn.disabled = isLoading;
         }
     }
@@ -267,30 +336,51 @@ document.addEventListener('DOMContentLoaded', function() {
     // ========== VALIDAÇÃO DO CNPJ NA RECEITA FEDERAL ==========
     /**
      * Valida o CNPJ na Receita Federal e preenche automaticamente o nome da empresa
+     * @returns {Promise<void>}
      */
     async function validarCNPJ() {
-        const cnpjNumeros = cnpj.value.replace(/\D/g, '');
+        const cnpj = cnpjInput.value;
         
-        if (!validar.cnpj(cnpj.value)) {
-            showAlert('danger', 'Formato de CNPJ inválido');
+        if (!validar.cnpj(cnpj)) {
+            showAlert('danger', 'Formato de CNPJ inválido. Verifique os dígitos.');
+            cnpjInput.focus();
             return;
         }
         
-        const resultado = await validar.cnpjReceita(cnpjNumeros);
+        const resultado = await validar.cnpjReceita(cnpj);
         
         if (resultado.isValid) {
-            empresa.value = resultado.empresa;
-            empresa.readOnly = false;
-            showAlert('success', resultado.message, 3000);
+            empresaInput.value = resultado.empresa;
+            empresaInput.readOnly = true;
+            empresaInput.classList.add('is-valid');
+            cnpjInput.classList.add('is-valid');
+            
+            showAlert('success', `${resultado.message}: ${resultado.empresa}`, 5000);
         } else {
-            showAlert('danger', resultado.message);
-            empresa.value = '';
+            empresaInput.value = '';
+            empresaInput.readOnly = false;
+            empresaInput.classList.remove('is-valid');
+            cnpjInput.classList.remove('is-valid');
+            
+            showAlert('danger', resultado.message, 5000);
         }
     }
 
     // Event listener para o botão de validar CNPJ
     if (validarCnpjBtn) {
         validarCnpjBtn.addEventListener('click', validarCNPJ);
+    }
+
+    // Validação em tempo real do formato do CNPJ
+    if (cnpjInput) {
+        cnpjInput.addEventListener('blur', function() {
+            if (cnpjInput.value.trim() !== '' && !validar.cnpj(cnpjInput.value)) {
+                showAlert('warning', 'CNPJ com formato inválido. Verifique os dígitos.', 3000);
+                cnpjInput.classList.add('is-invalid');
+            } else {
+                cnpjInput.classList.remove('is-invalid');
+            }
+        });
     }
 
     // ========== ENVIO DO FORMULÁRIO ==========
@@ -304,8 +394,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 { el: form.querySelector('[name="nome"]'), validator: validar.required, msg: 'Nome é obrigatório' },
                 { el: form.querySelector('[name="email"]'), validator: validar.email, msg: 'E-mail inválido' },
                 { el: telefone, validator: validar.telefone, msg: 'Telefone inválido (DDD + número)' },
-                { el: cnpj, validator: validar.cnpj, msg: 'CNPJ inválido' },
-                { el: empresa, validator: validar.required, msg: 'Empresa é obrigatória' }
+                { el: cnpjInput, validator: validar.cnpj, msg: 'CNPJ inválido' },
+                { 
+                    el: empresaInput, 
+                    validator: (value) => {
+                        // Verifica se o campo foi preenchido manualmente ou pela validação
+                        return validar.required(value) && cnpjInput.classList.contains('is-valid');
+                    }, 
+                    msg: 'Empresa é obrigatória. Valide o CNPJ primeiro.' 
+                }
             ];
 
             // Valida cada campo
@@ -318,6 +415,14 @@ document.addEventListener('DOMContentLoaded', function() {
                     el.classList.add('is-invalid');
                     showAlert('danger', msg);
                     formValido = false;
+                    
+                    // Rolagem para o primeiro campo inválido
+                    if (formValido === false) {
+                        el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        formValido = null; // Impede que outros campos sobrescrevam
+                    }
+                } else {
+                    el.classList.add('is-valid');
                 }
             });
 
@@ -335,7 +440,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 email: sanitizeInput(form.email.value.trim()),
                 telefone: form.telefone.value.replace(/\D/g, ''),
                 cnpj: form.cnpj.value.replace(/\D/g, ''),
-                empresa: sanitizeInput(form.empresa.value.trim())
+                empresa: sanitizeInput(form.empresa.value.trim()),
+                cnpj_data: JSON.stringify(getCnpjCache(form.cnpj.value.replace(/\D/g, '')))
             };
 
             // Envia para o servidor
@@ -351,6 +457,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (response.ok && data.success) {
                     thankYouModal.show();
                     form.reset();
+                    
+                    // Limpa classes de validação
+                    document.querySelectorAll('.is-valid').forEach(el => {
+                        el.classList.remove('is-valid');
+                    });
                 } else {
                     throw new Error(data.message || 'Erro no processamento');
                 }
@@ -376,8 +487,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Máscara para CNPJ XX.XXX.XXX/XXXX-XX
-    if (cnpj) {
-        cnpj.addEventListener('input', function(e) {
+    if (cnpjInput) {
+        cnpjInput.addEventListener('input', function(e) {
             let value = e.target.value.replace(/\D/g, '');
             if (value.length > 2) value = `${value.substring(0, 2)}.${value.substring(2)}`;
             if (value.length > 6) value = `${value.substring(0, 6)}.${value.substring(6)}`;
