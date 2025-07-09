@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ebook: Fórmula do Marketing Digital</title>
+    <style>
+        /* Cores que convertem */
+        :root {
+            --primary: #6E45E2;
+            --secondary: #2D5BFF;
+            --white: #ffffff;
+            --dark: #333333;
+        }
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: var(--dark);
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            text-align: center;
+            padding: 40px 0;
+        }
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            color: var(--primary);
+        }
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 15px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 20px 0;
+            transition: all 0.3s;
+        }
+        .cta-button:hover {
+            background-color: var(--secondary);
+            transform: scale(1.05);
+        }
+        .benefits {
+            background-color: #f9f9f9;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+        .benefits ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .benefits li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+        }
+        .benefits li:before {
+            content: "✔";
+            color: var(--primary);
+            position: absolute;
+            left: 0;
+        }
+        .testimonial {
+            font-style: italic;
+            border-left: 3px solid var(--primary);
+            padding-left: 20px;
+            margin: 30px 0;
+        }
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 0.9rem;
+            color: #777;
+        }
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Do Zero ao Primeiro Faturamento Online em 30 Dias</h1>
+            <p>Baixe o ebook gratuito e descubra o passo a passo que 85% dos iniciantes não conhecem!</p>
+            <a href="#form" class="cta-button">QUERO MEU EBOOK GRÁTIS!</a>
+        </header>
+
+        <img src="https://images.pexels.com/photos/8409963/pexels-photo-8409963.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Pessoa trabalhando no notebook" style="width:100%; border-radius:10px;">
+
+        <div class="benefits">
+            <h2>O que você vai aprender:</h2>
+            <ul>
+                <li>Método testado por 200+ alunos</li>
+                <li>15 páginas com estratégias práticas</li>
+                <li>Bônus: Checklist de lançamento</li>
+            </ul>
+        </div>
+
+        <div class="testimonial">
+            <p>"Esse ebook mudou minha forma de ver o marketing digital. Em 3 semanas já tinha meu primeiro cliente!"</p>
+            <p><strong>- Carlos, empreendedor</strong></p>
+        </div>
+
+        <form id="form" style="background:#f0f0f0; padding:30px; border-radius:10px;">
+            <h2>Preencha para receber seu ebook:</h2>
+            <div style="margin-bottom:15px;">
+                <label for="name">Nome:</label><br>
+                <input type="text" id="name" name="name" style="width:100%; padding:10px; border-radius:5px; border:1px solid #ddd;">
+            </div>
+            <div style="margin-bottom:15px;">
+                <label for="email">E-mail:</label><br>
+                <input type="email" id="email" name="email" style="width:100%; padding:10px; border-radius:5px; border:1px solid #ddd;">
+            </div>
+            <button type="submit" class="cta-button" style="border:none; cursor:pointer;">ENVIAR EBOOK AGORA!</button>
+            <p style="font-size:0.8rem; margin-top:10px;">100% gratuito • Sem spam</p>
+        </form>
+
+        <footer>
+            <p>© 2025 Angela Machado. Todos os direitos reservados.</p>
+        </footer>
+    </div>
+</body>
+</html>
