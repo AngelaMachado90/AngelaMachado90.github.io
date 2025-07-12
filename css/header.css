@@ -54,6 +54,13 @@
         url('./imagens/capa-contato.png') no-repeat center center;
 }
 
+/* Background específico para a página de contato */
+.about .hero {
+    background: 
+        linear-gradient(rgba(10, 101, 228, 0.336), 
+        rgba(10, 101, 228, 0.363)),
+        url('./imagens/capa-about.png') no-repeat center center;
+}
 /* Restante dos estilos (comuns a ambas as páginas) */
 .hero h1 {
     font-size: 3.5rem;
