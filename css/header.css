@@ -1,4 +1,4 @@
-/* header.css - Estilos modulares para o cabeçalho com efeito de sombra pulsante */
+/* header.css - Versão modularizada */
 
 /* Variáveis específicas para o efeito de brilho */
 :root {
@@ -7,7 +7,7 @@
     --sombra-verde-intensa: rgba(110, 255, 138, 0.8);
 }
 
-/* Estilo do logo principal */
+/* Estilos base do header (comuns a todas as páginas) */
 .header-logo {
     font-size: 5.5rem;
     font-weight: 900;
@@ -17,7 +17,6 @@
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-/* Estilo específico para a parte "GO" com sombra pulsante */
 .header-logo-go {
     color: var(--verde-destaque);
     display: inline-block;
@@ -26,32 +25,123 @@
     animation: shadow-pulse 2s infinite ease-in-out;
 }
 
-/* Efeito de pulsação apenas na sombra */
-@keyframes shadow-pulse {
-    0% {
-        text-shadow: 0 0 10px var(--sombra-verde);
-    }
-    50% {
-        text-shadow: 0 0 20px var(--sombra-verde-intensa);
-    }
-    100% {
-        text-shadow: 0 0 10px var(--sombra-verde);
-    }
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--branco);
+    text-align: center;
+    overflow: hidden;
+    background-size: cover;
+    padding: 2rem;
 }
 
-/* Versão alternativa mais suave (opcional) */
-.header-logo-go-soft {
-    animation: shadow-pulse-soft 3s infinite ease-in-out;
+/* Background específico para a página index */
+.home .hero {
+    background: 
+        linear-gradient(rgba(10, 101, 228, 0.336), 
+        rgba(10, 101, 228, 0.363)),
+        url('./imagens/capa.jpeg') no-repeat center center;
+}
+
+/* Background específico para a página de contato */
+.contact .hero {
+    background: 
+        linear-gradient(rgba(10, 101, 228, 0.336), 
+        rgba(10, 101, 228, 0.363)),
+        url('./imagens/capa-contato.png') no-repeat center center;
+}
+
+/* Restante dos estilos (comuns a ambas as páginas) */
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    font-weight: 300;
+    margin-bottom: 1rem;
+}
+
+.logo-highlight {
+    font-size: 5.5rem;
+    font-weight: 900;
+    margin-bottom: 0.5rem;
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.logo-highlight p {
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin-bottom: 0.5rem;
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.go-green {
+    color: #81ce90;
+    text-shadow: 0 0 10px rgba(147, 248, 168, 0.548);
+    animation: pulse 2s infinite;
+}
+
+.hero-title {
+    margin-top: 6.5rem;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    max-width: 800px;
+    line-height: 1.3;
+}
+
+.hero-features {
+    text-align: center;
+    max-width: 600px;
+    margin: 2.5rem auto;
+    padding: 0;
+    list-style-type: none;
+}
+
+.hero-features li {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    position: relative;
+    display: inline-block;
+    padding: 0 1.5rem;
+}
+
+.hero-features li:before {
+    content: "•";
+    color: var(--verde-militar);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+.hero-content {
+    max-width: 900px;
+    padding: 4rem 2rem;
+    gap: 6.5rem;
+}
+
+/* Animações */
+@keyframes pulse {
+    0% { opacity: 0.9; }
+    50% { opacity: 1; text-shadow: 0 0 15px rgba(110, 255, 138, 0.8); }
+    100% { opacity: 0.9; }
+}
+
+@keyframes shadow-pulse {
+    0% { text-shadow: 0 0 10px var(--sombra-verde); }
+    50% { text-shadow: 0 0 20px var(--sombra-verde-intensa); }
+    100% { text-shadow: 0 0 10px var(--sombra-verde); }
 }
 
 @keyframes shadow-pulse-soft {
-    0% {
-        text-shadow: 0 0 8px var(--sombra-verde);
-    }
-    50% {
-        text-shadow: 0 0 15px var(--sombra-verde-intensa);
-    }
-    100% {
-        text-shadow: 0 0 8px var(--sombra-verde);
-    }
+    0% { text-shadow: 0 0 8px var(--sombra-verde); }
+    50% { text-shadow: 0 0 15px var(--sombra-verde-intensa); }
+    100% { text-shadow: 0 0 8px var(--sombra-verde); }
 }
