@@ -1,10 +1,12 @@
-/* header.css - Versão modularizada */
+/* header.css - Versão modularizada e corrigida */
 
 /* Variáveis específicas para o efeito de brilho */
 :root {
     --verde-destaque: #81ce90;
     --sombra-verde: rgba(147, 248, 168, 0.548);
     --sombra-verde-intensa: rgba(110, 255, 138, 0.8);
+    --branco: #ffffff; /* Adicionei esta variável que estava sendo usada mas não definida */
+    --verde-militar: #556B2F; /* Adicionei esta variável que estava sendo usada mas não definida */
 }
 
 /* Estilos base do header (comuns a todas as páginas) */
@@ -35,33 +37,36 @@
     text-align: center;
     overflow: hidden;
     background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     padding: 2rem;
 }
 
 /* Background específico para a página index */
-.home .hero {
-    background: 
+body.home .hero {
+    background-image: 
         linear-gradient(rgba(10, 101, 228, 0.336), 
         rgba(10, 101, 228, 0.363)),
-        url('./imagens/capa.jpeg') no-repeat center center;
+        url('../imagens/capa.jpeg');
 }
 
 /* Background específico para a página de contato */
-.contact .hero {
-    background: 
+body.contact .hero {
+    background-image: 
         linear-gradient(rgba(10, 101, 228, 0.336), 
         rgba(10, 101, 228, 0.363)),
-        url('./imagens/capa-contato.png') no-repeat center center;
+        url('../imagens/capa-contato.png');
 }
 
-/* Background específico para a página de contato */
-.about .hero {
-    background: 
+/* Background específico para a página sobre */
+body.about .hero {
+    background-image: 
         linear-gradient(rgba(10, 101, 228, 0.336), 
         rgba(10, 101, 228, 0.363)),
-        url('./imagens/capa-about.png') no-repeat center center;
+        url('../imagens/capa-about.png');
 }
-/* Restante dos estilos (comuns a ambas as páginas) */
+
+/* Restante dos estilos (comuns a todas as páginas) */
 .hero h1 {
     font-size: 3.5rem;
     margin-bottom: 1.5rem;
