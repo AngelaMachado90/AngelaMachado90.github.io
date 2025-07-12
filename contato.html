@@ -13,24 +13,25 @@
     <link rel="icon" href="imagens/favinco.ico" type="image/x-icon">
     <link rel="icon" href="imagens/favinco.png" type="image/png">
     <link rel="apple-touch-icon" href="imagens/apple-touch-icon.png">
-    <!--Modularizando CSS-->
+
+    <!-- CSS -->
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/button.css">
     <link rel="stylesheet" href="css/utils.css">
     <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/contact.css">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 </head>
 
 <body class="contact">
-    <!-- ========== HERO SIMILAR AO INDEX ========== -->
+    <!-- ========== HERO ========== -->
     <header class="hero">
         <div class="hero-content">
             <h1 class="header-logo">PLUG'N <span class="header-logo-go">GO</span></h1>
-            <h2 class="hero-title">Precisa falar conosco?
-                Nossa equipe está pronta para guiar suas vendas</h2>
+            <h2 class="hero-title">Precisa falar conosco? Nossa equipe está pronta para guiar suas vendas</h2>
             <ul class="hero-features">
                 <li><i class="bi bi-check-circle"></i> Suporte especializado no setor energético</li>
                 <li><i class="bi bi-check-circle"></i> Resposta em até 24 horas úteis</li>
@@ -40,89 +41,149 @@
                 <a href="#contact-form" class="cta-button">
                     Enviar Mensagem <i class="bi bi-send"></i>
                 </a>
-
             </div>
         </div>
     </header>
-    <!-- 1-SECAO-CONTATOS -->
-         <section class="final-cta" id="form-navegacao">
-        <h2>Sua equipe está pronta para operar com tecnologia de ponta?</h2>
-        <div class="contact-info">
-            <h3><i class="bi bi-geo-alt"></i> Endereço</h3>
-            <p>Rua Exemplo, 123 - Curitiba/PR</p>
 
-            <h3><i class="bi bi-clock"></i> Horário</h3>
-            <p>Segunda a Sexta: 9h às 18h</p>
-            <p>Sábado: 9h às 12h</p>
+    <!-- ========== SEÇÃO 1: CANAIS DE CONTATO ========== -->
+    <section class="contact-channels" aria-labelledby="channels-heading">
+        <div class="container">
+            <h2 id="channels-heading"><i class="bi bi-broadcast"></i> Nossos Canais de Comunicação</h2>
+            <div class="channels-grid">
+                <div class="channel-card">
+                    <div class="channel-icon">
+                        <i class="bi bi-headset"></i>
+                    </div>
+                    <h3>Suporte Técnico</h3>
+                    <p>(41) 99701-4802</p>
+                    <a href="tel:+5541997014802" class="channel-link">Ligar agora</a>
+                </div>
 
-            <h3><i class="bi bi-telephone"></i> Telefone</h3>
-            <p>(41) 99701-4802</p>
+                <div class="channel-card">
+                    <div class="channel-icon">
+                        <i class="bi bi-envelope"></i>
+                    </div>
+                    <h3>Email Comercial</h3>
+                    <p>comercial@plugngo.com</p>
+                    <a href="mailto:comercial@plugngo.com" class="channel-link">Enviar email</a>
+                </div>
 
-            <h3><i class="bi bi-envelope"></i> Email</h3>
-            <p>contato@plugngo.com</p>
+                <div class="channel-card">
+                    <div class="channel-icon">
+                        <i class="bi bi-geo-alt"></i>
+                    </div>
+                    <h3>Visite Nossa Base</h3>
+                    <p>Rua Exemplo, 123 - Curitiba/PR</p>
+                    <a href="#location-map" class="channel-link">Ver no mapa</a>
+                </div>
+
+                <div class="channel-card">
+                    <div class="channel-icon">
+                        <i class="bi bi-whatsapp"></i>
+                    </div>
+                    <h3>WhatsApp</h3>
+                    <p>(41) 99701-4802</p>
+                    <a href="https://wa.me/5541997014802" class="channel-link" target="_blank">Conversar</a>
+                </div>
+            </div>
         </div>
-    <!-- ========== MAPA ========== -->
-    <section class="map-section">
-        <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3602.506635410643!2d-49.2743669245378!3d-25.45097763332691!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjXCsDI3JzAzLjUiUyA0OcKwMTYnMTkuOCJX!5e0!3m2!1spt-BR!2sbr!4v1620000000000!5m2!1spt-BR!2sbr"
-            width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
     </section>
 
-    <!-- CTA Final -->
-    <section class="final-cta" id="form-navegacao">
-        <h2>Sua equipe está pronta para operar com tecnologia de ponta?</h2>
-        <div class="contact-info">
-            <h3><i class="bi bi-geo-alt"></i> Endereço</h3>
-            <p>Rua Exemplo, 123 - Curitiba/PR</p>
+    <!-- ========== SEÇÃO 2: FORMULÁRIO ========== -->
+    <section class="contact-form-section" id="contact-form" aria-labelledby="form-heading">
+        <div class="container">
+            <div class="form-container">
+                <h2 id="form-heading"><i class="bi bi-send"></i> Envie sua Mensagem</h2>
+                <p>Preencha o formulário abaixo e nossa equipe entrará em contato para oferecer a melhor solução para
+                    seu negócio.</p>
 
-            <h3><i class="bi bi-clock"></i> Horário</h3>
-            <p>Segunda a Sexta: 9h às 18h</p>
-            <p>Sábado: 9h às 12h</p>
+                <form id="formPlugnGO" class="contact-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="nome">Nome completo *</label>
+                            <input type="text" id="nome" name="nome" required autocomplete="name">
+                        </div>
 
-            <h3><i class="bi bi-telephone"></i> Telefone</h3>
-            <p>(41) 99701-4802</p>
+                        <div class="form-group">
+                            <label for="empresa">Empresa *</label>
+                            <input type="text" id="empresa" name="empresa" required>
+                        </div>
+                    </div>
 
-            <h3><i class="bi bi-envelope"></i> Email</h3>
-            <p>contato@plugngo.com</p>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="cnpj">CNPJ *</label>
+                            <input type="text" id="cnpj" name="cnpj" required maxlength="18" autocomplete="off">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="segmento">Segmento *</label>
+                            <select id="segmento" name="segmento" required>
+                                <option value="" disabled selected>Selecione</option>
+                                <option value="comercio">Comércio</option>
+                                <option value="energia">Energia</option>
+                                <option value="industria">Indústria</option>
+                                <option value="outro">Outro</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required autocomplete="email">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="telefone">Telefone *</label>
+                            <input type="tel" id="telefone" name="telefone" required maxlength="15" autocomplete="tel">
+                        </div>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="mensagem">Mensagem *</label>
+                        <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
+                    </div>
+
+                    <button type="submit" class="cta-button">
+                        Iniciar Navegação Guiada <i class="bi bi-satellite"></i>
+                    </button>
+                </form>
+            </div>
         </div>
-        <p>Preencha o formulário abaixo para iniciar sua navegação guiada com a Plug'n GO CRM.</p>
-        <form class="cta-form" id="formPlugnGO">
-            <select name="segmento" required>
-                <option value="" disabled selected>Selecione seu segmento</option>
-                <option value="comercio">Comércio</option>
-                <option value="energia">Energia</option>
-                <option value="industria">Indústria</option>
-                <option value="outro">Outro</option>
-            </select>
-
-            <!--Dados Coletados-->
-            <input type="text" name="nome" placeholder="Seu nome completo." required autocomplete="name">
-
-            <input type="text" name="cnpj" placeholder="Seu cnpj completo." required maxlength="18" autocomplete="off">
-
-            <input type="text" name="empresa" placeholder="Nome da sua empresa." required>
-
-            <input type="email" name="email" placeholder="Seu melhor e-mail para contato." required
-                autocomplete="email">
-
-            <input type="tel" name="telefone" placeholder="Seu melhor telefone para contato," required maxlength="15"
-                autocomplete="tel">
-
-
-
-
-            <button type="submit" class="cta-button">Iniciar Navegação Guiada <i
-                    class="fas fa-satellite-dish"></i></button>
-        </form>
-        <p id="mensagem-sucesso" style="display:none; color:green; margin-top:10px;">Seu contato foi adicionado com
-            sucesso! 🚀</p>
-
     </section>
 
+    <!-- ========== SEÇÃO 3: LOCALIZAÇÃO ========== -->
+    <section class="location-section" id="location-map" aria-labelledby="location-heading">
+        <div class="container">
+            <h2 id="location-heading"><i class="bi bi-pin-map"></i> Onde Estamos</h2>
+            <div class="location-content">
+                <div class="location-info">
+                    <h3>Nossa Base Terrestre</h3>
+                    <p><i class="bi bi-geo-alt"></i> Rua Exemplo, 123 - Curitiba/PR</p>
+                    <p><i class="bi bi-clock"></i> Segunda a Sexta: 9h às 18h</p>
+                    <p><i class="bi bi-building"></i> Torre Comercial, Sala 501</p>
 
+                    <div class="location-cta">
+                        <a href="https://maps.google.com/?q=Rua+Exemplo,+123,+Curitiba" class="map-button"
+                            target="_blank">
+                            <i class="bi bi-compass"></i> Abrir no Google Maps
+                        </a>
+                    </div>
+                </div>
 
-    <!-- ========== BOTÃO FLUTUANTE WHATSAPP (IGUAL AO INDEX) ========== -->
-    <a href="https://wa.me/5541997014802" class="whatsapp-float" target="_blank">
+                <div class="location-map">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3602.506635410643!2d-49.2743669245378!3d-25.45097763332691!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjXCsDI3JzAzLjUiUyA0OcKwMTYnMTkuOCJX!5e0!3m2!1spt-BR!2sbr!4v1620000000000!5m2!1spt-BR!2sbr"
+                        width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"
+                        aria-label="Mapa da localização da Plug'n GO"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== BOTÃO FLUTUANTE WHATSAPP ========== -->
+    <a href="https://wa.me/5541997014802" class="whatsapp-float" target="_blank" aria-label="Fale conosco no WhatsApp">
         <i class="bi bi-whatsapp"></i>
     </a>
 
@@ -189,11 +250,21 @@
         </div>
     </footer>
 
-    <!-- Scripts consistentes com index.html -->
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Mesma máscara de telefone do index
-        document.getElementById('phone').addEventListener('input', function (e) {
+        // Máscara para CNPJ
+        document.getElementById('cnpj').addEventListener('input', function (e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length > 2) value = value.substring(0, 2) + '.' + value.substring(2);
+            if (value.length > 6) value = value.substring(0, 6) + '.' + value.substring(6);
+            if (value.length > 10) value = value.substring(0, 10) + '/' + value.substring(10);
+            if (value.length > 15) value = value.substring(0, 15) + '-' + value.substring(15, 17);
+            e.target.value = value.substring(0, 18);
+        });
+
+        // Máscara para telefone
+        document.getElementById('telefone').addEventListener('input', function (e) {
             let value = e.target.value.replace(/\D/g, '');
             if (value.length > 0) value = '(' + value;
             if (value.length > 3) value = value.substring(0, 3) + ') ' + value.substring(3);
@@ -201,11 +272,10 @@
             e.target.value = value.substring(0, 15);
         });
 
-        // Validação de formulário similar ao index
-        document.getElementById('contactForm').addEventListener('submit', function (e) {
+        // Validação do formulário
+        document.getElementById('formPlugnGO').addEventListener('submit', function (e) {
             e.preventDefault();
-            // Simular envio
-            alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
+            alert('Mensagem enviada com sucesso! Nossa equipe entrará em contato em breve.');
             this.reset();
         });
     </script>
