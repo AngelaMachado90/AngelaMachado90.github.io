@@ -120,48 +120,6 @@ header {
     line-height: 1.6;
 }
 
-/* Countdown Styles */
-.countdown-container {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    margin: 3rem 0;
-    flex-wrap: wrap;
-}
-
-.countdown-box {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(8px);
-    border-radius: 12px;
-    padding: 1.5rem 1rem;
-    min-width: 100px;
-    text-align: center;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    transition: transform 0.3s ease;
-}
-
-.countdown-box:hover {
-    transform: translateY(-5px);
-    background: rgba(255, 255, 255, 0.15);
-}
-
-.countdown-value {
-    font-size: 3rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-    background: linear-gradient(to bottom, var(--white), var(--light));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.countdown-label {
-    font-size: 1rem;
-    opacity: 0.9;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--white);
-}
-
 /* Form Styles */
 .signup-form {
     flex: 1;
