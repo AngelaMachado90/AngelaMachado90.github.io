@@ -148,50 +148,55 @@
     </section>
 -->
     <!-- 3 - SECAO FORMULARIO  -->
-    <section class="form-section" id="form-navegacao">
-        <h2>Sua equipe está pronta para operar com tecnologia de ponta?</h2>
-        <form class="form-header" id="formPlugnGO">
-            <div class="form-group">   
-                <select name="segmento" required>
-                    <option value="" disabled selected>Selecione seu segmento</option>
-                    <option value="comercio">Comércio</option>
-                    <option value="energia">Energia</option>
-                    <option value="industria">Indústria</option>
-                    <option value="outro">Outro</option>
-                </select>
+    <div class="form-container">
+        <section class="form-section" id="form-navegacao">
+            <div class="form-header">
+                
+                <h2>Sua equipe está pronta para operar com tecnologia de ponta?</h2>
             </div>
+            <form class="form-header" id="formPlugnGO">
+                <!-- Dados do Formulário -->
+                <!--Segmento-->
+                <div class="form-group">
+                    <select name="segmento" required class="highlight-dropdown">
+                        <option value="" disabled selected>Selecione seu segmento</option>
+                        <option value="comercio">Comércio</option>
+                        <option value="energia">Energia</option>
+                        <option value="industria">Indústria</option>
+                        <option value="outro">Outro</option>
+                    </select>
+                </div>
+                <!--Dados Abertos-->
+                <div class="form-group">
+                    <input type="text" name="nome" placeholder="Seu nome completo." required autocomplete="name">
+                </div>
 
-            <!--Dados Coletados-->
-            <div class="form-group">
-                <input type="text" name="nome" placeholder="Seu nome completo." required autocomplete="name">
-            </div>
+                <div class="form-group">
+                    <input type="text" name="cnpj" placeholder="Seu cnpj completo." required maxlength="18" autocomplete="off">
+                </div>
 
-            <div class="form-group">
-                <input type="text" name="cnpj" placeholder="Seu cnpj completo." required maxlength="18" autocomplete="off">
-            </div>
+                <div class="form-group">
+                    <input type="text" name="empresa" placeholder="Nome da sua empresa." required>
+                </div>
 
-            <div class="form-group">
-                <input type="text" name="empresa" placeholder="Nome da sua empresa." required>
-            </div>
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Seu melhor e-mail para contato." required
+                        autocomplete="email">
+                </div>
 
-            <div class="form-group">
-                <input type="email" name="email" placeholder="Seu melhor e-mail para contato." required
-                    autocomplete="email">
-            </div>
+                <div class="form-group">
+                    <input type="tel" name="telefone" placeholder="Seu melhor telefone para contato," required maxlength="15"
+                        autocomplete="tel">
+                </div>
 
-            <div class="form-group">
-                <input type="tel" name="telefone" placeholder="Seu melhor telefone para contato," required maxlength="15"
-                    autocomplete="tel">
-            </div>
+                <button type="submit" class="cta-button">Iniciar Navegação Guiada <i
+                        class="fas fa-satellite-dish"></i></button>
+            </form>
+            <p id="mensagem-sucesso" style="display:none; color:green; margin-top:10px;">Seu contato foi adicionado com
+                sucesso! 🚀</p>
 
-            <button type="submit" class="cta-button">Iniciar Navegação Guiada <i
-                    class="fas fa-satellite-dish"></i></button>
-        </form>
-        <p id="mensagem-sucesso" style="display:none; color:green; margin-top:10px;">Seu contato foi adicionado com
-            sucesso! 🚀</p>
-
-    </section>
-
+        </section>
+    </div>    
     <!-- Botão do WhatsApp Flutuante -->
     <a href="https://wa.me/5541997014802?text=🚀%20Olá,%20Plug'n%20GO!%0A%0AAcabei%20de%20ver%20seu%20site%20e%20quero%20saber%20mais%20sobre%20o%20CRM%20com%20navegação%20por%20satélite%20para%20vendas."
         class="whatsapp-float" target="_blank">
