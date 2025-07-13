@@ -1,0 +1,177 @@
+/* differentials.css - Estilos para a seção de diferenciais (versão corrigida) */
+
+.differentials {
+    padding: 5rem 2rem;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.differentials h2 {
+    font-size: 2.2rem;
+    margin-bottom: 3.5rem;
+    color: #2c3e50;
+    position: relative;
+    display: inline-block;
+}
+
+.differentials h2::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #3498db, #9b59b6);
+    border-radius: 2px;
+}
+
+.comparison {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 2rem;
+    position: relative;
+}
+
+.crm-type {
+    flex: 1;
+    min-width: 300px;
+    background: white;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+}
+
+.crm-type:hover {
+    transform: translateY(-5px);
+}
+
+.crm-type h3 {
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+    color: #2c3e50;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+.crm-type.plugn-go-highlight h3 {
+    color: #9b59b6;
+    border-bottom-color: #e0d1e8;
+}
+
+.crm-type img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.crm-type ul {
+    text-align: left;
+    list-style-type: none;
+    padding: 0;
+    margin-top: 1.5rem;
+}
+
+.crm-type li {
+    padding: 0.8rem 0;
+    position: relative;
+    padding-left: 1.8rem;
+    line-height: 1.5;
+    color: #34495e;
+}
+
+.crm-type li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #3498db;
+    font-weight: bold;
+}
+
+.crm-type.plugn-go-highlight li::before {
+    color: #9b59b6;
+}
+
+.crm-type.plugn-go-highlight li strong {
+    color: #9b59b6;
+}
+
+.vs-circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #3498db, #9b59b6);
+    color: white;
+    font-weight: bold;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Efeito de destaque para o CRM Plug'n GO */
+.crm-type.plugn-go-highlight {
+    border: 2px solid #e0d1e8;
+    position: relative;
+    overflow: hidden;
+}
+
+.crm-type.plugn-go-highlight::after {
+    content: 'RECOMENDADO';
+    position: absolute;
+    top: 15px;
+    right: -30px;
+    background: #9b59b6;
+    color: white;
+    padding: 0.3rem 2.5rem;
+    font-size: 0.8rem;
+    font-weight: bold;
+    transform: rotate(45deg);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsividade */
+@media (max-width: 992px) {
+    .comparison {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .crm-type {
+        width: 100%;
+        max-width: 500px;
+    }
+    
+    .vs-circle {
+        position: static;
+        transform: none;
+        margin: 2rem 0;
+    }
+}
+
+@media (max-width: 576px) {
+    .differentials {
+        padding: 3rem 1rem;
+    }
+    
+    .differentials h2 {
+        font-size: 1.8rem;
+    }
+    
+    .crm-type.plugn-go-highlight::after {
+        right: -35px;
+        font-size: 0.7rem;
+    }
+}

@@ -47,7 +47,7 @@ body.home .hero {
     background-image: 
         linear-gradient(rgba(10, 101, 228, 0.336), 
         rgba(10, 101, 228, 0.363)),
-        url('./imagens/capa.jpeg');
+        url('../imagens/capa.jpeg');
 }
 
 /* Background específico para a página de contato */
@@ -55,7 +55,7 @@ body.contact .hero {
     background-image: 
         linear-gradient(rgba(10, 101, 228, 0.336), 
         rgba(10, 101, 228, 0.363)),
-        url('./imagens/capa-contato.png');
+        url('../imagens/capa-contato.png');
 }
 
 /* Background específico para a página sobre */
@@ -63,7 +63,7 @@ body.about .hero {
     background-image: 
         linear-gradient(rgba(10, 101, 228, 0.336), 
         rgba(10, 101, 228, 0.363)),
-        url('./imagens/capa-about.png');
+        url('../imagens/capa-about.png');
 }
 
 /* Restante dos estilos (comuns a todas as páginas) */

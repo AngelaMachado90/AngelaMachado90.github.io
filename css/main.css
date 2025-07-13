@@ -1,0 +1,14 @@
+/* main.css - Arquivo principal que importa todos os outros */
+/* Importando os arquivos CSS modulares */
+/* main.css - Arquivo principal que importa todos os outros */
+/*estilos index*/
+@import url('./base/header.css');
+@import url('./base/utilities.css');
+@import url('./home/differentials.css');
+@import url('./base/form.css');
+@import url('./base/footer.css');
+@import url('./base/button.css');
+
+
+@import url('./home/features.css');
+@import url('./base/alert.css');
