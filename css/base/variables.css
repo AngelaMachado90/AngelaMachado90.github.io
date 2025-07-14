@@ -40,7 +40,6 @@
     --borda-arredondada: 8px;
     --borda-sombra: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
-
 /* Botão Flutuante do WhatsApp */
 .whatsapp-float {
     position: fixed;
@@ -126,7 +125,6 @@
         font-size: 14px;
     }
 }
-
 /* Regras de responsividade para tipografia */
 @media (max-width: 768px) {
     :root {

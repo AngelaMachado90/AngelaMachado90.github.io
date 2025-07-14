@@ -66,6 +66,14 @@ body.about .hero {
         url('../imagens/capa-about.png');
 }
 
+/* Background específico para a página sobre */
+body.solutions .hero {
+    background-image: 
+        linear-gradient(rgba(10, 101, 228, 0.336), 
+        rgba(10, 101, 228, 0.363)),
+        url('../imagens/capa-solutions.png');
+}
+
 /* Restante dos estilos (comuns a todas as páginas) */
 .hero h1 {
     font-size: 3.5rem;
