@@ -15,21 +15,17 @@
     <link rel="icon" href="./imagens/favinco.png" type="image/png">
 
     <!--Suporte Apple Touch Icon(IOS)-->
-    <link rel="apple-touch-icon" href="imagens/apple-touch-icon.png">
+    <link rel="apple-touch-icon" href="./imagens/apple-touch-icon.png">
 
     <!--Suporte Android Chrome-->
     <link rel="manifest" href="site.webmanifest">
     <meta name="theme-color" content="#ffffff">
 
-    <!--Modularizando CSS-->
-    <link rel="stylesheet" href="planner.css">
-
-    <!-- Adicionando CSS específico para 1-SECAO-Funcionalidades -->
-    <link rel="stylesheet" href="css/features.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 
 <body>
@@ -45,19 +41,27 @@
             <div class="section">
                 <div class="section-title">Quais suas prioridades de hoje?</div>
                 <textarea id="priorities" placeholder="Liste suas prioridades para hoje..."></textarea>
+                <button class="save-section-btn" data-section="priorities">Salvar Prioridades</button>
+                <div class="saved-items" id="priorities-list"></div>
 
                 <div class="section-title">Três tarefas rápidas para se livrar logo:</div>
                 <input type="text" id="quickTask1" placeholder="Tarefa rápida 1">
                 <input type="text" id="quickTask2" placeholder="Tarefa rápida 2">
                 <input type="text" id="quickTask3" placeholder="Tarefa rápida 3">
+                <button class="save-section-btn" data-section="quickTasks">Salvar Tarefas Rápidas</button>
+                <div class="saved-items" id="quickTasks-list"></div>
             </div>
 
             <div class="section">
                 <div class="section-title">Anotações</div>
                 <textarea id="notes" placeholder="Faça suas anotações aqui..."></textarea>
+                <button class="save-section-btn" data-section="notes">Salvar Anotações</button>
+                <div class="saved-items" id="notes-list"></div>
 
                 <div class="section-title">Essa semana:</div>
                 <textarea id="weekNotes" placeholder="Anotações para a semana..."></textarea>
+                <button class="save-section-btn" data-section="weekNotes">Salvar Anotações da Semana</button>
+                <div class="saved-items" id="weekNotes-list"></div>
             </div>
         </div>
 
@@ -66,18 +70,24 @@
                 <div class="meal-time">Manhã</div>
                 <div>Café da manhã:</div>
                 <textarea id="breakfast" placeholder="O que vai comer no café da manhã?"></textarea>
+                <button class="save-section-btn" data-section="breakfast">Salvar Refeição</button>
+                <div class="saved-items" id="breakfast-list"></div>
             </div>
 
             <div class="section">
                 <div class="meal-time">Tarde</div>
                 <div>Almoço:</div>
                 <textarea id="lunch" placeholder="O que vai comer no almoço?"></textarea>
+                <button class="save-section-btn" data-section="lunch">Salvar Refeição</button>
+                <div class="saved-items" id="lunch-list"></div>
             </div>
 
             <div class="section">
                 <div class="meal-time">Noite</div>
                 <div>Janta:</div>
                 <textarea id="dinner" placeholder="O que vai comer na janta?"></textarea>
+                <button class="save-section-btn" data-section="dinner">Salvar Refeição</button>
+                <div class="saved-items" id="dinner-list"></div>
             </div>
         </div>
 
@@ -96,6 +106,8 @@
                 <input type="text" id="action8" placeholder="Ação 8">
                 <input type="text" id="action9" placeholder="Ação 9">
                 <input type="text" id="action10" placeholder="Ação 10">
+                <button class="save-section-btn" data-section="actions">Salvar Plano de Ação</button>
+                <div class="saved-items" id="actions-list"></div>
             </div>
 
             <div class="section">
@@ -105,6 +117,8 @@
                 <input type="text" id="otherTask3" placeholder="Tarefa 3">
                 <input type="text" id="otherTask4" placeholder="Tarefa 4">
                 <input type="text" id="otherTask5" placeholder="Tarefa 5">
+                <button class="save-section-btn" data-section="otherTasks">Salvar Outras Tarefas</button>
+                <div class="saved-items" id="otherTasks-list"></div>
 
                 <div class="section-title">Não esquecer:</div>
                 <input type="text" id="reminder1" placeholder="Lembrete 1">
@@ -112,285 +126,21 @@
                 <input type="text" id="reminder3" placeholder="Lembrete 3">
                 <input type="text" id="reminder4" placeholder="Lembrete 4">
                 <input type="text" id="reminder5" placeholder="Lembrete 5">
+                <button class="save-section-btn" data-section="reminders">Salvar Lembretes</button>
+                <div class="saved-items" id="reminders-list"></div>
             </div>
         </div>
 
         <div class="btn-container">
-            <button id="saveBtn">Salvar Planner</button>
+            <button id="saveBtn">Salvar Tudo</button>
             <button id="clearBtn">Limpar Tudo</button>
             <button id="exportCalendarBtn">Exportar para Google Calendar</button>
         </div>
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // Definir a data atual como padrão
-            const today = new Date();
-            const dateString = today.toISOString().split('T')[0];
-            document.getElementById('currentDate').value = dateString;
-
-            // Carregar dados salvos, se existirem
-            loadSavedData();
-
-            // Event listeners para os botões
-            document.getElementById('saveBtn').addEventListener('click', saveData);
-            document.getElementById('clearBtn').addEventListener('click', clearAll);
-            document.getElementById('exportCalendarBtn').addEventListener('click', exportToGoogleCalendar);
-        });
-
-        function saveData() {
-            const plannerData = {
-                date: document.getElementById('currentDate').value,
-                priorities: document.getElementById('priorities').value,
-                quickTasks: [
-                    document.getElementById('quickTask1').value,
-                    document.getElementById('quickTask2').value,
-                    document.getElementById('quickTask3').value
-                ],
-                notes: document.getElementById('notes').value,
-                weekNotes: document.getElementById('weekNotes').value,
-                meals: {
-                    breakfast: document.getElementById('breakfast').value,
-                    lunch: document.getElementById('lunch').value,
-                    dinner: document.getElementById('dinner').value
-                },
-                actions: [
-                    document.getElementById('action1').value,
-                    document.getElementById('action2').value,
-                    document.getElementById('action3').value,
-                    document.getElementById('action4').value,
-                    document.getElementById('action5').value,
-                    document.getElementById('action6').value,
-                    document.getElementById('action7').value,
-                    document.getElementById('action8').value,
-                    document.getElementById('action9').value,
-                    document.getElementById('action10').value
-                ],
-                otherTasks: [
-                    document.getElementById('otherTask1').value,
-                    document.getElementById('otherTask2').value,
-                    document.getElementById('otherTask3').value,
-                    document.getElementById('otherTask4').value,
-                    document.getElementById('otherTask5').value
-                ],
-                reminders: [
-                    document.getElementById('reminder1').value,
-                    document.getElementById('reminder2').value,
-                    document.getElementById('reminder3').value,
-                    document.getElementById('reminder4').value,
-                    document.getElementById('reminder5').value
-                ]
-            };
-
-            localStorage.setItem('dailyPlannerData', JSON.stringify(plannerData));
-            alert('Planner salvo com sucesso!');
-        }
-
-        function loadSavedData() {
-            const savedData = localStorage.getItem('dailyPlannerData');
-            if (savedData) {
-                const plannerData = JSON.parse(savedData);
-
-                // Verificar se os dados salvos são do mesmo dia
-                const today = new Date().toISOString().split('T')[0];
-                if (plannerData.date === today) {
-                    document.getElementById('currentDate').value = plannerData.date;
-                    document.getElementById('priorities').value = plannerData.priorities;
-
-                    if (plannerData.quickTasks && plannerData.quickTasks.length >= 3) {
-                        document.getElementById('quickTask1').value = plannerData.quickTasks[0];
-                        document.getElementById('quickTask2').value = plannerData.quickTasks[1];
-                        document.getElementById('quickTask3').value = plannerData.quickTasks[2];
-                    }
-
-                    document.getElementById('notes').value = plannerData.notes;
-                    document.getElementById('weekNotes').value = plannerData.weekNotes;
-
-                    if (plannerData.meals) {
-                        document.getElementById('breakfast').value = plannerData.meals.breakfast;
-                        document.getElementById('lunch').value = plannerData.meals.lunch;
-                        document.getElementById('dinner').value = plannerData.meals.dinner;
-                    }
-
-                    if (plannerData.actions && plannerData.actions.length >= 10) {
-                        for (let i = 0; i < 10; i++) {
-                            document.getElementById(`action${i + 1}`).value = plannerData.actions[i];
-                        }
-                    }
-
-                    if (plannerData.otherTasks && plannerData.otherTasks.length >= 5) {
-                        for (let i = 0; i < 5; i++) {
-                            document.getElementById(`otherTask${i + 1}`).value = plannerData.otherTasks[i];
-                        }
-                    }
-
-                    if (plannerData.reminders && plannerData.reminders.length >= 5) {
-                        for (let i = 0; i < 5; i++) {
-                            document.getElementById(`reminder${i + 1}`).value = plannerData.reminders[i];
-                        }
-                    }
-                }
-            }
-        }
-
-        function clearAll() {
-            if (confirm('Tem certeza que deseja limpar todo o planner? Isso apagará todos os dados não salvos.')) {
-                // Limpar todos os campos de texto
-                const textareas = document.querySelectorAll('textarea');
-                textareas.forEach(textarea => {
-                    textarea.value = '';
-                });
-
-                const inputs = document.querySelectorAll('input[type="text"]');
-                inputs.forEach(input => {
-                    input.value = '';
-                });
-
-                // Definir a data atual
-                const today = new Date();
-                const dateString = today.toISOString().split('T')[0];
-                document.getElementById('currentDate').value = dateString;
-            }
-        }
-
-        function exportToGoogleCalendar() {
-            // Obter a data selecionada
-            const selectedDate = document.getElementById('currentDate').value;
-
-            if (!selectedDate) {
-                alert('Por favor, selecione uma data antes de exportar.');
-                return;
-            }
-
-            // Coletar todas as tarefas e ações
-            const tasks = [];
-
-            // Prioridades
-            const priorities = document.getElementById('priorities').value;
-            if (priorities) {
-                tasks.push({
-                    title: 'Prioridades do Dia',
-                    description: priorities,
-                    startTime: `${selectedDate}T09:00:00`,
-                    endTime: `${selectedDate}T09:30:00`
-                });
-            }
-
-            // Tarefas rápidas
-            const quickTasks = [
-                document.getElementById('quickTask1').value,
-                document.getElementById('quickTask2').value,
-                document.getElementById('quickTask3').value
-            ].filter(task => task.trim() !== '');
-
-            quickTasks.forEach((task, index) => {
-                tasks.push({
-                    title: task,
-                    description: 'Tarefa rápida',
-                    startTime: `${selectedDate}T10:00:00`,
-                    endTime: `${selectedDate}T10:30:00`
-                });
-            });
-
-            // Plano de ação
-            for (let i = 1; i <= 10; i++) {
-                const action = document.getElementById(`action${i}`).value;
-                if (action) {
-                    tasks.push({
-                        title: action,
-                        description: `Ação ${i} do plano`,
-                        startTime: `${selectedDate}T${10 + i}:00:00`,
-                        endTime: `${selectedDate}T${10 + i}:30:00`
-                    });
-                }
-            }
-
-            // Outras tarefas
-            for (let i = 1; i <= 5; i++) {
-                const task = document.getElementById(`otherTask${i}`).value;
-                if (task) {
-                    tasks.push({
-                        title: task,
-                        description: `Outra tarefa ${i}`,
-                        startTime: `${selectedDate}T${14 + i}:00:00`,
-                        endTime: `${selectedDate}T${14 + i}:30:00`
-                    });
-                }
-            }
-
-            // Lembretes
-            for (let i = 1; i <= 5; i++) {
-                const reminder = document.getElementById(`reminder${i}`).value;
-                if (reminder) {
-                    tasks.push({
-                        title: reminder,
-                        description: `Lembrete ${i}`,
-                        startTime: `${selectedDate}T18:00:00`,
-                        endTime: `${selectedDate}T18:15:00`
-                    });
-                }
-            }
-
-            // Refeições
-            const meals = {
-                breakfast: document.getElementById('breakfast').value,
-                lunch: document.getElementById('lunch').value,
-                dinner: document.getElementById('dinner').value
-            };
-
-            if (meals.breakfast) {
-                tasks.push({
-                    title: 'Café da manhã: ' + meals.breakfast,
-                    description: 'Refeição',
-                    startTime: `${selectedDate}T08:00:00`,
-                    endTime: `${selectedDate}T08:30:00`
-                });
-            }
-
-            if (meals.lunch) {
-                tasks.push({
-                    title: 'Almoço: ' + meals.lunch,
-                    description: 'Refeição',
-                    startTime: `${selectedDate}T12:00:00`,
-                    endTime: `${selectedDate}T13:00:00`
-                });
-            }
-
-            if (meals.dinner) {
-                tasks.push({
-                    title: 'Jantar: ' + meals.dinner,
-                    description: 'Refeição',
-                    startTime: `${selectedDate}T19:00:00`,
-                    endTime: `${selectedDate}T20:00:00`
-                });
-            }
-
-            // Criar URL para o Google Calendar
-            const baseUrl = 'https://calendar.google.com/calendar/render?action=TEMPLATE';
-
-            // Abrir uma nova janela para cada evento (o Google Calendar permite múltiplos eventos em sequência)
-            tasks.forEach((task, index) => {
-                const eventUrl = `${baseUrl}&text=${encodeURIComponent(task.title)}` +
-                    `&details=${encodeURIComponent(task.description)}` +
-                    `&dates=${formatDateForGoogleCalendar(task.startTime)}` +
-                    `/${formatDateForGoogleCalendar(task.endTime)}`;
-
-                // Abrir o primeiro evento imediatamente, os demais com pequeno atraso
-                if (index === 0) {
-                    window.open(eventUrl, '_blank');
-                } else {
-                    setTimeout(() => {
-                        window.open(eventUrl, '_blank');
-                    }, index * 500); // Atraso para evitar bloqueio de pop-ups
-                }
-            });
-        }
-
-        function formatDateForGoogleCalendar(dateTimeString) {
-            const date = new Date(dateTimeString);
-            return date.toISOString().replace(/-|:|\.\d\d\d/g, '');
-        }
-    </script>
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
 </body>
 
 </html>
