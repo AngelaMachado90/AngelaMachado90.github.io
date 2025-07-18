@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function () {
             <input type="text" class="quick-task-input" placeholder="Descreva a tarefa rápida">
             <div class="task-actions">
                 <button class="start-task-btn" data-task-id="${taskId}">
-                    <i class="bi bi-play-fill"></i>
+                    <i class="bi bi-play-fill"></i> Iniciar
                 </button>
                 <button class="delete-task-btn" data-task-id="${taskId}">
                     <i class="bi bi-trash-fill"></i>
@@ -419,7 +419,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                 <input type="text" class="quick-task-input" value="${task.text}" placeholder="Descreva a tarefa rápida">
                                 <div class="task-actions">
                                     <button class="start-task-btn" data-task-id="${task.id}">
-                                        <i class="bi bi-play-fill"></i>
+                                        <i class="bi bi-play-fill"></i> Iniciar
                                     </button>
                                     <button class="delete-task-btn" data-task-id="${task.id}">
                                         <i class="bi bi-trash-fill"></i>
