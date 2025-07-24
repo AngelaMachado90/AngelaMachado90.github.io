@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarefas rápidas</title>
+
+
+    <!-- Favicon -->
+    <link rel="icon" href="../imagens/favinco.ico" type="image/x-icon">
+    <link rel="icon" href="../imagens/favinco.png" type="image/png">
+    <link rel="apple-touch-icon" href="./imagens/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="tarefasRapidas.css">
+</head>
+<body>
+    <h1>Tarefas rápidas</h1>
+    
+    <div class="input-group mb-3">
+        <input type="text" id="newTaskInput" class="form-control" placeholder="Digite uma nova tarefa">
+        <button id="addTaskBtn" class="btn btn-primary" type="button">
+            <i class="bi bi-plus-lg"></i> Adicionar Tarefa
+        </button>
+    </div>
+    
+    <div class="task-list" id="pendingTasks">
+        <h3>Tarefas Pendentes</h3>
+        <div id="emptyState" class="text-muted">Nenhuma tarefa pendente</div>
+    </div>
+    
+    <hr>
+    
+    <div class="task-list" id="activeTasks">
+        <h3>Tarefas em Andamento</h3>
+        <div id="activeEmptyState" class="text-muted">Nenhuma tarefa em andamento</div>
+    </div>
+
+    <hr>
+
+    <div class="task-list" id="completedTasks">
+        <h3>Tarefas Concluídas</h3>
+        <div id="completedEmptyState" class="text-muted">Nenhuma tarefa concluída</div>
+    </div>
+
+    <div class="modal fade" id="pomodoroModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="pomodoroModalLabel">Pomodoro Timer</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <h2 id="timerDisplay">25:00</h2>
+                    <div class="progress mb-3">
+                        <div id="timerProgress" class="progress-bar" role="progressbar" style="width: 100%"></div>
+                    </div>
+                    <div id="currentTask" class="mb-3"></div>
+                    <button id="startTimerBtn" class="btn btn-success">Iniciar</button>
+                    <button id="pauseTimerBtn" class="btn btn-warning" style="display: none;">Pausar</button>
+                    <button id="resetTimerBtn" class="btn btn-secondary">Reiniciar</button>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Confirmar Remoção</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Tem certeza que deseja remover esta tarefa?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" id="confirmDeleteBtn" class="btn btn-danger">Remover</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="tarefasRapidas.js"></script>
+</body>
+</html>
