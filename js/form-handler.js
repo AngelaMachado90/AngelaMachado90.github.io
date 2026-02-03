@@ -1,7 +1,7 @@
 /**
  * form-handler.js - Gerenciador de Formulários
  * Versão: 1.0.0
- * Autor: [Seu Nome]
+ * Autor: Angela Machado
  * Descrição: Manipulação, validação e envio de formulários com feedback visual
  */
 
