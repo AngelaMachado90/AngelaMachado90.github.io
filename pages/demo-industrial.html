@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Demo: Industrial - Plataforma de Manufatura e Tecnologia">
+    <meta name="theme-color" content="#D35400">
+    <title>KoddaFactory - Soluções Industriais Avançadas</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: #0f0f0f; color: #ddd; }
+        
+        .industrial-header {
+            background: linear-gradient(90deg, #1a1a1a 0%, #2d2d2d 100%);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 2px solid #D35400;
+        }
+        
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        
+        .industrial-header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 30px;
+        }
+        
+        .industrial-logo {
+            font-size: 22px;
+            font-weight: 700;
+            color: #D35400;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .industrial-nav {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+        
+        .industrial-nav a {
+            text-decoration: none;
+            color: #ccc;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+        
+        .industrial-nav a:hover { color: #D35400; }
+        
+        .industrial-cta {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .btn-industrial {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        
+        .btn-industrial-primary { background: #D35400; color: white; }
+        .btn-industrial-primary:hover { background: #B54F00; transform: translateY(-2px); }
+        
+        .btn-industrial-secondary { background: transparent; color: #D35400; border: 2px solid #D35400; }
+        .btn-industrial-secondary:hover { background: #D35400; color: white; }
+        
+        .factory-hero {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            background-image: 
+                repeating-linear-gradient(90deg, transparent, transparent 2px, #D35400 2px, #D35400 4px),
+                repeating-linear-gradient(0deg, transparent, transparent 2px, #D35400 2px, #D35400 4px);
+            background-size: 40px 40px;
+            color: #fff;
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .factory-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(15, 15, 15, 0.8);
+            z-index: -1;
+        }
+        
+        .factory-hero h1 { font-size: 48px; margin-bottom: 15px; font-weight: 700; color: #D35400; }
+        .factory-hero p { font-size: 18px; margin-bottom: 30px; opacity: 0.95; }
+        
+        .hero-cta {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .metrics-dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 40px 20px;
+            background: #1a1a1a;
+        }
+        
+        .metric-card {
+            background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+            padding: 25px;
+            border-left: 4px solid #D35400;
+            border-radius: 4px;
+            text-align: center;
+        }
+        
+        .metric-value { font-size: 36px; font-weight: 700; color: #D35400; }
+        .metric-label { color: #999; margin-top: 8px; font-size: 14px; }
+        .metric-status { color: #4caf50; font-size: 12px; margin-top: 5px; }
+        
+        .equipment-section { padding: 60px 20px; background: #0f0f0f; }
+        
+        .section-title {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 40px;
+            color: #D35400;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title::after {
+            content: '';
+            width: 50px;
+            height: 3px;
+            background: #D35400;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+        
+        .equipment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        
+        .equipment-card {
+            background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+            border-radius: 8px;
+            overflow: hidden;
+            border-top: 3px solid #D35400;
+            transition: all 0.3s;
+        }
+        
+        .equipment-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(211, 84, 0, 0.2);
+        }
+        
+        .equipment-visual {
+            background: repeating-linear-gradient(90deg, #1a1a1a 0px, #1a1a1a 2px, #D35400 2px, #D35400 4px);
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+        }
+        
+        .equipment-name { padding: 20px; font-weight: 700; font-size: 18px; }
+        
+        .equipment-specs {
+            padding: 0 20px 20px;
+            border-top: 1px solid #404040;
+        }
+        
+        .spec-item { display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 14px; }
+        .spec-label { color: #999; }
+        .spec-value { color: #D35400; font-weight: 600; }
+        
+        .equipment-footer { padding: 15px 20px; border-top: 1px solid #404040; }
+        
+        .btn-equipment {
+            width: 100%;
+            padding: 10px;
+            background: #D35400;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        
+        .btn-equipment:hover { background: #B54F00; }
+        
+        .production-section {
+            background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+            padding: 60px 20px;
+        }
+        
+        .production-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .production-item {
+            border-left: 4px solid #D35400;
+            padding-left: 20px;
+        }
+        
+        .production-item h3 { color: #D35400; margin-bottom: 10px; }
+        .production-item p { color: #999; line-height: 1.6; }
+        
+        .production-stats { display: flex; gap: 10px; margin-top: 15px; }
+        .stat-badge { background: #D35400; color: white; padding: 4px 10px; border-radius: 3px; font-size: 12px; }
+        
+        .certifications-section { padding: 60px 20px; background: #0f0f0f; }
+        
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .cert-card {
+            background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+            padding: 30px;
+            text-align: center;
+            border-radius: 8px;
+            border: 2px solid #D35400;
+        }
+        
+        .cert-icon { font-size: 48px; margin-bottom: 10px; }
+        .cert-name { color: #D35400; font-weight: 700; margin-bottom: 5px; }
+        .cert-year { color: #666; font-size: 14px; }
+        
+        .cta-section {
+            background: linear-gradient(135deg, #D35400 0%, #B54F00 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        
+        .cta-section h2 { font-size: 36px; margin-bottom: 20px; }
+        .cta-section p { font-size: 16px; margin-bottom: 30px; opacity: 0.95; }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn-cta {
+            padding: 14px 35px;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 16px;
+        }
+        
+        .btn-cta-white { background: white; color: #D35400; }
+        .btn-cta-white:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+        
+        .btn-cta-outline { background: transparent; color: white; border: 2px solid white; }
+        .btn-cta-outline:hover { background: white; color: #D35400; }
+        
+        .industrial-footer {
+            background: #1a1a1a;
+            color: #999;
+            padding: 40px 20px;
+            border-top: 2px solid #D35400;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column h4 { margin-bottom: 15px; color: #D35400; }
+        .footer-column ul { list-style: none; }
+        .footer-column ul li { margin-bottom: 8px; }
+        .footer-column a { color: #999; text-decoration: none; transition: 0.3s; }
+        .footer-column a:hover { color: #D35400; }
+        
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header class="industrial-header">
+        <div class="container">
+            <div class="industrial-header-content">
+                <div class="industrial-logo">
+                    <i class="fas fa-industry"></i>
+                    KoddaFactory
+                </div>
+                <nav>
+                    <ul class="industrial-nav">
+                        <li><a href="#equipamentos">Equipamentos</a></li>
+                        <li><a href="#producao">Produção</a></li>
+                        <li><a href="#certificacoes">Certificações</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                    </ul>
+                </nav>
+                <div class="industrial-cta">
+                    <button class="btn-industrial btn-industrial-secondary">📋 Catálogo</button>
+                    <button class="btn-industrial btn-industrial-primary">⚙️ Solicitar Demo</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="factory-hero">
+        <h1>⚙️ Soluções Industriais Avançadas</h1>
+        <p>Manufatura de alta precisão com tecnologia de ponta</p>
+        <div class="hero-cta">
+            <button class="btn-industrial btn-industrial-primary">Explorar Equipamentos</button>
+            <button class="btn-industrial btn-industrial-secondary">Conheça Nossa Fábrica</button>
+        </div>
+    </section>
+
+    <section class="metrics-dashboard">
+        <div class="metric-card">
+            <div class="metric-value">99.8%</div>
+            <div class="metric-label">Taxa de Uptime</div>
+            <div class="metric-status">✓ Operacional</div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-value">150+</div>
+            <div class="metric-label">Máquinas Ativas</div>
+            <div class="metric-status">✓ Em Produção</div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-value">50.000</div>
+            <div class="metric-label">Unidades/Mês</div>
+            <div class="metric-status">✓ Aumentando</div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-value">24/7</div>
+            <div class="metric-label">Suporte Técnico</div>
+            <div class="metric-status">✓ Disponível</div>
+        </div>
+    </section>
+
+    <section class="equipment-section" id="equipamentos">
+        <div class="container">
+            <h2 class="section-title">🤖 Equipamento de Produção</h2>
+            <div class="equipment-grid">
+                <div class="equipment-card">
+                    <div class="equipment-visual">🔧</div>
+                    <div class="equipment-name">CNC Laser 4000W</div>
+                    <div class="equipment-specs">
+                        <div class="spec-item">
+                            <span class="spec-label">Potência:</span>
+                            <span class="spec-value">4000W</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Velocidade:</span>
+                            <span class="spec-value">120 mm/s</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Precisão:</span>
+                            <span class="spec-value">±0.1mm</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Status:</span>
+                            <span class="spec-value">Operacional</span>
+                        </div>
+                    </div>
+                    <div class="equipment-footer">
+                        <button class="btn-equipment">Detalhes</button>
+                    </div>
+                </div>
+
+                <div class="equipment-card">
+                    <div class="equipment-visual">⚙️</div>
+                    <div class="equipment-name">Torno CNC 3-Eixos</div>
+                    <div class="equipment-specs">
+                        <div class="spec-item">
+                            <span class="spec-label">Torque Máx:</span>
+                            <span class="spec-value">500 Nm</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">RPM:</span>
+                            <span class="spec-value">6000</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Carga:</span>
+                            <span class="spec-value">800 kg</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Idade:</span>
+                            <span class="spec-value">2 anos</span>
+                        </div>
+                    </div>
+                    <div class="equipment-footer">
+                        <button class="btn-equipment">Detalhes</button>
+                    </div>
+                </div>
+
+                <div class="equipment-card">
+                    <div class="equipment-visual">🏭</div>
+                    <div class="equipment-name">Prensa Hidráulica 100T</div>
+                    <div class="equipment-specs">
+                        <div class="spec-item">
+                            <span class="spec-label">Força:</span>
+                            <span class="spec-value">100 Toneladas</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Frequência:</span>
+                            <span class="spec-value">50 ciclos/min</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Precisão:</span>
+                            <span class="spec-value">±0.5mm</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Status:</span>
+                            <span class="spec-value">Operacional</span>
+                        </div>
+                    </div>
+                    <div class="equipment-footer">
+                        <button class="btn-equipment">Detalhes</button>
+                    </div>
+                </div>
+
+                <div class="equipment-card">
+                    <div class="equipment-visual">🔌</div>
+                    <div class="equipment-name">Robô Soldador ABB</div>
+                    <div class="equipment-specs">
+                        <div class="spec-item">
+                            <span class="spec-label">Alcance:</span>
+                            <span class="spec-value">2.55 metros</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Carga:</span>
+                            <span class="spec-value">20 kg</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Eixos:</span>
+                            <span class="spec-value">6 Eixos</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Status:</span>
+                            <span class="spec-value">Operacional</span>
+                        </div>
+                    </div>
+                    <div class="equipment-footer">
+                        <button class="btn-equipment">Detalhes</button>
+                    </div>
+                </div>
+
+                <div class="equipment-card">
+                    <div class="equipment-visual">🔬</div>
+                    <div class="equipment-name">Máquina de Ensaios</div>
+                    <div class="equipment-specs">
+                        <div class="spec-item">
+                            <span class="spec-label">Tensão Máx:</span>
+                            <span class="spec-value">300 kN</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Temperatura:</span>
+                            <span class="spec-value">-50 a 300°C</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Precisão:</span>
+                            <span class="spec-value">±0.05%</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Status:</span>
+                            <span class="spec-value">Calibrado</span>
+                        </div>
+                    </div>
+                    <div class="equipment-footer">
+                        <button class="btn-equipment">Detalhes</button>
+                    </div>
+                </div>
+
+                <div class="equipment-card">
+                    <div class="equipment-visual">📦</div>
+                    <div class="equipment-name">Sistema de Embalagem</div>
+                    <div class="equipment-specs">
+                        <div class="spec-item">
+                            <span class="spec-label">Velocidade:</span>
+                            <span class="spec-value">200 pçs/min</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Formatos:</span>
+                            <span class="spec-value">Variável</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Sensores:</span>
+                            <span class="spec-value">12 Pontos</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Status:</span>
+                            <span class="spec-value">Operacional</span>
+                        </div>
+                    </div>
+                    <div class="equipment-footer">
+                        <button class="btn-equipment">Detalhes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="production-section" id="producao">
+        <div class="container">
+            <h2 class="section-title">📊 Capacidade de Produção</h2>
+            <div class="production-grid">
+                <div class="production-item">
+                    <h3>🏗️ Usinagem de Precisão</h3>
+                    <p>Peças usinadas em alumínio, aço e aços especiais com tolerâncias dimensionais extremamente apertadas. Produção até 15.000 peças/mês.</p>
+                    <div class="production-stats">
+                        <span class="stat-badge">CNC 3-5 Eixos</span>
+                        <span class="stat-badge">±0.05mm</span>
+                        <span class="stat-badge">24/7</span>
+                    </div>
+                </div>
+
+                <div class="production-item">
+                    <h3>🔌 Soldagem Industrial</h3>
+                    <p>Soldagem de conjuntos metálicos com tecnologia de ponta. Robôs especializados garantem qualidade uniforme em grandes volumes.</p>
+                    <div class="production-stats">
+                        <span class="stat-badge">6 Robôs</span>
+                        <span class="stat-badge">TIG/MIG</span>
+                        <span class="stat-badge">8.000/mês</span>
+                    </div>
+                </div>
+
+                <div class="production-item">
+                    <h3>💥 Corte a Laser</h3>
+                    <p>Corte de chapas de até 3mm em diversos materiais. Sistema de corte a laser 4000W com controle digital de precisão.</p>
+                    <div class="production-stats">
+                        <span class="stat-badge">4000W</span>
+                        <span class="stat-badge">±0.1mm</span>
+                        <span class="stat-badge">50.000 pç/mês</span>
+                    </div>
+                </div>
+
+                <div class="production-item">
+                    <h3>🔧 Conformação de Metais</h3>
+                    <p>Dobramento, estampagem e conformação de peças metálicas com prensa hidráulica de 100 toneladas. Máxima flexibilidade.</p>
+                    <div class="production-stats">
+                        <span class="stat-badge">100T</span>
+                        <span class="stat-badge">Customizado</span>
+                        <span class="stat-badge">Rápido</span>
+                    </div>
+                </div>
+
+                <div class="production-item">
+                    <h3>🧪 Controle de Qualidade</h3>
+                    <p>Testes de resistência, dureza e tolerâncias em máquinas de ensaio calibradas. Certificados de conformidade para cada lote.</p>
+                    <div class="production-stats">
+                        <span class="stat-badge">300 kN</span>
+                        <span class="stat-badge">ISO 9001</span>
+                        <span class="stat-badge">Rastreável</span>
+                    </div>
+                </div>
+
+                <div class="production-item">
+                    <h3>📦 Logística Integrada</h3>
+                    <p>Embalagem automatizada, paletização e sistema de gestão de estoque. Pronto para expedição conforme cronograma do cliente.</p>
+                    <div class="production-stats">
+                        <span class="stat-badge">200 pç/min</span>
+                        <span class="stat-badge">JIT</span>
+                        <span class="stat-badge">Customizado</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="certifications-section" id="certificacoes">
+        <div class="container">
+            <h2 class="section-title">🏆 Certificações e Conformidades</h2>
+            <div class="certifications-grid">
+                <div class="cert-card">
+                    <div class="cert-icon">✓</div>
+                    <div class="cert-name">ISO 9001:2015</div>
+                    <div class="cert-year">Gestão da Qualidade</div>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-icon">✓</div>
+                    <div class="cert-name">ISO 14001:2015</div>
+                    <div class="cert-year">Gestão Ambiental</div>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-icon">✓</div>
+                    <div class="cert-name">OHSAS 18001</div>
+                    <div class="cert-year">Saúde e Segurança</div>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-icon">✓</div>
+                    <div class="cert-name">AS 9100</div>
+                    <div class="cert-year">Aeroespacial</div>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-icon">✓</div>
+                    <div class="cert-name">IATF 16949</div>
+                    <div class="cert-year">Automotiva</div>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-icon">✓</div>
+                    <div class="cert-name">ISO/IEC 27001</div>
+                    <div class="cert-year">Segurança da Informação</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <h2>Transforme Sua Produção</h2>
+        <p>Solicite uma consultoria técnica com nossos especialistas em manufatura</p>
+        <div class="cta-buttons">
+            <button class="btn-cta btn-cta-white">📋 Catálogo Completo</button>
+            <button class="btn-cta btn-cta-outline">⚙️ Solicitar Orçamento</button>
+        </div>
+    </section>
+
+    <footer class="industrial-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h4>Serviços</h4>
+                    <ul>
+                        <li><a href="#">Usinagem CNC</a></li>
+                        <li><a href="#">Soldagem Industrial</a></li>
+                        <li><a href="#">Corte a Laser</a></li>
+                        <li><a href="#">Conformação</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Técnico</h4>
+                    <ul>
+                        <li><a href="#">Especificações</a></li>
+                        <li><a href="#">Manutenção</a></li>
+                        <li><a href="#">Capacidade</a></li>
+                        <li><a href="#">Certificados</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Negócios</h4>
+                    <ul>
+                        <li><a href="#">Sobre Nós</a></li>
+                        <li><a href="#">Portfólio</a></li>
+                        <li><a href="#">Parcerias</a></li>
+                        <li><a href="#">Carreira</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Contato</h4>
+                    <ul>
+                        <li><a href="#">Suporte 24/7</a></li>
+                        <li><a href="#">Email Técnico</a></li>
+                        <li><a href="#">WhatsApp</a></li>
+                        <li><a href="#">Visitar Fábrica</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 KoddaFactory - Soluções Industriais Avançadas. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
