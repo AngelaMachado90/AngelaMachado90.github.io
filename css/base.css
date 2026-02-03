@@ -1,9 +1,34 @@
 /* ============================================================================
    BASE.CSS - Base Typography, Colors, and Fundamental Elements
+   KoddaHub Color Palette Implementation
    ============================================================================ */
 
-/* ========== HTML & BODY ========== */
+/* ========== ROOT VARIABLES (KODDAHUB PALETTE) ========== */
+:root {
+  /* KoddaHub Color Palette */
+  --orange-vibrant: #F57C00;
+  /* Destaques, botões principais, ícones */
+  --black-deep: #212121;
+  /* Fundo, texto principal, cabeçalhos */
+  --gray-circuit: #9E9E9E;
+  /* Bordas, divisores, texto secundário */
+  --blue-electric: #2196F3;
+  /* Links, detalhes interativos, hover */
+  --white-neutral: #FAFAFA;
+  /* Fundo de seções, contraste com preto */
 
+  /* Derived colors for states */
+  --orange-dark: #E65100;
+  /* Orange hover/active state */
+  --blue-dark: #1976D2;
+  /* Blue hover/active state */
+  --gray-light: #E0E0E0;
+  /* Light borders, subtle backgrounds */
+  --gray-dark: #616161;
+  /* Darker text, strong borders */
+}
+
+/* ========== HTML & BODY ========== */
 html {
   font-size: 16px;
   scroll-behavior: smooth;
@@ -15,22 +40,26 @@ body {
   font-size: var(--fs-base);
   font-weight: var(--fw-normal);
   line-height: var(--lh-relaxed);
-  color: var(--neutral-900);
-  background-color: var(--neutral-50);
+  color: var(--black-deep);
+  background-color: var(--white-neutral);
   min-height: 100vh;
   position: relative;
   overflow-x: hidden;
 }
 
 /* ========== TYPOGRAPHY ========== */
-
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-heading);
   font-weight: var(--fw-bold);
   line-height: var(--lh-heading);
   letter-spacing: var(--ls-tight);
   margin-bottom: var(--space-4);
-  color: var(--neutral-900);
+  color: var(--black-deep);
 }
 
 h1 {
@@ -60,41 +89,39 @@ h6 {
 p {
   margin-bottom: var(--space-4);
   line-height: var(--lh-relaxed);
-  color: var(--neutral-700);
+  color: var(--gray-dark);
 }
 
 p:last-child {
   margin-bottom: 0;
 }
 
-/* Small */
 small,
 .text-small {
   font-size: var(--fs-sm);
   line-height: var(--lh-normal);
 }
 
-/* Micro */
 .text-xs {
   font-size: var(--fs-xs);
 }
 
 /* ========== LISTS ========== */
-
-ul, ol {
+ul,
+ol {
   margin-bottom: var(--space-4);
   padding-left: var(--space-6);
 }
 
 li {
   margin-bottom: var(--space-2);
-  color: var(--neutral-700);
+  color: var(--gray-dark);
   line-height: var(--lh-relaxed);
 }
 
 dt {
   font-weight: var(--fw-semibold);
-  color: var(--neutral-900);
+  color: var(--black-deep);
   margin-top: var(--space-4);
   margin-bottom: var(--space-2);
 }
@@ -102,40 +129,38 @@ dt {
 dd {
   margin-left: 0;
   margin-bottom: var(--space-3);
-  color: var(--neutral-700);
+  color: var(--gray-dark);
 }
 
 /* ========== LINKS ========== */
-
 a {
-  color: var(--primary-600);
+  color: var(--blue-electric);
   text-decoration: underline;
   transition: color var(--duration-200) var(--ease-out);
   outline-offset: 2px;
 }
 
 a:hover {
-  color: var(--primary-700);
+  color: var(--orange-vibrant);
   text-decoration: none;
 }
 
 a:focus {
-  outline: 2px solid var(--primary-500);
+  outline: 2px solid var(--blue-electric);
   outline-offset: 2px;
 }
 
 a:active {
-  color: var(--primary-800);
+  color: var(--orange-dark);
 }
 
 /* ========== BLOCKQUOTE ========== */
-
 blockquote {
   margin: var(--space-4) 0;
   padding: var(--space-4) var(--space-5);
-  border-left: 4px solid var(--primary-500);
-  background-color: var(--primary-50);
-  color: var(--neutral-700);
+  border-left: 4px solid var(--orange-vibrant);
+  background-color: var(--white-neutral);
+  color: var(--gray-dark);
   font-style: italic;
   line-height: var(--lh-relaxed);
 }
@@ -148,18 +173,17 @@ blockquote cite {
   display: block;
   margin-top: var(--space-3);
   font-style: normal;
-  color: var(--neutral-600);
+  color: var(--gray-circuit);
   font-size: var(--fs-sm);
 }
 
 /* ========== CODE ========== */
-
 code,
 pre {
   font-family: var(--font-mono);
   font-size: var(--fs-sm);
-  color: var(--neutral-900);
-  background-color: var(--neutral-100);
+  color: var(--black-deep);
+  background-color: var(--white-neutral);
   border-radius: var(--radius-sm);
   line-height: var(--lh-normal);
 }
@@ -184,16 +208,13 @@ pre code {
   white-space: pre;
 }
 
-/* ========== ABBREVIATIONS ========== */
-
+/* ========== MISC TEXT ELEMENTS ========== */
 abbr[title] {
   text-decoration: underline dotted;
   cursor: help;
   border-bottom: none;
   text-underline-offset: 2px;
 }
-
-/* ========== MARKS ========== */
 
 mark {
   background-color: #fef3c7;
@@ -202,29 +223,19 @@ mark {
   border-radius: var(--radius-xs);
 }
 
-/* ========== HORIZONTAL RULE ========== */
-
-hr {
-  margin: var(--space-6) 0;
-  border: none;
-  border-top: 1px solid var(--neutral-200);
-  height: 0;
-}
-
-/* ========== STRONG & EMPHASIS ========== */
-
-strong, b {
+strong,
+b {
   font-weight: var(--fw-bold);
-  color: var(--neutral-900);
+  color: var(--black-deep);
 }
 
-em, i {
+em,
+i {
   font-style: italic;
 }
 
-/* ========== SUBSCRIPT & SUPERSCRIPT ========== */
-
-sub, sup {
+sub,
+sup {
   font-size: var(--fs-xs);
   line-height: 0;
   position: relative;
@@ -239,14 +250,21 @@ sup {
   top: -0.5em;
 }
 
-/* ========== IMAGES ========== */
+/* ========== HORIZONTAL RULE ========== */
+hr {
+  margin: var(--space-6) 0;
+  border: none;
+  border-top: 1px solid var(--gray-circuit);
+  height: 0;
+}
 
+/* ========== MEDIA ========== */
 img {
   max-width: 100%;
   height: auto;
   display: block;
   border-radius: var(--radius-base);
-  background-color: var(--neutral-100);
+  background-color: var(--white-neutral);
 }
 
 figure {
@@ -256,13 +274,12 @@ figure {
 figcaption {
   margin-top: var(--space-2);
   font-size: var(--fs-sm);
-  color: var(--neutral-600);
+  color: var(--gray-circuit);
   font-style: italic;
   text-align: center;
 }
 
 /* ========== TABLES ========== */
-
 table {
   width: 100%;
   border-collapse: collapse;
@@ -275,31 +292,30 @@ table {
 }
 
 thead {
-  background-color: var(--neutral-100);
-  border-bottom: 2px solid var(--neutral-200);
+  background-color: var(--white-neutral);
+  border-bottom: 2px solid var(--gray-circuit);
 }
 
 th {
   padding: var(--space-3) var(--space-4);
   text-align: left;
   font-weight: var(--fw-semibold);
-  color: var(--neutral-900);
+  color: var(--black-deep);
 }
 
 td {
   padding: var(--space-3) var(--space-4);
-  border-bottom: 1px solid var(--neutral-100);
-  color: var(--neutral-700);
+  border-bottom: 1px solid var(--gray-light);
+  color: var(--gray-dark);
 }
 
 tbody tr:hover {
-  background-color: var(--neutral-50);
+  background-color: rgba(245, 124, 0, 0.05);
 }
 
 /* ========== FORMS ========== */
-
 fieldset {
-  border: 1px solid var(--neutral-200);
+  border: 1px solid var(--gray-circuit);
   border-radius: var(--radius-base);
   padding: var(--space-4) var(--space-5);
   margin-bottom: var(--space-4);
@@ -308,18 +324,19 @@ fieldset {
 legend {
   padding: 0 var(--space-2);
   font-weight: var(--fw-semibold);
-  color: var(--neutral-900);
+  color: var(--black-deep);
 }
 
 label {
   display: block;
   margin-bottom: var(--space-2);
   font-weight: var(--fw-medium);
-  color: var(--neutral-900);
+  color: var(--black-deep);
   font-size: var(--fs-sm);
   cursor: pointer;
 }
 
+/* Text Inputs */
 input[type="text"],
 input[type="email"],
 input[type="password"],
@@ -335,41 +352,36 @@ textarea,
 select {
   width: 100%;
   padding: var(--space-3) var(--space-4);
-  font-size: 16px; /* Prevent iOS zoom */
+  font-size: 16px;
+  /* Prevent iOS zoom */
   font-family: inherit;
-  color: var(--neutral-900);
+  color: var(--black-deep);
   background-color: #fff;
-  border: 1px solid var(--neutral-300);
+  border: 1px solid var(--gray-circuit);
   border-radius: var(--radius-base);
   transition: border-color var(--duration-200) var(--ease-out),
-              box-shadow var(--duration-200) var(--ease-out);
+    box-shadow var(--duration-200) var(--ease-out);
   margin-bottom: var(--space-4);
   line-height: var(--lh-normal);
 }
 
-input[type="text"]::placeholder,
-input[type="email"]::placeholder,
-input[type="password"]::placeholder,
-input[type="search"]::placeholder,
-input[type="url"]::placeholder,
-input[type="tel"]::placeholder,
-textarea::placeholder {
-  color: var(--neutral-500);
+::placeholder {
+  color: var(--gray-circuit);
 }
 
 input:focus,
 textarea:focus,
 select:focus {
   outline: none;
-  border-color: var(--primary-500);
-  box-shadow: 0 0 0 3px rgba(12, 140, 224, 0.1);
+  border-color: var(--orange-vibrant);
+  box-shadow: 0 0 0 3px rgba(245, 124, 0, 0.1);
 }
 
 input:disabled,
 textarea:disabled,
 select:disabled {
-  background-color: var(--neutral-100);
-  color: var(--neutral-500);
+  background-color: var(--white-neutral);
+  color: var(--gray-circuit);
   cursor: not-allowed;
   opacity: 0.6;
 }
@@ -381,24 +393,25 @@ textarea {
 
 select {
   cursor: pointer;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M10.293 3.293L6 7.586 1.707 3.293A1 1 0 00.293 4.707l5 5a1 1 0 001.414 0l5-5a1 1 0 10-1.414-1.414z'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23212121' viewBox='0 0 12 12'%3E%3Cpath d='M10.293 3.293L6 7.586 1.707 3.293A1 1 0 00.293 4.707l5 5a1 1 0 001.414 0l5-5a1 1 0 10-1.414-1.414z'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right var(--space-3) center;
   background-size: 1.2em 1.2em;
   padding-right: var(--space-8);
 }
 
+/* Checkboxes & Radios */
 input[type="checkbox"],
 input[type="radio"] {
   width: auto;
   margin-right: var(--space-2);
   margin-bottom: 0;
   cursor: pointer;
-  accent-color: var(--primary-500);
+  accent-color: var(--orange-vibrant);
 }
 
-input[type="checkbox"] + label,
-input[type="radio"] + label {
+input[type="checkbox"]+label,
+input[type="radio"]+label {
   display: inline;
   margin-bottom: 0;
   margin-left: var(--space-2);
@@ -406,17 +419,16 @@ input[type="radio"] + label {
 }
 
 /* ========== DETAILS & SUMMARY ========== */
-
 details {
   margin-bottom: var(--space-4);
-  border: 1px solid var(--neutral-200);
+  border: 1px solid var(--gray-circuit);
   border-radius: var(--radius-base);
   overflow: hidden;
 }
 
 summary {
   padding: var(--space-4);
-  background-color: var(--neutral-100);
+  background-color: var(--white-neutral);
   font-weight: var(--fw-semibold);
   cursor: pointer;
   user-select: none;
@@ -424,20 +436,19 @@ summary {
 }
 
 summary:hover {
-  background-color: var(--neutral-200);
+  background-color: var(--gray-light);
 }
 
 details[open] summary {
-  border-bottom: 1px solid var(--neutral-200);
+  border-bottom: 1px solid var(--gray-circuit);
 }
 
-details > *:not(summary) {
+details>*:not(summary) {
   padding: var(--space-4);
   animation: slideDown var(--duration-300) var(--ease-out);
 }
 
 /* ========== PRINT STYLES ========== */
-
 @media print {
   body {
     background-color: #fff;
@@ -449,7 +460,12 @@ details > *:not(summary) {
     text-decoration: underline;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     page-break-after: avoid;
   }
 
@@ -463,4 +479,3 @@ details > *:not(summary) {
     page-break-inside: avoid;
   }
 }
-
