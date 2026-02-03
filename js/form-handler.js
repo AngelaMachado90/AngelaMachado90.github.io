@@ -1,104 +1,85 @@
-/* ========================================
-   FORM-HANDLER.JS - Form Submission & Validation
-   ======================================== */
-
+// Form Handler
 document.addEventListener('DOMContentLoaded', function() {
-  initializeFormHandling();
+    const form = document.getElementById('contactForm');
+    if (form) {
+        form.addEventListener('submit', handleFormSubmit);
+    }
 });
 
-/**
- * Initialize form handling for all forms on page
- */
-function initializeFormHandling() {
-  const forms = document.querySelectorAll('form');
-  
-  forms.forEach(form => {
-    form.addEventListener('submit', handleFormSubmit);
+function handleFormSubmit(e) {
+    e.preventDefault();
     
-    // Real-time validation
-    const inputs = form.querySelectorAll('input, textarea, select');
-    inputs.forEach(input => {
-      input.addEventListener('blur', validateField);
-      input.addEventListener('change', validateField);
-    });
-  });
-}
-
-/**
- * Handle form submission
- */
-function handleFormSubmit(event) {
-  event.preventDefault();
-  
-  const form = event.target;
-  const formData = new FormData(form);
-  
-  // Validate all fields
-  const isValid = validateForm(form);
-  
-  if (!isValid) {
-    showFormError(form, 'Por favor, preencha todos os campos obrigatórios corretamente.');
-    return;
-  }
-  
-  // Show loading state
-  const submitBtn = form.querySelector('input[type="submit"]');
-  if (submitBtn) {
+    const form = e.target;
+    const formData = new FormData(form);
+    
+    // Validar formulário
+    if (!validateForm(form)) {
+        showFormError(form);
+        return;
+    }
+    
+    // Desabilitar botão
+    const submitBtn = form.querySelector('button[type="submit"]');
     submitBtn.disabled = true;
-    submitBtn.classList.add('btn-loading');
-    submitBtn.value = 'Enviando...';
-  }
-  
-  // Submit form via Formspree
-  submitFormViaFormspree(form, formData, submitBtn);
-}
-
-/**
- * Submit form via Formspree
- */
-function submitFormViaFormspree(form, formData, submitBtn) {
-  const formAction = 'https://formspree.io/f/xyzaabbcc'; // Replace with your Formspree ID
-  
-  fetch(formAction, {
-    method: 'POST',
-    body: formData,
-    headers: {
-      'Accept': 'application/json'
-    }
-  })
-  .then(response => {
-    if (response.ok) {
-      showFormSuccess(form);
-      form.reset();
-      
-      // Reset button state
-      if (submitBtn) {
+    submitBtn.textContent = 'Enviando...';
+    
+    // Simular envio (substituir por API real)
+    setTimeout(() => {
+        showFormSuccess(form);
+        form.reset();
         submitBtn.disabled = false;
-        submitBtn.classList.remove('btn-loading');
-        submitBtn.value = 'Enviar Mensagem';
-      }
-    } else {
-      showFormError(form, 'Erro ao enviar formulário. Tente novamente.');
-      resetFormSubmitBtn(submitBtn);
-    }
-  })
-  .catch(error => {
-    console.error('Form submission error:', error);
-    showFormError(form, 'Erro de conexão. Tente novamente mais tarde.');
-    resetFormSubmitBtn(submitBtn);
-  });
+        submitBtn.textContent = 'Enviar Mensagem';
+    }, 1000);
 }
 
-/**
- * Reset form submit button
- */
-function resetFormSubmitBtn(submitBtn) {
-  if (submitBtn) {
-    submitBtn.disabled = false;
-    submitBtn.classList.remove('btn-loading');
-    submitBtn.value = 'Enviar Mensagem';
-  }
+function validateForm(form) {
+    const requiredFields = form.querySelectorAll('[required]');
+    let isValid = true;
+    
+    requiredFields.forEach(field => {
+        if (!field.value.trim()) {
+            isValid = false;
+            field.style.borderColor = '#ef4444';
+        } else {
+            field.style.borderColor = '';
+        }
+    });
+    
+    return isValid;
 }
+
+function showFormSuccess(form) {
+    const successMsg = form.querySelector('#formSuccess');
+    const errorMsg = form.querySelector('#formError');
+    
+    if (errorMsg) errorMsg.classList.add('hidden');
+    if (successMsg) {
+        successMsg.classList.remove('hidden');
+        successMsg.style.display = 'flex';
+        
+        setTimeout(() => {
+            successMsg.classList.add('hidden');
+            successMsg.style.display = 'none';
+        }, 5000);
+    }
+}
+
+function showFormError(form) {
+    const errorMsg = form.querySelector('#formError');
+    const successMsg = form.querySelector('#formSuccess');
+    
+    if (successMsg) successMsg.classList.add('hidden');
+    if (errorMsg) {
+        errorMsg.classList.remove('hidden');
+        errorMsg.style.display = 'flex';
+        
+        setTimeout(() => {
+            errorMsg.classList.add('hidden');
+            errorMsg.style.display = 'none';
+        }, 5000);
+    }
+}
+
 
 /**
  * Validate entire form
