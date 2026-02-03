@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Demo: Serviços - Agência de Criatividade">
+    <meta name="theme-color" content="#8E44AD">
+    <title>CreativeHub - Agência de Design e Marketing Digital</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: white; }
+        
+        .agency-header {
+            background: white;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+        
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        
+        .agency-header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 30px;
+        }
+        
+        .agency-logo {
+            font-size: 22px;
+            font-weight: 700;
+            color: #8E44AD;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .agency-nav {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+        
+        .agency-nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+        
+        .agency-nav a:hover { color: #8E44AD; }
+        
+        .agency-cta {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .btn-agency {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        
+        .btn-agency-primary { background: #8E44AD; color: white; }
+        .btn-agency-primary:hover { background: #7A3B8C; transform: translateY(-2px); }
+        
+        .btn-agency-secondary { background: white; color: #8E44AD; border: 2px solid #8E44AD; }
+        .btn-agency-secondary:hover { background: #8E44AD; color: white; }
+        
+        .agency-hero {
+            background: linear-gradient(135deg, #8E44AD 0%, #A055C2 100%);
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+        }
+        
+        .agency-hero h1 { font-size: 52px; margin-bottom: 15px; font-weight: 700; }
+        .agency-hero p { font-size: 20px; margin-bottom: 30px; opacity: 0.95; }
+        
+        .hero-cta {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .services-section { padding: 80px 20px; background: #f8f8f8; }
+        
+        .section-title {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-align: center;
+            color: #333;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 50px;
+            font-size: 18px;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+            border-top: 4px solid #8E44AD;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(142, 68, 173, 0.15);
+        }
+        
+        .service-icon { font-size: 48px; margin-bottom: 15px; }
+        .service-name { font-size: 22px; font-weight: 700; margin-bottom: 12px; color: #333; }
+        .service-desc { color: #666; line-height: 1.6; margin-bottom: 20px; }
+        
+        .service-features {
+            text-align: left;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .service-features li { margin-bottom: 8px; }
+        .service-features i { color: #8E44AD; margin-right: 8px; }
+        
+        .portfolio-section { padding: 80px 20px; background: white; }
+        
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        
+        .portfolio-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            height: 280px;
+            cursor: pointer;
+            group: 'portfolio';
+        }
+        
+        .portfolio-image {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #8E44AD, #A055C2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+            transition: all 0.3s;
+        }
+        
+        .portfolio-item:hover .portfolio-image {
+            transform: scale(1.1);
+        }
+        
+        .portfolio-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            padding: 20px;
+            color: white;
+            transform: translateY(100%);
+            transition: transform 0.3s;
+        }
+        
+        .portfolio-item:hover .portfolio-overlay {
+            transform: translateY(0);
+        }
+        
+        .portfolio-title { font-size: 18px; font-weight: 700; margin-bottom: 5px; }
+        .portfolio-category { font-size: 14px; opacity: 0.9; }
+        
+        .testimonials-section {
+            background: linear-gradient(135deg, #8E44AD 0%, #A055C2 100%);
+            color: white;
+            padding: 80px 20px;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .testimonial-card {
+            background: rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: 12px;
+            border-left: 4px solid white;
+        }
+        
+        .testimonial-quote { font-size: 16px; margin-bottom: 20px; line-height: 1.6; }
+        .testimonial-author { font-weight: 600; margin-bottom: 3px; }
+        .testimonial-role { font-size: 14px; opacity: 0.9; }
+        .testimonial-rating { color: #FFD700; margin-top: 10px; }
+        
+        .team-section { padding: 80px 20px; background: #f8f8f8; }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .team-member {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .team-member:hover { transform: translateY(-10px); }
+        
+        .member-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #8E44AD, #A055C2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+        }
+        
+        .member-info { padding: 20px; }
+        .member-name { font-size: 18px; font-weight: 700; color: #333; margin-bottom: 5px; }
+        .member-role { color: #8E44AD; font-weight: 600; margin-bottom: 10px; }
+        .member-bio { font-size: 14px; color: #666; }
+        
+        .cta-section {
+            background: linear-gradient(135deg, #8E44AD 0%, #A055C2 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+        
+        .cta-section h2 { font-size: 40px; margin-bottom: 15px; }
+        .cta-section p { font-size: 18px; margin-bottom: 30px; opacity: 0.95; }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn-cta {
+            padding: 14px 35px;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 16px;
+        }
+        
+        .btn-cta-white { background: white; color: #8E44AD; }
+        .btn-cta-white:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+        
+        .btn-cta-outline { background: transparent; color: white; border: 2px solid white; }
+        .btn-cta-outline:hover { background: white; color: #8E44AD; }
+        
+        .agency-footer {
+            background: #1a1a1a;
+            color: #999;
+            padding: 40px 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column h4 { margin-bottom: 15px; color: #8E44AD; }
+        .footer-column ul { list-style: none; }
+        .footer-column ul li { margin-bottom: 8px; }
+        .footer-column a { color: #999; text-decoration: none; transition: 0.3s; }
+        .footer-column a:hover { color: #8E44AD; }
+        
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header class="agency-header">
+        <div class="container">
+            <div class="agency-header-content">
+                <div class="agency-logo">
+                    <i class="fas fa-palette"></i>
+                    CreativeHub
+                </div>
+                <nav>
+                    <ul class="agency-nav">
+                        <li><a href="#servicos">Serviços</a></li>
+                        <li><a href="#portfolio">Portfólio</a></li>
+                        <li><a href="#equipe">Equipe</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                    </ul>
+                </nav>
+                <div class="agency-cta">
+                    <button class="btn-agency btn-agency-secondary">Conheça-nos</button>
+                    <button class="btn-agency btn-agency-primary">Solicitar Orçamento</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="agency-hero">
+        <h1>Criatividade Sem Limites</h1>
+        <p>Transforme sua marca em uma história de sucesso</p>
+        <div class="hero-cta">
+            <button class="btn-agency btn-agency-primary" style="background: white; color: #8E44AD;">Explorar Nosso Trabalho</button>
+            <button class="btn-agency btn-agency-secondary" style="border-color: white; color: white;">Converse Conosco</button>
+        </div>
+    </section>
+
+    <section class="services-section" id="servicos">
+        <div class="container">
+            <h2 class="section-title">🎨 Nossos Serviços</h2>
+            <p class="section-subtitle">Oferecemos soluções completas de design e marketing digital</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🎨</div>
+                    <div class="service-name">Design Gráfico</div>
+                    <div class="service-desc">Criação de identidades visuais marcantes e materiais de comunicação que refletem a essência da sua marca.</div>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Logotipos e identidade visual</li>
+                        <li><i class="fas fa-check"></i> Materiais impressos</li>
+                        <li><i class="fas fa-check"></i> Embalagens</li>
+                        <li><i class="fas fa-check"></i> Guias de estilo</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🌐</div>
+                    <div class="service-name">Web Design</div>
+                    <div class="service-desc">Websites modernos, responsivos e otimizados para conversão que elevam sua presença digital.</div>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Design responsivo</li>
+                        <li><i class="fas fa-check"></i> UX/UI estratégico</li>
+                        <li><i class="fas fa-check"></i> E-commerce</li>
+                        <li><i class="fas fa-check"></i> Landing pages</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">📱</div>
+                    <div class="service-name">App Design</div>
+                    <div class="service-desc">Interfaces intuitivas e atraentes para aplicações móveis que mantêm usuários engajados.</div>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> iOS/Android</li>
+                        <li><i class="fas fa-check"></i> Wireframing</li>
+                        <li><i class="fas fa-check"></i> Protótipos interativos</li>
+                        <li><i class="fas fa-check"></i> Design system</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">📊</div>
+                    <div class="service-name">Marketing Digital</div>
+                    <div class="service-desc">Estratégias digitais completas para aumentar sua presença, atração de leads e vendas.</div>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> SEO/SEM</li>
+                        <li><i class="fas fa-check"></i> Social media</li>
+                        <li><i class="fas fa-check"></i> Content marketing</li>
+                        <li><i class="fas fa-check"></i> Email marketing</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🎬</div>
+                    <div class="service-name">Vídeo Production</div>
+                    <div class="service-desc">Conteúdo visual profissional que conta a história da sua marca de forma impactante.</div>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Produção audiovisual</li>
+                        <li><i class="fas fa-check"></i> Animações 2D/3D</li>
+                        <li><i class="fas fa-check"></i> Motion graphics</li>
+                        <li><i class="fas fa-check"></i> Edição profissional</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">📈</div>
+                    <div class="service-name">Consultoria Estratégica</div>
+                    <div class="service-desc">Análise e orientação estratégica para potencializar seus resultados de marketing.</div>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Pesquisa de mercado</li>
+                        <li><i class="fas fa-check"></i> Análise de concorrência</li>
+                        <li><i class="fas fa-check"></i> Planejamento estratégico</li>
+                        <li><i class="fas fa-check"></i> Mentoria</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="portfolio-section" id="portfolio">
+        <div class="container">
+            <h2 class="section-title">💼 Portfólio de Projetos</h2>
+            <p class="section-subtitle">Alguns dos projetos que transformaram marcas</p>
+            
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <div class="portfolio-image">🏢</div>
+                    <div class="portfolio-overlay">
+                        <div class="portfolio-title">FinTech Startup</div>
+                        <div class="portfolio-category">Web Design + Branding</div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="portfolio-image">🛍️</div>
+                    <div class="portfolio-overlay">
+                        <div class="portfolio-title">E-commerce Fashion</div>
+                        <div class="portfolio-category">Web Design + App</div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="portfolio-image">🏥</div>
+                    <div class="portfolio-overlay">
+                        <div class="portfolio-title">Healthcare Platform</div>
+                        <div class="portfolio-category">UX/UI + App Design</div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="portfolio-image">🍕</div>
+                    <div class="portfolio-overlay">
+                        <div class="portfolio-title">Restaurant Chain</div>
+                        <div class="portfolio-category">Branding + Web</div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="portfolio-image">🎮</div>
+                    <div class="portfolio-overlay">
+                        <div class="portfolio-title">Gaming Studio</div>
+                        <div class="portfolio-category">Branding + Motion</div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="portfolio-image">🚗</div>
+                    <div class="portfolio-overlay">
+                        <div class="portfolio-title">Automotive Brand</div>
+                        <div class="portfolio-category">Campaign + Video</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials-section">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">💬 O que Nossos Clientes Dizem</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">"A CreativeHub transformou completamente a identidade visual da nossa empresa. O trabalho foi excelente e o processo muito profissional."</div>
+                    <div class="testimonial-author">Carlos Mendes</div>
+                    <div class="testimonial-role">CEO - Tech Solutions</div>
+                    <div class="testimonial-rating">★★★★★</div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">"Excelente serviço! Entregaram um website que não só é bonito, mas também convertem visitantes em clientes reais."</div>
+                    <div class="testimonial-author">Juliana Silva</div>
+                    <div class="testimonial-role">Gerente - E-commerce Plus</div>
+                    <div class="testimonial-rating">★★★★★</div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">"Trabalhar com a CreativeHub foi incrível. Equipe atenciosa, criativa e com prazos impecáveis. Recomendo muito!"</div>
+                    <div class="testimonial-author">Paulo Costa</div>
+                    <div class="testimonial-role">Fundador - StartUp Inovadora</div>
+                    <div class="testimonial-rating">★★★★☆</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="team-section" id="equipe">
+        <div class="container">
+            <h2 class="section-title">👥 Nossa Equipe</h2>
+            <p class="section-subtitle">Profissionais experientes dedicados ao seu sucesso</p>
+            
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-image">👨‍💼</div>
+                    <div class="member-info">
+                        <div class="member-name">Marco Oliveira</div>
+                        <div class="member-role">Creative Director</div>
+                        <div class="member-bio">12 anos de experiência em design e direção criativa</div>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <div class="member-image">👩‍💻</div>
+                    <div class="member-info">
+                        <div class="member-name">Amanda Santos</div>
+                        <div class="member-role">UI/UX Designer</div>
+                        <div class="member-bio">Especialista em design de interfaces modernas e intuitivas</div>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <div class="member-image">👨‍💼</div>
+                    <div class="member-info">
+                        <div class="member-name">Felipe Rodrigues</div>
+                        <div class="member-role">Marketing Strategist</div>
+                        <div class="member-bio">Estratégias digitais que geram resultados mensuráveis</div>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <div class="member-image">👩‍🎨</div>
+                    <div class="member-info">
+                        <div class="member-name">Beatriz Lima</div>
+                        <div class="member-role">Brand Specialist</div>
+                        <div class="member-bio">Criação de identidades de marca memoráveis</div>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <div class="member-image">👨‍🎬</div>
+                    <div class="member-info">
+                        <div class="member-name">Leonardo Castro</div>
+                        <div class="member-role">Video Producer</div>
+                        <div class="member-bio">Produção audiovisual de alta qualidade</div>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <div class="member-image">👩‍💼</div>
+                    <div class="member-info">
+                        <div class="member-name">Roberta Alves</div>
+                        <div class="member-role">Project Manager</div>
+                        <div class="member-bio">Garantia de qualidade e prazos em todos os projetos</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section" id="contato">
+        <h2>Vamos Criar Algo Incrível?</h2>
+        <p>Entre em contato com nossa equipe e descubra como podemos transformar sua marca</p>
+        <div class="cta-buttons">
+            <button class="btn-cta btn-cta-white">💬 Solicitar Reunião</button>
+            <button class="btn-cta btn-cta-outline">📧 Enviar Email</button>
+        </div>
+    </section>
+
+    <footer class="agency-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h4>Serviços</h4>
+                    <ul>
+                        <li><a href="#">Design Gráfico</a></li>
+                        <li><a href="#">Web Design</a></li>
+                        <li><a href="#">App Design</a></li>
+                        <li><a href="#">Marketing Digital</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Sobre</h4>
+                    <ul>
+                        <li><a href="#">Quem Somos</a></li>
+                        <li><a href="#">Nossa História</a></li>
+                        <li><a href="#">Valores</a></li>
+                        <li><a href="#">Prêmios</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Comunidade</h4>
+                    <ul>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Recursos</a></li>
+                        <li><a href="#">Cases de Sucesso</a></li>
+                        <li><a href="#">Parceiros</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Contato</h4>
+                    <ul>
+                        <li><a href="#">Email</a></li>
+                        <li><a href="#">WhatsApp</a></li>
+                        <li><a href="#">Redes Sociais</a></li>
+                        <li><a href="#">Localização</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 CreativeHub - Agência de Design e Marketing. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+
