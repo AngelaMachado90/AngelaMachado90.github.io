@@ -3,31 +3,6 @@
    KoddaHub Color Palette Implementation
    ============================================================================ */
 
-/* ========== ROOT VARIABLES (KODDAHUB PALETTE) ========== */
-:root {
-  /* KoddaHub Color Palette */
-  --orange-vibrant: #F57C00;
-  /* Destaques, botões principais, ícones */
-  --black-deep: #212121;
-  /* Fundo, texto principal, cabeçalhos */
-  --gray-circuit: #9E9E9E;
-  /* Bordas, divisores, texto secundário */
-  --blue-electric: #2196F3;
-  /* Links, detalhes interativos, hover */
-  --white-neutral: #FAFAFA;
-  /* Fundo de seções, contraste com preto */
-
-  /* Derived colors for states */
-  --orange-dark: #E65100;
-  /* Orange hover/active state */
-  --blue-dark: #1976D2;
-  /* Blue hover/active state */
-  --gray-light: #E0E0E0;
-  /* Light borders, subtle backgrounds */
-  --gray-dark: #616161;
-  /* Darker text, strong borders */
-}
-
 /* ========== HTML & BODY ========== */
 html {
   font-size: 16px;
@@ -106,32 +81,6 @@ small,
   font-size: var(--fs-xs);
 }
 
-/* ========== LISTS ========== */
-ul,
-ol {
-  margin-bottom: var(--space-4);
-  padding-left: var(--space-6);
-}
-
-li {
-  margin-bottom: var(--space-2);
-  color: var(--gray-dark);
-  line-height: var(--lh-relaxed);
-}
-
-dt {
-  font-weight: var(--fw-semibold);
-  color: var(--black-deep);
-  margin-top: var(--space-4);
-  margin-bottom: var(--space-2);
-}
-
-dd {
-  margin-left: 0;
-  margin-bottom: var(--space-3);
-  color: var(--gray-dark);
-}
-
 /* ========== LINKS ========== */
 a {
   color: var(--blue-electric);
@@ -188,104 +137,13 @@ pre {
   line-height: var(--lh-normal);
 }
 
-code {
-  padding: 0.125rem var(--space-2);
-  display: inline-block;
-  white-space: nowrap;
-  overflow-x: auto;
-}
-
-pre {
-  padding: var(--space-4);
-  overflow-x: auto;
-  margin-bottom: var(--space-4);
-}
-
-pre code {
-  padding: 0;
-  background-color: transparent;
-  display: block;
-  white-space: pre;
-}
-
-/* ========== MISC TEXT ELEMENTS ========== */
-abbr[title] {
-  text-decoration: underline dotted;
-  cursor: help;
-  border-bottom: none;
-  text-underline-offset: 2px;
-}
-
-mark {
-  background-color: #fef3c7;
-  color: inherit;
-  padding: 2px 4px;
-  border-radius: var(--radius-xs);
-}
-
-strong,
-b {
-  font-weight: var(--fw-bold);
-  color: var(--black-deep);
-}
-
-em,
-i {
-  font-style: italic;
-}
-
-sub,
-sup {
-  font-size: var(--fs-xs);
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline;
-}
-
-sub {
-  bottom: -0.25em;
-}
-
-sup {
-  top: -0.5em;
-}
-
-/* ========== HORIZONTAL RULE ========== */
-hr {
-  margin: var(--space-6) 0;
-  border: none;
-  border-top: 1px solid var(--gray-circuit);
-  height: 0;
-}
-
-/* ========== MEDIA ========== */
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  border-radius: var(--radius-base);
-  background-color: var(--white-neutral);
-}
-
-figure {
-  margin: var(--space-4) 0;
-}
-
-figcaption {
-  margin-top: var(--space-2);
-  font-size: var(--fs-sm);
-  color: var(--gray-circuit);
-  font-style: italic;
-  text-align: center;
-}
-
 /* ========== TABLES ========== */
 table {
   width: 100%;
   border-collapse: collapse;
   margin-bottom: var(--space-4);
   font-size: var(--fs-base);
-  background-color: #fff;
+  background-color: var(--white-pure);
   border-radius: var(--radius-base);
   overflow: hidden;
   box-shadow: var(--shadow-base);
@@ -314,57 +172,6 @@ tbody tr:hover {
 }
 
 /* ========== FORMS ========== */
-fieldset {
-  border: 1px solid var(--gray-circuit);
-  border-radius: var(--radius-base);
-  padding: var(--space-4) var(--space-5);
-  margin-bottom: var(--space-4);
-}
-
-legend {
-  padding: 0 var(--space-2);
-  font-weight: var(--fw-semibold);
-  color: var(--black-deep);
-}
-
-label {
-  display: block;
-  margin-bottom: var(--space-2);
-  font-weight: var(--fw-medium);
-  color: var(--black-deep);
-  font-size: var(--fs-sm);
-  cursor: pointer;
-}
-
-/* Text Inputs */
-input[type="text"],
-input[type="email"],
-input[type="password"],
-input[type="search"],
-input[type="url"],
-input[type="number"],
-input[type="tel"],
-input[type="date"],
-input[type="time"],
-input[type="datetime-local"],
-input[type="month"],
-textarea,
-select {
-  width: 100%;
-  padding: var(--space-3) var(--space-4);
-  font-size: 16px;
-  /* Prevent iOS zoom */
-  font-family: inherit;
-  color: var(--black-deep);
-  background-color: #fff;
-  border: 1px solid var(--gray-circuit);
-  border-radius: var(--radius-base);
-  transition: border-color var(--duration-200) var(--ease-out),
-    box-shadow var(--duration-200) var(--ease-out);
-  margin-bottom: var(--space-4);
-  line-height: var(--lh-normal);
-}
-
 ::placeholder {
   color: var(--gray-circuit);
 }
@@ -377,20 +184,6 @@ select:focus {
   box-shadow: 0 0 0 3px rgba(245, 124, 0, 0.1);
 }
 
-input:disabled,
-textarea:disabled,
-select:disabled {
-  background-color: var(--white-neutral);
-  color: var(--gray-circuit);
-  cursor: not-allowed;
-  opacity: 0.6;
-}
-
-textarea {
-  resize: vertical;
-  min-height: 120px;
-}
-
 select {
   cursor: pointer;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23212121' viewBox='0 0 12 12'%3E%3Cpath d='M10.293 3.293L6 7.586 1.707 3.293A1 1 0 00.293 4.707l5 5a1 1 0 001.414 0l5-5a1 1 0 10-1.414-1.414z'/%3E%3C/svg%3E");
@@ -400,82 +193,10 @@ select {
   padding-right: var(--space-8);
 }
 
-/* Checkboxes & Radios */
-input[type="checkbox"],
-input[type="radio"] {
-  width: auto;
-  margin-right: var(--space-2);
-  margin-bottom: 0;
-  cursor: pointer;
-  accent-color: var(--orange-vibrant);
-}
-
-input[type="checkbox"]+label,
-input[type="radio"]+label {
-  display: inline;
-  margin-bottom: 0;
-  margin-left: var(--space-2);
-  cursor: pointer;
-}
-
-/* ========== DETAILS & SUMMARY ========== */
-details {
-  margin-bottom: var(--space-4);
-  border: 1px solid var(--gray-circuit);
-  border-radius: var(--radius-base);
-  overflow: hidden;
-}
-
-summary {
-  padding: var(--space-4);
-  background-color: var(--white-neutral);
-  font-weight: var(--fw-semibold);
-  cursor: pointer;
-  user-select: none;
-  transition: background-color var(--duration-200) var(--ease-out);
-}
-
-summary:hover {
-  background-color: var(--gray-light);
-}
-
-details[open] summary {
-  border-bottom: 1px solid var(--gray-circuit);
-}
-
-details>*:not(summary) {
-  padding: var(--space-4);
-  animation: slideDown var(--duration-300) var(--ease-out);
-}
-
-/* ========== PRINT STYLES ========== */
-@media print {
-  body {
-    background-color: #fff;
-    color: #000;
-  }
-
-  a {
-    color: #000;
-    text-decoration: underline;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    page-break-after: avoid;
-  }
-
-  p {
-    orphans: 3;
-    widows: 3;
-  }
-
-  pre {
-    background-color: #f5f5f5;
-    page-break-inside: avoid;
-  }
+/* ========== HORIZONTAL RULE ========== */
+hr {
+  margin: var(--space-6) 0;
+  border: none;
+  border-top: 1px solid var(--gray-circuit);
+  height: 0;
 }

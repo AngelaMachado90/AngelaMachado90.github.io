@@ -1,562 +1,193 @@
 /* ============================================================================
-   RESPONSIVE.CSS - Media Queries and Responsive Adjustments
+   VARIABLES.CSS - Design System Variables
+   KoddaHub Color Palette & Design Tokens
    ============================================================================ */
 
-/* ========== MOBILE FIRST APPROACH (320px - 374px) ========== */
-
-/* Extra Small Devices */
-@media (max-width: 374px) {
-    html {
-        font-size: 14px;
-    }
-
-    .container {
-        padding: 0 var(--container-px-mobile);
-    }
-
-    h1 {
-        font-size: clamp(1.75rem, 5vw, 2.5rem);
-    }
-
-    h2 {
-        font-size: clamp(1.5rem, 4vw, 2rem);
-    }
-
-    .grid-2,
-    .grid-3,
-    .grid-4,
-    .grid-6 {
-        grid-template-columns: 1fr;
-    }
-
-    .gap-lg {
-        gap: var(--gap-md);
-    }
-
-    .modal-content {
-        max-width: 100%;
-        padding: var(--space-4);
-    }
-
-    .tabs {
-        gap: 0;
-    }
-
-    .tab-item {
-        flex: 1;
-        text-align: center;
-    }
-}
-
-/* ========== SMALL DEVICES (375px - 640px) ========== */
-
-@media (min-width: 375px) {
-    html {
-        font-size: 15px;
-    }
-
-    .container {
-        padding: 0 var(--container-px-mobile);
-    }
-}
-
-/* ========== SMALL TO MEDIUM DEVICES (641px - 767px) ========== */
-
-@media (min-width: 641px) {
-    .grid-2 {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .grid-4 {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .grid-6 {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .container {
-        max-width: 100%;
-    }
-}
-
-/* ========== TABLET DEVICES (768px - 1023px) ========== */
-
-@media (min-width: 768px) {
-    html {
-        font-size: 16px;
-        scroll-padding-top: 70px;
-    }
-
-    .container {
-        max-width: var(--container-md);
-        padding: 0 var(--container-px-tablet);
-    }
-
-    .grid-3 {
-        grid-template-columns: repeat(3, 1fr);
-    }
-
-    .grid-6 {
-        grid-template-columns: repeat(3, 1fr);
-    }
-
-    .gap-lg {
-        gap: var(--gap-lg);
-    }
-
-    /* Navigation */
-    nav ul {
-        display: flex !important;
-        gap: var(--space-4);
-        align-items: center;
-    }
-
-    nav li {
-        margin: 0;
-    }
-
-    .mobile-menu-btn {
-        display: none !important;
-    }
-
-    /* Forms */
-    input[type="text"],
-    input[type="email"],
-    input[type="password"],
-    textarea,
-    select {
-        font-size: 16px;
-        height: 40px;
-    }
-
-    textarea {
-        height: 120px;
-    }
-
-    /* Modal */
-    .modal-content {
-        max-width: 600px;
-        animation: slideUp var(--duration-300) var(--ease-out);
-    }
-
-    /* Tables - Horizontal scroll */
-    .table-responsive {
-        overflow-x: visible;
-    }
-
-    table {
-        font-size: var(--fs-base);
-    }
-
-    /* Padding adjustments */
-    .p-mobile {
-        display: none;
-    }
-
-    .p-tablet {
-        display: block;
-    }
-}
-
-/* ========== LAPTOP/DESKTOP (1024px - 1439px) ========== */
-
-@media (min-width: 1024px) {
-    html {
-        scroll-padding-top: 80px;
-    }
-
-    .container {
-        max-width: var(--container-lg);
-        padding: 0 var(--container-px-desktop);
-    }
-
-    .grid-4 {
-        grid-template-columns: repeat(4, 1fr);
-    }
-
-    .grid-6 {
-        grid-template-columns: repeat(6, 1fr);
-    }
-
-    /* Hero Section */
-    .hero {
-        min-height: 700px;
-    }
-
-    /* Columns */
-    .col-2 {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: var(--gap-lg);
-    }
-
-    .col-3 {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: var(--gap-lg);
-    }
-
-    .col-4 {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: var(--gap-lg);
-    }
-
-    /* Sidebar layouts */
-    .sidebar-layout {
-        display: grid;
-        grid-template-columns: 1fr 300px;
-        gap: var(--gap-xl);
-    }
-
-    /* Typography */
-    h1 {
-        font-size: var(--fs-h1);
-    }
-
-    h2 {
-        font-size: var(--fs-h2);
-    }
-
-    /* Buttons */
-    .btn-group {
-        display: flex;
-        gap: var(--space-3);
-    }
-
-    /* Padding adjustments */
-    .p-desktop {
-        display: block;
-    }
-
-    /* Hidden on larger screens */
-    .hidden-lg {
-        display: none !important;
-    }
-}
-
-/* ========== LARGE DESKTOP (1440px - 1919px) ========== */
-
-@media (min-width: 1440px) {
-    .container {
-        max-width: var(--container-xl);
-        padding: 0 var(--container-px-desktop);
-    }
-
-    /* Wider layouts */
-    .col-5 {
-        display: grid;
-        grid-template-columns: repeat(5, 1fr);
-        gap: var(--gap-xl);
-    }
-
-    /* Hero Section */
-    .hero {
-        min-height: 800px;
-    }
-
-    /* Sidebar layouts */
-    .sidebar-layout {
-        grid-template-columns: 1fr 400px;
-        gap: var(--gap-xl);
-    }
-
-    /* Hidden on large screens */
-    .hidden-xl {
-        display: none !important;
-    }
-}
-
-/* ========== ULTRA-WIDE (1920px+) ========== */
-
-@media (min-width: 1920px) {
-    .container {
-        max-width: var(--container-xxl);
-        padding: 0 var(--container-px-desktop);
-    }
-
-    .col-6 {
-        display: grid;
-        grid-template-columns: repeat(6, 1fr);
-        gap: var(--gap-xl);
-    }
-
-    .col-8 {
-        display: grid;
-        grid-template-columns: repeat(8, 1fr);
-        gap: var(--gap-xl);
-    }
-
-    /* Hero Section */
-    .hero {
-        min-height: 900px;
-    }
-
-    /* Wider gaps */
-    .gap-xl {
-        gap: var(--gap-xl);
-    }
-}
-
-/* ========== PRINT MEDIA ========== */
-
-@media print {
-    body {
-        background-color: white;
-        color: black;
-    }
-
-    .container {
-        max-width: 100%;
-        padding: 0;
-    }
-
-    header,
-    nav,
-    footer,
-    .no-print {
-        display: none !important;
-    }
-
-    a {
-        color: black;
-    }
-
-    a[href]::after {
-        content: " (" attr(href) ")";
-    }
-
-    img {
-        max-width: 100%;
-    }
-
-    table {
-        page-break-inside: avoid;
-    }
-
-    tr {
-        page-break-inside: avoid;
-    }
-
-    h1,
-    h2,
-    h3 {
-        page-break-after: avoid;
-    }
-
-    p {
-        orphans: 3;
-        widows: 3;
-    }
-
-    .page-break {
-        page-break-after: always;
-    }
-}
-
-/* ========== ORIENTATION-SPECIFIC ========== */
-
-/* Portrait orientation */
-@media (orientation: portrait) {
-    .landscape-only {
-        display: none;
-    }
-}
-
-/* Landscape orientation */
-@media (orientation: landscape) {
-    .portrait-only {
-        display: none;
-    }
-
-    html {
-        scroll-padding-top: 60px;
-    }
-}
-
-/* ========== HIGH DPI SCREENS ========== */
-
-@media (min-width: 1920px) and (min-height: 1080px) {
-    .hero {
-        min-height: 100vh;
-    }
-}
-
-/* ========== DARK MODE ========== */
-
-@media (prefers-color-scheme: dark) {
-    :root {
-        color-scheme: dark;
-    }
-
-    body {
-        background-color: var(--neutral-950);
-        color: var(--neutral-100);
-    }
-
-    .card {
-        background-color: var(--neutral-900);
-        border-color: var(--neutral-800);
-    }
-
-    input[type="text"],
-    input[type="email"],
-    input[type="password"],
-    textarea,
-    select {
-        background-color: var(--neutral-900);
-        color: var(--neutral-100);
-        border-color: var(--neutral-700);
-    }
-
-    table {
-        background-color: var(--neutral-900);
-        border-color: var(--neutral-800);
-    }
-
-    thead {
-        background-color: var(--neutral-800);
-    }
-}
-
-/* ========== REDUCED MOTION ========== */
-
-@media (prefers-reduced-motion: reduce) {
-
-    *,
-    *::before,
-    *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-    }
-
-    html {
-        scroll-behavior: auto;
-    }
-}
-
-/* ========== HIGH CONTRAST MODE ========== */
-
-@media (prefers-contrast: more) {
-    body {
-        border: 1px solid currentColor;
-    }
-
-    button,
-    a {
-        text-decoration: underline;
-    }
-}
-
-/* ========== FORCED COLORS ========== */
-
-@media (forced-colors: active) {
-    button {
-        border: 1px solid;
-    }
-
-    input,
-    textarea,
-    select {
-        border: 1px solid;
-    }
-}
-
-/* ========== TOUCH DEVICES ========== */
-
-@media (hover: none) and (pointer: coarse) {
-    /* Mobile/tablet specific */
-
-    /* Increase touch target sizes */
-    .btn,
-    a,
-    button {
-        min-height: 44px;
-        min-width: 44px;
-    }
-
-    /* Remove hover effects */
-    .hover-lift:hover {
-        transform: none;
-    }
-
-    /* Add active states */
-    .btn:active {
-        opacity: 0.8;
-    }
-
-    /* Larger tap areas */
-    label {
-        padding: var(--space-2);
-    }
-
-    input[type="checkbox"],
-    input[type="radio"] {
-        width: 20px;
-        height: 20px;
-    }
-}
-
-/* ========== FINE POINTER (MOUSE) ========== */
-
-@media (hover: hover) and (pointer: fine) {
-    /* Desktop specific - hover effects are safe */
-
-    .btn:hover {
-        cursor: pointer;
-    }
-
-    .card:hover {
-        transform: translateY(-4px);
-    }
-}
-
-/* ========== LANDSCAPE TALL SCREENS ========== */
-
-@media (max-height: 500px) {
-    .hero {
-        min-height: auto;
-        padding: var(--space-6) 0;
-    }
-
-    h1 {
-        font-size: var(--fs-3xl);
-    }
-}
-
-/* ========== VERY WIDE SCREENS ========== */
-
-@media (min-width: 2560px) {
-    .container {
-        max-width: 2000px;
-    }
-
-    .col-12 {
-        display: grid;
-        grid-template-columns: repeat(12, 1fr);
-        gap: var(--gap-xl);
-    }
-}
-
-/* ========== SMALL SCREENS WITH KEYBOARD ========== */
-
-@media (max-width: 640px) and (min-height: 600px) {
-
-    /* Adjust spacing for vertical layouts */
-    .flex-row {
-        flex-direction: column;
-    }
-
-    /* Stack forms vertically */
-    .form-row {
-        flex-direction: column;
-    }
-
-    .form-row>* {
-        width: 100%;
-        margin-right: 0;
-        margin-bottom: var(--space-4);
-    }
+:root {
+    /* ========== KODDAHUB COLOR PALETTE ========== */
+    --orange-vibrant: #F57C00;
+    /* Destaques, botões principais, ícones */
+    --orange-dark: #E65100;
+    /* Orange hover/active state */
+    --orange-light: #FF9800;
+    /* Orange light variant */
+
+    --black-deep: #212121;
+    /* Fundo, texto principal, cabeçalhos */
+    --black-light: #424242;
+    /* Texto secundário */
+
+    --gray-circuit: #9E9E9E;
+    /* Bordas, divisores, texto secundário */
+    --gray-light: #E0E0E0;
+    /* Light borders, subtle backgrounds */
+    --gray-dark: #616161;
+    /* Darker text, strong borders */
+
+    --blue-electric: #2196F3;
+    /* Links, detalhes interativos, hover */
+    --blue-dark: #1976D2;
+    /* Blue hover/active state */
+    --blue-light: #64B5F6;
+    /* Blue light variant */
+
+    --white-neutral: #FAFAFA;
+    /* Fundo de seções, contraste com preto */
+    --white-pure: #FFFFFF;
+    /* Background pure white */
+
+    /* ========== SEMANTIC COLORS ========== */
+    --success: #10b981;
+    --warning: #f59e0b;
+    --danger: #ef4444;
+    --info: #3b82f6;
+
+    /* ========== TYPOGRAPHY ========== */
+    --font-heading: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+
+    /* Font Sizes - Mobile First */
+    --fs-xs: 0.75rem;
+    /* 12px */
+    --fs-sm: 0.875rem;
+    /* 14px */
+    --fs-base: 1rem;
+    /* 16px */
+    --fs-lg: 1.125rem;
+    /* 18px */
+    --fs-xl: 1.25rem;
+    /* 20px */
+    --fs-2xl: 1.5rem;
+    /* 24px */
+    --fs-3xl: 1.875rem;
+    /* 30px */
+    --fs-4xl: 2.25rem;
+    /* 36px */
+    --fs-5xl: 3rem;
+    /* 48px */
+
+    /* Desktop Font Sizes */
+    --fs-h1: clamp(2.5rem, 5vw, 4rem);
+    /* 40px - 64px */
+    --fs-h2: clamp(2rem, 4vw, 3rem);
+    /* 32px - 48px */
+    --fs-h3: clamp(1.5rem, 3vw, 2.25rem);
+    /* 24px - 36px */
+    --fs-h4: clamp(1.25rem, 2.5vw, 1.875rem);
+    /* 20px - 30px */
+    --fs-h5: clamp(1.125rem, 2vw, 1.5rem);
+    /* 18px - 24px */
+    --fs-h6: clamp(1rem, 1.5vw, 1.25rem);
+    /* 16px - 20px */
+
+    /* Font Weights */
+    --fw-light: 300;
+    --fw-normal: 400;
+    --fw-medium: 500;
+    --fw-semibold: 600;
+    --fw-bold: 700;
+    --fw-extrabold: 800;
+
+    /* Line Heights */
+    --lh-tight: 1.25;
+    --lh-normal: 1.5;
+    --lh-relaxed: 1.75;
+    --lh-loose: 2;
+    --lh-heading: 1.2;
+
+    /* Letter Spacing */
+    --ls-tight: -0.025em;
+    --ls-normal: 0;
+    --ls-loose: 0.025em;
+    --ls-wider: 0.05em;
+
+    /* ========== SPACING SYSTEM ========== */
+    --space-0: 0;
+    --space-1: 0.25rem;
+    /* 4px */
+    --space-2: 0.5rem;
+    /* 8px */
+    --space-3: 0.75rem;
+    /* 12px */
+    --space-4: 1rem;
+    /* 16px */
+    --space-5: 1.5rem;
+    /* 24px */
+    --space-6: 2rem;
+    /* 32px */
+    --space-8: 3rem;
+    /* 48px */
+    --space-10: 4rem;
+    /* 64px */
+    --space-12: 6rem;
+    /* 96px */
+
+    /* Grid Gaps */
+    --gap-xs: var(--space-2);
+    --gap-sm: var(--space-3);
+    --gap-md: var(--space-4);
+    --gap-lg: var(--space-6);
+    --gap-xl: var(--space-8);
+
+    /* ========== BORDER RADIUS ========== */
+    --radius-xs: 0.125rem;
+    /* 2px */
+    --radius-sm: 0.25rem;
+    /* 4px */
+    --radius-base: 0.375rem;
+    /* 6px */
+    --radius-md: 0.5rem;
+    /* 8px */
+    --radius-lg: 0.75rem;
+    /* 12px */
+    --radius-xl: 1rem;
+    /* 16px */
+    --radius-full: 9999px;
+
+    /* ========== SHADOWS ========== */
+    --shadow-none: none;
+    --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    --shadow-base: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    --shadow-2xl: 0 50px 100px -20px rgba(0, 0, 0, 0.25);
+    --shadow-inset: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+
+    /* ========== CONTAINER SIZES ========== */
+    --container-px-mobile: 1rem;
+    --container-px-tablet: 1.5rem;
+    --container-px-desktop: 2rem;
+
+    --container-sm: 540px;
+    --container-md: 720px;
+    --container-lg: 960px;
+    --container-xl: 1140px;
+    --container-xxl: 1320px;
+
+    /* ========== ANIMATION & TRANSITIONS ========== */
+    --duration-100: 100ms;
+    --duration-200: 200ms;
+    --duration-300: 300ms;
+    --duration-500: 500ms;
+    --duration-700: 700ms;
+    --duration-1000: 1000ms;
+
+    --ease-in: cubic-bezier(0.4, 0, 1, 1);
+    --ease-out: cubic-bezier(0, 0, 0.2, 1);
+    --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+    --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* ========== Z-INDEX SYSTEM ========== */
+    --z-hide: -1;
+    --z-base: 0;
+    --z-dropdown: 1000;
+    --z-sticky: 1020;
+    --z-fixed: 1030;
+    --z-modal-backdrop: 1040;
+    --z-modal: 1050;
+    --z-popover: 1060;
+    --z-tooltip: 1070;
 }

@@ -32,9 +32,15 @@ Empresas buscando presença digital profissional ou sistemas de gestão personal
 sitebase/
 ├── index.html                 # Home page principal
 ├── css/
-│   ├── main.css              # Estilos principais e design system
-│   ├── responsive.css        # Media queries e responsividade
-│   └── animations.css        # Animações e transições
+    ├── reset.css          # Reset global
+    ├── variables.css      # Variáveis e paleta KoddaHub
+    ├── base.css           # Estilos base e tipografia
+    ├── layout.css         # Sistema de grid e containers
+    ├── utilities.css      # Classes utilitárias
+    ├── components.css     # Componentes reutilizáveis
+    ├── modern.css         # Estilos modernos específicos
+    ├── responsive.css     # Media queries e responsividade
+    └── print.css          # Estilos de impressão
 ├── js/
 │   ├── main.js               # Funcionalidades principais
 │   ├── navigation.js         # Menu móvel e navegação
