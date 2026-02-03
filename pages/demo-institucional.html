@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Demo: Instituto de Educação Superior - Case Real">
+    <meta name="theme-color" content="#2C3E50">
+    <title>Demo Completa - Instituto de Educação Superior</title>
+    
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/cyberpunk.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root { --page-primary: #2C3E50; --page-accent: #3498DB; }
+        .hero { background: linear-gradient(135deg, #2C3E50 0%, #1A252F 100%); }
+        .section-accent { background: linear-gradient(135deg, rgba(52,152,219,0.1), rgba(52,152,219,0.05)); border-left: 4px solid #3498DB; }
+        .pricing-card { border: 2px solid #3498DB; }
+        .testimonial { border-left: 4px solid #3498DB; background: rgba(52,152,219,0.05); }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo header-glass">
+                <div style="font-size: 1.5rem; font-weight: bold; color: #3498DB;">
+                    <i class="fas fa-graduation-cap"></i> EduMax
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#inicio" class="active">Início</a></li>
+                    <li><a href="#cursos">Cursos</a></li>
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#professores">Professores</a></li>
+                    <li><a href="#depoimentos">Depoimentos</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+        </div>
+    </header>
+
+    <section id="inicio" class="hero">
+        <div class="container">
+            <div style="max-width:600px;margin:0 auto;text-align:center;color:#fff;padding:5rem 2rem">
+                <h1 style="font-size:3rem;margin-bottom:1rem">EduMax - Educação de Qualidade</h1>
+                <p style="font-size:1.3rem;margin-bottom:2rem;opacity:0.9">Formamos profissionais preparados para o futuro com cursos certificados</p>
+                <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+                    <a href="#cursos" class="btn btn-primary" style="padding:1rem 2rem">Explorar Cursos</a>
+                    <a href="#contato" class="btn" style="padding:1rem 2rem;background:rgba(255,255,255,0.2);border:2px solid #fff;color:#fff">Saiba Mais</a>
+                </div>
+                <div style="display:flex;gap:2rem;justify-content:center;margin-top:4rem;color:rgba(255,255,255,0.8)">
+                    <div><strong style="display:block;font-size:2rem;color:#fff">500+</strong>Alunos Formados</div>
+                    <div><strong style="display:block;font-size:2rem;color:#fff">25+</strong>Cursos Oferecidos</div>
+                    <div><strong style="display:block;font-size:2rem;color:#fff">98%</strong>Taxa Aprovação</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cursos" style="padding:5rem 2rem;background:#f8f9fa">
+        <div class="container">
+            <h2 class="section-title">Nossos Cursos</h2>
+            <p class="section-subtitle">Programas de formação profissional reconhecidos</p>
+            <div class="grid grid-cols-3">
+                <div class="card stagger-item">
+                    <div style="background: linear-gradient(135deg, #3498DB, #2980B9); height: 200px; border-radius: 8px 8px 0 0; display: flex; align-items: center; justify-content: center; font-size: 3rem; color: #fff">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div style="padding: 1.5rem">
+                        <h3 style="color: #2C3E50; margin-bottom: 0.5rem">Desenvolvimento Web</h3>
+                        <p style="color: #7f8c8d; margin-bottom: 1rem; font-size: 0.9rem">HTML, CSS, JavaScript, React e backend</p>
+                        <div style="display: flex; justify-content: space-between; align-items: center">
+                            <span style="color: #3498DB; font-weight: bold">6 meses</span>
+                            <span style="background: #3498DB; color: #fff; padding: 0.5rem 1rem; border-radius: 4px; font-size: 0.85rem">Inscrições Abertas</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card stagger-item">
+                    <div style="background: linear-gradient(135deg, #27AE60, #229954); height: 200px; border-radius: 8px 8px 0 0; display: flex; align-items: center; justify-content: center; font-size: 3rem; color: #fff">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div style="padding: 1.5rem">
+                        <h3 style="color: #2C3E50; margin-bottom: 0.5rem">Gestão Empresarial</h3>
+                        <p style="color: #7f8c8d; margin-bottom: 1rem; font-size: 0.9rem">Liderança, finanças e estratégia</p>
+                        <div style="display: flex; justify-content: space-between; align-items: center">
+                            <span style="color: #27AE60; font-weight: bold">4 meses</span>
+                            <span style="background: #27AE60; color: #fff; padding: 0.5rem 1rem; border-radius: 4px; font-size: 0.85rem">Próxima Turma</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card stagger-item">
+                    <div style="background: linear-gradient(135deg, #E74C3C, #C0392B); height: 200px; border-radius: 8px 8px 0 0; display: flex; align-items: center; justify-content: center; font-size: 3rem; color: #fff">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <div style="padding: 1.5rem">
+                        <h3 style="color: #2C3E50; margin-bottom: 0.5rem">Design Gráfico</h3>
+                        <p style="color: #7f8c8d; margin-bottom: 1rem; font-size: 0.9rem">UI/UX, Branding e Marketing Digital</p>
+                        <div style="display: flex; justify-content: space-between; align-items: center">
+                            <span style="color: #E74C3C; font-weight: bold">5 meses</span>
+                            <span style="background: #E74C3C; color: #fff; padding: 0.5rem 1rem; border-radius: 4px; font-size: 0.85rem">Inscrições Abertas</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="sobre" style="padding:5rem 2rem">
+        <div class="container">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center">
+                <div>
+                    <h2 style="font-size:2.5rem;color:#2C3E50;margin-bottom:1rem">Sobre a EduMax</h2>
+                    <p style="color:#7f8c8d;margin-bottom:1rem;line-height:1.8">Fundada em 2010, a EduMax é uma instituição educacional dedicada a preparar profissionais para o mercado de trabalho moderno.</p>
+                    <p style="color:#7f8c8d;margin-bottom:1rem;line-height:1.8">Nossas metodologias combinam teoria e prática, com professores experientes e infraestrutura de ponta.</p>
+                    <ul style="list-style:none;padding:0">
+                        <li style="margin-bottom:0.75rem;color:#7f8c8d"><i class="fas fa-check" style="color:#3498DB;margin-right:0.5rem"></i> Certificação Internacionalmente Reconhecida</li>
+                        <li style="margin-bottom:0.75rem;color:#7f8c8d"><i class="fas fa-check" style="color:#3498DB;margin-right:0.5rem"></i> Parcerias com Grandes Empresas</li>
+                        <li style="margin-bottom:0.75rem;color:#7f8c8d"><i class="fas fa-check" style="color:#3498DB;margin-right:0.5rem"></i> Suporte Contínuo ao Egresso</li>
+                        <li style="color:#7f8c8d"><i class="fas fa-check" style="color:#3498DB;margin-right:0.5rem"></i> Aulas Online e Presenciais</li>
+                    </ul>
+                </div>
+                <div style="background:linear-gradient(135deg,#3498DB,#2980B9);border-radius:12px;padding:2rem;color:#fff;text-align:center">
+                    <div style="font-size:3rem;font-weight:bold;margin-bottom:0.5rem">98%</div>
+                    <p style="margin-bottom:2rem">De nossos alunos conseguem emprego em até 6 meses</p>
+                    <hr style="border:none;border-top:2px solid rgba(255,255,255,0.3);margin:2rem 0">
+                    <div style="font-size:2.5rem;font-weight:bold;margin-bottom:0.5rem">4.9⭐</div>
+                    <p>Avaliação média dos alunos</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="professores" style="padding:5rem 2rem;background:#f8f9fa">
+        <div class="container">
+            <h2 class="section-title">Nossos Professores</h2>
+            <p class="section-subtitle">Profissionais experientes e dedicados</p>
+            <div class="grid grid-cols-3">
+                <div class="card stagger-item text-center">
+                    <div style="width:120px;height:120px;background:linear-gradient(135deg,#3498DB,#2980B9);border-radius:50%;margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;color:#fff;font-size:3rem">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3 style="color:#2C3E50;margin-bottom:0.5rem">Dr. Carlos Silva</h3>
+                    <p style="color:#3498DB;font-weight:600;margin-bottom:0.5rem">Desenvolvimento Web</p>
+                    <p style="color:#7f8c8d;font-size:0.9rem">15+ anos de experiência em tecnologia. Trabalhou para grandes empresas da Fortune 500.</p>
+                </div>
+                <div class="card stagger-item text-center">
+                    <div style="width:120px;height:120px;background:linear-gradient(135deg,#27AE60,#229954);border-radius:50%;margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;color:#fff;font-size:3rem">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3 style="color:#2C3E50;margin-bottom:0.5rem">Profa. Marina Costa</h3>
+                    <p style="color:#27AE60;font-weight:600;margin-bottom:0.5rem">Gestão Empresarial</p>
+                    <p style="color:#7f8c8d;font-size:0.9rem">MBA em Administração. Consultora de empresas e especialista em estratégia.</p>
+                </div>
+                <div class="card stagger-item text-center">
+                    <div style="width:120px;height:120px;background:linear-gradient(135deg,#E74C3C,#C0392B);border-radius:50%;margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;color:#fff;font-size:3rem">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3 style="color:#2C3E50;margin-bottom:0.5rem">Profo. Lucas Oliveira</h3>
+                    <p style="color:#E74C3C;font-weight:600;margin-bottom:0.5rem">Design Gráfico</p>
+                    <p style="color:#7f8c8d;font-size:0.9rem">Prêmios internacionais de design. Trabalha com marcas renomadas globalmente.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="depoimentos" style="padding:5rem 2rem">
+        <div class="container">
+            <h2 class="section-title">O que nossos alunos dizem</h2>
+            <p class="section-subtitle">Histórias de sucesso reais</p>
+            <div class="grid grid-cols-3">
+                <div class="testimonial" style="padding:2rem;border-radius:8px">
+                    <div style="display:flex;gap:0.25rem;margin-bottom:1rem">
+                        <i class="fas fa-star" style="color:#F39C12"></i>
+                        <i class="fas fa-star" style="color:#F39C12"></i>
+                        <i class="fas fa-star" style="color:#F39C12"></i>
+                        <i class="fas fa-star" style="color:#F39C12"></i>
+                        <i class="fas fa-star" style="color:#F39C12"></i>
+                    </div>
+                    <p style="color:#2C3E50;margin-bottom:1rem;line-height:1.6">"O curso de desenvolvimento web mudou minha carreira. Consegui um emprego em startup com salário 40% maior."</p>
+                    <div style="display:flex;gap:0.5rem;align-items:center">
+                        <div style="width:40px;height:40px;background:#3498DB;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:bold">JB</div>
+                        <div>
+                            <strong style="color:#2C3E50;display:block">João Bruno</strong>
+                            <small style="color:#95A5A6">Desenvolvedor Web</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial" style="padding:2rem;border-radius:8px">
+                    <div style="display:flex;gap:0.25rem;margin-bottom:1rem">
+                        <i class="fas fa-star" style="color:#F39C12"></i>
+                        <i class="fas fa-star" style="color:#F39C12"></i>
+                        <i class="fas fa-star" style="color:#F39C12"></i>
+                        <i class="fas fa-star" style="color:#F39C12"></i>
+                        <i class="fas fa-star" style="color:#F39C12"></i>
+                    </div>
+                    <p style="color:#2C3E50;margin-bottom:1rem;line-height:1.6">"Professores excelentes e metodologia prática. Pude aplicar tudo que aprendi no meu negócio."</p>
+                    <div style="display:flex;gap:0.5rem;align-items:center">
+                        <div style="width:40px;height:40px;background:#27AE60;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:bold">FS</div>
+                        <div>
+                            <strong style="color:#2C3E50;display:block">Fernanda Silva</strong>
+                            <small style="color:#95A5A6">Proprietária</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial" style="padding:2rem;border-radius:8px">
+                    <div style="display:flex;gap:0.25rem;margin-bottom:1rem">
+                        <i class="fas fa-star" style="color:#F39C12"></i>
+                        <i class="fas fa-star" style="color:#F39C12"></i>
+                        <i class="fas fa-star" style="color:#F39C12"></i>
+                        <i class="fas fa-star" style="color:#F39C12"></i>
+                        <i class="fas fa-star" style="color:#F39C12"></i>
+                    </div>
+                    <p style="color:#2C3E50;margin-bottom:1rem;line-height:1.6">"Estrutura moderna, professores presentes. A EduMax é investimento que realmente vale a pena."</p>
+                    <div style="display:flex;gap:0.5rem;align-items:center">
+                        <div style="width:40px;height:40px;background:#E74C3C;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:bold">PG</div>
+                        <div>
+                            <strong style="color:#2C3E50;display:block">Pedro Gomes</strong>
+                            <small style="color:#95A5A6">Designer</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="padding:5rem 2rem;background:linear-gradient(135deg,#2C3E50,#1A252F);color:#fff">
+        <div class="container">
+            <h2 style="text-align:center;margin-bottom:3rem">Diferenciais da EduMax</h2>
+            <div class="grid grid-cols-2">
+                <div style="padding:2rem;border-left:4px solid #3498DB">
+                    <h3 style="margin-bottom:0.5rem"><i class="fas fa-laptop"></i> Plataforma Online 24/7</h3>
+                    <p>Acesse conteúdos, assista aulas gravadas e faça exercícios quando quiser</p>
+                </div>
+                <div style="padding:2rem;border-left:4px solid #3498DB">
+                    <h3 style="margin-bottom:0.5rem"><i class="fas fa-certificate"></i> Certificado Reconhecido</h3>
+                    <p>Diplomado pela instituição de ensino reconhecida pelo MEC</p>
+                </div>
+                <div style="padding:2rem;border-left:4px solid #3498DB">
+                    <h3 style="margin-bottom:0.5rem"><i class="fas fa-briefcase"></i> Auxílio Colocação</h3>
+                    <p>Ajudamos a conectar você com empresas parceiras para emprego</p>
+                </div>
+                <div style="padding:2rem;border-left:4px solid #3498DB">
+                    <h3 style="margin-bottom:0.5rem"><i class="fas fa-users"></i> Networking</h3>
+                    <p>Comunidade de profissionais e eventos de networking exclusivos</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contato" style="padding:5rem 2rem;background:#f8f9fa">
+        <div class="container">
+            <h2 class="section-title">Entre em Contato</h2>
+            <p class="section-subtitle">Tire suas dúvidas sobre os cursos</p>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;max-width:900px;margin:0 auto">
+                <div>
+                    <h3 style="color:#2C3E50;margin-bottom:2rem">Informações de Contato</h3>
+                    <div style="margin-bottom:2rem">
+                        <p style="color:#95A5A6;margin-bottom:0.5rem"><strong>📍 Endereço</strong></p>
+                        <p style="color:#7f8c8d">Avenida Paulista, 1000<br>São Paulo - SP</p>
+                    </div>
+                    <div style="margin-bottom:2rem">
+                        <p style="color:#95A5A6;margin-bottom:0.5rem"><strong>📞 Telefone</strong></p>
+                        <p style="color:#7f8c8d">(11) 3000-0000</p>
+                    </div>
+                    <div style="margin-bottom:2rem">
+                        <p style="color:#95A5A6;margin-bottom:0.5rem"><strong>📧 E-mail</strong></p>
+                        <p style="color:#7f8c8d">info@edumax.com.br</p>
+                    </div>
+                    <div>
+                        <p style="color:#95A5A6;margin-bottom:1rem"><strong>Redes Sociais</strong></p>
+                        <div style="display:flex;gap:1rem">
+                            <a href="#" style="color:#3498DB;font-size:1.5rem"><i class="fab fa-facebook"></i></a>
+                            <a href="#" style="color:#3498DB;font-size:1.5rem"><i class="fab fa-instagram"></i></a>
+                            <a href="#" style="color:#3498DB;font-size:1.5rem"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" style="color:#3498DB;font-size:1.5rem"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <form style="display:grid;gap:1rem">
+                        <input type="text" placeholder="Seu Nome" style="padding:0.75rem;border-radius:6px;border:1px solid #BDC3C7;background:#fff">
+                        <input type="email" placeholder="E-mail" style="padding:0.75rem;border-radius:6px;border:1px solid #BDC3C7;background:#fff">
+                        <select style="padding:0.75rem;border-radius:6px;border:1px solid #BDC3C7;background:#fff">
+                            <option>Selecione o curso</option>
+                            <option>Desenvolvimento Web</option>
+                            <option>Gestão Empresarial</option>
+                            <option>Design Gráfico</option>
+                        </select>
+                        <textarea placeholder="Mensagem" rows="4" style="padding:0.75rem;border-radius:6px;border:1px solid #BDC3C7;background:#fff;resize:vertical"></textarea>
+                        <button type="submit" class="btn btn-primary" style="padding:0.75rem">Enviar Mensagem</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer style="background:#2C3E50;color:#fff;padding:3rem 2rem;text-align:center">
+        <div class="container">
+            <p style="margin-bottom:1rem">&copy; 2025 EduMax Instituto. Todos os direitos reservados.</p>
+            <p style="color:#95A5A6;font-size:0.9rem">Esta é uma demonstração de site institucional criado com SolutionsHub</p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>
