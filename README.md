@@ -247,3 +247,17 @@ Para reportar bugs ou sugerir melhorias, entre em contato conosco.
 ---
 
 **Desenvolvido com ❤️ para empresas que querem presença digital profissional**
+
+🎨 Paleta de Cores para o Site KoddaHub
+Nome da Cor	Hexadecimal	Uso Sugerido
+Laranja Vibrante	#F57C00	Destaques, botões principais, ícones
+Preto Profundo	#212121	Fundo, texto principal, cabeçalhos
+Cinza Circuito	#9E9E9E	Bordas, divisores, texto secundário
+Azul Elétrico	#2196F3	Links, detalhes interativos, hover
+Branco Neutro	#FAFAFA	Fundo de seções, contraste com preto
+Sugestão de Combinações
+Fundo escuro com texto branco e laranja para contraste forte e moderno.
+
+Botões azuis com hover em laranja para chamar atenção.
+
+Elementos de interface como cards ou menus com cinza claro e bordas sutis.
