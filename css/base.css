@@ -1,0 +1,466 @@
+/* ============================================================================
+   BASE.CSS - Base Typography, Colors, and Fundamental Elements
+   ============================================================================ */
+
+/* ========== HTML & BODY ========== */
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--fs-base);
+  font-weight: var(--fw-normal);
+  line-height: var(--lh-relaxed);
+  color: var(--neutral-900);
+  background-color: var(--neutral-50);
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* ========== TYPOGRAPHY ========== */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-heading);
+  letter-spacing: var(--ls-tight);
+  margin-bottom: var(--space-4);
+  color: var(--neutral-900);
+}
+
+h1 {
+  font-size: var(--fs-h1);
+}
+
+h2 {
+  font-size: var(--fs-h2);
+}
+
+h3 {
+  font-size: var(--fs-h3);
+}
+
+h4 {
+  font-size: var(--fs-h4);
+}
+
+h5 {
+  font-size: var(--fs-h5);
+}
+
+h6 {
+  font-size: var(--fs-h6);
+}
+
+p {
+  margin-bottom: var(--space-4);
+  line-height: var(--lh-relaxed);
+  color: var(--neutral-700);
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+/* Small */
+small,
+.text-small {
+  font-size: var(--fs-sm);
+  line-height: var(--lh-normal);
+}
+
+/* Micro */
+.text-xs {
+  font-size: var(--fs-xs);
+}
+
+/* ========== LISTS ========== */
+
+ul, ol {
+  margin-bottom: var(--space-4);
+  padding-left: var(--space-6);
+}
+
+li {
+  margin-bottom: var(--space-2);
+  color: var(--neutral-700);
+  line-height: var(--lh-relaxed);
+}
+
+dt {
+  font-weight: var(--fw-semibold);
+  color: var(--neutral-900);
+  margin-top: var(--space-4);
+  margin-bottom: var(--space-2);
+}
+
+dd {
+  margin-left: 0;
+  margin-bottom: var(--space-3);
+  color: var(--neutral-700);
+}
+
+/* ========== LINKS ========== */
+
+a {
+  color: var(--primary-600);
+  text-decoration: underline;
+  transition: color var(--duration-200) var(--ease-out);
+  outline-offset: 2px;
+}
+
+a:hover {
+  color: var(--primary-700);
+  text-decoration: none;
+}
+
+a:focus {
+  outline: 2px solid var(--primary-500);
+  outline-offset: 2px;
+}
+
+a:active {
+  color: var(--primary-800);
+}
+
+/* ========== BLOCKQUOTE ========== */
+
+blockquote {
+  margin: var(--space-4) 0;
+  padding: var(--space-4) var(--space-5);
+  border-left: 4px solid var(--primary-500);
+  background-color: var(--primary-50);
+  color: var(--neutral-700);
+  font-style: italic;
+  line-height: var(--lh-relaxed);
+}
+
+blockquote p {
+  margin-bottom: 0;
+}
+
+blockquote cite {
+  display: block;
+  margin-top: var(--space-3);
+  font-style: normal;
+  color: var(--neutral-600);
+  font-size: var(--fs-sm);
+}
+
+/* ========== CODE ========== */
+
+code,
+pre {
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  color: var(--neutral-900);
+  background-color: var(--neutral-100);
+  border-radius: var(--radius-sm);
+  line-height: var(--lh-normal);
+}
+
+code {
+  padding: 0.125rem var(--space-2);
+  display: inline-block;
+  white-space: nowrap;
+  overflow-x: auto;
+}
+
+pre {
+  padding: var(--space-4);
+  overflow-x: auto;
+  margin-bottom: var(--space-4);
+}
+
+pre code {
+  padding: 0;
+  background-color: transparent;
+  display: block;
+  white-space: pre;
+}
+
+/* ========== ABBREVIATIONS ========== */
+
+abbr[title] {
+  text-decoration: underline dotted;
+  cursor: help;
+  border-bottom: none;
+  text-underline-offset: 2px;
+}
+
+/* ========== MARKS ========== */
+
+mark {
+  background-color: #fef3c7;
+  color: inherit;
+  padding: 2px 4px;
+  border-radius: var(--radius-xs);
+}
+
+/* ========== HORIZONTAL RULE ========== */
+
+hr {
+  margin: var(--space-6) 0;
+  border: none;
+  border-top: 1px solid var(--neutral-200);
+  height: 0;
+}
+
+/* ========== STRONG & EMPHASIS ========== */
+
+strong, b {
+  font-weight: var(--fw-bold);
+  color: var(--neutral-900);
+}
+
+em, i {
+  font-style: italic;
+}
+
+/* ========== SUBSCRIPT & SUPERSCRIPT ========== */
+
+sub, sup {
+  font-size: var(--fs-xs);
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+/* ========== IMAGES ========== */
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius-base);
+  background-color: var(--neutral-100);
+}
+
+figure {
+  margin: var(--space-4) 0;
+}
+
+figcaption {
+  margin-top: var(--space-2);
+  font-size: var(--fs-sm);
+  color: var(--neutral-600);
+  font-style: italic;
+  text-align: center;
+}
+
+/* ========== TABLES ========== */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: var(--space-4);
+  font-size: var(--fs-base);
+  background-color: #fff;
+  border-radius: var(--radius-base);
+  overflow: hidden;
+  box-shadow: var(--shadow-base);
+}
+
+thead {
+  background-color: var(--neutral-100);
+  border-bottom: 2px solid var(--neutral-200);
+}
+
+th {
+  padding: var(--space-3) var(--space-4);
+  text-align: left;
+  font-weight: var(--fw-semibold);
+  color: var(--neutral-900);
+}
+
+td {
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--neutral-100);
+  color: var(--neutral-700);
+}
+
+tbody tr:hover {
+  background-color: var(--neutral-50);
+}
+
+/* ========== FORMS ========== */
+
+fieldset {
+  border: 1px solid var(--neutral-200);
+  border-radius: var(--radius-base);
+  padding: var(--space-4) var(--space-5);
+  margin-bottom: var(--space-4);
+}
+
+legend {
+  padding: 0 var(--space-2);
+  font-weight: var(--fw-semibold);
+  color: var(--neutral-900);
+}
+
+label {
+  display: block;
+  margin-bottom: var(--space-2);
+  font-weight: var(--fw-medium);
+  color: var(--neutral-900);
+  font-size: var(--fs-sm);
+  cursor: pointer;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="search"],
+input[type="url"],
+input[type="number"],
+input[type="tel"],
+input[type="date"],
+input[type="time"],
+input[type="datetime-local"],
+input[type="month"],
+textarea,
+select {
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  font-size: 16px; /* Prevent iOS zoom */
+  font-family: inherit;
+  color: var(--neutral-900);
+  background-color: #fff;
+  border: 1px solid var(--neutral-300);
+  border-radius: var(--radius-base);
+  transition: border-color var(--duration-200) var(--ease-out),
+              box-shadow var(--duration-200) var(--ease-out);
+  margin-bottom: var(--space-4);
+  line-height: var(--lh-normal);
+}
+
+input[type="text"]::placeholder,
+input[type="email"]::placeholder,
+input[type="password"]::placeholder,
+input[type="search"]::placeholder,
+input[type="url"]::placeholder,
+input[type="tel"]::placeholder,
+textarea::placeholder {
+  color: var(--neutral-500);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--primary-500);
+  box-shadow: 0 0 0 3px rgba(12, 140, 224, 0.1);
+}
+
+input:disabled,
+textarea:disabled,
+select:disabled {
+  background-color: var(--neutral-100);
+  color: var(--neutral-500);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+select {
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M10.293 3.293L6 7.586 1.707 3.293A1 1 0 00.293 4.707l5 5a1 1 0 001.414 0l5-5a1 1 0 10-1.414-1.414z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right var(--space-3) center;
+  background-size: 1.2em 1.2em;
+  padding-right: var(--space-8);
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  width: auto;
+  margin-right: var(--space-2);
+  margin-bottom: 0;
+  cursor: pointer;
+  accent-color: var(--primary-500);
+}
+
+input[type="checkbox"] + label,
+input[type="radio"] + label {
+  display: inline;
+  margin-bottom: 0;
+  margin-left: var(--space-2);
+  cursor: pointer;
+}
+
+/* ========== DETAILS & SUMMARY ========== */
+
+details {
+  margin-bottom: var(--space-4);
+  border: 1px solid var(--neutral-200);
+  border-radius: var(--radius-base);
+  overflow: hidden;
+}
+
+summary {
+  padding: var(--space-4);
+  background-color: var(--neutral-100);
+  font-weight: var(--fw-semibold);
+  cursor: pointer;
+  user-select: none;
+  transition: background-color var(--duration-200) var(--ease-out);
+}
+
+summary:hover {
+  background-color: var(--neutral-200);
+}
+
+details[open] summary {
+  border-bottom: 1px solid var(--neutral-200);
+}
+
+details > *:not(summary) {
+  padding: var(--space-4);
+  animation: slideDown var(--duration-300) var(--ease-out);
+}
+
+/* ========== PRINT STYLES ========== */
+
+@media print {
+  body {
+    background-color: #fff;
+    color: #000;
+  }
+
+  a {
+    color: #000;
+    text-decoration: underline;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid;
+  }
+
+  p {
+    orphans: 3;
+    widows: 3;
+  }
+
+  pre {
+    background-color: #f5f5f5;
+    page-break-inside: avoid;
+  }
+}
+
