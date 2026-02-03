@@ -1,0 +1,16 @@
+/* Cyberpunk palette & utilities (minimal) */
+:root{
+  --cy-bg:#0A0A0F;--cy-panel:#071022;--cy-muted:#9AA3B2;
+  --cy-cyan:#00D4FF;--cy-magenta:#FF006E;--cy-green:#00FF9D;--cy-purple:#7B2CBF;--cy-yellow:#FFD700;
+  --glass:rgba(255,255,255,0.03);--neon:0 0 18px rgba(0,212,255,0.5);
+}
+body{background:var(--cy-bg);color:var(--cy-muted);font-family: 'Exo 2', 'Open Sans', sans-serif}
+header .logo img{height:36px;vertical-align:middle;margin-right:10px;filter:drop-shadow(var(--neon))}
+.header-glass{backdrop-filter:blur(6px);background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);border-radius:10px;padding:8px}
+.btn.cyber{background:linear-gradient(90deg,var(--cy-cyan),var(--cy-purple));color:#001;border-radius:10px;padding:10px 14px;box-shadow:var(--neon);border:none}
+/* small hero cyber class */
+#cyber-hero{min-height:520px;display:flex;align-items:center;background:linear-gradient(135deg,#000428 0%,#004e92 100%);color:#e6f6ff}
+.cyber-glitch{position:relative}
+.cyber-glitch::after{content:attr(data-text);position:absolute;left:2px;top:0;color:var(--cy-magenta);mix-blend-mode:screen;clip-path:polygon(0 0,100% 0,100% 33%,0 33%);opacity:0.7}
+/* reduce motion preference */
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}

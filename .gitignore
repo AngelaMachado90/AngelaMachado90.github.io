@@ -1,0 +1,118 @@
+# .gitignore - Git Ignore Rules for SolutionsHub
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# IDE & Editor
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+.DS_Store
+*.swp
+*.swo
+*~
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# OS
+Thumbs.db
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Dependencies
+node_modules/
+package-lock.json
+yarn.lock
+
+# Build outputs
+dist/
+build/
+*.min.js
+*.min.css
+
+# Testing
+coverage/
+.nyc_output
+
+# Temporary files
+*.tmp
+*.temp
+tmp/
+temp/
+
+# Compiled files
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Archive files
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Secrets & Credentials
+.credentials
+.aws
+credentials.json
+secrets.json
+
+# Cache
+.cache/
+.eslintcache
+.stylelintcache
+
+# Backups
+*.bak
+*.backup
+*~
+*.swp
+
+# Local development
+localhost.pem
+localhost-key.pem
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+
+# Configuration files (optional - uncomment if not tracking)
+# .htaccess
+# web.config
+# robots.txt
+
+# Sensitive files (uncomment if you have them)
+# formspree-key.txt
+# firebase-config.js
+# api-keys.js

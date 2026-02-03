@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" width="200" height="60" role="img" aria-label="Quantum Hub logo">
+  <style>
+    .s{font:700 26px/1 'Inter', sans-serif; fill:#fff}
+    .dot{fill:#00D4FF;filter:drop-shadow(0 0 6px rgba(0,212,255,0.6))}
+    @keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.25)}100%{transform:scale(1)}}
+    .pulse{transform-origin:50% 50%;animation:pulse 1.6s infinite ease-in-out}
+  </style>
+  <g>
+    <circle class="dot pulse" cx="20" cy="30" r="8"/>
+    <circle class="dot" cx="40" cy="20" r="4" opacity="0.9"/>
+    <circle class="dot" cx="40" cy="40" r="4" opacity="0.9"/>
+    <text x="60" y="36" class="s">SOLUTIONSHUB</text>
+  </g>
+</svg>
