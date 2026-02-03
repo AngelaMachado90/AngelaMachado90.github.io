@@ -1,267 +1,347 @@
-/* ========================================
-   RESPONSIVE.CSS - Mobile First Design
-   ======================================== */
+/* ============================================================================
+   RESPONSIVE.CSS - Media Queries and Responsive Adjustments
+   ============================================================================ */
 
-/* Tablet: 768px and up */
-@media (max-width: 767px) {
-  :root {
-    --base-font-size: 15px;
+/* ========== MOBILE FIRST APPROACH (320px - 374px) ========== */
+
+/* Extra Small Devices */
+@media (max-width: 374px) {
+  html {
+    font-size: 14px;
+  }
+
+  .container {
+    padding: 0 var(--container-px-mobile);
   }
 
   h1 {
-    font-size: 2rem;
+    font-size: clamp(1.75rem, 5vw, 2.5rem);
   }
 
   h2 {
-    font-size: 1.75rem;
+    font-size: clamp(1.5rem, 4vw, 2rem);
   }
 
-  h3 {
-    font-size: 1.5rem;
+  .grid-2,
+  .grid-3,
+  .grid-4,
+  .grid-6 {
+    grid-template-columns: 1fr;
   }
 
-  h4 {
-    font-size: 1.25rem;
+  .gap-lg {
+    gap: var(--gap-md);
   }
 
-  .section-title {
-    font-size: 1.75rem;
+  .modal-content {
+    max-width: 100%;
+    padding: var(--space-4);
+  }
+
+  .tabs {
+    gap: 0;
+  }
+
+  .tab-item {
+    flex: 1;
+    text-align: center;
+  }
+}
+
+/* ========== SMALL DEVICES (375px - 640px) ========== */
+
+@media (min-width: 375px) {
+  html {
+    font-size: 15px;
+  }
+
+  .container {
+    padding: 0 var(--container-px-mobile);
+  }
+}
+
+/* ========== SMALL TO MEDIUM DEVICES (641px - 767px) ========== */
+
+@media (min-width: 641px) {
+  .grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid-6 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .container {
+    max-width: 100%;
+  }
+}
+
+/* ========== TABLET DEVICES (768px - 1023px) ========== */
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+    scroll-padding-top: 70px;
+  }
+
+  .container {
+    max-width: var(--container-md);
+    padding: 0 var(--container-px-tablet);
+  }
+
+  .grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .grid-6 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .gap-lg {
+    gap: var(--gap-lg);
   }
 
   /* Navigation */
   nav ul {
-    gap: var(--spacing-md);
+    display: flex !important;
+    gap: var(--space-4);
+    align-items: center;
   }
 
-  nav ul li:nth-child(n+3) {
-    display: none;
+  nav li {
+    margin: 0;
   }
 
   .mobile-menu-btn {
-    display: block;
-  }
-
-  nav.mobile-active ul {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background-color: var(--primary-color);
-    flex-direction: column;
-    gap: 0;
-    padding: var(--spacing-lg);
-    display: flex;
-  }
-
-  nav.mobile-active ul li {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    padding-bottom: var(--spacing-md);
-    margin-bottom: var(--spacing-md);
-  }
-
-  nav.mobile-active ul li:nth-child(n+3) {
-    display: block;
-  }
-
-  nav.mobile-active ul li:last-child {
-    border-bottom: none;
-  }
-
-  /* Grid */
-  .grid-cols-2 {
-    grid-template-columns: 1fr;
-  }
-
-  .grid-cols-3 {
-    grid-template-columns: 1fr;
-  }
-
-  .grid-cols-4 {
-    grid-template-columns: 1fr;
-  }
-
-  /* Cards */
-  .card {
-    padding: var(--spacing-lg);
-  }
-
-  /* Section Spacing */
-  section {
-    padding: 60px 0;
-  }
-
-  /* Footer */
-  .footer-content {
-    grid-template-columns: 1fr;
-  }
-
-  .footer-bottom {
-    flex-direction: column;
-    gap: var(--spacing-md);
-    text-align: center;
-  }
-
-  .footer-links {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-sm);
-  }
-
-  .footer-links a {
-    margin-left: 0;
+    display: none !important;
   }
 
   /* Forms */
-  form {
-    max-width: 100%;
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  textarea,
+  select {
+    font-size: 16px;
+    height: 40px;
   }
 
-  /* Button */
-  .btn {
-    padding: var(--spacing-sm) var(--spacing-md);
-    font-size: 0.95rem;
+  textarea {
+    height: 120px;
   }
 
-  /* Buttons in flex layout */
-  .flex-responsive {
-    flex-direction: column;
+  /* Modal */
+  .modal-content {
+    max-width: 600px;
+    animation: slideUp var(--duration-300) var(--ease-out);
   }
 
-  /* Table responsiveness */
+  /* Tables - Horizontal scroll */
+  .table-responsive {
+    overflow-x: visible;
+  }
+
   table {
-    font-size: 0.9rem;
+    font-size: var(--fs-base);
   }
 
-  table th,
-  table td {
-    padding: var(--spacing-sm);
-  }
-
-  /* Hero sections */
-  .hero-content h1 {
-    font-size: 1.75rem;
-  }
-
-  .hero-content p {
-    font-size: 1rem;
-  }
-
-  /* Price boxes */
-  .price-box {
-    padding: var(--spacing-lg);
-  }
-
-  /* Features list */
-  .features-list {
-    grid-template-columns: 1fr;
-  }
-
-  /* Container padding */
-  .container {
-    padding: 0 15px;
-  }
-
-  /* Header */
-  header .container {
-    padding: var(--spacing-sm) 15px;
-  }
-
-  .logo {
-    font-size: 1.25rem;
-  }
-
-  nav a {
-    font-size: 0.95rem;
-  }
-}
-
-/* Desktop: 1024px and up */
-@media (min-width: 1024px) {
-  nav ul li:nth-child(n+3) {
-    display: flex;
-  }
-
-  .mobile-menu-btn {
+  /* Padding adjustments */
+  .p-mobile {
     display: none;
   }
 
-  nav.mobile-active ul {
-    position: static;
-    background-color: transparent;
-    flex-direction: row;
-    padding: 0;
-  }
-
-  nav.mobile-active ul li {
-    border-bottom: none;
-    padding-bottom: 0;
-    margin-bottom: 0;
-  }
-
-  .grid-cols-2 {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .grid-cols-3 {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .grid-cols-4 {
-    grid-template-columns: repeat(4, 1fr);
+  .p-tablet {
+    display: block;
   }
 }
 
-/* Large Desktop: 1440px and up */
-@media (min-width: 1440px) {
-  :root {
-    --max-width: 1400px;
+/* ========== LAPTOP/DESKTOP (1024px - 1439px) ========== */
+
+@media (min-width: 1024px) {
+  html {
+    scroll-padding-top: 80px;
   }
 
+  .container {
+    max-width: var(--container-lg);
+    padding: 0 var(--container-px-desktop);
+  }
+
+  .grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .grid-6 {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  /* Hero Section */
+  .hero {
+    min-height: 700px;
+  }
+
+  /* Columns */
+  .col-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--gap-lg);
+  }
+
+  .col-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--gap-lg);
+  }
+
+  .col-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--gap-lg);
+  }
+
+  /* Sidebar layouts */
+  .sidebar-layout {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: var(--gap-xl);
+  }
+
+  /* Typography */
   h1 {
-    font-size: 3.5rem;
+    font-size: var(--fs-h1);
   }
 
   h2 {
-    font-size: 2.75rem;
+    font-size: var(--fs-h2);
   }
 
-  .section-title {
-    font-size: 2.75rem;
+  /* Buttons */
+  .btn-group {
+    display: flex;
+    gap: var(--space-3);
+  }
+
+  /* Padding adjustments */
+  .p-desktop {
+    display: block;
+  }
+
+  /* Hidden on larger screens */
+  .hidden-lg {
+    display: none !important;
   }
 }
 
-/* Extra Small: 320px and up (Mobile First) */
-@media (min-width: 320px) {
-  body {
-    font-size: 1rem;
+/* ========== LARGE DESKTOP (1440px - 1919px) ========== */
+
+@media (min-width: 1440px) {
+  .container {
+    max-width: var(--container-xl);
+    padding: 0 var(--container-px-desktop);
+  }
+
+  /* Wider layouts */
+  .col-5 {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: var(--gap-xl);
+  }
+
+  /* Hero Section */
+  .hero {
+    min-height: 800px;
+  }
+
+  /* Sidebar layouts */
+  .sidebar-layout {
+    grid-template-columns: 1fr 400px;
+    gap: var(--gap-xl);
+  }
+
+  /* Hidden on large screens */
+  .hidden-xl {
+    display: none !important;
   }
 }
 
-/* Print Styles */
+/* ========== ULTRA-WIDE (1920px+) ========== */
+
+@media (min-width: 1920px) {
+  .container {
+    max-width: var(--container-xxl);
+    padding: 0 var(--container-px-desktop);
+  }
+
+  .col-6 {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: var(--gap-xl);
+  }
+
+  .col-8 {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: var(--gap-xl);
+  }
+
+  /* Hero Section */
+  .hero {
+    min-height: 900px;
+  }
+
+  /* Wider gaps */
+  .gap-xl {
+    gap: var(--gap-xl);
+  }
+}
+
+/* ========== PRINT MEDIA ========== */
+
 @media print {
-  header,
-  footer,
-  .mobile-menu-btn,
-  .no-print {
-    display: none;
+  body {
+    background-color: white;
+    color: black;
   }
 
-  body {
-    background-color: #fff;
-    color: #000;
+  .container {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  header,
+  nav,
+  footer,
+  .no-print {
+    display: none !important;
   }
 
   a {
-    color: inherit;
-    text-decoration: underline;
+    color: black;
+  }
+
+  a[href]::after {
+    content: " (" attr(href) ")";
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  table {
+    page-break-inside: avoid;
+  }
+
+  tr {
+    page-break-inside: avoid;
   }
 
   h1,
   h2,
-  h3,
-  h4,
-  h5,
-  h6 {
+  h3 {
     page-break-after: avoid;
   }
 
@@ -270,48 +350,213 @@
     widows: 3;
   }
 
-  img {
-    max-width: 100%;
-  }
-
-  .container {
-    max-width: 100%;
+  .page-break {
+    page-break-after: always;
   }
 }
 
-/* Accessibility */
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-}
+/* ========== ORIENTATION-SPECIFIC ========== */
 
-/* Dark mode support */
-@media (prefers-color-scheme: dark) {
-  /* Optional: Add dark mode styles if needed */
-}
-
-/* Touch devices */
-@media (hover: none) {
-  .card:hover {
-    transform: none;
-  }
-
-  a::after {
+/* Portrait orientation */
+@media (orientation: portrait) {
+  .landscape-only {
     display: none;
   }
 }
 
-/* Orientation */
-@media (orientation: landscape) and (max-height: 600px) {
-  section {
-    padding: 40px 0;
+/* Landscape orientation */
+@media (orientation: landscape) {
+  .portrait-only {
+    display: none;
+  }
+
+  html {
+    scroll-padding-top: 60px;
+  }
+}
+
+/* ========== HIGH DPI SCREENS ========== */
+
+@media (min-width: 1920px) and (min-height: 1080px) {
+  .hero {
+    min-height: 100vh;
+  }
+}
+
+/* ========== DARK MODE ========== */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+  }
+
+  body {
+    background-color: var(--neutral-950);
+    color: var(--neutral-100);
+  }
+
+  .card {
+    background-color: var(--neutral-900);
+    border-color: var(--neutral-800);
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  textarea,
+  select {
+    background-color: var(--neutral-900);
+    color: var(--neutral-100);
+    border-color: var(--neutral-700);
+  }
+
+  table {
+    background-color: var(--neutral-900);
+    border-color: var(--neutral-800);
+  }
+
+  thead {
+    background-color: var(--neutral-800);
+  }
+}
+
+/* ========== REDUCED MOTION ========== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* ========== HIGH CONTRAST MODE ========== */
+
+@media (prefers-contrast: more) {
+  body {
+    border: 1px solid currentColor;
+  }
+
+  button,
+  a {
+    text-decoration: underline;
+  }
+}
+
+/* ========== FORCED COLORS ========== */
+
+@media (forced-colors: active) {
+  button {
+    border: 1px solid;
+  }
+
+  input,
+  textarea,
+  select {
+    border: 1px solid;
+  }
+}
+
+/* ========== TOUCH DEVICES ========== */
+
+@media (hover: none) and (pointer: coarse) {
+  /* Mobile/tablet specific */
+
+  /* Increase touch target sizes */
+  .btn,
+  a,
+  button {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Remove hover effects */
+  .hover-lift:hover {
+    transform: none;
+  }
+
+  /* Add active states */
+  .btn:active {
+    opacity: 0.8;
+  }
+
+  /* Larger tap areas */
+  label {
+    padding: var(--space-2);
+  }
+
+  input[type="checkbox"],
+  input[type="radio"] {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* ========== FINE POINTER (MOUSE) ========== */
+
+@media (hover: hover) and (pointer: fine) {
+  /* Desktop specific - hover effects are safe */
+
+  .btn:hover {
+    cursor: pointer;
+  }
+
+  .card:hover {
+    transform: translateY(-4px);
+  }
+}
+
+/* ========== LANDSCAPE TALL SCREENS ========== */
+
+@media (max-height: 500px) {
+  .hero {
+    min-height: auto;
+    padding: var(--space-6) 0;
   }
 
   h1 {
-    font-size: 2rem;
+    font-size: var(--fs-3xl);
+  }
+}
+
+/* ========== VERY WIDE SCREENS ========== */
+
+@media (min-width: 2560px) {
+  .container {
+    max-width: 2000px;
+  }
+
+  .col-12 {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: var(--gap-xl);
+  }
+}
+
+/* ========== SMALL SCREENS WITH KEYBOARD ========== */
+
+@media (max-width: 640px) and (min-height: 600px) {
+
+  /* Adjust spacing for vertical layouts */
+  .flex-row {
+    flex-direction: column;
+  }
+
+  /* Stack forms vertically */
+  .form-row {
+    flex-direction: column;
+  }
+
+  .form-row>* {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: var(--space-4);
   }
 }
