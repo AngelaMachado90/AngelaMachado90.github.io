@@ -1,9 +1,18 @@
 /* ============================================================================
    PAGES.CSS - Page-Specific Styles
+   ============================================================================
+   CONTÉM:
+   - Header/Navbar (incluindo logo e navegação responsiva)
+   - Hero Section
+   - Seções comuns (títulos, padding)
+   - Footer
+   - Formulário de contato
+   - Componentes auxiliares (breadcrumb, back-to-top, etc.)
    ============================================================================ */
 
-/* ========== GLOBAL PAGE STYLES ========== */
+/* ========== HEADER & NAVIGATION ========== */
 
+/* Header Principal - Sticky */
 header {
     position: sticky;
     top: 0;
@@ -12,8 +21,10 @@ header {
     box-shadow: var(--shadow-base);
     transition: all var(--duration-200) var(--ease-out);
     height: 60px;
+    /* Mobile first */
 }
 
+/* Altura responsiva do header */
 @media (min-width: 768px) {
     header {
         height: 70px;
@@ -26,6 +37,7 @@ header {
     }
 }
 
+/* Container do header */
 header .container {
     height: 100%;
     display: flex;
@@ -34,50 +46,109 @@ header .container {
     gap: var(--space-4);
 }
 
-/* Logo */
-.logo {
+/* ========== LOGO STYLES ========== */
+
+/* Container da marca */
+.navbar-brand {
     display: flex;
     align-items: center;
     gap: var(--space-2);
-    font-weight: var(--fw-bold);
-    color: var(--primary-600);
-    text-decoration: none;
-    font-size: var(--fs-lg);
-    transition: all var(--duration-200) var(--ease-out);
 }
 
-.logo img {
+/* Imagem da logo */
+.logo-image {
+    display: flex;
+    align-items: center;
+}
+
+.logo-image img {
     height: 40px;
     width: auto;
+    object-fit: contain;
 }
 
+/* Logo responsiva */
 @media (min-width: 768px) {
-    .logo img {
-        height: 45px;
-    }
-}
-
-@media (min-width: 1024px) {
-    .logo img {
+    .logo-image img {
         height: 50px;
     }
 }
 
-.logo:hover {
+@media (min-width: 1024px) {
+    .logo-image img {
+        height: 60px;
+    }
+}
+
+@media (max-width: 768px) {
+    .logo-image img {
+        height: 35px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-image img {
+        height: 30px;
+    }
+}
+
+/* Texto da logo */
+.logo-text {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--fs-lg);
+    font-weight: var(--fw-bold);
+    color: var(--primary-600);
+    text-decoration: none;
+    transition: all var(--duration-200) var(--ease-out);
+}
+
+.logo-text:hover {
     color: var(--primary-700);
     transform: scale(1.05);
 }
 
-/* Navigation */
+.logo-text i {
+    font-size: var(--fs-xl);
+}
+
+/* Ajustes responsivos do texto */
+@media (max-width: 768px) {
+    .logo-text {
+        font-size: var(--fs-base);
+    }
+
+    .logo-text i {
+        font-size: var(--fs-lg);
+    }
+}
+
+/* Esconde texto em telas muito pequenas */
+@media (max-width: 480px) {
+    .logo-text span {
+        display: none;
+    }
+
+    .logo-text i {
+        font-size: var(--fs-xl);
+    }
+}
+
+/* ========== NAVEGAÇÃO DESKTOP ========== */
+
 nav {
     flex: 1;
     display: none;
+    /* Mobile first - escondido */
 }
 
 @media (min-width: 1024px) {
     nav {
         display: block;
     }
+
+    /* Exibe no desktop */
 }
 
 nav ul {
@@ -92,21 +163,24 @@ nav a {
     color: var(--neutral-700);
     text-decoration: none;
     font-weight: var(--fw-medium);
-    transition: color var(--duration-200) var(--ease-out);
     font-size: var(--fs-base);
+    transition: color var(--duration-200) var(--ease-out);
 }
 
 nav a:hover {
     color: var(--primary-600);
 }
 
+/* Link ativo/focado */
 nav a.active,
 nav a:focus {
     color: var(--primary-600);
     border-bottom: 2px solid var(--primary-600);
 }
 
-/* Mobile Menu Button */
+/* ========== MENU MOBILE ========== */
+
+/* Botão do menu mobile */
 .mobile-menu-btn {
     display: block;
     background: none;
@@ -118,23 +192,27 @@ nav a:focus {
     transition: color var(--duration-200) var(--ease-out);
     min-height: 44px;
     min-width: 44px;
-}
-
-@media (min-width: 1024px) {
-    .mobile-menu-btn {
-        display: none;
-    }
+    /* Tamanho mínimo acessível */
 }
 
 .mobile-menu-btn:hover {
     color: var(--primary-600);
 }
 
-/* Mobile Menu */
+@media (min-width: 1024px) {
+    .mobile-menu-btn {
+        display: none;
+    }
+
+    /* Esconde no desktop */
+}
+
+/* Menu mobile overlay */
 .mobile-menu {
     display: none;
     position: fixed;
     top: 60px;
+    /* Altura do header mobile */
     left: 0;
     right: 0;
     bottom: 0;
@@ -144,6 +222,7 @@ nav a:focus {
     padding: var(--space-4);
 }
 
+/* Ajusta posição baseado na altura do header */
 @media (min-width: 768px) {
     .mobile-menu {
         top: 70px;
@@ -161,6 +240,7 @@ nav a:focus {
     animation: slideDown var(--duration-300) var(--ease-out);
 }
 
+/* Lista do menu mobile */
 .mobile-menu ul {
     display: flex;
     flex-direction: column;
@@ -187,6 +267,7 @@ nav a:focus {
     background: linear-gradient(135deg, var(--primary-500) 0%, var(--secondary-600) 100%);
     color: #fff;
     min-height: 500px;
+    /* Mobile first */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -195,6 +276,7 @@ nav a:focus {
     padding: var(--space-6) 0;
 }
 
+/* Altura responsiva do hero */
 @media (min-width: 768px) {
     .hero {
         min-height: 600px;
@@ -207,6 +289,7 @@ nav a:focus {
     }
 }
 
+/* Overlay decorativo com SVG */
 .hero::before {
     content: '';
     position: absolute;
@@ -219,6 +302,7 @@ nav a:focus {
     opacity: 0.3;
 }
 
+/* Conteúdo do hero */
 .hero-content {
     text-align: center;
     position: relative;
@@ -242,6 +326,7 @@ nav a:focus {
 
 /* ========== SECTION STYLES ========== */
 
+/* Padding padrão para seções */
 section {
     padding: var(--space-8) 0;
 }
@@ -250,8 +335,11 @@ section {
     section {
         padding: var(--space-6) 0;
     }
+
+    /* Reduz padding no mobile */
 }
 
+/* Título de seção */
 .section-title {
     font-size: var(--fs-3xl);
     font-weight: var(--fw-bold);
@@ -264,8 +352,11 @@ section {
     .section-title {
         font-size: var(--fs-4xl);
     }
+
+    /* Título maior no desktop */
 }
 
+/* Subtítulo de seção */
 .section-subtitle {
     font-size: var(--fs-lg);
     color: var(--neutral-600);
@@ -276,6 +367,7 @@ section {
     margin-right: auto;
 }
 
+/* Descrição de seção */
 .section-description {
     text-align: center;
     max-width: 600px;
@@ -284,7 +376,7 @@ section {
     line-height: var(--lh-loose);
 }
 
-/* ========== FOOTER STYLES ========== */
+/* ========== FOOTER ========== */
 
 footer {
     background-color: var(--neutral-900);
@@ -303,6 +395,7 @@ footer a:hover {
     color: var(--primary-300);
 }
 
+/* Layout grid responsivo do footer */
 footer .container {
     display: grid;
     grid-template-columns: 1fr;
@@ -322,6 +415,7 @@ footer .container {
     }
 }
 
+/* Seções do footer */
 .footer-section h3 {
     font-size: var(--fs-lg);
     margin-bottom: var(--space-4);
@@ -337,6 +431,7 @@ footer .container {
     margin-bottom: var(--space-2);
 }
 
+/* Rodapé inferior */
 .footer-bottom {
     border-top: 1px solid var(--neutral-700);
     padding-top: var(--space-4);
@@ -345,11 +440,12 @@ footer .container {
     color: var(--neutral-400);
 }
 
-/* ========== CONTACT SECTION ========== */
+/* ========== FORMULÁRIO DE CONTATO ========== */
 
 #contato {
     background-color: var(--neutral-50);
     scroll-margin-top: 100px;
+    /* Offset para navegação por âncora */
 }
 
 .contact-form {
@@ -357,6 +453,7 @@ footer .container {
     margin: 0 auto;
 }
 
+/* Grupos de formulário */
 .form-group {
     margin-bottom: var(--space-4);
 }
@@ -368,6 +465,7 @@ footer .container {
     color: var(--neutral-900);
 }
 
+/* Campos de formulário */
 .form-group input,
 .form-group textarea,
 .form-group select {
@@ -376,10 +474,12 @@ footer .container {
     border: 1px solid var(--neutral-300);
     border-radius: var(--radius-base);
     font-size: 16px;
+    /* Previne zoom no iOS */
     font-family: inherit;
     transition: all var(--duration-200) var(--ease-out);
 }
 
+/* Estados de foco */
 .form-group input:focus,
 .form-group textarea:focus,
 .form-group select:focus {
@@ -393,6 +493,7 @@ footer .container {
     min-height: 120px;
 }
 
+/* Botão de envio */
 .form-submit {
     width: 100%;
     padding: var(--space-4);
@@ -412,8 +513,9 @@ footer .container {
     box-shadow: var(--shadow-lg);
 }
 
-/* ========== BREADCRUMB ========== */
+/* ========== COMPONENTES AUXILIARES ========== */
 
+/* Breadcrumb */
 .breadcrumb {
     display: flex;
     flex-wrap: wrap;
@@ -432,8 +534,7 @@ footer .container {
     text-decoration: underline;
 }
 
-/* ========== BACK TO TOP BUTTON ========== */
-
+/* Botão "Voltar ao Topo" */
 .back-to-top {
     position: fixed;
     bottom: var(--space-4);
@@ -466,13 +567,15 @@ footer .container {
     box-shadow: var(--shadow-lg);
 }
 
-/* ========== LOADING STATE ========== */
+/* ========== ESTADOS DE INTERFACE ========== */
 
+/* Estado de carregamento */
 .loading {
     opacity: 0.6;
     pointer-events: none;
 }
 
+/* Spinner de carregamento */
 .spinner {
     display: inline-block;
     width: 1.5rem;
@@ -483,8 +586,9 @@ footer .container {
     animation: spin 1s linear infinite;
 }
 
-/* ========== CONTAINER GLASS MORPHISM ========== */
+/* ========== EFEITOS VISUAIS ========== */
 
+/* Efeito glass morphism */
 .glass {
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
