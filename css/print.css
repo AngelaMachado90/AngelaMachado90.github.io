@@ -1,0 +1,501 @@
+/* ============================================================================
+   PRINT.CSS - Print-Specific Styles for Better Printing
+   ============================================================================ */
+
+@media print {
+    /* ========== GENERAL PRINT STYLES ========== */
+
+    * {
+        background: transparent !important;
+        box-shadow: none !important;
+        color: #000 !important;
+        text-shadow: none !important;
+    }
+
+    *::before,
+    *::after {
+        background: transparent !important;
+        box-shadow: none !important;
+        color: #000 !important;
+        text-shadow: none !important;
+    }
+
+    /* ========== PAGE SETUP ========== */
+
+    @page {
+        margin: 2cm;
+        size: A4;
+    }
+
+    body {
+        background-color: white;
+        color: black;
+        font-size: 11pt;
+        line-height: 1.5;
+    }
+
+    html {
+        font-size: 11pt;
+        scroll-behavior: auto;
+    }
+
+    /* ========== HIDE ELEMENTS FOR PRINT ========== */
+
+    header,
+    nav,
+    footer,
+    .mobile-menu,
+    .mobile-menu-btn,
+    .back-to-top,
+    .no-print,
+    .sidebar,
+    aside,
+    .advertisement,
+    .social-media,
+    [aria-label="Advertisement"],
+    [role="complementary"],
+    form,
+    .modal,
+    .tooltip,
+    .popover,
+    .navbar,
+    .pagination,
+    .breadcrumb {
+        display: none !important;
+    }
+
+    /* ========== CONTAINER ========== */
+
+    .container,
+    .container-fluid {
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* ========== TYPOGRAPHY ========== */
+
+    h1 {
+        page-break-after: avoid;
+        font-size: 18pt;
+        margin-bottom: 0.5cm;
+    }
+
+    h2 {
+        page-break-after: avoid;
+        font-size: 15pt;
+        margin: 0.5cm 0;
+    }
+
+    h3 {
+        page-break-after: avoid;
+        font-size: 13pt;
+        margin: 0.3cm 0;
+    }
+
+    h4,
+    h5,
+    h6 {
+        page-break-after: avoid;
+        font-size: 11pt;
+        margin: 0.3cm 0;
+    }
+
+    p {
+        margin: 0 0 0.5cm 0;
+        orphans: 3;
+        widows: 3;
+    }
+
+    p:last-child {
+        margin-bottom: 0;
+    }
+
+    /* ========== LISTS ========== */
+
+    ul,
+    ol,
+    dl {
+        margin-bottom: 0.5cm;
+        page-break-inside: avoid;
+    }
+
+    li {
+        margin-bottom: 0.25cm;
+        orphans: 3;
+        widows: 3;
+    }
+
+    dt {
+        font-weight: bold;
+    }
+
+    dd {
+        margin-left: 1cm;
+        margin-bottom: 0.25cm;
+    }
+
+    /* ========== LINKS ========== */
+
+    a {
+        color: black;
+        text-decoration: underline;
+        background-color: transparent;
+    }
+
+    a[href]::after {
+        content: " (" attr(href) ")";
+        word-break: break-word;
+    }
+
+    a[href^="#"]::after,
+    a[href^="javascript:"]::after,
+    a.no-print::after {
+        content: "";
+    }
+
+    /* ========== IMAGES ========== */
+
+    img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        border: 1px solid #ccc;
+        padding: 2px;
+        margin: 0.5cm 0;
+        page-break-inside: avoid;
+    }
+
+    figure {
+        margin: 0.5cm 0;
+        page-break-inside: avoid;
+    }
+
+    figcaption {
+        font-size: 9pt;
+        font-style: italic;
+        margin-top: 0.25cm;
+    }
+
+    /* ========== TABLES ========== */
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 0.5cm 0;
+        page-break-inside: avoid;
+    }
+
+    table,
+    th,
+    td {
+        border: 1px solid #999;
+    }
+
+    thead {
+        background-color: #f0f0f0;
+        color: black;
+    }
+
+    th {
+        background-color: #f0f0f0;
+        font-weight: bold;
+        padding: 0.3cm;
+        page-break-after: avoid;
+    }
+
+    td {
+        padding: 0.3cm;
+        vertical-align: top;
+    }
+
+    tr {
+        page-break-inside: avoid;
+    }
+
+    tbody tr:nth-child(odd) {
+        background-color: #f9f9f9;
+    }
+
+    /* ========== CODE ========== */
+
+    code,
+    pre {
+        background-color: #f4f4f4 !important;
+        border: 1px solid #ddd;
+        border-radius: 0;
+        font-size: 10pt;
+        line-height: 1.4;
+        overflow-x: auto;
+        padding: 0.3cm;
+        margin: 0.3cm 0;
+        page-break-inside: avoid;
+        color: black !important;
+    }
+
+    code {
+        padding: 0.1cm 0.2cm;
+        display: inline-block;
+    }
+
+    pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+    }
+
+    /* ========== BLOCKQUOTE ========== */
+
+    blockquote {
+        border-left: 3px solid #999;
+        margin: 0.5cm 0 0.5cm 1cm;
+        padding: 0.3cm 0 0.3cm 0.5cm;
+        page-break-inside: avoid;
+        color: #666;
+    }
+
+    /* ========== FORMS ========== */
+
+    input,
+    textarea,
+    select,
+    button {
+        display: none !important;
+    }
+
+    /* ========== ABBREVIATIONS ========== */
+
+    abbr[title]::after {
+        content: " (" attr(title) ")";
+        font-size: 9pt;
+    }
+
+    /* ========== PAGE BREAKS ========== */
+
+    .page-break {
+        page-break-after: always;
+        margin: 0 !important;
+        padding: 0 !important;
+        height: 0;
+    }
+
+    .page-break-before {
+        page-break-before: always;
+    }
+
+    .no-page-break {
+        page-break-inside: avoid;
+    }
+
+    h1,
+    h2,
+    h3 {
+        page-break-after: avoid;
+        page-break-inside: avoid;
+    }
+
+    /* Avoid orphans and widows */
+    p {
+        orphans: 3;
+        widows: 3;
+    }
+
+    /* ========== SPACING ADJUSTMENTS ========== */
+
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    main {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* ========== VISIBILITY ========== */
+
+    .hidden-print,
+    .d-print-none {
+        display: none !important;
+    }
+
+    .visible-print,
+    .d-print-block {
+        display: block !important;
+    }
+
+    .d-print-inline {
+        display: inline !important;
+    }
+
+    .d-print-inline-block {
+        display: inline-block !important;
+    }
+
+    .d-print-flex {
+        display: flex !important;
+    }
+
+    /* ========== SPECIFIC SECTIONS ========== */
+
+    /* Hero Section */
+    .hero {
+        background: transparent;
+        color: black;
+        border-bottom: 2px solid #999;
+        page-break-after: avoid;
+    }
+
+    /* Sections */
+    section {
+        page-break-inside: avoid;
+        margin-bottom: 1cm;
+    }
+
+    /* Cards */
+    .card {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+        margin-bottom: 0.5cm;
+    }
+
+    /* Buttons */
+    .btn {
+        border: 1px solid #999;
+        padding: 0.3cm;
+        color: black;
+        background-color: white;
+        text-decoration: underline;
+    }
+
+    /* ========== BACKGROUNDS AND COLORS ========== */
+
+    .bg-primary,
+    .bg-secondary,
+    .bg-success,
+    .bg-warning,
+    .bg-error,
+    .bg-info {
+        background-color: white !important;
+        color: black !important;
+        border: 1px solid #999 !important;
+    }
+
+    /* ========== ANIMATIONS DISABLED ========== */
+
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+
+    /* ========== UTILITIES FOR PRINT ========== */
+
+    .text-center {
+        text-align: center;
+    }
+
+    .text-right {
+        text-align: right;
+    }
+
+    .text-left {
+        text-align: left;
+    }
+
+    .text-justify {
+        text-align: justify;
+    }
+
+    .text-muted {
+        color: #666;
+    }
+
+    .text-small {
+        font-size: 9pt;
+    }
+
+    .mt-0,
+    .my-0 {
+        margin-top: 0 !important;
+    }
+
+    .mb-0,
+    .my-0 {
+        margin-bottom: 0 !important;
+    }
+
+    .ml-0,
+    .mx-0 {
+        margin-left: 0 !important;
+    }
+
+    .mr-0,
+    .mx-0 {
+        margin-right: 0 !important;
+    }
+
+    /* ========== GRID ADJUSTMENTS ========== */
+
+    .col-2,
+    .col-3,
+    .col-4 {
+        display: block;
+        width: 100%;
+    }
+
+    .grid,
+    .grid-2,
+    .grid-3,
+    .grid-4,
+    .grid-6 {
+        display: block;
+    }
+
+    .grid-2>*,
+    .grid-3>*,
+    .grid-4>*,
+    .grid-6>* {
+        width: 100%;
+        margin-bottom: 0.5cm;
+    }
+
+    /* ========== RESPONSIVE ADJUSTMENTS ========== */
+
+    .hidden-print {
+        display: none !important;
+    }
+
+    .visible-print {
+        display: block !important;
+    }
+
+    /* ========== LAST ELEMENT MARGIN ========== */
+
+    *:last-child {
+        margin-bottom: 0;
+    }
+
+    /* ========== QUALITY IMPROVEMENTS ========== */
+
+    body {
+        text-rendering: optimizeLegibility;
+    }
+
+    a {
+        word-wrap: break-word;
+    }
+
+    pre {
+        white-space: pre-wrap;
+    }
+
+    ul,
+    ol,
+    dl {
+        margin-bottom: 0.5cm;
+    }
+
+    li {
+        margin-bottom: 0.2cm;
+    }
+}
