@@ -1,10 +1,10 @@
-# SolutionsHub Portfolio
+# KoddaHub Portfolio
 
 Portfólio empresarial completo para expor soluções web segmentadas por tipo de negócio.
 
-## 📋 Descrição do Projeto
+## Descrição do Projeto
 
-SolutionsHub é um site de portfólio moderno e responsivo que apresenta cinco tipos de soluções web:
+KoddaHub é um site de portfólio moderno e responsivo que apresenta cinco tipos de soluções web:
 
 - **Site Institucional** - Para ONGs, escolas, clínicas e associações
 - **E-commerce** - Lojas virtuais completas e integradas
@@ -12,11 +12,11 @@ SolutionsHub é um site de portfólio moderno e responsivo que apresenta cinco t
 - **Site de Serviços** - Para consultorias e profissionais liberais
 - **Sistemas Empresariais** - CRM, controle de estoque e soluções customizadas
 
-## 🎯 Público-Alvo
+## Público-Alvo
 
 Empresas buscando presença digital profissional ou sistemas de gestão personalizados.
 
-## 🛠️ Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
 - **HTML5** - Semântico e acessível
 - **CSS3** - Flexbox, Grid, responsivo
@@ -225,11 +225,11 @@ Este projeto está disponível para uso comercial e pessoal.
 
 ## 👥 Autor
 
-**SolutionsHub** - Soluções Web Profissionais
+**KoddaHub** - Soluções Web Profissionais
 
-- Email: contato@solutionshub.com.br
-- Telefone: (11) 99999-9999
-- Localização: São Paulo - SP
+- Email: angelamachado02022@gmail.com
+- Telefone: (41) 9227-2854
+- Localização: Curitiba
 
 ## 🤝 Contribuições
 
