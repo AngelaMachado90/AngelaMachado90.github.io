@@ -1,7 +1,7 @@
 /**
  * navigation.js - Sistema de Navegação Responsivo
  * Versão: 1.0.0
- * Autor: [Seu Nome]
+ * Autor: Angela Machado
  * Descrição: Gerencia navegação mobile, scroll suave, highlight de seções ativas
  */
 
