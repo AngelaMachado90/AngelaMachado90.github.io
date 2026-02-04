@@ -132,26 +132,12 @@
   animation: float 8s ease-in-out infinite;
 }
 
-.hero-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: center;
-  position: relative;
-  z-index: 2;
-}
-
-.hero-cta {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
 .btn-primary-modern,
 .btn-secondary-modern {
   padding: 15px 35px;
   border-radius: var(--radius-md);
   font-weight: var(--fw-semibold);
+  background-color: var(--orange-vibrant);
   text-decoration: none;
   transition: all var(--duration-300) var(--ease-out);
   display: inline-block;
@@ -182,7 +168,6 @@
   background: var(--white-neutral);
   color: var(--orange-vibrant);
 }
-
 
 /* ========== SEÇÃO HEADERS ========== */
 .section-header {
