@@ -229,43 +229,6 @@
   }
 }
 
-/* Cards flutuantes responsivos */
-/* @media (max-width: 768px) {
-  .floating-card {
-    width: 120px;
-    padding: 1rem;
-    font-size: 0.8rem;
-  }
-
-  .card-1 {
-    top: 10px;
-    left: 10px;
-  }
-
-  .card-2 {
-    top: 10px;
-    right: 10px;
-  }
-
-  .card-3 {
-    display: none;
-    /* Esconder o terceiro card em mobile */
-/* Mobile muito pequeno */
-@media (max-width: 480px) {
-  .hero-visual {
-    height: 250px;
-  }
-
-  .floating-card {
-    display: none;
-    /* Esconder completamente em telas muito pequenas */
-  }
-
-  /* Ajustar padding de seções */
-  .section-modern {
-    padding: 30px 0;
-  }
-}
 
 /* ========== MELHORIAS DE ACESSIBILIDADE ========== */
 @media (prefers-reduced-motion: reduce) {
@@ -280,27 +243,4 @@
 /* Esta classe pode ser adicionada para esconder o menu */
 .hidden {
   display: none !important;
-}
-
-/* ========== ESTILOS PARA IMPRESSÃO (MELHORADOS) ========== */
-@media print {
-  * {
-    color: #000 !important;
-    background: #fff !important;
-    box-shadow: none !important;
-  }
-
-  .navbar-modern,
-  .hero-modern,
-  .floating-card,
-  .hero-cta,
-  .form-modern,
-  .footer-modern {
-    display: none !important;
-  }
-
-  .container {
-    width: 100%;
-    max-width: none;
-  }
 }
