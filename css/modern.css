@@ -173,6 +173,8 @@
     color: rgba(255, 255, 255, 0.9);
     margin-bottom: 30px;
     line-height: 1.6;
+    padding-left: 6px;
+
 }
 
 .hero-cta {
