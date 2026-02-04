@@ -230,7 +230,7 @@
 }
 
 /* Cards flutuantes responsivos */
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .floating-card {
     width: 120px;
     padding: 1rem;
@@ -250,9 +250,6 @@
   .card-3 {
     display: none;
     /* Esconder o terceiro card em mobile */
-  }
-}
-
 /* Mobile muito pequeno */
 @media (max-width: 480px) {
   .hero-visual {
