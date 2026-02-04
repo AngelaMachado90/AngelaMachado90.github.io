@@ -88,6 +88,16 @@ img {
     background-color: transparent;
 }
 
+/* Exceção para logos */
+.logo-image img,
+.navbar-brand img,
+.logo img {
+    height: auto !important;
+    /* Mantém height: auto, mas permite override */
+    max-height: 50px;
+    /* Adiciona limite máximo */
+}
+
 picture {
     display: block;
 }
