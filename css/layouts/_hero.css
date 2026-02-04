@@ -1,0 +1,66 @@
+/* ============================================================================
+   LAYOUT: HERO
+   ============================================================================ */
+
+/**
+ * HERO - Layout específico da página inicial
+ * 
+ * Dependências:
+ * - components/_cards.css (.card--floating)
+ * - animations.css (@keyframes float)
+ */
+
+.hero-modern {
+    position: relative;
+    overflow: hidden;
+    padding: 100px 0;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, var(--blue-electric) 0%, var(--orange-vibrant) 100%);
+}
+
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+.hero-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-visual {
+    position: relative;
+    height: 400px;
+}
+
+/* POSICIONAMENTOS ESPECÍFICOS - APENAS PARA ESTE LAYOUT */
+.hero-visual .card--floating:nth-child(1) {
+    top: 0;
+    left: 0;
+    width: 150px;
+}
+
+.hero-visual .card--floating:nth-child(2) {
+    top: 150px;
+    right: 0;
+    width: 150px;
+    animation-delay: 0.5s;
+}
+
+.hero-visual .card--floating:nth-child(3) {
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    animation-delay: 1s;
+}

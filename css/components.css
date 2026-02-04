@@ -362,6 +362,12 @@
   /* Remove padding extra */
 }
 
+.card-icon {
+  font-size: 2.5rem;
+  color: var(--orange-vibrant);
+  margin-bottom: 10px;
+}
+
 /* ========== VARIANTES DE CARD ========== */
 
 /**
@@ -401,6 +407,9 @@
   border: 2px solid var(--primary-500);
   /* Borda colorida grossa */
 }
+
+/* Posições específicas - estas ficam no modern.css */
+
 
 /* ============================================================================
    SEÇÃO 3: BADGES

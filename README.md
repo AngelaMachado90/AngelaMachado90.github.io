@@ -267,3 +267,52 @@ Fundo escuro com texto branco e laranja para contraste forte e moderno.
 Botões azuis com hover em laranja para chamar atenção.
 
 Elementos de interface como cards ou menus com cinza claro e bordas sutis.
+
+# TO DO
+
+1. Estrutura HTML Semântica e Acessível
+Seu site usa muitas <div> e <section>. Boas práticas:
+
+Substitua <div> por tags semânticas: <header>, <main>, <footer>, <article>, <nav>.
+
+Use <button> para elementos clicáveis (como os cards de serviços), não apenas <div>. Isso melhora a navegação por teclado e leitores de tela.
+
+Defina uma hierarquia de cabeçalhos (<h1> a <h6>) lógica. O <h1> deve ser o título principal da página. Você tem vários <h1>; idealmente, deve ter apenas um por página
+
+2. Estilização CSS Moderna e Organizada
+CSS Resett/Normalize: Comece com um reset CSS (como o do Eric Meyer) para garantir consistência visual entre navegadores.
+
+Metodologia (ex: BEM): Organize suas classes. Exemplo: .card, .card--service, .card__title, .card__description. Isso evita conflitos e facilita manutenção.
+
+Variáveis CSS: Defina cores, fontes e espaçamentos como variáveis (:root { --cor-primaria: #0056b3; }). Facilita mudanças e garante consistência.
+
+Mobile First: Comece estilizando para telas pequenas e use @media (min-width: ...) para telas maiores. Isso melhora performance e UX.
+
+3. Interatividade com JavaScript Limpo
+O formulário parece ser um ponto focal, mas há espaço para evolução:
+
+Validação no Lado do Cliente: Implemente validação dos campos (email, campos obrigatórios) antes de enviar, com feedback visual claro.
+
+Mensagens de Status Dinâmicas: Altere o texto do botão para "Enviando..." durante o envio e dê confirmação visual/verbal do sucesso ou erro.
+
+Código Modular: Separe seu JavaScript em funções com responsabilidades únicas. Ex: validarFormulario(), enviarDados(), mostrarMensagem().
+
+4. Performance Otimização (Onde Brilha um Dev)
+Imagens: Comprima todas as imagens (use ferramentas como Squoosh ou ImageOptim). Use formatos modernos (WebP) com fallback.
+
+Lazy Loading: Adicione loading="lazy" às imagens fora da tela inicial. Isso acelera o carregamento inicial.
+
+Fontes Web: Otimize fontes carregadas do Google Fonts (use o parâmetro &display=swap).
+
+Minificação: No deploy, use ferramentas para minificar HTML, CSS e JS.
+
+🚀 Próximos Passos e Projeto de Melhoria
+Para colocar isso em prática, sugiro um pequeno projeto guiado:
+
+Refatore o Cabeçalho (<header>): Substitua as divs por <header>, <nav>, <ul> e <li>.
+
+Crie um Card de Serviço Semântico: Escolha um dos serviços e recrie-o usando <article>, um <button> verdadeiro e classes CSS seguindo BEM.
+
+Implemente Validação de Formulário: Adicione validação em tempo real ao campo de email e aos campos obrigatórios.
+
+Este é um excelente trabalho inicial. A jornada de refatoração para aplicar essas práticas é o que vai realmente destacar suas habilidades técnicas para recrutadores e clientes.

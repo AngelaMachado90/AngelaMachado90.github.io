@@ -1,0 +1,28 @@
+/* ============================================================================
+   MAIN.CSS - Ponto de Entrada Principal
+   Ordem CRÍTICA: Não alterar a ordem de importação
+   ============================================================================ */
+
+/* 1. Reset e Normalização */
+@import url('reset.css');
+
+/* 2. Design Tokens (Variáveis) */
+@import url('variables.css');
+
+/* 3. Estilos Base */
+@import url('base.css');
+
+/* 4. Componentes Reutilizáveis */
+@import url('components/_index.css');
+
+/* 5. Layouts Específicos */
+@import url('layouts/_index.css');
+
+/* 6. Classes Utilitárias */
+@import url('utilities.css');
+
+/* 7. Animações */
+@import url('animations.css');
+
+/* 8. Responsividade */
+@import url('responsive.css');
