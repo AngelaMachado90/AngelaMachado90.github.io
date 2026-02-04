@@ -168,6 +168,11 @@
   position: relative;
   z-index: 2;
   padding-left: 24px;
+  background: linear-gradient(
+    135deg,
+    var(--blue-electric) 0%,
+    var(--orange-vibrant) 100%
+  );
 }
 
 .hero-text h1 {
