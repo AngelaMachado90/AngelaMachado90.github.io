@@ -344,9 +344,18 @@
 }
 
 .card-content p {
-    color: var(--gray-dark);
-    margin-bottom: 20px;
-    line-height: var(--lh-relaxed);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    white-space: normal;
+    line-height: 1.6;
+}
+
+/* Correcao de layout cards flutuantes */
+.card-title,
+.card-content h3 {
+    word-break: break-word;
+    hyphens: auto;
 }
 
 .features-list {
