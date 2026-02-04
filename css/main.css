@@ -98,29 +98,6 @@
 }
 
 /* ========== HERO MODERNO ========== */
-.hero-modern {
-  position: relative;
-  overflow: hidden;
-  padding: 100px 0;
-  min-height: 600px;
-  display: flex;
-  align-items: center;
-  background: linear-gradient(
-    135deg,
-    var(--blue-electric) 0%,
-    var(--orange-vibrant) 100%
-  );
-}
-
-.hero-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: -1;
-}
-
 .gradient-blob {
   position: absolute;
   border-radius: 50%;
