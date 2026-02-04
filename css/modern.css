@@ -353,7 +353,7 @@
 
 /* Correcao de layout cards flutuantes */
 .card-title,
-.card-content h3 {
+.card-content h4 {
     word-break: break-word;
     hyphens: auto;
 }
