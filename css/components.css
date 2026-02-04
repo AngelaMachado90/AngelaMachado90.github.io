@@ -379,7 +379,7 @@
   animation: float 5s var(--ease-in-out) infinite;
   z-index: var(--z-base);
   transition: transform var(--duration-300) var(--ease-out);
-  width: 150px;
+  width: 190px;
   /* Garante tamanho consistente */
 }
 
