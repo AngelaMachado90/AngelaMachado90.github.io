@@ -1,86 +1,147 @@
 /* ============================================================================
-   RESPONSIVE.CSS - Media Queries and Responsive Adjustments
+   RESPONSIVE.CSS - Media Queries and Responsive Adjustments - ATUALIZADO
    ============================================================================ */
 
-/* ========== MOBILE FIRST (320px - 374px) ========== */
+/* ========== ABORDAGEM MOBILE FIRST ========== */
+/* Mobile pequeno (até 374px) */
 @media (max-width: 374px) {
+  :root {
+    font-size: 14px;
+    /* Reduz tamanho base da fonte */
+  }
+
   .navbar-modern {
-    padding: 10px 0;
+    padding: 8px 0;
   }
 
   .hero-modern {
-    padding: 60px 0;
-    min-height: 500px;
+    padding: 40px 0;
+    min-height: auto;
+    /* Remover altura fixa */
   }
 
   .hero-text h1 {
-    font-size: clamp(1.75rem, 5vw, 2.5rem);
+    font-size: 1.5rem;
+    line-height: 1.3;
+  }
+
+  .hero-text p {
+    font-size: 0.9rem;
   }
 
   .hero-cta {
     flex-direction: column;
-    gap: 15px;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .hero-cta .btn {
+    width: 100%;
+    text-align: center;
   }
 
   .solutions-grid {
     grid-template-columns: 1fr;
+    gap: 15px;
   }
 
   .modern-card {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
+    padding: 20px;
+  }
+
+  /* Garantir que imagens sejam responsivas */
+  img {
+    max-width: 100%;
+    height: auto;
   }
 }
 
-/* ========== SMALL DEVICES (375px - 640px) ========== */
-@media (min-width: 375px) and (max-width: 640px) {
+/* Mobile (375px - 767px) */
+@media (min-width: 375px) and (max-width: 767px) {
+
+  .container,
+  .container-fluid {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
   .navbar-wrapper {
-    gap: 20px;
+    gap: 15px;
   }
 
   .hero-modern {
-    min-height: 550px;
+    min-height: auto;
+    padding: 80px 0 60px;
   }
 
   .hero-content {
-    gap: 40px;
+    gap: 30px;
   }
 
   .diferenciais-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  /* Melhorar espaçamento em mobile */
+  .section-modern {
+    padding: 40px 0;
+  }
+
+  .section-title h2 {
+    font-size: 1.8rem;
   }
 }
 
-/* ========== TABLET (768px - 1023px) ========== */
+/* Tablet (768px - 1023px) */
 @media (min-width: 768px) and (max-width: 1023px) {
   .navbar-menu {
-    gap: 25px;
+    gap: 20px;
   }
 
   .hero-content {
     grid-template-columns: 1fr;
+    text-align: center;
   }
 
   .hero-visual {
     display: none;
+    /* Manter escondido em tablet */
   }
 
   .solutions-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
   }
 
   .contato-wrapper {
     grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  /* Ajustar cards em tablet */
+  .modern-card {
+    height: auto;
+    min-height: 280px;
   }
 }
 
-/* ========== DESKTOP (1024px - 1439px) ========== */
-@media (min-width: 1024px) {
+/* Desktop (1024px - 1439px) */
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .container {
+    max-width: 1200px;
+    padding: 0 30px;
+  }
+
   .hero-modern {
-    min-height: 700px;
+    min-height: 600px;
+    /* Reduzir um pouco */
   }
 
   .solutions-grid {
     grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
   }
 
   .diferenciais-grid {
@@ -88,10 +149,11 @@
   }
 }
 
-/* ========== LARGE DESKTOP (1440px+) ========== */
+/* Large Desktop (1440px+) */
 @media (min-width: 1440px) {
   .hero-modern {
-    min-height: 800px;
+    min-height: 750px;
+    /* Ajustar valor */
   }
 
   .solutions-grid {
@@ -99,97 +161,137 @@
   }
 }
 
-/* ========== NAVBAR MOBILE ========== */
+/* ========== NAVBAR RESPONSIVA (MELHORADA) ========== */
 @media (max-width: 768px) {
   .navbar-toggle {
     display: flex;
-    flex-direction: column;
-    gap: 5px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 5px;
-  }
-
-  .navbar-toggle span {
-    width: 25px;
-    height: 3px;
-    background: var(--black-deep);
-    border-radius: 2px;
-    transition: all var(--duration-300) var(--ease-out);
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
   }
 
   .navbar-menu {
-    position: absolute;
+    position: fixed;
+    /* Mudar para fixed para melhor experiência */
     top: 70px;
     left: 0;
     right: 0;
     background: var(--white-pure);
     flex-direction: column;
-    gap: 20px;
-    padding: 30px;
+    gap: 0;
+    padding: 0;
     display: none;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     z-index: var(--z-dropdown);
+    max-height: calc(100vh - 70px);
+    overflow-y: auto;
   }
 
-  .navbar-menu.active {
-    display: flex;
-  }
-
-  .navbar-toggle.active span:nth-child(1) {
-    transform: rotate(45deg) translateY(10px);
-  }
-
-  .navbar-toggle.active span:nth-child(2) {
-    opacity: 0;
-  }
-
-  .navbar-toggle.active span:nth-child(3) {
-    transform: rotate(-45deg) translateY(-10px);
-  }
-
-  .timeline::before {
-    left: 25px;
-  }
-
-  .timeline-item {
-    grid-template-columns: 50px 1fr;
-    gap: 30px;
-  }
-
-  .timeline-number {
-    grid-column: 1;
-  }
-
-  .timeline-item:nth-child(odd) .timeline-content,
-  .timeline-item:nth-child(even) .timeline-content {
-    grid-column: 2;
+  .nav-link {
+    width: 100%;
+    padding: 20px 30px;
+    border-bottom: 1px solid var(--gray-light);
     text-align: left;
   }
-}
 
-/* ========== TOUCH DEVICES ========== */
-@media (hover: none) and (pointer: coarse) {
-  .nav-link:hover::after {
-    width: 0;
+  .nav-link:last-child {
+    border-bottom: none;
   }
 
-  .modern-card:hover {
-    transform: none;
-  }
-
-  .diferencial-item:hover {
-    transform: none;
-  }
-
-  .diferencial-item:hover .diferencial-icon {
-    transform: none;
+  .nav-link.cta-nav {
+    background: var(--primary-color);
+    color: white;
+    margin: 20px;
+    border-radius: 8px;
+    text-align: center;
   }
 }
 
-/* ========== PRINT STYLES ========== */
+/* ========== AJUSTES ESPECÍFICOS ========== */
+
+/* Ajustes para landscape mobile */
+@media (max-height: 500px) and (max-width: 768px) {
+  .hero-modern {
+    min-height: auto;
+    padding: 40px 0;
+  }
+}
+
+/* Prevenir zoom em input em iOS */
+@media (max-width: 767px) {
+
+  input,
+  select,
+  textarea {
+    font-size: 16px;
+    /* Prevenir zoom automático do iOS */
+  }
+}
+
+/* Cards flutuantes responsivos */
+@media (max-width: 768px) {
+  .floating-card {
+    width: 120px;
+    padding: 1rem;
+    font-size: 0.8rem;
+  }
+
+  .card-1 {
+    top: 10px;
+    left: 10px;
+  }
+
+  .card-2 {
+    top: 10px;
+    right: 10px;
+  }
+
+  .card-3 {
+    display: none;
+    /* Esconder o terceiro card em mobile */
+  }
+}
+
+/* Mobile muito pequeno */
+@media (max-width: 480px) {
+  .hero-visual {
+    height: 250px;
+  }
+
+  .floating-card {
+    display: none;
+    /* Esconder completamente em telas muito pequenas */
+  }
+
+  /* Ajustar padding de seções */
+  .section-modern {
+    padding: 30px 0;
+  }
+}
+
+/* ========== MELHORIAS DE ACESSIBILIDADE ========== */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ========== AJUSTES PARA O MENU MOBILE ========== */
+/* Esta classe pode ser adicionada para esconder o menu */
+.hidden {
+  display: none !important;
+}
+
+/* ========== ESTILOS PARA IMPRESSÃO (MELHORADOS) ========== */
 @media print {
+  * {
+    color: #000 !important;
+    background: #fff !important;
+    box-shadow: none !important;
+  }
 
   .navbar-modern,
   .hero-modern,
@@ -200,62 +302,8 @@
     display: none !important;
   }
 
-  .solutions-section,
-  .diferenciais-section,
-  .processos-section,
-  .stats-section,
-  .contato-section {
-    padding: 20px 0 !important;
-    break-inside: avoid;
-  }
-
-  .modern-card {
-    box-shadow: none !important;
-    border: 1px solid var(--gray-light) !important;
-    break-inside: avoid;
-  }
-}
-
-/* RESPONSIVIDADE PARA CARDS FLUTUANTES */
-@media (max-width: 768px) {
-  .floating-card {
-    width: 120px;
-    padding: 1rem;
-  }
-
-  .floating-card .card-icon {
-    font-size: 2rem;
-  }
-
-  .card-1 {
-    top: 20px;
-    left: 20px;
-  }
-
-  .card-2 {
-    top: 120px;
-    right: 20px;
-  }
-
-  .card-3 {
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-}
-
-@media (max-width: 480px) {
-  .hero-visual {
-    height: 300px;
-    /* Reduz altura em mobile */
-  }
-
-  .floating-card {
-    width: 100px;
-    padding: 0.75rem;
-  }
-
-  .floating-card h4 {
-    font-size: 0.875rem;
+  .container {
+    width: 100%;
+    max-width: none;
   }
 }
