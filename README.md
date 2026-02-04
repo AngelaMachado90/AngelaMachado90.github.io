@@ -268,6 +268,7 @@ Botões azuis com hover em laranja para chamar atenção.
 
 Elementos de interface como cards ou menus com cinza claro e bordas sutis.
 
+
 # TO DO
 
 1. Estrutura HTML Semântica e Acessível
