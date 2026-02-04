@@ -62,7 +62,6 @@
 
 /* Mobile (375px - 767px) */
 @media (min-width: 375px) and (max-width: 767px) {
-
   .container,
   .container-fluid {
     padding-left: 20px;
@@ -223,7 +222,6 @@
 
 /* Prevenir zoom em input em iOS */
 @media (max-width: 767px) {
-
   input,
   select,
   textarea {
@@ -231,7 +229,6 @@
     /* Prevenir zoom automático do iOS */
   }
 }
-
 
 /* ========== MELHORIAS DE ACESSIBILIDADE ========== */
 @media (prefers-reduced-motion: reduce) {
@@ -246,4 +243,94 @@
 /* Esta classe pode ser adicionada para esconder o menu */
 .hidden {
   display: none !important;
+}
+
+/* Cards Flutuantes - Ajustes Responsivos */
+/* ========== RESPONSIVIDADE ========== */
+@media (max-width: 1024px) {
+  .floating-card {
+    width: 130px;
+    padding: 1rem;
+  }
+
+  .card-1 {
+    top: 30px;
+    left: 20px;
+  }
+
+  .card-2 {
+    top: 140px;
+    right: 20px;
+  }
+
+  .card-3 {
+    bottom: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-visual {
+    height: 350px;
+  }
+
+  .floating-card {
+    width: 110px;
+    padding: 0.875rem;
+  }
+
+  .floating-card .card-icon {
+    font-size: 2rem;
+  }
+
+  .floating-card h4 {
+    font-size: 0.875rem;
+  }
+
+  /* Em mobile, cards mais espaçados */
+  .card-1 {
+    top: 40px;
+    left: 10px;
+  }
+
+  .card-2 {
+    top: 160px;
+    right: 10px;
+  }
+
+  .card-3 {
+    bottom: 40px;
+    left: 50%;
+    width: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-visual {
+    height: 300px;
+  }
+
+  .floating-card {
+    width: 100px;
+    padding: 0.75rem;
+  }
+
+  .floating-card .card-icon {
+    font-size: 1.75rem;
+  }
+
+  .floating-card h4 {
+    font-size: 0.75rem;
+  }
+
+  /* Em telas muito pequenas, reduz animação */
+  .floating-card {
+    animation-duration: 8s;
+  }
+
+  /* Desativa animação de entrada em mobile se quiser */
+  .card-1,
+  .card-2,
+  .card-3 {
+    animation: floatWave 8s ease-in-out infinite !important;
+  }
 }

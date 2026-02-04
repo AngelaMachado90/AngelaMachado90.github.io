@@ -1,93 +1,41 @@
-/**
- * COMPONENTS.CSS - Sistema de Componentes Reutilizáveis
- * Versão: 3.0.0
- * Autor: Angela Machado
- * 
- * ESTE ARQUIVO CONTÉM:
- * 1. Componentes de interface reutilizáveis
- * 2. Sistema de design consistente
- * 3. Estados interativos e acessibilidade
- * 4. Variantes e modificadores para flexibilidade
- * 
+/* Components System - Version 3.0.0 */
 
 /* ============================================================================
-   SEÇÃO 1: BOTÕES (BUTTONS)
+   BUTTONS
    ============================================================================ */
-
-/**
- * CLASSE BASE .btn
- * Estilo base para todos os botões
- * 
- * Características:
- * - Tamanho mínimo de toque 44px (acessibilidade)
- * - Feedback visual consistente
- * - Estados de foco, hover, active, disabled
- * - Suporte a ícones com gap
- */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: var(--space-2);
-  /* Espaço entre ícone e texto */
   padding: 0.75rem 1.5rem;
-  /* Padding base */
   font-size: var(--fs-base);
-  /* Tamanho de fonte */
   font-weight: var(--fw-semibold);
-  /* Peso da fonte */
   font-family: var(--font-body);
-  /* Fonte do sistema */
   text-decoration: none;
-  /* Remove sublinhado */
   text-align: center;
-  /* Centraliza texto */
   white-space: nowrap;
-  /* Evita quebra de linha */
   cursor: pointer;
-  /* Cursor pointer */
   border: 2px solid transparent;
-  /* Borda transparente */
   border-radius: var(--radius-base);
-  /* Bordas arredondadas */
   transition: all var(--duration-200) var(--ease-out);
-  /* Transição suave */
   user-select: none;
-  /* Não permite seleção de texto */
   touch-action: manipulation;
-  /* Melhora toque em mobile */
   min-height: 44px;
-  /* Mínimo para acessibilidade */
   min-width: 44px;
-  /* Mínimo para acessibilidade */
 }
 
-/* Estado de foco para acessibilidade */
 .btn:focus {
   outline: 2px solid var(--primary-500);
-  /* Outline visível */
   outline-offset: 2px;
-  /* Espaçamento do outline */
 }
 
-/* Estado desabilitado */
 .btn:disabled {
   opacity: 0.6;
-  /* Reduz opacidade */
   cursor: not-allowed;
-  /* Cursor indicando bloqueio */
 }
 
-/* ========== TAMANHOS DE BOTÃO ========== */
-
-/**
- * .btn-xs - Extra pequeno (pouco usado)
- * .btn-sm - Pequeno (ícones, ações secundárias)
- * .btn-md - Médio (padrão)
- * .btn-lg - Grande (CTAs principais)
- * .btn-xl - Extra grande (destaque especial)
- */
-
+/* Sizes */
 .btn-xs {
   padding: 0.375rem 0.75rem;
   font-size: var(--fs-xs);
@@ -97,7 +45,6 @@
   padding: 0.5rem 1rem;
   font-size: var(--fs-sm);
   min-height: 40px;
-  /* Ajusta altura mínima */
 }
 
 .btn-md {
@@ -109,283 +56,165 @@
   padding: 1rem 2rem;
   font-size: var(--fs-lg);
   min-height: 48px;
-  /* Ajusta altura mínima */
 }
 
 .btn-xl {
   padding: 1.25rem 2.5rem;
   font-size: var(--fs-lg);
   min-height: 52px;
-  /* Ajusta altura mínima */
 }
 
-/* ========== VARIANTES DE BOTÃO ========== */
-
-/**
- * .btn-primary - Ação principal (cor primária)
- * Características: Fundo colorido, texto branco, hover com elevação
- */
+/* Variants */
 .btn-primary {
   background-color: var(--primary-600);
-  /* Cor principal */
   color: #fff;
-  /* Texto branco */
   border-color: var(--primary-600);
-  /* Borda da mesma cor */
 }
 
 .btn-primary:hover:not(:disabled) {
   background-color: var(--primary-700);
-  /* Cor mais escura no hover */
   border-color: var(--primary-700);
-  /* Borda mais escura */
   transform: translateY(-2px);
-  /* Efeito de elevação */
   box-shadow: var(--shadow-lg);
-  /* Sombra para profundidade */
 }
 
 .btn-primary:active:not(:disabled) {
   background-color: var(--primary-800);
-  /* Cor ainda mais escura */
   transform: translateY(0);
-  /* Remove elevação */
 }
 
-/**
- * .btn-secondary - Ação secundária
- * Características: Tom neutro, menos destaque que primary
- */
 .btn-secondary {
   background-color: var(--neutral-200);
-  /* Fundo neutro */
   color: var(--neutral-900);
-  /* Texto escuro */
   border-color: var(--neutral-200);
-  /* Borda neutra */
 }
 
 .btn-secondary:hover:not(:disabled) {
   background-color: var(--neutral-300);
-  /* Fundo mais escuro */
   border-color: var(--neutral-300);
-  /* Borda mais escura */
   transform: translateY(-2px);
-  /* Efeito de elevação */
   box-shadow: var(--shadow-lg);
-  /* Sombra */
 }
 
-/**
- * .btn-outline - Contorno destacado
- * Características: Borda colorida, fundo transparente
- */
 .btn-outline {
   background-color: transparent;
-  /* Fundo transparente */
   color: var(--primary-600);
-  /* Cor primária no texto */
   border-color: var(--primary-600);
-  /* Borda colorida */
 }
 
 .btn-outline:hover:not(:disabled) {
   background-color: var(--primary-50);
-  /* Fundo muito claro */
   border-color: var(--primary-700);
-  /* Borda mais escura */
   color: var(--primary-700);
-  /* Texto mais escuro */
 }
 
-/**
- * .btn-ghost - Botão fantasma
- * Características: Mínimo visual, aparece no hover
- */
 .btn-ghost {
   background-color: transparent;
-  /* Fundo transparente */
   color: var(--primary-600);
-  /* Cor primária */
   border-color: transparent;
-  /* Sem borda */
 }
 
 .btn-ghost:hover:not(:disabled) {
   background-color: var(--primary-50);
-  /* Fundo muito claro */
   color: var(--primary-700);
-  /* Texto mais escuro */
 }
 
-/**
- * .btn-danger - Ação perigosa/destrutiva
- * Características: Cor de erro, para ações irreversíveis
- */
 .btn-danger {
   background-color: var(--error-500);
-  /* Cor de erro */
   color: #fff;
-  /* Texto branco */
   border-color: var(--error-500);
-  /* Borda da mesma cor */
 }
 
 .btn-danger:hover:not(:disabled) {
   background-color: var(--error-700);
-  /* Cor mais escura */
   border-color: var(--error-700);
-  /* Borda mais escura */
   transform: translateY(-2px);
-  /* Efeito de elevação */
   box-shadow: var(--shadow-lg);
-  /* Sombra */
 }
 
-/**
- * .btn-success - Ação positiva/conclusão
- * Características: Cor de sucesso
- */
 .btn-success {
   background-color: var(--success-500);
-  /* Cor de sucesso */
   color: #fff;
-  /* Texto branco */
   border-color: var(--success-500);
-  /* Borda da mesma cor */
 }
 
 .btn-success:hover:not(:disabled) {
   background-color: var(--success-700);
-  /* Cor mais escura */
   border-color: var(--success-700);
-  /* Borda mais escura */
   transform: translateY(-2px);
-  /* Efeito de elevação */
   box-shadow: var(--shadow-lg);
-  /* Sombra */
 }
 
-/**
- * .btn-block - Botão em bloco
- * Características: Ocupa 100% da largura disponível
- */
 .btn-block {
   width: 100%;
-  /* Largura total */
   display: flex;
-  /* Mantém flex para alinhamento */
 }
 
 /* ============================================================================
-   SEÇÃO 2: CARDS
+   CARDS
    ============================================================================ */
-
-/**
- * CLASSE BASE .card
- * Container para agrupar conteúdo relacionado
- * 
- * Características:
- * - Fundo branco com borda sutil
- * - Sombra para profundidade
- * - Hover com elevação
- * - Estrutura com header/body/footer
- */
 .card {
   background-color: #fff;
-  /* Fundo branco */
   border: 1px solid var(--neutral-200);
-  /* Borda sutil */
   border-radius: var(--radius-base);
-  /* Bordas arredondadas */
   padding: var(--space-4);
-  /* Padding interno */
   box-shadow: var(--shadow-base);
-  /* Sombra leve */
   transition: all var(--duration-300) var(--ease-out);
-  /* Transição suave */
   overflow: hidden;
-  /* Esconde overflow */
 }
 
 .card:hover {
   border-color: var(--primary-300);
-  /* Borda colorida no hover */
   box-shadow: var(--shadow-lg);
-  /* Sombra mais forte */
   transform: translateY(-4px);
-  /* Efeito de elevação */
 }
 
-/* Estrutura do Card */
+/* Card Structure */
 .card-header {
-  margin: calc(var(--space-4) * -1) calc(var(--space-4) * -1) var(--space-4)
-    calc(var(--space-4) * -1);
+  margin: calc(var(--space-4) * -1) calc(var(--space-4) * -1) var(--space-4) calc(var(--space-4) * -1);
   padding: var(--space-4);
   background-color: var(--neutral-50);
-  /* Fundo diferenciado */
   border-bottom: 1px solid var(--neutral-200);
-  /* Linha separadora */
 }
 
 .card-footer {
-  margin: var(--space-4) calc(var(--space-4) * -1) calc(var(--space-4) * -1)
-    calc(var(--space-4) * -1);
+  margin: var(--space-4) calc(var(--space-4) * -1) calc(var(--space-4) * -1) calc(var(--space-4) * -1);
   padding: var(--space-4);
   background-color: var(--neutral-50);
-  /* Fundo diferenciado */
   border-top: 1px solid var(--neutral-200);
-  /* Linha separadora */
 }
 
-/* Tipografia do Card */
 .card-title {
   font-size: var(--fs-xl);
-  /* Título grande */
   font-weight: var(--fw-bold);
-  /* Negrito */
   margin-bottom: var(--space-2);
-  /* Espaço abaixo */
   color: var(--neutral-900);
-  /* Cor escura */
 }
 
 .card-subtitle {
   font-size: var(--fs-sm);
-  /* Texto menor */
   color: var(--neutral-600);
-  /* Cor média */
   margin-bottom: var(--space-3);
-  /* Espaço abaixo */
 }
 
 .card-body {
   padding: 0;
-  /* Remove padding extra */
 }
 
-.card-icon {
-  font-size: 2.5rem;
-  color: var(--orange-vibrant);
-  margin-bottom: 10px;
-}
-
-/* ========== CARDS MODERNOS ========== */
+/* Modern Cards */
 .floating-card {
   position: absolute;
   background: var(--white-pure);
   border-radius: var(--radius-lg);
   padding: 1.25rem;
-  box-shadow: var(--shadow-xl);
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.1),
+    0 0 0 1px rgba(255, 255, 255, 0.1) inset;
   text-align: center;
   animation: floatWave 6s ease-in-out infinite;
   z-index: 1;
   transition: all var(--duration-300) var(--ease-out);
   width: 150px;
-  /* Sombra mais suave para profundidade */
-  box-shadow:
-    0 20px 40px rgba(0, 0, 0, 0.1),
-    0 0 0 1px rgba(255, 255, 255, 0.1) inset;
 }
 
 .floating-card:hover {
@@ -397,40 +226,29 @@
     0 0 0 1px var(--orange-vibrant) inset;
 }
 
-/* ========== POSICIONAMENTO ESPECÍFICO ========== */
-/* CARD 1 - TOPO ESQUERDA */
+/* Card Positions */
 .card-1 {
   top: 20px;
   left: 30px;
   animation: floatWave 6s ease-in-out infinite;
-  animation-delay: 0s;
-}
-/* CARD 2 - MEIO DIREITA (ESCADINHA) */
-.card-2 {
-  top: 120px;
-  /* Mais baixo que card1 */
-  right: 40px;
-  animation: floatWave 6s ease-in-out infinite;
-  animation-delay: 1.5s;
-  /* Começa depois do card1 */
-  z-index: 2;
-  /* Garante ordem de profundidade */
 }
 
-/* CARD 3 - BAIXO CENTRO (MAIS ATRASADO) */
+.card-2 {
+  top: 120px;
+  right: 40px;
+  animation: floatWave 6s ease-in-out infinite 1.5s;
+  z-index: 2;
+}
+
 .card-3 {
   bottom: 40px;
   left: 50%;
   transform: translateX(-50%);
-  animation: floatWave 6s ease-in-out infinite;
-  animation-delay: 3s;
-  /* Começa depois do card2 */
+  animation: floatWave 6s ease-in-out infinite 3s;
   z-index: 3;
-  /* Fica por último na ordem */
 }
 
-/* ========== ANIMAÇÃO DE ENTRADA (OPCIONAL) ========== */
-/* Faz os cards aparecerem um por um */
+/* Animations */
 @keyframes fadeInUpStagger {
   from {
     opacity: 0;
@@ -443,7 +261,6 @@
   }
 }
 
-/* Aplica animação de entrada */
 .card-1 {
   animation:
     fadeInUpStagger 0.8s ease-out 0.2s both,
@@ -462,95 +279,6 @@
     floatWave 6s ease-in-out 4s infinite;
 }
 
-/* ========== RESPONSIVIDADE ========== */
-@media (max-width: 1024px) {
-  .floating-card {
-    width: 130px;
-    padding: 1rem;
-  }
-
-  .card-1 {
-    top: 30px;
-    left: 20px;
-  }
-
-  .card-2 {
-    top: 140px;
-    right: 20px;
-  }
-
-  .card-3 {
-    bottom: 30px;
-  }
-}
-
-@media (max-width: 768px) {
-  .hero-visual {
-    height: 350px;
-  }
-
-  .floating-card {
-    width: 110px;
-    padding: 0.875rem;
-  }
-
-  .floating-card .card-icon {
-    font-size: 2rem;
-  }
-
-  .floating-card h4 {
-    font-size: 0.875rem;
-  }
-
-  /* Em mobile, cards mais espaçados */
-  .card-1 {
-    top: 40px;
-    left: 10px;
-  }
-
-  .card-2 {
-    top: 160px;
-    right: 10px;
-  }
-
-  .card-3 {
-    bottom: 40px;
-    left: 50%;
-    width: 120px;
-  }
-}
-
-@media (max-width: 480px) {
-  .hero-visual {
-    height: 300px;
-  }
-
-  .floating-card {
-    width: 100px;
-    padding: 0.75rem;
-  }
-
-  .floating-card .card-icon {
-    font-size: 1.75rem;
-  }
-
-  .floating-card h4 {
-    font-size: 0.75rem;
-  }
-
-  /* Em telas muito pequenas, reduz animação */
-  .floating-card {
-    animation-duration: 8s;
-  }
-
-  /* Desativa animação de entrada em mobile se quiser */
-  .card-1,
-  .card-2,
-  .card-3 {
-    animation: floatWave 8s ease-in-out infinite !important;
-  }
-}
-/* ÍCONE DOS CARDS */
 .floating-card .card-icon {
   font-size: 2.5rem;
   color: var(--orange-vibrant);
@@ -563,7 +291,6 @@
   transform: rotate(15deg) scale(1.1);
 }
 
-/* TÍTULO DOS CARDS */
 .floating-card h4 {
   color: var(--black-deep);
   font-size: 1rem;
@@ -576,85 +303,44 @@
   color: var(--orange-vibrant);
 }
 
-/* ========== VARIANTES DE CARD ========== */
-
-/**
- * .card-elevated - Card com mais destaque
- * Características: Sombra mais forte inicialmente
- */
+/* Card Variants */
 .card-elevated {
   box-shadow: var(--shadow-md);
-  /* Sombra média */
 }
 
 .card-elevated:hover {
   box-shadow: var(--shadow-xl);
-  /* Sombra forte no hover */
 }
 
-/**
- * .card-flat - Card plano
- * Características: Sem borda, fundo neutro
- */
 .card-flat {
   border: none;
-  /* Sem borda */
   box-shadow: none;
-  /* Sem sombra */
   background-color: var(--neutral-100);
-  /* Fundo neutro */
 }
 
-/**
- * .card-outline - Card com borda colorida
- * Características: Borda destacada, fundo transparente
- */
 .card-outline {
   background-color: transparent;
-  /* Fundo transparente */
   border: 2px solid var(--primary-500);
-  /* Borda colorida grossa */
 }
 
-/* Posições específicas - estas ficam no modern.css */
-
 /* ============================================================================
-   SEÇÃO 3: BADGES
+   BADGES
    ============================================================================ */
-
-/**
- * CLASSE BASE .badge
- * Indicador visual para status, contagem, categorias
- * 
- * Características:
- * - Pequeno e compacto
- * - Circular (border-radius full)
- * - Suporte a ícones
- */
 .badge {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: var(--space-1);
-  /* Espaço entre ícone e texto */
   padding: 0.25rem 0.75rem;
-  /* Padding compacto */
   font-size: var(--fs-xs);
-  /* Fonte pequena */
   font-weight: var(--fw-semibold);
-  /* Semibold */
   border-radius: var(--radius-full);
-  /* Completamente arredondado */
   background-color: var(--primary-100);
-  /* Fundo claro da cor */
   color: var(--primary-700);
-  /* Texto da cor escura */
   white-space: nowrap;
-  /* Não quebra linha */
 }
 
-/* ========== VARIANTES DE BADGE ========== */
-
+/* Variants */
 .badge-primary {
   background-color: var(--primary-100);
   color: var(--primary-700);
@@ -685,86 +371,50 @@
   color: var(--info-700);
 }
 
-/* ========== TAMANHOS DE BADGE ========== */
-
+/* Sizes */
 .badge-sm {
   padding: 0.125rem 0.5rem;
-  /* Padding menor */
   font-size: 0.65rem;
-  /* Fonte ainda menor */
 }
 
 .badge-lg {
   padding: 0.375rem 1rem;
-  /* Padding maior */
   font-size: var(--fs-xs);
-  /* Fonte pequena */
 }
 
 /* ============================================================================
-   SEÇÃO 4: ALERTS
+   ALERTS
    ============================================================================ */
-
-/**
- * CLASSE BASE .alert
- * Mensagem de feedback para o usuário
- * 
- * Características:
- * - Destaque visual apropriado para o tipo
- * - Ícone opcional
- * - Botão de fechar
- * - Layout flex para conteúdo
- */
 .alert {
   padding: var(--space-4);
-  /* Padding interno */
   margin-bottom: var(--space-4);
-  /* Espaço abaixo */
   border: 1px solid transparent;
-  /* Borda transparente */
   border-radius: var(--radius-base);
-  /* Bordas arredondadas */
   display: flex;
-  /* Flex para layout */
   gap: var(--space-3);
-  /* Espaço entre elementos */
   align-items: flex-start;
-  /* Alinha no topo */
 }
 
 .alert-title {
   font-weight: var(--fw-semibold);
-  /* Título em semibold */
   margin-bottom: var(--space-1);
-  /* Espaço abaixo */
 }
 
 .alert-close {
   margin-left: auto;
-  /* Empurra para direita */
   cursor: pointer;
-  /* Cursor pointer */
   background: none;
-  /* Sem fundo */
   border: none;
-  /* Sem borda */
   padding: 0;
-  /* Sem padding */
   font-size: var(--fs-lg);
-  /* Ícone maior */
   color: inherit;
-  /* Herda cor do alerta */
 }
 
-/* ========== VARIANTES DE ALERT ========== */
-
+/* Variants */
 .alert-primary {
   background-color: var(--primary-50);
-  /* Fundo muito claro */
   border-color: var(--primary-300);
-  /* Borda colorida */
   color: var(--primary-700);
-  /* Texto colorido */
 }
 
 .alert-success {
@@ -786,27 +436,13 @@
 }
 
 /* ============================================================================
-   SEÇÃO 5: PAGINATION
+   PAGINATION
    ============================================================================ */
-
-/**
- * CLASSE BASE .pagination
- * Navegação entre páginas de conteúdo
- * 
- * Características:
- * - Layout flex responsivo
- * - Estados para ativo, hover, disabled
- * - Acessível via teclado
- */
 .pagination {
   display: flex;
-  /* Layout flex */
   gap: var(--space-1);
-  /* Espaço entre itens */
   flex-wrap: wrap;
-  /* Quebra em telas pequenas */
   justify-content: center;
-  /* Centraliza por padrão */
 }
 
 .pagination-item {
@@ -814,828 +450,479 @@
   align-items: center;
   justify-content: center;
   min-width: 40px;
-  /* Largura mínima */
   height: 40px;
-  /* Altura fixa */
   padding: 0 var(--space-2);
-  /* Padding horizontal */
   border: 1px solid var(--neutral-300);
-  /* Borda sutil */
   border-radius: var(--radius-base);
-  /* Bordas arredondadas */
   background-color: #fff;
-  /* Fundo branco */
   color: var(--neutral-700);
-  /* Texto escuro */
   text-decoration: none;
-  /* Remove sublinhado */
   transition: all var(--duration-200) var(--ease-out);
-  /* Transição */
 }
 
 .pagination-item:hover {
   border-color: var(--primary-500);
-  /* Borda colorida */
   color: var(--primary-600);
-  /* Texto colorido */
   background-color: var(--primary-50);
-  /* Fundo claro */
 }
 
 .pagination-item.active {
   background-color: var(--primary-600);
-  /* Fundo colorido */
   border-color: var(--primary-600);
-  /* Borda colorida */
   color: #fff;
-  /* Texto branco */
 }
 
 .pagination-item.disabled {
   cursor: not-allowed;
-  /* Cursor bloqueado */
   opacity: 0.5;
-  /* Reduz opacidade */
   pointer-events: none;
-  /* Desativa interações */
 }
 
 /* ============================================================================
-   SEÇÃO 6: BREADCRUMBS
+   BREADCRUMBS
    ============================================================================ */
-
-/**
- * CLASSE BASE .breadcrumb
- * Navegação hierárquica (migalhas de pão)
- * 
- * Características:
- * - Mostra caminho atual
- * - Links clicáveis para níveis anteriores
- * - Separadores entre itens
- */
 .breadcrumb {
   display: flex;
-  /* Layout flex */
   flex-wrap: wrap;
-  /* Quebra em telas pequenas */
   gap: var(--space-2);
-  /* Espaço entre itens */
   align-items: center;
-  /* Centraliza verticalmente */
   margin-bottom: var(--space-4);
-  /* Espaço abaixo */
   font-size: var(--fs-sm);
-  /* Fonte pequena */
 }
 
 .breadcrumb-item {
   display: flex;
-  /* Para alinhar ícone e texto */
   align-items: center;
-  /* Centraliza verticalmente */
   gap: var(--space-2);
-  /* Espaço entre elementos */
 }
 
 .breadcrumb-item a {
   color: var(--primary-600);
-  /* Cor primária */
   text-decoration: none;
-  /* Remove sublinhado */
 }
 
 .breadcrumb-item a:hover {
   color: var(--primary-700);
-  /* Cor mais escura */
   text-decoration: underline;
-  /* Sublinhado no hover */
 }
 
 .breadcrumb-separator {
   color: var(--neutral-400);
-  /* Cor neutra */
 }
 
 .breadcrumb-item.active {
   color: var(--neutral-700);
-  /* Cor escura (não clicável) */
 }
 
 /* ============================================================================
-   SEÇÃO 7: PROGRESS BAR
+   PROGRESS BAR
    ============================================================================ */
-
-/**
- * CLASSE BASE .progress
- * Indicador visual de progresso/completude
- * 
- * Características:
- * - Barra de fundo (track)
- * - Barra de progresso (fill)
- * - Suporte a diferentes cores por estado
- * - Texto opcional dentro da barra
- */
 .progress {
   display: block;
-  /* Elemento de bloco */
   width: 100%;
-  /* Largura total */
   height: 1rem;
-  /* Altura fixa */
   overflow: hidden;
-  /* Esconde overflow */
   border-radius: var(--radius-full);
-  /* Completamente arredondado */
   background-color: var(--neutral-200);
-  /* Cor de fundo (track) */
   margin-bottom: var(--space-4);
-  /* Espaço abaixo */
 }
 
 .progress-bar {
   height: 100%;
-  /* Preenche altura total */
   background-color: var(--primary-500);
-  /* Cor primária */
   transition: width var(--duration-300) var(--ease-out);
-  /* Anima largura */
   display: flex;
-  /* Para centralizar texto */
   align-items: center;
-  /* Centraliza verticalmente */
   justify-content: center;
-  /* Centraliza horizontalmente */
   color: #fff;
-  /* Texto branco */
   font-size: var(--fs-xs);
-  /* Fonte pequena */
   font-weight: var(--fw-semibold);
-  /* Semibold */
 }
 
-/* Variantes de cor para a barra de progresso */
 .progress-bar.success {
   background-color: var(--success-500);
-  /* Verde para sucesso */
 }
 
 .progress-bar.warning {
   background-color: var(--warning-500);
-  /* Amarelo/laranja para alerta */
 }
 
 .progress-bar.error {
   background-color: var(--error-500);
-  /* Vermelho para erro */
 }
 
 /* ============================================================================
-   SEÇÃO 8: TABS
+   TABS
    ============================================================================ */
-
-/**
- * CLASSE BASE .tabs
- * Navegação entre seções de conteúdo
- * 
- * Características:
- * - Indicador visual da aba ativa
- * - Hover states
- * - Conteúdo que aparece/desaparece
- * - Scroll horizontal em telas pequenas
- */
 .tabs {
   display: flex;
-  /* Layout flex */
   border-bottom: 2px solid var(--neutral-200);
-  /* Linha inferior */
   gap: var(--space-2);
-  /* Espaço entre abas */
   margin-bottom: var(--space-4);
-  /* Espaço abaixo */
   overflow-x: auto;
-  /* Scroll horizontal se necessário */
   -webkit-overflow-scrolling: touch;
-  /* Scroll suave no iOS */
 }
 
 .tab-item {
   padding: var(--space-3) var(--space-4);
-  /* Padding interno */
   cursor: pointer;
-  /* Cursor pointer */
   border: none;
-  /* Remove borda padrão */
   background: none;
-  /* Remove fundo padrão */
   font-size: var(--fs-base);
-  /* Tamanho de fonte */
   font-weight: var(--fw-medium);
-  /* Peso médio */
   color: var(--neutral-600);
-  /* Cor média */
   border-bottom: 3px solid transparent;
-  /* Borda inferior transparente */
   transition: all var(--duration-200) var(--ease-out);
-  /* Transição */
   white-space: nowrap;
-  /* Não quebra texto */
   margin-bottom: -2px;
-  /* Sobrepoe a linha inferior */
 }
 
 .tab-item:hover {
   color: var(--primary-600);
-  /* Cor primária no hover */
   background-color: var(--neutral-50);
-  /* Fundo sutil no hover */
 }
 
 .tab-item.active {
   color: var(--primary-600);
-  /* Cor primária */
   border-bottom-color: var(--primary-600);
-  /* Borda inferior colorida */
 }
 
 .tab-content {
   display: none;
-  /* Escondido por padrão */
 }
 
 .tab-content.active {
   display: block;
-  /* Mostra quando ativo */
   animation: fadeIn var(--duration-300) var(--ease-out);
-  /* Animação de entrada */
 }
 
 /* ============================================================================
-   SEÇÃO 9: TOOLTIPS
+   TOOLTIPS
    ============================================================================ */
-
-/**
- * CLASSE BASE .tooltip
- * Texto informativo que aparece no hover
- * 
- * Características:
- * - Posicionamento automático
- * - Seta indicadora
- * - Aparece com fade in
- * - Z-index alto para ficar acima
- */
 .tooltip {
   position: relative;
-  /* Contexto para posicionamento absoluto */
   display: inline-block;
-  /* Comportamento inline com largura */
 }
 
 .tooltip-text {
   position: absolute;
-  /* Posicionamento absoluto */
   bottom: 125%;
-  /* Acima do elemento */
   left: 50%;
-  /* Centralizado horizontalmente */
   transform: translateX(-50%);
-  /* Ajuste de centralização */
   background-color: var(--neutral-900);
-  /* Fundo escuro */
   color: #fff;
-  /* Texto branco */
   padding: var(--space-2) var(--space-3);
-  /* Padding interno */
   border-radius: var(--radius-sm);
-  /* Bordas arredondadas */
   font-size: var(--fs-xs);
-  /* Fonte pequena */
   white-space: nowrap;
-  /* Não quebra linha */
   opacity: 0;
-  /* Invisível por padrão */
   pointer-events: none;
-  /* Não interfere com interações */
   transition: opacity var(--duration-200) var(--ease-out);
-  /* Aparece suavemente */
   z-index: var(--z-tooltip);
-  /* Acima de outros elementos */
 }
 
-/* Seta do tooltip (pseudoelemento) */
 .tooltip-text::after {
   content: "";
-  /* Conteúdo vazio */
   position: absolute;
-  /* Posicionamento absoluto */
   top: 100%;
-  /* Abaixo do tooltip */
   left: 50%;
-  /* Centralizado */
   transform: translateX(-50%);
-  /* Centralizado */
   border: 5px solid transparent;
-  /* Borda transparente */
   border-top-color: var(--neutral-900);
-  /* Seta para baixo com mesma cor */
 }
 
-/* Mostra tooltip no hover */
 .tooltip:hover .tooltip-text {
   opacity: 1;
-  /* Torna visível */
   pointer-events: auto;
-  /* Permite interações */
 }
 
 /* ============================================================================
-   SEÇÃO 10: SPINNERS (LOADERS)
+   SPINNERS
    ============================================================================ */
-
-/**
- * CLASSE BASE .spinner
- * Indicador de carregamento/processamento
- * 
- * Características:
- * - Animação de rotação contínua
- * - Diferentes tamanhos
- * - Cores customizáveis via border-color
- */
 .spinner {
   display: inline-block;
-  /* Comportamento inline */
   width: 1.5rem;
-  /* Tamanho padrão */
   height: 1.5rem;
-  /* Tamanho padrão */
   border: 3px solid var(--neutral-200);
-  /* Borda externa (track) */
   border-top-color: var(--primary-500);
-  /* Borda superior (indicador) */
   border-radius: 50%;
-  /* Círculo perfeito */
   animation: spin 1s linear infinite;
-  /* Animação de rotação */
 }
 
-/* Tamanhos do spinner */
 .spinner-sm {
   width: 1rem;
-  /* Pequeno */
   height: 1rem;
-  /* Pequeno */
   border-width: 2px;
-  /* Borda mais fina */
 }
 
 .spinner-lg {
   width: 2.5rem;
-  /* Grande */
   height: 2.5rem;
-  /* Grande */
   border-width: 4px;
-  /* Borda mais grossa */
 }
 
-/* Animação de rotação */
 @keyframes spin {
   to {
     transform: rotate(360deg);
-    /* Rotação completa */
   }
 }
 
 /* ============================================================================
-   SEÇÃO 11: MODALS
+   MODALS
    ============================================================================ */
-
-/**
- * CLASSE BASE .modal
- * Janela/dialogo sobreposto ao conteúdo
- * 
- * Características:
- * - Overlay escuro semi-transparente
- * - Conteúdo centralizado
- * - Animações de entrada/saída
- * - Foco preso dentro do modal (via JS)
- * - Responsivo
- */
 .modal {
   position: fixed;
-  /* Fixo na tela */
   top: 0;
-  /* Topo da tela */
   left: 0;
-  /* Esquerda da tela */
   width: 100%;
-  /* Largura total */
   height: 100%;
-  /* Altura total */
   background-color: rgba(0, 0, 0, 0.5);
-  /* Overlay escuro */
   display: flex;
-  /* Flex para centralizar */
   align-items: center;
-  /* Centraliza verticalmente */
   justify-content: center;
-  /* Centraliza horizontalmente */
   z-index: var(--z-modal);
-  /* Acima de tudo */
   opacity: 0;
-  /* Invisível por padrão */
   visibility: hidden;
-  /* Escondido por padrão */
   transition: all var(--duration-300) var(--ease-out);
-  /* Transição suave */
 }
 
 .modal.active {
   opacity: 1;
-  /* Visível */
   visibility: visible;
-  /* Visível */
 }
 
 .modal-content {
   background-color: #fff;
-  /* Fundo branco */
   border-radius: var(--radius-lg);
-  /* Bordas arredondadas */
   padding: var(--space-6);
-  /* Padding interno */
   max-width: 90%;
-  /* Largura máxima */
   max-height: 90vh;
-  /* Altura máxima */
   overflow-y: auto;
-  /* Scroll vertical se necessário */
   box-shadow: var(--shadow-2xl);
-  /* Sombra forte */
   animation: slideUp var(--duration-300) var(--ease-out);
-  /* Animação de entrada */
 }
 
 .modal-header {
   display: flex;
-  /* Flex para alinhar título e botão */
   justify-content: space-between;
-  /* Título à esquerda, botão à direita */
   align-items: center;
-  /* Centraliza verticalmente */
   margin-bottom: var(--space-4);
-  /* Espaço abaixo */
 }
 
 .modal-title {
   font-size: var(--fs-2xl);
-  /* Título grande */
   font-weight: var(--fw-bold);
-  /* Negrito */
 }
 
 .modal-close {
   background: none;
-  /* Sem fundo */
   border: none;
-  /* Sem borda */
   font-size: var(--fs-2xl);
-  /* Ícone grande */
   cursor: pointer;
-  /* Cursor pointer */
   color: var(--neutral-600);
-  /* Cor média */
 }
 
 .modal-close:hover {
   color: var(--neutral-900);
-  /* Cor escura no hover */
 }
 
 .modal-body {
   margin-bottom: var(--space-4);
-  /* Espaço abaixo */
 }
 
 .modal-footer {
   display: flex;
-  /* Flex para botões */
   gap: var(--space-3);
-  /* Espaço entre botões */
   justify-content: flex-end;
-  /* Alinha à direita */
 }
 
-/* Responsividade para mobile */
 @media (max-width: 768px) {
   .modal-content {
     max-width: 95%;
-    /* Mais largura em telas pequenas */
     padding: var(--space-4);
-    /* Menos padding */
   }
 }
 
 /* ============================================================================
-   SEÇÃO 12: TABELAS ESTILIZADAS
+   TABLES
    ============================================================================ */
-
-/**
- * CLASSE BASE .table-modern
- * Tabelas com design moderno e interativo
- * 
- * Características:
- * - Design limpo e profissional
- * - Hover states nas linhas
- * - Variantes (striped, bordered, sizes)
- * - Responsivo com wrapper
- * - Status visual com ícones
- */
 .table-modern {
   width: 100%;
-  /* Largura total */
   border-collapse: separate;
-  /* Bordas separadas para cantos arredondados */
   border-spacing: 0;
-  /* Sem espaçamento entre células */
   margin: var(--space-6) 0;
-  /* Espaço vertical */
   background: #fff;
-  /* Fundo branco */
   border-radius: var(--radius-lg);
-  /* Bordas arredondadas */
   overflow: hidden;
-  /* Esconde overflow para bordas arredondadas */
   box-shadow: var(--shadow-md);
-  /* Sombra média */
   font-size: var(--fs-base);
-  /* Tamanho de fonte base */
 }
 
-/* Cabeçalho da tabela */
 .table-modern thead {
-  background: linear-gradient(
-    135deg,
-    var(--orange-vibrant),
-    var(--blue-electric)
-  );
+  background: linear-gradient(135deg,
+      var(--orange-vibrant),
+      var(--blue-electric));
 }
 
 .table-modern th {
   padding: var(--space-4) var(--space-5);
-  /* Padding interno */
   text-align: left;
-  /* Alinhamento à esquerda */
   font-weight: var(--fw-semibold);
-  /* Semibold */
   color: #fff;
-  /* Texto branco */
   border-bottom: 2px solid rgba(255, 255, 255, 0.2);
-  /* Linha sutil */
   font-size: var(--fs-sm);
-  /* Fonte menor */
   text-transform: uppercase;
-  /* Texto em maiúsculas */
   letter-spacing: var(--ls-wider);
-  /* Espaçamento entre letras */
 }
 
-/* Células da tabela */
 .table-modern td {
   padding: var(--space-4) var(--space-5);
-  /* Padding interno */
   border-bottom: 1px solid var(--gray-light);
-  /* Linha separadora */
   color: var(--gray-dark);
-  /* Texto escuro */
   vertical-align: middle;
-  /* Alinhamento vertical central */
 }
 
-/* Linhas do corpo da tabela */
 .table-modern tbody tr {
   transition: all var(--duration-200) var(--ease-out);
-  /* Transição suave */
 }
 
 .table-modern tbody tr:hover {
   background-color: rgba(245, 124, 0, 0.05);
-  /* Fundo laranja muito claro */
   transform: translateX(4px);
-  /* Leve deslocamento à direita */
 }
 
 .table-modern tbody tr:last-child td {
   border-bottom: none;
-  /* Remove borda da última linha */
 }
 
-/* ========== VARIANTES DE TABELA ========== */
-
-/* Tabela zebrada (linhas alternadas) */
+/* Table Variants */
 .table-modern.striped tbody tr:nth-child(even) {
   background-color: var(--white-neutral);
-  /* Fundo alternado */
 }
 
 .table-modern.striped tbody tr:nth-child(even):hover {
   background-color: rgba(245, 124, 0, 0.08);
-  /* Hover sobre fundo alternado */
 }
 
-/* Tabela com bordas completas */
 .table-modern.bordered {
   border: 1px solid var(--gray-light);
-  /* Borda externa */
 }
 
 .table-modern.bordered th,
 .table-modern.bordered td {
   border-right: 1px solid var(--gray-light);
-  /* Bordas entre colunas */
 }
 
 .table-modern.bordered th:last-child,
 .table-modern.bordered td:last-child {
   border-right: none;
-  /* Remove borda da última coluna */
 }
 
-/* ========== TAMANHOS DE TABELA ========== */
-
-/* Tabela pequena */
+/* Sizes */
 .table-modern.sm th,
 .table-modern.sm td {
   padding: var(--space-2) var(--space-3);
-  /* Padding menor */
   font-size: var(--fs-sm);
-  /* Fonte menor */
 }
 
-/* Tabela grande */
 .table-modern.lg th,
 .table-modern.lg td {
   padding: var(--space-5) var(--space-6);
-  /* Padding maior */
   font-size: var(--fs-lg);
-  /* Fonte maior */
 }
 
-/* ========== ELEMENTOS DA TABELA ========== */
-
-/* Ícones na tabela (Bootstrap Icons) */
+/* Icons & Status */
 .table-modern .bi {
   margin-right: var(--space-2);
-  /* Espaço à direita do ícone */
   vertical-align: middle;
-  /* Alinha verticalmente com texto */
   font-size: 1.1em;
-  /* Ícone ligeiramente maior */
 }
 
-/* Ícone de status circular */
 .table-modern .status-icon {
   display: inline-flex;
-  /* Flex para centralizar */
   align-items: center;
-  /* Centraliza verticalmente */
   justify-content: center;
-  /* Centraliza horizontalmente */
   width: 24px;
-  /* Tamanho fixo */
   height: 24px;
-  /* Tamanho fixo */
   border-radius: 50%;
-  /* Círculo perfeito */
   margin-right: var(--space-2);
-  /* Espaço à direita */
   font-size: 0.75rem;
-  /* Fonte pequena */
 }
 
-/* Cores para ícones de status */
 .table-modern .status-success {
   background-color: rgba(16, 185, 129, 0.1);
-  /* Verde muito claro */
   color: var(--success);
-  /* Texto verde */
 }
 
 .table-modern .status-warning {
   background-color: rgba(245, 158, 11, 0.1);
-  /* Amarelo muito claro */
   color: var(--warning);
-  /* Texto amarelo/laranja */
 }
 
 .table-modern .status-error {
   background-color: rgba(239, 68, 68, 0.1);
-  /* Vermelho muito claro */
   color: var(--danger);
-  /* Texto vermelho */
 }
 
-/* ========== AÇÕES NA TABELA ========== */
-
-/* Container para botões de ação */
+/* Actions */
 .table-actions {
   display: flex;
-  /* Flex para botões lado a lado */
   gap: var(--space-2);
-  /* Espaço entre botões */
 }
 
-/* Botões de ícone para ações */
 .table-actions .btn-icon {
   width: 36px;
-  /* Largura fixa */
   height: 36px;
-  /* Altura fixa */
   padding: 0;
-  /* Sem padding */
   display: inline-flex;
-  /* Flex para centralizar ícone */
   align-items: center;
-  /* Centraliza verticalmente */
   justify-content: center;
-  /* Centraliza horizontalmente */
   border-radius: var(--radius-base);
-  /* Bordas arredondadas */
   border: 1px solid var(--gray-light);
-  /* Borda sutil */
   background: #fff;
-  /* Fundo branco */
   color: var(--gray-dark);
-  /* Cor escura */
   transition: all var(--duration-200) var(--ease-out);
-  /* Transição */
 }
 
 .table-actions .btn-icon:hover {
   background: var(--orange-vibrant);
-  /* Fundo laranja */
   color: #fff;
-  /* Texto branco */
   border-color: var(--orange-vibrant);
-  /* Borda laranja */
   transform: translateY(-2px);
-  /* Efeito de elevação */
 }
 
-/* ========== RESPONSIVIDADE DA TABELA ========== */
-
-/* Wrapper para tabelas responsivas */
+/* Responsive */
 .table-responsive {
   overflow-x: auto;
-  /* Scroll horizontal */
   -webkit-overflow-scrolling: touch;
-  /* Scroll suave no iOS */
   margin: var(--space-4) 0;
-  /* Espaço vertical */
   border-radius: var(--radius-lg);
-  /* Bordas arredondadas */
   box-shadow: var(--shadow-sm);
-  /* Sombra leve */
 }
 
 .table-responsive .table-modern {
   margin: 0;
-  /* Remove margem */
   min-width: 600px;
-  /* Largura mínima para scroll */
 }
 
-/* ========== ELEMENTOS ADICIONAIS DA TABELA ========== */
-
-/* Legenda da tabela */
+/* Additional Elements */
 .table-modern caption {
   caption-side: top;
-  /* Legenda acima da tabela */
   padding: var(--space-4);
-  /* Padding interno */
   font-weight: var(--fw-semibold);
-  /* Semibold */
   color: var(--black-deep);
-  /* Cor escura */
   background: var(--white-neutral);
-  /* Fundo neutro */
   border-bottom: 1px solid var(--gray-light);
-  /* Linha separadora */
   text-align: center;
-  /* Texto centralizado */
   font-size: var(--fs-lg);
-  /* Fonte maior */
 }
 
-/* Rodapé da tabela */
 .table-modern tfoot {
   background: var(--white-neutral);
-  /* Fundo neutro */
   font-weight: var(--fw-semibold);
-  /* Semibold */
 }
 
 .table-modern tfoot td {
   border-top: 2px solid var(--gray-light);
-  /* Linha superior grossa */
   color: var(--black-deep);
-  /* Texto escuro */
 }
