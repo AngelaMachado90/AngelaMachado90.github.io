@@ -23,10 +23,12 @@
   .hero-text h1 {
     font-size: 1.5rem;
     line-height: 1.3;
+    padding-left: 1px;
   }
 
   .hero-text p {
     font-size: 0.9rem;
+    padding-left: 1px;
   }
 
   .hero-cta {
@@ -38,6 +40,7 @@
   .hero-cta .btn {
     width: 100%;
     text-align: center;
+    padding-left: 1px;
   }
 
   .solutions-grid {
