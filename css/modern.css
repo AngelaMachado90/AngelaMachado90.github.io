@@ -640,18 +640,29 @@
   color: rgba(255, 255, 255, 0.6);
 }
 
-/* ========== ANIMAÇÕES ========== */
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0) translateX(0);
-  }
+/* ============================================================================
+   FLOATING CARDS - Responsive Stair Effect
+   ============================================================================ */
 
-  33% {
-    transform: translateY(-30px) translateX(20px);
-  }
+/* Desktop: Efeito escada */
+.floating-card.card-1 {
+  top: 20px;
+  left: 30px;
+  animation: floatWave 6s ease-in-out infinite;
+  z-index: 3;
+}
 
-  66% {
-    transform: translateY(30px) translateX(-20px);
-  }
+.floating-card.card-2 {
+  top: 100px;
+  right: 40px;
+  animation: floatWave 6s ease-in-out 1.5s infinite;
+  z-index: 2;
+}
+
+.floating-card.card-3 {
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: floatWave 6s ease-in-out 3s infinite;
+  z-index: 1;
 }

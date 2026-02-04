@@ -334,3 +334,76 @@
     animation: floatWave 8s ease-in-out infinite !important;
   }
 }
+
+/* ============================================================================
+   RESPONSE FLOATING CARDS MOBILE: Cards em coluna fixa (sem escada)
+   ============================================================================ */
+@media (max-width: 768px) {
+  .floating-card {
+    position: relative !important;
+    /* Remove absolute para mobile */
+    width: 100% !important;
+    max-width: 300px;
+    margin: 0 auto 20px !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    transform: none !important;
+    z-index: 1;
+    animation: none;
+    /* Remove animação de flutuação */
+  }
+
+  /* Container para organizar em coluna */
+  .floating-cards-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 0;
+  }
+
+  /* Animações mais simples para mobile */
+  .floating-card {
+    animation: fadeInUp 0.8s ease-out forwards;
+    opacity: 0;
+  }
+
+  .card-1 {
+    animation-delay: 0.2s;
+  }
+
+  .card-2 {
+    animation-delay: 0.4s;
+  }
+
+  .card-3 {
+    animation-delay: 0.6s;
+  }
+}
+
+/* ============================================================================
+   TABLET: Ajustes menores
+   ============================================================================ */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .floating-card {
+    width: 130px;
+    padding: 1rem;
+  }
+
+  .card-1 {
+    top: 30px;
+    left: 20px;
+  }
+
+  .card-2 {
+    top: 120px;
+    right: 20px;
+  }
+
+  .card-3 {
+    bottom: 30px;
+    left: 50%;
+  }
+}
