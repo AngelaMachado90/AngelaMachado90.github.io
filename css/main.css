@@ -164,16 +164,6 @@
   z-index: 2;
 }
 
-.hero-text h1 {
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  color: var(--white-neutral);
-  line-height: 1.2;
-  margin-bottom: 20px;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-}
-
-
-
 .hero-cta {
   display: flex;
   gap: 20px;
