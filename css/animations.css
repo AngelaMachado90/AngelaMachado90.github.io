@@ -1,8 +1,41 @@
 /* ============================================================================
-   ANIMATIONS.CSS - Keyframe Animations and Transition Effects
+   ANIMAÇÕES PARA CARDS FLUTUANTES
    ============================================================================ */
 
-/* ========== FADE ANIMATIONS ========== */
+/**
+ * ANIMAÇÃO FLOAT COM OFFSET
+ * Cada card tem timing diferente para criar "onda"
+ */
+
+@keyframes floatWave {
+  0%,
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+  25% {
+    transform: translateY(-20px) translateX(10px);
+  }
+  50% {
+    transform: translateY(0) translateX(20px);
+  }
+  75% {
+    transform: translateY(20px) translateX(10px);
+  }
+}
+
+/**
+ * ANIMAÇÃO PARA Z-INDEX (profundidade)
+ * Garante que cards não se sobreponham errado
+ */
+@keyframes floatDepth {
+  0%,
+  100% {
+    z-index: 1;
+  }
+  50% {
+    z-index: 2;
+  }
+}
 
 @keyframes fadeIn {
   from {
@@ -211,7 +244,6 @@
 /* ========== BOUNCE ANIMATIONS ========== */
 
 @keyframes bounce {
-
   0%,
   100% {
     transform: translateY(0);
@@ -252,7 +284,6 @@
 /* ========== PULSE ANIMATIONS ========== */
 
 @keyframes pulse {
-
   0%,
   100% {
     opacity: 1;
@@ -264,7 +295,6 @@
 }
 
 @keyframes heartbeat {
-
   0%,
   100% {
     transform: scale(1);
@@ -292,7 +322,6 @@
 }
 
 @keyframes loading {
-
   0%,
   100% {
     opacity: 0.2;
@@ -306,7 +335,6 @@
 /* ========== WAVE ANIMATIONS ========== */
 
 @keyframes wave {
-
   0%,
   100% {
     transform: rotate(0deg);
@@ -322,7 +350,6 @@
 }
 
 @keyframes float {
-
   0%,
   100% {
     transform: translateY(0) translateX(0);
@@ -340,7 +367,6 @@
 /* ========== GLOW ANIMATIONS ========== */
 
 @keyframes glow {
-
   0%,
   100% {
     box-shadow: 0 0 5px rgba(12, 140, 224, 0.3);
@@ -352,7 +378,6 @@
 }
 
 @keyframes glowText {
-
   0%,
   100% {
     text-shadow: 0 0 5px rgba(12, 140, 224, 0.3);
@@ -500,7 +525,8 @@
 }
 
 .transition-colors {
-  transition: background-color var(--duration-200) var(--ease-out),
+  transition:
+    background-color var(--duration-200) var(--ease-out),
     border-color var(--duration-200) var(--ease-out),
     color var(--duration-200) var(--ease-out);
 }

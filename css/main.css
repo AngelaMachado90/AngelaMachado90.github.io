@@ -232,19 +232,7 @@
 }
 
 /* ========== CARDS MODERNOS ========== */
-.floating-card {
-  position: absolute;
-  background: var(--white-pure);
-  border-radius: var(--radius-lg);
-  padding: 1.25rem;
-  box-shadow: var(--shadow-xl);
-  text-align: center;
-  animation: float 5s var(--ease-in-out) infinite;
-  z-index: var(--z-base);
-  transition: transform var(--duration-300) var(--ease-out);
-  width: 150px;
-  /* Garante tamanho consistente */
-}
+
 
 .floating-card:hover {
   animation-play-state: paused;
