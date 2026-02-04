@@ -119,9 +119,11 @@
   right: 0;
   bottom: 0;
   z-index: -1;
-  background-color: linear-gradient(135deg,
-      var(--blue-electric),
-      var(--orange-vibrant));
+  background: linear-gradient(
+    135deg,
+    var(--blue-electric) 0%,
+    var(--orange-vibrant) 100%
+  );
 }
 
 .gradient-blob {
