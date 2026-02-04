@@ -162,6 +162,68 @@ header .container {
   color: var(--secondary-color);
 }
 
+.logo-image {
+  display: flex;
+  align-items: center;
+} 
+
+.logo-image img {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+}
+
+.logo-text {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-bold);
+  color: var(--primary-600);
+  text-decoration: none;
+  transition: all var(--duration-200) var(--ease-out);
+}
+
+.logo-text:hover {
+  color: var(--primary-700);
+  transform: scale(1.05);
+}
+
+.logo-text i {
+  font-size: var(--fs-xl);
+}
+
+/* Para telas menores */
+@media (max-width: 768px) {
+  .logo-image img {
+    height: 35px;
+  }
+
+  .logo-text {
+    font-size: var(--fs-base);
+  }
+
+  .logo-text i {
+    font-size: var(--fs-lg);
+  }
+}
+
+/* Para telas muito pequenas */
+@media (max-width: 480px) {
+  .logo-image img {
+    height: 30px;
+  }
+
+  .logo-text span {
+    display: none;
+    /* Esconde o texto em telas muito pequenas */
+  }
+
+  .logo-text i {
+    font-size: var(--fs-xl);
+  }
+}
+
 nav ul {
   list-style: none;
   display: flex;
