@@ -385,11 +385,6 @@
 
 
 
-.floating-card:hover {
-  animation-play-state: paused;
-  transform: scale(1.05);
-  z-index: var(--z-dropdown);
-}
 
 /* Mantenha posições específicas */
 .card-1 {
