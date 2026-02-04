@@ -102,7 +102,6 @@
 
 /* Bounce Animations */
 @keyframes bounce {
-
   0%,
   100% {
     transform: translateY(0);
@@ -130,7 +129,6 @@
 
 /* Float Animations */
 @keyframes float {
-
   0%,
   100% {
     transform: translateY(0) translateX(0);
@@ -146,7 +144,6 @@
 }
 
 @keyframes floatWave {
-
   0%,
   100% {
     transform: translateY(0) translateX(0);
@@ -178,7 +175,6 @@
 
 /* Pulse Animations */
 @keyframes pulse {
-
   0%,
   100% {
     opacity: 1;
@@ -190,7 +186,6 @@
 }
 
 @keyframes heartbeat {
-
   0%,
   100% {
     transform: scale(1);
@@ -390,4 +385,14 @@
   animation:
     fadeInUpStagger 0.8s ease-out 0.6s both,
     floatWave 6s ease-in-out 4s infinite;
+}
+
+/* ============================================================================
+   ANIMATION KEYFRAMES (Local definitions)
+   ============================================================================ */
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }

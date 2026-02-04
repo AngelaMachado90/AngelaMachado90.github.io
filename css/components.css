@@ -1,17 +1,18 @@
-/* Components System - Version 3.0.0 */
+/* COMPONENTS.CSS - KoddaHub Component System */
+/* Version: 3.0.0 | Optimized and Documented */
 
 /* ============================================================================
-   BUTTONS
+   BUTTONS - Interactive action elements
    ============================================================================ */
+
+/* Base Button */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: var(--space-2);
   padding: 0.75rem 1.5rem;
-  font-size: var(--fs-base);
-  font-weight: var(--fw-semibold);
-  font-family: var(--font-body);
+  font: var(--fw-semibold) var(--fs-base) var(--font-body);
   text-decoration: none;
   text-align: center;
   white-space: nowrap;
@@ -35,7 +36,7 @@
   cursor: not-allowed;
 }
 
-/* Sizes */
+/* Button Sizes */
 .btn-xs {
   padding: 0.375rem 0.75rem;
   font-size: var(--fs-xs);
@@ -64,7 +65,7 @@
   min-height: 52px;
 }
 
-/* Variants */
+/* Button Variants */
 .btn-primary {
   background-color: var(--primary-600);
   color: #fff;
@@ -151,8 +152,10 @@
 }
 
 /* ============================================================================
-   CARDS
+   CARDS - Content containers with visual hierarchy
    ============================================================================ */
+
+/* Base Card */
 .card {
   background-color: #fff;
   border: 1px solid var(--neutral-200);
@@ -171,22 +174,22 @@
 
 /* Card Structure */
 .card-header {
-  margin: calc(var(--space-4) * -1) calc(var(--space-4) * -1) var(--space-4) calc(var(--space-4) * -1);
+  margin: calc(var(--space-4) * -1);
+  margin-bottom: var(--space-4);
   padding: var(--space-4);
   background-color: var(--neutral-50);
   border-bottom: 1px solid var(--neutral-200);
 }
 
 .card-footer {
-  margin: var(--space-4) calc(var(--space-4) * -1) calc(var(--space-4) * -1) calc(var(--space-4) * -1);
+  margin: var(--space-4) calc(var(--space-4) * -1) calc(var(--space-4) * -1);
   padding: var(--space-4);
   background-color: var(--neutral-50);
   border-top: 1px solid var(--neutral-200);
 }
 
 .card-title {
-  font-size: var(--fs-xl);
-  font-weight: var(--fw-bold);
+  font: var(--fw-bold) var(--fs-xl) var(--font-body);
   margin-bottom: var(--space-2);
   color: var(--neutral-900);
 }
@@ -199,77 +202,6 @@
 
 .card-body {
   padding: 0;
-}
-
-/* Modern Cards */
-.floating-card {
-  position: absolute;
-  background: var(--white-pure);
-  border-radius: var(--radius-lg);
-  padding: 1.25rem;
-  box-shadow:
-    0 20px 40px rgba(0, 0, 0, 0.1),
-    0 0 0 1px rgba(255, 255, 255, 0.1) inset;
-  text-align: center;
-  animation: floatWave 6s ease-in-out infinite;
-  z-index: 1;
-  transition: all var(--duration-300) var(--ease-out);
-  width: 150px;
-}
-
-.floating-card:hover {
-  animation-play-state: paused;
-  transform: scale(1.08) !important;
-  z-index: 10 !important;
-  box-shadow:
-    0 30px 60px rgba(0, 0, 0, 0.2),
-    0 0 0 1px var(--orange-vibrant) inset;
-}
-
-/* Card Positions */
-.card-1 {
-  top: 20px;
-  left: 30px;
-  animation: floatWave 6s ease-in-out infinite;
-}
-
-.card-2 {
-  top: 120px;
-  right: 40px;
-  animation: floatWave 6s ease-in-out infinite 1.5s;
-  z-index: 2;
-}
-
-.card-3 {
-  bottom: 40px;
-  left: 50%;
-  transform: translateX(-50%);
-  animation: floatWave 6s ease-in-out infinite 3s;
-  z-index: 3;
-}
-
-.floating-card .card-icon {
-  font-size: 2.5rem;
-  color: var(--orange-vibrant);
-  margin-bottom: 0.625rem;
-  display: block;
-  transition: transform var(--duration-300) var(--ease-out);
-}
-
-.floating-card:hover .card-icon {
-  transform: rotate(15deg) scale(1.1);
-}
-
-.floating-card h4 {
-  color: var(--black-deep);
-  font-size: 1rem;
-  font-weight: var(--fw-semibold);
-  margin: 0;
-  transition: color var(--duration-300) var(--ease-out);
-}
-
-.floating-card:hover h4 {
-  color: var(--orange-vibrant);
 }
 
 /* Card Variants */
@@ -292,24 +224,93 @@
   border: 2px solid var(--primary-500);
 }
 
+/* Floating Cards (Special cards with animations) */
+.floating-card {
+  position: absolute;
+  background: var(--white-pure);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.1),
+    0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+  text-align: center;
+  animation: floatWave 6s ease-in-out infinite;
+  z-index: 1;
+  transition: all var(--duration-300) var(--ease-out);
+  width: 150px;
+}
+
+.floating-card:hover {
+  animation-play-state: paused;
+  transform: scale(1.08);
+  z-index: 10;
+  box-shadow:
+    0 30px 60px rgba(0, 0, 0, 0.2),
+    0 0 0 1px var(--orange-vibrant) inset;
+}
+
+/* Floating Card Positions */
+.card-1 {
+  top: 20px;
+  left: 30px;
+}
+
+.card-2 {
+  top: 120px;
+  right: 40px;
+  animation-delay: 1.5s;
+  z-index: 2;
+}
+
+.card-3 {
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation-delay: 3s;
+  z-index: 3;
+}
+
+/* Floating Card Elements */
+.floating-card .card-icon {
+  font-size: 2.5rem;
+  color: var(--orange-vibrant);
+  margin-bottom: 0.625rem;
+  transition: transform var(--duration-300) var(--ease-out);
+}
+
+.floating-card:hover .card-icon {
+  transform: rotate(15deg) scale(1.1);
+}
+
+.floating-card h4 {
+  color: var(--black-deep);
+  font: var(--fw-semibold) 1rem var(--font-body);
+  margin: 0;
+  transition: color var(--duration-300) var(--ease-out);
+}
+
+.floating-card:hover h4 {
+  color: var(--orange-vibrant);
+}
+
 /* ============================================================================
-   BADGES
+   BADGES - Status indicators and labels
    ============================================================================ */
+
 .badge {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: var(--space-1);
   padding: 0.25rem 0.75rem;
-  font-size: var(--fs-xs);
-  font-weight: var(--fw-semibold);
+  font: var(--fw-semibold) var(--fs-xs) var(--font-body);
   border-radius: var(--radius-full);
   background-color: var(--primary-100);
   color: var(--primary-700);
   white-space: nowrap;
 }
 
-/* Variants */
+/* Badge Variants */
 .badge-primary {
   background-color: var(--primary-100);
   color: var(--primary-700);
@@ -340,7 +341,7 @@
   color: var(--info-700);
 }
 
-/* Sizes */
+/* Badge Sizes */
 .badge-sm {
   padding: 0.125rem 0.5rem;
   font-size: 0.65rem;
@@ -352,8 +353,9 @@
 }
 
 /* ============================================================================
-   ALERTS
+   ALERTS - User feedback messages
    ============================================================================ */
+
 .alert {
   padding: var(--space-4);
   margin-bottom: var(--space-4);
@@ -379,7 +381,7 @@
   color: inherit;
 }
 
-/* Variants */
+/* Alert Variants */
 .alert-primary {
   background-color: var(--primary-50);
   border-color: var(--primary-300);
@@ -405,8 +407,10 @@
 }
 
 /* ============================================================================
-   PAGINATION
+   NAVIGATION COMPONENTS
    ============================================================================ */
+
+/* Pagination */
 .pagination {
   display: flex;
   gap: var(--space-1);
@@ -447,9 +451,7 @@
   pointer-events: none;
 }
 
-/* ============================================================================
-   BREADCRUMBS
-   ============================================================================ */
+/* Breadcrumbs */
 .breadcrumb {
   display: flex;
   flex-wrap: wrap;
@@ -483,46 +485,7 @@
   color: var(--neutral-700);
 }
 
-/* ============================================================================
-   PROGRESS BAR
-   ============================================================================ */
-.progress {
-  display: block;
-  width: 100%;
-  height: 1rem;
-  overflow: hidden;
-  border-radius: var(--radius-full);
-  background-color: var(--neutral-200);
-  margin-bottom: var(--space-4);
-}
-
-.progress-bar {
-  height: 100%;
-  background-color: var(--primary-500);
-  transition: width var(--duration-300) var(--ease-out);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  font-size: var(--fs-xs);
-  font-weight: var(--fw-semibold);
-}
-
-.progress-bar.success {
-  background-color: var(--success-500);
-}
-
-.progress-bar.warning {
-  background-color: var(--warning-500);
-}
-
-.progress-bar.error {
-  background-color: var(--error-500);
-}
-
-/* ============================================================================
-   TABS
-   ============================================================================ */
+/* Tabs */
 .tabs {
   display: flex;
   border-bottom: 2px solid var(--neutral-200);
@@ -537,8 +500,7 @@
   cursor: pointer;
   border: none;
   background: none;
-  font-size: var(--fs-base);
-  font-weight: var(--fw-medium);
+  font: var(--fw-medium) var(--fs-base) var(--font-body);
   color: var(--neutral-600);
   border-bottom: 3px solid transparent;
   transition: all var(--duration-200) var(--ease-out);
@@ -566,8 +528,44 @@
 }
 
 /* ============================================================================
-   TOOLTIPS
+   FEEDBACK COMPONENTS
    ============================================================================ */
+
+/* Progress Bar */
+.progress {
+  display: block;
+  width: 100%;
+  height: 1rem;
+  overflow: hidden;
+  border-radius: var(--radius-full);
+  background-color: var(--neutral-200);
+  margin-bottom: var(--space-4);
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: var(--primary-500);
+  transition: width var(--duration-300) var(--ease-out);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font: var(--fw-semibold) var(--fs-xs) var(--font-body);
+}
+
+.progress-bar.success {
+  background-color: var(--success-500);
+}
+
+.progress-bar.warning {
+  background-color: var(--warning-500);
+}
+
+.progress-bar.error {
+  background-color: var(--error-500);
+}
+
+/* Tooltips */
 .tooltip {
   position: relative;
   display: inline-block;
@@ -605,9 +603,7 @@
   pointer-events: auto;
 }
 
-/* ============================================================================
-   SPINNERS
-   ============================================================================ */
+/* Spinners (Loaders) */
 .spinner {
   display: inline-block;
   width: 1.5rem;
@@ -630,21 +626,13 @@
   border-width: 4px;
 }
 
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 /* ============================================================================
-   MODALS
+   MODALS - Overlay dialogs
    ============================================================================ */
+
 .modal {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   align-items: center;
@@ -679,8 +667,7 @@
 }
 
 .modal-title {
-  font-size: var(--fs-2xl);
-  font-weight: var(--fw-bold);
+  font: var(--fw-bold) var(--fs-2xl) var(--font-body);
 }
 
 .modal-close {
@@ -713,8 +700,9 @@
 }
 
 /* ============================================================================
-   TABLES
+   TABLES - Data presentation
    ============================================================================ */
+
 .table-modern {
   width: 100%;
   border-collapse: separate;
@@ -728,18 +716,19 @@
 }
 
 .table-modern thead {
-  background: linear-gradient(135deg,
-      var(--orange-vibrant),
-      var(--blue-electric));
+  background: linear-gradient(
+    135deg,
+    var(--orange-vibrant),
+    var(--blue-electric)
+  );
 }
 
 .table-modern th {
   padding: var(--space-4) var(--space-5);
   text-align: left;
-  font-weight: var(--fw-semibold);
+  font: var(--fw-semibold) var(--fs-sm) var(--font-body);
   color: #fff;
   border-bottom: 2px solid rgba(255, 255, 255, 0.2);
-  font-size: var(--fs-sm);
   text-transform: uppercase;
   letter-spacing: var(--ls-wider);
 }
@@ -787,7 +776,7 @@
   border-right: none;
 }
 
-/* Sizes */
+/* Table Sizes */
 .table-modern.sm th,
 .table-modern.sm td {
   padding: var(--space-2) var(--space-3);
@@ -800,7 +789,7 @@
   font-size: var(--fs-lg);
 }
 
-/* Icons & Status */
+/* Table Elements */
 .table-modern .bi {
   margin-right: var(--space-2);
   vertical-align: middle;
@@ -833,7 +822,7 @@
   color: var(--danger);
 }
 
-/* Actions */
+/* Table Actions */
 .table-actions {
   display: flex;
   gap: var(--space-2);
@@ -860,7 +849,7 @@
   transform: translateY(-2px);
 }
 
-/* Responsive */
+/* Responsive Tables */
 .table-responsive {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
@@ -874,16 +863,15 @@
   min-width: 600px;
 }
 
-/* Additional Elements */
+/* Table Additional Elements */
 .table-modern caption {
   caption-side: top;
   padding: var(--space-4);
-  font-weight: var(--fw-semibold);
+  font: var(--fw-semibold) var(--fs-lg) var(--font-body);
   color: var(--black-deep);
   background: var(--white-neutral);
   border-bottom: 1px solid var(--gray-light);
   text-align: center;
-  font-size: var(--fs-lg);
 }
 
 .table-modern tfoot {
