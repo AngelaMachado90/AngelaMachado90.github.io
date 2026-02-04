@@ -248,37 +248,6 @@
   z-index: 3;
 }
 
-/* Animations */
-@keyframes fadeInUpStagger {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.card-1 {
-  animation:
-    fadeInUpStagger 0.8s ease-out 0.2s both,
-    floatWave 6s ease-in-out 1s infinite;
-}
-
-.card-2 {
-  animation:
-    fadeInUpStagger 0.8s ease-out 0.4s both,
-    floatWave 6s ease-in-out 2.5s infinite;
-}
-
-.card-3 {
-  animation:
-    fadeInUpStagger 0.8s ease-out 0.6s both,
-    floatWave 6s ease-in-out 4s infinite;
-}
-
 .floating-card .card-icon {
   font-size: 2.5rem;
   color: var(--orange-vibrant);
