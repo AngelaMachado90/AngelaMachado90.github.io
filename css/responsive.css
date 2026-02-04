@@ -215,3 +215,47 @@
     break-inside: avoid;
   }
 }
+
+/* RESPONSIVIDADE PARA CARDS FLUTUANTES */
+@media (max-width: 768px) {
+  .floating-card {
+    width: 120px;
+    padding: 1rem;
+  }
+
+  .floating-card .card-icon {
+    font-size: 2rem;
+  }
+
+  .card-1 {
+    top: 20px;
+    left: 20px;
+  }
+
+  .card-2 {
+    top: 120px;
+    right: 20px;
+  }
+
+  .card-3 {
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-visual {
+    height: 300px;
+    /* Reduz altura em mobile */
+  }
+
+  .floating-card {
+    width: 100px;
+    padding: 0.75rem;
+  }
+
+  .floating-card h4 {
+    font-size: 0.875rem;
+  }
+}
