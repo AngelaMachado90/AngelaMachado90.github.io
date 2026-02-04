@@ -319,7 +319,8 @@
 
 /* Estrutura do Card */
 .card-header {
-  margin: calc(var(--space-4) * -1) calc(var(--space-4) * -1) var(--space-4) calc(var(--space-4) * -1);
+  margin: calc(var(--space-4) * -1) calc(var(--space-4) * -1) var(--space-4)
+    calc(var(--space-4) * -1);
   padding: var(--space-4);
   background-color: var(--neutral-50);
   /* Fundo diferenciado */
@@ -328,7 +329,8 @@
 }
 
 .card-footer {
-  margin: var(--space-4) calc(var(--space-4) * -1) calc(var(--space-4) * -1) calc(var(--space-4) * -1);
+  margin: var(--space-4) calc(var(--space-4) * -1) calc(var(--space-4) * -1)
+    calc(var(--space-4) * -1);
   padding: var(--space-4);
   background-color: var(--neutral-50);
   /* Fundo diferenciado */
@@ -376,41 +378,204 @@
   padding: 1.25rem;
   box-shadow: var(--shadow-xl);
   text-align: center;
-  animation: float 5s var(--ease-in-out) infinite;
-  z-index: var(--z-base);
-  transition: transform var(--duration-300) var(--ease-out);
-  width: 190px;
-  /* Garante tamanho consistente */
+  animation: floatWave 6s ease-in-out infinite;
+  z-index: 1;
+  transition: all var(--duration-300) var(--ease-out);
+  width: 150px;
+  /* Sombra mais suave para profundidade */
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.1),
+    0 0 0 1px rgba(255, 255, 255, 0.1) inset;
 }
 
+.floating-card:hover {
+  animation-play-state: paused;
+  transform: scale(1.08) !important;
+  z-index: 10 !important;
+  box-shadow:
+    0 30px 60px rgba(0, 0, 0, 0.2),
+    0 0 0 1px var(--orange-vibrant) inset;
+}
 
-
-
-/* Mantenha posições específicas */
+/* ========== POSICIONAMENTO ESPECÍFICO ========== */
+/* CARD 1 - TOPO ESQUERDA */
 .card-1 {
-  top: 0;
-  left: 0;
+  top: 20px;
+  left: 30px;
+  animation: floatWave 6s ease-in-out infinite;
+  animation-delay: 0s;
+}
+/* CARD 2 - MEIO DIREITA (ESCADINHA) */
+.card-2 {
+  top: 120px;
+  /* Mais baixo que card1 */
+  right: 40px;
+  animation: floatWave 6s ease-in-out infinite;
+  animation-delay: 1.5s;
+  /* Começa depois do card1 */
+  z-index: 2;
+  /* Garante ordem de profundidade */
+}
+
+/* CARD 3 - BAIXO CENTRO (MAIS ATRASADO) */
+.card-3 {
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: floatWave 6s ease-in-out infinite;
+  animation-delay: 3s;
+  /* Começa depois do card2 */
+  z-index: 3;
+  /* Fica por último na ordem */
+}
+
+/* ========== ANIMAÇÃO DE ENTRADA (OPCIONAL) ========== */
+/* Faz os cards aparecerem um por um */
+@keyframes fadeInUpStagger {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Aplica animação de entrada */
+.card-1 {
+  animation:
+    fadeInUpStagger 0.8s ease-out 0.2s both,
+    floatWave 6s ease-in-out 1s infinite;
 }
 
 .card-2 {
-  top: 150px;
-  right: 0;
-  animation-delay: 0.5s;
+  animation:
+    fadeInUpStagger 0.8s ease-out 0.4s both,
+    floatWave 6s ease-in-out 2.5s infinite;
 }
 
 .card-3 {
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  animation-delay: 1s;
+  animation:
+    fadeInUpStagger 0.8s ease-out 0.6s both,
+    floatWave 6s ease-in-out 4s infinite;
 }
 
+/* ========== RESPONSIVIDADE ========== */
+@media (max-width: 1024px) {
+  .floating-card {
+    width: 130px;
+    padding: 1rem;
+  }
+
+  .card-1 {
+    top: 30px;
+    left: 20px;
+  }
+
+  .card-2 {
+    top: 140px;
+    right: 20px;
+  }
+
+  .card-3 {
+    bottom: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-visual {
+    height: 350px;
+  }
+
+  .floating-card {
+    width: 110px;
+    padding: 0.875rem;
+  }
+
+  .floating-card .card-icon {
+    font-size: 2rem;
+  }
+
+  .floating-card h4 {
+    font-size: 0.875rem;
+  }
+
+  /* Em mobile, cards mais espaçados */
+  .card-1 {
+    top: 40px;
+    left: 10px;
+  }
+
+  .card-2 {
+    top: 160px;
+    right: 10px;
+  }
+
+  .card-3 {
+    bottom: 40px;
+    left: 50%;
+    width: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-visual {
+    height: 300px;
+  }
+
+  .floating-card {
+    width: 100px;
+    padding: 0.75rem;
+  }
+
+  .floating-card .card-icon {
+    font-size: 1.75rem;
+  }
+
+  .floating-card h4 {
+    font-size: 0.75rem;
+  }
+
+  /* Em telas muito pequenas, reduz animação */
+  .floating-card {
+    animation-duration: 8s;
+  }
+
+  /* Desativa animação de entrada em mobile se quiser */
+  .card-1,
+  .card-2,
+  .card-3 {
+    animation: floatWave 8s ease-in-out infinite !important;
+  }
+}
+/* ÍCONE DOS CARDS */
 .floating-card .card-icon {
   font-size: 2.5rem;
   color: var(--orange-vibrant);
   margin-bottom: 0.625rem;
   display: block;
+  transition: transform var(--duration-300) var(--ease-out);
 }
+
+.floating-card:hover .card-icon {
+  transform: rotate(15deg) scale(1.1);
+}
+
+/* TÍTULO DOS CARDS */
+.floating-card h4 {
+  color: var(--black-deep);
+  font-size: 1rem;
+  font-weight: var(--fw-semibold);
+  margin: 0;
+  transition: color var(--duration-300) var(--ease-out);
+}
+
+.floating-card:hover h4 {
+  color: var(--orange-vibrant);
+}
+
 /* ========== VARIANTES DE CARD ========== */
 
 /**
@@ -452,7 +617,6 @@
 }
 
 /* Posições específicas - estas ficam no modern.css */
-
 
 /* ============================================================================
    SEÇÃO 3: BADGES
@@ -959,7 +1123,7 @@
 
 /* Seta do tooltip (pseudoelemento) */
 .tooltip-text::after {
-  content: '';
+  content: "";
   /* Conteúdo vazio */
   position: absolute;
   /* Posicionamento absoluto */
@@ -1208,7 +1372,11 @@
 
 /* Cabeçalho da tabela */
 .table-modern thead {
-  background: linear-gradient(135deg, var(--orange-vibrant), var(--blue-electric));
+  background: linear-gradient(
+    135deg,
+    var(--orange-vibrant),
+    var(--blue-electric)
+  );
 }
 
 .table-modern th {
@@ -1471,5 +1639,3 @@
   color: var(--black-deep);
   /* Texto escuro */
 }
-
-
