@@ -337,7 +337,7 @@
     flex-direction: column;
 }
 
-.card-content h3 {
+.card-content h4 {
     color: var(--black-deep);
     margin-bottom: 15px;
     font-size: 1.4rem;
