@@ -90,43 +90,95 @@ sitebase/
 ### 1. Clonar o Repositório
 
 ```bash
-git clone https://github.com/seu-usuario/sitebase.git
+git clone 
 cd sitebase
 ```
 
-### 2. Visualizar Localmente
+### 2. Tutorial: Como Clonar o Repositório
 
-Abra o arquivo `index.html` em um navegador moderno ou use um servidor local:
+### Pré-requisitos
+
+1. Git instalado no seu computador
+
+2. Conta no GitHub (opcional, apenas se quiser fazer modificações)
+
+### Passo a Passo
+
+1. Navegar até a pasta onde quer clonar o repositório
 
 ```bash
-# Com Python 3
-python -m http.server 8000
-
-# Com Node.js (http-server)
-npx http-server
+  cd caminho/para/sua/pasta
 ```
 
-Acesse `http://localhost:8000` no navegador.
-
-### 3. Configurar Formspree
-
-1. Acesse [formspree.io](https://formspree.io)
-2. Crie uma conta e um novo formulário
-3. Copie o ID do formulário
-4. Atualize o valor `formAction` em `js/form-handler.js`
-
-```javascript
-const formAction = 'https://formspree.io/f/SEU_FORM_ID';
+Observação: Em nosso servido Pop-os o projeto esta localizado em:
+```bash
+cd ~/projects/projeto-site-portifolio/portifolio 
 ```
 
-### 4. Deploy no GitHub Pages
+2. Clonar o repositorio
+Assim que estiver na sua pasta de preferencia, execute o seguinte comando:
 
-1. Crie um repositório no GitHub
-2. Configure no branch `gh-pages` ou use `main` branch
-3. Acesse as settings e ative GitHub Pages
-4. Seu site estará disponível em `https://seu-usuario.github.io/sitebase`
+```bash
+  git clone https://github.com/AngelaMachado90/AngelaMachado90.github.io
+```
 
-## 🚀 Recursos Implementados
+3. Verificar a estrutura do projeto
+```bash
+ls -la  # Linux/Mac
+dir      # Windows
+```
+_Observação: Não esqueça de acessar primeiro o diretório criado após o git clone_
+
+
+### Comandos Úteis Adicionais
+
+  Verificar status do repositório:
+```bash
+git status
+```
+Exemplo:
+```bash
+[08:36:28]server@:~/projects/projeto-site-portifolio/portifolio$ git status
+No ramo main
+Changes not staged for commit:
+  (utilize "git add <arquivo>..." para atualizar o que será submetido)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   README.md
+
+nenhuma modificação adicionada à submissão (utilize "git add" e/ou "git commit -a")
+```
+_Observação: Importante de fazer git status antes de todo comite_
+
+  Adicionar Melhoria:
+```bash
+git add index.html # exemplo de deploy apenas do index.html
+git add css/main.css # exemplo de deploy apenas do css/main.css
+git add js/main.js # exemplo de deploy apenas do css/main.css
+
+```
+
+```bash
+[08:25:31]server@:~/projects/projeto-site-portifolio/portifolio$ git add index.html 
+[08:34:50]server@:~/projects/projeto-site-portifolio/portifolio$ 
+[08:34:56]server@:~/projects/projeto-site-portifolio/portifolio$ git commit -m "add: Adicionando icone whats"
+[main b4cac3e] add: Adicionando icone whats
+ 1 file changed, 8 insertions(+)
+[08:36:14]server@:~/projects/projeto-site-portifolio/portifolio$ git push origin main
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 582 bytes | 582.00 KiB/s, done.
+Total 3 (delta 2), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+To https://github.com/AngelaMachado90/AngelaMachado90.github.io.git
+   800a4d8..b4cac3e  main -> main
+```
+
+
+5. Git 
+
+##  Recursos Implementados
 
 ### Home Page
 - ✅ Hero section com CTA
