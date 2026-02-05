@@ -355,7 +355,7 @@ quickOptions.forEach(option => {
                 setTimeout(() => {
                     window.open(redirectUrl, '_blank');
                 }, 1500);
-            }
+            }   
         }, 800);
     });
 });
