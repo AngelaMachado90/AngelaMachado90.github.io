@@ -1,4 +1,5 @@
 // Chat Widget Interativo
+let quickOptions;
 document.addEventListener('DOMContentLoaded', function() {
     const chatWidget = document.querySelector('.chat-widget');
     const chatToggle = document.querySelector('.chat-toggle');
@@ -301,19 +302,19 @@ function addBotMessage(text, showTyping = true) {
 // Respostas personalizadas do Kodda
 const koddaResponses = {
     orcamento: [
-        "🛠️ **Kodda aqui!** Vou conectar você com nossa equipe de orçamentos. Em até 2 horas você recebe uma proposta personalizada!",
-        "💼 Perfeito! Meus colegas especialistas vão preparar um orçamento detalhado para seu projeto.",
-        "📊 Ótima escolha! Analisaremos suas necessidades e retornamos com a melhor solução e investimento."
+        "**Kodda aqui!** Vou conectar você com nossa equipe de orçamentos. Em até 2 horas você recebe uma proposta personalizada!",
+        "Perfeito! Meus colegas especialistas vão preparar um orçamento detalhado para seu projeto.",
+        "Ótima escolha! Analisaremos suas necessidades e retornamos com a melhor solução e investimento."
     ],
     duvida: [
-        "🤔 **Kodda ao resgate!** Posso esclarecer suas dúvidas sobre desenvolvimento, prazos ou tecnologias.",
-        "💡 Claro! Como assistente técnico, posso explicar nossos processos e metodologias.",
-        "🔍 Vamos lá! Me pergunte sobre sites responsivos, e-commerce ou sistemas personalizados."
+        "**Kodda ao resgate!** Posso esclarecer suas dúvidas sobre desenvolvimento, prazos ou tecnologias.",
+        "Claro! Como assistente técnico, posso explicar nossos processos e metodologias.",
+        "Vamos lá! Me pergunte sobre sites responsivos, e-commerce ou sistemas personalizados."
     ],
     contato: [
-        "📞 **Kodda conectando!** Um consultor especializado entrará em contato em até 15 minutos.",
-        "👥 Excelente! Nossa equipe comercial está pronta para entender suas necessidades.",
-        "🎯 Certo! Vou direcionar você para quem pode ajudar melhor com seu projeto."
+        "**Kodda conectando!** Um consultor especializado entrará em contato em até 15 minutos.",
+        "Excelente! Nossa equipe comercial está pronta para entender suas necessidades.",
+        "Certo! Vou direcionar você para quem pode ajudar melhor com seu projeto."
     ]
 };
 
