@@ -228,3 +228,134 @@ document.addEventListener('DOMContentLoaded', function() {
     // Inicia com notificação
     updateNotification();
 });
+
+// ============================================
+// FUNÇÕES ESPECÍFICAS DO KODDA
+// ============================================
+
+function showTypingIndicator() {
+    const messagesContainer = document.querySelector('.chat-messages');
+    
+    // Remove indicador anterior se existir
+    const existingIndicator = document.querySelector('.typing-indicator');
+    if (existingIndicator) existingIndicator.remove();
+    
+    // Cria novo indicador
+    const typingDiv = document.createElement('div');
+    typingDiv.className = 'message bot typing-indicator active';
+    typingDiv.innerHTML = `
+        <div class="message-avatar">
+            <div class="kodda-mini-typing"></div>
+        </div>
+        <div class="message-content">
+            <div class="typing-dots">
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+            </div>
+        </div>
+    `;
+    
+    messagesContainer.appendChild(typingDiv);
+    scrollToBottom();
+}
+
+function hideTypingIndicator() {
+    const typingIndicator = document.querySelector('.typing-indicator');
+    if (typingIndicator) {
+        typingIndicator.remove();
+    }
+}
+
+// Atualize a função addBotMessage para incluir "digitando"
+function addBotMessage(text, showTyping = true) {
+    if (showTyping) {
+        showTypingIndicator();
+        
+        // Simula tempo de digitação
+        const typingTime = Math.min(text.length * 30, 2000); // Máximo 2 segundos
+        
+        setTimeout(() => {
+            hideTypingIndicator();
+            
+            const messagesContainer = document.querySelector('.chat-messages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'message bot';
+            messageDiv.innerHTML = `
+                <div class="message-avatar">
+                    <div class="kodda-mini-message"></div>
+                </div>
+                <div class="message-content">
+                    <p>${text}</p>
+                    <span class="message-time">Agora</span>
+                </div>
+            `;
+            
+            messagesContainer.appendChild(messageDiv);
+            scrollToBottom();
+            
+        }, typingTime);
+    }
+}
+
+// Respostas personalizadas do Kodda
+const koddaResponses = {
+    orcamento: [
+        "🛠️ **Kodda aqui!** Vou conectar você com nossa equipe de orçamentos. Em até 2 horas você recebe uma proposta personalizada!",
+        "💼 Perfeito! Meus colegas especialistas vão preparar um orçamento detalhado para seu projeto.",
+        "📊 Ótima escolha! Analisaremos suas necessidades e retornamos com a melhor solução e investimento."
+    ],
+    duvida: [
+        "🤔 **Kodda ao resgate!** Posso esclarecer suas dúvidas sobre desenvolvimento, prazos ou tecnologias.",
+        "💡 Claro! Como assistente técnico, posso explicar nossos processos e metodologias.",
+        "🔍 Vamos lá! Me pergunte sobre sites responsivos, e-commerce ou sistemas personalizados."
+    ],
+    contato: [
+        "📞 **Kodda conectando!** Um consultor especializado entrará em contato em até 15 minutos.",
+        "👥 Excelente! Nossa equipe comercial está pronta para entender suas necessidades.",
+        "🎯 Certo! Vou direcionar você para quem pode ajudar melhor com seu projeto."
+    ]
+};
+
+// Função para resposta aleatória do Kodda
+function getKoddaResponse(action) {
+    const responses = koddaResponses[action];
+    return responses[Math.floor(Math.random() * responses.length)];
+}
+
+// Atualize o evento das opções rápidas
+quickOptions.forEach(option => {
+    option.addEventListener('click', function() {
+        const action = this.getAttribute('data-action');
+        
+        // Adiciona mensagem do usuário
+        addUserMessage(this.querySelector('span').textContent);
+        
+        // Feedback visual
+        this.classList.add('active');
+        setTimeout(() => this.classList.remove('active'), 300);
+        
+        // Resposta do Kodda com personalidade
+        setTimeout(() => {
+            const response = getKoddaResponse(action);
+            addBotMessage(response);
+            
+            // Ações específicas
+            let redirectUrl = "";
+            switch(action) {
+                case 'orcamento':
+                    redirectUrl = "https://wa.me/554192272854?text=Olá%20KoddaHub!%20Quero%20um%20orçamento%20personalizado";
+                    break;
+                case 'contato':
+                    redirectUrl = "tel:+554192272854";
+                    break;
+            }
+            
+            if (redirectUrl) {
+                setTimeout(() => {
+                    window.open(redirectUrl, '_blank');
+                }, 1500);
+            }
+        }, 800);
+    });
+});
