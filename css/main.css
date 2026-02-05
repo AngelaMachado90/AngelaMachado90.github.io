@@ -1,5 +1,5 @@
 /* MODERN.CSS - KoddaHub Modern Components System */
-/* Version: 1.0.0 | Cleaned and Optimized */
+/* Version: 1.1.0 | With WhatsApp & Kodda Chat */
 
 /* ============================================================================
    NAVBAR MODERN
@@ -177,11 +177,9 @@
 
 .section-badge {
   display: inline-block;
-  background: linear-gradient(
-    135deg,
-    var(--blue-electric),
-    var(--orange-vibrant)
-  );
+  background: linear-gradient(135deg,
+      var(--blue-electric),
+      var(--orange-vibrant));
   color: var(--white-neutral);
   padding: 8px 16px;
   border-radius: var(--radius-full);
@@ -304,11 +302,9 @@
 .diferencial-icon {
   width: 80px;
   height: 80px;
-  background: linear-gradient(
-    135deg,
-    var(--blue-electric),
-    var(--orange-vibrant)
-  );
+  background: linear-gradient(135deg,
+      var(--blue-electric),
+      var(--orange-vibrant));
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -329,11 +325,9 @@
    ============================================================================ */
 .processos-section {
   padding: 100px 0;
-  background: linear-gradient(
-    135deg,
-    rgba(33, 150, 243, 0.05),
-    rgba(245, 124, 0, 0.05)
-  );
+  background: linear-gradient(135deg,
+      rgba(33, 150, 243, 0.05),
+      rgba(245, 124, 0, 0.05));
 }
 
 .timeline {
@@ -348,12 +342,10 @@
   top: 0;
   bottom: 0;
   width: 2px;
-  background: linear-gradient(
-    180deg,
-    transparent 0%,
-    var(--orange-vibrant) 50%,
-    transparent 100%
-  );
+  background: linear-gradient(180deg,
+      transparent 0%,
+      var(--orange-vibrant) 50%,
+      transparent 100%);
   transform: translateX(-50%);
 }
 
@@ -384,11 +376,9 @@
    ============================================================================ */
 .stats-section {
   padding: 80px 0;
-  background: linear-gradient(
-    135deg,
-    var(--blue-electric),
-    var(--orange-vibrant)
-  );
+  background: linear-gradient(135deg,
+      var(--blue-electric),
+      var(--orange-vibrant));
   color: var(--white-neutral);
 }
 
@@ -523,385 +513,330 @@
 }
 
 /* ============================================================================
-   CHAT WIDGET "FALE CONOSCO" - Remover daqui depois
+   ANIMAÇÕES GERAIS (apenas as necessárias)
    ============================================================================ */
-
-.chat-widget {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  width: 380px;
-  max-width: 90vw;
-  background: var(--white-pure);
-  border-radius: var(--radius-xl);
-  box-shadow: var(--shadow-2xl);
-  z-index: var(--z-modal);
-  transform: translateY(100px) scale(0.9);
-  opacity: 0;
-  transition: all var(--duration-500) var(--ease-out);
-  overflow: hidden;
-  display: none;
-  /* Inicia escondido */
-}
-
-.chat-widget.active {
-  transform: translateY(0) scale(1);
-  opacity: 1;
-  display: block;
-}
-
-/* ========== BOTÃO TOGGLE ========== */
-.chat-toggle {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  width: 70px;
-  height: 70px;
-  background: linear-gradient(135deg, var(--orange-vibrant), var(--blue-electric));
-  color: white;
-  border: none;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2rem;
-  cursor: pointer;
-  box-shadow: var(--shadow-xl);
-  z-index: var(--z-fixed);
-  transition: all var(--duration-300) var(--ease-out);
-  animation: float-chat 3s ease-in-out infinite;
-}
-
-.chat-toggle:hover {
-  transform: scale(1.1) rotate(10deg);
-  animation: none;
-}
-
-.chat-toggle:active {
-  transform: scale(0.95);
-}
-
-.chat-notification {
-  position: absolute;
-  top: -5px;
-  right: -5px;
-  background: #FF3B30;
-  color: white;
-  font-size: 0.75rem;
-  font-weight: var(--fw-bold);
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  animation: pulse 1.5s infinite;
-}
-
-/* ========== CABEÇALHO DO CHAT ========== */
-.chat-header {
-  display: flex;
-  align-items: center;
-  padding: 1.25rem;
-  background: linear-gradient(135deg, var(--blue-electric), var(--orange-vibrant));
-  color: white;
-  position: relative;
-}
-
-.chat-avatar {
-  width: 50px;
-  height: 50px;
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.5rem;
-  margin-right: 0.9375rem;
-}
-
-.chat-info h4 {
-  color: white;
-  margin: 0 0 0.25rem 0;
-  font-size: 1.1rem;
-}
-
-.chat-info p {
-  color: rgba(255, 255, 255, 0.8);
-  margin: 0;
-  font-size: 0.875rem;
-}
-
-.chat-close {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background: none;
-  border: none;
-  color: white;
-  font-size: 1.2rem;
-  cursor: pointer;
-  opacity: 0.7;
-  transition: opacity var(--duration-200) var(--ease-out);
-  padding: 0.5rem;
-}
-
-.chat-close:hover {
-  opacity: 1;
-}
-
-/* ========== MENSAGENS ========== */
-.chat-messages {
-  padding: 1.25rem;
-  max-height: 300px;
-  overflow-y: auto;
-}
-
-.message {
-  display: flex;
-  margin-bottom: 1rem;
-  animation: slideInLeft var(--duration-300) var(--ease-out);
-}
-
-.message.bot {
-  animation: slideInRight var(--duration-300) var(--ease-out);
-}
-
-.message-avatar {
-  width: 36px;
-  height: 36px;
-  background: var(--neutral-100);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1rem;
-  color: var(--gray-dark);
-  margin-right: 0.75rem;
-  flex-shrink: 0;
-}
-
-.message-content {
-  background: var(--neutral-50);
-  padding: 0.75rem 1rem;
-  border-radius: var(--radius-lg);
-  max-width: 80%;
-  position: relative;
-}
-
-.message.bot .message-content {
-  background: linear-gradient(135deg, var(--blue-electric), var(--orange-vibrant));
-  color: white;
-}
-
-.message-content p {
-  margin: 0 0 0.5rem 0;
-  line-height: 1.4;
-}
-
-.message-time {
-  font-size: 0.7rem;
-  color: var(--gray-circuit);
-  display: block;
-  text-align: right;
-}
-
-.message.bot .message-time {
-  color: rgba(255, 255, 255, 0.7);
-}
-
-/* ========== OPÇÕES RÁPIDAS ========== */
-.quick-options {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-  gap: 0.625rem;
-  margin: 1.25rem 0;
-}
-
-.quick-option {
-  background: var(--white-pure);
-  border: 1px solid var(--neutral-200);
-  border-radius: var(--radius-base);
-  padding: 0.75rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
-  cursor: pointer;
-  transition: all var(--duration-200) var(--ease-out);
-  font-size: 0.8rem;
-  color: var(--gray-dark);
-}
-
-.quick-option:hover {
-  border-color: var(--orange-vibrant);
-  color: var(--orange-vibrant);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-sm);
-}
-
-.quick-option i {
-  font-size: 1.2rem;
-}
-
-/* ========== AÇÕES PRINCIPAIS ========== */
-.chat-actions {
-  padding: 1.25rem;
-  border-top: 1px solid var(--neutral-200);
-  background: var(--neutral-50);
-}
-
-.chat-actions p {
-  margin: 0 0 1rem 0;
-  color: var(--gray-dark);
-  font-size: 0.9rem;
-  text-align: center;
-}
-
-.action-buttons {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.625rem;
-  margin-bottom: 1.25rem;
-}
-
-.action-btn {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem;
-  border-radius: var(--radius-base);
-  text-decoration: none;
-  color: white;
-  font-size: 0.8rem;
-  transition: all var(--duration-200) var(--ease-out);
-  text-align: center;
-}
-
-.action-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-md);
-}
-
-.action-btn i {
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
-}
-
-.whatsapp-btn {
-  background: #25D366;
-}
-
-.email-btn {
-  background: var(--blue-electric);
-}
-
-.phone-btn {
-  background: var(--orange-vibrant);
-}
-
-/* ========== FORMULÁRIO RÁPIDO ========== */
-.quick-form {
-  background: white;
-  padding: 1rem;
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-sm);
-}
-
-.quick-form p {
-  margin: 0 0 0.75rem 0;
-  font-size: 0.85rem;
-  color: var(--gray-dark);
-}
-
-.form-input {
-  width: 100%;
-  padding: 0.75rem;
-  border: 1px solid var(--neutral-300);
-  border-radius: var(--radius-base);
-  font-size: 0.9rem;
-  margin-bottom: 0.75rem;
-  transition: border-color var(--duration-200) var(--ease-out);
-}
-
-.form-input:focus {
-  outline: none;
-  border-color: var(--orange-vibrant);
-  box-shadow: 0 0 0 3px rgba(245, 124, 0, 0.1);
-}
-
-.form-submit {
-  width: 100%;
-  padding: 0.75rem;
-  background: linear-gradient(135deg, var(--blue-electric), var(--orange-vibrant));
-  color: white;
-  border: none;
-  border-radius: var(--radius-base);
-  font-weight: var(--fw-semibold);
-  cursor: pointer;
-  transition: all var(--duration-200) var(--ease-out);
-}
-
-.form-submit:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
-}
-
-/* ========== ANIMAÇÕES ESPECÍFICAS ========== */
-@keyframes float-chat {
+@keyframes float {
 
   0%,
   100% {
-    transform: translateY(0) rotate(0deg);
+    transform: translateY(0) translateX(0);
   }
 
   33% {
-    transform: translateY(-10px) rotate(5deg);
+    transform: translateY(-30px) translateX(20px);
   }
 
   66% {
-    transform: translateY(5px) rotate(-5deg);
+    transform: translateY(30px) translateX(-20px);
   }
 }
 
-@keyframes pulse {
+/* ============================================================================
+   WHATSAPP FLOATING BUTTON
+   ============================================================================ */
+.whatsapp-float {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  background-color: #25D366;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
+  z-index: 1000;
+  transition: all 0.3s ease-out;
+  text-decoration: none;
+  animation: pulse-whatsapp 2s infinite;
+}
+
+.whatsapp-float:hover {
+  background-color: #128C7E;
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 8px 30px rgba(37, 211, 102, 0.5);
+  animation: none;
+}
+
+.whatsapp-tooltip {
+  position: absolute;
+  right: 70px;
+  background: var(--black-deep);
+  color: white;
+  padding: 8px 12px;
+  border-radius: var(--radius-base);
+  font-size: 0.875rem;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateX(10px);
+  transition: all 0.3s ease-out;
+  pointer-events: none;
+  box-shadow: var(--shadow-md);
+}
+
+.whatsapp-tooltip::after {
+  content: '';
+  position: absolute;
+  right: -6px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 6px solid transparent;
+  border-left-color: var(--black-deep);
+}
+
+.whatsapp-float:hover .whatsapp-tooltip {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+@keyframes pulse-whatsapp {
 
   0%,
   100% {
-    transform: scale(1);
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
   }
 
   50% {
-    transform: scale(1.1);
+    box-shadow: 0 4px 25px rgba(37, 211, 102, 0.5);
   }
 }
 
-@keyframes slideInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-20px);
+/* ============================================================================
+   MASCOTE KODDA - Avatar Personalizado
+   ============================================================================ */
+
+/* Avatar Container */
+.kodda-avatar {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, var(--orange-vibrant), var(--blue-electric));
+  border-radius: 50%;
+  margin-right: 1rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Rosto do Kodda */
+.kodda-face {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  background: var(--white-pure);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Olhos do Kodda */
+.kodda-eye {
+  width: 8px;
+  height: 8px;
+  background: var(--blue-electric);
+  border-radius: 50%;
+  position: absolute;
+  top: 15px;
+  animation: blink 3s infinite;
+}
+
+.kodda-eye.left {
+  left: 10px;
+}
+
+.kodda-eye.right {
+  right: 10px;
+}
+
+/* Sorriso do Kodda */
+.kodda-smile {
+  width: 16px;
+  height: 8px;
+  border-bottom: 3px solid var(--orange-vibrant);
+  border-radius: 0 0 50px 50px;
+  position: absolute;
+  bottom: 12px;
+  animation: smile 4s infinite;
+}
+
+/* Antena do Kodda */
+.kodda-antena {
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 12px;
+  background: var(--orange-vibrant);
+  border-radius: 2px;
+}
+
+.kodda-antena::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 8px;
+  height: 8px;
+  background: var(--blue-electric);
+  border-radius: 50%;
+  animation: antenna-glow 2s infinite;
+}
+
+/* Status Online */
+.status-online {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  background: #4ADE80;
+  border-radius: 50%;
+  animation: pulse-status 2s infinite;
+}
+
+/* ============================================================================
+   ANIMAÇÕES DO KODDA
+   ============================================================================ */
+
+/* Piscar dos olhos */
+@keyframes blink {
+
+  0%,
+  90%,
+  100% {
+    height: 8px;
   }
 
-  to {
+  95% {
+    height: 2px;
+  }
+}
+
+/* Movimento do sorriso */
+@keyframes smile {
+
+  0%,
+  100% {
+    width: 16px;
+  }
+
+  50% {
+    width: 20px;
+  }
+}
+
+/* Brilho na antena */
+@keyframes antenna-glow {
+
+  0%,
+  100% {
     opacity: 1;
-    transform: translateX(0);
+    transform: translateX(-50%) scale(1);
+  }
+
+  50% {
+    opacity: 0.7;
+    transform: translateX(-50%) scale(1.1);
   }
 }
 
-@keyframes slideInRight {
-  from {
-    opacity: 0;
-    transform: translateX(20px);
-  }
+/* Status pulsante */
+@keyframes pulse-status {
 
-  to {
+  0%,
+  100% {
     opacity: 1;
-    transform: translateX(0);
+  }
+
+  50% {
+    opacity: 0.5;
   }
 }
 
-/* ========== RESPONSIVIDADE ========== */
+/* Kodda animado quando chat está ativo */
+.chat-widget.active .kodda-face {
+  animation: nod 2s ease-in-out infinite;
+}
+
+@keyframes nod {
+
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(5deg);
+  }
+
+  75% {
+    transform: rotate(-5deg);
+  }
+}
+
+/* Mini Kodda para mensagens */
+.kodda-mini-message {
+  width: 30px;
+  height: 30px;
+  background: linear-gradient(135deg, var(--orange-vibrant), var(--blue-electric));
+  border-radius: 50%;
+  position: relative;
+}
+
+.kodda-mini-message::before {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  width: 14px;
+  height: 14px;
+  background: white;
+  border-radius: 50%;
+}
+
+.kodda-mini-message::after {
+  content: '';
+  position: absolute;
+  top: 11px;
+  left: 11px;
+  width: 4px;
+  height: 4px;
+  background: var(--blue-electric);
+  border-radius: 50%;
+  box-shadow: 7px 0 0 var(--blue-electric);
+}
+
+/* ============================================================================
+   RESPONSIVIDADE
+   ============================================================================ */
+
+/* WhatsApp */
+@media (max-width: 768px) {
+  .whatsapp-float {
+    bottom: 20px;
+    right: 20px;
+    width: 56px;
+    height: 56px;
+    font-size: 1.6rem;
+  }
+
+  .whatsapp-tooltip {
+    display: none;
+  }
+}
+
+/* Chat Widget */
 @media (max-width: 768px) {
   .chat-widget {
     width: 350px;
