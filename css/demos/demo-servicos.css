@@ -114,8 +114,7 @@ body {
   background: #f8f8f8;
 }
 
-.section-title {
-  font-size: 36px;
+h2.section-title {
   text-align: center;
   color: #333;
 }

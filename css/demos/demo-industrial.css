@@ -172,8 +172,7 @@ body {
   background: #0f0f0f;
 }
 
-.section-title {
-  font-size: 32px;
+h2.section-title {
   color: var(--orange-dark);
   position: relative;
   padding-bottom: 15px;
