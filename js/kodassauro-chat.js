@@ -296,6 +296,7 @@
       let uiHydrated = false;
       let notificationsArmed = false;
       let notifTimer = null;
+      let pendingAttention = false;
 
       function setBadge(n) {
         state.notifCount = n;
@@ -375,6 +376,18 @@
         persist();
 
         hydrateUiIfNeeded();
+        // If attention message was queued while panel was closed, show it now.
+        if (pendingAttention) {
+          addMessage("bot", "Como posso ajudar?");
+          if ("speechSynthesis" in window) {
+            try {
+              const speak = new SpeechSynthesisUtterance("Como posso ajudar?");
+              speak.lang = "pt-BR";
+              window.speechSynthesis.speak(speak);
+            } catch (e) {}
+          }
+          pendingAttention = false;
+        }
 
         if (state.messages.length === 0) {
           addMessage("bot", createBotGreeting());
@@ -892,17 +905,27 @@
             } catch (e) {}
           }
 
-          // After 5s, send the prompt message and (optionally) speak it.
+          // After 5s, enqueue the prompt but only add it to the UI
+          // when the panel is open (prevents FOUC/layout shifts).
           setTimeout(() => {
-            addMessage("bot", "Como posso ajudar?");
-            if ("speechSynthesis" in window) {
-              try {
-                const speak = new SpeechSynthesisUtterance(
-                  "Como posso ajudar?",
-                );
-                speak.lang = "pt-BR";
-                window.speechSynthesis.speak(speak);
-              } catch (e) {}
+            try {
+              if (state && state.isOpen) {
+                addMessage("bot", "Como posso ajudar?");
+                if ("speechSynthesis" in window) {
+                  try {
+                    const speak = new SpeechSynthesisUtterance(
+                      "Como posso ajudar?",
+                    );
+                    speak.lang = "pt-BR";
+                    window.speechSynthesis.speak(speak);
+                  } catch (e) {}
+                }
+              } else {
+                pendingAttention = true;
+              }
+            } catch (e) {
+              // state might not be ready; mark pending
+              pendingAttention = true;
             }
             sessionStorage.setItem(key, "1");
           }, 5000);
