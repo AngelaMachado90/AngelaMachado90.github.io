@@ -3,7 +3,7 @@
   --bg:#0A0A0F;--panel:#0F1720;--muted:#9AA3B2;--accent:#00D4FF;--glass:rgba(255,255,255,0.04);
   --radius:12px; --gap:18px; font-family: 'Open Sans', system-ui, sans-serif;
 }
-*{box-sizing:border-box}
+/* Global reset kept in css/reset.css; removed duplicate here */
 body.gallery-root{background:linear-gradient(180deg,var(--bg),#05050A);color:var(--muted);margin:0}
 .container{max-width:1200px;margin:0 auto;padding:28px}
 .gallery-header{padding:28px 0 8px}

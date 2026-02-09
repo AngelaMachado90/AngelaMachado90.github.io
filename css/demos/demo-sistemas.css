@@ -1,12 +1,6 @@
 /* Extracted from pages/demo-sistemas.html. */
 
 @import "_shared-demo-styles.css";
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 body {
   font-family: "Inter", sans-serif;
   background: #ecf0f1;
