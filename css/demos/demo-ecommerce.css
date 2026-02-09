@@ -411,36 +411,4 @@ body {
   color: white;
   padding: 40px 20px;
 }
-
-.footer-content {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
-  margin-bottom: 30px;
-}
-
-.footer-column h4 {
-  margin-bottom: 15px;
-  color: var(--orange-vibrant);
-}
-.footer-column ul {
-  list-style: none;
-}
-.footer-column ul li {
-  margin-bottom: 8px;
-}
-.footer-column a {
-  color: #ccc;
-  text-decoration: none;
-  transition: 0.3s;
-}
-.footer-column a:hover {
-  color: var(--orange-vibrant);
-}
-
-.footer-bottom {
-  border-top: 1px solid #333;
-  padding-top: 20px;
-  text-align: center;
-  color: #999;
-}
+/* Footer layout and column rules consolidated to css/components/_footer.css */

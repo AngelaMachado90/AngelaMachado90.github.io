@@ -1,11 +1,6 @@
 /* Shared demo styles: common resets, layout utilities, CTAs and footer basics */
 
-/* Reset used across demos */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+/* Reset removed from here — global reset is maintained in css/reset.css */
 
 /* Layout container used by demos */
 .container {
@@ -40,19 +35,4 @@
 }
 
 /* Footer grid + basics */
-.footer-content {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
-  margin-bottom: 30px;
-}
-.footer-column ul {
-  list-style: none;
-}
-.footer-column ul li {
-  margin-bottom: 8px;
-}
-.footer-column a {
-  text-decoration: none;
-  transition: 0.3s;
-}
+/* Footer layout and column rules moved to css/components/_footer.css */

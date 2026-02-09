@@ -1,0 +1,69 @@
+/* Unified footer component
+   Moved shared footer rules here (consolidation phase 2).
+   Variants per-demo should use modifier classes like .footer--ecommerce.
+*/
+
+.footer {
+  background: var(--panel, #0f1720);
+  color: var(--muted, #9aa3b2);
+  padding: 40px 0 20px;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.footer-column h3,
+.footer-column h4 {
+  color: inherit;
+  margin-bottom: 16px;
+}
+
+.footer-column p {
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 8px;
+}
+
+.footer-column a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--duration-200, 0.2s) var(--ease-out, ease-out);
+}
+
+.footer-column a:hover {
+  color: var(--accent, #00d4ff);
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding-top: 20px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 14px;
+}
+
+/* Demo-specific modifier examples (empty by default) */
+.footer--ecommerce {
+}
+.footer--institucional {
+}
+.footer--industrial {
+}
+.footer--servicos {
+}
+.footer--sistemas {
+}
