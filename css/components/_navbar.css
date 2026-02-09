@@ -1,3 +1,90 @@
+/* Unified navbar component — visual matching provided design */
+
+.navbar-modern {
+  background: transparent;
+  padding: 10px 0;
+}
+
+.navbar-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  justify-content: space-between;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.navbar-brand .logo-image img {
+  height: 28px;
+  width: auto;
+  display: block;
+}
+.navbar-brand .logo-text {
+  font-weight: 700;
+  color: var(--black-deep);
+  text-decoration: none;
+}
+
+.navbar-menu {
+  display: flex;
+  gap: 26px;
+  align-items: center;
+}
+
+.nav-link {
+  color: #6b7280; /* muted gray */
+  text-decoration: none;
+  padding: 6px 4px;
+  position: relative;
+  font-weight: 500;
+}
+
+.nav-link:hover {
+  color: var(--black-deep);
+}
+
+.nav-link.active {
+  color: var(--orange-vibrant);
+}
+
+.nav-link.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  bottom: -10px;
+  width: 48px;
+  height: 3px;
+  background: var(--orange-vibrant);
+  border-radius: 3px;
+}
+
+/* CTA link styled as button on the right */
+.nav-link.cta-nav {
+  background: var(--orange-vibrant);
+  color: #fff !important;
+  padding: 10px 16px;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(245, 124, 0, 0.12);
+}
+
+/* Mobile toggle (kept simple) */
+.navbar-toggle {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .navbar-menu {
+    display: none;
+  }
+  .navbar-toggle {
+    display: inline-flex;
+  }
+}
 /* Consolidated navbar component (base styles used across themes)
    - Provides `.navbar-modern`, `.navbar-wrapper`, `.navbar-menu`, `.nav-link`, and `.cta-nav`.
    - Theme-specific modifiers (.navbar-modern.scrolled, .navbar-brand, etc.) can remain in theme files if needed.
@@ -64,10 +151,12 @@
   transition: background-color var(--duration-200) var(--ease-out);
 }
 
-.navbar-toggle:hover { background: rgba(0,0,0,0.05); }
+.navbar-toggle:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
 
 .navbar-toggle:focus-visible {
-  outline: 3px solid rgba(245,124,0,0.55);
+  outline: 3px solid rgba(245, 124, 0, 0.55);
   outline-offset: 3px;
 }
 
@@ -80,9 +169,15 @@
   transition: all var(--duration-300) var(--ease-out);
 }
 
-.navbar-toggle.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-.navbar-toggle.active span:nth-child(2) { opacity: 0; }
-.navbar-toggle.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.navbar-toggle.active span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.navbar-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+.navbar-toggle.active span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
 
 .navbar-menu {
   display: flex;
@@ -103,7 +198,7 @@
 }
 
 .nav-link:focus-visible {
-  outline: 3px solid rgba(245,124,0,0.55);
+  outline: 3px solid rgba(245, 124, 0, 0.55);
   outline-offset: 6px;
   border-radius: 6px;
 }
@@ -120,10 +215,14 @@
 }
 
 .nav-link:hover,
-.nav-link.active { color: var(--orange-vibrant); }
+.nav-link.active {
+  color: var(--orange-vibrant);
+}
 
 .nav-link:hover::after,
-.nav-link.active::after { width: 100%; }
+.nav-link.active::after {
+  width: 100%;
+}
 
 .nav-link.current-page {
   color: var(--orange-vibrant);
@@ -140,8 +239,10 @@
 
 .cta-nav:hover {
   background: var(--orange-dark);
-  box-shadow: 0 8px 20px rgba(245,124,0,0.3);
+  box-shadow: 0 8px 20px rgba(245, 124, 0, 0.3);
   transform: translateY(-2px);
 }
 
-.cta-nav::after { display: none; }
+.cta-nav::after {
+  display: none;
+}
