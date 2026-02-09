@@ -1,0 +1,346 @@
+/* ==========================================================================
+   KODASSAURO.CSS - Chatbot Local (sem IA)
+   Mantem paleta KoddaHub via css/variables.css
+   ========================================================================== */
+
+.kodassauro {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: var(--z-modal);
+}
+
+.kodassauro-toggle {
+  width: 66px;
+  height: 66px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background: linear-gradient(135deg, var(--blue-electric), var(--orange-vibrant));
+  box-shadow: var(--shadow-xl);
+  transition: transform var(--duration-200) var(--ease-out), box-shadow var(--duration-200) var(--ease-out);
+  position: relative;
+}
+
+.kodassauro-toggle:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: var(--shadow-2xl);
+}
+
+.kodassauro-toggle:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.kodassauro-badge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  min-width: 22px;
+  height: 22px;
+  padding: 0 6px;
+  border-radius: 999px;
+  background: var(--error-500);
+  color: #fff;
+  font-size: 12px;
+  font-weight: var(--fw-bold);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--white-pure);
+}
+
+.kodassauro-badge[hidden] {
+  display: none !important;
+}
+
+.kodassauro-panel {
+  position: absolute;
+  right: 0;
+  bottom: 78px;
+  width: min(420px, calc(100vw - 44px));
+  max-height: min(640px, calc(100vh - 120px));
+  background: var(--white-pure);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-2xl);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: auto 1fr auto auto;
+  transform: translateY(12px) scale(0.98);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: transform var(--duration-300) var(--ease-out), opacity var(--duration-300) var(--ease-out);
+}
+
+.kodassauro-panel[hidden] {
+  display: none !important;
+}
+
+.kodassauro-panel.is-open {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.kodassauro-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+  background: linear-gradient(135deg, var(--blue-electric), var(--orange-vibrant));
+  color: #fff;
+}
+
+.kodassauro-avatar {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.16);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+}
+
+.kodassauro-svg {
+  width: 40px;
+  height: 40px;
+}
+
+.kodassauro-svg .kds-eye {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: kds-blink 5s infinite;
+}
+
+@keyframes kds-blink {
+  0%,
+  92%,
+  100% {
+    transform: scaleY(1);
+  }
+
+  96% {
+    transform: scaleY(0.15);
+  }
+}
+
+.kodassauro-title {
+  margin: 0;
+  font-size: 1.05rem;
+  color: #fff;
+}
+
+.kodassauro-subtitle {
+  margin: 2px 0 0 0;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.kodassauro-headings {
+  flex: 1;
+  min-width: 0;
+}
+
+.kodassauro-header-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.kodassauro-reset {
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  font-weight: var(--fw-semibold);
+  border-radius: 999px;
+  padding: 8px 10px;
+  cursor: pointer;
+  transition: background var(--duration-200) var(--ease-out);
+}
+
+.kodassauro-reset:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.kodassauro-close {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--duration-200) var(--ease-out);
+}
+
+.kodassauro-close:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.kodassauro-messages {
+  padding: 14px;
+  overflow: auto;
+  background: linear-gradient(180deg, rgba(33, 150, 243, 0.05), transparent 60%);
+}
+
+.kds-msg {
+  display: flex;
+  gap: 10px;
+  margin: 0 0 12px 0;
+}
+
+.kds-msg.is-user {
+  justify-content: flex-end;
+}
+
+.kds-bubble {
+  max-width: 78%;
+  padding: 10px 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: var(--shadow-xs);
+  background: var(--white-pure);
+  color: var(--black-deep);
+}
+
+.kds-msg.is-bot .kds-bubble {
+  background: rgba(255, 255, 255, 0.92);
+}
+
+.kds-msg.is-user .kds-bubble {
+  background: linear-gradient(135deg, var(--blue-electric), var(--orange-vibrant));
+  color: #fff;
+  border-color: transparent;
+}
+
+.kds-time {
+  display: block;
+  margin-top: 6px;
+  font-size: 11px;
+  opacity: 0.7;
+}
+
+.kodassauro-quick {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 12px 14px 0 14px;
+  background: var(--white-pure);
+}
+
+.kodassauro-chip {
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: var(--white-neutral);
+  color: var(--black-deep);
+  border-radius: 999px;
+  padding: 8px 10px;
+  font-weight: var(--fw-semibold);
+  cursor: pointer;
+  transition: transform var(--duration-200) var(--ease-out), border-color var(--duration-200) var(--ease-out);
+}
+
+.kodassauro-chip:hover {
+  transform: translateY(-1px);
+  border-color: rgba(245, 124, 0, 0.45);
+}
+
+.kodassauro-composer {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+  padding: 12px 14px 14px;
+  background: var(--white-pure);
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.kodassauro-input {
+  width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.14);
+  border-radius: 12px;
+  padding: 12px;
+  font-size: 0.95rem;
+  outline: none;
+  transition: box-shadow var(--duration-200) var(--ease-out), border-color var(--duration-200) var(--ease-out);
+}
+
+.kodassauro-input:focus {
+  border-color: rgba(245, 124, 0, 0.65);
+  box-shadow: 0 0 0 4px rgba(245, 124, 0, 0.15);
+}
+
+.kodassauro-send {
+  border: none;
+  border-radius: 12px;
+  padding: 12px 14px;
+  font-weight: var(--fw-bold);
+  cursor: pointer;
+  color: #fff;
+  background: linear-gradient(135deg, var(--blue-electric), var(--orange-vibrant));
+  transition: transform var(--duration-200) var(--ease-out), box-shadow var(--duration-200) var(--ease-out);
+}
+
+.kodassauro-send:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.kodassauro-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+body.nav-open .kodassauro-toggle,
+body.nav-open .kodassauro-panel {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .kodassauro {
+    right: 18px;
+    bottom: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .kodassauro {
+    right: 18px;
+    bottom: 18px;
+  }
+
+  .kodassauro-toggle {
+    width: 62px;
+    height: 62px;
+  }
+
+  .kodassauro-panel {
+    width: calc(100vw - 36px);
+    max-height: calc(100vh - 120px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kodassauro-toggle,
+  .kodassauro-panel,
+  .kodassauro-send,
+  .kodassauro-chip,
+  .kodassauro-svg .kds-eye {
+    transition: none !important;
+    animation: none !important;
+  }
+}

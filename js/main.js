@@ -10,7 +10,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     initializeAnimations();
     initializeCounters();
-    initializeNavigation();
 });
 
 /**
@@ -127,7 +126,7 @@ function initializeNavigation() {
  * @param {string} event - Tipo de evento (ex: 'click', 'mouseover')
  * @param {Function} callback - Função de callback
  */
-function addEventListener(selector, event, callback) {
+function addEventListeners(selector, event, callback) {
     const elements = document.querySelectorAll(selector);
     elements.forEach(element => {
         element.addEventListener(event, callback);

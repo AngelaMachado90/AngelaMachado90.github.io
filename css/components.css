@@ -1,6 +1,9 @@
 /* COMPONENTS.CSS - KoddaHub Component System */
 /* Version: 3.0.0 | Optimized and Documented */
 
+/* Import local component fragments */
+@import "components/_footer.css";
+
 /* ============================================================================
    BUTTONS - Interactive action elements
    ============================================================================ */
@@ -883,3 +886,6 @@
   border-top: 2px solid var(--gray-light);
   color: var(--black-deep);
 }
+
+/* Import consolidated components */
+@import "components/_footer.css";

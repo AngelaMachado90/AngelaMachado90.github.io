@@ -40,9 +40,6 @@ function initializeAllNavigation() {
     logNavigation('Sistema de navegação inicializado com sucesso');
 }
 
-// Inicializa quando o DOM estiver completamente carregado
-document.addEventListener('DOMContentLoaded', initializeAllNavigation);
-
 // ============================================================================
 // SISTEMA DE NAVEGAÇÃO PRINCIPAL
 // ============================================================================
@@ -65,7 +62,6 @@ function initializeNavigation() {
     
     // 1. TOGGLE DO MENU MOBILE
     navToggle.addEventListener('click', toggleMobileMenu);
-    updateToggleIcon(navToggle, navMenu);
     
     // 2. COMPORTAMENTO DOS LINKS DE NAVEGAÇÃO
     navLinks.forEach(link => {
@@ -137,8 +133,6 @@ function highlightCurrentPageLink(navLinks) {
         
         if (href && (href === currentPage || href === `./${currentPage}`)) {
             link.classList.add('current-page');
-            link.style.color = 'var(--orange-vibrant)';
-            link.style.fontWeight = '600';
         }
     });
 }
@@ -175,13 +169,10 @@ function toggleMobileMenu() {
 function openMobileMenu(toggle, menu) {
     menu.classList.add('active');
     toggle.classList.add('active');
-    updateToggleIcon(toggle, menu);
     
     // Previne scroll do body
     document.body.style.overflow = 'hidden';
-    
-    // Animações
-    menu.style.transition = 'all 0.3s ease-out';
+    document.body.classList.add('nav-open');
     
     // Foco no primeiro link para acessibilidade
     setTimeout(() => {
@@ -201,10 +192,10 @@ function openMobileMenu(toggle, menu) {
 function closeMobileMenu(toggle, menu) {
     menu.classList.remove('active');
     toggle.classList.remove('active');
-    updateToggleIcon(toggle, menu);
     
     // Restaura scroll do body
     document.body.style.overflow = '';
+    document.body.classList.remove('nav-open');
     
     // Retorna foco para o toggle button para acessibilidade
     toggle.focus();
@@ -218,19 +209,6 @@ function closeMobileMenu(toggle, menu) {
  * @param {HTMLElement} menu - Elemento do menu
  * @returns {void}
  */
-function updateToggleIcon(toggle, menu) {
-    const icon = toggle.querySelector('i');
-    if (!icon) return;
-    
-    if (menu.classList.contains('active')) {
-        icon.classList.remove('fa-bars');
-        icon.classList.add('fa-times');
-    } else {
-        icon.classList.add('fa-bars');
-        icon.classList.remove('fa-times');
-    }
-}
-
 // ============================================================================
 // SCROLL SUAVE
 // ============================================================================
@@ -844,71 +822,6 @@ if (typeof module !== 'undefined' && module.exports) {
         logNavigation
     };
 }
-
-// ============================================================================
-// CONFIGURAÇÕES DE ANIMAÇÃO (CSS)
-// ============================================================================
-
-// Adiciona estilos de animação se não existirem
-function addNavigationStyles() {
-    if (!document.getElementById('navigation-styles')) {
-        const style = document.createElement('style');
-        style.id = 'navigation-styles';
-        style.textContent = `
-            /* Animação para underline */
-            @keyframes underlineExpand {
-                from { transform: scaleX(0); }
-                to { transform: scaleX(1); }
-            }
-            
-            /* Animação para indicador ativo */
-            @keyframes pulse {
-                0%, 100% { opacity: 1; transform: translateX(-50%) scale(1); }
-                50% { opacity: 0.5; transform: translateX(-50%) scale(1.2); }
-            }
-            
-            /* Estilos para menu mobile */
-            @media (max-width: 768px) {
-                .navbar-menu {
-                    position: fixed;
-                    top: 70px;
-                    left: 0;
-                    right: 0;
-                    background: var(--white-pure);
-                    flex-direction: column;
-                    padding: 20px;
-                    transform: translateY(-100%);
-                    opacity: 0;
-                    visibility: hidden;
-                    transition: all 0.3s ease-out;
-                    z-index: 998;
-                    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-                }
-                
-                .navbar-menu.active {
-                    transform: translateY(0);
-                    opacity: 1;
-                    visibility: visible;
-                }
-                
-                .nav-link {
-                    width: 100%;
-                    padding: 15px 0;
-                    border-bottom: 1px solid var(--gray-light);
-                    text-align: left;
-                }
-                
-                .nav-link:last-child {
-                    border-bottom: none;
-                }
-            }
-        `;
-        document.head.appendChild(style);
-    }
-}
-
-// Adiciona estilos quando o DOM estiver pronto
-document.addEventListener('DOMContentLoaded', addNavigationStyles);
 
 // ============================================================================
 // EXPORTAÇÕES GLOBAIS (para navegador)
