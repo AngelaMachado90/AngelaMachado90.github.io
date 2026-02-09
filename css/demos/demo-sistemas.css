@@ -1,3 +1,5 @@
+@import "_shared-demo-styles.css";
+
 /* Extracted from pages/demo-sistemas.html. */
 
 @import "_shared-demo-styles.css";
@@ -156,8 +158,6 @@ body {
 
 .section-title {
   font-size: 32px;
-  font-weight: 700;
-  margin-bottom: 50px;
   text-align: center;
   color: #2c3e50;
 }

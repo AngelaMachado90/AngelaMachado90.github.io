@@ -277,6 +277,17 @@
       const root = document.getElementById("kodassauroRoot");
       if (!root) return;
 
+      // Defensive: ensure the widget root is a direct child of body so
+      // `position: fixed` behaves consistently (avoids issues when an
+      // ancestor has transform/positioning). Move it to body if needed.
+      if (root.parentElement !== document.body) {
+        try {
+          document.body.appendChild(root);
+        } catch (e) {
+          // ignore
+        }
+      }
+
       const toggleBtn = $(".kodassauro-toggle", root);
       const badge = $(".kodassauro-badge", root);
       const panel = $("#kodassauroPanel", root);

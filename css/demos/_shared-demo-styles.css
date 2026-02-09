@@ -1,3 +1,28 @@
+.section-title {
+  margin-bottom: 40px;
+  font-weight: 700;
+}
+
+.cta-section {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.btn-cta-white {
+  background: white;
+}
+.btn-cta-white:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.btn-cta-outline {
+  background: transparent;
+  border: 2px solid currentColor;
+}
+.btn-cta-outline:hover {
+  background: white;
+}
 /* Shared demo styles: common resets, layout utilities, CTAs and footer basics */
 
 /* Reset removed from here — global reset is maintained in css/reset.css */

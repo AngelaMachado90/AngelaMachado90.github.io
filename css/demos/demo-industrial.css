@@ -1,3 +1,5 @@
+@import "_shared-demo-styles.css";
+
 /* Extracted from pages/demo-industrial.html. */
 
 @import "_shared-demo-styles.css";
@@ -172,8 +174,6 @@ body {
 
 .section-title {
   font-size: 32px;
-  font-weight: 700;
-  margin-bottom: 40px;
   color: var(--orange-dark);
   position: relative;
   padding-bottom: 15px;
@@ -343,43 +343,22 @@ body {
 .cta-section {
   background: linear-gradient(
     135deg,
-    var(--orange-dark) 0%,
-    var(--orange-dark) 100%
+    var(--orange-vibrant) 0%,
+    var(--orange-light) 100%
   );
   color: white;
-  padding: 60px 20px;
-  text-align: center;
 }
-
-.cta-section h2 {
-  font-size: 36px;
-  margin-bottom: 20px;
-}
-.cta-section p {
-  font-size: 16px;
-  margin-bottom: 30px;
-  opacity: 0.95;
 }
 
 /* CTA wrapper and base button provided by components/_buttons.css */
 
 .btn-cta-white {
-  background: white;
-  color: var(--orange-dark);
-}
-.btn-cta-white:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  color: var(--orange-vibrant);
 }
 
 .btn-cta-outline {
-  background: transparent;
   color: white;
-  border: 2px solid white;
-}
-.btn-cta-outline:hover {
-  background: white;
-  color: var(--orange-dark);
+  border-color: white;
 }
 
 .industrial-footer {
