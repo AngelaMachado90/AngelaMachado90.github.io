@@ -3,319 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Demo: Serviços - Agência de Criatividade">
-    <meta name="theme-color" content="#8E44AD">
-    <title>CreativeHub - Agência de Design e Marketing Digital</title>
-    
+    <meta name="description" content="Demo: Servicos - Agencia Digital e Consultoria">
+    <meta name="theme-color" content="#2196F3">
+    <title>KoddaAgency - Agencia e Servicos Digitais</title>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background: white; }
-        
-        .agency-header {
-            background: white;
-            padding: 15px 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-        }
-        
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        
-        .agency-header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 30px;
-        }
-        
-        .agency-logo {
-            font-size: 22px;
-            font-weight: 700;
-            color: #8E44AD;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .agency-nav {
-            display: flex;
-            gap: 30px;
-            list-style: none;
-        }
-        
-        .agency-nav a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            transition: 0.3s;
-        }
-        
-        .agency-nav a:hover { color: #8E44AD; }
-        
-        .agency-cta {
-            display: flex;
-            gap: 10px;
-        }
-        
-        .btn-agency {
-            padding: 8px 16px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: 0.3s;
-        }
-        
-        .btn-agency-primary { background: #8E44AD; color: white; }
-        .btn-agency-primary:hover { background: #7A3B8C; transform: translateY(-2px); }
-        
-        .btn-agency-secondary { background: white; color: #8E44AD; border: 2px solid #8E44AD; }
-        .btn-agency-secondary:hover { background: #8E44AD; color: white; }
-        
-        .agency-hero {
-            background: linear-gradient(135deg, #8E44AD 0%, #A055C2 100%);
-            color: white;
-            padding: 100px 20px;
-            text-align: center;
-        }
-        
-        .agency-hero h1 { font-size: 52px; margin-bottom: 15px; font-weight: 700; }
-        .agency-hero p { font-size: 20px; margin-bottom: 30px; opacity: 0.95; }
-        
-        .hero-cta {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        
-        .services-section { padding: 80px 20px; background: #f8f8f8; }
-        
-        .section-title {
-            font-size: 36px;
-            font-weight: 700;
-            margin-bottom: 15px;
-            text-align: center;
-            color: #333;
-        }
-        
-        .section-subtitle {
-            text-align: center;
-            color: #666;
-            margin-bottom: 50px;
-            font-size: 18px;
-        }
-        
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .service-card {
-            background: white;
-            padding: 40px;
-            border-radius: 12px;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            transition: all 0.3s;
-            border-top: 4px solid #8E44AD;
-        }
-        
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(142, 68, 173, 0.15);
-        }
-        
-        .service-icon { font-size: 48px; margin-bottom: 15px; }
-        .service-name { font-size: 22px; font-weight: 700; margin-bottom: 12px; color: #333; }
-        .service-desc { color: #666; line-height: 1.6; margin-bottom: 20px; }
-        
-        .service-features {
-            text-align: left;
-            font-size: 14px;
-            color: #666;
-        }
-        
-        .service-features li { margin-bottom: 8px; }
-        .service-features i { color: #8E44AD; margin-right: 8px; }
-        
-        .portfolio-section { padding: 80px 20px; background: white; }
-        
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-        }
-        
-        .portfolio-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: 12px;
-            height: 280px;
-            cursor: pointer;
-            group: 'portfolio';
-        }
-        
-        .portfolio-image {
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #8E44AD, #A055C2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 80px;
-            transition: all 0.3s;
-        }
-        
-        .portfolio-item:hover .portfolio-image {
-            transform: scale(1.1);
-        }
-        
-        .portfolio-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-            padding: 20px;
-            color: white;
-            transform: translateY(100%);
-            transition: transform 0.3s;
-        }
-        
-        .portfolio-item:hover .portfolio-overlay {
-            transform: translateY(0);
-        }
-        
-        .portfolio-title { font-size: 18px; font-weight: 700; margin-bottom: 5px; }
-        .portfolio-category { font-size: 14px; opacity: 0.9; }
-        
-        .testimonials-section {
-            background: linear-gradient(135deg, #8E44AD 0%, #A055C2 100%);
-            color: white;
-            padding: 80px 20px;
-        }
-        
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-        
-        .testimonial-card {
-            background: rgba(255,255,255,0.1);
-            padding: 30px;
-            border-radius: 12px;
-            border-left: 4px solid white;
-        }
-        
-        .testimonial-quote { font-size: 16px; margin-bottom: 20px; line-height: 1.6; }
-        .testimonial-author { font-weight: 600; margin-bottom: 3px; }
-        .testimonial-role { font-size: 14px; opacity: 0.9; }
-        .testimonial-rating { color: #FFD700; margin-top: 10px; }
-        
-        .team-section { padding: 80px 20px; background: #f8f8f8; }
-        
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-        }
-        
-        .team-member {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            text-align: center;
-            transition: all 0.3s;
-        }
-        
-        .team-member:hover { transform: translateY(-10px); }
-        
-        .member-image {
-            width: 100%;
-            height: 250px;
-            background: linear-gradient(135deg, #8E44AD, #A055C2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 80px;
-        }
-        
-        .member-info { padding: 20px; }
-        .member-name { font-size: 18px; font-weight: 700; color: #333; margin-bottom: 5px; }
-        .member-role { color: #8E44AD; font-weight: 600; margin-bottom: 10px; }
-        .member-bio { font-size: 14px; color: #666; }
-        
-        .cta-section {
-            background: linear-gradient(135deg, #8E44AD 0%, #A055C2 100%);
-            color: white;
-            padding: 80px 20px;
-            text-align: center;
-        }
-        
-        .cta-section h2 { font-size: 40px; margin-bottom: 15px; }
-        .cta-section p { font-size: 18px; margin-bottom: 30px; opacity: 0.95; }
-        
-        .cta-buttons {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        
-        .btn-cta {
-            padding: 14px 35px;
-            border: none;
-            border-radius: 4px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: 0.3s;
-            font-size: 16px;
-        }
-        
-        .btn-cta-white { background: white; color: #8E44AD; }
-        .btn-cta-white:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
-        
-        .btn-cta-outline { background: transparent; color: white; border: 2px solid white; }
-        .btn-cta-outline:hover { background: white; color: #8E44AD; }
-        
-        .agency-footer {
-            background: #1a1a1a;
-            color: #999;
-            padding: 40px 20px;
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-bottom: 30px;
-        }
-        
-        .footer-column h4 { margin-bottom: 15px; color: #8E44AD; }
-        .footer-column ul { list-style: none; }
-        .footer-column ul li { margin-bottom: 8px; }
-        .footer-column a { color: #999; text-decoration: none; transition: 0.3s; }
-        .footer-column a:hover { color: #8E44AD; }
-        
-        .footer-bottom {
-            border-top: 1px solid #333;
-            padding-top: 20px;
-            text-align: center;
-        }
-    </style>
+
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/kodassauro.css">
+    <link rel="stylesheet" href="../css/floating-actions.css">
+    <link rel="stylesheet" href="../css/demo-shell.css">
+    <link rel="stylesheet" href="../css/demos/demo-servicos.css">
 </head>
 <body>
+    <a class="demo-back" href="../index.html" aria-label="Voltar para a pagina inicial">
+        <i class="fas fa-arrow-left" aria-hidden="true"></i>
+        <span>Voltar para KoddaHub</span>
+    </a>
+
     <header class="agency-header">
         <div class="container">
             <div class="agency-header-content">
@@ -631,6 +341,78 @@
             </div>
         </div>
     </footer>
+    <a href="https://wa.me/554192272854?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20as%20solu%C3%A7%C3%B5es%20da%20KoddaHub"
+        class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Conversar no WhatsApp">
+        <i class="fab fa-whatsapp" aria-hidden="true"></i>
+        <span class="whatsapp-tooltip">Fale conosco!</span>
+    </a>
+
+    <div class="kodassauro" id="kodassauroRoot">
+        <button class="kodassauro-toggle" type="button" aria-haspopup="dialog" aria-controls="kodassauroPanel"
+            aria-expanded="false" aria-label="Abrir chat Kodassauro">
+            <span class="kodassauro-badge" aria-label="Notificacoes do chat" hidden>0</span>
+            <span class="kodassauro-toggle-icon" aria-hidden="true">
+                <i class="fas fa-comment-dots" aria-hidden="true"></i>
+            </span>
+        </button>
+
+        <section class="kodassauro-panel" id="kodassauroPanel" role="dialog" aria-modal="false"
+            aria-labelledby="kodassauroTitle" aria-describedby="kodassauroSubtitle" tabindex="-1" hidden>
+            <header class="kodassauro-header">
+                <div class="kodassauro-avatar" aria-hidden="true">
+                    <svg class="kodassauro-svg" viewBox="0 0 64 64" role="img" aria-label="Kodassauro">
+                        <defs>
+                            <linearGradient id="kdsGrad" x1="0" y1="0" x2="1" y2="1">
+                                <stop offset="0%" stop-color="#2196F3" />
+                                <stop offset="100%" stop-color="#F57C00" />
+                            </linearGradient>
+                        </defs>
+                        <circle cx="32" cy="32" r="30" fill="url(#kdsGrad)" opacity="0.95" />
+                        <path d="M18 37c2-9 9-16 18-16s16 7 18 16c-6 7-13 11-18 11s-12-4-18-11z"
+                            fill="#fff" opacity="0.95" />
+                        <circle class="kds-eye" cx="28" cy="33" r="2.6" fill="#1976D2" />
+                        <circle class="kds-eye" cx="36" cy="33" r="2.6" fill="#1976D2" />
+                        <path d="M28 40c3 3 5 3 8 0" stroke="#E65100" stroke-width="3" fill="none"
+                            stroke-linecap="round" />
+                        <path d="M22 18l8 4" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity="0.9" />
+                        <path d="M42 18l-8 4" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity="0.9" />
+                    </svg>
+                </div>
+
+                <div class="kodassauro-headings">
+                    <h3 class="kodassauro-title" id="kodassauroTitle">Kodassauro</h3>
+                    <p class="kodassauro-subtitle" id="kodassauroSubtitle">Assistente da KoddaHub, pronto para ajudar</p>
+                </div>
+
+                <div class="kodassauro-header-actions">
+                    <button class="kodassauro-reset" type="button">Limpar</button>
+                    <button class="kodassauro-close" type="button" aria-label="Fechar chat">
+                        <i class="fas fa-times" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </header>
+
+            <div class="kodassauro-messages" id="kodassauroMessages" aria-live="polite" aria-relevant="additions">
+            </div>
+
+            <div class="kodassauro-quick" id="kodassauroQuick" aria-label="Atalhos do chat">
+                <button type="button" class="kodassauro-chip" data-action="orcamento">Orcamento</button>
+                <button type="button" class="kodassauro-chip" data-action="duvidas">Duvidas</button>
+                <button type="button" class="kodassauro-chip" data-action="contato">Falar com vendedor</button>
+                <button type="button" class="kodassauro-chip" data-action="precos">Ver precos</button>
+                <button type="button" class="kodassauro-chip" data-action="portfolio">Ver portfolio</button>
+            </div>
+
+            <form class="kodassauro-composer" id="kodassauroComposer" autocomplete="off">
+                <label class="kodassauro-sr-only" for="kodassauroInput">Mensagem</label>
+                <input id="kodassauroInput" class="kodassauro-input" type="text"
+                    placeholder="Digite sua mensagem..." inputmode="text" />
+                <button class="kodassauro-send" type="submit">Enviar</button>
+            </form>
+        </section>
+    </div>
+
+    <script src="../js/kodassauro-chat.js"></script>
+
 </body>
 </html>
-

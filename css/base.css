@@ -16,10 +16,45 @@ body {
   font-weight: var(--fw-normal);
   line-height: var(--lh-relaxed);
   color: var(--black-deep);
-  background-color: var(--white-neutral);
+  background:
+    radial-gradient(900px 480px at 10% -10%, rgba(33, 150, 243, 0.14), transparent 60%),
+    radial-gradient(800px 420px at 95% 0%, rgba(245, 124, 0, 0.12), transparent 55%),
+    var(--white-neutral);
   min-height: 100vh;
   position: relative;
   overflow-x: hidden;
+}
+
+/* Accessible focus defaults */
+:focus-visible {
+  outline: 3px solid rgba(33, 150, 243, 0.65);
+  outline-offset: 3px;
+}
+
+/* ========== LAYOUT CONTAINERS ========== */
+.container,
+.container-fluid {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 var(--container-px-mobile);
+}
+
+.container {
+  max-width: var(--container-xxl);
+}
+
+@media (min-width: 768px) {
+  .container,
+  .container-fluid {
+    padding: 0 var(--container-px-tablet);
+  }
+}
+
+@media (min-width: 1024px) {
+  .container,
+  .container-fluid {
+    padding: 0 var(--container-px-desktop);
+  }
 }
 
 /* ========== TYPOGRAPHY ========== */

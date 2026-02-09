@@ -4,312 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Demo: Industrial - Plataforma de Manufatura e Tecnologia">
-    <meta name="theme-color" content="#D35400">
-    <title>KoddaFactory - Soluções Industriais Avançadas</title>
-    
+    <meta name="theme-color" content="#2196F3">
+    <title>KoddaFactory - Solucoes Industriais Avancadas</title>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background: #0f0f0f; color: #ddd; }
-        
-        .industrial-header {
-            background: linear-gradient(90deg, #1a1a1a 0%, #2d2d2d 100%);
-            padding: 15px 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            border-bottom: 2px solid #D35400;
-        }
-        
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        
-        .industrial-header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 30px;
-        }
-        
-        .industrial-logo {
-            font-size: 22px;
-            font-weight: 700;
-            color: #D35400;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .industrial-nav {
-            display: flex;
-            gap: 25px;
-            list-style: none;
-        }
-        
-        .industrial-nav a {
-            text-decoration: none;
-            color: #ccc;
-            font-weight: 500;
-            transition: 0.3s;
-        }
-        
-        .industrial-nav a:hover { color: #D35400; }
-        
-        .industrial-cta {
-            display: flex;
-            gap: 10px;
-        }
-        
-        .btn-industrial {
-            padding: 8px 16px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: 0.3s;
-        }
-        
-        .btn-industrial-primary { background: #D35400; color: white; }
-        .btn-industrial-primary:hover { background: #B54F00; transform: translateY(-2px); }
-        
-        .btn-industrial-secondary { background: transparent; color: #D35400; border: 2px solid #D35400; }
-        .btn-industrial-secondary:hover { background: #D35400; color: white; }
-        
-        .factory-hero {
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-            background-image: 
-                repeating-linear-gradient(90deg, transparent, transparent 2px, #D35400 2px, #D35400 4px),
-                repeating-linear-gradient(0deg, transparent, transparent 2px, #D35400 2px, #D35400 4px);
-            background-size: 40px 40px;
-            color: #fff;
-            padding: 80px 20px;
-            text-align: center;
-            position: relative;
-        }
-        
-        .factory-hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(15, 15, 15, 0.8);
-            z-index: -1;
-        }
-        
-        .factory-hero h1 { font-size: 48px; margin-bottom: 15px; font-weight: 700; color: #D35400; }
-        .factory-hero p { font-size: 18px; margin-bottom: 30px; opacity: 0.95; }
-        
-        .hero-cta {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        
-        .metrics-dashboard {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            padding: 40px 20px;
-            background: #1a1a1a;
-        }
-        
-        .metric-card {
-            background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
-            padding: 25px;
-            border-left: 4px solid #D35400;
-            border-radius: 4px;
-            text-align: center;
-        }
-        
-        .metric-value { font-size: 36px; font-weight: 700; color: #D35400; }
-        .metric-label { color: #999; margin-top: 8px; font-size: 14px; }
-        .metric-status { color: #4caf50; font-size: 12px; margin-top: 5px; }
-        
-        .equipment-section { padding: 60px 20px; background: #0f0f0f; }
-        
-        .section-title {
-            font-size: 32px;
-            font-weight: 700;
-            margin-bottom: 40px;
-            color: #D35400;
-            position: relative;
-            padding-bottom: 15px;
-        }
-        
-        .section-title::after {
-            content: '';
-            width: 50px;
-            height: 3px;
-            background: #D35400;
-            position: absolute;
-            bottom: 0;
-            left: 0;
-        }
-        
-        .equipment-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-        }
-        
-        .equipment-card {
-            background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
-            border-radius: 8px;
-            overflow: hidden;
-            border-top: 3px solid #D35400;
-            transition: all 0.3s;
-        }
-        
-        .equipment-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 40px rgba(211, 84, 0, 0.2);
-        }
-        
-        .equipment-visual {
-            background: repeating-linear-gradient(90deg, #1a1a1a 0px, #1a1a1a 2px, #D35400 2px, #D35400 4px);
-            height: 180px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 60px;
-        }
-        
-        .equipment-name { padding: 20px; font-weight: 700; font-size: 18px; }
-        
-        .equipment-specs {
-            padding: 0 20px 20px;
-            border-top: 1px solid #404040;
-        }
-        
-        .spec-item { display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 14px; }
-        .spec-label { color: #999; }
-        .spec-value { color: #D35400; font-weight: 600; }
-        
-        .equipment-footer { padding: 15px 20px; border-top: 1px solid #404040; }
-        
-        .btn-equipment {
-            width: 100%;
-            padding: 10px;
-            background: #D35400;
-            color: white;
-            border: none;
-            border-radius: 3px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: 0.3s;
-        }
-        
-        .btn-equipment:hover { background: #B54F00; }
-        
-        .production-section {
-            background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
-            padding: 60px 20px;
-        }
-        
-        .production-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .production-item {
-            border-left: 4px solid #D35400;
-            padding-left: 20px;
-        }
-        
-        .production-item h3 { color: #D35400; margin-bottom: 10px; }
-        .production-item p { color: #999; line-height: 1.6; }
-        
-        .production-stats { display: flex; gap: 10px; margin-top: 15px; }
-        .stat-badge { background: #D35400; color: white; padding: 4px 10px; border-radius: 3px; font-size: 12px; }
-        
-        .certifications-section { padding: 60px 20px; background: #0f0f0f; }
-        
-        .certifications-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-        }
-        
-        .cert-card {
-            background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
-            padding: 30px;
-            text-align: center;
-            border-radius: 8px;
-            border: 2px solid #D35400;
-        }
-        
-        .cert-icon { font-size: 48px; margin-bottom: 10px; }
-        .cert-name { color: #D35400; font-weight: 700; margin-bottom: 5px; }
-        .cert-year { color: #666; font-size: 14px; }
-        
-        .cta-section {
-            background: linear-gradient(135deg, #D35400 0%, #B54F00 100%);
-            color: white;
-            padding: 60px 20px;
-            text-align: center;
-        }
-        
-        .cta-section h2 { font-size: 36px; margin-bottom: 20px; }
-        .cta-section p { font-size: 16px; margin-bottom: 30px; opacity: 0.95; }
-        
-        .cta-buttons {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        
-        .btn-cta {
-            padding: 14px 35px;
-            border: none;
-            border-radius: 4px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: 0.3s;
-            font-size: 16px;
-        }
-        
-        .btn-cta-white { background: white; color: #D35400; }
-        .btn-cta-white:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
-        
-        .btn-cta-outline { background: transparent; color: white; border: 2px solid white; }
-        .btn-cta-outline:hover { background: white; color: #D35400; }
-        
-        .industrial-footer {
-            background: #1a1a1a;
-            color: #999;
-            padding: 40px 20px;
-            border-top: 2px solid #D35400;
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-bottom: 30px;
-        }
-        
-        .footer-column h4 { margin-bottom: 15px; color: #D35400; }
-        .footer-column ul { list-style: none; }
-        .footer-column ul li { margin-bottom: 8px; }
-        .footer-column a { color: #999; text-decoration: none; transition: 0.3s; }
-        .footer-column a:hover { color: #D35400; }
-        
-        .footer-bottom {
-            border-top: 1px solid #333;
-            padding-top: 20px;
-            text-align: center;
-        }
-    </style>
+
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/kodassauro.css">
+    <link rel="stylesheet" href="../css/floating-actions.css">
+    <link rel="stylesheet" href="../css/demo-shell.css">
+    <link rel="stylesheet" href="../css/demos/demo-industrial.css">
 </head>
 <body>
+    <a class="demo-back" href="../index.html" aria-label="Voltar para a pagina inicial">
+        <i class="fas fa-arrow-left" aria-hidden="true"></i>
+        <span>Voltar para KoddaHub</span>
+    </a>
+
     <header class="industrial-header">
         <div class="container">
             <div class="industrial-header-content">
@@ -687,5 +403,78 @@
             </div>
         </div>
     </footer>
+    <a href="https://wa.me/554192272854?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20as%20solu%C3%A7%C3%B5es%20da%20KoddaHub"
+        class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Conversar no WhatsApp">
+        <i class="fab fa-whatsapp" aria-hidden="true"></i>
+        <span class="whatsapp-tooltip">Fale conosco!</span>
+    </a>
+
+    <div class="kodassauro" id="kodassauroRoot">
+        <button class="kodassauro-toggle" type="button" aria-haspopup="dialog" aria-controls="kodassauroPanel"
+            aria-expanded="false" aria-label="Abrir chat Kodassauro">
+            <span class="kodassauro-badge" aria-label="Notificacoes do chat" hidden>0</span>
+            <span class="kodassauro-toggle-icon" aria-hidden="true">
+                <i class="fas fa-comment-dots" aria-hidden="true"></i>
+            </span>
+        </button>
+
+        <section class="kodassauro-panel" id="kodassauroPanel" role="dialog" aria-modal="false"
+            aria-labelledby="kodassauroTitle" aria-describedby="kodassauroSubtitle" tabindex="-1" hidden>
+            <header class="kodassauro-header">
+                <div class="kodassauro-avatar" aria-hidden="true">
+                    <svg class="kodassauro-svg" viewBox="0 0 64 64" role="img" aria-label="Kodassauro">
+                        <defs>
+                            <linearGradient id="kdsGrad" x1="0" y1="0" x2="1" y2="1">
+                                <stop offset="0%" stop-color="#2196F3" />
+                                <stop offset="100%" stop-color="#F57C00" />
+                            </linearGradient>
+                        </defs>
+                        <circle cx="32" cy="32" r="30" fill="url(#kdsGrad)" opacity="0.95" />
+                        <path d="M18 37c2-9 9-16 18-16s16 7 18 16c-6 7-13 11-18 11s-12-4-18-11z"
+                            fill="#fff" opacity="0.95" />
+                        <circle class="kds-eye" cx="28" cy="33" r="2.6" fill="#1976D2" />
+                        <circle class="kds-eye" cx="36" cy="33" r="2.6" fill="#1976D2" />
+                        <path d="M28 40c3 3 5 3 8 0" stroke="#E65100" stroke-width="3" fill="none"
+                            stroke-linecap="round" />
+                        <path d="M22 18l8 4" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity="0.9" />
+                        <path d="M42 18l-8 4" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity="0.9" />
+                    </svg>
+                </div>
+
+                <div class="kodassauro-headings">
+                    <h3 class="kodassauro-title" id="kodassauroTitle">Kodassauro</h3>
+                    <p class="kodassauro-subtitle" id="kodassauroSubtitle">Assistente da KoddaHub, pronto para ajudar</p>
+                </div>
+
+                <div class="kodassauro-header-actions">
+                    <button class="kodassauro-reset" type="button">Limpar</button>
+                    <button class="kodassauro-close" type="button" aria-label="Fechar chat">
+                        <i class="fas fa-times" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </header>
+
+            <div class="kodassauro-messages" id="kodassauroMessages" aria-live="polite" aria-relevant="additions">
+            </div>
+
+            <div class="kodassauro-quick" id="kodassauroQuick" aria-label="Atalhos do chat">
+                <button type="button" class="kodassauro-chip" data-action="orcamento">Orcamento</button>
+                <button type="button" class="kodassauro-chip" data-action="duvidas">Duvidas</button>
+                <button type="button" class="kodassauro-chip" data-action="contato">Falar com vendedor</button>
+                <button type="button" class="kodassauro-chip" data-action="precos">Ver precos</button>
+                <button type="button" class="kodassauro-chip" data-action="portfolio">Ver portfolio</button>
+            </div>
+
+            <form class="kodassauro-composer" id="kodassauroComposer" autocomplete="off">
+                <label class="kodassauro-sr-only" for="kodassauroInput">Mensagem</label>
+                <input id="kodassauroInput" class="kodassauro-input" type="text"
+                    placeholder="Digite sua mensagem..." inputmode="text" />
+                <button class="kodassauro-send" type="submit">Enviar</button>
+            </form>
+        </section>
+    </div>
+
+    <script src="../js/kodassauro-chat.js"></script>
+
 </body>
 </html>

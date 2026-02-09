@@ -15,12 +15,7 @@ body {
   top: 0;
   z-index: 100;
 }
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
+/* .container is provided globally in css/base.css */
 
 .uni-header-content {
   display: flex;
@@ -112,12 +107,7 @@ body {
   opacity: 0.95;
 }
 
-.hero-cta {
-  display: flex;
-  gap: 15px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
+/* CTA wrapper now consolidated to `.cta-buttons` in components/_buttons.css */
 
 .stats-bar {
   background: white;

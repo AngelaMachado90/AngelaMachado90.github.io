@@ -75,6 +75,54 @@
   }
 }
 
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* Scale Animations */
 @keyframes scaleIn {
   from {
@@ -216,6 +264,18 @@
 /* Slide Utilities */
 .animate-slideUp {
   animation: slideUp var(--duration-500) var(--ease-out);
+}
+
+.animate-slideInUp {
+  animation: slideInUp var(--duration-700) var(--ease-out);
+}
+
+.animate-slideInLeft {
+  animation: slideInLeft var(--duration-700) var(--ease-out);
+}
+
+.animate-slideInRight {
+  animation: slideInRight var(--duration-700) var(--ease-out);
 }
 
 .animate-slideDown {

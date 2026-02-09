@@ -1,0 +1,30 @@
+/* CTA button component - base and modifiers */
+.cta-button,
+.btn-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1.25rem;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all var(--duration-200, 0.2s) var(--ease-out, ease-out);
+  text-decoration: none;
+  user-select: none;
+}
+
+/* Hero-specific variant for larger, prominent CTAs */
+.cta-button--hero {
+  padding: 1rem 2rem;
+  font-size: 1.05rem;
+}
+
+/* Wrapper for groups of CTAs (replaces .hero-cta) */
+.cta-buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+}

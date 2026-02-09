@@ -3,394 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Demo: Sistemas - Plataforma de Gestão Enterprise">
-    <meta name="theme-color" content="#2C3E50">
-    <title>ERP Manager - Sistema de Gestão Empresarial</title>
-    
+    <meta name="description" content="Demo: Sistemas - Plataforma ERP/CRM">
+    <meta name="theme-color" content="#2196F3">
+    <title>KoddaERP - Sistemas Empresariais</title>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background: #ecf0f1; color: #333; }
-        
-        .erp-header {
-            background: linear-gradient(90deg, #2C3E50 0%, #34495E 100%);
-            padding: 15px 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.15);
-            color: white;
-        }
-        
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        
-        .erp-header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 40px;
-        }
-        
-        .erp-logo {
-            font-size: 20px;
-            font-weight: 700;
-            color: #3498DB;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .erp-nav {
-            display: flex;
-            gap: 30px;
-            list-style: none;
-            flex: 1;
-        }
-        
-        .erp-nav a {
-            text-decoration: none;
-            color: #ecf0f1;
-            font-weight: 500;
-            transition: 0.3s;
-        }
-        
-        .erp-nav a:hover { color: #3498DB; }
-        
-        .erp-auth {
-            display: flex;
-            gap: 15px;
-            align-items: center;
-        }
-        
-        .btn-erp {
-            padding: 8px 16px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: 0.3s;
-        }
-        
-        .btn-erp-primary { background: #3498DB; color: white; }
-        .btn-erp-primary:hover { background: #2980B9; transform: translateY(-2px); }
-        
-        .btn-erp-secondary { background: transparent; color: white; border: 2px solid white; }
-        .btn-erp-secondary:hover { background: white; color: #2C3E50; }
-        
-        .profile-badge {
-            width: 35px;
-            height: 35px;
-            background: #3498DB;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            cursor: pointer;
-        }
-        
-        .dashboard-hero {
-            background: linear-gradient(135deg, #2C3E50 0%, #34495E 100%);
-            color: white;
-            padding: 60px 20px;
-        }
-        
-        .dashboard-hero h1 { font-size: 40px; margin-bottom: 10px; font-weight: 700; }
-        .dashboard-hero p { font-size: 18px; opacity: 0.95; }
-        
-        .kpi-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
-        }
-        
-        .kpi-card {
-            background: rgba(255,255,255,0.1);
-            padding: 25px;
-            border-radius: 8px;
-            border-left: 4px solid #3498DB;
-        }
-        
-        .kpi-value { font-size: 32px; font-weight: 700; margin-bottom: 8px; }
-        .kpi-label { font-size: 14px; opacity: 0.9; }
-        .kpi-change { font-size: 12px; margin-top: 8px; }
-        .kpi-positive { color: #2ecc71; }
-        .kpi-negative { color: #e74c3c; }
-        
-        .features-section { padding: 60px 20px; background: white; }
-        
-        .section-title {
-            font-size: 32px;
-            font-weight: 700;
-            margin-bottom: 50px;
-            text-align: center;
-            color: #2C3E50;
-        }
-        
-        .modules-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-        }
-        
-        .module-card {
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            transition: all 0.3s;
-            border-top: 4px solid #3498DB;
-        }
-        
-        .module-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
-        }
-        
-        .module-header {
-            background: linear-gradient(135deg, #3498DB, #2980B9);
-            color: white;
-            padding: 25px;
-            text-align: center;
-        }
-        
-        .module-icon { font-size: 40px; margin-bottom: 10px; }
-        .module-name { font-size: 20px; font-weight: 700; }
-        .module-type { font-size: 12px; opacity: 0.9; margin-top: 5px; }
-        
-        .module-body { padding: 20px; }
-        
-        .module-features {
-            list-style: none;
-            font-size: 14px;
-            margin-bottom: 15px;
-        }
-        
-        .module-features li {
-            padding: 8px 0;
-            color: #666;
-            border-bottom: 1px solid #ecf0f1;
-        }
-        
-        .module-features li:last-child { border-bottom: none; }
-        .module-features i { color: #3498DB; margin-right: 8px; width: 15px; }
-        
-        .module-status {
-            background: #ecf0f1;
-            padding: 10px;
-            border-radius: 4px;
-            font-size: 12px;
-            text-align: center;
-            font-weight: 600;
-            color: #27ae60;
-        }
-        
-        .btn-module {
-            width: 100%;
-            padding: 10px;
-            background: #3498DB;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: 600;
-            margin-top: 10px;
-            transition: 0.3s;
-        }
-        
-        .btn-module:hover { background: #2980B9; }
-        
-        .integrations-section {
-            background: linear-gradient(135deg, #2C3E50 0%, #34495E 100%);
-            color: white;
-            padding: 60px 20px;
-        }
-        
-        .integrations-section .section-title { color: white; }
-        
-        .integrations-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 20px;
-            text-align: center;
-        }
-        
-        .integration-item {
-            background: rgba(255,255,255,0.1);
-            padding: 20px;
-            border-radius: 8px;
-            transition: all 0.3s;
-        }
-        
-        .integration-item:hover {
-            background: rgba(255,255,255,0.2);
-            transform: translateY(-5px);
-        }
-        
-        .integration-icon { font-size: 40px; margin-bottom: 10px; }
-        .integration-name { font-size: 14px; font-weight: 600; }
-        
-        .pricing-section { padding: 60px 20px; background: white; }
-        
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-        
-        .pricing-card {
-            background: white;
-            border: 2px solid #ecf0f1;
-            border-radius: 8px;
-            padding: 30px;
-            text-align: center;
-            transition: all 0.3s;
-            position: relative;
-        }
-        
-        .pricing-card:hover {
-            border-color: #3498DB;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transform: translateY(-5px);
-        }
-        
-        .pricing-card.featured {
-            border-color: #3498DB;
-            transform: scale(1.05);
-        }
-        
-        .featured-badge {
-            position: absolute;
-            top: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #3498DB;
-            color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 700;
-        }
-        
-        .pricing-name { font-size: 22px; font-weight: 700; margin-bottom: 15px; color: #2C3E50; }
-        .pricing-value { font-size: 42px; font-weight: 700; color: #3498DB; margin: 20px 0; }
-        .pricing-period { font-size: 14px; color: #999; margin-bottom: 20px; }
-        
-        .pricing-features {
-            list-style: none;
-            text-align: left;
-            margin: 30px 0;
-            font-size: 14px;
-        }
-        
-        .pricing-features li {
-            padding: 10px 0;
-            border-bottom: 1px solid #ecf0f1;
-            color: #666;
-        }
-        
-        .pricing-features li i { color: #2ecc71; margin-right: 8px; }
-        
-        .btn-pricing {
-            width: 100%;
-            padding: 12px;
-            background: #3498DB;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: 600;
-            margin-top: 20px;
-            transition: 0.3s;
-        }
-        
-        .btn-pricing:hover { background: #2980B9; }
-        
-        .faq-section { padding: 60px 20px; background: #ecf0f1; }
-        
-        .faq-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin-top: 40px;
-        }
-        
-        .faq-item {
-            background: white;
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        }
-        
-        .faq-question { font-weight: 700; color: #2C3E50; margin-bottom: 10px; }
-        .faq-answer { color: #666; line-height: 1.6; font-size: 14px; }
-        
-        .cta-section {
-            background: linear-gradient(135deg, #3498DB, #2980B9);
-            color: white;
-            padding: 60px 20px;
-            text-align: center;
-        }
-        
-        .cta-section h2 { font-size: 36px; margin-bottom: 15px; }
-        .cta-section p { font-size: 16px; margin-bottom: 30px; opacity: 0.95; }
-        
-        .cta-buttons {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        
-        .btn-cta {
-            padding: 14px 35px;
-            border: none;
-            border-radius: 4px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: 0.3s;
-            font-size: 16px;
-        }
-        
-        .btn-cta-white { background: white; color: #3498DB; }
-        .btn-cta-white:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
-        
-        .btn-cta-outline { background: transparent; color: white; border: 2px solid white; }
-        .btn-cta-outline:hover { background: white; color: #3498DB; }
-        
-        .erp-footer {
-            background: #2C3E50;
-            color: #bdc3c7;
-            padding: 40px 20px;
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-bottom: 30px;
-        }
-        
-        .footer-column h4 { margin-bottom: 15px; color: #3498DB; }
-        .footer-column ul { list-style: none; }
-        .footer-column ul li { margin-bottom: 8px; }
-        .footer-column a { color: #bdc3c7; text-decoration: none; transition: 0.3s; }
-        .footer-column a:hover { color: #3498DB; }
-        
-        .footer-bottom {
-            border-top: 1px solid #34495E;
-            padding-top: 20px;
-            text-align: center;
-        }
-    </style>
+
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/kodassauro.css">
+    <link rel="stylesheet" href="../css/floating-actions.css">
+    <link rel="stylesheet" href="../css/demo-shell.css">
+    <link rel="stylesheet" href="../css/demos/demo-sistemas.css">
 </head>
 <body>
+    <a class="demo-back" href="../index.html" aria-label="Voltar para a pagina inicial">
+        <i class="fas fa-arrow-left" aria-hidden="true"></i>
+        <span>Voltar para KoddaHub</span>
+    </a>
+
     <header class="erp-header">
         <div class="container">
             <div class="erp-header-content">
@@ -754,6 +389,78 @@
             </div>
         </div>
     </footer>
+    <a href="https://wa.me/554192272854?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20as%20solu%C3%A7%C3%B5es%20da%20KoddaHub"
+        class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Conversar no WhatsApp">
+        <i class="fab fa-whatsapp" aria-hidden="true"></i>
+        <span class="whatsapp-tooltip">Fale conosco!</span>
+    </a>
+
+    <div class="kodassauro" id="kodassauroRoot">
+        <button class="kodassauro-toggle" type="button" aria-haspopup="dialog" aria-controls="kodassauroPanel"
+            aria-expanded="false" aria-label="Abrir chat Kodassauro">
+            <span class="kodassauro-badge" aria-label="Notificacoes do chat" hidden>0</span>
+            <span class="kodassauro-toggle-icon" aria-hidden="true">
+                <i class="fas fa-comment-dots" aria-hidden="true"></i>
+            </span>
+        </button>
+
+        <section class="kodassauro-panel" id="kodassauroPanel" role="dialog" aria-modal="false"
+            aria-labelledby="kodassauroTitle" aria-describedby="kodassauroSubtitle" tabindex="-1" hidden>
+            <header class="kodassauro-header">
+                <div class="kodassauro-avatar" aria-hidden="true">
+                    <svg class="kodassauro-svg" viewBox="0 0 64 64" role="img" aria-label="Kodassauro">
+                        <defs>
+                            <linearGradient id="kdsGrad" x1="0" y1="0" x2="1" y2="1">
+                                <stop offset="0%" stop-color="#2196F3" />
+                                <stop offset="100%" stop-color="#F57C00" />
+                            </linearGradient>
+                        </defs>
+                        <circle cx="32" cy="32" r="30" fill="url(#kdsGrad)" opacity="0.95" />
+                        <path d="M18 37c2-9 9-16 18-16s16 7 18 16c-6 7-13 11-18 11s-12-4-18-11z"
+                            fill="#fff" opacity="0.95" />
+                        <circle class="kds-eye" cx="28" cy="33" r="2.6" fill="#1976D2" />
+                        <circle class="kds-eye" cx="36" cy="33" r="2.6" fill="#1976D2" />
+                        <path d="M28 40c3 3 5 3 8 0" stroke="#E65100" stroke-width="3" fill="none"
+                            stroke-linecap="round" />
+                        <path d="M22 18l8 4" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity="0.9" />
+                        <path d="M42 18l-8 4" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity="0.9" />
+                    </svg>
+                </div>
+
+                <div class="kodassauro-headings">
+                    <h3 class="kodassauro-title" id="kodassauroTitle">Kodassauro</h3>
+                    <p class="kodassauro-subtitle" id="kodassauroSubtitle">Assistente da KoddaHub, pronto para ajudar</p>
+                </div>
+
+                <div class="kodassauro-header-actions">
+                    <button class="kodassauro-reset" type="button">Limpar</button>
+                    <button class="kodassauro-close" type="button" aria-label="Fechar chat">
+                        <i class="fas fa-times" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </header>
+
+            <div class="kodassauro-messages" id="kodassauroMessages" aria-live="polite" aria-relevant="additions">
+            </div>
+
+            <div class="kodassauro-quick" id="kodassauroQuick" aria-label="Atalhos do chat">
+                <button type="button" class="kodassauro-chip" data-action="orcamento">Orcamento</button>
+                <button type="button" class="kodassauro-chip" data-action="duvidas">Duvidas</button>
+                <button type="button" class="kodassauro-chip" data-action="contato">Falar com vendedor</button>
+                <button type="button" class="kodassauro-chip" data-action="precos">Ver precos</button>
+                <button type="button" class="kodassauro-chip" data-action="portfolio">Ver portfolio</button>
+            </div>
+
+            <form class="kodassauro-composer" id="kodassauroComposer" autocomplete="off">
+                <label class="kodassauro-sr-only" for="kodassauroInput">Mensagem</label>
+                <input id="kodassauroInput" class="kodassauro-input" type="text"
+                    placeholder="Digite sua mensagem..." inputmode="text" />
+                <button class="kodassauro-send" type="submit">Enviar</button>
+            </form>
+        </section>
+    </div>
+
+    <script src="../js/kodassauro-chat.js"></script>
+
 </body>
 </html>
-

@@ -1,22 +1,19 @@
 # Arquitetura CSS - KoddaHub
 
-    Utilizamos para desenvolver este uma metodologia DRY, abaixo será explicado melhor como foi feito.
+Utilizamos uma base modular com tokens, base styles, componentes, utilitários e layouts. A prioridade é manter a cascata previsível e evitar duplicação.
 
 ## Estrutura de Arquivos
 
 ├── README.md # Esta documentação
-├── main.css # Ponto de entrada principal
 ├── reset.css # Reset global de estilos
 ├── variables.css # Design tokens (cores, espaçamento, etc.)
 ├── base.css # Estilos base para elementos HTML
-├── components/ # Componentes reutilizáveis
-│ ├── _cards.css # Cards (depende: variables, animations)
-│ ├── _buttons.css # Botões (depende: variables)
-│ └── _index.css # Importa todos componentes
-├── layouts/ # Layouts específicos de páginas
-│ ├── _hero.css # Hero da home (depende: components/_cards.css)
-│ ├── _solutions.css # Seção soluções
-│ └── _index.css # Importa todos layouts
+├── components.css # Componentes reutilizáveis globais
+├── main.css # Layouts e seções principais do site
+├── kodassauro.css # Chatbot local (UI)
+├── floating-actions.css # Ações flutuantes (WhatsApp, etc.)
+├── demo-shell.css # Camada de marca para demos
+├── demos/ # CSS das demos (extraído do HTML)
 ├── utilities.css # Classes utilitárias (helpers)
 ├── animations.css # Animações e keyframes
 └── responsive.css # Media queries responsivas
@@ -27,8 +24,8 @@
 1. **reset.css** - Normaliza navegadores
 2. **variables.css** - Define variáveis CSS
 3. **base.css** - Estilos elementares
-4. **components/** - Componentes reutilizáveis
-5. **layouts/** - Layouts específicos
+4. **components.css** - Componentes reutilizáveis
+5. **main.css** - Layouts e seções
 6. **utilities.css** - Classes helpers
 7. **animations.css** - Animações
 8. **responsive.css** - Responsividade
@@ -45,9 +42,9 @@
 | Arquivo | Depende de | Fornece para |
 |---------|------------|--------------|
 | variables.css | Nenhuma | TODOS os arquivos |
-| components/_cards.css | variables.css, animations.css | layouts/_hero.css |
-| layouts/_hero.css | components/_cards.css | main.css |
-| animations.css | variables.css | components/_cards.css |
+| components.css | variables.css | main.css |
+| utilities.css | variables.css | main.css |
+| animations.css | variables.css | main.css |
 
 ## Como Adicionar Novo Componente
 
@@ -62,8 +59,8 @@ SEU PROJETO KODDAHUB              ≈ ITCSS
 css/reset.css                    → GENERIC
 css/variables.css                → SETTINGS
 css/base.css                     → ELEMENTS
-css/components/                  → COMPONENTS
-css/layouts/                     → OBJECTS (layout patterns)
+css/components.css               → COMPONENTS
+css/main.css                     → OBJECTS (layout patterns)
 css/utilities.css                → UTILITIES
 css/animations.css               → TOOLS (animações)
 css/responsive.css               → (cross-layer)

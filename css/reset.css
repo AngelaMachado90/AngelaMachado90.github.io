@@ -37,6 +37,11 @@ body {
     overflow-x: hidden;
 }
 
+/* Ensure native hidden always wins over author styles */
+[hidden] {
+    display: none !important;
+}
+
 /* Typography */
 h1,
 h2,

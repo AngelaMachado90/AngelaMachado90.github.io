@@ -3,6 +3,8 @@
 
 /* Import local component fragments */
 @import "components/_footer.css";
+@import "components/_buttons.css";
+@import "components/_navbar.css";
 
 /* ============================================================================
    BUTTONS - Interactive action elements

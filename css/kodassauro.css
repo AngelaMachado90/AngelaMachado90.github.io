@@ -11,8 +11,8 @@
 }
 
 .kodassauro-toggle {
-  width: 66px;
-  height: 66px;
+  width: 64px;
+  height: 64px;
   border-radius: 50%;
   border: none;
   cursor: pointer;
@@ -20,10 +20,33 @@
   align-items: center;
   justify-content: center;
   color: #fff;
-  background: linear-gradient(135deg, var(--blue-electric), var(--orange-vibrant));
+  background: linear-gradient(
+    135deg,
+    var(--blue-electric),
+    var(--orange-vibrant)
+  );
   box-shadow: var(--shadow-xl);
-  transition: transform var(--duration-200) var(--ease-out), box-shadow var(--duration-200) var(--ease-out);
+  transition:
+    transform var(--duration-200) var(--ease-out),
+    box-shadow var(--duration-200) var(--ease-out);
   position: relative;
+}
+
+.kodassauro-avatar img,
+.kodassauro-toggle img {
+  width: 72%;
+  height: 72%;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+/* Ensure the chat icon image fills the toggle when explicit class is used */
+.kodassauro-toggle img.kodassauro-icon {
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
 }
 
 .kodassauro-toggle:hover {
@@ -74,7 +97,9 @@
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transition: transform var(--duration-300) var(--ease-out), opacity var(--duration-300) var(--ease-out);
+  transition:
+    transform var(--duration-300) var(--ease-out),
+    opacity var(--duration-300) var(--ease-out);
 }
 
 .kodassauro-panel[hidden] {
@@ -93,7 +118,11 @@
   align-items: center;
   gap: 12px;
   padding: 14px;
-  background: linear-gradient(135deg, var(--blue-electric), var(--orange-vibrant));
+  background: linear-gradient(
+    135deg,
+    var(--blue-electric),
+    var(--orange-vibrant)
+  );
   color: #fff;
 }
 
@@ -190,7 +219,11 @@
 .kodassauro-messages {
   padding: 14px;
   overflow: auto;
-  background: linear-gradient(180deg, rgba(33, 150, 243, 0.05), transparent 60%);
+  background: linear-gradient(
+    180deg,
+    rgba(33, 150, 243, 0.05),
+    transparent 60%
+  );
 }
 
 .kds-msg {
@@ -218,7 +251,11 @@
 }
 
 .kds-msg.is-user .kds-bubble {
-  background: linear-gradient(135deg, var(--blue-electric), var(--orange-vibrant));
+  background: linear-gradient(
+    135deg,
+    var(--blue-electric),
+    var(--orange-vibrant)
+  );
   color: #fff;
   border-color: transparent;
 }
@@ -246,7 +283,9 @@
   padding: 8px 10px;
   font-weight: var(--fw-semibold);
   cursor: pointer;
-  transition: transform var(--duration-200) var(--ease-out), border-color var(--duration-200) var(--ease-out);
+  transition:
+    transform var(--duration-200) var(--ease-out),
+    border-color var(--duration-200) var(--ease-out);
 }
 
 .kodassauro-chip:hover {
@@ -270,7 +309,9 @@
   padding: 12px;
   font-size: 0.95rem;
   outline: none;
-  transition: box-shadow var(--duration-200) var(--ease-out), border-color var(--duration-200) var(--ease-out);
+  transition:
+    box-shadow var(--duration-200) var(--ease-out),
+    border-color var(--duration-200) var(--ease-out);
 }
 
 .kodassauro-input:focus {
@@ -285,8 +326,14 @@
   font-weight: var(--fw-bold);
   cursor: pointer;
   color: #fff;
-  background: linear-gradient(135deg, var(--blue-electric), var(--orange-vibrant));
-  transition: transform var(--duration-200) var(--ease-out), box-shadow var(--duration-200) var(--ease-out);
+  background: linear-gradient(
+    135deg,
+    var(--blue-electric),
+    var(--orange-vibrant)
+  );
+  transition:
+    transform var(--duration-200) var(--ease-out),
+    box-shadow var(--duration-200) var(--ease-out);
 }
 
 .kodassauro-send:hover {

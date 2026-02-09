@@ -1,0 +1,147 @@
+/* Consolidated navbar component (base styles used across themes)
+   - Provides `.navbar-modern`, `.navbar-wrapper`, `.navbar-menu`, `.nav-link`, and `.cta-nav`.
+   - Theme-specific modifiers (.navbar-modern.scrolled, .navbar-brand, etc.) can remain in theme files if needed.
+*/
+
+.navbar-modern {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-fixed);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 20px rgba(33, 33, 33, 0.05);
+  padding: 15px 0;
+  transition: all var(--duration-300) var(--ease-out);
+}
+
+@supports not (
+  (-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px))
+) {
+  .navbar-modern {
+    background: rgba(255, 255, 255, 0.98);
+  }
+}
+
+.navbar-modern.scrolled {
+  padding: 10px 0;
+  box-shadow: 0 4px 30px rgba(33, 33, 33, 0.1);
+}
+
+.navbar-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.logo-image img {
+  width: 46px;
+  height: 46px;
+  object-fit: contain;
+}
+
+.logo-text {
+  font-weight: var(--fw-bold);
+  font-size: 1.1rem;
+  color: var(--black-deep);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+}
+
+.navbar-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: var(--radius-sm);
+  transition: background-color var(--duration-200) var(--ease-out);
+}
+
+.navbar-toggle:hover { background: rgba(0,0,0,0.05); }
+
+.navbar-toggle:focus-visible {
+  outline: 3px solid rgba(245,124,0,0.55);
+  outline-offset: 3px;
+}
+
+.navbar-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--black-deep);
+  margin: 5px 0;
+  transition: all var(--duration-300) var(--ease-out);
+}
+
+.navbar-toggle.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.navbar-toggle.active span:nth-child(2) { opacity: 0; }
+.navbar-toggle.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.navbar-menu {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+  flex: 1;
+  justify-content: center;
+}
+
+.nav-link {
+  color: var(--gray-dark);
+  text-decoration: none;
+  font-weight: var(--fw-medium);
+  font-size: 0.938rem;
+  transition: all var(--duration-300) var(--ease-out);
+  position: relative;
+  padding: 8px 0;
+}
+
+.nav-link:focus-visible {
+  outline: 3px solid rgba(245,124,0,0.55);
+  outline-offset: 6px;
+  border-radius: 6px;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--orange-vibrant);
+  transition: width var(--duration-300) var(--ease-out);
+}
+
+.nav-link:hover,
+.nav-link.active { color: var(--orange-vibrant); }
+
+.nav-link:hover::after,
+.nav-link.active::after { width: 100%; }
+
+.nav-link.current-page {
+  color: var(--orange-vibrant);
+  font-weight: var(--fw-semibold);
+}
+
+.cta-nav {
+  background: var(--orange-vibrant);
+  color: var(--white-neutral) !important;
+  padding: 10px 20px;
+  border-radius: var(--radius-base);
+  transition: all var(--duration-300) var(--ease-out);
+}
+
+.cta-nav:hover {
+  background: var(--orange-dark);
+  box-shadow: 0 8px 20px rgba(245,124,0,0.3);
+  transform: translateY(-2px);
+}
+
+.cta-nav::after { display: none; }

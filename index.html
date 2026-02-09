@@ -1,655 +1,791 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="KoddaHub- Soluções web completas para seu negócio. Desenvolvimento de sites institucionais, e-commerce, sites industriais, sites de serviços e sistemas empresariais.">
-    <meta name="keywords"
-        content="desenvolvimento web, site institucional, e-commerce, site industrial, site de serviços, sistemas empresariais">
-    <meta name="author" content="KoddaHub">
-    <meta name="theme-color" content="#0c8ce0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="KoddaHub- Soluções web completas para seu negócio. Desenvolvimento de sites institucionais, e-commerce, sites industriais, sites de serviços e sistemas empresariais."
+    />
+    <meta
+      name="keywords"
+      content="desenvolvimento web, site institucional, e-commerce, site industrial, site de serviços, sistemas empresariais"
+    />
+    <meta name="author" content="KoddaHub" />
+    <meta name="theme-color" content="#0c8ce0" />
 
     <title>KoddaHub - Soluções Web Completas para seu Negócio</title>
 
     <!-- Favicon -->
-    <link rel="icon" href="assets/logo/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="assets/logo/apple-touch-icon.png">
+    <link rel="icon" href="assets/logo/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="assets/logo/apple-touch-icon.png" />
 
     <!-- CSS Files -->
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/variables.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/modern.css">
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/components.css">
-    <link rel="stylesheet" href="css/utilities.css">
-    <link rel="stylesheet" href="css/animations.css">
-    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/variables.css" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/kodassauro.css" />
+    <link rel="stylesheet" href="css/utilities.css" />
+    <link rel="stylesheet" href="css/animations.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
 
-    <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
-
+    <!-- Bootstrap 5 CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Melhoria de performance, carregando apenas as fontes necessárias -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;600&display=swap"
+        rel="stylesheet" />
 
     <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Inter:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
-</head>
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<body>
+  <body>
     <!-- Header/Navbar Moderno -->
     <header class="navbar-modern">
-        <div class="container-fluid">
-            <div class="navbar-wrapper">
-                <div class="navbar-brand">
-                    <a href="assets/logo/KoddaHub.png" class="logo-image">
-                        <img src="assets/logo/KoddaHub.png" alt="KoddaHub Logo">
-                    </a>
-                    <a href="index.html" class="logo-text">
-                        <span>KoddaHub</span>
-                    </a>
-                </div>
+      <div class="container-fluid">
+        <div class="navbar-wrapper">
+          <div class="navbar-brand">
+            <a href="assets/logo/KoddaHub.png" class="logo-image">
+              <img src="assets/logo/KoddaHub.png" alt="KoddaHub Logo" />
+            </a>
+            <a href="index.html" class="logo-text">
+              <span>KoddaHub</span>
+            </a>
+          </div>
 
-                <nav class="navbar-menu" id="navMenu">
-                    <a href="index.html" class="nav-link active">Home</a>
-                    <a href="#solucoes" class="nav-link">Soluções</a>
-                    <a href="#diferenciais" class="nav-link">Diferenciais</a>
-                    <a href="#processos" class="nav-link">Como Funciona</a>
-                    <a href="#contato" class="nav-link cta-nav">Contato</a>
-                </nav>
+          <nav class="navbar-menu" id="navMenu">
+            <a href="index.html" class="nav-link active">Home</a>
+            <a href="#solucoes"  class="nav-link">Soluções</a>
+            <a href="#contato"   class="nav-link cta-nav">Contato</a>
+            <a href="#sobrenos"  class="nav-link">Sobre Nós</a>
+          </nav>
 
-                <button class="navbar-toggle" id="navToggle">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-            </div>
+          <button class="navbar-toggle" id="navToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
         </div>
+      </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero-modern">
-        <div class="hero-background">
-            <div class="gradient-blob blob-1"></div>
-            <div class="gradient-blob blob-2"></div>
-            <div class="gradient-blob blob-3"></div>
-        </div>
+    <section class="hero-modern" id="inicio">
+      <div class="hero-background">
+        <div class="gradient-blob blob-1"></div>
+        <div class="gradient-blob blob-2"></div>
+        <div class="gradient-blob blob-3"></div>
+      </div>
 
-        <div class="container-fluid">
-            <div class="hero-content">
-                <div class="hero-text animate-slideInUp">
-                    <h1 class="hero-title">Soluções Web Modernas Para Seu Negócio</h1>
-                    <p class="hero-subtitle">Desenvolvemos sites, e-commerce e sistemas que transformam empresas.
-                        Responsive, rápido, seguro e escalável.</p>
+      <div class="container-fluid">
+        <div class="hero-content">
+          <div class="hero-text animate-slideInUp">
+            <p class="hero-kicker">KODDAHUB STUDIO</p>
+            <h1 class="hero-title">Soluções Web Modernas Para Seu Negócio</h1>
+            <p class="hero-subtitle">
+              Desenvolvemos sites, e-commerce e sistemas que transformam
+              empresas. Responsivo, rápido, seguro e escalável.
+            </p>
 
-                    <div class="hero-cta">
-                        <a href="#solucoes" class="btn-primary-modern">Explorar Soluções</a>
-                        <a href="#contato" class="btn-secondary-modern">Fale Conosco</a>
-                    </div>
-                </div>
-
-                <div class="hero-visual animate-slideInLeft" style="animation-delay: 0.2s;">
-                    <div class="floating-card card-1">
-                        <div class="card-icon">
-                            <i class="fas fa-globe"></i>
-                        </div>
-                        <h4>Sites Modernos</h4>
-                    </div>
-                    <div class="floating-card card-2">
-                        <div class="card-icon">
-                            <i class="fas fa-shopping-bag"></i>
-                        </div>
-                        <h4>E-commerce</h4>
-                    </div>
-                    <div class="floating-card card-3">
-                        <div class="card-icon">
-                            <i class="fas fa-cogs"></i>
-                        </div>
-                        <h4>Sistemas</h4>
-                    </div>
-                </div>
+            <div class="hero-cta">
+              <a href="#solucoes" class="btn-primary-modern"
+                >Explorar Soluções</a
+              >
+              <a href="#contato" class="btn-secondary-modern">Fale Conosco</a>
             </div>
+          </div>
+
+          <div
+            class="hero-visual animate-slideInLeft"
+            style="animation-delay: 0.2s"
+          >
+            <!-- Carrossel CSS puro (imagens placeholder) -->
+            <div class="hero-carousel" aria-label="Carrossel de imagens">
+              <input type="radio" name="heroCarousel" id="hc1" checked />
+              <input type="radio" name="heroCarousel" id="hc2" />
+              <input type="radio" name="heroCarousel" id="hc3" />
+
+              <div class="hero-carousel-viewport">
+                <div class="hero-carousel-track">
+                  <figure class="hero-slide">
+                    <img
+                      src="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%271200%27%20height%3D%27800%27%20viewBox%3D%270%200%201200%20800%27%3E%3Cdefs%3E%3CradialGradient%20id%3D%27g1%27%20cx%3D%270.15%27%20cy%3D%270.15%27%20r%3D%271%27%3E%3Cstop%20offset%3D%270%27%20stop-color%3D%27%232196F3%27%20stop-opacity%3D%270.9%27/%3E%3Cstop%20offset%3D%270.55%27%20stop-color%3D%27%232196F3%27%20stop-opacity%3D%270.0%27/%3E%3C/radialGradient%3E%3CradialGradient%20id%3D%27g2%27%20cx%3D%270.88%27%20cy%3D%270.9%27%20r%3D%271%27%3E%3Cstop%20offset%3D%270%27%20stop-color%3D%27%23F57C00%27%20stop-opacity%3D%270.85%27/%3E%3Cstop%20offset%3D%270.6%27%20stop-color%3D%27%23F57C00%27%20stop-opacity%3D%270.0%27/%3E%3C/radialGradient%3E%3ClinearGradient%20id%3D%27bg%27%20x1%3D%270%27%20y1%3D%270%27%20x2%3D%271%27%20y2%3D%271%27%3E%3Cstop%20offset%3D%270%27%20stop-color%3D%27%230B1020%27/%3E%3Cstop%20offset%3D%271%27%20stop-color%3D%27%2310182B%27/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width%3D%271200%27%20height%3D%27800%27%20fill%3D%27url(%23bg)%27/%3E%3Crect%20width%3D%271200%27%20height%3D%27800%27%20fill%3D%27url(%23g1)%27/%3E%3Crect%20width%3D%271200%27%20height%3D%27800%27%20fill%3D%27url(%23g2)%27/%3E%3Cpath%20d%3D%27M-40%20620%20C%20140%20480%2C%20320%20480%2C%20520%20580%20S%20940%20760%2C%201260%20560%27%20fill%3D%27none%27%20stroke%3D%27%23FFFFFF%27%20stroke-opacity%3D%270.14%27%20stroke-width%3D%2716%27%20stroke-linecap%3D%27round%27/%3E%3Ccircle%20cx%3D%27910%27%20cy%3D%27240%27%20r%3D%2790%27%20fill%3D%27%23FFFFFF%27%20fill-opacity%3D%270.08%27/%3E%3Ccircle%20cx%3D%271020%27%20cy%3D%27280%27%20r%3D%2750%27%20fill%3D%27%23FFFFFF%27%20fill-opacity%3D%270.06%27/%3E%3C/svg%3E"
+                      alt="Slide 1"
+                    />
+                    <figcaption class="hero-slide-overlay" aria-label="Sites">
+                      <article class="showcase-card is-sites hero-slide-card">
+                        <header class="showcase-top">
+                          <div class="showcase-icon" aria-hidden="true">
+                            <i class="fas fa-globe"></i>
+                          </div>
+                          <div class="showcase-headings">
+                            <h3>Sites</h3>
+                            <p>Institucional, industrial e serviços.</p>
+                          </div>
+                        </header>
+                        <div class="showcase-links" aria-label="Demos de sites">
+                          <a
+                            class="showcase-link"
+                            href="pages/demo-institucional.html"
+                            >Institucional</a
+                          >
+                          <a
+                            class="showcase-link"
+                            href="pages/demo-industrial.html"
+                            >Industrial</a
+                          >
+                          <a
+                            class="showcase-link"
+                            href="pages/demo-servicos.html"
+                            >Serviços</a
+                          >
+                        </div>
+                      </article>
+                    </figcaption>
+                  </figure>
+                  <figure class="hero-slide">
+                    <img
+                      src="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%271200%27%20height%3D%27800%27%20viewBox%3D%270%200%201200%20800%27%3E%3Cdefs%3E%3CradialGradient%20id%3D%27g1%27%20cx%3D%270.2%27%20cy%3D%270.2%27%20r%3D%271%27%3E%3Cstop%20offset%3D%270%27%20stop-color%3D%27%23F57C00%27%20stop-opacity%3D%270.9%27/%3E%3Cstop%20offset%3D%270.58%27%20stop-color%3D%27%23F57C00%27%20stop-opacity%3D%270.0%27/%3E%3C/radialGradient%3E%3CradialGradient%20id%3D%27g2%27%20cx%3D%270.9%27%20cy%3D%270.88%27%20r%3D%271%27%3E%3Cstop%20offset%3D%270%27%20stop-color%3D%27%232196F3%27%20stop-opacity%3D%270.85%27/%3E%3Cstop%20offset%3D%270.6%27%20stop-color%3D%27%232196F3%27%20stop-opacity%3D%270.0%27/%3E%3C/radialGradient%3E%3ClinearGradient%20id%3D%27bg%27%20x1%3D%270%27%20y1%3D%270%27%20x2%3D%271%27%20y2%3D%271%27%3E%3Cstop%20offset%3D%270%27%20stop-color%3D%27%230B1020%27/%3E%3Cstop%20offset%3D%271%27%20stop-color%3D%27%23101B35%27/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width%3D%271200%27%20height%3D%27800%27%20fill%3D%27url(%23bg)%27/%3E%3Crect%20width%3D%271200%27%20height%3D%27800%27%20fill%3D%27url(%23g1)%27/%3E%3Crect%20width%3D%271200%27%20height%3D%27800%27%20fill%3D%27url(%23g2)%27/%3E%3Cpath%20d%3D%27M-30%20240%20C%20220%20120%2C%20400%20140%2C%20580%20240%20S%20940%20420%2C%201260%20240%27%20fill%3D%27none%27%20stroke%3D%27%23FFFFFF%27%20stroke-opacity%3D%270.14%27%20stroke-width%3D%2716%27%20stroke-linecap%3D%27round%27/%3E%3Crect%20x%3D%27760%27%20y%3D%27540%27%20width%3D%27360%27%20height%3D%27180%27%20rx%3D%2736%27%20fill%3D%27%23FFFFFF%27%20fill-opacity%3D%270.06%27/%3E%3C/svg%3E"
+                      alt="Slide 2"
+                    />
+                    <figcaption
+                      class="hero-slide-overlay"
+                      aria-label="E-commerce"
+                    >
+                      <article class="showcase-card is-ecom hero-slide-card">
+                        <header class="showcase-top">
+                          <div class="showcase-icon" aria-hidden="true">
+                            <i class="fas fa-shopping-bag"></i>
+                          </div>
+                          <div class="showcase-headings">
+                            <h3>E-commerce</h3>
+                            <p>Loja completa com carrinho e pagamentos.</p>
+                          </div>
+                        </header>
+                        <div
+                          class="showcase-links"
+                          aria-label="Demo de e-commerce"
+                        >
+                          <a
+                            class="showcase-link"
+                            href="pages/demo-ecommerce.html"
+                            >Ver demo</a
+                          >
+                          <a class="showcase-link" href="#contato"
+                            >Pedir orçamento</a
+                          >
+                        </div>
+                      </article>
+                    </figcaption>
+                  </figure>
+                  <figure class="hero-slide">
+                    <img
+                      src="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%271200%27%20height%3D%27800%27%20viewBox%3D%270%200%201200%20800%27%3E%3Cdefs%3E%3CradialGradient%20id%3D%27g1%27%20cx%3D%270.14%27%20cy%3D%270.86%27%20r%3D%271%27%3E%3Cstop%20offset%3D%270%27%20stop-color%3D%27%232196F3%27%20stop-opacity%3D%270.88%27/%3E%3Cstop%20offset%3D%270.6%27%20stop-color%3D%27%232196F3%27%20stop-opacity%3D%270.0%27/%3E%3C/radialGradient%3E%3CradialGradient%20id%3D%27g2%27%20cx%3D%270.9%27%20cy%3D%270.14%27%20r%3D%271%27%3E%3Cstop%20offset%3D%270%27%20stop-color%3D%27%23F57C00%27%20stop-opacity%3D%270.82%27/%3E%3Cstop%20offset%3D%270.62%27%20stop-color%3D%27%23F57C00%27%20stop-opacity%3D%270.0%27/%3E%3C/radialGradient%3E%3ClinearGradient%20id%3D%27bg%27%20x1%3D%270%27%20y1%3D%270%27%20x2%3D%271%27%20y2%3D%271%27%3E%3Cstop%20offset%3D%270%27%20stop-color%3D%27%230B1020%27/%3E%3Cstop%20offset%3D%271%27%20stop-color%3D%27%23161B2B%27/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width%3D%271200%27%20height%3D%27800%27%20fill%3D%27url(%23bg)%27/%3E%3Crect%20width%3D%271200%27%20height%3D%27800%27%20fill%3D%27url(%23g1)%27/%3E%3Crect%20width%3D%271200%27%20height%3D%27800%27%20fill%3D%27url(%23g2)%27/%3E%3Cpath%20d%3D%27M80%20760%20L1120%20760%27%20stroke%3D%27%23FFFFFF%27%20stroke-opacity%3D%270.12%27%20stroke-width%3D%2716%27%20stroke-linecap%3D%27round%27/%3E%3Cpath%20d%3D%27M160%20630%20L1040%20630%27%20stroke%3D%27%23FFFFFF%27%20stroke-opacity%3D%270.08%27%20stroke-width%3D%2716%27%20stroke-linecap%3D%27round%27/%3E%3Ccircle%20cx%3D%27260%27%20cy%3D%27260%27%20r%3D%27110%27%20fill%3D%27%23FFFFFF%27%20fill-opacity%3D%270.06%27/%3E%3C/svg%3E"
+                      alt="Slide 3"
+                    />
+                    <figcaption
+                      class="hero-slide-overlay"
+                      aria-label="Sistemas"
+                    >
+                      <article class="showcase-card is-systems hero-slide-card">
+                        <header class="showcase-top">
+                          <div class="showcase-icon" aria-hidden="true">
+                            <i class="fas fa-cogs"></i>
+                          </div>
+                          <div class="showcase-headings">
+                            <h3>Sistemas</h3>
+                            <p>CRM, ERP, estoque e automações.</p>
+                          </div>
+                        </header>
+                        <div
+                          class="showcase-links"
+                          aria-label="Demo de sistemas"
+                        >
+                          <a
+                            class="showcase-link"
+                            href="pages/demo-sistemas.html"
+                            >Ver demo</a
+                          >
+                          <a class="showcase-link" href="#solucoes"
+                            >Ver soluções</a
+                          >
+                        </div>
+                      </article>
+                    </figcaption>
+                  </figure>
+                </div>
+
+                <div class="hero-carousel-controls" aria-hidden="true">
+                  <label
+                    class="hero-ctrl hero-prev p1"
+                    for="hc3"
+                    title="Anterior"
+                    >&#x2039;</label
+                  >
+                  <label
+                    class="hero-ctrl hero-next n1"
+                    for="hc2"
+                    title="Próximo"
+                    >&#x203A;</label
+                  >
+
+                  <label
+                    class="hero-ctrl hero-prev p2"
+                    for="hc1"
+                    title="Anterior"
+                    >&#x2039;</label
+                  >
+                  <label
+                    class="hero-ctrl hero-next n2"
+                    for="hc3"
+                    title="Próximo"
+                    >&#x203A;</label
+                  >
+
+                  <label
+                    class="hero-ctrl hero-prev p3"
+                    for="hc2"
+                    title="Anterior"
+                    >&#x2039;</label
+                  >
+                  <label
+                    class="hero-ctrl hero-next n3"
+                    for="hc1"
+                    title="Próximo"
+                    >&#x203A;</label
+                  >
+                </div>
+
+                <div
+                  class="hero-carousel-dots"
+                  aria-label="Indicadores do carrossel"
+                >
+                  <label
+                    class="hero-dotbtn d1"
+                    for="hc1"
+                    title="Slide 1"
+                  ></label>
+                  <label
+                    class="hero-dotbtn d2"
+                    for="hc2"
+                    title="Slide 2"
+                  ></label>
+                  <label
+                    class="hero-dotbtn d3"
+                    for="hc3"
+                    title="Slide 3"
+                  ></label>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Soluções Section -->
     <section id="solucoes" class="solutions-section">
-        <div class="container-fluid">
-            <div class="section-header">
-                <span class="section-badge">NOSSAS SOLUÇÕES</span>
-                <h2>Soluções Completas Para Cada Negócio</h2>
-                <p>Escolha a solução que melhor se encaixa no seu segmento empresarial</p>
-            </div>
-
-            <div class="solutions-grid">
-                <!-- Card 1 -->
-                <div class="solution-card modern-card">
-                    <div class="card-image">
-                        <i class="fas fa-building"></i>
-                    </div>
-                    <div class="card-content">
-                        <h3>Site Institucional</h3>
-                        <p>Para ONGs, escolas, clínicas, associações e instituições que precisam de presença
-                            profissional online.</p>
-                        <ul class="features-list">
-                            <li><i class="fas fa-check"></i> Design Responsivo</li>
-                            <li><i class="fas fa-check"></i> SEO Otimizado</li>
-                            <li><i class="fas fa-check"></i> Formulários</li>
-                            <li><i class="fas fa-check"></i> Galeria</li>
-                        </ul>
-                        <div class="card-footer">
-                            <span class="price">R$ 2.500</span>
-                            <a href="pages/demo-institucional.html" class="btn-link">Ver Demo <i
-                                    class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 2 -->
-                <div class="solution-card modern-card">
-                    <div class="card-image">
-                        <i class="fas fa-shopping-cart"></i>
-                    </div>
-                    <div class="card-content">
-                        <h3>E-commerce</h3>
-                        <p>Lojas virtuais completas com carrinho de compras, pagamento integrado e gestão de produtos.
-                        </p>
-                        <ul class="features-list">
-                            <li><i class="fas fa-check"></i> Carrinho Inteligente</li>
-                            <li><i class="fas fa-check"></i> Múltiplos Pagamentos</li>
-                            <li><i class="fas fa-check"></i> Estoque Automático</li>
-                            <li><i class="fas fa-check"></i> Rastreamento</li>
-                        </ul>
-                        <div class="card-footer">
-                            <span class="price">R$ 4.800</span>
-                            <a href="pages/demo-ecommerce.html" class="btn-link">Ver Demo <i
-                                    class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 3 -->
-                <div class="solution-card modern-card">
-                    <div class="card-image">
-                        <i class="fas fa-industry"></i>
-                    </div>
-                    <div class="card-content">
-                        <h3>Site Industrial</h3>
-                        <p>Para fábricas e fornecedores B2B com catálogo de produtos, especificações técnicas e contato.
-                        </p>
-                        <ul class="features-list">
-                            <li><i class="fas fa-check"></i> Catálogo Dinâmico</li>
-                            <li><i class="fas fa-check"></i> Especificações</li>
-                            <li><i class="fas fa-check"></i> Sistema de Cotação</li>
-                            <li><i class="fas fa-check"></i> CMS Integrado</li>
-                        </ul>
-                        <div class="card-footer">
-                            <span class="price">R$ 3.800</span>
-                            <a href="pages/demo-industrial.html" class="btn-link">Ver Demo <i
-                                    class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 4 -->
-                <div class="solution-card modern-card">
-                    <div class="card-image">
-                        <i class="fas fa-user-tie"></i>
-                    </div>
-                    <div class="card-content">
-                        <h3>Site de Serviços</h3>
-                        <p>Para consultorias, agências, profissionais liberais com portfólio e agendamento online.</p>
-                        <ul class="features-list">
-                            <li><i class="fas fa-check"></i> Portfólio Dinâmico</li>
-                            <li><i class="fas fa-check"></i> Agendamento Online</li>
-                            <li><i class="fas fa-check"></i> Depoimentos</li>
-                            <li><i class="fas fa-check"></i> Blog Integrado</li>
-                        </ul>
-                        <div class="card-footer">
-                            <span class="price">R$ 2.800</span>
-                            <a href="pages/demo-servicos.html" class="btn-link">Ver Demo <i
-                                    class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 5 -->
-                <div class="solution-card modern-card">
-                    <div class="card-image">
-                        <i class="fas fa-cogs"></i>
-                    </div>
-                    <div class="card-content">
-                        <h3>Sistemas Empresariais</h3>
-                        <p>Soluções de gestão customizadas: CRM, ERP, Controle de Estoque, Financeiro e muito mais.</p>
-                        <ul class="features-list">
-                            <li><i class="fas fa-check"></i> Totalmente Customizável</li>
-                            <li><i class="fas fa-check"></i> Relatórios Avançados</li>
-                            <li><i class="fas fa-check"></i> Segurança de Dados</li>
-                            <li><i class="fas fa-check"></i> Suporte Premium</li>
-                        </ul>
-                        <div class="card-footer">
-                            <span class="price">Orçamento</span>
-                            <a href="pages/demo-sistemas.html" class="btn-link">Ver Demo <i
-                                    class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <div class="container-fluid">
+        <div class="section-header">
+          <span class="section-badge">NOSSAS SOLUÇÕES</span>
+          <h2>Soluções Completas Para Cada Negócio</h2>
+          <p>
+            Escolha a solução que melhor se encaixa no seu segmento empresarial
+          </p>
         </div>
-    </section>
 
-    <!-- Diferenciais Section -->
-    <section id="diferenciais" class="diferenciais-section">
-        <div class="container-fluid">
-            <div class="section-header">
-                <span class="section-badge">Por que escolher KoddaHub</span>
-                <h2>Nossos Diferenciais</h2>
-                <p>Oferecemos muito mais que um site - oferecemos uma solução completa</p>
+        <div class="solutions-grid">
+          <!-- Card 1 -->
+          <div class="solution-card modern-card">
+            <div class="card-image">
+              <i class="fas fa-building"></i>
             </div>
-
-            <div class="diferenciais-grid">
-                <div class="diferencial-item">
-                    <div class="diferencial-icon">
-                        <i class="fas fa-mobile-alt"></i>
-                    </div>
-                    <h3>100% Responsivo</h3>
-                    <p>Funciona perfeitamente em computadores, tablets e smartphones</p>
-                </div>
-
-                <div class="diferencial-item">
-                    <div class="diferencial-icon">
-                        <i class="fas fa-tachometer-alt"></i>
-                    </div>
-                    <h3>Super Rápido</h3>
-                    <p>Otimizado para carregamento rápido e melhor desempenho</p>
-                </div>
-
-                <div class="diferencial-item">
-                    <div class="diferencial-icon">
-                        <i class="fas fa-search"></i>
-                    </div>
-                    <h3>SEO Otimizado</h3>
-                    <p>Ranking alto no Google e visibilidade garantida</p>
-                </div>
-
-                <div class="diferencial-item">
-                    <div class="diferencial-icon">
-                        <i class="fas fa-lock"></i>
-                    </div>
-                    <h3>Altamente Seguro</h3>
-                    <p>SSL gratuito, proteção contra ataques e backup automático</p>
-                </div>
-
-                <div class="diferencial-item">
-                    <div class="diferencial-icon">
-                        <i class="fas fa-headset"></i>
-                    </div>
-                    <h3>Suporte 24/7</h3>
-                    <p>Equipe sempre pronta para ajudar quando você precisar</p>
-                </div>
-
-                <div class="diferencial-item">
-                    <div class="diferencial-icon">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
-                    <h3>Treinamento Grátis</h3>
-                    <p>Capacitamos sua equipe para usar o sistema</p>
-                </div>
+            <div class="card-content">
+              <h3>Site Institucional</h3>
+              <p>
+                Para ONGs, escolas, clínicas, associações e instituições que
+                precisam de presença profissional online.
+              </p>
+              <ul class="features-list">
+                <li><i class="fas fa-check"></i> Design Responsivo</li>
+                <li><i class="fas fa-check"></i> SEO Otimizado</li>
+                <li><i class="fas fa-check"></i> Formulários</li>
+                <li><i class="fas fa-check"></i> Galeria</li>
+              </ul>
+              <div class="card-footer">
+                <span class="price">R$ 2.500</span>
+                <a href="pages/demo-institucional.html" class="btn-link"
+                  >Ver Demo <i class="fas fa-arrow-right"></i
+                ></a>
+              </div>
             </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="solution-card modern-card">
+            <div class="card-image">
+              <i class="fas fa-shopping-cart"></i>
+            </div>
+            <div class="card-content">
+              <h3>E-commerce</h3>
+              <p>
+                Lojas virtuais completas com carrinho de compras, pagamento
+                integrado e gestão de produtos.
+              </p>
+              <ul class="features-list">
+                <li><i class="fas fa-check"></i> Carrinho Inteligente</li>
+                <li><i class="fas fa-check"></i> Múltiplos Pagamentos</li>
+                <li><i class="fas fa-check"></i> Estoque Automático</li>
+                <li><i class="fas fa-check"></i> Rastreamento</li>
+              </ul>
+              <div class="card-footer">
+                <span class="price">R$ 4.800</span>
+                <a href="pages/demo-ecommerce.html" class="btn-link"
+                  >Ver Demo <i class="fas fa-arrow-right"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="solution-card modern-card">
+            <div class="card-image">
+              <i class="fas fa-industry"></i>
+            </div>
+            <div class="card-content">
+              <h3>Site Industrial</h3>
+              <p>
+                Para fábricas e fornecedores B2B com catálogo de produtos,
+                especificações técnicas e contato.
+              </p>
+              <ul class="features-list">
+                <li><i class="fas fa-check"></i> Catálogo Dinâmico</li>
+                <li><i class="fas fa-check"></i> Especificações</li>
+                <li><i class="fas fa-check"></i> Sistema de Cotação</li>
+                <li><i class="fas fa-check"></i> CMS Integrado</li>
+              </ul>
+              <div class="card-footer">
+                <span class="price">R$ 3.800</span>
+                <a href="pages/demo-industrial.html" class="btn-link"
+                  >Ver Demo <i class="fas fa-arrow-right"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="solution-card modern-card">
+            <div class="card-image">
+              <i class="fas fa-user-tie"></i>
+            </div>
+            <div class="card-content">
+              <h3>Site de Serviços</h3>
+              <p>
+                Para consultorias, agências, profissionais liberais com
+                portfólio e agendamento online.
+              </p>
+              <ul class="features-list">
+                <li><i class="fas fa-check"></i> Portfólio Dinâmico</li>
+                <li><i class="fas fa-check"></i> Agendamento Online</li>
+                <li><i class="fas fa-check"></i> Depoimentos</li>
+                <li><i class="fas fa-check"></i> Blog Integrado</li>
+              </ul>
+              <div class="card-footer">
+                <span class="price">R$ 2.800</span>
+                <a href="pages/demo-servicos.html" class="btn-link"
+                  >Ver Demo <i class="fas fa-arrow-right"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="solution-card modern-card">
+            <div class="card-image">
+              <i class="fas fa-cogs"></i>
+            </div>
+            <div class="card-content">
+              <h3>Sistemas Empresariais</h3>
+              <p>
+                Soluções de gestão customizadas: CRM, ERP, Controle de Estoque,
+                Financeiro e muito mais.
+              </p>
+              <ul class="features-list">
+                <li><i class="fas fa-check"></i> Totalmente Customizável</li>
+                <li><i class="fas fa-check"></i> Relatórios Avançados</li>
+                <li><i class="fas fa-check"></i> Segurança de Dados</li>
+                <li><i class="fas fa-check"></i> Suporte Premium</li>
+              </ul>
+              <div class="card-footer">
+                <span class="price">Orçamento</span>
+                <a href="pages/demo-sistemas.html" class="btn-link"
+                  >Ver Demo <i class="fas fa-arrow-right"></i
+                ></a>
+              </div>
+            </div>
+          </div>
         </div>
-    </section>
-
-    <!-- Processos Section -->
-    <section id="processos" class="processos-section">
-        <div class="container-fluid">
-            <div class="section-header">
-                <span class="section-badge">METODOLOGIA</span>
-                <h2>Como Funciona Nosso Processo</h2>
-                <p>Do conceito ao lançamento em poucas semanas</p>
-            </div>
-
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-number">1</div>
-                    <div class="timeline-content">
-                        <h3>Briefing & Análise</h3>
-                        <p>Entendemos suas necessidades, mercado, concorrência e objetivos para criar uma estratégia
-                            perfeita</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-number">2</div>
-                    <div class="timeline-content">
-                        <h3>Design Moderno</h3>
-                        <p>Criamos designs inovadores e funcionais, considerando UX/UI e as melhores práticas</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-number">3</div>
-                    <div class="timeline-content">
-                        <h3>Desenvolvimento</h3>
-                        <p>Codificamos usando tecnologias modernas, responsivas e otimizadas para performance</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-number">4</div>
-                    <div class="timeline-content">
-                        <h3>Testes Completos</h3>
-                        <p>Testes em todos os navegadores e dispositivos para garantir qualidade</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-number">5</div>
-                    <div class="timeline-content">
-                        <h3>Treinamento</h3>
-                        <p>Sua equipe aprende a usar e gerenciar o site de forma completa</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-number">6</div>
-                    <div class="timeline-content">
-                        <h3>Lançamento & Suporte</h3>
-                        <p>Site online, com suporte técnico contínuo e manutenção incluída</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Stats Section -->
-    <section class="stats-section">
-        <div class="container-fluid">
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <h3 class="stat-number" data-target="250">0</h3>
-                    <p>Projetos Entregues</p>
-                </div>
-                <div class="stat-item">
-                    <h3 class="stat-number" data-target="98">0</h3>
-                    <p>Clientes Satisfeitos %</p>
-                </div>
-                <div class="stat-item">
-                    <h3 class="stat-number" data-target="8">0</h3>
-                    <p>Anos de Experiência</p>
-                </div>
-                <div class="stat-item">
-                    <h3 class="stat-number" data-target="24">0</h3>
-                    <p>Horas Suporte</p>
-                </div>
-            </div>
-        </div>
+      </div>
     </section>
 
     <!-- Contato Section -->
     <section id="contato" class="contato-section">
-        <div class="container-fluid">
-            <div class="contato-wrapper">
-                <div class="contato-form">
-                    <div class="section-header">
-                        <h2>Vamos Conversar?</h2>
-                        <p>Preencha o formulário e entraremos em contato em até 24 horas</p>
-                    </div>
-
-                    <form id="contactForm" class="form-modern">
-                        <div class="form-alerts">
-                            <div id="formSuccess" class="form-success">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Mensagem enviada com sucesso! Entraremos em contato em breve.</span>
-                            </div>
-                            <div id="formError" class="form-error">
-                                <i class="fas fa-exclamation-circle"></i>
-                                <span>Erro ao enviar. Verifique os dados e tente novamente.</span>
-                            </div>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="nome">Nome Completo *</label>
-                                <input type="text" id="nome" name="nome" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="email">E-mail *</label>
-                                <input type="email" id="email" name="email" required>
-                            </div>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="telefone">Telefone</label>
-                                <input type="tel" id="telefone" name="telefone">
-                            </div>
-                            <div class="form-group">
-                                <label for="tipo_interesse">Tipo de Solução *</label>
-                                <select id="tipo_interesse" name="tipo_interesse" required>
-                                    <option value="">Selecione...</option>
-                                    <option value="Site Institucional">Site Institucional</option>
-                                    <option value="E-commerce">E-commerce</option>
-                                    <option value="Site Industrial">Site Industrial</option>
-                                    <option value="Site de Serviços">Site de Serviços</option>
-                                    <option value="Sistema Empresarial">Sistema Empresarial</option>
-                                    <option value="Outro">Outro</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="mensagem">Mensagem *</label>
-                            <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
-                        </div>
-
-                        <button type="submit" class="btn-primary-modern">Enviar Mensagem</button>
-                    </form>
-                </div>
-
-                <div class="contato-info">
-                    <h3>Informações de Contato</h3>
-
-                    <div class="info-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <h4>Localização</h4>
-                            <p>São Paulo - SP<br>Atendimento Nacional</p>
-                        </div>
-                    </div>
-
-                    <div class="info-item">
-                        <i class="fas fa-phone"></i>
-                        <div>
-                            <h4>Telefone</h4>
-                            <p><a href="tel:+554192272854">+55(41)9227-2854</a></p>
-                        </div>
-                    </div>
-
-                    <div class="info-item">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <h4>E-mail</h4>
-                            <p><a href="mailto:angelamachado02022@gmail.com">angelamachado02022@gmail.com</a></p>
-                        </div>
-                    </div>
-
-                    <div class="social-modern">
-                        <h4>Siga-nos</h4>
-                        <div class="social-links">
-                            <a href="https://facebook.com" target="_blank" title="Facebook"><i
-                                    class="fab fa-facebook-f"></i></a>
-                            <a href="https://instagram.com" target="_blank" title="Instagram"><i
-                                    class="fab fa-instagram"></i></a>
-                            <a href="https://linkedin.com" target="_blank" title="LinkedIn"><i
-                                    class="fab fa-linkedin-in"></i></a>
-                            <a href="https://wa.me/554192272854" target="_blank" title="WhatsApp"><i
-                                    class="fab fa-whatsapp"></i></a>
-                        </div>
-                    </div>
-                </div>
+      <div class="container-fluid">
+        <div class="contato-wrapper">
+          <div class="contato-form">
+            <div class="section-header">
+              <h2>Vamos Conversar?</h2>
+              <p>
+                Preencha o formulário e entraremos em contato em até 24 horas
+              </p>
             </div>
+
+            <form id="contactForm" class="form-modern">
+              <div class="form-alerts">
+                <div id="formSuccess" class="form-success">
+                  <i class="fas fa-check-circle"></i>
+                  <span
+                    >Mensagem enviada com sucesso! Entraremos em contato em
+                    breve.</span
+                  >
+                </div>
+                <div id="formError" class="form-error">
+                  <i class="fas fa-exclamation-circle"></i>
+                  <span
+                    >Erro ao enviar. Verifique os dados e tente novamente.</span
+                  >
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="nome">Nome Completo *</label>
+                  <input type="text" id="nome" name="nome" required />
+                </div>
+                <div class="form-group">
+                  <label for="email">E-mail *</label>
+                  <input type="email" id="email" name="email" required />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="telefone">Telefone</label>
+                  <input type="tel" id="telefone" name="telefone" />
+                </div>
+                <div class="form-group">
+                  <label for="tipo_interesse">Tipo de Solução *</label>
+                  <select id="tipo_interesse" name="tipo_interesse" required>
+                    <option value="">Selecione...</option>
+                    <option value="Site Institucional">
+                      Site Institucional
+                    </option>
+                    <option value="E-commerce">E-commerce</option>
+                    <option value="Site Industrial">Site Industrial</option>
+                    <option value="Site de Serviços">Site de Serviços</option>
+                    <option value="Sistema Empresarial">
+                      Sistema Empresarial
+                    </option>
+                    <option value="Outro">Outro</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="mensagem">Mensagem *</label>
+                <textarea
+                  id="mensagem"
+                  name="mensagem"
+                  rows="5"
+                  required
+                ></textarea>
+              </div>
+
+              <button type="submit" class="btn-primary-modern">
+                Enviar Mensagem
+              </button>
+            </form>
+          </div>
+
+          <div class="contato-info">
+            <h3>Informações de Contato</h3>
+
+            <div class="info-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <div>
+                <h4>Localização</h4>
+                <p>São Paulo - SP<br />Atendimento Nacional</p>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <i class="fas fa-phone"></i>
+              <div>
+                <h4>Telefone</h4>
+                <p><a href="tel:+554192272854">+55(41)9227-2854</a></p>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <i class="fas fa-envelope"></i>
+              <div>
+                <h4>E-mail</h4>
+                <p>
+                  <a href="mailto:angelamachado02022@gmail.com"
+                    >angelamachado02022@gmail.com</a
+                  >
+                </p>
+              </div>
+            </div>
+
+            <div class="social-modern">
+              <h4>Siga-nos</h4>
+              <div class="social-links">
+                <a href="https://facebook.com" target="_blank" title="Facebook"
+                  ><i class="fab fa-facebook-f"></i
+                ></a>
+                <a
+                  href="https://instagram.com"
+                  target="_blank"
+                  title="Instagram"
+                  ><i class="fab fa-instagram"></i
+                ></a>
+                <a href="https://linkedin.com" target="_blank" title="LinkedIn"
+                  ><i class="fab fa-linkedin-in"></i
+                ></a>
+                <a
+                  href="https://wa.me/554192272854"
+                  target="_blank"
+                  title="WhatsApp"
+                  ><i class="fab fa-whatsapp"></i
+                ></a>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer-modern">
-        <div class="container-fluid">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3>KoddaHub</h3>
-                    <p>Transformando ideias em soluções web que funcionam e crescem com seu negócio.</p>
-                </div>
+      <div class="container-fluid">
+        <div class="footer-content">
+          <div class="footer-column">
+            <h3>KoddaHub</h3>
+            <p>
+              Transformando ideias em soluções web que funcionam e crescem com
+              seu negócio.
+            </p>
+          </div>
 
-                <div class="footer-column">
-                    <h4>Soluções</h4>
-                    <ul>
-                        <li><a href="pages/demo-institucional.html">Site Institucional</a></li>
-                        <li><a href="pages/demo-ecommerce.html">E-commerce</a></li>
-                        <li><a href="pages/demo-industrial.html">Site Industrial</a></li>
-                        <li><a href="pages/demo-servicos.html">Site de Serviços</a></li>
-                        <li><a href="pages/demo-sistemas.html">Sistemas</a></li>
-                    </ul>
-                </div>
+          <div class="footer-column">
+            <h4>Soluções</h4>
+            <ul>
+              <li>
+                <a href="pages/demo-institucional.html">Site Institucional</a>
+              </li>
+              <li><a href="pages/demo-ecommerce.html">E-commerce</a></li>
+              <li><a href="pages/demo-industrial.html">Site Industrial</a></li>
+              <li><a href="pages/demo-servicos.html">Site de Serviços</a></li>
+              <li><a href="pages/demo-sistemas.html">Sistemas</a></li>
+            </ul>
+          </div>
 
-                <div class="footer-column">
-                    <h4>Links</h4>
-                    <ul>
-                        <li><a href="#solucoes">Soluções</a></li>
-                        <li><a href="#diferenciais">Diferenciais</a></li>
-                        <li><a href="#processos">Processos</a></li>
-                        <li><a href="#contato">Contato</a></li>
-                    </ul>
-                </div>
+          <div class="footer-column">
+            <h4>Links</h4>
+            <ul>
+              <li><a href="#solucoes">Soluções</a></li>
+              <li><a href="#diferenciais">Diferenciais</a></li>
+              <li><a href="#processos">Processos</a></li>
+              <li><a href="#contato">Contato</a></li>
+            </ul>
+          </div>
 
-                <div class="footer-column">
-                    <h4>Legais</h4>
-                    <ul>
-                        <li><a href="#">Privacidade</a></li>
-                        <li><a href="#">Termos de Uso</a></li>
-                        <li><a href="#">Cookies</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <p>&copy; 2026 KoddaHub. Todos os direitos reservados.</p>
-            </div>
+          <div class="footer-column">
+            <h4>Legais</h4>
+            <ul>
+              <li><a href="#">Privacidade</a></li>
+              <li><a href="#">Termos de Uso</a></li>
+              <li><a href="#">Cookies</a></li>
+            </ul>
+          </div>
         </div>
+
+        <div class="footer-bottom">
+          <p>&copy; 2026 KoddaHub. Todos os direitos reservados.</p>
+        </div>
+      </div>
     </footer>
 
     <!-- ============================================
-         WHATSAPP FLUTUANTE
+         CHATBOT KODDAHUB (Local, sem IA)
          ============================================ -->
-    <a href="https://wa.me/554192272854?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20as%20soluções%20da%20KoddaHub"
-        class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Conversar no WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-        <span class="whatsapp-tooltip">Fale conosco!</span>
-    </a>
+    <div class="kodassauro" id="kodassauroRoot">
+      <button
+        class="kodassauro-toggle"
+        type="button"
+        aria-haspopup="dialog"
+        aria-controls="kodassauroPanel"
+        aria-expanded="false"
+        aria-label="Abrir chat KoddaHub"
+      >
+      
+        <img src="assets/logo/KoddaHub-icon-chat.png" alt="Ícone do KoddaHub" class="kodassauro-icon" />
+        <span class="kodassauro-badge" aria-label="Notificações do chat" hidden
+          >0</span
+        >
+        <span class="kodassauro-toggle-icon" aria-hidden="true">
+          <i class="fas fa-comment-dots"></i>
+        </span>
+      </button>
 
-    <!-- ============================================
-         CHAT WIDGET KODDA (Mascote)
-         ============================================ -->
-    <div class="chat-widget">
-        <!-- Botão Principal -->
-        <button class="chat-toggle" aria-label="Abrir chat de contato">
-            <i class="fas fa-comment-dots"></i>
-            <span class="chat-notification">3</span>
-        </button>
+      <section
+        class="kodassauro-panel"
+        id="kodassauroPanel"
+        role="dialog"
+        aria-modal="false"
+        aria-labelledby="kodassauroTitle"
+        aria-describedby="kodassauroSubtitle"
+        tabindex="-1"
+        hidden
+      >
+        <header class="kodassauro-header">
+          <div class="kodassauro-avatar" aria-hidden="true">
+            <svg
+              class="kodassauro-svg"
+              viewBox="0 0 64 64"
+              role="img"
+              aria-label="Kodassauro"
+            >
+              <defs>
+                <linearGradient id="kdsGrad" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#2196F3" />
+                  <stop offset="100%" stop-color="#F57C00" />
+                </linearGradient>
+              </defs>
+              <circle
+                cx="32"
+                cy="32"
+                r="30"
+                fill="url(#kdsGrad)"
+                opacity="0.95"
+              />
+              <path
+                d="M18 37c2-9 9-16 18-16s16 7 18 16c-6 7-13 11-18 11s-12-4-18-11z"
+                fill="#fff"
+                opacity="0.95"
+              />
+              <circle class="kds-eye" cx="28" cy="33" r="2.6" fill="#1976D2" />
+              <circle class="kds-eye" cx="36" cy="33" r="2.6" fill="#1976D2" />
+              <path
+                d="M28 40c3 3 5 3 8 0"
+                stroke="#E65100"
+                stroke-width="3"
+                fill="none"
+                stroke-linecap="round"
+              />
+              <path
+                d="M22 18l8 4"
+                stroke="#fff"
+                stroke-width="3"
+                stroke-linecap="round"
+                opacity="0.9"
+              />
+              <path
+                d="M42 18l-8 4"
+                stroke="#fff"
+                stroke-width="3"
+                stroke-linecap="round"
+                opacity="0.9"
+              />
+            </svg>
+          </div>
 
-        <!-- Cabeçalho do Chat -->
-        <div class="chat-header">
-            <div class="chat-avatar kodda-avatar">
-                <div class="kodda-face">
-                    <div class="kodda-eye left"></div>
-                    <div class="kodda-eye right"></div>
-                    <div class="kodda-smile"></div>
-                </div>
-                <div class="kodda-antena"></div>
-            </div>
+          <div class="kodassauro-headings">
+            <h3 class="kodassauro-title" id="kodassauroTitle">Kodassauro</h3>
+            <p class="kodassauro-subtitle" id="kodassauroSubtitle">
+              Assistente da KoddaHub, pronto para ajudar
+            </p>
+          </div>
 
-            <div class="chat-info">
-                <h4>Kodda, seu assistente</h4>
-                <p class="status-online">
-                    <span class="status-dot"></span>
-                    Online • Pronto para ajudar
-                </p>
-            </div>
-
-            <button class="chat-close" aria-label="Fechar chat">
-                <i class="fas fa-times"></i>
+          <div class="kodassauro-header-actions">
+            <button class="kodassauro-reset" type="button">Limpar</button>
+            <button
+              class="kodassauro-close"
+              type="button"
+              aria-label="Fechar chat"
+            >
+              <i class="fas fa-times" aria-hidden="true"></i>
             </button>
+          </div>
+        </header>
+
+        <div
+          class="kodassauro-messages"
+          id="kodassauroMessages"
+          aria-live="polite"
+          aria-relevant="additions"
+        ></div>
+
+        <div
+          class="kodassauro-quick"
+          id="kodassauroQuick"
+          aria-label="Atalhos do chat"
+        >
+          <button type="button" class="kodassauro-chip" data-action="orcamento">
+            Orçamento
+          </button>
+          <button type="button" class="kodassauro-chip" data-action="duvidas">
+            Dúvidas
+          </button>
+          <button type="button" class="kodassauro-chip" data-action="contato">
+            Falar com vendedor
+          </button>
+          <button type="button" class="kodassauro-chip" data-action="precos">
+            Ver preços
+          </button>
+          <button type="button" class="kodassauro-chip" data-action="portfolio">
+            Ver portfólio
+          </button>
         </div>
 
-        <!-- Mensagens do Chat -->
-        <div class="chat-messages">
-            <!-- Mensagem Automática -->
-            <div class="message bot">
-                <div class="message-avatar">
-                    <div class="kodda-mini-message"></div>
-                </div>
-                <div class="message-content">
-                    <p>Olá! Sou o Kodda, assistente da KoddaHub. Como posso ajudar você hoje?</p>
-                    <span class="message-time">Agora</span>
-                </div>
-            </div>
-
-            <!-- Opções Rápidas -->
-            <div class="quick-options">
-                <button class="quick-option" data-action="orcamento">
-                    <i class="fas fa-file-invoice-dollar"></i>
-                    <span>Pedir Orçamento</span>
-                </button>
-                <button class="quick-option" data-action="duvida">
-                    <i class="fas fa-question-circle"></i>
-                    <span>Tirar Dúvidas</span>
-                </button>
-                <button class="quick-option" data-action="contato">
-                    <i class="fas fa-phone"></i>
-                    <span>Falar com Vendedor</span>
-                </button>
-            </div>
-        </div>
-
-        <!-- Área de Ação -->
-        <div class="chat-actions">
-            <p>Escolha como prefere conversar:</p>
-            <div class="action-buttons">
-                <a href="https://wa.me/554192272854?text=Olá!%20Vi%20o%20site%20da%20KoddaHub%20e%20quero%20conversar"
-                    class="action-btn whatsapp-btn" target="_blank">
-                    <i class="fab fa-whatsapp"></i>
-                    <span>WhatsApp</span>
-                </a>
-                <a href="mailto:angelamachado02022@gmail.com?subject=Contato%20KoddaHub&body=Olá!%20Gostaria%20de%20mais%20informações"
-                    class="action-btn email-btn">
-                    <i class="fas fa-envelope"></i>
-                    <span>E-mail</span>
-                </a>
-                <a href="tel:+554192272854" class="action-btn phone-btn">
-                    <i class="fas fa-phone"></i>
-                    <span>Ligar</span>
-                </a>
-            </div>
-
-            <!-- Formulário Rápido -->
-            <div class="quick-form">
-                <p>Ou deixe seu contato:</p>
-                <input type="email" placeholder="Seu melhor e-mail" class="form-input">
-                <button class="form-submit">Me ligue</button>
-            </div>
-        </div>
+        <form
+          class="kodassauro-composer"
+          id="kodassauroComposer"
+          autocomplete="off"
+        >
+          <label class="kodassauro-sr-only" for="kodassauroInput"
+            >Mensagem</label
+          >
+          <input
+            id="kodassauroInput"
+            class="kodassauro-input"
+            type="text"
+            placeholder="Digite sua mensagem..."
+            inputmode="text"
+          />
+          <button class="kodassauro-send" type="submit">Enviar</button>
+        </form>
+      </section>
     </div>
 
     <!-- Scripts -->
     <script src="js/main.js"></script>
     <script src="js/navigation.js"></script>
     <script src="js/form-handler.js"></script>
-    <script src="js/chat-widget.js"></script>
-</body>
-
+    <script src="js/kodassauro-chat.js"></script>
+    <!-- Bootstrap 5 JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>

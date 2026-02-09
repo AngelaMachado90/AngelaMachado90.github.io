@@ -1,0 +1,48 @@
+/* ==========================================================================
+   DEMO-SHELL.CSS
+   Pequena camada para padronizar demos (marca + paleta + acesso ao index).
+   ========================================================================== */
+
+.demo-back {
+  position: fixed;
+  top: 14px;
+  left: 14px;
+  z-index: var(--z-fixed);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: var(--shadow-sm);
+  color: var(--black-deep);
+  text-decoration: none;
+  font-weight: var(--fw-semibold);
+  font-size: 0.9rem;
+}
+
+.demo-back:hover {
+  border-color: rgba(245, 124, 0, 0.45);
+  color: var(--orange-vibrant);
+}
+
+.demo-back i {
+  color: var(--blue-electric);
+}
+
+@supports not ((-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px))) {
+  .demo-back {
+    background: rgba(255, 255, 255, 0.98);
+  }
+}
+
+@media (max-width: 480px) {
+  .demo-back {
+    top: 10px;
+    left: 10px;
+    padding: 9px 10px;
+    font-size: 0.85rem;
+  }
+}

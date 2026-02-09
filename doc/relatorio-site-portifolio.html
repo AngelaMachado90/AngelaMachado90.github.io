@@ -1,0 +1,607 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Relatorio Tecnico - Projeto Site-Portifolio</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;600;700&display=swap");
+
+      :root {
+        --bg: #0b0e16;
+        --panel: #121826;
+        --panel-2: #0f1420;
+        --text: #e6e8ef;
+        --muted: #a0a6b8;
+        --accent: #ff7a59;
+        --accent-2: #4cc9f0;
+        --ok: #36d399;
+        --warn: #fbbf24;
+        --danger: #f87171;
+        --line: #232b3a;
+        --chip: #1b2233;
+      }
+
+      /* Global reset kept in css/reset.css; removed duplicate here */
+
+      body {
+        margin: 0;
+        font-family:
+          "Manrope",
+          system-ui,
+          -apple-system,
+          "Segoe UI",
+          sans-serif;
+        color: var(--text);
+        background:
+          radial-gradient(
+            1200px 600px at 20% -10%,
+            rgba(76, 201, 240, 0.12),
+            transparent 60%
+          ),
+          radial-gradient(
+            1000px 500px at 90% 0%,
+            rgba(255, 122, 89, 0.14),
+            transparent 55%
+          ),
+          var(--bg);
+        line-height: 1.6;
+      }
+
+      .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 48px 24px 80px;
+      }
+
+      header {
+        display: grid;
+        gap: 18px;
+        padding: 28px 28px 32px;
+        border-radius: 16px;
+        background:
+          linear-gradient(
+            135deg,
+            rgba(255, 122, 89, 0.12),
+            rgba(76, 201, 240, 0.12)
+          ),
+          var(--panel);
+        border: 1px solid var(--line);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+      }
+
+      h1 {
+        font-family: "Space Grotesk", system-ui, sans-serif;
+        font-size: clamp(28px, 4vw, 40px);
+        margin: 0;
+        letter-spacing: -0.02em;
+      }
+
+      .subtitle {
+        color: var(--muted);
+        font-size: 15px;
+      }
+
+      .meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .chip {
+        background: var(--chip);
+        color: var(--text);
+        border: 1px solid var(--line);
+        padding: 6px 10px;
+        border-radius: 999px;
+        font-size: 12px;
+        letter-spacing: 0.02em;
+      }
+
+      section {
+        margin-top: 28px;
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 24px 24px 28px;
+      }
+
+      h2 {
+        font-family: "Space Grotesk", system-ui, sans-serif;
+        font-size: 22px;
+        margin: 0 0 12px;
+      }
+
+      h3 {
+        font-size: 16px;
+        margin: 20px 0 8px;
+        color: var(--accent-2);
+      }
+
+      p {
+        margin: 8px 0;
+      }
+
+      .grid {
+        display: grid;
+        gap: 16px;
+      }
+
+      .grid-3 {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      }
+
+      .card {
+        background: var(--panel-2);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 16px;
+      }
+
+      .kpi {
+        font-size: 24px;
+        font-weight: 700;
+      }
+
+      .kpi-label {
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+        font-size: 14px;
+      }
+
+      th,
+      td {
+        text-align: left;
+        padding: 10px 12px;
+        border-bottom: 1px solid var(--line);
+        vertical-align: top;
+      }
+
+      th {
+        color: var(--muted);
+        font-weight: 600;
+      }
+
+      .tag {
+        display: inline-block;
+        padding: 3px 8px;
+        border-radius: 999px;
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.03em;
+        border: 1px solid transparent;
+      }
+
+      .tag.critical {
+        background: rgba(248, 113, 113, 0.12);
+        color: var(--danger);
+        border-color: rgba(248, 113, 113, 0.4);
+      }
+      .tag.high {
+        background: rgba(251, 191, 36, 0.12);
+        color: var(--warn);
+        border-color: rgba(251, 191, 36, 0.4);
+      }
+      .tag.medium {
+        background: rgba(76, 201, 240, 0.12);
+        color: var(--accent-2);
+        border-color: rgba(76, 201, 240, 0.35);
+      }
+      .tag.low {
+        background: rgba(54, 211, 153, 0.12);
+        color: var(--ok);
+        border-color: rgba(54, 211, 153, 0.35);
+      }
+
+      .list {
+        display: grid;
+        gap: 8px;
+        margin: 10px 0 0;
+      }
+
+      .list div {
+        padding: 10px 12px;
+        background: var(--panel-2);
+        border: 1px solid var(--line);
+        border-radius: 10px;
+      }
+
+      .mono {
+        font-family:
+          ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+          "Liberation Mono", monospace;
+      }
+
+      .divider {
+        height: 1px;
+        background: var(--line);
+        margin: 18px 0;
+      }
+
+      .note {
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .callout {
+        background: linear-gradient(
+          135deg,
+          rgba(255, 122, 89, 0.15),
+          rgba(76, 201, 240, 0.12)
+        );
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 14px;
+        font-size: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Relatorio Tecnico Completo - Projeto site-portifolio</h1>
+        <div class="subtitle">
+          Analise profunda do CSS, inconsistencias, riscos de manutencao e plano
+          de correcoes.
+        </div>
+        <div class="meta">
+          <span class="chip">Projeto: KoddaHub</span>
+          <span class="chip">Data: 07/02/2026</span>
+          <span class="chip">Escopo: HTML + CSS + JS</span>
+          <span class="chip"
+            >Ambiente: /home/server/projects/projeto-site-portifolio</span
+          >
+        </div>
+      </header>
+
+      <section>
+        <h2>Resumo Executivo</h2>
+        <div class="callout">
+          O projeto possui bom volume de conteudo e intencao visual moderna, mas
+          a base tecnica do CSS esta fragmentada e com dependencias quebradas.
+          Ha duplicacao massiva de seletores, variaveis nao definidas, animacoes
+          inconsistentes e ordem de carregamento divergente da propria
+          documentacao. Isso gera comportamento imprevisivel e alto custo de
+          manutencao.
+        </div>
+        <div class="divider"></div>
+        <div class="grid grid-3">
+          <div class="card">
+            <div class="kpi">6</div>
+            <div class="kpi-label">Arquivos HTML (164.1 KB)</div>
+          </div>
+          <div class="card">
+            <div class="kpi">15</div>
+            <div class="kpi-label">Arquivos CSS (155.8 KB)</div>
+          </div>
+          <div class="card">
+            <div class="kpi">6</div>
+            <div class="kpi-label">Arquivos JS (164.9 KB)</div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Diagnostico Estrutural</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Area</th>
+              <th>Observacao</th>
+              <th>Impacto</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Arquitetura CSS</td>
+              <td>
+                Documentacao descreve ITCSS e entrada por
+                <span class="mono">main.css</span>, mas o HTML carrega 10 folhas
+                isoladas e o arquivo
+                <span class="mono">components/_index.css</span> contem
+                importacoes recursivas.
+              </td>
+              <td><span class="tag high">High</span></td>
+            </tr>
+            <tr>
+              <td>Duplicacao</td>
+              <td>
+                159 seletores repetidos em multiplos arquivos (ex.:
+                <span class="mono">.navbar-modern</span>,
+                <span class="mono">.solutions-grid</span> em
+                <span class="mono">main.css</span>,
+                <span class="mono">modern.css</span> e
+                <span class="mono">components/_widget.css</span>).
+              </td>
+              <td><span class="tag high">High</span></td>
+            </tr>
+            <tr>
+              <td>Dependencias</td>
+              <td>
+                36 variaveis CSS utilizadas nao existem no
+                <span class="mono">:root</span>. Ex.:
+                <span class="mono">--primary-600</span>,
+                <span class="mono">--neutral-200</span>,
+                <span class="mono">--success-500</span>.
+              </td>
+              <td><span class="tag critical">Critical</span></td>
+            </tr>
+            <tr>
+              <td>Animacoes</td>
+              <td>
+                Classes usadas no HTML (<span class="mono"
+                  >animate-slideInUp</span
+                >, <span class="mono">animate-slideInLeft</span>) nao existem. A
+                animacao <span class="mono">fadeInUp</span> e usada, mas o
+                keyframe nao existe.
+              </td>
+              <td><span class="tag high">High</span></td>
+            </tr>
+            <tr>
+              <td>Responsividade</td>
+              <td>
+                Menu mobile nao abre porque nao existe regra
+                <span class="mono">.navbar-menu.active</span>. E usado
+                <span class="mono">--primary-color</span> no responsive sem
+                definicao.
+              </td>
+              <td><span class="tag critical">Critical</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <h2>Analise Profunda do CSS</h2>
+
+        <h3>1) Ordem de Carregamento</h3>
+        <div class="list">
+          <div>
+            HTML carrega <span class="mono">main.css</span> e
+            <span class="mono">modern.css</span> antes de
+            <span class="mono">base.css</span>. Isso quebra a hierarquia
+            proposta na documentacao e pode sobrescrever estilos base
+            inesperadamente.
+          </div>
+          <div>
+            <span class="mono">components/_index.css</span> contem imports de si
+            mesmo e referencia <span class="mono">layouts/_index.css</span> que
+            nao existe. Isso indica uma arquitetura abandonada ou incompleta.
+          </div>
+        </div>
+
+        <h3>2) Tokens e Variaveis</h3>
+        <div class="list">
+          <div>
+            Variaveis nao definidas: <span class="mono">--primary-*</span>,
+            <span class="mono">--neutral-*</span>,
+            <span class="mono">--success-*</span>,
+            <span class="mono">--error-*</span>,
+            <span class="mono">--warning-*</span>,
+            <span class="mono">--info-*</span>,
+            <span class="mono">--primary-color</span>,
+            <span class="mono">--duration-3000</span>.
+          </div>
+          <div>
+            Resultado: componentes e utilitarios exibem cores erradas ou default
+            do navegador, gerando inconsistencia visual e falhas de contraste.
+          </div>
+        </div>
+
+        <h3>3) Duplicacao e Conflitos</h3>
+        <div class="list">
+          <div>
+            <span class="mono">main.css</span> e
+            <span class="mono">modern.css</span> repetem a mesma base (navbar,
+            hero, section headers).
+            <span class="mono">components/_widget.css</span> replica novamente
+            esses mesmos blocos.
+          </div>
+          <div>
+            Impacto: regras competem na cascata, aumentando o risco de bug
+            visual ao alterar qualquer arquivo.
+          </div>
+        </div>
+
+        <h3>4) Classes Faltantes no Index</h3>
+        <div class="list">
+          <div>
+            Faltam definicoes para classes usadas no HTML principal:
+            <span class="mono">.hero-title</span>,
+            <span class="mono">.solution-card</span>,
+            <span class="mono">.contato-form</span>,
+            <span class="mono">.contato-info</span>,
+            <span class="mono">.info-item</span>,
+            <span class="mono">.social-links</span>,
+            <span class="mono">.social-modern</span>,
+            <span class="mono">.timeline-content</span>,
+            <span class="mono">.logo-text</span>.
+          </div>
+          <div>
+            As classes de icones <span class="mono">.fa-*</span> dependem do
+            Font Awesome e estao ok, mas as estruturais acima nao tem estilo
+            algum.
+          </div>
+        </div>
+
+        <h3>5) Componentes e Utilitarios Inflados</h3>
+        <div class="list">
+          <div>
+            <strong>374</strong> classes CSS existem mas nao sao usadas no HTML
+            principal. A biblioteca de utilitarios e componentes esta muito
+            maior que o necessario.
+          </div>
+          <div>
+            Isso aumenta peso, complexidade e dificulta encontrar a fonte de um
+            estilo real.
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Inconsistencias Funcionais (HTML + JS + CSS)</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Problema</th>
+              <th>Detalhe</th>
+              <th>Prioridade</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Menu mobile invisivel</td>
+              <td>
+                JS alterna <span class="mono">.active</span>, mas CSS nao define
+                exibicao do menu quando ativo.
+              </td>
+              <td><span class="tag critical">Critical</span></td>
+            </tr>
+            <tr>
+              <td>Animacao de entrada quebrada</td>
+              <td>
+                JS aplica <span class="mono">slideInUp</span> via style, mas
+                keyframe nao existe. HTML usa classes nao definidas.
+              </td>
+              <td><span class="tag high">High</span></td>
+            </tr>
+            <tr>
+              <td>Conflito de funcoes JS</td>
+              <td>
+                <span class="mono">initializeNavigation</span> definido em
+                <span class="mono">main.js</span> e
+                <span class="mono">navigation.js</span>. A versao carregada por
+                ultimo substitui a primeira.
+              </td>
+              <td><span class="tag medium">Medium</span></td>
+            </tr>
+            <tr>
+              <td>Layout sem container real</td>
+              <td>
+                <span class="mono">.container</span> e
+                <span class="mono">.container-fluid</span> nao existem no CSS
+                base. Resulta em largura total sem controle.
+              </td>
+              <td><span class="tag high">High</span></td>
+            </tr>
+            <tr>
+              <td>Dependencia desnecessaria</td>
+              <td>
+                Bootstrap Icons carregado no HTML, mas nenhum
+                <span class="mono">.bi-*</span> e utilizado.
+              </td>
+              <td><span class="tag low">Low</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <h2>Plano de Correcoes Recomendado</h2>
+        <h3>Fase 1 - Estabilizacao (Prioridade Maxima)</h3>
+        <div class="list">
+          <div>
+            Definir tokens faltantes ou mapear
+            <span class="mono">--primary-*</span> para a paleta atual (<span
+              class="mono"
+              >--orange-vibrant</span
+            >, <span class="mono">--blue-electric</span>).
+          </div>
+          <div>
+            Implementar <span class="mono">.navbar-menu.active</span> e estilos
+            completos de <span class="mono">.navbar-toggle</span>.
+          </div>
+          <div>
+            Adicionar keyframes ausentes (<span class="mono">fadeInUp</span>,
+            <span class="mono">slideInUp</span>) ou ajustar JS/HTML para usar
+            animacoes existentes.
+          </div>
+          <div>
+            Definir <span class="mono">.container</span> e
+            <span class="mono">.container-fluid</span> como base do layout.
+          </div>
+        </div>
+
+        <h3>Fase 2 - Consolidacao</h3>
+        <div class="list">
+          <div>
+            Escolher uma unica entrada CSS. Consolidar
+            <span class="mono">main.css</span> e
+            <span class="mono">modern.css</span> para evitar duplicacao.
+          </div>
+          <div>
+            Separar o CSS do chat widget (<span class="mono"
+              >components/_widget.css</span
+            >) para conter apenas o widget.
+          </div>
+          <div>Remover ou arquivar bibliotecas de componentes nao usadas.</div>
+        </div>
+
+        <h3>Fase 3 - Documentacao e Manutencao</h3>
+        <div class="list">
+          <div>
+            Atualizar <span class="mono">css/README.md</span> com estrutura
+            real.
+          </div>
+          <div>
+            Padronizar nomeacao de classes (BEM ou utility) para evitar
+            misturas.
+          </div>
+          <div>
+            Adicionar auditorias automatizadas de CSS (lint de variaveis e
+            duplicacao).
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Checklist de Ajustes Rapidos</h2>
+        <div class="grid grid-3">
+          <div class="card">
+            <strong>CSS Tokens</strong>
+            <p class="note">Criar bloco de variaveis primarias/secundarias.</p>
+          </div>
+          <div class="card">
+            <strong>Menu Mobile</strong>
+            <p class="note">Adicionar estilo de abertura e overlay.</p>
+          </div>
+          <div class="card">
+            <strong>Animacoes</strong>
+            <p class="note">Corrigir keyframes e classes.</p>
+          </div>
+          <div class="card">
+            <strong>Containers</strong>
+            <p class="note">Definir largura e padding responsivo.</p>
+          </div>
+          <div class="card">
+            <strong>Duplicacao</strong>
+            <p class="note">Eliminar regras repetidas.</p>
+          </div>
+          <div class="card">
+            <strong>Dependencias</strong>
+            <p class="note">Remover libs nao usadas.</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Observacoes Finais</h2>
+        <p>
+          A maior parte dos problemas e resolvida com um refactor de base:
+          definicao clara de tokens, eliminacao de duplicacao e uma unica folha
+          principal. Depois disso, o resto vira refinamento.
+        </p>
+        <p class="note">
+          Se voce quiser, posso executar a Fase 1 agora, organizar os arquivos e
+          corrigir os pontos criticos em um commit separado.
+        </p>
+      </section>
+    </div>
+  </body>
+</html>

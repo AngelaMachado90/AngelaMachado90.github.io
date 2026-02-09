@@ -3,99 +3,7 @@
    Contém: Hero moderno, cards especiais, timeline, etc.
    ============================================================================ */
 
-/* ========== NAVBAR MODERNA ========== */
-.navbar-modern {
-  position: sticky;
-  top: 0;
-  z-index: var(--z-fixed);
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 2px 20px rgba(33, 33, 33, 0.05);
-  padding: 15px 0;
-  transition: all var(--duration-300) var(--ease-out);
-}
-
-.navbar-modern.scrolled {
-  padding: 10px 0;
-  box-shadow: 0 4px 30px rgba(33, 33, 33, 0.1);
-}
-
-.navbar-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 40px;
-}
-
-.navbar-brand {
-  display: flex;
-  align-items: center;
-  gap: var(--space-2);
-}
-
-.navbar-menu {
-  display: flex;
-  align-items: center;
-  gap: 35px;
-  flex: 1;
-  justify-content: center;
-}
-
-.nav-link {
-  color: var(--gray-dark);
-  text-decoration: none;
-  font-weight: var(--fw-medium);
-  font-size: 0.938rem;
-  transition: all var(--duration-300) var(--ease-out);
-  position: relative;
-  padding: 8px 0;
-}
-
-.nav-link::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: var(--orange-vibrant);
-  transition: width var(--duration-300) var(--ease-out);
-}
-
-.nav-link:hover {
-  color: var(--orange-vibrant);
-}
-
-.nav-link:hover::after {
-  width: 100%;
-}
-
-.nav-link.active {
-  color: var(--orange-vibrant);
-}
-
-.nav-link.active::after {
-  width: 100%;
-}
-
-.cta-nav {
-  background: var(--orange-vibrant);
-  color: var(--white-neutral) !important;
-  padding: 10px 20px;
-  border-radius: var(--radius-base);
-  transition: all var(--duration-300) var(--ease-out);
-}
-
-.cta-nav:hover {
-  background: var(--orange-dark);
-  box-shadow: 0 8px 20px rgba(245, 124, 0, 0.3);
-  transform: translateY(-2px);
-  color: var(--white-neutral) !important;
-}
-
-.cta-nav::after {
-  display: none;
-}
+/* Navbar base moved to css/components/_navbar.css; keep .navbar-modern modifier here if theme overrides are required */
 
 /* ========== HERO MODERNO ========== */
 .hero-modern {
@@ -190,11 +98,7 @@
   padding-left: 6px;
 }
 
-.hero-cta {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-}
+/* CTA wrapper now consolidated to `.cta-buttons` in components/_buttons.css */
 
 .btn-primary-modern,
 .btn-secondary-modern {
