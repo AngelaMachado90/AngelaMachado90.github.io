@@ -1,0 +1,114 @@
+/* ============================================================================
+   COMPONENT: CARDS
+   ============================================================================ */
+
+/**
+ * CARD - COMPONENTE BASE
+ * 
+ * Uso: <div class="card">...</div>
+ * 
+ * Dependências:
+ * - variables.css (cores, espaçamento, sombras)
+ * - animations.css (para .card--floating)
+ */
+
+/* Card Base */
+.card {
+    background-color: #fff;
+    border: 1px solid var(--neutral-200);
+    border-radius: var(--radius-base);
+    padding: var(--space-4);
+    box-shadow: var(--shadow-base);
+    transition: all var(--duration-300) var(--ease-out);
+    overflow: hidden;
+}
+
+.card:hover {
+    border-color: var(--primary-300);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-4px);
+}
+
+/* Estrutura do Card (BEM) */
+.card__header {
+    margin: calc(var(--space-4) * -1) calc(var(--space-4) * -1) var(--space-4);
+    padding: var(--space-4);
+    background-color: var(--neutral-50);
+    border-bottom: 1px solid var(--neutral-200);
+}
+
+.card__body {
+    padding: 0;
+}
+
+.card__footer {
+    margin: var(--space-4) calc(var(--space-4) * -1) calc(var(--space-4) * -1);
+    padding: var(--space-4);
+    background-color: var(--neutral-50);
+    border-top: 1px solid var(--neutral-200);
+}
+
+/* Tipografia */
+.card__title {
+    font-size: var(--fs-xl);
+    font-weight: var(--fw-bold);
+    margin-bottom: var(--space-2);
+    color: var(--neutral-900);
+    word-break: break-word;
+}
+
+.card__subtitle {
+    font-size: var(--fs-sm);
+    color: var(--neutral-600);
+    margin-bottom: var(--space-3);
+}
+
+.card__text {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    white-space: normal;
+    line-height: 1.6;
+}
+
+.card__icon {
+    font-size: 2.5rem;
+    color: var(--orange-vibrant);
+    margin-bottom: var(--space-2);
+}
+
+/* Variantes de Card */
+.card--elevated {
+    box-shadow: var(--shadow-md);
+}
+
+.card--elevated:hover {
+    box-shadow: var(--shadow-xl);
+}
+
+.card--flat {
+    border: none;
+    box-shadow: none;
+    background-color: var(--neutral-100);
+}
+
+.card--outline {
+    background-color: transparent;
+    border: 2px solid var(--primary-500);
+}
+
+.card--floating {
+    position: absolute;
+    background: var(--white-pure);
+    border-radius: var(--radius-lg);
+    padding: var(--space-4);
+    box-shadow: var(--shadow-xl);
+    text-align: center;
+    animation: float 5s var(--ease-in-out) infinite;
+    z-index: var(--z-base);
+}
+
+.card--floating:hover {
+    animation-play-state: paused;
+    transform: scale(1.05) !important;
+}

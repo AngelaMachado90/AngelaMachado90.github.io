@@ -1,0 +1,202 @@
+/* ============================================================================
+   BASE.CSS - Base Typography, Colors, and Fundamental Elements
+   KoddaHub Color Palette Implementation
+   ============================================================================ */
+
+/* ========== HTML & BODY ========== */
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--fs-base);
+  font-weight: var(--fw-normal);
+  line-height: var(--lh-relaxed);
+  color: var(--black-deep);
+  background-color: var(--white-neutral);
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* ========== TYPOGRAPHY ========== */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-heading);
+  letter-spacing: var(--ls-tight);
+  margin-bottom: var(--space-4);
+  color: var(--black-deep);
+}
+
+h1 {
+  font-size: var(--fs-h1);
+}
+
+h2 {
+  font-size: var(--fs-h2);
+}
+
+h3 {
+  font-size: var(--fs-h3);
+}
+
+h4 {
+  font-size: var(--fs-h4);
+}
+
+h5 {
+  font-size: var(--fs-h5);
+}
+
+h6 {
+  font-size: var(--fs-h6);
+}
+
+p {
+  margin-bottom: var(--space-4);
+  line-height: var(--lh-relaxed);
+  color: var(--gray-dark);
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+small,
+.text-small {
+  font-size: var(--fs-sm);
+  line-height: var(--lh-normal);
+}
+
+.text-xs {
+  font-size: var(--fs-xs);
+}
+
+/* ========== LINKS ========== */
+a {
+  color: var(--blue-electric);
+  text-decoration: underline;
+  transition: color var(--duration-200) var(--ease-out);
+  outline-offset: 2px;
+}
+
+a:hover {
+  color: var(--orange-vibrant);
+  text-decoration: none;
+}
+
+a:focus {
+  outline: 2px solid var(--blue-electric);
+  outline-offset: 2px;
+}
+
+a:active {
+  color: var(--orange-dark);
+}
+
+/* ========== BLOCKQUOTE ========== */
+blockquote {
+  margin: var(--space-4) 0;
+  padding: var(--space-4) var(--space-5);
+  border-left: 4px solid var(--orange-vibrant);
+  background-color: var(--white-neutral);
+  color: var(--gray-dark);
+  font-style: italic;
+  line-height: var(--lh-relaxed);
+}
+
+blockquote p {
+  margin-bottom: 0;
+}
+
+blockquote cite {
+  display: block;
+  margin-top: var(--space-3);
+  font-style: normal;
+  color: var(--gray-circuit);
+  font-size: var(--fs-sm);
+}
+
+/* ========== CODE ========== */
+code,
+pre {
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  color: var(--black-deep);
+  background-color: var(--white-neutral);
+  border-radius: var(--radius-sm);
+  line-height: var(--lh-normal);
+}
+
+/* ========== TABLES ========== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: var(--space-4);
+  font-size: var(--fs-base);
+  background-color: var(--white-pure);
+  border-radius: var(--radius-base);
+  overflow: hidden;
+  box-shadow: var(--shadow-base);
+}
+
+thead {
+  background-color: var(--white-neutral);
+  border-bottom: 2px solid var(--gray-circuit);
+}
+
+th {
+  padding: var(--space-3) var(--space-4);
+  text-align: left;
+  font-weight: var(--fw-semibold);
+  color: var(--black-deep);
+}
+
+td {
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--gray-light);
+  color: var(--gray-dark);
+}
+
+tbody tr:hover {
+  background-color: rgba(245, 124, 0, 0.05);
+}
+
+/* ========== FORMS ========== */
+::placeholder {
+  color: var(--gray-circuit);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--orange-vibrant);
+  box-shadow: 0 0 0 3px rgba(245, 124, 0, 0.1);
+}
+
+select {
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23212121' viewBox='0 0 12 12'%3E%3Cpath d='M10.293 3.293L6 7.586 1.707 3.293A1 1 0 00.293 4.707l5 5a1 1 0 001.414 0l5-5a1 1 0 10-1.414-1.414z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right var(--space-3) center;
+  background-size: 1.2em 1.2em;
+  padding-right: var(--space-8);
+}
+
+/* ========== HORIZONTAL RULE ========== */
+hr {
+  margin: var(--space-6) 0;
+  border: none;
+  border-top: 1px solid var(--gray-circuit);
+  height: 0;
+}

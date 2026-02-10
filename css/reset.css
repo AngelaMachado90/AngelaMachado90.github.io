@@ -1,0 +1,345 @@
+/* ============================================================================
+   RESET.CSS - Global Reset & Normalization
+   ============================================================================ */
+
+/* Box Model */
+html {
+    box-sizing: border-box;
+    -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+/* Viewport Meta Fix */
+html {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+/* Body */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    color: inherit;
+    background-color: transparent;
+    overflow-x: hidden;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    padding: 0;
+    font-weight: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Lists */
+ul,
+ol,
+dl {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+li {
+    margin: 0;
+    padding: 0;
+}
+
+/* Links */
+a {
+    color: inherit;
+    text-decoration: none;
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
+    text-decoration-skip-ink: auto;
+}
+
+/* Images */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border: 0;
+    background-color: transparent;
+}
+
+/* Exceção para logos */
+.logo-image img,
+.navbar-brand img,
+.logo img {
+    height: auto !important;
+    /* Mantém height: auto, mas permite override */
+    max-height: 50px;
+    /* Adiciona limite máximo */
+}
+
+picture {
+    display: block;
+}
+
+svg {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Forms */
+button,
+input,
+optgroup,
+select,
+textarea {
+    margin: 0;
+    padding: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    color: inherit;
+    background-color: transparent;
+    border: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+button {
+    cursor: pointer;
+    overflow: visible;
+    text-transform: none;
+}
+
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+    border-style: none;
+    padding: 0;
+}
+
+button:-moz-focusring,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+    outline: 1px dotted ButtonText;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+    box-sizing: border-box;
+    padding: 0;
+}
+
+input[type="date"],
+input[type="time"],
+input[type="datetime-local"],
+input[type="month"] {
+    -webkit-appearance: listbox;
+}
+
+textarea {
+    overflow: auto;
+    resize: vertical;
+    font-family: monospace;
+}
+
+optgroup {
+    font-weight: bold;
+}
+
+select {
+    text-transform: none;
+}
+
+/* Removed appearance for inputs on iOS */
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none;
+}
+
+/* Fix input font size on iOS */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="search"],
+input[type="url"],
+input[type="number"],
+input[type="tel"],
+textarea,
+select {
+    font-size: 16px;
+}
+
+/* Tables */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    max-width: 100%;
+    width: 100%;
+}
+
+th,
+td {
+    padding: 0;
+    text-align: left;
+    vertical-align: baseline;
+}
+
+/* Details & Summary */
+details {
+    display: block;
+}
+
+summary {
+    display: list-item;
+    cursor: pointer;
+}
+
+/* HR */
+hr {
+    margin: 0;
+    border: 0;
+    border-top: 1px solid currentColor;
+    overflow: visible;
+}
+
+/* Preformatted Text */
+pre {
+    font-family: monospace;
+    overflow: auto;
+}
+
+code,
+kbd,
+samp {
+    font-family: monospace;
+    font-size: 1em;
+}
+
+/* Fieldset */
+fieldset {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    min-width: 0;
+}
+
+legend {
+    display: block;
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+    color: inherit;
+    white-space: normal;
+}
+
+/* Blockquote */
+blockquote {
+    margin: 0;
+}
+
+/* Mark */
+mark {
+    background-color: #ff0;
+    color: #000;
+}
+
+/* Subscript & Superscript */
+sub,
+sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+sub {
+    bottom: -0.25em;
+}
+
+sup {
+    top: -0.5em;
+}
+
+/* Removed elements */
+applet,
+embed,
+iframe,
+object {
+    max-width: 100%;
+    width: 100%;
+}
+
+/* Pointer Events */
+a,
+button,
+input,
+select,
+textarea {
+    touch-action: manipulation;
+}
+
+/* Print Styles */
+@media print {
+
+    *,
+    *::before,
+    *::after {
+        background: transparent !important;
+        color: #000 !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+
+    a[href]::after {
+        content: " (" attr(href) ")";
+    }
+
+    abbr[title]::after {
+        content: " (" attr(title) ")";
+    }
+
+    img {
+        max-width: 100% !important;
+    }
+
+    @page {
+        margin: 0.5cm;
+    }
+
+    h1,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+}

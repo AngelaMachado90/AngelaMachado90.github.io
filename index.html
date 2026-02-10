@@ -1,110 +1,655 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PlugnGo - Data Science & Web Design</title>
+    <meta name="description"
+        content="KoddaHub- Soluções web completas para seu negócio. Desenvolvimento de sites institucionais, e-commerce, sites industriais, sites de serviços e sistemas empresariais.">
+    <meta name="keywords"
+        content="desenvolvimento web, site institucional, e-commerce, site industrial, site de serviços, sistemas empresariais">
+    <meta name="author" content="KoddaHub">
+    <meta name="theme-color" content="#0c8ce0">
+
+    <title>KoddaHub - Soluções Web Completas para seu Negócio</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="assets/logo/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="assets/logo/apple-touch-icon.png">
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/modern.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/utilities.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
-    <div class="page-container">
-        <header>
-            <div class="logo-container">
-                <img src="logo.png" alt="PlugGo Logo" class="logo">
-                <div class="logo-text">
-                    <span class="plug">Plug</span><span class="and">n</span><span class="go">Go</span>
+    <!-- Header/Navbar Moderno -->
+    <header class="navbar-modern">
+        <div class="container-fluid">
+            <div class="navbar-wrapper">
+                <div class="navbar-brand">
+                    <a href="assets/logo/KoddaHub.png" class="logo-image">
+                        <img src="assets/logo/KoddaHub.png" alt="KoddaHub Logo">
+                    </a>
+                    <a href="index.html" class="logo-text">
+                        <span>KoddaHub</span>
+                    </a>
                 </div>
-            </div>
-            <h1 class="main-heading">DESCUBRA O PODER DOS SEUS DADOS</h1>
-            <p class="subheading">Soluções inteligentes em Data Science & Web Design</p>
-        </header>
-             
 
-        <div class="content-container">
-            <div class="launch-message">
-                <p class="coming-soon">Nova Plataforma em Lançamento</p>
-                <p class="launch-text">Estamos preparando uma experiência revolucionária em análise de dados e design digital</p>
-                
-                <div class="countdown-container">
-                    <div class="countdown-box">
-                        <div class="countdown-value" id="days">00</div>
-                        <div class="countdown-label">Dias</div>
-                    </div>
-                    <div class="countdown-box">
-                        <div class="countdown-value" id="hours">00</div>
-                        <div class="countdown-label">Horas</div>
-                    </div>
-                    <div class="countdown-box">
-                        <div class="countdown-value" id="minutes">00</div>
-                        <div class="countdown-label">Minutos</div>
-                    </div>
-                    <div class="countdown-box">
-                        <div class="countdown-value" id="seconds">00</div>
-                        <div class="countdown-label">Segundos</div>
-                    </div>
-                </div>
-            </div>
+                <nav class="navbar-menu" id="navMenu">
+                    <a href="index.html" class="nav-link active">Home</a>
+                    <a href="#solucoes" class="nav-link">Soluções</a>
+                    <a href="#diferenciais" class="nav-link">Diferenciais</a>
+                    <a href="#processos" class="nav-link">Como Funciona</a>
+                    <a href="#contato" class="nav-link cta-nav">Contato</a>
+                </nav>
 
-            <form class="signup-form" id="early-access-form">
-                <h2 class="form-title">Acesso Antecipado</h2>
-                <p class="form-subtitle">Cadastre-se para ser notificado sobre nosso lançamento e receber ofertas exclusivas</p>
-                
-                <div class="form-group">
-                    <input type="text" id="nome" name="nome" required placeholder="Nome completo">
-                    <i class="fas fa-user icon"></i>
-                </div>
-                
-                <div class="form-group">
-                    <input type="email" id="email" name="email" required placeholder="E-mail corporativo">
-                    <i class="fas fa-envelope icon"></i>
-                </div>
-                
-                <div class="form-group">
-                    <input type="tel" id="telefone" name="telefone" placeholder="Telefone (WhatsApp)">
-                    <i class="fas fa-phone icon"></i>
-                </div>
-                
-                <div class="form-group">
-                    <select id="interesse" name="interesse" required>
-                        <option value="" disabled selected>Selecione seu interesse principal</option>
-                        <option value="data-science">Data Science & Analytics</option>
-                        <option value="bi">Business Intelligence</option>
-                        <option value="web-design">Web Design & Desenvolvimento</option>
-                        <option value="data-vis">Visualização de Dados</option>
-                        <option value="consultoria">Consultoria em Dados</option>
-                    </select>
-                    <i class="fas fa-chevron-down icon"></i>
-                </div>
-                
-                <button type="submit" class="subscribe-btn">
-                    <span class="btn-text">Garantir Acesso Antecipado</span>
-                    <i class="fas fa-arrow-right btn-icon"></i>
+                <button class="navbar-toggle" id="navToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </button>
-            </form>
-        </div>
-        <!-- Botão do WhatsApp Flutuante -->
-        <a href="https://wa.me/554192272854" class="whatsapp-float" target="_blank">
-            <i class="fab fa-whatsapp"></i>
-        </a>
-        <footer class="footer">
-            <div class="social-links">
-                <a href="https://www.linkedin.com/company/plugngo-energy/?viewAsMember=true" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
             </div>
-            <p class="copyright">© 2025 PlugnGo Tecnologia. Todos os direitos reservados.</p>
-        </footer>
-    </div>
-        <!-- Seção Sobre (temporária) -->
-    <div id="sobre" class="about-section" style="display: none;">
-        <div class="about-content">
-            <h2>Sobre a Plug&Go</h2>
-            <p>Somos especialistas em Data Science e Web Design, oferecendo soluções inovadoras para transformar dados em insights valiosos e criar experiências digitais excepcionais.</p>
-            <button class="close-about">Voltar</button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-modern">
+        <div class="hero-background">
+            <div class="gradient-blob blob-1"></div>
+            <div class="gradient-blob blob-2"></div>
+            <div class="gradient-blob blob-3"></div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="hero-content">
+                <div class="hero-text animate-slideInUp">
+                    <h1 class="hero-title">Soluções Web Modernas Para Seu Negócio</h1>
+                    <p class="hero-subtitle">Desenvolvemos sites, e-commerce e sistemas que transformam empresas.
+                        Responsive, rápido, seguro e escalável.</p>
+
+                    <div class="hero-cta">
+                        <a href="#solucoes" class="btn-primary-modern">Explorar Soluções</a>
+                        <a href="#contato" class="btn-secondary-modern">Fale Conosco</a>
+                    </div>
+                </div>
+
+                <div class="hero-visual animate-slideInLeft" style="animation-delay: 0.2s;">
+                    <div class="floating-card card-1">
+                        <div class="card-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <h4>Sites Modernos</h4>
+                    </div>
+                    <div class="floating-card card-2">
+                        <div class="card-icon">
+                            <i class="fas fa-shopping-bag"></i>
+                        </div>
+                        <h4>E-commerce</h4>
+                    </div>
+                    <div class="floating-card card-3">
+                        <div class="card-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h4>Sistemas</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Soluções Section -->
+    <section id="solucoes" class="solutions-section">
+        <div class="container-fluid">
+            <div class="section-header">
+                <span class="section-badge">NOSSAS SOLUÇÕES</span>
+                <h2>Soluções Completas Para Cada Negócio</h2>
+                <p>Escolha a solução que melhor se encaixa no seu segmento empresarial</p>
+            </div>
+
+            <div class="solutions-grid">
+                <!-- Card 1 -->
+                <div class="solution-card modern-card">
+                    <div class="card-image">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Site Institucional</h3>
+                        <p>Para ONGs, escolas, clínicas, associações e instituições que precisam de presença
+                            profissional online.</p>
+                        <ul class="features-list">
+                            <li><i class="fas fa-check"></i> Design Responsivo</li>
+                            <li><i class="fas fa-check"></i> SEO Otimizado</li>
+                            <li><i class="fas fa-check"></i> Formulários</li>
+                            <li><i class="fas fa-check"></i> Galeria</li>
+                        </ul>
+                        <div class="card-footer">
+                            <span class="price">R$ 2.500</span>
+                            <a href="pages/demo-institucional.html" class="btn-link">Ver Demo <i
+                                    class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="solution-card modern-card">
+                    <div class="card-image">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>E-commerce</h3>
+                        <p>Lojas virtuais completas com carrinho de compras, pagamento integrado e gestão de produtos.
+                        </p>
+                        <ul class="features-list">
+                            <li><i class="fas fa-check"></i> Carrinho Inteligente</li>
+                            <li><i class="fas fa-check"></i> Múltiplos Pagamentos</li>
+                            <li><i class="fas fa-check"></i> Estoque Automático</li>
+                            <li><i class="fas fa-check"></i> Rastreamento</li>
+                        </ul>
+                        <div class="card-footer">
+                            <span class="price">R$ 4.800</span>
+                            <a href="pages/demo-ecommerce.html" class="btn-link">Ver Demo <i
+                                    class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="solution-card modern-card">
+                    <div class="card-image">
+                        <i class="fas fa-industry"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Site Industrial</h3>
+                        <p>Para fábricas e fornecedores B2B com catálogo de produtos, especificações técnicas e contato.
+                        </p>
+                        <ul class="features-list">
+                            <li><i class="fas fa-check"></i> Catálogo Dinâmico</li>
+                            <li><i class="fas fa-check"></i> Especificações</li>
+                            <li><i class="fas fa-check"></i> Sistema de Cotação</li>
+                            <li><i class="fas fa-check"></i> CMS Integrado</li>
+                        </ul>
+                        <div class="card-footer">
+                            <span class="price">R$ 3.800</span>
+                            <a href="pages/demo-industrial.html" class="btn-link">Ver Demo <i
+                                    class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="solution-card modern-card">
+                    <div class="card-image">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Site de Serviços</h3>
+                        <p>Para consultorias, agências, profissionais liberais com portfólio e agendamento online.</p>
+                        <ul class="features-list">
+                            <li><i class="fas fa-check"></i> Portfólio Dinâmico</li>
+                            <li><i class="fas fa-check"></i> Agendamento Online</li>
+                            <li><i class="fas fa-check"></i> Depoimentos</li>
+                            <li><i class="fas fa-check"></i> Blog Integrado</li>
+                        </ul>
+                        <div class="card-footer">
+                            <span class="price">R$ 2.800</span>
+                            <a href="pages/demo-servicos.html" class="btn-link">Ver Demo <i
+                                    class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="solution-card modern-card">
+                    <div class="card-image">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Sistemas Empresariais</h3>
+                        <p>Soluções de gestão customizadas: CRM, ERP, Controle de Estoque, Financeiro e muito mais.</p>
+                        <ul class="features-list">
+                            <li><i class="fas fa-check"></i> Totalmente Customizável</li>
+                            <li><i class="fas fa-check"></i> Relatórios Avançados</li>
+                            <li><i class="fas fa-check"></i> Segurança de Dados</li>
+                            <li><i class="fas fa-check"></i> Suporte Premium</li>
+                        </ul>
+                        <div class="card-footer">
+                            <span class="price">Orçamento</span>
+                            <a href="pages/demo-sistemas.html" class="btn-link">Ver Demo <i
+                                    class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Diferenciais Section -->
+    <section id="diferenciais" class="diferenciais-section">
+        <div class="container-fluid">
+            <div class="section-header">
+                <span class="section-badge">Por que escolher KoddaHub</span>
+                <h2>Nossos Diferenciais</h2>
+                <p>Oferecemos muito mais que um site - oferecemos uma solução completa</p>
+            </div>
+
+            <div class="diferenciais-grid">
+                <div class="diferencial-item">
+                    <div class="diferencial-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>100% Responsivo</h3>
+                    <p>Funciona perfeitamente em computadores, tablets e smartphones</p>
+                </div>
+
+                <div class="diferencial-item">
+                    <div class="diferencial-icon">
+                        <i class="fas fa-tachometer-alt"></i>
+                    </div>
+                    <h3>Super Rápido</h3>
+                    <p>Otimizado para carregamento rápido e melhor desempenho</p>
+                </div>
+
+                <div class="diferencial-item">
+                    <div class="diferencial-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>SEO Otimizado</h3>
+                    <p>Ranking alto no Google e visibilidade garantida</p>
+                </div>
+
+                <div class="diferencial-item">
+                    <div class="diferencial-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3>Altamente Seguro</h3>
+                    <p>SSL gratuito, proteção contra ataques e backup automático</p>
+                </div>
+
+                <div class="diferencial-item">
+                    <div class="diferencial-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>Suporte 24/7</h3>
+                    <p>Equipe sempre pronta para ajudar quando você precisar</p>
+                </div>
+
+                <div class="diferencial-item">
+                    <div class="diferencial-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Treinamento Grátis</h3>
+                    <p>Capacitamos sua equipe para usar o sistema</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Processos Section -->
+    <section id="processos" class="processos-section">
+        <div class="container-fluid">
+            <div class="section-header">
+                <span class="section-badge">METODOLOGIA</span>
+                <h2>Como Funciona Nosso Processo</h2>
+                <p>Do conceito ao lançamento em poucas semanas</p>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-number">1</div>
+                    <div class="timeline-content">
+                        <h3>Briefing & Análise</h3>
+                        <p>Entendemos suas necessidades, mercado, concorrência e objetivos para criar uma estratégia
+                            perfeita</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-number">2</div>
+                    <div class="timeline-content">
+                        <h3>Design Moderno</h3>
+                        <p>Criamos designs inovadores e funcionais, considerando UX/UI e as melhores práticas</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-number">3</div>
+                    <div class="timeline-content">
+                        <h3>Desenvolvimento</h3>
+                        <p>Codificamos usando tecnologias modernas, responsivas e otimizadas para performance</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-number">4</div>
+                    <div class="timeline-content">
+                        <h3>Testes Completos</h3>
+                        <p>Testes em todos os navegadores e dispositivos para garantir qualidade</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-number">5</div>
+                    <div class="timeline-content">
+                        <h3>Treinamento</h3>
+                        <p>Sua equipe aprende a usar e gerenciar o site de forma completa</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-number">6</div>
+                    <div class="timeline-content">
+                        <h3>Lançamento & Suporte</h3>
+                        <p>Site online, com suporte técnico contínuo e manutenção incluída</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container-fluid">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3 class="stat-number" data-target="250">0</h3>
+                    <p>Projetos Entregues</p>
+                </div>
+                <div class="stat-item">
+                    <h3 class="stat-number" data-target="98">0</h3>
+                    <p>Clientes Satisfeitos %</p>
+                </div>
+                <div class="stat-item">
+                    <h3 class="stat-number" data-target="8">0</h3>
+                    <p>Anos de Experiência</p>
+                </div>
+                <div class="stat-item">
+                    <h3 class="stat-number" data-target="24">0</h3>
+                    <p>Horas Suporte</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato Section -->
+    <section id="contato" class="contato-section">
+        <div class="container-fluid">
+            <div class="contato-wrapper">
+                <div class="contato-form">
+                    <div class="section-header">
+                        <h2>Vamos Conversar?</h2>
+                        <p>Preencha o formulário e entraremos em contato em até 24 horas</p>
+                    </div>
+
+                    <form id="contactForm" class="form-modern">
+                        <div class="form-alerts">
+                            <div id="formSuccess" class="form-success">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Mensagem enviada com sucesso! Entraremos em contato em breve.</span>
+                            </div>
+                            <div id="formError" class="form-error">
+                                <i class="fas fa-exclamation-circle"></i>
+                                <span>Erro ao enviar. Verifique os dados e tente novamente.</span>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="nome">Nome Completo *</label>
+                                <input type="text" id="nome" name="nome" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">E-mail *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="telefone">Telefone</label>
+                                <input type="tel" id="telefone" name="telefone">
+                            </div>
+                            <div class="form-group">
+                                <label for="tipo_interesse">Tipo de Solução *</label>
+                                <select id="tipo_interesse" name="tipo_interesse" required>
+                                    <option value="">Selecione...</option>
+                                    <option value="Site Institucional">Site Institucional</option>
+                                    <option value="E-commerce">E-commerce</option>
+                                    <option value="Site Industrial">Site Industrial</option>
+                                    <option value="Site de Serviços">Site de Serviços</option>
+                                    <option value="Sistema Empresarial">Sistema Empresarial</option>
+                                    <option value="Outro">Outro</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="mensagem">Mensagem *</label>
+                            <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-primary-modern">Enviar Mensagem</button>
+                    </form>
+                </div>
+
+                <div class="contato-info">
+                    <h3>Informações de Contato</h3>
+
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Localização</h4>
+                            <p>São Paulo - SP<br>Atendimento Nacional</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Telefone</h4>
+                            <p><a href="tel:+554192272854">+55(41)9227-2854</a></p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>E-mail</h4>
+                            <p><a href="mailto:angelamachado02022@gmail.com">angelamachado02022@gmail.com</a></p>
+                        </div>
+                    </div>
+
+                    <div class="social-modern">
+                        <h4>Siga-nos</h4>
+                        <div class="social-links">
+                            <a href="https://facebook.com" target="_blank" title="Facebook"><i
+                                    class="fab fa-facebook-f"></i></a>
+                            <a href="https://instagram.com" target="_blank" title="Instagram"><i
+                                    class="fab fa-instagram"></i></a>
+                            <a href="https://linkedin.com" target="_blank" title="LinkedIn"><i
+                                    class="fab fa-linkedin-in"></i></a>
+                            <a href="https://wa.me/554192272854" target="_blank" title="WhatsApp"><i
+                                    class="fab fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-modern">
+        <div class="container-fluid">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>KoddaHub</h3>
+                    <p>Transformando ideias em soluções web que funcionam e crescem com seu negócio.</p>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Soluções</h4>
+                    <ul>
+                        <li><a href="pages/demo-institucional.html">Site Institucional</a></li>
+                        <li><a href="pages/demo-ecommerce.html">E-commerce</a></li>
+                        <li><a href="pages/demo-industrial.html">Site Industrial</a></li>
+                        <li><a href="pages/demo-servicos.html">Site de Serviços</a></li>
+                        <li><a href="pages/demo-sistemas.html">Sistemas</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Links</h4>
+                    <ul>
+                        <li><a href="#solucoes">Soluções</a></li>
+                        <li><a href="#diferenciais">Diferenciais</a></li>
+                        <li><a href="#processos">Processos</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Legais</h4>
+                    <ul>
+                        <li><a href="#">Privacidade</a></li>
+                        <li><a href="#">Termos de Uso</a></li>
+                        <li><a href="#">Cookies</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 KoddaHub. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================================
+         WHATSAPP FLUTUANTE
+         ============================================ -->
+    <a href="https://wa.me/554192272854?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20as%20soluções%20da%20KoddaHub"
+        class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Conversar no WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+        <span class="whatsapp-tooltip">Fale conosco!</span>
+    </a>
+
+    <!-- ============================================
+         CHAT WIDGET KODDA (Mascote)
+         ============================================ -->
+    <div class="chat-widget">
+        <!-- Botão Principal -->
+        <button class="chat-toggle" aria-label="Abrir chat de contato">
+            <i class="fas fa-comment-dots"></i>
+            <span class="chat-notification">3</span>
+        </button>
+
+        <!-- Cabeçalho do Chat -->
+        <div class="chat-header">
+            <div class="chat-avatar kodda-avatar">
+                <div class="kodda-face">
+                    <div class="kodda-eye left"></div>
+                    <div class="kodda-eye right"></div>
+                    <div class="kodda-smile"></div>
+                </div>
+                <div class="kodda-antena"></div>
+            </div>
+
+            <div class="chat-info">
+                <h4>Kodda, seu assistente</h4>
+                <p class="status-online">
+                    <span class="status-dot"></span>
+                    Online • Pronto para ajudar
+                </p>
+            </div>
+
+            <button class="chat-close" aria-label="Fechar chat">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <!-- Mensagens do Chat -->
+        <div class="chat-messages">
+            <!-- Mensagem Automática -->
+            <div class="message bot">
+                <div class="message-avatar">
+                    <div class="kodda-mini-message"></div>
+                </div>
+                <div class="message-content">
+                    <p>Olá! Sou o Kodda, assistente da KoddaHub. Como posso ajudar você hoje?</p>
+                    <span class="message-time">Agora</span>
+                </div>
+            </div>
+
+            <!-- Opções Rápidas -->
+            <div class="quick-options">
+                <button class="quick-option" data-action="orcamento">
+                    <i class="fas fa-file-invoice-dollar"></i>
+                    <span>Pedir Orçamento</span>
+                </button>
+                <button class="quick-option" data-action="duvida">
+                    <i class="fas fa-question-circle"></i>
+                    <span>Tirar Dúvidas</span>
+                </button>
+                <button class="quick-option" data-action="contato">
+                    <i class="fas fa-phone"></i>
+                    <span>Falar com Vendedor</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Área de Ação -->
+        <div class="chat-actions">
+            <p>Escolha como prefere conversar:</p>
+            <div class="action-buttons">
+                <a href="https://wa.me/554192272854?text=Olá!%20Vi%20o%20site%20da%20KoddaHub%20e%20quero%20conversar"
+                    class="action-btn whatsapp-btn" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>WhatsApp</span>
+                </a>
+                <a href="mailto:angelamachado02022@gmail.com?subject=Contato%20KoddaHub&body=Olá!%20Gostaria%20de%20mais%20informações"
+                    class="action-btn email-btn">
+                    <i class="fas fa-envelope"></i>
+                    <span>E-mail</span>
+                </a>
+                <a href="tel:+554192272854" class="action-btn phone-btn">
+                    <i class="fas fa-phone"></i>
+                    <span>Ligar</span>
+                </a>
+            </div>
+
+            <!-- Formulário Rápido -->
+            <div class="quick-form">
+                <p>Ou deixe seu contato:</p>
+                <input type="email" placeholder="Seu melhor e-mail" class="form-input">
+                <button class="form-submit">Me ligue</button>
+            </div>
         </div>
     </div>
-    <script src="script.js"></script>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/form-handler.js"></script>
+    <script src="js/chat-widget.js"></script>
 </body>
+
 </html>

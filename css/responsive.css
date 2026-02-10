@@ -1,0 +1,409 @@
+/* ============================================================================
+   RESPONSIVE.CSS - Media Queries and Responsive Adjustments - ATUALIZADO
+   ============================================================================ */
+
+/* ========== ABORDAGEM MOBILE FIRST ========== */
+/* Mobile pequeno (até 374px) */
+@media (max-width: 374px) {
+  :root {
+    font-size: 14px;
+    /* Reduz tamanho base da fonte */
+  }
+
+  .navbar-modern {
+    padding: 8px 0;
+  }
+
+  .hero-modern {
+    padding: 40px 0;
+    min-height: auto;
+    /* Remover altura fixa */
+  }
+
+  .hero-text h1 {
+    font-size: 1.5rem;
+    line-height: 1.3;
+    padding-left: 1px;
+  }
+
+  .hero-text p {
+    font-size: 0.9rem;
+    padding-left: 1px;
+  }
+
+  .hero-cta {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .hero-cta .btn {
+    width: 100%;
+    text-align: center;
+    padding-left: 1px;
+  }
+
+  .solutions-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .modern-card {
+    margin-bottom: 15px;
+    padding: 20px;
+  }
+
+  /* Garantir que imagens sejam responsivas */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* Mobile (375px - 767px) */
+@media (min-width: 375px) and (max-width: 767px) {
+  .container,
+  .container-fluid {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .navbar-wrapper {
+    gap: 15px;
+  }
+
+  .hero-modern {
+    min-height: auto;
+    padding: 80px 0 60px;
+  }
+
+  .hero-content {
+    gap: 30px;
+  }
+
+  .diferenciais-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  /* Melhorar espaçamento em mobile */
+  .section-modern {
+    padding: 40px 0;
+  }
+
+  .section-title h2 {
+    font-size: 1.8rem;
+  }
+}
+
+/* Tablet (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .navbar-menu {
+    gap: 20px;
+  }
+
+  .hero-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .hero-visual {
+    display: none;
+    /* Manter escondido em tablet */
+  }
+
+  .solutions-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+  }
+
+  .contato-wrapper {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  /* Ajustar cards em tablet */
+  .modern-card {
+    height: auto;
+    min-height: 280px;
+  }
+}
+
+/* Desktop (1024px - 1439px) */
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .container {
+    max-width: 1200px;
+    padding: 0 30px;
+  }
+
+  .hero-modern {
+    min-height: 600px;
+    /* Reduzir um pouco */
+  }
+
+  .solutions-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
+
+  .diferenciais-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Large Desktop (1440px+) */
+@media (min-width: 1440px) {
+  .hero-modern {
+    min-height: 750px;
+    /* Ajustar valor */
+  }
+
+  .solutions-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* ========== NAVBAR RESPONSIVA (MELHORADA) ========== */
+@media (max-width: 768px) {
+  .navbar-toggle {
+    display: flex;
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .navbar-menu {
+    position: fixed;
+    /* Mudar para fixed para melhor experiência */
+    top: 70px;
+    left: 0;
+    right: 0;
+    background: var(--white-pure);
+    flex-direction: column;
+    gap: 0;
+    padding: 0;
+    display: none;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    z-index: var(--z-dropdown);
+    max-height: calc(100vh - 70px);
+    overflow-y: auto;
+  }
+
+  .nav-link {
+    width: 100%;
+    padding: 20px 30px;
+    border-bottom: 1px solid var(--gray-light);
+    text-align: left;
+  }
+
+  .nav-link:last-child {
+    border-bottom: none;
+  }
+
+  .nav-link.cta-nav {
+    background: var(--primary-color);
+    color: white;
+    margin: 20px;
+    border-radius: 8px;
+    text-align: center;
+  }
+}
+
+/* ========== AJUSTES ESPECÍFICOS ========== */
+
+/* Ajustes para landscape mobile */
+@media (max-height: 500px) and (max-width: 768px) {
+  .hero-modern {
+    min-height: auto;
+    padding: 40px 0;
+  }
+}
+
+/* Prevenir zoom em input em iOS */
+@media (max-width: 767px) {
+  input,
+  select,
+  textarea {
+    font-size: 16px;
+    /* Prevenir zoom automático do iOS */
+  }
+}
+
+/* ========== MELHORIAS DE ACESSIBILIDADE ========== */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ========== AJUSTES PARA O MENU MOBILE ========== */
+/* Esta classe pode ser adicionada para esconder o menu */
+.hidden {
+  display: none !important;
+}
+
+/* Cards Flutuantes - Ajustes Responsivos */
+/* ========== RESPONSIVIDADE ========== */
+@media (max-width: 1024px) {
+  .floating-card {
+    width: 130px;
+    padding: 1rem;
+  }
+
+  .card-1 {
+    top: 30px;
+    left: 20px;
+  }
+
+  .card-2 {
+    top: 140px;
+    right: 20px;
+  }
+
+  .card-3 {
+    bottom: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-visual {
+    height: 350px;
+  }
+
+  .floating-card {
+    width: 110px;
+    padding: 0.875rem;
+  }
+
+  .floating-card .card-icon {
+    font-size: 2rem;
+  }
+
+  .floating-card h4 {
+    font-size: 0.875rem;
+  }
+
+  /* Em mobile, cards mais espaçados */
+  .card-1 {
+    top: 40px;
+    left: 10px;
+  }
+
+  .card-2 {
+    top: 160px;
+    right: 10px;
+  }
+
+  .card-3 {
+    bottom: 40px;
+    left: 50%;
+    width: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-visual {
+    height: 300px;
+  }
+
+  .floating-card {
+    width: 100px;
+    padding: 0.75rem;
+  }
+
+  .floating-card .card-icon {
+    font-size: 1.75rem;
+  }
+
+  .floating-card h4 {
+    font-size: 0.75rem;
+  }
+
+  /* Em telas muito pequenas, reduz animação */
+  .floating-card {
+    animation-duration: 8s;
+  }
+
+  /* Desativa animação de entrada em mobile se quiser */
+  .card-1,
+  .card-2,
+  .card-3 {
+    animation: floatWave 8s ease-in-out infinite !important;
+  }
+}
+
+/* ============================================================================
+   RESPONSE FLOATING CARDS MOBILE: Cards em coluna fixa (sem escada)
+   ============================================================================ */
+@media (max-width: 768px) {
+  .floating-card {
+    position: relative !important;
+    /* Remove absolute para mobile */
+    width: 100% !important;
+    max-width: 300px;
+    margin: 0 auto 20px !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    transform: none !important;
+    z-index: 1;
+    animation: none;
+    /* Remove animação de flutuação */
+  }
+
+  /* Container para organizar em coluna */
+  .floating-cards-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 0;
+  }
+
+  /* Animações mais simples para mobile */
+  .floating-card {
+    animation: fadeInUp 0.8s ease-out forwards;
+    opacity: 0;
+  }
+
+  .card-1 {
+    animation-delay: 0.2s;
+  }
+
+  .card-2 {
+    animation-delay: 0.4s;
+  }
+
+  .card-3 {
+    animation-delay: 0.6s;
+  }
+}
+
+/* ============================================================================
+   TABLET: Ajustes menores
+   ============================================================================ */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .floating-card {
+    width: 130px;
+    padding: 1rem;
+  }
+
+  .card-1 {
+    top: 30px;
+    left: 20px;
+  }
+
+  .card-2 {
+    top: 120px;
+    right: 20px;
+  }
+
+  .card-3 {
+    bottom: 30px;
+    left: 50%;
+  }
+}

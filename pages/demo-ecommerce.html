@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Demo: E-commerce - Plataforma de Vendas com Layout Real">
+    <meta name="theme-color" content="#FF6B35">
+    <title>KoddaStore - Loja Online de Eletrônicos</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: #f5f5f5; }
+        
+        .shop-header {
+            background: #1a1a1a;
+            color: white;
+            padding: 12px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        
+        .shop-header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 30px;
+        }
+        
+        .shop-logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #FF6B35;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .shop-search {
+            flex: 1;
+            max-width: 500px;
+            position: relative;
+        }
+        
+        .shop-search input {
+            width: 100%;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            background: white;
+        }
+        
+        .shop-search button {
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #FF6B35;
+            border: none;
+            padding: 8px 12px;
+            color: white;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+        
+        .shop-cart {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 20px;
+        }
+        
+        .cart-badge {
+            background: #FF6B35;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 50%;
+            font-size: 12px;
+            font-weight: 700;
+            position: relative;
+            top: -8px;
+        }
+        
+        .shop-cart a { color: white; text-decoration: none; cursor: pointer; }
+        
+        .promo-bar {
+            background: linear-gradient(90deg, #FF6B35 0%, #F7931E 100%);
+            color: white;
+            padding: 12px 0;
+            text-align: center;
+            font-weight: 600;
+            animation: slideDown 0.5s ease;
+        }
+        
+        @keyframes slideDown { from { transform: translateY(-20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        
+        .hero-shop {
+            background: linear-gradient(135deg, #FF6B35 0%, #F7931E 100%);
+            padding: 60px 20px;
+            text-align: center;
+            color: white;
+        }
+        
+        .hero-shop h1 { font-size: 48px; margin-bottom: 15px; font-weight: 700; }
+        .hero-shop p { font-size: 20px; margin-bottom: 30px; opacity: 0.95; }
+        
+        .hero-shop-cta {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn-shop {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn-shop-primary { background: white; color: #FF6B35; }
+        .btn-shop-primary:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+        
+        .btn-shop-secondary { background: rgba(255,255,255,0.2); color: white; border: 2px solid white; }
+        .btn-shop-secondary:hover { background: white; color: #FF6B35; }
+        
+        .products-section { margin: 60px auto; padding: 0 20px; }
+        
+        .section-title {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .filter-bar {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            padding: 8px 16px;
+            border: 2px solid #ddd;
+            background: white;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .filter-btn.active { border-color: #FF6B35; background: #FF6B35; color: white; }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 60px;
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        
+        .product-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #FF6B35, #F7931E);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .product-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #FF0000;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+        
+        .product-info { padding: 15px; }
+        
+        .product-name { font-weight: 600; margin-bottom: 8px; font-size: 16px; }
+        
+        .product-rating { color: #FFD700; font-size: 14px; margin-bottom: 10px; }
+        
+        .product-price {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 12px;
+            align-items: center;
+        }
+        
+        .price-current { font-size: 22px; font-weight: 700; color: #FF6B35; }
+        .price-original { font-size: 16px; color: #999; text-decoration: line-through; }
+        
+        .product-footer { display: flex; gap: 8px; }
+        
+        .btn-add-cart {
+            flex: 1;
+            padding: 10px;
+            background: #FF6B35;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        
+        .btn-add-cart:hover { background: #F7931E; }
+        
+        .btn-wishlist {
+            padding: 10px 12px;
+            background: #f0f0f0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            color: #FF6B35;
+            font-size: 18px;
+        }
+        
+        .features-ecom { background: white; padding: 60px 20px; }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background: #f9f9f9;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .feature-icon { font-size: 48px; color: #FF6B35; margin-bottom: 15px; }
+        .feature-card h3 { margin-bottom: 10px; font-size: 20px; }
+        
+        .cta-section {
+            background: linear-gradient(135deg, #FF6B35 0%, #F7931E 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        
+        .cta-section h2 { font-size: 36px; margin-bottom: 20px; }
+        .cta-section p { font-size: 18px; margin-bottom: 30px; opacity: 0.95; }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn-cta {
+            padding: 14px 35px;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 16px;
+        }
+        
+        .btn-cta-white { background: white; color: #FF6B35; }
+        .btn-cta-white:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+        
+        .btn-cta-outline { background: transparent; color: white; border: 2px solid white; }
+        .btn-cta-outline:hover { background: white; color: #FF6B35; }
+        
+        .ecom-footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 40px 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column h4 { margin-bottom: 15px; color: #FF6B35; }
+        .footer-column ul { list-style: none; }
+        .footer-column ul li { margin-bottom: 8px; }
+        .footer-column a { color: #ccc; text-decoration: none; transition: 0.3s; }
+        .footer-column a:hover { color: #FF6B35; }
+        
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 20px;
+            text-align: center;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+    <div class="shop-header">
+        <div class="shop-header-content">
+            <div class="shop-logo">
+                <i class="fas fa-shopping-bag"></i>
+                TechStore
+            </div>
+            <div class="shop-search">
+                <input type="text" placeholder="Buscar produtos...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            <div class="shop-cart">
+                <a href="#"><i class="fas fa-heart"></i></a>
+                <a href="#">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-badge">3</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="promo-bar">
+        ⚡ FRETE GRÁTIS ACIMA DE R$ 100 + 30% OFF NA INSCRIÇÃO ANUAL
+    </div>
+
+    <section class="hero-shop">
+        <h1>🛍️ Bem-vindo à TechStore</h1>
+        <p>Produtos de tecnologia de alta qualidade com as melhores marcas</p>
+        <div class="hero-shop-cta">
+            <button class="btn-shop btn-shop-primary">🛒 Começar Compras</button>
+            <button class="btn-shop btn-shop-secondary">📞 Fale Conosco</button>
+        </div>
+    </section>
+
+    <section class="products-section">
+        <div class="container">
+            <div class="section-title">
+                <span>Produtos em Destaque</span>
+                <span style="font-size: 16px; font-weight: normal; color: #999;">150 produtos</span>
+            </div>
+
+            <div class="filter-bar">
+                <button class="filter-btn active">Todos</button>
+                <button class="filter-btn">Computadores</button>
+                <button class="filter-btn">Periféricos</button>
+                <button class="filter-btn">Smartphones</button>
+                <button class="filter-btn">Acessórios</button>
+            </div>
+
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <i class="fas fa-laptop"></i>
+                        <span class="product-badge">-30%</span>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">Notebook Gamer Pro</div>
+                        <div class="product-rating">★★★★★ (245)</div>
+                        <div class="product-price">
+                            <span class="price-current">R$ 3.499</span>
+                            <span class="price-original">R$ 4.999</span>
+                        </div>
+                        <div class="product-footer">
+                            <button class="btn-add-cart">Adicionar</button>
+                            <button class="btn-wishlist">❤️</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <i class="fas fa-keyboard"></i>
+                        <span class="product-badge">-15%</span>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">Teclado Mecânico RGB</div>
+                        <div class="product-rating">★★★★☆ (189)</div>
+                        <div class="product-price">
+                            <span class="price-current">R$ 449</span>
+                            <span class="price-original">R$ 529</span>
+                        </div>
+                        <div class="product-footer">
+                            <button class="btn-add-cart">Adicionar</button>
+                            <button class="btn-wishlist">♡</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <i class="fas fa-mouse"></i>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">Mouse Wireless</div>
+                        <div class="product-rating">★★★★★ (312)</div>
+                        <div class="product-price">
+                            <span class="price-current">R$ 89</span>
+                            <span class="price-original">R$ 129</span>
+                        </div>
+                        <div class="product-footer">
+                            <button class="btn-add-cart">Adicionar</button>
+                            <button class="btn-wishlist">♡</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <i class="fas fa-mobile"></i>
+                        <span class="product-badge">NOVO</span>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">Smartphone 5G</div>
+                        <div class="product-rating">★★★★★ (156)</div>
+                        <div class="product-price">
+                            <span class="price-current">R$ 1.999</span>
+                            <span class="price-original">R$ 2.499</span>
+                        </div>
+                        <div class="product-footer">
+                            <button class="btn-add-cart">Adicionar</button>
+                            <button class="btn-wishlist">♡</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <i class="fas fa-headphones"></i>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">Fone Bluetooth Premium</div>
+                        <div class="product-rating">★★★★☆ (98)</div>
+                        <div class="product-price">
+                            <span class="price-current">R$ 399</span>
+                            <span class="price-original">R$ 599</span>
+                        </div>
+                        <div class="product-footer">
+                            <button class="btn-add-cart">Adicionar</button>
+                            <button class="btn-wishlist">♡</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <i class="fas fa-monitor"></i>
+                        <span class="product-badge">-25%</span>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">Monitor 4K 27"</div>
+                        <div class="product-rating">★★★★★ (267)</div>
+                        <div class="product-price">
+                            <span class="price-current">R$ 1.199</span>
+                            <span class="price-original">R$ 1.599</span>
+                        </div>
+                        <div class="product-footer">
+                            <button class="btn-add-cart">Adicionar</button>
+                            <button class="btn-wishlist">♡</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features-ecom">
+        <div class="container">
+            <div class="section-title" style="margin-bottom: 40px;">Por que escolher a TechStore?</div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🚚</div>
+                    <h3>Frete Rápido</h3>
+                    <p>Entrega em até 2 dias úteis</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💳</div>
+                    <h3>Múltiplos Pagamentos</h3>
+                    <p>Crédito, débito, boleto e 12x</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Segurança Garantida</h3>
+                    <p>Compra protegida com SSL</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">↩️</div>
+                    <h3>Devolução Fácil</h3>
+                    <p>30 dias para devolver</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">👥</div>
+                    <h3>Suporte 24/7</h3>
+                    <p>Chat, whatsapp e email</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⭐</div>
+                    <h3>Clientes Satisfeitos</h3>
+                    <p>4.9 estrelas em 10k avaliações</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <h2>Pronto para começar suas compras?</h2>
+        <p>Junte-se a milhares de clientes satisfeitos</p>
+        <div class="cta-buttons">
+            <button class="btn-cta btn-cta-white">🛒 Explorar Loja Completa</button>
+            <button class="btn-cta btn-cta-outline">💬 Fale com a Gente</button>
+        </div>
+    </section>
+
+    <footer class="ecom-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h4>Categorias</h4>
+                    <ul>
+                        <li><a href="#">Computadores</a></li>
+                        <li><a href="#">Smartphones</a></li>
+                        <li><a href="#">Periféricos</a></li>
+                        <li><a href="#">Acessórios</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Atendimento</h4>
+                    <ul>
+                        <li><a href="#">Fale Conosco</a></li>
+                        <li><a href="#">Rastrear Pedido</a></li>
+                        <li><a href="#">Devoluções</a></li>
+                        <li><a href="#">Garantia</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Empresa</h4>
+                    <ul>
+                        <li><a href="#">Sobre Nós</a></li>
+                        <li><a href="#">Privacidade</a></li>
+                        <li><a href="#">Termos de Uso</a></li>
+                        <li><a href="#">Trabalhe Conosco</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Redes Sociais</h4>
+                    <ul>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">YouTube</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 TechStore. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

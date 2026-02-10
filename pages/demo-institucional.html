@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Demo: Institucional - Instituição de Ensino">
+    <meta name="theme-color" content="#3498DB">
+    <title>UniKodda - Faculdade de Excelência</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f8f9fa;
+        }
+
+        .uni-header {
+            background: white;
+            padding: 15px 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .uni-header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .uni-logo {
+            font-size: 22px;
+            font-weight: 700;
+            color: #3498DB;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .uni-nav {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .uni-nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .uni-nav a:hover {
+            color: #3498DB;
+        }
+
+        .uni-auth {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-uni {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn-uni-secondary {
+            background: white;
+            color: #3498DB;
+            border: 2px solid #3498DB;
+        }
+
+        .btn-uni-secondary:hover {
+            background: #3498DB;
+            color: white;
+        }
+
+        .btn-uni-primary {
+            background: #3498DB;
+            color: white;
+        }
+
+        .btn-uni-primary:hover {
+            background: #2980B9;
+        }
+
+        .campus-hero {
+            background: linear-gradient(135deg, #3498DB 0%, #2980B9 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .campus-hero h1 {
+            font-size: 48px;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .campus-hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .stats-bar {
+            background: white;
+            padding: 40px 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+            margin: -40px 20px 0;
+            position: relative;
+            z-index: 10;
+        }
+
+        .stat-item h3 {
+            font-size: 32px;
+            color: #3498DB;
+            font-weight: 700;
+        }
+
+        .stat-item p {
+            color: #666;
+            margin-top: 8px;
+        }
+
+        .courses-section {
+            padding: 60px 20px;
+        }
+
+        .section-title {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 50px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 60px;
+            height: 4px;
+            background: #3498DB;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .course-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s;
+        }
+
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(52, 152, 219, 0.15);
+        }
+
+        .course-header {
+            background: linear-gradient(135deg, #3498DB, #2980B9);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .course-icon {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        .course-name {
+            font-size: 22px;
+            font-weight: 700;
+        }
+
+        .course-type {
+            font-size: 14px;
+            opacity: 0.9;
+            margin-top: 5px;
+        }
+
+        .course-info {
+            padding: 20px;
+        }
+
+        .course-desc {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .course-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 15px;
+            font-size: 13px;
+        }
+
+        .detail-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .detail-item i {
+            color: #3498DB;
+        }
+
+        .course-cta {
+            margin-top: 15px;
+        }
+
+        .btn-course {
+            width: 100%;
+            padding: 10px;
+            background: #3498DB;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn-course:hover {
+            background: #2980B9;
+        }
+
+        .testimonials-section {
+            background: linear-gradient(135deg, #3498DB 0%, #2980B9 100%);
+            padding: 60px 20px;
+            color: white;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 8px;
+            border-left: 4px solid white;
+        }
+
+        .testimonial-text {
+            margin-bottom: 20px;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+        }
+
+        .testimonial-role {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .testimonial-rating {
+            color: #FFD700;
+            margin-top: 10px;
+        }
+
+        .admissions-section {
+            padding: 60px 20px;
+        }
+
+        .admissions-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .admissions-text h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .admissions-text p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .admissions-form {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 12px;
+            background: #3498DB;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-submit:hover {
+            background: #2980B9;
+        }
+
+        .calendar-section {
+            padding: 60px 20px;
+            background: white;
+        }
+
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 150px 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+            position: relative;
+            padding-left: 0;
+        }
+
+        .timeline-date {
+            font-weight: 700;
+            color: #3498DB;
+            font-size: 18px;
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 20px;
+            border-left: 4px solid #3498DB;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .timeline-content h3 {
+            margin-bottom: 5px;
+        }
+
+        .timeline-content p {
+            color: #666;
+        }
+
+        .uni-footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 40px 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-column h4 {
+            margin-bottom: 15px;
+            color: #3498DB;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-column a {
+            color: #ccc;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .footer-column a:hover {
+            color: #3498DB;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 20px;
+            text-align: center;
+            color: #999;
+        }
+
+        @media (max-width: 768px) {
+            .admissions-content {
+                grid-template-columns: 1fr;
+            }
+
+            .uni-nav {
+                flex-direction: column;
+                gap: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="uni-header">
+        <div class="container">
+            <div class="uni-header-content">
+                <div class="uni-logo">
+                    <i class="fas fa-graduation-cap"></i>
+                    UniKodda
+                </div>
+                <nav>
+                    <ul class="uni-nav">
+                        <li><a href="index.html">Voltar</a></li>
+                        <li><a href="#cursos">Cursos</a></li>
+                        <li><a href="#admissao">Admissão</a></li>
+                        <li><a href="#calendario">Calendário</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                    </ul>
+                </nav>
+                <div class="uni-auth">
+                    <button class="btn-uni btn-uni-secondary">Portal</button>
+                    <button class="btn-uni btn-uni-primary">Inscreva-se</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="campus-hero">
+        <h1>Bem-vindo à UniKodda</h1>
+        <p>Educação de Qualidade para um Futuro Brilhante</p>
+        <div class="hero-cta">
+            <button class="btn-uni btn-uni-primary">Explorar Cursos</button>
+            <button class="btn-uni btn-uni-secondary">Saiba Mais</button>
+        </div>
+    </section>
+
+    <section class="stats-bar">
+        <div class="container" style="grid-column: 1/-1;">
+            <div
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; text-align: center;">
+                <div class="stat-item">
+                    <h3>15+</h3>
+                    <p>Anos de Excelência</p>
+                </div>
+                <div class="stat-item">
+                    <h3>8.500+</h3>
+                    <p>Estudantes Ativos</p>
+                </div>
+                <div class="stat-item">
+                    <h3>150+</h3>
+                    <p>Professores Mestres</p>
+                </div>
+                <div class="stat-item">
+                    <h3>95%</h3>
+                    <p>Taxa de Empregabilidade</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="courses-section" id="cursos">
+        <div class="container">
+            <h2 class="section-title">📚 Programas Acadêmicos</h2>
+            <div class="courses-grid">
+                <div class="course-card">
+                    <div class="course-header">
+                        <div class="course-icon">💻</div>
+                        <div class="course-name">Engenharia de Software</div>
+                        <div class="course-type">Bacharelado - 4 anos</div>
+                    </div>
+                    <div class="course-info">
+                        <p class="course-desc">Forme-se como especialista em desenvolvimento de software com as mais
+                            modernas tecnologias do mercado.</p>
+                        <div class="course-details">
+                            <div class="detail-item">
+                                <i class="fas fa-clock"></i>
+                                <span>40h/semana</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-users"></i>
+                                <span>35 alunos/turma</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-star"></i>
+                                <span>★★★★★</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-dollar-sign"></i>
+                                <span>R$ 1.500/mês</span>
+                            </div>
+                        </div>
+                        <div class="course-cta">
+                            <button class="btn-course">Saber Mais</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="course-card">
+                    <div class="course-header">
+                        <div class="course-icon">📊</div>
+                        <div class="course-name">Administração de Empresas</div>
+                        <div class="course-type">Bacharelado - 4 anos</div>
+                    </div>
+                    <div class="course-info">
+                        <p class="course-desc">Prepare-se para liderar empresas com disciplinas práticas e teóricas que
+                            cobrem gestão completa.</p>
+                        <div class="course-details">
+                            <div class="detail-item">
+                                <i class="fas fa-clock"></i>
+                                <span>40h/semana</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-users"></i>
+                                <span>40 alunos/turma</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-star"></i>
+                                <span>★★★★☆</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-dollar-sign"></i>
+                                <span>R$ 1.200/mês</span>
+                            </div>
+                        </div>
+                        <div class="course-cta">
+                            <button class="btn-course">Saber Mais</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="course-card">
+                    <div class="course-header">
+                        <div class="course-icon">🏥</div>
+                        <div class="course-name">Enfermagem</div>
+                        <div class="course-type">Bacharelado - 4 anos</div>
+                    </div>
+                    <div class="course-info">
+                        <p class="course-desc">Dedique-se à área da saúde com formação prática em hospitais parceiros e
+                            laboratórios modernos.</p>
+                        <div class="course-details">
+                            <div class="detail-item">
+                                <i class="fas fa-clock"></i>
+                                <span>44h/semana</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-users"></i>
+                                <span>25 alunos/turma</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-star"></i>
+                                <span>★★★★★</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-dollar-sign"></i>
+                                <span>R$ 1.800/mês</span>
+                            </div>
+                        </div>
+                        <div class="course-cta">
+                            <button class="btn-course">Saber Mais</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="course-card">
+                    <div class="course-header">
+                        <div class="course-icon">⚖️</div>
+                        <div class="course-name">Direito</div>
+                        <div class="course-type">Bacharelado - 5 anos</div>
+                    </div>
+                    <div class="course-info">
+                        <p class="course-desc">Estude direto civil, penal, comercial e trabalhista com professores
+                            experientes e atuantes.</p>
+                        <div class="course-details">
+                            <div class="detail-item">
+                                <i class="fas fa-clock"></i>
+                                <span>40h/semana</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-users"></i>
+                                <span>45 alunos/turma</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-star"></i>
+                                <span>★★★★☆</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-dollar-sign"></i>
+                                <span>R$ 1.100/mês</span>
+                            </div>
+                        </div>
+                        <div class="course-cta">
+                            <button class="btn-course">Saber Mais</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="course-card">
+                    <div class="course-header">
+                        <div class="course-icon">🎨</div>
+                        <div class="course-name">Design Gráfico</div>
+                        <div class="course-type">Bacharelado - 3 anos</div>
+                    </div>
+                    <div class="course-info">
+                        <p class="course-desc">Desenvolva habilidades criativas em design, com software profissional e
+                            projetos reais de clientes.</p>
+                        <div class="course-details">
+                            <div class="detail-item">
+                                <i class="fas fa-clock"></i>
+                                <span>35h/semana</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-users"></i>
+                                <span>20 alunos/turma</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-star"></i>
+                                <span>★★★★★</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-dollar-sign"></i>
+                                <span>R$ 950/mês</span>
+                            </div>
+                        </div>
+                        <div class="course-cta">
+                            <button class="btn-course">Saber Mais</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="course-card">
+                    <div class="course-header">
+                        <div class="course-icon">🌍</div>
+                        <div class="course-name">Relações Internacionais</div>
+                        <div class="course-type">Bacharelado - 4 anos</div>
+                    </div>
+                    <div class="course-info">
+                        <p class="course-desc">Explore políticas internacionais, comércio exterior e diplomacia com
+                            perspectiva global.</p>
+                        <div class="course-details">
+                            <div class="detail-item">
+                                <i class="fas fa-clock"></i>
+                                <span>40h/semana</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-users"></i>
+                                <span>30 alunos/turma</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-star"></i>
+                                <span>★★★★☆</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-dollar-sign"></i>
+                                <span>R$ 1.300/mês</span>
+                            </div>
+                        </div>
+                        <div class="course-cta">
+                            <button class="btn-course">Saber Mais</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials-section">
+        <div class="container">
+            <h2 class="section-title">💬 Depoimentos de Alunos</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">"UniKodda transformou minha carreira! Os professores são excelentes e
+                        os projetos práticos me prepararam muito para o mercado de trabalho."</div>
+                    <div class="testimonial-author">João Silva</div>
+                    <div class="testimonial-role">Engenharia de Software - Turma 2022</div>
+                    <div class="testimonial-rating">★★★★★</div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-text">"A estrutura da universidade é impecável. Tenho acesso a laboratórios
+                        modernos e uma biblioteca completa que facilita muito meus estudos."</div>
+                    <div class="testimonial-author">Maria Santos</div>
+                    <div class="testimonial-role">Enfermagem - Turma 2023</div>
+                    <div class="testimonial-rating">★★★★★</div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-text">"Os professores têm experiência real no mercado. Aprendemos não apenas
+                        teoria, mas também como aplicar na prática profissional do dia a dia."</div>
+                    <div class="testimonial-author">Pedro Costa</div>
+                    <div class="testimonial-role">Administração - Turma 2021</div>
+                    <div class="testimonial-rating">★★★★☆</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="admissions-section" id="admissao">
+        <div class="container">
+            <h2 class="section-title">📝 Processo de Admissão</h2>
+            <div class="admissions-content">
+                <div class="admissions-text">
+                    <h2>Junte-se a Nós</h2>
+                    <p>O processo de admissão da UniKodda é simplificado e transparente. Acreditamos em dar oportunidades
+                        para alunos talentosos de todas as origens.</p>
+                    <p>✓ Prova de Conhecimentos<br>✓ Análise de Histórico<br>✓ Entrevista com Orientador<br>✓ Resultado
+                        em 7 dias</p>
+                    <button class="btn-uni btn-uni-primary" style="margin-top: 20px;">Baixar Edital Completo</button>
+                </div>
+                <div class="admissions-form">
+                    <h3>Pré-Inscrição Rápida</h3>
+                    <form style="margin-top: 20px;">
+                        <div class="form-group">
+                            <label>Nome Completo</label>
+                            <input type="text" placeholder="Seu nome">
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" placeholder="seu@email.com">
+                        </div>
+                        <div class="form-group">
+                            <label>Curso Desejado</label>
+                            <select>
+                                <option>Selecione um curso</option>
+                                <option>Engenharia de Software</option>
+                                <option>Administração</option>
+                                <option>Enfermagem</option>
+                                <option>Direito</option>
+                                <option>Design Gráfico</option>
+                                <option>Relações Internacionais</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Telefone</label>
+                            <input type="tel" placeholder="(11) 9xxxx-xxxx">
+                        </div>
+                        <button type="submit" class="btn-submit">Enviar Pré-Inscrição</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="calendar-section" id="calendario">
+        <div class="container">
+            <h2 class="section-title">📅 Calendário Acadêmico 2024</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">10 de Janeiro</div>
+                    <div class="timeline-content">
+                        <h3>Período de Inscrição</h3>
+                        <p>Abertura das inscrições para alunos ingressantes e transferências</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">25 de Janeiro</div>
+                    <div class="timeline-content">
+                        <h3>Provas de Admissão</h3>
+                        <p>Aplicação das provas para seleção de novos alunos</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">02 de Fevereiro</div>
+                    <div class="timeline-content">
+                        <h3>Resultados Publicados</h3>
+                        <p>Divulgação dos aprovados no processo seletivo</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">10 de Fevereiro</div>
+                    <div class="timeline-content">
+                        <h3>Início do Semestre</h3>
+                        <p>Começam as aulas do 1º semestre letivo 2024/1</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">15 de Julho</div>
+                    <div class="timeline-content">
+                        <h3>Recesso Universitário</h3>
+                        <p>Período de férias e atividades complementares</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">01 de Agosto</div>
+                    <div class="timeline-content">
+                        <h3>Início do 2º Semestre</h3>
+                        <p>Retorno das aulas para o 2º semestre letivo</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="uni-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h4>Acadêmico</h4>
+                    <ul>
+                        <li><a href="#">Cursos</a></li>
+                        <li><a href="#">Professores</a></li>
+                        <li><a href="#">Biblioteca</a></li>
+                        <li><a href="#">Pesquisa</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Admissão</h4>
+                    <ul>
+                        <li><a href="#">Processo Seletivo</a></li>
+                        <li><a href="#">Financiamento</a></li>
+                        <li><a href="#">Bolsas</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Campus</h4>
+                    <ul>
+                        <li><a href="#">Localização</a></li>
+                        <li><a href="#">Instalações</a></li>
+                        <li><a href="#">Eventos</a></li>
+                        <li><a href="#">Notícias</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Contato</h4>
+                    <ul>
+                        <li><a href="#">Central de Atendimento</a></li>
+                        <li><a href="#">Email</a></li>
+                        <li><a href="#">WhatsApp</a></li>
+                        <li><a href="#">Redes Sociais</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 KoddaVale - Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
