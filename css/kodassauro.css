@@ -101,9 +101,11 @@
 }
 
 .kodassauro-panel {
-  position: absolute;
-  right: 0;
-  bottom: 78px;
+  /* Use fixed positioning so the panel is not affected by ancestor transforms
+     or positioning. Keep offsets aligned with the toggle's fixed position. */
+  position: fixed;
+  right: 22px;
+  bottom: 110px;
   width: min(420px, calc(100vw - 44px));
   max-height: min(640px, calc(100vh - 120px));
   background: var(--white-pure);
