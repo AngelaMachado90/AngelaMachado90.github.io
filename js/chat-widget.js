@@ -1013,7 +1013,7 @@ function logChat(message, type = "info") {
 
   if (!window.DEBUG) return;
   const timestamp = new Date().toLocaleTimeString();
-  console.log(`%c[Chat ${timestamp}] ${message}`, styles[type]);
+  //console.log(`%c[Chat ${timestamp}] ${message}`, styles[type]);
 }
 
 /**
