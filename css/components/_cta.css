@@ -1,0 +1,26 @@
+/* CTA component - base layout for call-to-action sections and CTA buttons */
+.cta-section {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.cta-buttons {
+  display: inline-flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-base);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  user-select: none;
+}
+
+/* Visual variants (color/background) live in demo-specific styles when needed */

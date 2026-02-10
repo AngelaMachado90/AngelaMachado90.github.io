@@ -1,23 +1,4 @@
-.cta-section {
-  padding: 60px 20px;
-  text-align: center;
-}
-
-.btn-cta-white {
-  background: white;
-}
-.btn-cta-white:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-}
-
-.btn-cta-outline {
-  background: transparent;
-  border: 2px solid currentColor;
-}
-.btn-cta-outline:hover {
-  background: white;
-}
+/* CTA base moved to css/components/_cta.css. Demo-specific CTA variants remain in demo files. */
 /* Shared demo styles: common resets, layout utilities, CTAs and footer basics */
 
 /* Reset removed from here — global reset is maintained in css/reset.css */

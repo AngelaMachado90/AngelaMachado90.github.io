@@ -339,7 +339,7 @@ h2.section-title {
   font-size: 14px;
 }
 
-.cta-section {
+section.cta-section {
   background: linear-gradient(
     135deg,
     var(--orange-vibrant) 0%,
@@ -347,15 +347,14 @@ h2.section-title {
   );
   color: white;
 }
-}
 
 /* CTA wrapper and base button provided by components/_buttons.css */
 
-.btn-cta-white {
+.cta-section .btn-cta-white {
   color: var(--orange-vibrant);
 }
 
-.btn-cta-outline {
+section.cta-section .btn-cta-outline {
   color: white;
   border-color: white;
 }

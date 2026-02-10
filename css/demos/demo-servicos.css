@@ -341,7 +341,10 @@ h2.section-title {
   color: #666;
 }
 
-.cta-section {
+.section-cta {
+}
+
+section.cta-section {
   background: linear-gradient(
     135deg,
     var(--blue-electric) 0%,
@@ -352,11 +355,11 @@ h2.section-title {
 
 /* CTA wrapper and base button provided by components/_buttons.css */
 
-.btn-cta-white {
+section.cta-section .btn-cta-white {
   color: var(--blue-electric);
 }
 
-.btn-cta-outline {
+section.cta-section .btn-cta-outline {
   color: white;
   border-color: white;
 }

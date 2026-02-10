@@ -344,6 +344,10 @@ div.section-title {
 }
 
 .cta-section {
+  /* demo-specific visuals kept, selector qualified to avoid global `.cta-section` duplicates */
+}
+
+section.cta-section {
   background: linear-gradient(
     135deg,
     var(--orange-vibrant) 0%,
@@ -364,19 +368,19 @@ div.section-title {
 
 /* CTA wrapper and base button provided by components/_buttons.css */
 
-.btn-cta-white {
+.cta-section .btn-cta-white {
   color: var(--orange-vibrant);
 }
-.btn-cta-white:hover {
+.cta-section .btn-cta-white:hover {
   transform: translateY(-3px);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-.btn-cta-outline {
+section.cta-section .btn-cta-outline {
   color: white;
   border-color: white;
 }
-.btn-cta-outline:hover {
+section.cta-section .btn-cta-outline:hover {
   background: white;
   color: var(--orange-vibrant);
 }
