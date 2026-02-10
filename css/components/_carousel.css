@@ -1,0 +1,73 @@
+/* _carousel.css - Regras consolidadas do carrossel de soluções */
+/* Versão limpa: contém apenas regras específicas usadas pelo componente .solutions-carousel */
+.solutions-carousel {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+}
+.sc-viewport {
+  overflow: hidden;
+  flex: 1 1 0;
+}
+.sc-track {
+  display: flex;
+  transition: transform 0.45s cubic-bezier(0.2, 0.9, 0.2, 1);
+  will-change: transform;
+}
+.sc-slide {
+  flex: 0 0 100%;
+  padding: 6px;
+  box-sizing: border-box;
+}
+.sc-nav {
+  background: transparent;
+  border: none;
+  font-size: 28px;
+  color: var(--accent, #00d4ff);
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+.sc-dots {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+}
+.sc-dots button {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.12);
+  cursor: pointer;
+}
+.sc-dots button.active {
+  background: var(--accent, #00d4ff);
+}
+
+/* Small screens: show full-width slides */
+@media (max-width: 720px) {
+  .sc-nav {
+    display: none;
+  }
+  .sc-slide {
+    padding: 10px 4px;
+  }
+}
+
+/* Larger screens: slightly show peek */
+@media (min-width: 921px) {
+  .sc-slide {
+    flex: 0 0 70%;
+  }
+  .sc-viewport {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+}

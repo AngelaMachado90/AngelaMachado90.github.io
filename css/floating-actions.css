@@ -61,16 +61,6 @@
   transform: translateX(0);
 }
 
-@keyframes pulse-whatsapp {
-  0%,
-  100% {
-    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
-  }
-
-  50% {
-    box-shadow: 0 4px 25px rgba(37, 211, 102, 0.5);
-  }
-}
 
 @media (max-width: 768px) {
   .whatsapp-float {

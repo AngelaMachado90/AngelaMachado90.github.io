@@ -69,6 +69,47 @@
   }
 }
 
+/* Small callout shown near the toggle when assistant attention triggers */
+.kodassauro-callout {
+  position: absolute;
+  right: 0;
+  bottom: 94px; /* sits above the toggle */
+  transform-origin: 100% 100%;
+  background: linear-gradient(
+    135deg,
+    var(--blue-electric),
+    var(--orange-vibrant)
+  );
+  color: white;
+  padding: 10px 14px;
+  border-radius: 12px;
+  box-shadow: var(--shadow-2xl);
+  font-weight: var(--fw-semibold);
+  font-size: 0.95rem;
+  opacity: 0;
+  pointer-events: none;
+  z-index: calc(var(--z-modal) + 1);
+  white-space: nowrap;
+  transform: translateY(6px) scale(0.96);
+  transition:
+    transform 260ms var(--ease-out),
+    opacity 260ms var(--ease-out);
+}
+
+.kodassauro-callout.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+@media (max-width: 480px) {
+  .kodassauro-callout {
+    right: 6px;
+    bottom: 80px;
+    font-size: 0.9rem;
+    padding: 8px 12px;
+  }
+}
+
 .kodassauro-toggle:hover {
   transform: translateY(-2px) scale(1.03);
   box-shadow: var(--shadow-2xl);
@@ -168,18 +209,6 @@
   transform-box: fill-box;
   transform-origin: center;
   animation: kds-blink 5s infinite;
-}
-
-@keyframes kds-blink {
-  0%,
-  92%,
-  100% {
-    transform: scaleY(1);
-  }
-
-  96% {
-    transform: scaleY(0.15);
-  }
 }
 
 .kodassauro-title {

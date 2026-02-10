@@ -1,8 +1,0 @@
-/* Typography component: shared heading styles */
-.section-title {
-  font-size: 32px;
-  font-weight: 700;
-  margin-bottom: 40px;
-}
-
-/* Per-demo visual tweaks (color, underline, alignment) should remain in demo files */

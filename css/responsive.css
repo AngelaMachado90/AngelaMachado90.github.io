@@ -51,28 +51,33 @@
     margin-top: 22px;
   }
 
-  .hero-carousel-viewport { min-height: 260px; }
-  .hero-slide img { min-height: 260px; }
-  .hero-slide-overlay { padding: 12px 12px 56px; }
-  .hero-slide-card { width: min(360px, 100%); }
+  .hero-carousel-viewport {
+    min-height: 260px;
+  }
+  .hero-slide img {
+    min-height: 260px;
+  }
+  .hero-slide-overlay {
+    padding: 12px 12px 56px;
+  }
+  .hero-slide-card {
+    width: min(360px, 100%);
+  }
 
-  .solutions-grid {
+  .solutions-section .solutions-grid {
     grid-template-columns: 1fr;
     gap: 15px;
   }
 
-  .modern-card {
-    margin-bottom: 15px;
-    padding: 20px;
-  }
+  /* mobile-specific modern-card adjustments moved to components/_cards.css */
 
   .timeline::before {
     display: none;
   }
 
-  .timeline-item {
-    grid-template-columns: 40px 1fr;
-    gap: 14px;
+  .timeline .timeline-item {
+    grid-template-columns: 44px 1fr;
+    gap: 16px;
     align-items: start;
   }
 
@@ -87,11 +92,7 @@
     grid-column: 2;
   }
 
-  /* Garantir que imagens sejam responsivas */
-  img {
-    max-width: 100%;
-    height: auto;
-  }
+  /* Garantir que imagens sejam responsivas (definido em base/reset.css) */
 }
 
 /* Mobile (375px - 767px) */
@@ -125,12 +126,20 @@
     gap: 30px;
   }
 
-  .hero-carousel-viewport { min-height: 300px; }
-  .hero-slide img { min-height: 300px; }
-  .hero-slide-overlay { padding: 12px 14px 58px; }
-  .hero-slide-card { width: min(380px, 100%); }
+  .hero-carousel-viewport {
+    min-height: 300px;
+  }
+  .hero-slide img {
+    min-height: 300px;
+  }
+  .hero-slide-overlay {
+    padding: 12px 14px 58px;
+  }
+  .hero-slide-card {
+    width: min(380px, 100%);
+  }
 
-  .diferenciais-grid {
+  .diferenciais-section .diferenciais-grid {
     grid-template-columns: 1fr;
     gap: 20px;
   }
@@ -139,9 +148,9 @@
     display: none;
   }
 
-  .timeline-item {
-    grid-template-columns: 44px 1fr;
-    gap: 16px;
+  .timeline .timeline-item {
+    grid-template-columns: 40px 1fr;
+    gap: 14px;
     align-items: start;
   }
 
@@ -181,12 +190,20 @@
     margin-top: 0;
   }
 
-  .hero-carousel-viewport { min-height: 340px; }
-  .hero-slide img { min-height: 340px; }
-  .hero-slide-overlay { padding: 14px 20px 62px; }
-  .hero-slide-card { width: min(420px, 100%); }
+  .hero-carousel-viewport {
+    min-height: 340px;
+  }
+  .hero-slide img {
+    min-height: 340px;
+  }
+  .hero-slide-overlay {
+    padding: 14px 20px 62px;
+  }
+  .hero-slide-card {
+    width: min(420px, 100%);
+  }
 
-  .solutions-grid {
+  .solutions-section .solutions-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 25px;
   }
@@ -196,11 +213,7 @@
     gap: 40px;
   }
 
-  /* Ajustar cards em tablet */
-  .modern-card {
-    height: auto;
-    min-height: 280px;
-  }
+  /* tablet-specific modern-card adjustments moved to components/_cards.css */
 }
 
 /* Desktop com pouca altura: comprimir o hero para caber melhor acima da dobra */
@@ -239,12 +252,12 @@
     /* Reduzir um pouco */
   }
 
-  .solutions-grid {
+  .solutions-section .solutions-grid {
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
   }
 
-  .diferenciais-grid {
+  .diferenciais-section .diferenciais-grid {
     grid-template-columns: repeat(3, 1fr);
   }
 }
@@ -256,7 +269,7 @@
     /* Ajustar valor */
   }
 
-  .solutions-grid {
+  .solutions-section .solutions-grid {
     grid-template-columns: repeat(4, 1fr);
   }
 }
@@ -290,7 +303,10 @@
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-    transition: transform var(--duration-300) var(--ease-out), opacity var(--duration-300) var(--ease-out), visibility var(--duration-300) var(--ease-out);
+    transition:
+      transform var(--duration-300) var(--ease-out),
+      opacity var(--duration-300) var(--ease-out),
+      visibility var(--duration-300) var(--ease-out);
   }
 
   .navbar-menu.active {
@@ -332,22 +348,18 @@
 
 /* Prevenir zoom em input em iOS */
 @media (max-width: 767px) {
-  input,
-  select,
-  textarea {
+  /* Prevenir zoom em inputs no iOS — qualificado com `html` to avoid duplicate simple selectors */
+  html input,
+  html select,
+  html textarea {
     font-size: 16px;
     /* Prevenir zoom automático do iOS */
   }
 }
 
-/* ========== MELHORIAS DE ACESSIBILIDADE ========== */
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-}
+/* ========== MELHORIAS DE ACESSIBILIDADE ==========
+   Preferência de reduzir movimento centralizada em css/base/reset.css
+*/
 
 /* ========== AJUSTES PARA O MENU MOBILE ========== */
 /* Esta classe pode ser adicionada para esconder o menu */

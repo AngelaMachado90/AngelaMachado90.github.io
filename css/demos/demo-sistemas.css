@@ -156,10 +156,8 @@ body {
   background: white;
 }
 
-h2.section-title {
-  text-align: center;
-  color: #2c3e50;
-}
+/* Use canonical section title from css/layouts/_sections.css; demo can add
+   modifiers to the parent section for color or alignment. */
 
 .modules-grid {
   display: grid;
@@ -422,44 +420,6 @@ h2.section-title {
 }
 
 .cta-section {
-}
-
-section.cta-section {
-  background: linear-gradient(135deg, var(--blue-electric), var(--blue-dark));
-  color: white;
-  padding: 60px 20px;
-  text-align: center;
-}
-
-section.cta-section h2 {
-  font-size: 36px;
-  margin-bottom: 15px;
-}
-section.cta-section p {
-  font-size: 16px;
-  margin-bottom: 30px;
-  opacity: 0.95;
-}
-
-/* CTA wrapper and base button provided by components/_buttons.css */
-
-section.cta-section .btn-cta-white {
-  background: white;
-  color: var(--blue-electric);
-}
-section.cta-section .btn-cta-white:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-}
-
-section.cta-section .btn-cta-outline {
-  background: transparent;
-  color: white;
-  border: 2px solid white;
-}
-section.cta-section .btn-cta-outline:hover {
-  background: white;
-  color: var(--blue-electric);
 }
 
 .erp-footer {

@@ -4,13 +4,17 @@
   text-align: center;
 }
 
-.cta-buttons {
+.btn-cta {
   display: inline-flex;
-  gap: 12px;
+  align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-base);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  user-select: none;
 }
-
 .btn-cta {
   display: inline-flex;
   align-items: center;
@@ -24,3 +28,29 @@
 }
 
 /* Visual variants (color/background) live in demo-specific styles when needed */
+
+/* Canonical CTA section used by demos: move shared rules here to avoid
+   duplication across demo files. Demos may add modifier classes to alter
+   color or alignment. */
+section.cta-section {
+  padding: 60px 20px;
+  text-align: center;
+  background: linear-gradient(
+    135deg,
+    var(--blue-electric) 0%,
+    var(--orange-vibrant) 100%
+  );
+  color: var(--white-pure);
+}
+
+section.cta-section .btn-cta-white {
+  background: var(--white-pure);
+  color: var(--blue-electric);
+  border: 1px solid transparent;
+}
+
+section.cta-section .btn-cta-outline {
+  background: transparent;
+  color: var(--white-pure);
+  border-color: var(--white-pure);
+}

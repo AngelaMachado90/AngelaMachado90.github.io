@@ -1,14 +1,8 @@
 /* Gallery CSS - minimal modern style matching brief */
-:root {
-  --bg: #0a0a0f;
-  --panel: #0f1720;
-  --muted: #9aa3b2;
-  --accent: #00d4ff;
-  --glass: rgba(255, 255, 255, 0.04);
-  --radius: 12px;
-  --gap: 18px;
-  font-family: "Open Sans", system-ui, sans-serif;
-}
+/* Gallery theme values are now provided by css/base/variables.css via aliases
+   (e.g. --bg, --muted, --accent, --glass). Local overrides removed to avoid
+   duplication; keep file-specific tweaks below if needed.
+*/
 /* Global reset kept in css/reset.css; removed duplicate here */
 body.gallery-root {
   background: linear-gradient(180deg, var(--bg), #05050a);

@@ -1,114 +1,943 @@
 /* ============================================================================
    COMPONENT: CARDS
+   Arquivo: css/components/_cards.css
+   Versão: 3.0.0 | Sistema Unificado de Cards
+   Data: 2024 | Baseado no: KoddaHub Design System
    ============================================================================ */
 
 /**
- * CARD - COMPONENTE BASE
- * 
- * Uso: <div class="card">...</div>
- * 
- * Dependências:
- * - variables.css (cores, espaçamento, sombras)
- * - animations.css (para .card--floating)
+ * OBJETIVO:
+ * Sistema unificado de cards para todo o site KoddaHub.
+ * Remove duplicidades entre .card, .modern-card, .solution-card, etc.
+ * Padroniza estrutura BEM com variantes modulares.
+ *
+ * HIERARQUIA (BEM):
+ * .card                    → Componente base
+ * .card__header           → Elemento header
+ * .card__body             → Elemento body
+ * .card__footer           → Elemento footer
+ * .card--{variant}        → Modificador de estilo
+ * .card--{size}           → Modificador de tamanho
+ * .card--{context}        → Modificador de contexto
+ *
+ * DEPENDÊNCIAS:
+ * - variables.css (obrigatório)
+ * - animations.css (opcional, para animações)
  */
 
-/* Card Base */
+/* ============================================================================
+   SEÇÃO 1: CARD BASE (BEM STRUCTURE)
+   ============================================================================ */
+
+/**
+ * .card - Componente base para todos os cards
+ * Define estrutura, espaçamento e comportamento padrão
+ */
 .card {
-    background-color: #fff;
-    border: 1px solid var(--neutral-200);
-    border-radius: var(--radius-base);
-    padding: var(--space-4);
-    box-shadow: var(--shadow-base);
-    transition: all var(--duration-300) var(--ease-out);
+    /* Estrutura */
+    display: flex;
+    flex-direction: column;
+    position: relative;
     overflow: hidden;
+
+    /* Estilo */
+    background-color: var(--white-pure);
+    border: 1px solid var(--color-neutral-200);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+
+    /* Transição padrão */
+    transition: all var(--duration-base) var(--ease-out);
+
+    /* Garante altura consistente */
+    height: 100%;
+
+    /* Estados */
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-lg);
+        border-color: var(--color-primary-300);
+    }
+
+    &:focus-within {
+        outline: 2px solid var(--color-primary-300);
+        outline-offset: 2px;
+    }
 }
 
-.card:hover {
-    border-color: var(--primary-300);
-    box-shadow: var(--shadow-lg);
-    transform: translateY(-4px);
-}
-
-/* Estrutura do Card (BEM) */
+/**
+ * .card__header - Cabeçalho do card (opcional)
+ */
 .card__header {
-    margin: calc(var(--space-4) * -1) calc(var(--space-4) * -1) var(--space-4);
-    padding: var(--space-4);
-    background-color: var(--neutral-50);
-    border-bottom: 1px solid var(--neutral-200);
+    padding: var(--spacing-4);
+    background-color: var(--color-neutral-50);
+    border-bottom: 1px solid var(--color-neutral-200);
+
+    /* Se for o primeiro filho, ajusta bordas */
+    &:first-child {
+        border-top-left-radius: inherit;
+        border-top-right-radius: inherit;
+    }
 }
 
+/**
+ * .card__body - Corpo principal do card (obrigatório)
+ */
 .card__body {
-    padding: 0;
+    padding: var(--spacing-4);
+    flex: 1 1 auto;
+
+    /* Remove padding extra quando combinado com header/footer */
+    &:not(:first-child) {
+        padding-top: 0;
+    }
+
+    &:not(:last-child) {
+        padding-bottom: 0;
+    }
 }
 
+/**
+ * .card__footer - Rodapé do card (opcional)
+ */
 .card__footer {
-    margin: var(--space-4) calc(var(--space-4) * -1) calc(var(--space-4) * -1);
-    padding: var(--space-4);
-    background-color: var(--neutral-50);
-    border-top: 1px solid var(--neutral-200);
+    padding: var(--spacing-4);
+    background-color: var(--color-neutral-50);
+    border-top: 1px solid var(--color-neutral-200);
+
+    /* Se for o último filho, ajusta bordas */
+    &:last-child {
+        border-bottom-left-radius: inherit;
+        border-bottom-right-radius: inherit;
+    }
 }
 
-/* Tipografia */
+/* ============================================================================
+   SEÇÃO 2: ELEMENTOS INTERNOS (TYPOGRAPHY & MEDIA)
+   ============================================================================ */
+
+/**
+ * Títulos e textos dentro do card
+ */
 .card__title {
-    font-size: var(--fs-xl);
-    font-weight: var(--fw-bold);
-    margin-bottom: var(--space-2);
-    color: var(--neutral-900);
-    word-break: break-word;
+    margin: 0 0 var(--spacing-2) 0;
+    font-family: var(--font-heading);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    line-height: var(--line-height-tight);
+    color: var(--color-neutral-900);
 }
 
 .card__subtitle {
-    font-size: var(--fs-sm);
-    color: var(--neutral-600);
-    margin-bottom: var(--space-3);
+    margin: 0 0 var(--spacing-3) 0;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-normal);
+    line-height: var(--line-height-normal);
+    color: var(--color-neutral-600);
 }
 
 .card__text {
+    margin: 0;
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-normal);
+    color: var(--color-neutral-700);
+
+    /* Garante quebra de texto adequada */
     word-wrap: break-word;
     overflow-wrap: break-word;
     hyphens: auto;
-    white-space: normal;
-    line-height: 1.6;
+}
+
+/**
+ * Imagens e mídia
+ */
+.card__image {
+    width: 100%;
+    height: auto;
+    display: block;
+
+    /* Se for primeiro filho, ajusta bordas */
+    &:first-child {
+        border-top-left-radius: inherit;
+        border-top-right-radius: inherit;
+    }
+}
+
+.card__image-container {
+    position: relative;
+    overflow: hidden;
+    background-color: var(--color-neutral-100);
+
+    &:first-child {
+        border-top-left-radius: inherit;
+        border-top-right-radius: inherit;
+    }
 }
 
 .card__icon {
-    font-size: 2.5rem;
-    color: var(--orange-vibrant);
-    margin-bottom: var(--space-2);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    margin-bottom: var(--spacing-3);
+    border-radius: var(--radius-md);
+    font-size: 1.5rem;
+    color: var(--color-primary-600);
+    background: linear-gradient(135deg,
+            rgba(33, 150, 243, 0.1),
+            rgba(245, 124, 0, 0.1));
 }
 
-/* Variantes de Card */
+/**
+ * Listas dentro de cards
+ */
+.card__list {
+    list-style: none;
+    padding: 0;
+    margin: var(--spacing-4) 0;
+}
+
+.card__list-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-2);
+    margin-bottom: var(--spacing-2);
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-normal);
+    color: var(--color-neutral-700);
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    &::before {
+        content: "✓";
+        flex-shrink: 0;
+        color: var(--color-success-500);
+        font-weight: var(--font-weight-bold);
+        margin-top: 0.125em;
+    }
+}
+
+/* ============================================================================
+   SEÇÃO 3: VARIANTES DE ESTILO (STYLE VARIANTS)
+   ============================================================================ */
+
+/**
+ * .card--elevated - Card com sombra mais pronunciada
+ */
 .card--elevated {
-    box-shadow: var(--shadow-md);
+    box-shadow: var(--shadow-lg);
+
+    &:hover {
+        box-shadow: var(--shadow-xl);
+        transform: translateY(-6px);
+    }
 }
 
-.card--elevated:hover {
-    box-shadow: var(--shadow-xl);
-}
-
+/**
+ * .card--flat - Card sem sombra e com fundo sutil
+ */
 .card--flat {
+    background-color: var(--color-neutral-50);
     border: none;
     box-shadow: none;
-    background-color: var(--neutral-100);
+
+    &:hover {
+        background-color: var(--color-neutral-100);
+        transform: none;
+    }
 }
 
+/**
+ * .card--outline - Card apenas com borda colorida
+ */
 .card--outline {
     background-color: transparent;
-    border: 2px solid var(--primary-500);
+    border: 2px solid var(--color-primary-500);
+    box-shadow: none;
+
+    &:hover {
+        background-color: rgba(245, 124, 0, 0.05);
+        border-color: var(--color-primary-600);
+    }
 }
 
-.card--floating {
-    position: absolute;
-    background: var(--white-pure);
-    border-radius: var(--radius-lg);
-    padding: var(--space-4);
-    box-shadow: var(--shadow-xl);
+/**
+ * .card--gradient - Card com fundo gradiente
+ */
+.card--gradient {
+    background: linear-gradient(135deg,
+            var(--color-primary-50),
+            var(--color-secondary-50));
+    border: none;
+
+    .card__title {
+        color: var(--color-primary-800);
+    }
+}
+
+/**
+ * .card--glass - Efeito glassmorphism (moderno)
+ */
+.card--glass {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+
+    @supports not (backdrop-filter: blur(10px)) {
+        background: rgba(255, 255, 255, 0.9);
+    }
+}
+
+/* ============================================================================
+   SEÇÃO 4: VARIANTES DE TAMANHO (SIZE VARIANTS)
+   ============================================================================ */
+
+/**
+ * Sistema de tamanhos baseado no espaçamento
+ */
+.card--sm {
+
+    .card__header,
+    .card__body,
+    .card__footer {
+        padding: var(--spacing-3);
+    }
+
+    .card__title {
+        font-size: var(--font-size-base);
+    }
+
+    .card__icon {
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 1.25rem;
+    }
+}
+
+.card--md {
+    /* Tamanho padrão já definido */
+}
+
+.card--lg {
+
+    .card__header,
+    .card__body,
+    .card__footer {
+        padding: var(--spacing-6);
+    }
+
+    .card__title {
+        font-size: var(--font-size-xl);
+    }
+
+    .card__icon {
+        width: 4rem;
+        height: 4rem;
+        font-size: 2rem;
+    }
+}
+
+/* ============================================================================
+   SEÇÃO 5: CARDS ESPECIALIZADOS (SPECIALIZED CARDS)
+   ============================================================================ */
+
+/**
+ * .card--showcase - Card flutuante com animação (showcase-card antigo)
+ */
+.card--showcase {
+    position: relative;
+    min-height: 190px;
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid rgba(255, 255, 255, 0.24);
+    box-shadow:
+        0 22px 60px rgba(0, 0, 0, 0.18),
+        0 0 0 1px rgba(0, 0, 0, 0.08);
+    animation: card-float 7s ease-in-out infinite;
+    transform: translate3d(0, 0, 0);
+    will-change: transform;
+    overflow: visible;
+
+    /* Gradiente de borda */
+    &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        padding: 2px;
+        background: linear-gradient(135deg,
+                var(--color-secondary-600),
+                var(--color-primary-600));
+        mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+        mask-composite: exclude;
+        pointer-events: none;
+        opacity: 0.8;
+    }
+
+    /* Variantes por tipo */
+    &[data-type="sites"] {
+        --float-x: 8px;
+        --float-y: 10px;
+        --float-rotate: 0.8deg;
+        animation-delay: 0s;
+    }
+
+    &[data-type="ecommerce"] {
+        --float-x: -10px;
+        --float-y: 12px;
+        --float-rotate: -0.7deg;
+        animation-delay: -1.8s;
+    }
+
+    &[data-type="systems"] {
+        --float-x: 9px;
+        --float-y: 14px;
+        --float-rotate: 0.6deg;
+        animation-delay: -3.2s;
+    }
+}
+
+}
+
+/**
+ * .card--solution - Card para soluções (solution-card antigo)
+ */
+.card--solution {
+    border: 1px solid transparent;
+
+    .card__image-container {
+        height: 90px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2.2rem;
+        color: var(--color-primary-600);
+        background: linear-gradient(135deg,
+                rgba(33, 150, 243, 0.08),
+                rgba(245, 124, 0, 0.08));
+    }
+
+    .card__footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: auto;
+        background: transparent;
+        border-top: 1px solid var(--color-neutral-200);
+    }
+}
+
+/**
+ * .card--pricing - Card para preços/pacotes
+ */
+.card--pricing {
     text-align: center;
-    animation: float 5s var(--ease-in-out) infinite;
-    z-index: var(--z-base);
+    border: 2px solid transparent;
+
+    &:hover {
+        border-color: var(--color-primary-500);
+    }
+
+    .card__price {
+        font-size: var(--font-size-3xl);
+        font-weight: var(--font-weight-bold);
+        color: var(--color-primary-600);
+        margin: var(--spacing-3) 0;
+
+        .period {
+            font-size: var(--font-size-sm);
+            color: var(--color-neutral-600);
+        }
+    }
+
+    .card__features {
+        text-align: left;
+        margin: var(--spacing-4) 0;
+    }
 }
 
-.card--floating:hover {
-    animation-play-state: paused;
-    transform: scale(1.05) !important;
+/**
+ * .card--testimonial - Card para depoimentos
+ */
+.card--testimonial {
+    .card__body {
+        position: relative;
+        padding-top: var(--spacing-8);
+
+        &::before {
+            content: "❝";
+            position: absolute;
+            top: var(--spacing-2);
+            left: var(--spacing-2);
+            font-size: var(--font-size-3xl);
+            color: var(--color-primary-300);
+            opacity: 0.5;
+        }
+    }
+
+    .card__author {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-3);
+        margin-top: var(--spacing-4);
+
+        img {
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+    }
 }
+
+/* ============================================================================
+   SEÇÃO 6: GRIDS E LAYOUTS PARA CARDS
+   ============================================================================ */
+
+/**
+ * Container para grids de cards
+ */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--spacing-6);
+    margin: var(--spacing-6) 0;
+
+    /* Modificadores para quantidade de colunas */
+    &--2cols {
+        grid-template-columns: repeat(2, 1fr);
+
+        @media (max-width: 768px) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    &--3cols {
+        grid-template-columns: repeat(3, 1fr);
+
+        @media (max-width: 1024px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media (max-width: 640px) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    &--4cols {
+        grid-template-columns: repeat(4, 1fr);
+
+        @media (max-width: 1024px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media (max-width: 640px) {
+            grid-template-columns: 1fr;
+        }
+    }
+}
+
+/**
+ * Layout de cards em carrossel
+ */
+.cards-carousel {
+    display: flex;
+    gap: var(--spacing-4);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: var(--spacing-2) 0;
+    margin: var(--spacing-6) 0;
+
+    /* Esconde scrollbar em alguns navegadores */
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    .card {
+        flex: 0 0 300px;
+        scroll-snap-align: start;
+    }
+}
+
+/* ============================================================================
+   SEÇÃO 7: COMPATIBILIDADE (ALIAS TEMPORÁRIOS)
+   ============================================================================ */
+
+/**
+ * Aliases para compatibilidade com código existente
+ * REMOVER GRADUALMENTE após migração completa
+ */
+.modern-card,
+.solution-card,
+.showcase-card {
+    composes: card;
+}
+
+/* Mapeamento específico */
+.modern-card {
+    composes: card card--elevated;
+}
+
+.solution-card {
+    composes: card card--solution;
+}
+
+.showcase-card {
+    composes: card card--showcase;
+}
+
+/* Classes utilitárias antigas */
+.card-image {
+    composes: card__image-container;
+}
+
+.card-content {
+    composes: card__body;
+}
+
+.features-list {
+    composes: card__list;
+}
+
+/* ============================================================================
+   SEÇÃO 8: EXEMPLOS DE USO (COMENTÁRIOS)
+   ============================================================================ */
+
+/**
+ * EXEMPLOS DE USO:
+ *
+ * 1. Card básico:
+ *    <div class="card">
+ *      <div class="card__body">
+ *        <h3 class="card__title">Título</h3>
+ *        <p class="card__text">Conteúdo...</p>
+ *      </div>
+ *    </div>
+ *
+ * 2. Card completo (BEM):
+ *    <div class="card card--elevated">
+ *      <div class="card__header">
+ *        <h3 class="card__title">Plano Pro</h3>
+ *        <p class="card__subtitle">Para empresas</p>
+ *      </div>
+ *      <div class="card__body">
+ *        <ul class="card__list">
+ *          <li class="card__list-item">Recurso 1</li>
+ *          <li class="card__list-item">Recurso 2</li>
+ *        </ul>
+ *      </div>
+ *      <div class="card__footer">
+ *        <button class="btn btn--primary">Contratar</button>
+ *      </div>
+ *    </div>
+ *
+ * 3. Card showcase com tipo:
+ *    <div class="card card--showcase" data-type="ecommerce">
+ *      <div class="card__body">
+ *        <div class="card__icon">🛒</div>
+ *        <h3 class="card__title">E-commerce</h3>
+ *        <p class="card__text">Lojas virtuais completas</p>
+ *      </div>
+ *    </div>
+ *
+ * 4. Grid de cards:
+ *    <div class="cards-grid cards-grid--3cols">
+ *      <div class="card">...</div>
+ *      <div class="card">...</div>
+ *      <div class="card">...</div>
+ *    </div>
+ */
+
+/* ============================================================================
+   FIM DO COMPONENT: CARDS
+   ============================================================================ */
+   .card-image {
+       height: 90px;
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       font-size: 2.2rem;
+       color: var(--orange-vibrant);
+       background: linear-gradient(135deg,
+               rgba(33, 150, 243, 0.08),
+               rgba(245, 124, 0, 0.08));
+   }
+
+   .card-content {
+       padding: 24px;
+       display: flex;
+       flex-direction: column;
+       height: 100%;
+   }
+
+   .card-footer {
+       display: flex;
+       align-items: center;
+       justify-content: space-between;
+       margin-top: 16px;
+   }
+
+   .modern-card:hover {
+       transform: translateY(-6px);
+       box-shadow: var(--shadow-xl);
+       border-color: var(--orange-vibrant);
+   }
+
+   .showcase-card {
+       position: relative;
+       /* -30% overall sizing (after width reduction): radius/padding/fonts/icons */
+       border-radius: 16px;
+       padding: 14px;
+       min-height: 190px;
+       color: var(--black-deep);
+       background: rgba(255, 255, 255, 0.92);
+       border: 1px solid rgba(255, 255, 255, 0.24);
+       box-shadow: 0 22px 60px rgba(0, 0, 0, 0.18);
+       overflow: hidden;
+       transform: translate3d(0, 0, 0);
+       will-change: transform;
+       animation: showcase-float 7s ease-in-out infinite;
+   }
+
+   @supports ((-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px))) {
+       .showcase-card {
+           background: rgba(255, 255, 255, 0.14);
+           color: rgba(255, 255, 255, 0.92);
+           -webkit-backdrop-filter: blur(14px);
+           backdrop-filter: blur(14px);
+           border: 1px solid rgba(255, 255, 255, 0.22);
+       }
+   }
+
+   .showcase-card::before {
+       content: "";
+       position: absolute;
+       inset: 0;
+       background:
+           radial-gradient(220px 160px at 15% 10%,
+               var(--accent-a, rgba(33, 150, 243, 0.38)),
+               transparent 60%),
+           radial-gradient(260px 180px at 85% 90%,
+               var(--accent-b, rgba(245, 124, 0, 0.34)),
+               transparent 62%),
+           repeating-linear-gradient(135deg,
+               rgba(255, 255, 255, 0.14) 0px,
+               rgba(255, 255, 255, 0.14) 1px,
+               transparent 1px,
+               transparent 10px);
+       opacity: 0.78;
+       pointer-events: none;
+   }
+
+   .showcase-card::after {
+       content: "";
+       position: absolute;
+       inset: 0;
+       border-radius: inherit;
+       padding: 1px;
+       background: linear-gradient(135deg,
+               var(--accent-a, rgba(33, 150, 243, 0.92)),
+               var(--accent-b, rgba(245, 124, 0, 0.92)));
+       -webkit-mask:
+           linear-gradient(#000 0 0) content-box,
+           linear-gradient(#000 0 0);
+       -webkit-mask-composite: xor;
+       mask-composite: exclude;
+       pointer-events: none;
+       opacity: 0.92;
+   }
+
+   .showcase-card.is-sites {
+       --accent-a: rgba(33, 150, 243, 0.98);
+       --accent-b: rgba(100, 181, 246, 0.92);
+       --fx: 8px;
+       --fy: 10px;
+       --fr: 0.8deg;
+   }
+
+   .showcase-card.is-ecom {
+       --accent-a: rgba(245, 124, 0, 0.98);
+       --accent-b: rgba(255, 152, 0, 0.92);
+       --fx: -10px;
+       --fy: 12px;
+       --fr: -0.7deg;
+       animation-delay: -1.8s;
+   }
+
+   .showcase-card.is-systems {
+       --accent-a: rgba(33, 150, 243, 0.98);
+       --accent-b: rgba(245, 124, 0, 0.98);
+       --fx: 9px;
+       --fy: 14px;
+       --fr: 0.6deg;
+       animation-delay: -3.2s;
+   }
+
+   /* Bolder, more colorful contour + glow (uses palette accents) */
+   .showcase-card {
+       border: 2px solid rgba(255, 255, 255, 0.24);
+       box-shadow:
+           0 22px 60px rgba(0, 0, 0, 0.18),
+           0 0 0 1px rgba(0, 0, 0, 0.08),
+           0 18px 52px rgba(33, 150, 243, 0.16);
+       filter: saturate(1.12) contrast(1.04);
+   }
+
+   @supports (color: color-mix(in srgb, #000 50%, #fff)) {
+       .showcase-card {
+           border-color: color-mix(in srgb,
+                   var(--accent-a, rgba(33, 150, 243, 0.92)) 42%,
+                   rgba(255, 255, 255, 0.28));
+           box-shadow:
+               0 22px 60px rgba(0, 0, 0, 0.18),
+               0 0 0 1px rgba(0, 0, 0, 0.08),
+               0 18px 52px color-mix(in srgb,
+                   var(--accent-a, rgba(33, 150, 243, 0.92)) 30%,
+                   transparent);
+       }
+   }
+
+   }
+
+   .showcase-top {
+       position: relative;
+       z-index: 1;
+       display: grid;
+       grid-template-columns: auto 1fr;
+       gap: 10px;
+       align-items: center;
+       margin-bottom: 10px;
+   }
+
+/* Responsive overrides for .modern-card centralized here to avoid duplicate
+     selector definitions across multiple files. These rules mirror legacy
+     responsive adjustments previously declared in responsive.css. */
+
+@media (max-width: 374px) {
+    .modern-card {
+        margin-bottom: 15px;
+        padding: 20px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    /* Tablet adjustments */
+    .modern-card {
+        height: auto;
+        min-height: 280px;
+    }
+}
+
+   .showcase-icon {
+       width: 38px;
+       height: 38px;
+       border-radius: 13px;
+       display: inline-flex;
+       align-items: center;
+       justify-content: center;
+       background: rgba(255, 255, 255, 0.22);
+       border: 1px solid rgba(255, 255, 255, 0.22);
+       color: #fff;
+   }
+
+   /* Palette-driven icon treatment (more punch) */
+   .showcase-card .showcase-icon {
+       background: linear-gradient(135deg,
+               var(--accent-a, rgba(33, 150, 243, 0.95)),
+               var(--accent-b, rgba(245, 124, 0, 0.95)));
+       border: 2px solid rgba(255, 255, 255, 0.22);
+       box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
+   }
+
+   @supports not ((-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px))) {
+       .showcase-icon {
+           background: rgba(33, 150, 243, 0.12);
+           border: 1px solid rgba(0, 0, 0, 0.08);
+           color: var(--blue-dark);
+       }
+   }
+
+   .showcase-headings h3 {
+       margin: 0;
+       font-size: 1rem;
+       letter-spacing: -0.02em;
+       color: inherit;
+   }
+
+   .showcase-headings p {
+       margin: 4px 0 0 0;
+       font-size: 0.88rem;
+       line-height: 1.4;
+       color: rgba(255, 255, 255, 0.82);
+   }
+
+   @supports not ((-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px))) {
+       .showcase-headings p {
+           color: rgba(0, 0, 0, 0.62);
+       }
+   }
+
+   .showcase-links {
+       position: relative;
+       z-index: 1;
+       display: flex;
+       flex-wrap: wrap;
+       flex-direction: column;
+       gap: 8px;
+   }
+
+   .showcase-link {
+       display: inline-flex;
+       align-items: center;
+       justify-content: center;
+       gap: 8px;
+       width: 100%;
+       padding: 9px 12px;
+       border-radius: 999px;
+       font-weight: var(--fw-semibold);
+       font-size: 0.88rem;
+       text-decoration: none;
+       color: rgba(255, 255, 255, 0.94);
+       background: rgba(0, 0, 0, 0.1);
+       border: 2px solid rgba(255, 255, 255, 0.22);
+       transition:
+           transform var(--duration-200) var(--ease-out),
+           background var(--duration-200) var(--ease-out);
+   }
+
+   @supports (color: color-mix(in srgb, #000 50%, #fff)) {
+       .showcase-card .showcase-link {
+           background: linear-gradient(135deg,
+                   color-mix(in srgb,
+                       var(--accent-a, rgba(33, 150, 243, 0.92)) 26%,
+                       rgba(0, 0, 0, 0.1)),
+                   color-mix(in srgb,
+                       var(--accent-b, rgba(245, 124, 0, 0.92)) 18%,
+                       rgba(0, 0, 0, 0.1)));
+           border-color: color-mix(in srgb,
+                   var(--accent-a, rgba(33, 150, 243, 0.92)) 24%,
+                   rgba(255, 255, 255, 0.22));
+       }
+   }
+
+   @supports not ((-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px))) {
+       .showcase-link {
+           color: var(--black-deep);
+           background: rgba(255, 255, 255, 0.86);
+           border: 1px solid rgba(0, 0, 0, 0.08);
+       }
+   }
+
+   .showcase-link:hover {
+       transform: translateY(-1px);
+       background: rgba(0, 0, 0, 0.18);
+   }
+
+   .showcase-link:focus-visible {
+       outline: 3px solid rgba(255, 255, 255, 0.7);
+       outline-offset: 3px;
+   }

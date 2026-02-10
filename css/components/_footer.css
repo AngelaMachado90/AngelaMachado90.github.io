@@ -56,14 +56,13 @@
   font-size: 14px;
 }
 
-/* Demo-specific modifier examples (empty by default) */
-.footer--ecommerce {
+/* ============================================================================
+   FOOTER MODERN
+   ============================================================================ */
+.footer-modern {
+  background: var(--black-deep);
+  color: var(--white-neutral);
+  padding: 60px 0 20px;
 }
-.footer--institucional {
-}
-.footer--industrial {
-}
-.footer--servicos {
-}
-.footer--sistemas {
-}
+
+/* Footer layout and column rules consolidated to css/components/_footer.css; keep .footer-modern modifier here. */

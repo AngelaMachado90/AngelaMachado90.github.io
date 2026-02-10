@@ -1,0 +1,517 @@
+/* ============================================================================
+   RESET.CSS - Reset Global & Normalização
+   Versão: 2.0.0 | Data: 2026 | Autor: Angela Machado
+   ============================================================================ */
+
+/**
+ * OBJETIVOS:
+ * Este arquivo estabelece uma base consistente para todos os elementos HTML.
+ * Remove inconsistências entre navegadores e define padrões para o projeto.
+ *
+ * PRINCÍPIOS:
+ * 1. Mobile-first
+ * 2. Performance (mínimo de propriedades)
+ * 3. Acessibilidade
+ * 4. Consistência entre navegadores
+ */
+
+/* ============================================================================
+   SEÇÃO 1: ROOT & BOX MODEL
+   ============================================================================ */
+
+/**
+ * Define box-sizing como border-box para todo o documento
+ * Isso faz com que padding e border sejam incluídos na largura/altura
+ */
+:root {
+  box-sizing: border-box;
+
+  /* Previne ajuste automático de texto em iOS */
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+
+  /* Scroll suave para navegação por âncoras */
+  scroll-behavior: smooth;
+
+  /* Remove barra de rolagem horizontal */
+  overflow-x: hidden;
+
+  /* Garante que o html ocupe toda a largura */
+  width: 100%;
+}
+
+/**
+ * Herda box-sizing para todos os elementos e seus pseudo-elementos
+ * Remove margens e paddings padrões
+ */
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  /* Herda do elemento pai (html) */
+  margin: 0;
+  padding: 0;
+}
+
+/* ========== ACESSIBILIDADE: PREFERE-REDUCED-MOTION ==========
+   Centraliza a regra que reduz animações/transições quando o usuário
+   sinaliza preferência por movimento reduzido. Mantido em reset para
+   evitar duplicidade entre arquivos.
+*/
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ============================================================================
+   SEÇÃO 2: ELEMENTOS DE BLOCO
+   ============================================================================ */
+
+/**
+ * Body - Elemento raiz da página
+ * Remove estilos padrões e prepara para herança controlada
+ */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: inherit;
+  /* Será definido em typography.css */
+  font-size: inherit;
+  /* Será definido em typography.css */
+  line-height: inherit;
+  /* Será definido em typography.css */
+  color: inherit;
+  /* Será definido em variables.css */
+  background-color: transparent;
+  /* Será definido em base.css */
+  overflow-x: hidden;
+  /* Previne scroll horizontal */
+
+  /* Melhora renderização de fontes */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typographic element resets (headings, paragraphs, lists) were moved
+   to css/base/typography.css to avoid duplicate selectors across files.
+   Reset now focuses on box-model and form element normalization. */
+
+/* ============================================================================
+   SEÇÃO 4: ELEMENTOS DE MÍDIA
+   ============================================================================ */
+
+/**
+ * Imagens - Responsivas por padrão
+ * Não devem distorcer e devem ocupar no máximo 100% do container
+ */
+img {
+  max-width: 100%;
+  /* Não ultrapassa o container pai */
+  height: auto;
+  /* Mantém proporção */
+  display: block;
+  /* Remove espaço abaixo da imagem */
+  border: 0;
+  /* Remove borda padrão em links */
+  background-color: transparent;
+
+  /* Evita "buraco" enquanto carrega */
+  aspect-ratio: attr(width) / attr(height);
+}
+
+/**
+ * Exceção para logos que precisam de altura máxima
+ * Use estas classes para logos específicos
+ */
+.logo-image img,
+.navbar-brand img,
+.logo img {
+  height: auto !important;
+  /* Mantém proporção */
+  max-height: 50px;
+  /* Limite máximo para logos */
+  width: auto;
+  /* Mantém largura proporcional */
+}
+
+/**
+ * Picture & SVG - Elementos de mídia modernos
+ */
+picture {
+  display: block;
+  /* Remove espaço abaixo */
+}
+
+svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  fill: currentColor;
+  /* Herda cor do texto */
+}
+
+/* ============================================================================
+   SEÇÃO 5: FORMULÁRIOS
+   ============================================================================ */
+
+/**
+ * Reset básico para todos os elementos de formulário
+ */
+button,
+input,
+optgroup,
+select,
+textarea {
+  margin: 0;
+  padding: 0;
+  font-family: inherit;
+  /* Herda fonte do body */
+  font-size: inherit;
+  /* Herda tamanho do body */
+  line-height: inherit;
+  /* Herda line-height do body */
+  color: inherit;
+  /* Herda cor do texto */
+  background-color: transparent;
+  border: 0;
+
+  /* Remove estilos padrões do navegador */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  /* Remove outline padrão - será controlado por acessibilidade */
+  outline: none;
+}
+
+/**
+ * Botões - Comportamento consistente
+ */
+button {
+  cursor: pointer;
+  overflow: visible;
+  text-transform: none;
+
+  /* Melhora acessibilidade no foco */
+  &:focus-visible {
+    outline: 2px solid var(--color-focus, #0056b3);
+    outline-offset: 2px;
+  }
+}
+
+/**
+ * Correções para Firefox
+ */
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+/**
+ * Inputs de data/hora - Mantém aparência nativa
+ */
+input[type="date"],
+input[type="time"],
+input[type="datetime-local"],
+input[type="month"] {
+  -webkit-appearance: listbox;
+}
+
+/**
+ * Textarea - Comportamento padrão
+ */
+textarea {
+  overflow: auto;
+  /* Adiciona scroll quando necessário */
+  resize: vertical;
+  /* Permite redimensionar apenas verticalmente */
+  font-family: inherit;
+  /* Herda fonte, não monospace */
+  min-height: 3em;
+  /* Altura mínima razoável */
+}
+
+/**
+ * Checkbox e Radio - Mantém box-sizing consistente
+ */
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+/**
+ * Inputs em dispositivos móveis - Tamanho de fonte adequado
+ * Previne zoom automático no iOS
+ */
+@media screen and (max-width: 768px) {
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="search"],
+  input[type="url"],
+  input[type="number"],
+  input[type="tel"],
+  textarea,
+  select {
+    font-size: 16px;
+    /* Previne zoom no iOS */
+  }
+}
+
+/* ============================================================================
+   SEÇÃO 6: TABELAS
+   ============================================================================ */
+
+table {
+  border-collapse: collapse;
+  /* Remove espaços entre células */
+  border-spacing: 0;
+  max-width: 100%;
+  width: 100%;
+}
+
+th,
+td {
+  padding: 0;
+  text-align: left;
+  vertical-align: top;
+  /* Alinha conteúdo ao topo */
+}
+
+/* ============================================================================
+   SEÇÃO 7: ELEMENTOS INTERATIVOS
+   ============================================================================ */
+
+/**
+ * Details & Summary - Elementos de accordion nativo
+ */
+details {
+  display: block;
+}
+
+summary {
+  display: list-item;
+  cursor: pointer;
+
+  /* Remove marcador padrão em alguns navegadores */
+  list-style: none;
+
+  &::-webkit-details-marker {
+    display: none;
+  }
+}
+
+/* Links - Reset básico aplicado apenas a links sem classes para evitar
+   conflito com tipografia específica em typography.css */
+a:not([class]) {
+  color: inherit;
+  text-decoration: none;
+  background-color: transparent;
+
+  text-decoration-skip-ink: auto;
+  -webkit-text-decoration-skip: objects;
+
+  /* Estados interativos */
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-focus, #0056b3);
+    outline-offset: 2px;
+  }
+}
+
+/* ============================================================================
+   SEÇÃO 8: ELEMENTOS ESPECIAIS
+   ============================================================================ */
+
+/**
+ * HR - Linha horizontal simplificada
+ */
+hr {
+  margin: 0;
+  border: 0;
+  border-top: 1px solid currentColor;
+  overflow: visible;
+}
+
+/**
+ * Blockquote - Reset
+ */
+blockquote {
+  margin: 0;
+}
+
+/**
+ * Código & Pré-formatado
+ */
+pre {
+  font-family: "Monaco", "Menlo", "Consolas", monospace;
+  overflow: auto;
+  white-space: pre-wrap;
+}
+
+code,
+kbd,
+samp {
+  font-family: "Monaco", "Menlo", "Consolas", monospace;
+  font-size: 0.9em;
+}
+
+/**
+ * Subscript & Superscript
+ */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+/* ============================================================================
+   SEÇÃO 9: UTILITÁRIOS & ACESSIBILIDADE
+   ============================================================================ */
+
+/**
+ * Ocultar elementos - Métodos diferentes para diferentes casos
+ */
+
+/* Ocultar visualmente mas manter para leitores de tela */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* Atributo hidden nativo - Sempre tem prioridade */
+[hidden] {
+  display: none !important;
+}
+
+/**
+ * Pointer events - Melhora responsividade em touch
+ */
+a,
+button,
+input,
+select,
+textarea {
+  touch-action: manipulation;
+}
+
+/* ============================================================================
+   SEÇÃO 10: ESTILOS DE IMPRESSÃO
+   ============================================================================ */
+
+@media print {
+  /**
+     * Reset para impressão - Foco em legibilidade
+     */
+  *,
+  *::before,
+  *::after {
+    background: transparent !important;
+    color: #000 !important;
+    /* Preto puro para melhor contraste */
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  /**
+     * Links - Mostrar URLs
+     */
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+
+  a[href]::after {
+    content: " (" attr(href) ")";
+    font-size: 90%;
+    font-style: italic;
+  }
+
+  /**
+     * Abreviações - Mostrar título
+     */
+  abbr[title]::after {
+    content: " (" attr(title) ")";
+  }
+
+  /**
+     * Imagens - Não quebrar entre páginas
+     */
+  img {
+    max-width: 100% !important;
+    page-break-inside: avoid;
+  }
+
+  /**
+     * Margens da página
+     */
+  @page {
+    margin: 1cm;
+  }
+
+  /**
+     * Evitar quebra de cabeçalhos
+     */
+  h1,
+  h2,
+  h3 {
+    page-break-after: avoid;
+    orphans: 3;
+    widows: 3;
+  }
+
+  /**
+     * Não imprimir elementos não essenciais
+     */
+  .no-print,
+  nav,
+  footer,
+  .social-share,
+  .floating-actions {
+    display: none !important;
+  }
+
+  /**
+     * Melhor legibilidade para código
+     */
+  pre,
+  code {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+}
+
+/* ============================================================================
+   FIM DO RESET.CSS
+   ============================================================================ */

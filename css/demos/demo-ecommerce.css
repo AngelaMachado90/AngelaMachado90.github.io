@@ -98,15 +98,6 @@ body {
   animation: slideDown 0.5s ease;
 }
 
-@keyframes slideDown {
-  from {
-    transform: translateY(-20px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
 }
 
 .hero-shop {
@@ -343,47 +334,10 @@ div.section-title {
   font-size: 20px;
 }
 
-.cta-section {
-  /* demo-specific visuals kept, selector qualified to avoid global `.cta-section` duplicates */
-}
-
-section.cta-section {
-  background: linear-gradient(
-    135deg,
-    var(--orange-vibrant) 0%,
-    var(--orange-light) 100%
-  );
-  color: white;
-}
-
-.cta-section h2 {
-  font-size: 36px;
-  margin-bottom: 20px;
-}
-.cta-section p {
-  font-size: 18px;
-  margin-bottom: 30px;
-  opacity: 0.95;
-}
-
-/* CTA wrapper and base button provided by components/_buttons.css */
-
-.cta-section .btn-cta-white {
-  color: var(--orange-vibrant);
-}
-.cta-section .btn-cta-white:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-}
-
-section.cta-section .btn-cta-outline {
-  color: white;
-  border-color: white;
-}
-section.cta-section .btn-cta-outline:hover {
-  background: white;
-  color: var(--orange-vibrant);
-}
+/* CTA visuals consolidated in `css/components/_cta.css`. */
+/* CTA styles consolidated into `css/components/_cta.css`. Demos may keep
+   small visual tweaks but prefer modifiers instead of redefining the
+   whole `section.cta-section` block. */
 
 .ecom-footer {
   background: #1a1a1a;

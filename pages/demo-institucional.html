@@ -1,542 +1,1692 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Demo: Institucional - Instituicao de Ensino">
-    <meta name="theme-color" content="#2196F3">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Demo: Institucional - Instituicao de Ensino"
+    />
+    <meta
+      name="keywords"
+      content="desenvolvimento web, site institucional, e-commerce, site industrial, site de serviços, sistemas empresariais"
+    />
+    <meta name="author" content="KoddaHub" />
+    <meta name="theme-color" content="#0c8ce0" />
+
     <title>UniKodda - Faculdade de Excelencia</title>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="icon" href="../assets/logo/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="../assets/logo/apple-touch-icon.png" />
 
-    <link rel="stylesheet" href="../css/reset.css">
-    <link rel="stylesheet" href="../css/variables.css">
-    <link rel="stylesheet" href="../css/base.css">
-    <link rel="stylesheet" href="../css/kodassauro.css">
-    <link rel="stylesheet" href="../css/floating-actions.css">
-    <link rel="stylesheet" href="../css/demo-shell.css">
-    <link rel="stylesheet" href="../css/demos/demo-institucional.css">
-</head>
-<body>
-    <a class="demo-back" href="../index.html" aria-label="Voltar para a pagina inicial">
-        <i class="fas fa-arrow-left" aria-hidden="true"></i>
-        <span>Voltar para KoddaHub</span>
-    </a>
+    <!-- CSS Files -->
+    <!-- Organização modular de CSS para melhor manutenção e performance -->
+    <!-- 1- Reset CSS para normalização cross-browser -->
+    <link rel="stylesheet" href="../css/base/reset.css" />
+    <!-- 2- Variáveis CSS para temas e cores -->
+    <link rel="stylesheet" href="../css/base/variables.css" />
+    <!-- 3- Tipografia Base -->
+    <link rel="stylesheet" href="../css/base/typography.css" />
+    <!--  Provisorio-->
+    <link rel="stylesheet" href="../css/components/_buttons.css" />
+    <link rel="stylesheet" href="../css/components/_cards.css" />
+    <link rel="stylesheet" href="../css/components/_carousel.css" />
+    <link rel="stylesheet" href="../css/layouts/_hero.css" />
+    <link rel="stylesheet" href="../css/layouts/_sections.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/kodassauro.css" />
+    <link rel="stylesheet" href="../css/utilities.css" />
+    <link rel="stylesheet" href="../css/animations.css" />
+    <link rel="stylesheet" href="../css/responsive.css" />
 
-    <header class="uni-header">
-        <div class="container">
-            <div class="uni-header-content">
-                <div class="uni-logo">
-                    <i class="fas fa-graduation-cap"></i>
-                    UniKodda
-                </div>
-                <nav>
-                    <ul class="uni-nav">
-                        <li><a href="index.html">Voltar</a></li>
-                        <li><a href="#cursos">Cursos</a></li>
-                        <li><a href="#admissao">Admissão</a></li>
-                        <li><a href="#calendario">Calendário</a></li>
-                        <li><a href="#contato">Contato</a></li>
-                    </ul>
-                </nav>
-                <div class="uni-auth">
-                    <button class="btn-uni btn-uni-secondary">Portal</button>
-                    <button class="btn-uni btn-uni-primary">Inscreva-se</button>
-                </div>
-            </div>
+    <!-- Estilos específicos para o carrossel de stats -->
+    <style>
+      /* Container principal do hero dividido em 50/50 */
+      .hero-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: center;
+        min-height: 600px;
+      }
+
+      .hero-text {
+        padding-right: 40px;
+      }
+
+      /* Estilização do card da imagem */
+      .hero-image-card {
+        position: relative;
+        width: 100%;
+        height: 500px;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+        transform-style: preserve-3d;
+        transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .hero-image-card:hover {
+        transform: translateY(-10px) rotateX(2deg) rotateY(2deg);
+      }
+
+      .hero-image-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: brightness(0.9) contrast(1.1);
+        transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .hero-image-card:hover img {
+        transform: scale(1.05);
+      }
+
+      /* Overlay com gradiente */
+      .image-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(
+          to top,
+          rgba(11, 16, 32, 0.95) 0%,
+          rgba(11, 16, 32, 0.85) 20%,
+          rgba(11, 16, 32, 0.5) 50%,
+          rgba(11, 16, 32, 0) 100%
+        );
+        padding: 40px 30px 100px;
+        z-index: 2;
+      }
+
+      /* Container do carrossel */
+      .stats-carousel {
+        position: relative;
+        height: 120px;
+        overflow: hidden;
+      }
+
+      /* Slides individuais */
+      .stats-slide {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+        transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .stats-slide.active {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+
+      /* Conteúdo dos slides */
+      .stats-content {
+        text-align: center;
+        padding: 20px;
+        max-width: 400px;
+        animation: statsPulse 2s infinite alternate;
+      }
+
+      @keyframes statsPulse {
+        0% {
+          transform: scale(1);
+          text-shadow: 0 0 0 rgba(33, 150, 243, 0);
+        }
+
+        100% {
+          transform: scale(1.02);
+          text-shadow: 0 0 20px rgba(33, 150, 243, 0.3);
+        }
+      }
+
+      .stats-content strong {
+        display: block;
+        font-size: 4rem;
+        font-weight: 700;
+        color: #2196f3;
+        margin-bottom: 10px;
+        background: linear-gradient(135deg, #2196f3, #64b5f6);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-shadow: 0 0 30px rgba(33, 150, 243, 0.2);
+        letter-spacing: -1px;
+      }
+
+      .stats-content span {
+        font-size: 1.3rem;
+        color: #fff;
+        font-weight: 500;
+        display: block;
+        opacity: 0.9;
+        letter-spacing: 0.5px;
+        line-height: 1.4;
+      }
+
+      /* Indicadores de navegação */
+      .stats-indicators {
+        position: absolute;
+        bottom: 40px;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        z-index: 10;
+      }
+
+      .stats-indicator {
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.3);
+        border: 2px solid rgba(255, 255, 255, 0.5);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        padding: 0;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .stats-indicator::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.2);
+        transition: left 2s linear;
+      }
+
+      .stats-indicator.active::after {
+        left: 100%;
+      }
+
+      .stats-indicator:hover {
+        background: rgba(255, 255, 255, 0.5);
+        transform: scale(1.2);
+      }
+
+      .stats-indicator.active {
+        background: #2196f3;
+        border-color: #64b5f6;
+        box-shadow: 0 0 15px rgba(33, 150, 243, 0.5);
+        transform: scale(1.3);
+      }
+
+      /* Animação de entrada do card */
+      .animate-slideInRight {
+        animation: slideInRight 1s ease-out forwards;
+      }
+
+      @keyframes slideInRight {
+        0% {
+          opacity: 0;
+          transform: translateX(50px) rotateY(15deg);
+        }
+
+        100% {
+          opacity: 1;
+          transform: translateX(0) rotateY(0);
+        }
+      }
+
+      /* Efeito de brilho nos números */
+      .stats-content strong::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(
+          circle,
+          rgba(33, 150, 243, 0.15) 0%,
+          rgba(33, 150, 243, 0.08) 30%,
+          transparent 70%
+        );
+        z-index: -1;
+        opacity: 0;
+        transition: opacity 0.5s ease;
+      }
+
+      .stats-slide.active .stats-content strong::after {
+        opacity: 1;
+      }
+
+      /* Barra de progresso do indicador ativo */
+      .stats-indicator.active::before {
+        content: "";
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: #64b5f6;
+        border-radius: 2px;
+        animation: progressBar 2s linear infinite;
+      }
+
+      @keyframes progressBar {
+        0% {
+          width: 0%;
+          left: 0;
+        }
+
+        50% {
+          width: 100%;
+          left: 0;
+        }
+
+        100% {
+          width: 0%;
+          left: 100%;
+        }
+      }
+
+      /* Responsividade */
+      @media (max-width: 992px) {
+        .hero-content {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+
+        .hero-text {
+          padding-right: 0;
+          text-align: center;
+        }
+
+        .hero-image-card {
+          height: 400px;
+          max-width: 600px;
+          margin: 0 auto;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .hero-image-card {
+          height: 350px;
+          border-radius: 15px;
+        }
+
+        .stats-content strong {
+          font-size: 3rem;
+        }
+
+        .stats-content span {
+          font-size: 1.1rem;
+        }
+
+        .image-overlay {
+          padding: 30px 20px 90px;
+        }
+
+        .stats-carousel {
+          height: 100px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .hero-image-card {
+          height: 300px;
+          border-radius: 12px;
+        }
+
+        .stats-content strong {
+          font-size: 2.5rem;
+        }
+
+        .stats-content span {
+          font-size: 1rem;
+        }
+
+        .image-overlay {
+          padding: 20px 15px 80px;
+        }
+      }
+
+      /* Estilo para o formulário de busca no hero */
+      .hero-search-modern {
+        margin-top: 30px;
+        display: flex;
+        gap: 10px;
+      }
+
+      .hero-search-modern input {
+        flex: 1;
+        padding: 15px 20px;
+        border: 2px solid rgba(255, 255, 255, 0.1);
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 12px;
+        color: white;
+        font-size: 16px;
+        backdrop-filter: blur(10px);
+        transition: all 0.3s ease;
+      }
+
+      .hero-search-modern input:focus {
+        outline: none;
+        border-color: #2196f3;
+        background: rgba(33, 150, 243, 0.1);
+        box-shadow: 0 0 20px rgba(33, 150, 243, 0.2);
+      }
+
+      .hero-search-modern input::placeholder {
+        color: rgba(255, 255, 255, 0.5);
+      }
+
+      /* ============================================
+           ANIMAÇÕES DO KODASSAURO (CHATBOT)
+           ============================================ */
+
+      /* Balão de fala */
+      .kodassauro-speech-bubble {
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-10px);
+        background: white;
+        color: #333;
+        padding: 12px 16px;
+        border-radius: 18px;
+        font-size: 14px;
+        font-weight: 500;
+        white-space: nowrap;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        z-index: 1000;
+        pointer-events: none;
+      }
+
+      .kodassauro-speech-bubble::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        border: 8px solid transparent;
+        border-top-color: white;
+      }
+
+      .kodassauro-speech-bubble.show {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(-50%) translateY(-20px);
+      }
+
+      /* Animação do ícone pulando */
+      .kodassauro-toggle-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #2196f3, #1976d2);
+        color: white;
+        font-size: 24px;
+        box-shadow: 0 8px 20px rgba(33, 150, 243, 0.4);
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .kodassauro-toggle-icon::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(
+          45deg,
+          transparent 30%,
+          rgba(255, 255, 255, 0.1) 50%,
+          transparent 70%
+        );
+        transform: rotate(45deg);
+        animation: shine 3s infinite linear;
+      }
+
+      @keyframes shine {
+        0% {
+          transform: translateX(-100%) translateY(-100%) rotate(45deg);
+        }
+
+        100% {
+          transform: translateX(100%) translateY(100%) rotate(45deg);
+        }
+      }
+
+      /* Animação de pulo */
+      .kodassauro-toggle.jumping .kodassauro-toggle-icon {
+        animation: jumpAnimation 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) 3;
+      }
+
+      @keyframes jumpAnimation {
+        0%,
+        100% {
+          transform: translateY(0) scale(1);
+        }
+
+        25% {
+          transform: translateY(-15px) scale(1.1);
+        }
+
+        50% {
+          transform: translateY(0) scale(1);
+        }
+
+        75% {
+          transform: translateY(-8px) scale(1.05);
+        }
+      }
+
+      /* Animação de latido (au-au) */
+      .kodassauro-toggle.barking .kodassauro-toggle-icon {
+        animation: barkAnimation 0.4s ease-in-out 2;
+      }
+
+      @keyframes barkAnimation {
+        0%,
+        100% {
+          transform: rotate(0deg);
+        }
+
+        25% {
+          transform: rotate(-5deg);
+        }
+
+        75% {
+          transform: rotate(5deg);
+        }
+      }
+
+      /* Animação de respiração (ativa) */
+      .kodassauro-toggle.active .kodassauro-toggle-icon {
+        animation: breathing 2s ease-in-out infinite;
+        background: linear-gradient(135deg, #4caf50, #2e7d32);
+        box-shadow: 0 8px 20px rgba(76, 175, 80, 0.4);
+      }
+
+      @keyframes breathing {
+        0%,
+        100% {
+          transform: scale(1);
+          box-shadow: 0 8px 20px rgba(76, 175, 80, 0.4);
+        }
+
+        50% {
+          transform: scale(1.05);
+          box-shadow: 0 12px 25px rgba(76, 175, 80, 0.6);
+        }
+      }
+
+      /* Efeito de onda pulsante */
+      .kodassauro-toggle.active::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        border: 2px solid rgba(76, 175, 80, 0.3);
+        animation: pulseWave 2s ease-out infinite;
+        pointer-events: none;
+      }
+
+      @keyframes pulseWave {
+        0% {
+          width: 60px;
+          height: 60px;
+          opacity: 1;
+        }
+
+        100% {
+          width: 100px;
+          height: 100px;
+          opacity: 0;
+        }
+      }
+
+      /* Badge de notificação animada */
+      .kodassauro-badge {
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        background: #ff4081;
+        color: white;
+        font-size: 12px;
+        font-weight: bold;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        animation: badgePulse 2s infinite;
+        box-shadow: 0 2px 8px rgba(255, 64, 129, 0.4);
+      }
+
+      @keyframes badgePulse {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+
+        50% {
+          transform: scale(1.1);
+        }
+      }
+    </style>
+
+    <!-- Bootstrap 5 CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <!-- Header/Navbar Moderno -->
+    <header class="navbar-modern">
+      <div class="container-fluid">
+        <div class="navbar-wrapper">
+          <div class="navbar-brand">
+            <a href="../index.html" class="logo-image">
+              <img
+                src="../assets/logo/KoddaHub-logo-education.png"
+                alt="KoddaHub Education"
+              />
+            </a>
+            <a href="../index.html" class="logo-text">
+              <span>KoddaHub</span>
+            </a>
+          </div>
+
+          <nav class="navbar-menu" id="navMenu">
+            <a href="../index.html" class="nav-link">Home</a>
+            <a href="#cursos" class="nav-link">Cursos</a>
+            <a href="#admissao" class="nav-link">Admissão</a>
+            <a href="#contato" class="nav-link cta-nav">Contato</a>
+          </nav>
+
+          <button class="navbar-toggle" id="navToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
         </div>
+      </div>
     </header>
 
-    <section class="campus-hero">
-        <h1>Bem-vindo à UniKodda</h1>
-        <p>Educação de Qualidade para um Futuro Brilhante</p>
-        <div class="hero-cta">
-            <button class="btn-uni btn-uni-primary">Explorar Cursos</button>
-            <button class="btn-uni btn-uni-secondary">Saiba Mais</button>
-        </div>
-    </section>
+    <!-- Hero Section Institucional -->
+    <section class="hero-modern" id="inicio">
+      <div class="hero-background">
+        <div class="gradient-blob blob-1"></div>
+        <div class="gradient-blob blob-2"></div>
+        <div class="gradient-blob blob-3"></div>
+      </div>
 
-    <section class="stats-bar">
-        <div class="container" style="grid-column: 1/-1;">
-            <div
-                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; text-align: center;">
-                <div class="stat-item">
-                    <h3>15+</h3>
-                    <p>Anos de Excelência</p>
-                </div>
-                <div class="stat-item">
-                    <h3>8.500+</h3>
-                    <p>Estudantes Ativos</p>
-                </div>
-                <div class="stat-item">
-                    <h3>150+</h3>
-                    <p>Professores Mestres</p>
-                </div>
-                <div class="stat-item">
-                    <h3>95%</h3>
-                    <p>Taxa de Empregabilidade</p>
-                </div>
-            </div>
-        </div>
-    </section>
+      <div class="container-fluid">
+        <div class="hero-content">
+          <!-- Coluna 1: Texto e Botões (50%) -->
+          <div class="hero-text animate-slideInUp">
+            <p class="hero-kicker">UNIKODDA FACULDADE</p>
+            <h1 class="hero-title">Formação que Conecta Você ao Mercado</h1>
+            <p class="hero-subtitle">
+              Cursos presenciais e a distância com flexibilidade, qualidade e
+              foco na empregabilidade. Prepare-se para o futuro com uma das
+              melhores instituições de ensino do país.
+            </p>
 
-    <section class="courses-section" id="cursos">
-        <div class="container">
-            <h2 class="section-title">📚 Programas Acadêmicos</h2>
-            <div class="courses-grid">
-                <div class="course-card">
-                    <div class="course-header">
-                        <div class="course-icon">💻</div>
-                        <div class="course-name">Engenharia de Software</div>
-                        <div class="course-type">Bacharelado - 4 anos</div>
-                    </div>
-                    <div class="course-info">
-                        <p class="course-desc">Forme-se como especialista em desenvolvimento de software com as mais
-                            modernas tecnologias do mercado.</p>
-                        <div class="course-details">
-                            <div class="detail-item">
-                                <i class="fas fa-clock"></i>
-                                <span>40h/semana</span>
-                            </div>
-                            <div class="detail-item">
-                                <i class="fas fa-users"></i>
-                                <span>35 alunos/turma</span>
-                            </div>
-                            <div class="detail-item">
-                                <i class="fas fa-star"></i>
-                                <span>★★★★★</span>
-                            </div>
-                            <div class="detail-item">
-                                <i class="fas fa-dollar-sign"></i>
-                                <span>R$ 1.500/mês</span>
-                            </div>
-                        </div>
-                        <div class="course-cta">
-                            <button class="btn-course">Saber Mais</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="course-card">
-                    <div class="course-header">
-                        <div class="course-icon">📊</div>
-                        <div class="course-name">Administração de Empresas</div>
-                        <div class="course-type">Bacharelado - 4 anos</div>
-                    </div>
-                    <div class="course-info">
-                        <p class="course-desc">Prepare-se para liderar empresas com disciplinas práticas e teóricas que
-                            cobrem gestão completa.</p>
-                        <div class="course-details">
-                            <div class="detail-item">
-                                <i class="fas fa-clock"></i>
-                                <span>40h/semana</span>
-                            </div>
-                            <div class="detail-item">
-                                <i class="fas fa-users"></i>
-                                <span>40 alunos/turma</span>
-                            </div>
-                            <div class="detail-item">
-                                <i class="fas fa-star"></i>
-                                <span>★★★★☆</span>
-                            </div>
-                            <div class="detail-item">
-                                <i class="fas fa-dollar-sign"></i>
-                                <span>R$ 1.200/mês</span>
-                            </div>
-                        </div>
-                        <div class="course-cta">
-                            <button class="btn-course">Saber Mais</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="course-card">
-                    <div class="course-header">
-                        <div class="course-icon">🏥</div>
-                        <div class="course-name">Enfermagem</div>
-                        <div class="course-type">Bacharelado - 4 anos</div>
-                    </div>
-                    <div class="course-info">
-                        <p class="course-desc">Dedique-se à área da saúde com formação prática em hospitais parceiros e
-                            laboratórios modernos.</p>
-                        <div class="course-details">
-                            <div class="detail-item">
-                                <i class="fas fa-clock"></i>
-                                <span>44h/semana</span>
-                            </div>
-                            <div class="detail-item">
-                                <i class="fas fa-users"></i>
-                                <span>25 alunos/turma</span>
-                            </div>
-                            <div class="detail-item">
-                                <i class="fas fa-star"></i>
-                                <span>★★★★★</span>
-                            </div>
-                            <div class="detail-item">
-                                <i class="fas fa-dollar-sign"></i>
-                                <span>R$ 1.800/mês</span>
-                            </div>
-                        </div>
-                        <div class="course-cta">
-                            <button class="btn-course">Saber Mais</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="course-card">
-                    <div class="course-header">
-                        <div class="course-icon">⚖️</div>
-                        <div class="course-name">Direito</div>
-                        <div class="course-type">Bacharelado - 5 anos</div>
-                    </div>
-                    <div class="course-info">
-                        <p class="course-desc">Estude direto civil, penal, comercial e trabalhista com professores
-                            experientes e atuantes.</p>
-                        <div class="course-details">
-                            <div class="detail-item">
-                                <i class="fas fa-clock"></i>
-                                <span>40h/semana</span>
-                            </div>
-                            <div class="detail-item">
-                                <i class="fas fa-users"></i>
-                                <span>45 alunos/turma</span>
-                            </div>
-                            <div class="detail-item">
-                                <i class="fas fa-star"></i>
-                                <span>★★★★☆</span>
-                            </div>
-                            <div class="detail-item">
-                                <i class="fas fa-dollar-sign"></i>
-                                <span>R$ 1.100/mês</span>
-                            </div>
-                        </div>
-                        <div class="course-cta">
-                            <button class="btn-course">Saber Mais</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="course-card">
-                    <div class="course-header">
-                        <div class="course-icon">🎨</div>
-                        <div class="course-name">Design Gráfico</div>
-                        <div class="course-type">Bacharelado - 3 anos</div>
-                    </div>
-                    <div class="course-info">
-                        <p class="course-desc">Desenvolva habilidades criativas em design, com software profissional e
-                            projetos reais de clientes.</p>
-                        <div class="course-details">
-                            <div class="detail-item">
-                                <i class="fas fa-clock"></i>
-                                <span>35h/semana</span>
-                            </div>
-                            <div class="detail-item">
-                                <i class="fas fa-users"></i>
-                                <span>20 alunos/turma</span>
-                            </div>
-                            <div class="detail-item">
-                                <i class="fas fa-star"></i>
-                                <span>★★★★★</span>
-                            </div>
-                            <div class="detail-item">
-                                <i class="fas fa-dollar-sign"></i>
-                                <span>R$ 950/mês</span>
-                            </div>
-                        </div>
-                        <div class="course-cta">
-                            <button class="btn-course">Saber Mais</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="course-card">
-                    <div class="course-header">
-                        <div class="course-icon">🌍</div>
-                        <div class="course-name">Relações Internacionais</div>
-                        <div class="course-type">Bacharelado - 4 anos</div>
-                    </div>
-                    <div class="course-info">
-                        <p class="course-desc">Explore políticas internacionais, comércio exterior e diplomacia com
-                            perspectiva global.</p>
-                        <div class="course-details">
-                            <div class="detail-item">
-                                <i class="fas fa-clock"></i>
-                                <span>40h/semana</span>
-                            </div>
-                            <div class="detail-item">
-                                <i class="fas fa-users"></i>
-                                <span>30 alunos/turma</span>
-                            </div>
-                            <div class="detail-item">
-                                <i class="fas fa-star"></i>
-                                <span>★★★★☆</span>
-                            </div>
-                            <div class="detail-item">
-                                <i class="fas fa-dollar-sign"></i>
-                                <span>R$ 1.300/mês</span>
-                            </div>
-                        </div>
-                        <div class="course-cta">
-                            <button class="btn-course">Saber Mais</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="testimonials-section">
-        <div class="container">
-            <h2 class="section-title">💬 Depoimentos de Alunos</h2>
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="testimonial-text">"UniKodda transformou minha carreira! Os professores são excelentes e
-                        os projetos práticos me prepararam muito para o mercado de trabalho."</div>
-                    <div class="testimonial-author">João Silva</div>
-                    <div class="testimonial-role">Engenharia de Software - Turma 2022</div>
-                    <div class="testimonial-rating">★★★★★</div>
-                </div>
-
-                <div class="testimonial-card">
-                    <div class="testimonial-text">"A estrutura da universidade é impecável. Tenho acesso a laboratórios
-                        modernos e uma biblioteca completa que facilita muito meus estudos."</div>
-                    <div class="testimonial-author">Maria Santos</div>
-                    <div class="testimonial-role">Enfermagem - Turma 2023</div>
-                    <div class="testimonial-rating">★★★★★</div>
-                </div>
-
-                <div class="testimonial-card">
-                    <div class="testimonial-text">"Os professores têm experiência real no mercado. Aprendemos não apenas
-                        teoria, mas também como aplicar na prática profissional do dia a dia."</div>
-                    <div class="testimonial-author">Pedro Costa</div>
-                    <div class="testimonial-role">Administração - Turma 2021</div>
-                    <div class="testimonial-rating">★★★★☆</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="admissions-section" id="admissao">
-        <div class="container">
-            <h2 class="section-title">📝 Processo de Admissão</h2>
-            <div class="admissions-content">
-                <div class="admissions-text">
-                    <h2>Junte-se a Nós</h2>
-                    <p>O processo de admissão da UniKodda é simplificado e transparente. Acreditamos em dar oportunidades
-                        para alunos talentosos de todas as origens.</p>
-                    <p>✓ Prova de Conhecimentos<br>✓ Análise de Histórico<br>✓ Entrevista com Orientador<br>✓ Resultado
-                        em 7 dias</p>
-                    <button class="btn-uni btn-uni-primary" style="margin-top: 20px;">Baixar Edital Completo</button>
-                </div>
-                <div class="admissions-form">
-                    <h3>Pré-Inscrição Rápida</h3>
-                    <form style="margin-top: 20px;">
-                        <div class="form-group">
-                            <label>Nome Completo</label>
-                            <input type="text" placeholder="Seu nome">
-                        </div>
-                        <div class="form-group">
-                            <label>Email</label>
-                            <input type="email" placeholder="seu@email.com">
-                        </div>
-                        <div class="form-group">
-                            <label>Curso Desejado</label>
-                            <select>
-                                <option>Selecione um curso</option>
-                                <option>Engenharia de Software</option>
-                                <option>Administração</option>
-                                <option>Enfermagem</option>
-                                <option>Direito</option>
-                                <option>Design Gráfico</option>
-                                <option>Relações Internacionais</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>Telefone</label>
-                            <input type="tel" placeholder="(11) 9xxxx-xxxx">
-                        </div>
-                        <button type="submit" class="btn-submit">Enviar Pré-Inscrição</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="calendar-section" id="calendario">
-        <div class="container">
-            <h2 class="section-title">📅 Calendário Acadêmico 2024</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-date">10 de Janeiro</div>
-                    <div class="timeline-content">
-                        <h3>Período de Inscrição</h3>
-                        <p>Abertura das inscrições para alunos ingressantes e transferências</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-date">25 de Janeiro</div>
-                    <div class="timeline-content">
-                        <h3>Provas de Admissão</h3>
-                        <p>Aplicação das provas para seleção de novos alunos</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-date">02 de Fevereiro</div>
-                    <div class="timeline-content">
-                        <h3>Resultados Publicados</h3>
-                        <p>Divulgação dos aprovados no processo seletivo</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-date">10 de Fevereiro</div>
-                    <div class="timeline-content">
-                        <h3>Início do Semestre</h3>
-                        <p>Começam as aulas do 1º semestre letivo 2024/1</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-date">15 de Julho</div>
-                    <div class="timeline-content">
-                        <h3>Recesso Universitário</h3>
-                        <p>Período de férias e atividades complementares</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-date">01 de Agosto</div>
-                    <div class="timeline-content">
-                        <h3>Início do 2º Semestre</h3>
-                        <p>Retorno das aulas para o 2º semestre letivo</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="uni-footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h4>Acadêmico</h4>
-                    <ul>
-                        <li><a href="#">Cursos</a></li>
-                        <li><a href="#">Professores</a></li>
-                        <li><a href="#">Biblioteca</a></li>
-                        <li><a href="#">Pesquisa</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h4>Admissão</h4>
-                    <ul>
-                        <li><a href="#">Processo Seletivo</a></li>
-                        <li><a href="#">Financiamento</a></li>
-                        <li><a href="#">Bolsas</a></li>
-                        <li><a href="#">FAQ</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h4>Campus</h4>
-                    <ul>
-                        <li><a href="#">Localização</a></li>
-                        <li><a href="#">Instalações</a></li>
-                        <li><a href="#">Eventos</a></li>
-                        <li><a href="#">Notícias</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h4>Contato</h4>
-                    <ul>
-                        <li><a href="#">Central de Atendimento</a></li>
-                        <li><a href="#">Email</a></li>
-                        <li><a href="#">WhatsApp</a></li>
-                        <li><a href="#">Redes Sociais</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 KoddaVale - Todos os direitos reservados.</p>
-            </div>
-        </div>
-    </footer>
-    <a href="https://wa.me/554192272854?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20as%20solu%C3%A7%C3%B5es%20da%20KoddaHub"
-        class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Conversar no WhatsApp">
-        <i class="fab fa-whatsapp" aria-hidden="true"></i>
-        <span class="whatsapp-tooltip">Fale conosco!</span>
-    </a>
-
-    <div class="kodassauro" id="kodassauroRoot">
-        <button class="kodassauro-toggle" type="button" aria-haspopup="dialog" aria-controls="kodassauroPanel"
-            aria-expanded="false" aria-label="Abrir chat Kodassauro">
-            <span class="kodassauro-badge" aria-label="Notificacoes do chat" hidden>0</span>
-            <span class="kodassauro-toggle-icon" aria-hidden="true">
-                <i class="fas fa-comment-dots" aria-hidden="true"></i>
-            </span>
-        </button>
-
-        <section class="kodassauro-panel" id="kodassauroPanel" role="dialog" aria-modal="false"
-            aria-labelledby="kodassauroTitle" aria-describedby="kodassauroSubtitle" tabindex="-1" hidden>
-            <header class="kodassauro-header">
-                <div class="kodassauro-avatar" aria-hidden="true">
-                    <svg class="kodassauro-svg" viewBox="0 0 64 64" role="img" aria-label="Kodassauro">
-                        <defs>
-                            <linearGradient id="kdsGrad" x1="0" y1="0" x2="1" y2="1">
-                                <stop offset="0%" stop-color="#2196F3" />
-                                <stop offset="100%" stop-color="#F57C00" />
-                            </linearGradient>
-                        </defs>
-                        <circle cx="32" cy="32" r="30" fill="url(#kdsGrad)" opacity="0.95" />
-                        <path d="M18 37c2-9 9-16 18-16s16 7 18 16c-6 7-13 11-18 11s-12-4-18-11z"
-                            fill="#fff" opacity="0.95" />
-                        <circle class="kds-eye" cx="28" cy="33" r="2.6" fill="#1976D2" />
-                        <circle class="kds-eye" cx="36" cy="33" r="2.6" fill="#1976D2" />
-                        <path d="M28 40c3 3 5 3 8 0" stroke="#E65100" stroke-width="3" fill="none"
-                            stroke-linecap="round" />
-                        <path d="M22 18l8 4" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity="0.9" />
-                        <path d="M42 18l-8 4" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity="0.9" />
-                    </svg>
-                </div>
-
-                <div class="kodassauro-headings">
-                    <h3 class="kodassauro-title" id="kodassauroTitle">Kodassauro</h3>
-                    <p class="kodassauro-subtitle" id="kodassauroSubtitle">Assistente da KoddaHub, pronto para ajudar</p>
-                </div>
-
-                <div class="kodassauro-header-actions">
-                    <button class="kodassauro-reset" type="button">Limpar</button>
-                    <button class="kodassauro-close" type="button" aria-label="Fechar chat">
-                        <i class="fas fa-times" aria-hidden="true"></i>
-                    </button>
-                </div>
-            </header>
-
-            <div class="kodassauro-messages" id="kodassauroMessages" aria-live="polite" aria-relevant="additions">
+            <div class="hero-cta">
+              <a href="#cursos" class="btn-primary-modern">Conheça os Cursos</a>
+              <a href="#admissao" class="btn-secondary-modern">Inscreva-se</a>
             </div>
 
-            <div class="kodassauro-quick" id="kodassauroQuick" aria-label="Atalhos do chat">
-                <button type="button" class="kodassauro-chip" data-action="orcamento">Orcamento</button>
-                <button type="button" class="kodassauro-chip" data-action="duvidas">Duvidas</button>
-                <button type="button" class="kodassauro-chip" data-action="contato">Falar com vendedor</button>
-                <button type="button" class="kodassauro-chip" data-action="precos">Ver precos</button>
-                <button type="button" class="kodassauro-chip" data-action="portfolio">Ver portfolio</button>
-            </div>
-
-            <form class="kodassauro-composer" id="kodassauroComposer" autocomplete="off">
-                <label class="kodassauro-sr-only" for="kodassauroInput">Mensagem</label>
-                <input id="kodassauroInput" class="kodassauro-input" type="text"
-                    placeholder="Digite sua mensagem..." inputmode="text" />
-                <button class="kodassauro-send" type="submit">Enviar</button>
+            <form class="hero-search-modern" aria-label="Busca de cursos">
+              <input
+                type="search"
+                placeholder="Pesquisar curso, campus ou palavra-chave"
+              />
+              <button class="btn-primary-modern" type="submit">Buscar</button>
             </form>
-        </section>
+          </div>
+
+          <!-- Coluna 2: Card com Indicadores (50%) -->
+          <div class="animate-slideInRight" style="animation-delay: 0.3s">
+            <div class="hero-image-card">
+              <img
+                src="../assets/backgrounds/hero-institucional.jpg"
+                alt="Campus UniKodda - Estudantes no campus universitário"
+                onerror="this.style.opacity = 0.06"
+              />
+              <div class="image-overlay">
+                <div class="stats-carousel" id="statsCarousel">
+                  <!-- Indicador 1 - Ativo por padrão -->
+                  <div class="stats-slide active" data-index="0">
+                    <div class="stats-content">
+                      <strong>15+</strong>
+                      <span>Anos de Excelência em Educação</span>
+                    </div>
+                  </div>
+
+                  <!-- Indicador 2 -->
+                  <div class="stats-slide" data-index="1">
+                    <div class="stats-content">
+                      <strong>8.500+</strong>
+                      <span>Alunos Formados e em Formação</span>
+                    </div>
+                  </div>
+
+                  <!-- Indicador 3 -->
+                  <div class="stats-slide" data-index="2">
+                    <div class="stats-content">
+                      <strong>95%</strong>
+                      <span>Taxa de Empregabilidade dos Egressos</span>
+                    </div>
+                  </div>
+
+                  <!-- Indicador 4 -->
+                  <div class="stats-slide" data-index="3">
+                    <div class="stats-content">
+                      <strong>150+</strong>
+                      <span>Docentes Mestres e Doutores</span>
+                    </div>
+                  </div>
+
+                  <!-- Indicador 5 -->
+                  <div class="stats-slide" data-index="4">
+                    <div class="stats-content">
+                      <strong>50+</strong>
+                      <span>Parcerias com Empresas</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Indicadores de navegação -->
+                <div class="stats-indicators">
+                  <button
+                    class="stats-indicator active"
+                    data-target="0"
+                    aria-label="Mostrar estatística 1"
+                  ></button>
+                  <button
+                    class="stats-indicator"
+                    data-target="1"
+                    aria-label="Mostrar estatística 2"
+                  ></button>
+                  <button
+                    class="stats-indicator"
+                    data-target="2"
+                    aria-label="Mostrar estatística 3"
+                  ></button>
+                  <button
+                    class="stats-indicator"
+                    data-target="3"
+                    aria-label="Mostrar estatística 4"
+                  ></button>
+                  <button
+                    class="stats-indicator"
+                    data-target="4"
+                    aria-label="Mostrar estatística 5"
+                  ></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cursos Section -->
+    <section id="cursos" class="solutions-section">
+      <div class="container-fluid">
+        <div class="section-header">
+          <span class="section-badge">NOSSOS CURSOS</span>
+          <h2>Programas e Cursos de Excelência</h2>
+          <p>
+            Formações pensadas para o mercado, com trilhas presenciais e EAD.
+          </p>
+        </div>
+
+        <div class="solutions-grid">
+          <!-- Curso 1 -->
+          <div class="solution-card modern-card">
+            <div class="card-image">
+              <i class="fas fa-laptop-code"></i>
+            </div>
+            <div class="card-content">
+              <h3>Engenharia de Software</h3>
+              <p>
+                Formação completa em desenvolvimento, arquitetura e metodologias
+                ágeis.
+              </p>
+              <ul class="features-list">
+                <li><i class="fas fa-check"></i> Bacharelado • 4 anos</li>
+                <li><i class="fas fa-check"></i> Presencial/EAD</li>
+                <li><i class="fas fa-check"></i> Projetos Reais</li>
+                <li><i class="fas fa-check"></i> Estágio Garantido</li>
+              </ul>
+              <div class="card-footer">
+                <span class="price">Vagas Limitadas</span>
+                <a href="#admissao" class="btn-link"
+                  >Inscreva-se <i class="fas fa-arrow-right"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Curso 2 -->
+          <div class="solution-card modern-card">
+            <div class="card-image">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <div class="card-content">
+              <h3>Administração</h3>
+              <p>Desenvolva competências de gestão, finanças e liderança.</p>
+              <ul class="features-list">
+                <li><i class="fas fa-check"></i> Bacharelado • 4 anos</li>
+                <li><i class="fas fa-check"></i> Presencial/EAD</li>
+                <li><i class="fas fa-check"></i> MBA Integrado</li>
+                <li><i class="fas fa-check"></i> Networking</li>
+              </ul>
+              <div class="card-footer">
+                <span class="price">Vagas Limitadas</span>
+                <a href="#admissao" class="btn-link"
+                  >Inscreva-se <i class="fas fa-arrow-right"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Curso 3 -->
+          <div class="solution-card modern-card">
+            <div class="card-image">
+              <i class="fas fa-user-nurse"></i>
+            </div>
+            <div class="card-content">
+              <h3>Enfermagem</h3>
+              <p>Formação prática com estágios em hospitais parceiros.</p>
+              <ul class="features-list">
+                <li><i class="fas fa-check"></i> Bacharelado • 4 anos</li>
+                <li><i class="fas fa-check"></i> Presencial</li>
+                <li><i class="fas fa-check"></i> Laboratórios Modernos</li>
+                <li><i class="fas fa-check"></i> Parcerias Hospitalares</li>
+              </ul>
+              <div class="card-footer">
+                <span class="price">Vagas Limitadas</span>
+                <a href="#admissao" class="btn-link"
+                  >Inscreva-se <i class="fas fa-arrow-right"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Curso 4 -->
+          <div class="solution-card modern-card">
+            <div class="card-image">
+              <i class="fas fa-gavel"></i>
+            </div>
+            <div class="card-content">
+              <h3>Direito</h3>
+              <p>
+                Corpo docente experiente e atividades práticas em escritórios
+                parceiros.
+              </p>
+              <ul class="features-list">
+                <li><i class="fas fa-check"></i> Bacharelado • 5 anos</li>
+                <li><i class="fas fa-check"></i> Presencial</li>
+                <li><i class="fas fa-check"></i> Núcleo de Prática</li>
+                <li><i class="fas fa-check"></i> OAB Integrada</li>
+              </ul>
+              <div class="card-footer">
+                <span class="price">Vagas Limitadas</span>
+                <a href="#admissao" class="btn-link"
+                  >Inscreva-se <i class="fas fa-arrow-right"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Curso 5 - Sistemas -->
+          <div class="solution-card modern-card">
+            <div class="card-image">
+              <i class="fas fa-robot"></i>
+            </div>
+            <div class="card-content">
+              <h3>Ciência da Computação</h3>
+              <p>
+                IA, machine learning e desenvolvimento de sistemas inteligentes.
+              </p>
+              <ul class="features-list">
+                <li><i class="fas fa-check"></i> Bacharelado • 4 anos</li>
+                <li><i class="fas fa-check"></i> Presencial/EAD</li>
+                <li><i class="fas fa-check"></i> Laboratório de IA</li>
+                <li><i class="fas fa-check"></i> Parcerias Tech</li>
+              </ul>
+              <div class="card-footer">
+                <span class="price">Vagas Limitadas</span>
+                <a href="#admissao" class="btn-link"
+                  >Inscreva-se <i class="fas fa-arrow-right"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Diferenciais -->
+    <section class="why-section-modern">
+      <div class="container-fluid">
+        <div class="section-header">
+          <span class="section-badge">POR QUE ESCOLHER A UNIKODDA?</span>
+          <h2>Nossos Diferenciais</h2>
+        </div>
+
+        <div class="why-grid-modern">
+          <div class="why-card">
+            <div class="why-icon">
+              <i class="fas fa-briefcase"></i>
+            </div>
+            <h3>Carreira</h3>
+            <p>
+              Parcerias com empresas locais e programas de estágio garantido.
+            </p>
+          </div>
+
+          <div class="why-card">
+            <div class="why-icon">
+              <i class="fas fa-building"></i>
+            </div>
+            <h3>Infraestrutura</h3>
+            <p>
+              Laboratórios modernos, bibliotecas digitais e salas inteligentes.
+            </p>
+          </div>
+
+          <div class="why-card">
+            <div class="why-icon">
+              <i class="fas fa-hands-helping"></i>
+            </div>
+            <h3>Apoio</h3>
+            <p>
+              Mentoria individual, orientação de carreira e suporte ao
+              estudante.
+            </p>
+          </div>
+
+          <div class="why-card">
+            <div class="why-icon">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <h3>Docentes</h3>
+            <p>Professores mestres e doutores com experiência de mercado.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Admissão Section -->
+    <section id="admissao" class="admissions-section-modern">
+      <div class="container-fluid">
+        <div class="admissions-wrapper">
+          <div class="admissions-info">
+            <div class="section-header">
+              <span class="section-badge">PROCESSO DE ADMISSÃO</span>
+              <h2>Venha Fazer Parte da UniKodda</h2>
+              <p>
+                Inscreva-se para turmas presenciais e a distância. Processo
+                simples e transparente.
+              </p>
+            </div>
+
+            <div class="admissions-steps">
+              <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                  <h3>Prova de Conhecimentos</h3>
+                  <p>Avaliação online ou presencial conforme modalidade</p>
+                </div>
+              </div>
+
+              <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                  <h3>Análise de Histórico</h3>
+                  <p>Verificação de documentos e histórico escolar</p>
+                </div>
+              </div>
+
+              <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                  <h3>Entrevista</h3>
+                  <p>Conversa com coordenador do curso escolhido</p>
+                </div>
+              </div>
+
+              <div class="step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                  <h3>Resultado</h3>
+                  <p>Divulgação em até 7 dias úteis</p>
+                </div>
+              </div>
+            </div>
+
+            <a class="btn-secondary-modern" href="#">
+              <i class="fas fa-download"></i> Baixar Edital
+            </a>
+          </div>
+
+          <div class="admissions-form">
+            <div class="card-modern">
+              <h3>Pré-inscrição Online</h3>
+              <form id="admissionForm">
+                <div class="form-group">
+                  <label for="nome">Nome Completo *</label>
+                  <input
+                    type="text"
+                    id="nome"
+                    name="nome"
+                    placeholder="Seu nome"
+                    required
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="email">E-mail *</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="seu@email.com"
+                    required
+                  />
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="telefone">Telefone</label>
+                    <input
+                      type="tel"
+                      id="telefone"
+                      name="telefone"
+                      placeholder="(11) 99999-9999"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="curso">Curso de Interesse *</label>
+                    <select id="curso" name="curso" required>
+                      <option value="">Selecione...</option>
+                      <option>Engenharia de Software</option>
+                      <option>Administração</option>
+                      <option>Enfermagem</option>
+                      <option>Direito</option>
+                      <option>Ciência da Computação</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="modalidade">Modalidade *</label>
+                  <select id="modalidade" name="modalidade" required>
+                    <option value="">Selecione...</option>
+                    <option>Presencial</option>
+                    <option>EAD (100% Online)</option>
+                    <option>Híbrido</option>
+                  </select>
+                </div>
+
+                <button type="submit" class="btn-primary-modern">
+                  Enviar Pré-inscrição
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Calendário -->
+    <section id="calendario" class="calendar-section-modern">
+      <div class="container-fluid">
+        <div class="section-header">
+          <span class="section-badge">CALENDÁRIO ACADÊMICO</span>
+          <h2>Datas Importantes 2024</h2>
+        </div>
+
+        <div class="timeline-modern">
+          <div class="timeline-item">
+            <div class="timeline-date">10 de Janeiro</div>
+            <div class="timeline-content">
+              <h3>Período de Inscrição</h3>
+              <p>Abertura das inscrições para alunos ingressantes</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-date">25 de Janeiro</div>
+            <div class="timeline-content">
+              <h3>Provas de Admissão</h3>
+              <p>Aplicação das provas para seleção de novos alunos</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-date">02 de Fevereiro</div>
+            <div class="timeline-content">
+              <h3>Resultados Publicados</h3>
+              <p>Divulgação dos aprovados no processo seletivo</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-date">10 de Fevereiro</div>
+            <div class="timeline-content">
+              <h3>Início do Semestre</h3>
+              <p>Começam as aulas do 1º semestre letivo</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contato -->
+    <section id="contato" class="contato-section">
+      <div class="container-fluid">
+        <div class="contato-wrapper">
+          <div class="contato-form">
+            <div class="section-header">
+              <h2>Fale com a UniKodda</h2>
+              <p>Tire suas dúvidas sobre cursos, matrículas e processos</p>
+            </div>
+
+            <form id="contactForm" class="form-modern">
+              <div class="form-alerts">
+                <div id="formSuccess" class="form-success">
+                  <i class="fas fa-check-circle"></i>
+                  <span
+                    >Mensagem enviada com sucesso! Entraremos em contato em
+                    breve.</span
+                  >
+                </div>
+                <div id="formError" class="form-error">
+                  <i class="fas fa-exclamation-circle"></i>
+                  <span
+                    >Erro ao enviar. Verifique os dados e tente novamente.</span
+                  >
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="nome_contato">Nome Completo *</label>
+                  <input
+                    type="text"
+                    id="nome_contato"
+                    name="nome_contato"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="email_contato">E-mail *</label>
+                  <input
+                    type="email"
+                    id="email_contato"
+                    name="email_contato"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="telefone_contato">Telefone</label>
+                  <input
+                    type="tel"
+                    id="telefone_contato"
+                    name="telefone_contato"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="assunto">Assunto *</label>
+                  <select id="assunto" name="assunto" required>
+                    <option value="">Selecione...</option>
+                    <option value="Informações sobre cursos">
+                      Informações sobre cursos
+                    </option>
+                    <option value="Processo seletivo">Processo seletivo</option>
+                    <option value="Bolsas e financiamentos">
+                      Bolsas e financiamentos
+                    </option>
+                    <option value="Transferência">Transferência</option>
+                    <option value="Outro">Outro</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="mensagem_contato">Mensagem *</label>
+                <textarea
+                  id="mensagem_contato"
+                  name="mensagem_contato"
+                  rows="5"
+                  required
+                ></textarea>
+              </div>
+
+              <button type="submit" class="btn-primary-modern">
+                Enviar Mensagem
+              </button>
+            </form>
+          </div>
+
+          <div class="contato-info">
+            <h3>Informações de Contato</h3>
+
+            <div class="info-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <div>
+                <h4>Localização</h4>
+                <p>Curitiba - PR<br />Atendimento Nacional</p>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <i class="fas fa-phone"></i>
+              <div>
+                <h4>Central de Atendimento</h4>
+                <p><a href="tel:+554192272854">+55(41)9227-2854</a></p>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <i class="fas fa-envelope"></i>
+              <div>
+                <h4>E-mail Institucional</h4>
+                <p>
+                  <a href="mailto:contato@unikodda.edu.br"
+                    >contato@unikodda.edu.br</a
+                  >
+                </p>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <i class="fas fa-clock"></i>
+              <div>
+                <h4>Horário de Atendimento</h4>
+                <p>Segunda a Sexta: 8h às 22h<br />Sábado: 8h às 14h</p>
+              </div>
+            </div>
+
+            <div class="social-modern">
+              <h4>Siga a UniKodda</h4>
+              <div class="social-links">
+                <a href="https://facebook.com" target="_blank" title="Facebook"
+                  ><i class="fab fa-facebook-f"></i
+                ></a>
+                <a
+                  href="https://instagram.com"
+                  target="_blank"
+                  title="Instagram"
+                  ><i class="fab fa-instagram"></i
+                ></a>
+                <a href="https://linkedin.com" target="_blank" title="LinkedIn"
+                  ><i class="fab fa-linkedin-in"></i
+                ></a>
+                <a
+                  href="https://wa.me/554192272854"
+                  target="_blank"
+                  title="WhatsApp"
+                  ><i class="fab fa-whatsapp"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-modern">
+      <div class="container-fluid">
+        <div class="footer-content">
+          <div class="footer-column">
+            <h3><img src="../assets/logo/KoddaHub-logo-education.png" alt="Ícone do KoddaHub" class="logo-icon" /> UniKodda</h3>
+            <p>
+              Educação com foco em empregabilidade e qualidade pedagógica.
+              Transformando vidas através do conhecimento.
+            </p>
+          </div>
+
+          <div class="footer-column">
+            <h4>Cursos</h4>
+            <ul>
+              <li><a href="#cursos">Engenharia de Software</a></li>
+              <li><a href="#cursos">Administração</a></li>
+              <li><a href="#cursos">Enfermagem</a></li>
+              <li><a href="#cursos">Direito</a></li>
+              <li><a href="#cursos">Ciência da Computação</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h4>Links Rápidos</h4>
+            <ul>
+              <li><a href="#cursos">Cursos</a></li>
+              <li><a href="#admissao">Admissão</a></li>
+              <li><a href="#calendario">Calendário</a></li>
+              <li><a href="#contato">Contato</a></li>
+              <li><a href="../index.html">Voltar para KoddaHub</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h4>Institucional</h4>
+            <ul>
+              <li><a href="#">Sobre a UniKodda</a></li>
+              <li><a href="#">Diretoria</a></li>
+              <li><a href="#">Trabalhe Conosco</a></li>
+              <li><a href="#">Política de Privacidade</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>
+            &copy; 2026 UniKodda. Todos os direitos reservados. | Demo criado
+            por KoddaHub
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ============================================
+         CHATBOT KODDAHUB COM ANIMAÇÕES
+         ============================================ -->
+    <div class="kodassauro" id="kodassauroRoot">
+      <button
+        class="kodassauro-toggle"
+        type="button"
+        aria-haspopup="dialog"
+        aria-controls="kodassauroPanel"
+        aria-expanded="false"
+        aria-label="Abrir chat KoddaHub"
+      >
+        <img
+          src="../assets/logo/KoddaHub-icon-chat.png"
+          alt="Ícone do KoddaHub"
+          class="kodassauro-icon"
+        />
+        <span class="kodassauro-badge" aria-label="Notificações do chat" hidden
+          >1</span
+        >
+
+      </button>
+
+      <!-- Balão de fala -->
+      <div class="kodassauro-speech-bubble" id="kodassauroSpeech">
+        Au-au! Olá! 👋
+      </div>
+
+      <section
+        class="kodassauro-panel"
+        id="kodassauroPanel"
+        role="dialog"
+        aria-modal="false"
+        aria-labelledby="kodassauroTitle"
+        aria-describedby="kodassauroSubtitle"
+        tabindex="-1"
+        hidden
+      >
+        <header class="kodassauro-header">
+          <div class="kodassauro-avatar" aria-hidden="true">
+            <svg
+              class="kodassauro-svg"
+              viewBox="0 0 64 64"
+              role="img"
+              aria-label="Kodassauro"
+            >
+              <defs>
+                <linearGradient id="kdsGrad" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#2196F3" />
+                  <stop offset="100%" stop-color="#F57C00" />
+                </linearGradient>
+              </defs>
+              <circle
+                cx="32"
+                cy="32"
+                r="30"
+                fill="url(#kdsGrad)"
+                opacity="0.95"
+              />
+              <path
+                d="M18 37c2-9 9-16 18-16s16 7 18 16c-6 7-13 11-18 11s-12-4-18-11z"
+                fill="#fff"
+                opacity="0.95"
+              />
+              <circle class="kds-eye" cx="28" cy="33" r="2.6" fill="#1976D2" />
+              <circle class="kds-eye" cx="36" cy="33" r="2.6" fill="#1976D2" />
+              <path
+                d="M28 40c3 3 5 3 8 0"
+                stroke="#E65100"
+                stroke-width="3"
+                fill="none"
+                stroke-linecap="round"
+              />
+              <path
+                d="M22 18l8 4"
+                stroke="#fff"
+                stroke-width="3"
+                stroke-linecap="round"
+                opacity="0.9"
+              />
+              <path
+                d="M42 18l-8 4"
+                stroke="#fff"
+                stroke-width="3"
+                stroke-linecap="round"
+                opacity="0.9"
+              />
+            </svg>
+          </div>
+
+          <div class="kodassauro-headings">
+            <h3 class="kodassauro-title" id="kodassauroTitle">Kodassauro</h3>
+            <p class="kodassauro-subtitle" id="kodassauroSubtitle">
+              Como posso ajudar?
+            </p>
+          </div>
+
+          <div class="kodassauro-header-actions">
+            <button class="kodassauro-reset" type="button">Limpar</button>
+            <button
+              class="kodassauro-close"
+              type="button"
+              aria-label="Fechar chat"
+            >
+              <i class="fas fa-times" aria-hidden="true"></i>
+            </button>
+          </div>
+        </header>
+
+        <div
+          class="kodassauro-messages"
+          id="kodassauroMessages"
+          aria-live="polite"
+          aria-relevant="additions"
+        >
+          <div class="kodassauro-message kodassauro-message--bot">
+            <div class="kodassauro-message-content">
+              <p>Olá! Eu sou o Kodassauro, assistente da KoddaHub! 🦖</p>
+              <p>
+                Posso ajudar com informações sobre nossos serviços, orçamentos
+                ou tirar suas dúvidas.
+              </p>
+            </div>
+            <div class="kodassauro-message-time">Agora</div>
+          </div>
+        </div>
+
+        <div
+          class="kodassauro-quick"
+          id="kodassauroQuick"
+          aria-label="Atalhos do chat"
+        >
+          <button type="button" class="kodassauro-chip" data-action="orcamento">
+            Orçamento
+          </button>
+          <button type="button" class="kodassauro-chip" data-action="duvidas">
+            Dúvidas
+          </button>
+          <button type="button" class="kodassauro-chip" data-action="contato">
+            Falar com vendedor
+          </button>
+          <button type="button" class="kodassauro-chip" data-action="precos">
+            Ver preços
+          </button>
+          <button type="button" class="kodassauro-chip" data-action="portfolio">
+            Ver portfólio
+          </button>
+        </div>
+
+        <form
+          class="kodassauro-composer"
+          id="kodassauroComposer"
+          autocomplete="off"
+        >
+          <label class="kodassauro-sr-only" for="kodassauroInput"
+            >Mensagem</label
+          >
+          <input
+            id="kodassauroInput"
+            class="kodassauro-input"
+            type="text"
+            placeholder="Digite sua mensagem..."
+            inputmode="text"
+          />
+          <button class="kodassauro-send" type="submit">Enviar</button>
+        </form>
+      </section>
     </div>
 
-    <script src="../js/kodassauro-chat.js"></script>
+    <script>
+      // JavaScript para o carrossel de stats
+      document.addEventListener("DOMContentLoaded", function () {
+        const carousel = document.getElementById("statsCarousel");
+        if (!carousel) return;
 
-</body>
+        const slides = carousel.querySelectorAll(".stats-slide");
+        const indicators = document.querySelectorAll(".stats-indicator");
+        let currentIndex = 0;
+        let interval;
+
+        // Função para mostrar slide específico
+        function showSlide(index) {
+          // Remove classe active de todos os slides
+          slides.forEach((slide) => slide.classList.remove("active"));
+          indicators.forEach((indicator) => {
+            indicator.classList.remove("active");
+            indicator.style.animation = "none";
+            void indicator.offsetWidth; // Trigger reflow
+          });
+
+          // Adiciona classe active ao slide atual
+          slides[index].classList.add("active");
+          indicators[index].classList.add("active");
+
+          // Reinicia a animação da barra de progresso
+          if (indicators[index]) {
+            indicators[index].style.animation =
+              "progressBar 2s linear infinite";
+          }
+
+          // Atualiza índice atual
+          currentIndex = index;
+        }
+
+        // Função para próximo slide
+        function nextSlide() {
+          let nextIndex = (currentIndex + 1) % slides.length;
+          showSlide(nextIndex);
+        }
+
+        // Configura troca automática a cada 2 segundos
+        function startAutoSlide() {
+          interval = setInterval(nextSlide, 2000);
+        }
+
+        // Para a troca automática quando o mouse está sobre o carrossel
+        carousel.addEventListener("mouseenter", () => {
+          clearInterval(interval);
+        });
+
+        carousel.addEventListener("mouseleave", () => {
+          startAutoSlide();
+        });
+
+        // Adiciona eventos de clique nos indicadores
+        indicators.forEach((indicator, index) => {
+          indicator.addEventListener("click", () => {
+            clearInterval(interval);
+            showSlide(index);
+            // Reinicia o intervalo após 5 segundos
+            setTimeout(startAutoSlide, 5000);
+          });
+        });
+
+        // Inicia o carrossel
+        startAutoSlide();
+
+        // Efeito 3D no card ao mover o mouse
+        const heroCard = document.querySelector(".hero-image-card");
+        if (heroCard) {
+          heroCard.addEventListener("mousemove", (e) => {
+            const rect = heroCard.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+
+            const rotateY = ((x - centerX) / centerX) * 2;
+            const rotateX = ((centerY - y) / centerY) * 2;
+
+            heroCard.style.transform = `translateY(-10px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+          });
+
+          heroCard.addEventListener("mouseleave", () => {
+            heroCard.style.transform =
+              "translateY(-10px) rotateX(2deg) rotateY(2deg)";
+          });
+        }
+
+        // ============================================
+        // ANIMAÇÕES DO KODASSAURO (CHATBOT)
+        // ============================================
+
+        const kodassauroToggle = document.querySelector(".kodassauro-toggle");
+        const kodassauroSpeech = document.getElementById("kodassauroSpeech");
+        const kodassauroBadge = document.querySelector(".kodassauro-badge");
+
+        if (kodassauroToggle && kodassauroSpeech) {
+          // Mostrar badge
+          if (kodassauroBadge) {
+            kodassauroBadge.hidden = false;
+          }
+
+          // Sequência de animações
+          setTimeout(() => {
+            // Passo 1: Mostrar balão de fala com "Au-au! Olá! 👋"
+            kodassauroSpeech.textContent = "Au-au! Olá! 👋";
+            kodassauroSpeech.classList.add("show");
+
+            // Passo 2: Animação de pulo e latido
+            kodassauroToggle.classList.add("jumping", "barking");
+
+            // Passo 3: Após 2 segundos, mudar para modo ativo
+            setTimeout(() => {
+              // Remover animações de pulo e latido
+              kodassauroToggle.classList.remove("jumping", "barking");
+
+              // Mudar balão de fala
+              kodassauroSpeech.textContent = "Como posso ajudar? 🤖";
+
+              // Adicionar classe active (modo pronto para ajudar)
+              kodassauroToggle.classList.add("active");
+
+              // Alterar ícone para modo ativo (opcional)
+              const icon = kodassauroToggle.querySelector(
+                ".kodassauro-toggle-icon i",
+              );
+              if (icon) {
+                icon.className = "fas fa-comment-dots";
+              }
+
+              // Mudar badge para indicar disponibilidade
+              if (kodassauroBadge) {
+                kodassauroBadge.textContent = "!";
+                kodassauroBadge.style.background = "#4CAF50";
+              }
+            }, 2000); // 2 segundos
+
+            // Passo 4: Esconder balão de fala após 4 segundos
+            setTimeout(() => {
+              kodassauroSpeech.classList.remove("show");
+            }, 4000);
+          }, 1000); // Delay inicial de 1 segundo
+
+          // Mostrar/ocultar balão ao passar o mouse
+          kodassauroToggle.addEventListener("mouseenter", () => {
+            if (kodassauroToggle.classList.contains("active")) {
+              kodassauroSpeech.textContent = "Como posso ajudar? 🤖";
+            } else {
+              kodassauroSpeech.textContent = "Au-au! Olá! 👋";
+            }
+            kodassauroSpeech.classList.add("show");
+          });
+
+          kodassauroToggle.addEventListener("mouseleave", () => {
+            kodassauroSpeech.classList.remove("show");
+          });
+
+          // Ao clicar no botão do chatbot
+          kodassauroToggle.addEventListener("click", () => {
+            // Remover badge quando o chat for aberto
+            if (kodassauroBadge) {
+              kodassauroBadge.hidden = true;
+            }
+
+            // Mudar para estado de conversa
+            kodassauroToggle.classList.remove("active");
+            const icon = kodassauroToggle.querySelector(
+              ".kodassauro-toggle-icon i",
+            );
+            if (icon) {
+              icon.className = "fas fa-robot";
+            }
+          });
+        }
+      });
+    </script>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/navigation.js"></script>
+    <script src="../js/form-handler.js"></script>
+    <script src="../js/kodassauro-chat.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>

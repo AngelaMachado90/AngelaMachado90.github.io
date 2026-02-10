@@ -13,22 +13,7 @@
   gap: 30px;
 }
 
-.modern-card {
-  background: var(--white-pure);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  transition: all var(--duration-300) var(--ease-out);
-  box-shadow: var(--shadow-base);
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-
-.modern-card:hover {
-  transform: translateY(-10px);
-  box-shadow: var(--shadow-xl);
-  border-color: var(--orange-vibrant);
-}
+/* .modern-card base styles consolidated in components/_cards.css */
 
 .features-list {
   list-style: none;

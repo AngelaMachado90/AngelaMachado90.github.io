@@ -920,18 +920,49 @@
           // when the panel is open (prevents FOUC/layout shifts).
           setTimeout(() => {
             try {
+              const calloutText = "Au-au. Posso ajudar?";
+
+              // If the panel is open, inject message into chat immediately.
               if (state && state.isOpen) {
-                addMessage("bot", "Como posso ajudar?");
+                addMessage("bot", calloutText);
                 if ("speechSynthesis" in window) {
                   try {
-                    const speak = new SpeechSynthesisUtterance(
-                      "Como posso ajudar?",
-                    );
+                    const speak = new SpeechSynthesisUtterance(calloutText);
                     speak.lang = "pt-BR";
                     window.speechSynthesis.speak(speak);
                   } catch (e) {}
                 }
               } else {
+                // Show a small callout near the toggle button so the user
+                // notices the assistant without opening the panel.
+                try {
+                  const callout = document.createElement("div");
+                  callout.className = "kodassauro-callout";
+                  callout.textContent = calloutText;
+                  // append to root so it follows the fixed positioning
+                  if (root) root.appendChild(callout);
+                  // reveal with animation
+                  requestAnimationFrame(() =>
+                    callout.classList.add("is-visible"),
+                  );
+                  // play speech as well
+                  if ("speechSynthesis" in window) {
+                    try {
+                      const speak = new SpeechSynthesisUtterance(calloutText);
+                      speak.lang = "pt-BR";
+                      window.speechSynthesis.speak(speak);
+                    } catch (e) {}
+                  }
+                  // remove callout after a few seconds
+                  setTimeout(() => {
+                    callout.classList.remove("is-visible");
+                    setTimeout(() => callout.remove(), 300);
+                  }, 4200);
+                } catch (e) {
+                  // fallback to queuing message if anything fails
+                  pendingAttention = true;
+                }
+                // ensure we still add the message when user opens the panel
                 pendingAttention = true;
               }
             } catch (e) {

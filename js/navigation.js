@@ -735,7 +735,7 @@ function logNavigation(message, type = 'info') {
     };
     
     const timestamp = new Date().toLocaleTimeString();
-    console.log(`%c[Navigation ${timestamp}] ${message}`, styles[type]);
+    //console.log(`%c[Navigation ${timestamp}] ${message}`, styles[type]);
 }
 
 // ============================================================================

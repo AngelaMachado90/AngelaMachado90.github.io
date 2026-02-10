@@ -172,21 +172,8 @@ body {
   background: #0f0f0f;
 }
 
-h2.section-title {
-  color: var(--orange-dark);
-  position: relative;
-  padding-bottom: 15px;
-}
-
-.section-title::after {
-  content: "";
-  width: 50px;
-  height: 3px;
-  background: var(--orange-dark);
-  position: absolute;
-  bottom: 0;
-  left: 0;
-}
+/* Section title styling centralized in css/layouts/_sections.css. Use
+   modifier classes on the section container for demo-specific accents. */
 
 .equipment-grid {
   display: grid;
@@ -339,25 +326,8 @@ h2.section-title {
   font-size: 14px;
 }
 
-section.cta-section {
-  background: linear-gradient(
-    135deg,
-    var(--orange-vibrant) 0%,
-    var(--orange-light) 100%
-  );
-  color: white;
-}
-
-/* CTA wrapper and base button provided by components/_buttons.css */
-
-.cta-section .btn-cta-white {
-  color: var(--orange-vibrant);
-}
-
-section.cta-section .btn-cta-outline {
-  color: white;
-  border-color: white;
-}
+/* CTA visuals centralized in `css/components/_cta.css`. Use modifiers
+   on the section element if a different accent is required. */
 
 .industrial-footer {
   background: #1a1a1a;

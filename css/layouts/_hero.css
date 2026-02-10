@@ -1,75 +1,893 @@
 /* ============================================================================
-   LAYOUT: HERO
+   LAYOUT: HERO SECTION
+   Arquivo: css/layouts/_hero.css
+   Versão: 3.0.0 | Hero Moderno KoddaHub
+   Data: 2024 | Baseado no Design System KoddaHub
    ============================================================================ */
 
 /**
- * HERO - Layout específico da página inicial
- * 
- * Dependências:
- * - components/_cards.css (.card--floating)
- * - animations.css (@keyframes float)
+ * OBJETIVO:
+ * Estilos específicos para a seção Hero (destaque principal) do site.
+ * Combina gradiente da marca, layout responsivo e carrossel visual.
+ *
+ * CARACTERÍSTICAS:
+ * - Gradiente animado blue-electric → orange-vibrant
+ * - Layout grid responsivo (texto + visual)
+ * - Carrossel CSS-only com efeito glassmorphism
+ * - Design moderno com overlays e efeitos de profundidade
+ *
+ * ESTRUTURA HTML ESPERADA:
+ * <section class="hero hero--modern">
+ *   <div class="hero__background" aria-hidden="true"></div>
+ *   <div class="container">
+ *     <div class="hero__content">
+ *       <div class="hero__text">
+ *         <span class="hero__kicker">Destaque</span>
+ *         <h1 class="hero__title">Título Principal</h1>
+ *         <p class="hero__subtitle">Descrição impactante...</p>
+ *         <div class="hero__actions">
+ *           <a href="#" class="btn btn--primary btn--lg">Ação Principal</a>
+ *           <a href="#" class="btn btn--outline-white btn--lg">Ação Secundária</a>
+ *         </div>
+ *       </div>
+ *       <div class="hero__visual">
+ *         <div class="carousel carousel--hero">...</div>
+ *       </div>
+ *     </div>
+ *   </div>
+ * </section>
+ *
+ * DEPENDÊNCIAS:
+ * - variables.css (obrigatório)
+ * - components/_buttons.css (para botões)
+ * - components/_carousel.css (para carrossel)
  */
 
-.hero-modern {
+/* ============================================================================
+   SEÇÃO 1: HERO BASE & CONTAINER
+   ============================================================================ */
+
+/**
+ * .hero--modern - Variante moderna do hero com gradiente
+ * Uso: Seção principal de destaque em todas as páginas
+ */
+.hero--modern {
+  /* Posicionamento e tamanho */
   position: relative;
   overflow: hidden;
-  padding: 100px 0;
-  min-height: 600px;
+  min-height: calc(100svh - 82px);
+  /* Altura total menos navbar */
   display: flex;
   align-items: center;
-  background: linear-gradient(
-    135deg,
-    var(--blue-electric) 0%,
-    var(--orange-vibrant) 100%
-  );
+
+  /* Espaçamento responsivo usando clamp() */
+  padding:
+    clamp(3.5rem, 7svh, 6.875rem)
+    /* top: 56px-110px */
+    0 clamp(2.75rem, 6svh, 5.625rem);
+  /* bottom: 44px-90px */
+
+  /* Gradiente principal da marca */
+  background: linear-gradient(135deg,
+      var(--color-secondary-600) 0%,
+      /* blue-electric */
+      var(--color-primary-600) 100%
+      /* orange-vibrant */
+    );
+
+  /* Fallback para navegadores sem suporte a svh */
+  @supports not (height: 100svh) {
+    min-height: calc(100vh - 82px);
+  }
+
+  /* Garante que o conteúdo fique acima dos efeitos de fundo */
+  isolation: isolate;
 }
 
-.hero-background {
+/**
+ * .hero__background - Camada de fundo para efeitos visuais
+ * Uso: Overlays, gradientes e padrões de fundo
+ */
+.hero__background {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
+  /* Equivalente a top:0; right:0; bottom:0; left:0 */
   z-index: -1;
+  pointer-events: none;
 }
 
-.hero-content {
+/**
+ * .hero__background::before - Overlay com efeitos visuais complexos
+ * Cria profundidade com múltiplos gradientes radiais e padrão de linhas
+ */
+.hero--modern::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  /* Sistema de overlays em camadas */
+  background:
+    /* 1. Brilho no canto superior esquerdo */
+    radial-gradient(900px 480px at 10% -10%,
+      rgba(255, 255, 255, 0.22),
+      transparent 60%),
+
+    /* 2. Sombra suave no canto inferior direito */
+    radial-gradient(900px 480px at 90% 10%,
+      rgba(0, 0, 0, 0.12),
+      transparent 55%),
+
+    /* 3. Padrão diagonal sutil de linhas */
+    repeating-linear-gradient(135deg,
+      rgba(255, 255, 255, 0.06) 0px,
+      rgba(255, 255, 255, 0.06) 1px,
+      transparent 1px,
+      transparent 10px);
+
+  opacity: 0.6;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ============================================================================
+   SEÇÃO 2: LAYOUT DO CONTEÚDO
+   ============================================================================ */
+
+/**
+ * .hero__content - Container grid para texto + visual
+ * Layout responsivo de duas colunas com gap adaptativo
+ */
+.hero__content {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(1.625rem, 5vw, 3.75rem);
+  /* 26px-60px responsivo */
   align-items: center;
   position: relative;
   z-index: 2;
-  padding-left: 24px;
-  background: linear-gradient(
-    135deg,
-    var(--blue-electric) 0%,
-    var(--orange-vibrant) 100%
-  );
+  /* Acima dos efeitos de fundo */
+
+  /* Stack em mobile */
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-8);
+    /* 48px */
+    text-align: center;
+  }
 }
-.hero-visual {
+
+/**
+ * .hero__text - Coluna esquerda com conteúdo textual
+ */
+.hero__text {
+  color: var(--white-pure);
+  max-width: 46rem;
+  /* ~736px */
+
+  /* Garante que elementos filhos herdem a cor */
+  & * {
+    color: inherit;
+  }
+}
+
+/**
+ * .hero__kicker - Elemento de destaque acima do título
+ * Uso: Categorias, tags ou chamadas de atenção
+ */
+.hero__kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  /* 8px */
+  margin: 0 0 var(--spacing-3) 0;
+  /* 0 0 12px */
+
+  /* Tipografia */
+  font-family: var(--font-body);
+  font-size: var(--font-size-xs);
+  /* 12px */
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.18em;
+  /* Tracking mais largo */
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.9);
+
+  /* Linha decorativa antes do texto */
+  &::before {
+    content: "";
+    width: 28px;
+    height: 2px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.9);
+    flex-shrink: 0;
+  }
+
+  /* Ajustes para mobile */
+  @media (max-width: 768px) {
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+/**
+ * .hero__title - Título principal do hero
+ */
+.hero__title {
+  font-size: clamp(2.2rem, 4.5vw, 4rem);
+  /* 35px-64px responsivo */
+  line-height: 1.1;
+  margin: 0 0 var(--spacing-4) 0;
+  /* 0 0 16px */
+  color: inherit;
+  letter-spacing: -0.02em;
+
+  /* Gradiente opcional para destaque extra */
+  &.has-gradient {
+    background: linear-gradient(135deg,
+        var(--white-pure) 0%,
+        rgba(255, 255, 255, 0.9) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+/**
+ * .hero__subtitle - Descrição/parágrafo abaixo do título
+ */
+.hero__subtitle {
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0 0 var(--spacing-6) 0;
+  /* 0 0 32px */
+  line-height: var(--line-height-relaxed);
+  /* 1.75 */
+  max-width: 40rem;
+  /* ~640px */
+  font-size: var(--font-size-lg);
+  /* 18px */
+
+  @media (max-width: 768px) {
+    font-size: var(--font-size-base);
+    /* 16px em mobile */
+    margin-bottom: var(--spacing-8);
+    /* 48px */
+  }
+}
+
+/**
+ * .hero__actions - Container para botões de call-to-action
+ */
+.hero__actions {
+  display: flex;
+  gap: var(--spacing-4);
+  /* 16px */
+  flex-wrap: wrap;
+  margin-top: var(--spacing-8);
+  /* 48px */
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: var(--spacing-3);
+    /* 12px */
+
+    &>.btn {
+      width: 100%;
+    }
+  }
+}
+
+/* ============================================================================
+   SEÇÃO 3: COLUNA VISUAL (CARROSSEL)
+   ============================================================================ */
+
+/**
+ * .hero__visual - Coluna direita com elemento visual (carrossel)
+ */
+.hero__visual {
   position: relative;
-  height: 400px;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* POSICIONAMENTOS ESPECÍFICOS - APENAS PARA ESTE LAYOUT */
-.hero-visual .card--floating:nth-child(1) {
-  top: 0;
-  left: 0;
-  width: 150px;
+/**
+ * .carousel--hero - Variante específica do carrossel para hero
+ * Baseada no componente .carousel com customizações
+ */
+.carousel--hero {
+  width: min(640px, 100%);
+  position: relative;
+
+  /* Sistema de radio buttons para navegação CSS-only */
+  & input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
 }
 
-.hero-visual .card--floating:nth-child(2) {
-  top: 150px;
-  right: 0;
-  width: 150px;
-  animation-delay: 0.5s;
+/**
+ * .carousel__viewport--hero - Viewport com efeito glassmorphism
+ */
+.carousel__viewport--hero {
+  border-radius: var(--radius-xl);
+  /* 16px */
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.26);
+  box-shadow: var(--shadow-2xl);
+  min-height: 360px;
+
+  /* Efeito glassmorphism com backdrop-filter */
+  @supports (backdrop-filter: blur(10px)) or (-webkit-backdrop-filter: blur(10px)) {
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    background: rgba(255, 255, 255, 0.12);
+  }
 }
 
-.hero-visual .card--floating:nth-child(3) {
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 150px;
-  animation-delay: 1s;
+/**
+ * .carousel__track--hero - Container dos slides
+ */
+.carousel__track--hero {
+  display: flex;
+  width: 300%;
+  /* 3 slides = 300% */
+  height: 100%;
+  transform: translateX(0%);
+  transition: transform 500ms var(--ease-out);
 }
+
+/**
+ * .carousel__slide--hero - Slides individuais com efeitos
+ */
+.carousel__slide--hero {
+  flex: 0 0 33.3333%;
+  width: 33.3333%;
+  display: grid;
+  place-items: center;
+  position: relative;
+
+  /* Gradiente de fundo para cada slide */
+  background:
+    radial-gradient(600px 360px at 18% 18%,
+      rgba(33, 150, 243, 0.3),
+      transparent 60%),
+    radial-gradient(700px 420px at 88% 82%,
+      rgba(245, 124, 0, 0.26),
+      transparent 62%),
+    rgba(255, 255, 255, 0.06);
+
+  /* Overlay adicional para profundidade */
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(900px 520px at 30% 20%,
+        rgba(255, 255, 255, 0.22),
+        transparent 55%),
+      radial-gradient(900px 520px at 90% 90%,
+        rgba(255, 255, 255, 0.14),
+        transparent 60%),
+      linear-gradient(180deg,
+        rgba(255, 255, 255, 0.04),
+        rgba(0, 0, 0, 0.14));
+    pointer-events: none;
+  }
+}
+
+/**
+ * Imagens dentro dos slides do carrossel
+ */
+.carousel__slide--hero img {
+  width: 100%;
+  height: 100%;
+  min-height: 360px;
+  object-fit: cover;
+  display: block;
+
+  /* Ajustes visuais para integração com o fundo */
+  filter: brightness(1.25) saturate(1.12) contrast(1.02);
+  opacity: 0.92;
+  mix-blend-mode: screen;
+}
+
+/* ============================================================================
+   SEÇÃO 4: RESPONSIVIDADE ESPECÍFICA
+   ============================================================================ */
+
+@media (max-width: 1024px) {
+  .hero--modern {
+    min-height: calc(100svh - 72px);
+
+    @supports not (height: 100svh) {
+      min-height: calc(100vh - 72px);
+    }
+  }
+
+  .hero__content {
+    gap: var(--spacing-8);
+    /* 48px */
+  }
+}
+
+@media (max-width: 768px) {
+  .hero--modern {
+    padding-top: var(--spacing-12);
+    /* 96px */
+    padding-bottom: var(--spacing-12);
+    /* 96px */
+    min-height: auto;
+  }
+
+  .hero__visual {
+    order: -1;
+    /* Visual primeiro em mobile */
+    margin-bottom: var(--spacing-8);
+    /* 48px */
+  }
+
+  .carousel--hero {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .carousel__viewport--hero {
+    min-height: 280px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero__title {
+    font-size: clamp(1.75rem, 6vw, 2.5rem);
+    /* 28px-40px */
+  }
+
+  .hero__subtitle {
+    font-size: var(--font-size-base);
+    /* 16px */
+  }
+
+  .carousel__viewport--hero {
+    min-height: 240px;
+    border-radius: var(--radius-lg);
+    /* 12px */
+  }
+}
+
+/* ============================================================================
+   SEÇÃO 5: ANIMAÇÕES E TRANSITIONS
+   ============================================================================ */
+
+/**
+ * Animação de entrada para elementos do hero
+ */
+
+}
+
+.hero__kicker {
+  animation: hero-fade-up 0.6s var(--ease-out) 0.1s both;
+}
+
+.hero__title {
+  animation: hero-fade-up 0.6s var(--ease-out) 0.2s both;
+}
+
+.hero__subtitle {
+  animation: hero-fade-up 0.6s var(--ease-out) 0.3s both;
+}
+
+.hero__actions {
+  animation: hero-fade-up 0.6s var(--ease-out) 0.4s both;
+}
+
+.hero__visual {
+  animation: hero-fade-up 0.8s var(--ease-out) 0.5s both;
+}
+
+/* ============================================================================
+   SEÇÃO 6: COMPATIBILIDADE (ALIAS TEMPORÁRIOS)
+   ============================================================================ */
+
+/**
+ * Aliases para compatibilidade com código existente
+ * REMOVER GRADUALMENTE após migração completa
+ */
+.hero-modern {
+  composes: hero--modern;
+}
+
+.hero-content {
+  composes: hero__content;
+}
+
+.hero-text {
+  composes: hero__text;
+}
+
+.hero-visual {
+  composes: hero__visual;
+}
+
+.hero-carousel {
+  composes: carousel--hero;
+
+  .hero-carousel-viewport {
+    composes: carousel__viewport--hero;
+  }
+
+  .hero-carousel-track {
+    composes: carousel__track--hero;
+  }
+
+  .hero-slide {
+    composes: carousel__slide--hero;
+  }
+}
+
+/* ============================================================================
+   SEÇÃO 7: EXEMPLOS DE USO (COMENTÁRIOS)
+   ============================================================================ */
+
+/**
+ * EXEMPLO DE USO COMPLETO:
+ * 
+ * <section class="hero hero--modern">
+ *   <div class="container">
+ *     <div class="hero__content">
+ *       <div class="hero__text">
+ *         <span class="hero__kicker">Desenvolvimento Web</span>
+ *         <h1 class="hero__title">
+ *           Criamos <span class="has-gradient">experiências digitais</span> que convertem
+ *         </h1>
+ *         <p class="hero__subtitle">
+ *           Desenvolvimento de sites, e-commerce e sistemas personalizados 
+ *           com foco em resultados para seu negócio.
+ *         </p>
+ *         <div class="hero__actions">
+ *           <a href="#contato" class="btn btn--primary btn--lg">
+ *             Solicitar Orçamento
+ *           </a>
+ *           <a href="#portfolio" class="btn btn--outline-white btn--lg">
+ *             Ver Portfólio
+ *           </a>
+ *         </div>
+ *       </div>
+ *       <div class="hero__visual">
+ *         <div class="carousel carousel--hero" data-autoplay="true">
+ *           <div class="carousel__viewport carousel__viewport--hero">
+ *             <div class="carousel__track carousel__track--hero">
+ *               <div class="carousel__slide carousel__slide--hero">
+ *                 <img src="/img/showcase-1.jpg" alt="Showcase 1">
+ *               </div>
+ *               <!-- mais slides... -->
+ *             </div>
+ *           </div>
+ *           <div class="carousel__controls">
+ *             <button class="carousel__prev">❮</button>
+ *             <button class="carousel__next">❯</button>
+ *           </div>
+ *           <div class="carousel__dots">
+ *             <button class="carousel__dot" data-slide="0"></button>
+ *             <button class="carousel__dot" data-slide="1"></button>
+ *           </div>
+ *         </div>
+ *       </div>
+ *     </div>
+ *   </div>
+ * </section>
+ */
+
+/* ============================================================================
+   FIM DO LAYOUT: HERO SECTION
+   ============================================================================ */
+
+     /* ============================================================================
+     HERO MODERN
+     ============================================================================ */
+     /* Hero Layout */
+     .hero-modern {
+       position: relative;
+       overflow: hidden;
+       padding: clamp(56px, 7svh, 110px) 0 clamp(44px, 6svh, 90px);
+       min-height: calc(100svh - 82px);
+       display: flex;
+       align-items: center;
+       background: linear-gradient(135deg,
+           var(--blue-electric) 0%,
+           var(--orange-vibrant) 100%);
+     }
+  
+     @supports not (height: 100svh) {
+       .hero-modern {
+         min-height: calc(100vh - 82px);
+       }
+     }
+  
+     .hero-background {
+       position: absolute;
+       inset: 0;
+       z-index: -1;
+     }
+  
+     .hero-modern::before {
+       content: "";
+       position: absolute;
+       inset: 0;
+       background:
+         radial-gradient(900px 480px at 10% -10%,
+           rgba(255, 255, 255, 0.22),
+           transparent 60%),
+         radial-gradient(900px 480px at 90% 10%,
+           rgba(0, 0, 0, 0.12),
+           transparent 55%),
+         repeating-linear-gradient(135deg,
+           rgba(255, 255, 255, 0.06) 0px,
+           rgba(255, 255, 255, 0.06) 1px,
+           transparent 1px,
+           transparent 10px);
+       opacity: 0.6;
+       pointer-events: none;
+     }
+  
+     /* gradient blobs moved to css/components/_layout-helpers.css */
+  
+     .hero-content {
+       display: grid;
+       grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+       gap: clamp(26px, 5vw, 60px);
+       align-items: center;
+       position: relative;
+       z-index: 2;
+     }
+  
+     .hero-text {
+       color: var(--white-pure);
+       max-width: 46rem;
+     }
+  
+     .hero-text h1 {
+       color: inherit;
+     }
+  
+     .hero-kicker {
+       margin: 0 0 14px 0;
+       display: inline-flex;
+       align-items: center;
+       gap: 10px;
+       font-family: var(--font-body);
+       font-weight: var(--fw-bold);
+       letter-spacing: 0.18em;
+       text-transform: uppercase;
+       font-size: 0.78rem;
+       color: rgba(255, 255, 255, 0.9);
+     }
+  
+     .hero-kicker::before {
+       content: "";
+       width: 28px;
+       height: 2px;
+       border-radius: 999px;
+       background: rgba(255, 255, 255, 0.9);
+     }
+  
+     .hero-subtitle {
+       color: rgba(255, 255, 255, 0.9);
+       margin-bottom: 30px;
+       line-height: 1.7;
+       max-width: 40rem;
+     }
+
+     /* Product cards are rendered inside slides now (overlay). */
+  
+     /* Carousel (CSS-only) in the right column */
+     .hero-carousel {
+       width: min(640px, 100%);
+       position: relative;
+     }
+  
+     .hero-carousel input {
+       position: absolute;
+       opacity: 0;
+       pointer-events: none;
+     }
+  
+     .hero-carousel-viewport {
+       border-radius: 20px;
+       overflow: hidden;
+       background: rgba(255, 255, 255, 0.18);
+       border: 1px solid rgba(255, 255, 255, 0.26);
+       box-shadow: 0 26px 70px rgba(0, 0, 0, 0.18);
+       min-height: 360px;
+     }
+  
+     @supports ((-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px))) {
+       .hero-carousel-viewport {
+         -webkit-backdrop-filter: blur(14px);
+         backdrop-filter: blur(14px);
+       }
+     }
+  
+     .hero-carousel-track {
+       display: flex;
+       width: 300%;
+       height: 100%;
+       transform: translateX(0%);
+       transition: transform 500ms ease;
+     }
+  
+     .hero-slide {
+       margin: 0;
+       flex: 0 0 33.3333%;
+       width: 33.3333%;
+       display: grid;
+       place-items: center;
+       background:
+         radial-gradient(600px 360px at 18% 18%,
+           rgba(33, 150, 243, 0.3),
+           transparent 60%),
+         radial-gradient(700px 420px at 88% 82%,
+           rgba(245, 124, 0, 0.26),
+           transparent 62%),
+         rgba(255, 255, 255, 0.06);
+       position: relative;
+     }
+  
+     .hero-slide::after {
+       content: "";
+       position: absolute;
+       inset: 0;
+       background:
+         radial-gradient(900px 520px at 30% 20%,
+           rgba(255, 255, 255, 0.22),
+           transparent 55%),
+         radial-gradient(900px 520px at 90% 90%,
+           rgba(255, 255, 255, 0.14),
+           transparent 60%),
+         linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(0, 0, 0, 0.14));
+       pointer-events: none;
+     }
+  
+     .hero-slide img {
+       width: 100%;
+       height: 100%;
+       min-height: 360px;
+       object-fit: cover;
+       display: block;
+       filter: brightness(1.25) saturate(1.12) contrast(1.02);
+       opacity: 0.92;
+     }
+  
+     .hero-slide-overlay {
+       position: absolute;
+       inset: 0;
+       display: grid;
+       align-items: end;
+       justify-items: center;
+       padding: 18px 64px 62px;
+       pointer-events: none;
+       z-index: 2;
+     }
+  
+     .hero-slide-card {
+       pointer-events: auto;
+       width: min(420px, 100%);
+       margin: 0;
+     }
+  
+     .hero-carousel-controls {
+       z-index: 3;
+     }
+  
+     .hero-carousel-dots {
+       z-index: 3;
+     }
+  
+     #hc2:checked~.hero-carousel-viewport .hero-carousel-track {
+       transform: translateX(-33.3333%);
+     }
+  
+     #hc3:checked~.hero-carousel-viewport .hero-carousel-track {
+       transform: translateX(-66.6666%);
+     }
+  
+     .hero-carousel-controls {
+       position: absolute;
+       inset: 0;
+       display: flex;
+       align-items: center;
+       justify-content: space-between;
+       padding: 14px;
+       pointer-events: none;
+     }
+  
+     .hero-ctrl {
+       pointer-events: auto;
+       width: 46px;
+       height: 46px;
+       border-radius: 999px;
+       display: grid;
+       place-items: center;
+       font-weight: var(--fw-extrabold);
+       color: #fff;
+       background: linear-gradient(135deg,
+           rgba(33, 150, 243, 0.9),
+           rgba(245, 124, 0, 0.9));
+       border: 2px solid rgba(255, 255, 255, 0.24);
+       user-select: none;
+       transition:
+         transform var(--duration-200) var(--ease-out),
+         background var(--duration-200) var(--ease-out);
+       box-shadow: 0 14px 34px rgba(0, 0, 0, 0.18);
+     }
+  
+     .hero-ctrl:hover {
+       transform: translateY(-1px);
+       background: linear-gradient(135deg,
+           rgba(33, 150, 243, 1),
+           rgba(245, 124, 0, 1));
+     }
+  
+     .p1,
+     .n1,
+     .p2,
+     .n2,
+     .p3,
+     .n3 {
+       display: none;
+     }
+  
+     #hc1:checked~.hero-carousel-viewport .p1,
+     #hc1:checked~.hero-carousel-viewport .n1 {
+       display: grid;
+     }
+  
+     #hc2:checked~.hero-carousel-viewport .p2,
+     #hc2:checked~.hero-carousel-viewport .n2 {
+       display: grid;
+     }
+  
+     #hc3:checked~.hero-carousel-viewport .p3,
+     #hc3:checked~.hero-carousel-viewport .n3 {
+       display: grid;
+     }
+  
+     .hero-carousel-dots {
+       position: absolute;
+       left: 50%;
+       bottom: 14px;
+       transform: translateX(-50%);
+       display: flex;
+       gap: 10px;
+       padding: 10px 12px;
+       border-radius: 999px;
+       background: rgba(255, 255, 255, 0.16);
+       border: 1px solid rgba(255, 255, 255, 0.24);
+     }
+  
+     @supports ((-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px))) {
+       .hero-carousel-dots {
+         -webkit-backdrop-filter: blur(12px);
+         backdrop-filter: blur(12px);
+       }
+     }
+  
+     .hero-dotbtn {
+       width: 10px;
+       height: 10px;
+       border-radius: 999px;
+       background: rgba(255, 255, 255, 0.62);
+       border: 2px solid rgba(255, 255, 255, 0.18);
+       display: inline-block;
+     }
+  
+     #hc1:checked~.hero-carousel-viewport .hero-carousel-dots .d1,
+     #hc2:checked~.hero-carousel-viewport .hero-carousel-dots .d2,
+     #hc3:checked~.hero-carousel-viewport .hero-carousel-dots .d3 {
+       background: rgba(245, 124, 0, 0.95);
+       border-color: rgba(33, 150, 243, 0.7);
+       box-shadow: 0 0 0 6px rgba(245, 124, 0, 0.16);
+     }

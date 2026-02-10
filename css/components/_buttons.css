@@ -1,30 +1,551 @@
-/* CTA button component - base and modifiers */
-.cta-button,
-.btn-cta {
+/* ============================================================================
+   COMPONENT: BUTTONS
+   Arquivo: css/components/_buttons.css
+   Versão: 3.0.0 | Sistema Unificado de Botões
+   ============================================================================ */
+
+/**
+ * OBJETIVO:
+ * Sistema unificado de botões para todo o site KoddaHub.
+ * Remove duplicidades entre .cta-button, .btn-cta, .btn-primary-modern, etc.
+ *
+ * HIERARQUIA:
+ * 1. .btn (classe base para TODOS os botões)
+ * 2. .btn--{variant} (primário, secundário, etc.)
+ * 3. .btn--{size} (sm, md, lg)
+ * 4. .btn--{state} (disabled, loading)
+ * 5. Classes contextuais (.hero .btn)
+ *
+ * CONVENÇÕES:
+ * - Prefixo .btn para todos os botões
+ * - Modificadores com -- (BEM)
+ * - Sempre use variáveis CSS do sistema
+ */
+
+/* ============================================================================
+   SEÇÃO 1: BOTÃO BASE
+   ============================================================================ */
+
+/**
+ * .btn - Classe base para todos os botões
+ * Define o comportamento padrão de todos os botões
+ */
+.btn {
+  /* Layout */
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.6rem;
-  padding: 0.85rem 1.25rem;
-  border-radius: 6px;
-  font-weight: 600;
-  cursor: pointer;
-  border: 2px solid transparent;
-  transition: all var(--duration-200, 0.2s) var(--ease-out, ease-out);
+  gap: var(--spacing-2);
+  /* 0.5rem / 8px */
+
+  /* Espaçamento */
+  padding: var(--spacing-3) var(--spacing-6);
+  /* 0.75rem 1.5rem / 12px 24px */
+
+  /* Tipografia */
+  font-family: var(--font-body);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-base);
+  /* 1rem / 16px */
+  line-height: 1;
+  text-align: center;
   text-decoration: none;
+  white-space: nowrap;
+
+  /* Estilo */
+  border: 2px solid transparent;
+  border-radius: var(--radius-md);
+  /* 0.5rem / 8px */
+  background-color: transparent;
+  color: currentColor;
+  cursor: pointer;
+
+  /* Interação */
+  transition: all var(--duration-base) var(--ease-out);
+  /* 300ms */
   user-select: none;
+
+  /* Estados */
+  &:hover {
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(0);
+    transition-duration: var(--duration-fast);
+    /* 150ms */
+  }
+
+  &:focus-visible {
+    outline: 3px solid var(--color-primary-300);
+    outline-offset: 2px;
+  }
+
+  /* Estado desabilitado */
+  &[disabled],
+  &.btn--disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    pointer-events: none;
+
+    &:hover {
+      transform: none;
+    }
+  }
 }
 
-/* Hero-specific variant for larger, prominent CTAs */
-.cta-button--hero {
-  padding: 1rem 2rem;
-  font-size: 1.05rem;
+/* ============================================================================
+   SEÇÃO 2: VARIANTES DE COR/FUNDO
+   ============================================================================ */
+
+/**
+ * .btn--primary - Botão primário (ação principal)
+ * Uso: Call-to-actions, ações mais importantes
+ */
+.btn--primary {
+  background: linear-gradient(
+    135deg,
+    var(--color-primary-600),
+    var(--color-primary-700)
+  );
+  color: var(--white-pure);
+  border-color: transparent;
+  box-shadow: var(--shadow-md);
+
+  &:hover {
+    background: linear-gradient(
+      135deg,
+      var(--color-primary-700),
+      var(--color-primary-800)
+    );
+    box-shadow: var(--shadow-lg);
+  }
+
+  &:active {
+    background: var(--color-primary-800);
+    box-shadow: var(--shadow-sm);
+  }
 }
 
-/* Wrapper for groups of CTAs (replaces .hero-cta) */
-.cta-buttons {
+/**
+ * .btn--secondary - Botão secundário (ação alternativa)
+ * Uso: Ações secundárias, menos proeminentes
+ */
+.btn--secondary {
+  background-color: transparent;
+  color: var(--color-primary-600);
+  border-color: var(--color-primary-300);
+
+  &:hover {
+    background-color: var(--color-primary-50);
+    border-color: var(--color-primary-600);
+    color: var(--color-primary-700);
+  }
+
+  &:active {
+    background-color: var(--color-primary-100);
+  }
+}
+
+/**
+ * .btn--white - Botão branco (sobre fundos escuros)
+ * Uso: Hero sections, sobre gradientes escuros
+ */
+.btn--white {
+  background-color: var(--white-pure);
+  color: var(--color-primary-600);
+  border-color: transparent;
+  box-shadow: var(--shadow-md);
+
+  &:hover {
+    background-color: var(--white-neutral);
+    color: var(--color-primary-700);
+    box-shadow: var(--shadow-lg);
+  }
+}
+
+/**
+ * .btn--outline-white - Contorno branco (transparente)
+ * Uso: Hero sections quando precisa de contraste
+ */
+.btn--outline-white {
+  background-color: transparent;
+  color: var(--white-pure);
+  border-color: var(--white-pure);
+
+  &:hover {
+    background-color: var(--white-pure);
+    color: var(--color-primary-600);
+  }
+}
+
+/**
+ * .btn--success, .btn--warning, .btn--error - Estados semânticos
+ */
+.btn--success {
+  background-color: var(--color-success-500);
+  color: var(--white-pure);
+
+  &:hover {
+    background-color: var(--color-success-600);
+  }
+}
+
+.btn--warning {
+  background-color: var(--color-warning-500);
+  color: var(--white-pure);
+
+  &:hover {
+    background-color: var(--color-warning-600);
+  }
+}
+
+.btn--error {
+  background-color: var(--color-error-500);
+  color: var(--white-pure);
+
+  &:hover {
+    background-color: var(--color-error-600);
+  }
+}
+
+/* ============================================================================
+   SEÇÃO 3: TAMANHOS (SIZES)
+   ============================================================================ */
+
+/**
+ * Sistema de tamanhos baseado no espaçamento
+ */
+.btn--sm {
+  padding: var(--spacing-2) var(--spacing-4);
+  /* 0.5rem 1rem / 8px 16px */
+  font-size: var(--font-size-sm);
+  /* 0.875rem / 14px */
+  gap: var(--spacing-1);
+  /* 0.25rem / 4px */
+}
+
+.btn--md {
+  /* Tamanho padrão já definido em .btn */
+  padding: var(--spacing-3) var(--spacing-6);
+  /* 0.75rem 1.5rem / 12px 24px */
+  font-size: var(--font-size-base);
+  /* 1rem / 16px */
+}
+
+.btn--lg {
+  padding: var(--spacing-4) var(--spacing-8);
+  /* 1rem 2rem / 16px 32px */
+  font-size: var(--font-size-lg);
+  /* 1.125rem / 18px */
+  gap: var(--spacing-3);
+  /* 0.75rem / 12px */
+  border-radius: var(--radius-lg);
+  /* 0.75rem / 12px */
+}
+
+.btn--xl {
+  padding: var(--spacing-5) var(--spacing-10);
+  /* 1.5rem 2.5rem / 24px 40px */
+  font-size: var(--font-size-xl);
+  /* 1.25rem / 20px */
+  gap: var(--spacing-4);
+  /* 1rem / 16px */
+  border-radius: var(--radius-lg);
+}
+
+/* ============================================================================
+   SEÇÃO 4: ESTADOS ESPECIAIS
+   ============================================================================ */
+
+/**
+ * .btn--loading - Estado de carregamento
+ */
+.btn--loading {
+  position: relative;
+  color: transparent !important;
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 1em;
+    height: 1em;
+    border: 2px solid currentColor;
+    border-radius: 50%;
+    border-right-color: transparent;
+    animation: btn-spin 0.75s linear infinite;
+  }
+}
+
+/**
+ * .btn--block - Botão que ocupa largura total
+ */
+.btn--block {
   display: flex;
-  gap: 15px;
+  width: 100%;
+}
+
+/**
+ * .btn--rounded - Bordas totalmente arredondadas (pill)
+ */
+.btn--rounded {
+  border-radius: var(--radius-full);
+  /* 9999px */
+}
+
+/**
+ * .btn--icon-only - Botão apenas com ícone
+ */
+.btn--icon-only {
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
   justify-content: center;
+
+  &.btn--sm {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  &.btn--lg {
+    width: 3rem;
+    height: 3rem;
+  }
+}
+
+/* ============================================================================
+   SEÇÃO 5: GRUPOS DE BOTÕES
+   ============================================================================ */
+
+/**
+ * .btn-group - Container para grupos de botões
+ */
+.btn-group {
+  display: inline-flex;
+  gap: 1px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+
+  & > .btn {
+    border-radius: 0;
+    margin: 0;
+
+    &:first-child {
+      border-top-left-radius: var(--radius-md);
+      border-bottom-left-radius: var(--radius-md);
+    }
+
+    &:last-child {
+      border-top-right-radius: var(--radius-md);
+      border-bottom-right-radius: var(--radius-md);
+    }
+  }
+}
+
+/**
+ * .btn-wrapper - Container flex para CTAs
+ * Substitui .cta-buttons e .hero-cta
+ */
+.btn-wrapper {
+  display: flex;
+  gap: var(--spacing-4);
   flex-wrap: wrap;
+  align-items: center;
+
+  /* Modificadores para alinhamento */
+  &--center {
+    justify-content: center;
+  }
+
+  &--start {
+    justify-content: flex-start;
+  }
+
+  &--end {
+    justify-content: flex-end;
+  }
+
+  &--between {
+    justify-content: space-between;
+  }
+
+  /* Responsivo */
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: var(--spacing-3);
+    width: 100%;
+
+    & > .btn {
+      width: 100%;
+    }
+  }
+}
+
+/* ============================================================================
+   SEÇÃO 6: CONTEXTOS ESPECÍFICOS
+   ============================================================================ */
+
+/**
+ * Hero Section - Ajustes específicos para botões no hero
+ */
+.hero .btn-wrapper {
+  margin-top: var(--spacing-8);
+
+  @media (max-width: 768px) {
+    margin-top: var(--spacing-6);
+  }
+}
+
+/**
+ * Cards - Botões dentro de cards
+ */
+.card .btn {
+  align-self: flex-start;
+}
+
+/**
+ * Forms - Botões em formulários
+ */
+.form-actions .btn-wrapper {
+  margin-top: var(--spacing-6);
+}
+
+/* ============================================================================
+   SEÇÃO 7: COMPATIBILIDADE (ALIAS)
+   ============================================================================ */
+
+/**
+ * Aliases para compatibilidade com código existente
+ * REMOVER GRADUALMENTE após migração completa
+ */
+.cta-button,
+.btn-cta,
+.btn-primary-modern,
+.btn-secondary-modern {
+  composes: btn;
+}
+
+/* Mapeamento para migração fácil */
+.cta-button,
+.btn-cta {
+  composes: btn btn--primary btn--md;
+}
+
+.cta-button--hero {
+  composes: btn btn--primary btn--lg;
+}
+
+.btn-primary-modern {
+  composes: btn btn--white btn--md;
+}
+
+.btn-secondary-modern {
+  composes: btn btn--outline-white btn--md;
+}
+
+.cta-buttons {
+  composes: btn-wrapper btn-wrapper--center;
+}
+
+/* ============================================================================
+   SEÇÃO 8: EXEMPLOS DE USO (COMENTÁRIOS)
+   ============================================================================ */
+
+/**
+ * EXEMPLOS DE USO:
+ *
+ * 1. Botão primário padrão:
+ *    <button class="btn btn--primary">Click me</button>
+ *
+ * 2. Botão grande no hero:
+ *    <a href="#" class="btn btn--primary btn--lg">Get Started</a>
+ *
+ * 3. Botão com ícone:
+ *    <button class="btn btn--primary">
+ *      <i class="icon-download"></i>
+ *      Download
+ *    </button>
+ *
+ * 4. Grupo de botões:
+ *    <div class="btn-wrapper">
+ *      <button class="btn btn--primary">Primary</button>
+ *      <button class="btn btn--secondary">Secondary</button>
+ *    </div>
+ *
+ * 5. Botão de loading:
+ *    <button class="btn btn--primary btn--loading">Processing</button>
+ */
+
+/* ============================================================================
+   FIM DO COMPONENT: BUTTONS
+   ============================================================================ */
+/* Hero Buttons */
+.btn-primary-modern,
+.btn-secondary-modern {
+  padding: 15px 35px;
+  border-radius: var(--radius-md);
+  font-weight: var(--fw-semibold);
+  text-decoration: none;
+  transition: all var(--duration-300) var(--ease-out);
+  display: inline-block;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.btn-primary-modern {
+  background: var(--white-neutral);
+  color: var(--orange-vibrant);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+}
+
+.btn-primary-modern:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+  background: var(--white-pure);
+}
+
+.btn-secondary-modern {
+  background: transparent;
+  color: var(--white-neutral);
+  border: 2px solid var(--white-neutral);
+}
+
+.btn-secondary-modern:hover {
+  background: var(--white-neutral);
+  color: var(--orange-vibrant);
+}
+
+.btn-primary-modern:focus-visible,
+.btn-secondary-modern:focus-visible {
+  outline: 3px solid rgba(255, 255, 255, 0.75);
+  outline-offset: 4px;
+}
+
+.hero-title {
+  font-size: clamp(2.2rem, 4.5vw, 4rem);
+  line-height: 1.1;
+  color: var(--white-pure);
+  margin-bottom: 1rem;
+}
+
+.btn-link {
+  color: var(--blue-electric);
+  text-decoration: none;
+  font-weight: var(--fw-semibold);
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: all var(--duration-300) var(--ease-out);
+}
+
+.btn-link:hover {
+  gap: 10px;
+  color: var(--blue-dark);
 }
