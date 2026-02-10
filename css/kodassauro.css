@@ -7,7 +7,8 @@
   position: fixed;
   right: 22px;
   bottom: 22px;
-  z-index: var(--z-modal);
+  /* Ensure chat floats above most page elements on desktop */
+  z-index: 99999 !important;
 }
 
 .kodassauro-toggle {
@@ -163,6 +164,7 @@
   transition:
     transform var(--duration-300) var(--ease-out),
     opacity var(--duration-300) var(--ease-out);
+  z-index: 99999;
 }
 
 .kodassauro-panel[hidden] {
@@ -403,9 +405,12 @@
   border: 0;
 }
 
-body.nav-open .kodassauro-toggle,
-body.nav-open .kodassauro-panel {
-  display: none;
+/* Hide chat only on narrow viewports when navigation overlays the screen */
+@media (max-width: 900px) {
+  body.nav-open .kodassauro-toggle,
+  body.nav-open .kodassauro-panel {
+    display: none;
+  }
 }
 
 @media (max-width: 768px) {

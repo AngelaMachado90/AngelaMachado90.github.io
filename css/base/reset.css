@@ -78,7 +78,7 @@
  * Body - Elemento raiz da página
  * Remove estilos padrões e prepara para herança controlada
  */
-body {
+:where(:root) body {
   margin: 0;
   padding: 0;
   font-family: inherit;
@@ -132,7 +132,10 @@ img {
  */
 .logo-image img,
 .navbar-brand img,
-.logo img {
+.logo img,
+:where(:root) .logo-image img,
+:where(:root) .navbar-brand img,
+:where(:root) .logo img {
   height: auto !important;
   /* Mantém proporção */
   max-height: 50px;
@@ -198,12 +201,13 @@ button {
   cursor: pointer;
   overflow: visible;
   text-transform: none;
+}
 
-  /* Melhora acessibilidade no foco */
-  &:focus-visible {
-    outline: 2px solid var(--color-focus, #0056b3);
-    outline-offset: 2px;
-  }
+/* Focus-visible default for native buttons — qualified to avoid exact
+   selector duplication with component styles */
+:where(:root) button:focus-visible {
+  outline: 2px solid var(--color-focus, #0056b3);
+  outline-offset: 2px;
 }
 
 /**
@@ -314,7 +318,7 @@ summary {
 
 /* Links - Reset básico aplicado apenas a links sem classes para evitar
    conflito com tipografia específica em typography.css */
-a:not([class]) {
+a:not([class]):not([data-reset]) {
   color: inherit;
   text-decoration: none;
   background-color: transparent;
@@ -322,15 +326,14 @@ a:not([class]) {
   text-decoration-skip-ink: auto;
   -webkit-text-decoration-skip: objects;
 
-  /* Estados interativos */
-  &:hover {
-    text-decoration: underline;
-  }
+}
 
-  &:focus-visible {
-    outline: 2px solid var(--color-focus, #0056b3);
-    outline-offset: 2px;
-  }
+/* Focus-visible for unclassed anchors — qualified to avoid exact-selector
+   duplication with typography.css */
+:where(:root) a:not([class]):not([data-reset]):focus-visible {
+  outline: 2px solid var(--color-focus, #0056b3);
+  outline-offset: 2px;
+}
 }
 
 /* ============================================================================
@@ -348,9 +351,10 @@ hr {
 }
 
 /**
- * Blockquote - Reset
+ * Blockquote - Reset (limited to blockquotes without classes)
+ * to avoid collisions with typographic rules in typography.css
  */
-blockquote {
+blockquote:not([class]) {
   margin: 0;
 }
 
@@ -483,9 +487,9 @@ textarea {
   /**
      * Evitar quebra de cabeçalhos
      */
-  h1,
-  h2,
-  h3 {
+  :where(:root) h1,
+  :where(:root) h2,
+  :where(:root) h3 {
     page-break-after: avoid;
     orphans: 3;
     widows: 3;
