@@ -390,13 +390,6 @@
         // If attention message was queued while panel was closed, show it now.
         if (pendingAttention) {
           addMessage("bot", "Como posso ajudar?");
-          if ("speechSynthesis" in window) {
-            try {
-              const speak = new SpeechSynthesisUtterance("Como posso ajudar?");
-              speak.lang = "pt-BR";
-              window.speechSynthesis.speak(speak);
-            } catch (e) {}
-          }
           pendingAttention = false;
         }
 
@@ -875,102 +868,66 @@
       // Keep closed and silent until opened.
       setBadge(0);
 
-      // Assistant attention: short bark + prompt after 5s (runs once per session load)
+      // ============================================
+      // ASSISTANT ATTENTION - APENAS COM BEEP
+      // ============================================
       (function assistantAttention() {
         try {
           const key = "kodassauro.attentionShown";
           if (sessionStorage.getItem(key)) return;
 
-          // Visual pulse
+          // Visual pulse no botão
           toggleBtn.classList.add("kodassauro-bark");
           setTimeout(() => toggleBtn.classList.remove("kodassauro-bark"), 900);
 
-          // Speak short bark (Au-au). Prefer SpeechSynthesis; fallback to WebAudio beep.
-          if ("speechSynthesis" in window) {
-            try {
-              const bark = new SpeechSynthesisUtterance("Au au");
-              bark.lang = "pt-BR";
-              bark.volume = 1;
-              window.speechSynthesis.cancel();
-              window.speechSynthesis.speak(bark);
-            } catch (e) {}
+          // BEEP suave (sem voz)
+          try {
+            const ctx = new (
+              window.AudioContext || window.webkitAudioContext
+            )();
+            const o = ctx.createOscillator();
+            const g = ctx.createGain();
+            o.type = "sine";
+            o.frequency.value = 880;
+            o.connect(g);
+            g.connect(ctx.destination);
+            g.gain.setValueAtTime(0.0001, ctx.currentTime);
+            g.gain.exponentialRampToValueAtTime(0.08, ctx.currentTime + 0.02);
+            g.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.15);
+            o.start();
+            o.stop(ctx.currentTime + 0.16);
+          } catch (e) {}
+
+          // Mensagem fixa
+          const calloutText = "Au-au. Posso ajudar?";
+
+          if (state && state.isOpen) {
+            addMessage("bot", calloutText);
           } else {
             try {
-              const ctx = new (
-                window.AudioContext || window.webkitAudioContext
-              )();
-              const o = ctx.createOscillator();
-              const g = ctx.createGain();
-              o.type = "sawtooth";
-              o.frequency.value = 420;
-              o.connect(g);
-              g.connect(ctx.destination);
-              g.gain.setValueAtTime(0.0001, ctx.currentTime);
-              g.gain.exponentialRampToValueAtTime(0.18, ctx.currentTime + 0.02);
-              g.gain.exponentialRampToValueAtTime(
-                0.0001,
-                ctx.currentTime + 0.26,
-              );
-              o.start();
-              o.stop(ctx.currentTime + 0.28);
-            } catch (e) {}
-          }
+              const callout = document.createElement("div");
+              callout.className = "kodassauro-callout";
+              callout.textContent = calloutText;
 
-          // After 5s, enqueue the prompt but only add it to the UI
-          // when the panel is open (prevents FOUC/layout shifts).
-          setTimeout(() => {
-            try {
-              const calloutText = "Au-au. Posso ajudar?";
+              // Remove callouts antigos
+              const oldCallouts = root.querySelectorAll(".kodassauro-callout");
+              oldCallouts.forEach((el) => el.remove());
 
-              // If the panel is open, inject message into chat immediately.
-              if (state && state.isOpen) {
-                addMessage("bot", calloutText);
-                if ("speechSynthesis" in window) {
-                  try {
-                    const speak = new SpeechSynthesisUtterance(calloutText);
-                    speak.lang = "pt-BR";
-                    window.speechSynthesis.speak(speak);
-                  } catch (e) {}
-                }
-              } else {
-                // Show a small callout near the toggle button so the user
-                // notices the assistant without opening the panel.
-                try {
-                  const callout = document.createElement("div");
-                  callout.className = "kodassauro-callout";
-                  callout.textContent = calloutText;
-                  // append to root so it follows the fixed positioning
-                  if (root) root.appendChild(callout);
-                  // reveal with animation
-                  requestAnimationFrame(() =>
-                    callout.classList.add("is-visible"),
-                  );
-                  // play speech as well
-                  if ("speechSynthesis" in window) {
-                    try {
-                      const speak = new SpeechSynthesisUtterance(calloutText);
-                      speak.lang = "pt-BR";
-                      window.speechSynthesis.speak(speak);
-                    } catch (e) {}
-                  }
-                  // remove callout after a few seconds
-                  setTimeout(() => {
-                    callout.classList.remove("is-visible");
-                    setTimeout(() => callout.remove(), 300);
-                  }, 4200);
-                } catch (e) {
-                  // fallback to queuing message if anything fails
-                  pendingAttention = true;
-                }
-                // ensure we still add the message when user opens the panel
-                pendingAttention = true;
-              }
+              root.appendChild(callout);
+              requestAnimationFrame(() => callout.classList.add("is-visible"));
+
+              pendingAttention = true;
+
+              setTimeout(() => {
+                callout.classList.remove("is-visible");
+                setTimeout(() => callout.remove(), 300);
+              }, 4000);
             } catch (e) {
-              // state might not be ready; mark pending
               pendingAttention = true;
             }
-            sessionStorage.setItem(key, "1");
-          }, 5000);
+          }
+
+          sessionStorage.setItem(key, "1");
         } catch (err) {
           // fail silently
         }
