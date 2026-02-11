@@ -1,6 +1,6 @@
 /* ============================================================================
    RESET.CSS - Reset Global & Normalização
-   Versão: 2.0.0 | Data: 2026 | Autor: Angela Machado
+   Versão: 2.0.0 | Data: 10/02/2026 | Autor: Angela Machado
    ============================================================================ */
 
 /**
@@ -229,6 +229,7 @@ input[type="time"],
 input[type="datetime-local"],
 input[type="month"] {
   -webkit-appearance: listbox;
+  appearance: listbox; /* Mantém aparência nativa para melhor usabilidade */
 }
 
 /**
@@ -325,7 +326,6 @@ a:not([class]):not([data-reset]) {
 
   text-decoration-skip-ink: auto;
   -webkit-text-decoration-skip: objects;
-
 }
 
 /* Focus-visible for unclassed anchors — qualified to avoid exact-selector
@@ -333,7 +333,6 @@ a:not([class]):not([data-reset]) {
 :where(:root) a:not([class]):not([data-reset]):focus-visible {
   outline: 2px solid var(--color-focus, #0056b3);
   outline-offset: 2px;
-}
 }
 
 /* ============================================================================
