@@ -1,466 +1,2609 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Demo: Sistemas - Plataforma ERP/CRM">
-    <meta name="theme-color" content="#2196F3">
-    <title>KoddaERP - Sistemas Empresariais</title>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- SEO -->
+    <meta name="description"
+        content="KoddaOS - Plataforma de trabalho com IA. Gestão de projetos, CRM, automação e fluxos de trabalho no-code para empresas.">
+    <meta name="keywords"
+        content="work OS, gestão de projetos, CRM, automação, no-code, workflow, IA, inteligência artificial">
+    <meta name="author" content="KoddaHub">
+    <meta name="theme-color" content="#F57C00">
+
+    <title>KoddaOS - Plataforma de Trabalho com IA</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="../assets/logo/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="../assets/logo/apple-touch-icon.png">
+
+    <!-- CSS Files -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
 
-    <link rel="stylesheet" href="../css/reset.css">
-    <link rel="stylesheet" href="../css/variables.css">
-    <link rel="stylesheet" href="../css/base.css">
-    <link rel="stylesheet" href="../css/kodassauro.css">
-    <link rel="stylesheet" href="../css/floating-actions.css">
-    <link rel="stylesheet" href="../css/demo-shell.css">
-    <link rel="stylesheet" href="../css/demos/demo-sistemas.css">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* ============================================================================
+           VARIÁVEIS CSS - DESIGN SYSTEM KODDAHUB
+           ============================================================================ */
+        :root {
+            /* ===== CORES DA MARCA KODDAHUB ===== */
+            --color-primary-50: #fff3e0;
+            --color-primary-100: #ffe0b2;
+            --color-primary-300: #ffb74d;
+            --color-primary-500: #ff9800;
+            --color-primary-600: #f57c00;
+            --color-primary-700: #e65100;
+            --color-primary-800: #d84315;
+            --color-primary-900: #bf360c;
+
+            --orange-vibrant: var(--color-primary-600);
+            --orange-dark: var(--color-primary-700);
+            --orange-light: var(--color-primary-500);
+            --primary-color: var(--color-primary-600);
+
+            /* ===== CORES SECUNDÁRIAS ===== */
+            --color-secondary-50: #e3f2fd;
+            --color-secondary-100: #e3f2fd;
+            --color-secondary-300: #64b5f6;
+            --color-secondary-600: #2196f3;
+            --color-secondary-700: #1976d2;
+            --color-secondary-800: #1565c0;
+            --color-secondary-900: #0d47a1;
+
+            --blue-electric: var(--color-secondary-600);
+            --blue-dark: var(--color-secondary-700);
+            --blue-light: var(--color-secondary-300);
+
+            /* ===== CORES DO WORK OS ===== */
+            --work-purple: #6c5ce7;
+            --work-pink: #e84393;
+            --work-teal: #00b894;
+            --work-yellow: #fdcb6e;
+            --work-red: #d63031;
+            --work-green: #00a86b;
+
+            /* ===== CORES NEUTRAS ===== */
+            --color-neutral-50: #fafafa;
+            --color-neutral-100: #f5f5f5;
+            --color-neutral-200: #eeeeee;
+            --color-neutral-300: #e0e0e0;
+            --color-neutral-400: #bdbdbd;
+            --color-neutral-500: #9e9e9e;
+            --color-neutral-600: #757575;
+            --color-neutral-700: #616161;
+            --color-neutral-800: #424242;
+            --color-neutral-900: #212121;
+
+            --black-deep: var(--color-neutral-900);
+            --black-light: var(--color-neutral-800);
+            --gray-circuit: var(--color-neutral-500);
+            --gray-light: var(--color-neutral-300);
+            --gray-dark: var(--color-neutral-700);
+            --white-neutral: var(--color-neutral-50);
+            --white-pure: #ffffff;
+
+            /* ===== TIPOGRAFIA ===== */
+            --font-heading: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+            --font-size-xs: 0.75rem;
+            --font-size-sm: 0.875rem;
+            --font-size-base: 1rem;
+            --font-size-lg: 1.125rem;
+            --font-size-xl: 1.25rem;
+            --font-size-2xl: 1.5rem;
+            --font-size-3xl: 1.875rem;
+            --font-size-4xl: 2.25rem;
+            --font-size-5xl: 3rem;
+
+            --font-size-h1: clamp(2.5rem, 5vw, 4rem);
+            --font-size-h2: clamp(2rem, 4vw, 3rem);
+            --font-size-h3: clamp(1.5rem, 3vw, 2.25rem);
+            --font-size-h4: clamp(1.25rem, 2.5vw, 1.875rem);
+            --font-size-h5: clamp(1.125rem, 2vw, 1.5rem);
+            --font-size-h6: clamp(1rem, 1.5vw, 1.25rem);
+
+            --font-weight-light: 300;
+            --font-weight-normal: 400;
+            --font-weight-medium: 500;
+            --font-weight-semibold: 600;
+            --font-weight-bold: 700;
+            --font-weight-extrabold: 800;
+
+            --line-height-tight: 1.25;
+            --line-height-normal: 1.5;
+            --line-height-relaxed: 1.75;
+            --line-height-loose: 2;
+
+            /* ===== ESPAÇAMENTO ===== */
+            --spacing-0: 0;
+            --spacing-1: 0.25rem;
+            --spacing-2: 0.5rem;
+            --spacing-3: 0.75rem;
+            --spacing-4: 1rem;
+            --spacing-5: 1.5rem;
+            --spacing-6: 2rem;
+            --spacing-8: 3rem;
+            --spacing-10: 4rem;
+            --spacing-12: 6rem;
+            --spacing-16: 8rem;
+
+            --gap-xs: var(--spacing-2);
+            --gap-sm: var(--spacing-3);
+            --gap-md: var(--spacing-4);
+            --gap-lg: var(--spacing-6);
+            --gap-xl: var(--spacing-8);
+
+            /* ===== BORDAS ===== */
+            --radius-none: 0;
+            --radius-xs: 0.125rem;
+            --radius-sm: 0.25rem;
+            --radius-md: 0.375rem;
+            --radius-lg: 0.5rem;
+            --radius-xl: 0.75rem;
+            --radius-2xl: 1rem;
+            --radius-3xl: 1.5rem;
+            --radius-full: 9999px;
+
+            --border-width-thin: 1px;
+            --border-width-base: 2px;
+            --border-width-thick: 3px;
+
+            /* ===== SOMBRAS ===== */
+            --shadow-none: none;
+            --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            --shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+
+            --shadow-primary-sm: 0 1px 3px 0 rgba(245, 124, 0, 0.2);
+            --shadow-primary-lg: 0 10px 15px -3px rgba(245, 124, 0, 0.2);
+            --shadow-secondary-sm: 0 1px 3px 0 rgba(33, 150, 243, 0.2);
+            --shadow-secondary-lg: 0 10px 15px -3px rgba(33, 150, 243, 0.2);
+
+            /* ===== Z-INDEX ===== */
+            --z-below: -1;
+            --z-base: 0;
+            --z-above: 1;
+            --z-dropdown: 100;
+            --z-sticky: 200;
+            --z-fixed: 300;
+            --z-overlay: 400;
+            --z-modal: 500;
+            --z-popover: 600;
+            --z-toast: 700;
+            --z-tooltip: 800;
+
+            /* ===== CONTAINERS ===== */
+            --container-xs: 20rem;
+            --container-sm: 33.75rem;
+            --container-md: 45rem;
+            --container-lg: 60rem;
+            --container-xl: 71.25rem;
+            --container-2xl: 82.5rem;
+            --container-full: 100%;
+
+            --container-padding-mobile: var(--spacing-4);
+            --container-padding-tablet: var(--spacing-5);
+            --container-padding-desktop: var(--spacing-6);
+        }
+
+        /* ============================================================================
+           RESET E ESTILOS GLOBAIS
+           ============================================================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            font-size: var(--font-size-base);
+            font-weight: var(--font-weight-normal);
+            line-height: var(--line-height-normal);
+            color: var(--black-deep);
+            background-color: var(--white-pure);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body.nav-open {
+            overflow: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: var(--font-heading);
+            font-weight: var(--font-weight-bold);
+            line-height: var(--line-height-tight);
+            color: var(--black-deep);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all var(--duration-fast) var(--ease-out);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container-fluid {
+            max-width: var(--container-2xl);
+            margin: 0 auto;
+            padding: 0 var(--container-padding-desktop);
+        }
+
+        @media (max-width: 1024px) {
+            .container-fluid {
+                padding: 0 var(--container-padding-tablet);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container-fluid {
+                padding: 0 var(--container-padding-mobile);
+            }
+        }
+
+        .visuallyhidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0;
+        }
+
+        /* ============================================================================
+           HEADER KODDAOS
+           ============================================================================ */
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: var(--z-fixed);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            color: var(--black-deep);
+            box-shadow: var(--shadow-sm);
+            transition: all var(--duration-fast) var(--ease-out);
+        }
+
+        .header.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: var(--shadow-md);
+        }
+
+        .header-main {
+            padding: var(--spacing-4) 0;
+        }
+
+        .navbar-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: var(--gap-sm);
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--color-primary-600), var(--color-primary-700));
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white-pure);
+            font-size: 24px;
+            font-weight: var(--font-weight-bold);
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-text strong {
+            font-size: var(--font-size-2xl);
+            font-weight: var(--font-weight-extrabold);
+            line-height: 1.2;
+            background: linear-gradient(135deg, var(--color-primary-600), var(--color-primary-800));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .logo-text span {
+            font-size: var(--font-size-xs);
+            color: var(--gray-circuit);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .navbar-menu {
+            display: flex;
+            align-items: center;
+            gap: var(--gap-lg);
+        }
+
+        .nav-link {
+            color: var(--black-light);
+            font-weight: var(--font-weight-medium);
+            padding: var(--spacing-2) var(--spacing-3);
+            border-radius: var(--radius-full);
+            transition: all var(--duration-fast) var(--ease-out);
+        }
+
+        .nav-link:hover {
+            color: var(--color-primary-600);
+            background: var(--color-primary-50);
+        }
+
+        .nav-link.cta {
+            background: linear-gradient(135deg, var(--color-primary-600), var(--color-primary-700));
+            color: var(--white-pure);
+            padding: var(--spacing-2) var(--spacing-5);
+        }
+
+        .nav-link.cta:hover {
+            background: linear-gradient(135deg, var(--color-primary-700), var(--color-primary-800));
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-primary-lg);
+        }
+
+        .navbar-toggle {
+            display: none;
+            flex-direction: column;
+            gap: var(--gap-xs);
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: var(--spacing-2);
+        }
+
+        .navbar-toggle span {
+            width: 24px;
+            height: 2px;
+            background: var(--black-deep);
+            border-radius: var(--radius-full);
+            transition: all var(--duration-fast) var(--ease-out);
+        }
+
+        .navbar-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        .navbar-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .navbar-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        @media (max-width: 1024px) {
+            .navbar-menu {
+                display: none;
+            }
+
+            .navbar-toggle {
+                display: flex;
+            }
+        }
+
+        /* ============================================================================
+           MENU MOBILE
+           ============================================================================ */
+        .nav-menu {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 80%;
+            max-width: 320px;
+            height: 100vh;
+            background: var(--white-pure);
+            z-index: var(--z-modal);
+            padding: var(--spacing-8) var(--spacing-5);
+            transition: left var(--duration-base) var(--ease-out);
+            overflow-y: auto;
+            box-shadow: var(--shadow-2xl);
+        }
+
+        .nav-menu.active {
+            left: 0;
+        }
+
+        .nav-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: calc(var(--z-modal) - 1);
+            opacity: 0;
+            visibility: hidden;
+            transition: all var(--duration-fast) var(--ease-out);
+        }
+
+        .nav-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .nav-menu-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: var(--spacing-8);
+        }
+
+        .nav-menu-logo {
+            display: flex;
+            align-items: center;
+            gap: var(--gap-sm);
+        }
+
+        .nav-menu-logo img {
+            width: 40px;
+            height: 40px;
+        }
+
+        .nav-menu-logo span {
+            font-size: var(--font-size-lg);
+            font-weight: var(--font-weight-bold);
+            background: linear-gradient(135deg, var(--color-primary-600), var(--color-primary-800));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-menu-close {
+            background: none;
+            border: none;
+            font-size: var(--font-size-2xl);
+            color: var(--gray-circuit);
+            cursor: pointer;
+            padding: var(--spacing-2);
+        }
+
+        .nav-menu-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-menu-item {
+            margin-bottom: var(--spacing-4);
+        }
+
+        .nav-menu-link {
+            display: block;
+            padding: var(--spacing-3) 0;
+            color: var(--black-deep);
+            font-weight: var(--font-weight-medium);
+            border-bottom: var(--border-width-thin) solid var(--gray-light);
+        }
+
+        .nav-menu-link.cta {
+            background: linear-gradient(135deg, var(--color-primary-600), var(--color-primary-700));
+            color: var(--white-pure);
+            padding: var(--spacing-3) var(--spacing-4);
+            border-radius: var(--radius-full);
+            border: none;
+            text-align: center;
+        }
+
+        /* ============================================================================
+           HERO SECTION
+           ============================================================================ */
+        .hero {
+            position: relative;
+            padding: var(--spacing-16) 0 var(--spacing-12);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: var(--white-pure);
+            overflow: hidden;
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.1;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="white"/></svg>');
+            background-size: 30px 30px;
+            z-index: 1;
+        }
+
+        .hero .container-fluid {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--gap-xl);
+            align-items: center;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: var(--spacing-1) var(--spacing-3);
+            border-radius: var(--radius-full);
+            font-size: var(--font-size-xs);
+            font-weight: var(--font-weight-semibold);
+            margin-bottom: var(--spacing-4);
+            border: var(--border-width-thin) solid rgba(255, 255, 255, 0.3);
+        }
+
+        .hero-title {
+            font-size: var(--font-size-h1);
+            font-weight: var(--font-weight-extrabold);
+            margin-bottom: var(--spacing-5);
+            color: var(--white-pure);
+        }
+
+        .hero-title strong {
+            background: linear-gradient(135deg, #ffd700, #ffb700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: var(--font-size-xl);
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: var(--spacing-6);
+            line-height: var(--line-height-relaxed);
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: var(--gap-lg);
+            margin-bottom: var(--spacing-6);
+        }
+
+        .hero-stat {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hero-stat-number {
+            font-size: var(--font-size-3xl);
+            font-weight: var(--font-weight-extrabold);
+            color: var(--white-pure);
+            line-height: 1;
+            margin-bottom: var(--spacing-1);
+        }
+
+        .hero-stat-label {
+            font-size: var(--font-size-sm);
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: var(--gap-md);
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--gap-sm);
+            padding: var(--spacing-3) var(--spacing-6);
+            background: var(--white-pure);
+            color: var(--work-purple);
+            font-weight: var(--font-weight-bold);
+            border-radius: var(--radius-full);
+            transition: all var(--duration-fast) var(--ease-out);
+            border: none;
+            cursor: pointer;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--gap-sm);
+            padding: var(--spacing-3) var(--spacing-6);
+            background: transparent;
+            color: var(--white-pure);
+            font-weight: var(--font-weight-bold);
+            border-radius: var(--radius-full);
+            transition: all var(--duration-fast) var(--ease-out);
+            border: var(--border-width-base) solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--white-pure);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image img {
+            border-radius: var(--radius-2xl);
+            box-shadow: var(--shadow-2xl);
+            width: 100%;
+            height: auto;
+        }
+
+        @media (max-width: 992px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-stats {
+                justify-content: center;
+            }
+
+            .hero-cta {
+                justify-content: center;
+            }
+        }
+
+        /* ============================================================================
+           SEÇÃO DE CLIENTES
+           ============================================================================ */
+        .clients {
+            padding: var(--spacing-8) 0;
+            background: var(--color-neutral-100);
+            border-bottom: var(--border-width-thin) solid var(--gray-light);
+        }
+
+        .clients-title {
+            text-align: center;
+            font-size: var(--font-size-sm);
+            color: var(--gray-circuit);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: var(--spacing-6);
+        }
+
+        .clients-grid {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: var(--gap-lg);
+        }
+
+        .client-item {
+            font-size: var(--font-size-xl);
+            font-weight: var(--font-weight-bold);
+            color: var(--gray-circuit);
+            opacity: 0.7;
+            transition: all var(--duration-fast) var(--ease-out);
+        }
+
+        .client-item:hover {
+            opacity: 1;
+            color: var(--black-deep);
+        }
+
+        /* ============================================================================
+           SEÇÃO DE PRODUTOS
+           ============================================================================ */
+        .products {
+            padding: var(--spacing-12) 0;
+            background: var(--white-pure);
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto var(--spacing-12);
+        }
+
+        .section-badge {
+            display: inline-block;
+            background: var(--color-primary-100);
+            color: var(--color-primary-700);
+            padding: var(--spacing-1) var(--spacing-3);
+            border-radius: var(--radius-full);
+            font-size: var(--font-size-xs);
+            font-weight: var(--font-weight-semibold);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: var(--spacing-4);
+        }
+
+        .section-header h2 {
+            font-size: var(--font-size-h2);
+            margin-bottom: var(--spacing-4);
+        }
+
+        .section-header p {
+            font-size: var(--font-size-lg);
+            color: var(--gray-circuit);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--gap-lg);
+        }
+
+        .product-card {
+            background: var(--white-pure);
+            border-radius: var(--radius-2xl);
+            padding: var(--spacing-6);
+            box-shadow: var(--shadow-sm);
+            transition: all var(--duration-fast) var(--ease-out);
+            border: var(--border-width-thin) solid var(--gray-light);
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--color-primary-300);
+        }
+
+        .product-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, var(--color-primary-100), var(--color-secondary-100));
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-primary-600);
+            font-size: 28px;
+            margin-bottom: var(--spacing-5);
+        }
+
+        .product-card h3 {
+            font-size: var(--font-size-xl);
+            margin-bottom: var(--spacing-3);
+        }
+
+        .product-card p {
+            color: var(--gray-circuit);
+            margin-bottom: var(--spacing-4);
+            line-height: var(--line-height-relaxed);
+        }
+
+        .product-link {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--gap-xs);
+            color: var(--color-primary-600);
+            font-weight: var(--font-weight-semibold);
+        }
+
+        .product-link i {
+            transition: transform var(--duration-fast) var(--ease-out);
+        }
+
+        .product-link:hover i {
+            transform: translateX(4px);
+        }
+
+        @media (max-width: 992px) {
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ============================================================================
+           SEÇÃO DE ASSISTENTES DE IA
+           ============================================================================ */
+        .ai-agents {
+            padding: var(--spacing-12) 0;
+            background: linear-gradient(135deg, var(--color-primary-50), var(--color-secondary-50));
+        }
+
+        .agents-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--gap-lg);
+        }
+
+        .agent-card {
+            background: var(--white-pure);
+            border-radius: var(--radius-2xl);
+            padding: var(--spacing-6);
+            text-align: center;
+            transition: all var(--duration-fast) var(--ease-out);
+            border: var(--border-width-thin) solid rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(10px);
+        }
+
+        .agent-card:hover {
+            transform: scale(1.05);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--color-primary-600);
+        }
+
+        .agent-avatar {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto var(--spacing-4);
+            background: linear-gradient(135deg, var(--work-purple), var(--work-pink));
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white-pure);
+            font-size: 32px;
+        }
+
+        .agent-card h3 {
+            font-size: var(--font-size-lg);
+            margin-bottom: var(--spacing-2);
+        }
+
+        .agent-card p {
+            font-size: var(--font-size-sm);
+            color: var(--gray-circuit);
+            line-height: var(--line-height-relaxed);
+        }
+
+        @media (max-width: 992px) {
+            .agents-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .agents-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ============================================================================
+           SEÇÃO DE BENEFÍCIOS
+           ============================================================================ */
+        .benefits {
+            padding: var(--spacing-12) 0;
+            background: var(--white-pure);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--gap-xl);
+        }
+
+        .benefit-card {
+            text-align: center;
+        }
+
+        .benefit-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto var(--spacing-4);
+            background: var(--color-primary-100);
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-primary-600);
+            font-size: 28px;
+        }
+
+        .benefit-card h3 {
+            font-size: var(--font-size-xl);
+            margin-bottom: var(--spacing-2);
+        }
+
+        .benefit-card p {
+            color: var(--gray-circuit);
+            line-height: var(--line-height-relaxed);
+        }
+
+        @media (max-width: 768px) {
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ============================================================================
+           SEÇÃO DE DEPOIMENTOS
+           ============================================================================ */
+        .testimonials {
+            padding: var(--spacing-12) 0;
+            background: var(--color-neutral-900);
+            color: var(--white-pure);
+        }
+
+        .testimonials .section-header h2 {
+            color: var(--white-pure);
+        }
+
+        .testimonials .section-header p {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--gap-xl);
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: var(--radius-2xl);
+            padding: var(--spacing-6);
+            border: var(--border-width-thin) solid rgba(255, 255, 255, 0.1);
+        }
+
+        .testimonial-content {
+            margin-bottom: var(--spacing-5);
+        }
+
+        .testimonial-content i {
+            color: var(--color-primary-300);
+            font-size: 24px;
+            margin-bottom: var(--spacing-3);
+        }
+
+        .testimonial-content p {
+            font-size: var(--font-size-lg);
+            line-height: var(--line-height-relaxed);
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: var(--gap-md);
+        }
+
+        .author-avatar {
+            width: 48px;
+            height: 48px;
+            background: var(--color-primary-600);
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white-pure);
+            font-weight: var(--font-weight-bold);
+        }
+
+        .author-info h4 {
+            font-size: var(--font-size-base);
+            margin-bottom: var(--spacing-1);
+            color: var(--white-pure);
+        }
+
+        .author-info p {
+            font-size: var(--font-size-xs);
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        @media (max-width: 768px) {
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ============================================================================
+           SEÇÃO DE PREÇOS
+           ============================================================================ */
+        .pricing {
+            padding: var(--spacing-12) 0;
+            background: var(--white-pure);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--gap-xl);
+            margin-top: var(--spacing-8);
+        }
+
+        .pricing-card {
+            background: var(--white-pure);
+            border-radius: var(--radius-2xl);
+            padding: var(--spacing-6);
+            box-shadow: var(--shadow-lg);
+            border: var(--border-width-thin) solid var(--gray-light);
+            transition: all var(--duration-fast) var(--ease-out);
+            position: relative;
+        }
+
+        .pricing-card.featured {
+            border-color: var(--color-primary-600);
+            transform: scale(1.05);
+        }
+
+        .pricing-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--color-primary-600), var(--color-primary-700));
+            color: var(--white-pure);
+            padding: var(--spacing-1) var(--spacing-4);
+            border-radius: var(--radius-full);
+            font-size: var(--font-size-xs);
+            font-weight: var(--font-weight-bold);
+            white-space: nowrap;
+        }
+
+        .pricing-header {
+            text-align: center;
+            margin-bottom: var(--spacing-5);
+        }
+
+        .pricing-header h3 {
+            font-size: var(--font-size-xl);
+            margin-bottom: var(--spacing-2);
+        }
+
+        .pricing-price {
+            font-size: var(--font-size-4xl);
+            font-weight: var(--font-weight-extrabold);
+            color: var(--black-deep);
+        }
+
+        .pricing-price span {
+            font-size: var(--font-size-base);
+            font-weight: var(--font-weight-normal);
+            color: var(--gray-circuit);
+        }
+
+        .pricing-features {
+            list-style: none;
+            padding: 0;
+            margin: var(--spacing-5) 0;
+        }
+
+        .pricing-features li {
+            display: flex;
+            align-items: center;
+            gap: var(--gap-sm);
+            margin-bottom: var(--spacing-3);
+            color: var(--gray-circuit);
+        }
+
+        .pricing-features i {
+            color: var(--color-success-500);
+        }
+
+        .btn-pricing {
+            display: block;
+            text-align: center;
+            padding: var(--spacing-3);
+            background: var(--color-primary-600);
+            color: var(--white-pure);
+            font-weight: var(--font-weight-bold);
+            border-radius: var(--radius-full);
+            transition: all var(--duration-fast) var(--ease-out);
+        }
+
+        .btn-pricing:hover {
+            background: var(--color-primary-700);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-primary-lg);
+        }
+
+        @media (max-width: 992px) {
+            .pricing-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+        }
+
+        /* ============================================================================
+           SEÇÃO DE INTEGRAÇÕES
+           ============================================================================ */
+        .integrations {
+            padding: var(--spacing-12) 0;
+            background: var(--color-neutral-100);
+        }
+
+        .integrations-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: var(--gap-lg);
+            margin-top: var(--spacing-8);
+        }
+
+        .integration-item {
+            background: var(--white-pure);
+            padding: var(--spacing-3) var(--spacing-5);
+            border-radius: var(--radius-full);
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            align-items: center;
+            gap: var(--gap-sm);
+            font-weight: var(--font-weight-medium);
+            transition: all var(--duration-fast) var(--ease-out);
+        }
+
+        .integration-item:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+            color: var(--color-primary-600);
+        }
+
+        .integration-item i {
+            font-size: 20px;
+            color: var(--gray-circuit);
+        }
+
+        /* ============================================================================
+           SEÇÃO DE ROI
+           ============================================================================ */
+        .roi {
+            padding: var(--spacing-12) 0;
+            background: linear-gradient(135deg, var(--work-purple), var(--work-pink));
+            color: var(--white-pure);
+        }
+
+        .roi-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--gap-xl);
+            align-items: center;
+        }
+
+        .roi-stats {
+            display: flex;
+            gap: var(--gap-xl);
+        }
+
+        .roi-stat {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .roi-stat-number {
+            font-size: var(--font-size-5xl);
+            font-weight: var(--font-weight-extrabold);
+            line-height: 1;
+            margin-bottom: var(--spacing-2);
+        }
+
+        .roi-stat-label {
+            font-size: var(--font-size-lg);
+            opacity: 0.9;
+        }
+
+        @media (max-width: 768px) {
+            .roi-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .roi-stats {
+                justify-content: center;
+            }
+        }
+
+        /* ============================================================================
+           SEÇÃO DE CERTIFICAÇÕES
+           ============================================================================ */
+        .certifications {
+            padding: var(--spacing-8) 0;
+            background: var(--white-pure);
+            border-bottom: var(--border-width-thin) solid var(--gray-light);
+        }
+
+        .certifications-grid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: var(--gap-xl);
+            flex-wrap: wrap;
+        }
+
+        .cert-item {
+            display: flex;
+            align-items: center;
+            gap: var(--gap-sm);
+            color: var(--gray-circuit);
+            font-weight: var(--font-weight-medium);
+        }
+
+        .cert-item i {
+            font-size: 24px;
+            color: var(--color-success-500);
+        }
+
+        /* ============================================================================
+           SEÇÃO DE CTA FINAL
+           ============================================================================ */
+        .cta-final {
+            padding: var(--spacing-16) 0;
+            background: linear-gradient(135deg, var(--color-primary-700), var(--color-primary-900));
+            color: var(--white-pure);
+            text-align: center;
+        }
+
+        .cta-final h2 {
+            font-size: var(--font-size-h2);
+            color: var(--white-pure);
+            margin-bottom: var(--spacing-4);
+        }
+
+        .cta-final p {
+            font-size: var(--font-size-xl);
+            margin-bottom: var(--spacing-6);
+            opacity: 0.9;
+        }
+
+        .btn-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--gap-sm);
+            padding: var(--spacing-4) var(--spacing-8);
+            background: var(--white-pure);
+            color: var(--color-primary-700);
+            font-weight: var(--font-weight-bold);
+            font-size: var(--font-size-lg);
+            border-radius: var(--radius-full);
+            transition: all var(--duration-fast) var(--ease-out);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .btn-cta:hover {
+            transform: scale(1.05);
+            box-shadow: var(--shadow-2xl);
+        }
+
+        /* ============================================================================
+           FOOTER
+           ============================================================================ */
+        .footer {
+            background: var(--color-neutral-900);
+            color: var(--white-pure);
+            padding: var(--spacing-10) 0 var(--spacing-6);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+            gap: var(--gap-xl);
+            margin-bottom: var(--spacing-10);
+        }
+
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            gap: var(--gap-md);
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: var(--gap-sm);
+        }
+
+        .footer-logo i {
+            font-size: 32px;
+            color: var(--color-primary-500);
+        }
+
+        .footer-logo span {
+            font-size: var(--font-size-xl);
+            font-weight: var(--font-weight-bold);
+            color: var(--white-pure);
+        }
+
+        .footer-brand p {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: var(--line-height-relaxed);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: var(--gap-md);
+        }
+
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white-pure);
+            transition: all var(--duration-fast) var(--ease-out);
+        }
+
+        .footer-social a:hover {
+            background: var(--color-primary-600);
+            transform: translateY(-2px);
+        }
+
+        .footer-column h4 {
+            font-size: var(--font-size-base);
+            margin-bottom: var(--spacing-5);
+            color: var(--white-pure);
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-column li {
+            margin-bottom: var(--spacing-3);
+        }
+
+        .footer-column a {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: var(--font-size-sm);
+            transition: all var(--duration-fast) var(--ease-out);
+        }
+
+        .footer-column a:hover {
+            color: var(--color-primary-300);
+            padding-left: var(--spacing-1);
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: var(--spacing-5);
+            border-top: var(--border-width-thin) solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+            font-size: var(--font-size-sm);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: var(--gap-lg);
+        }
+
+        @media (max-width: 992px) {
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: var(--gap-md);
+                text-align: center;
+            }
+
+            .footer-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+
+        /* ============================================================================
+           CHATBOT KODASSAURO
+           ============================================================================ */
+        .kodassauro {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: var(--z-tooltip);
+        }
+
+        .kodassauro-toggle {
+            width: 60px;
+            height: 60px;
+            border-radius: var(--radius-full);
+            background: linear-gradient(135deg, var(--color-primary-600), var(--color-primary-700));
+            border: none;
+            cursor: pointer;
+            box-shadow: var(--shadow-xl);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            transition: all var(--duration-fast) var(--ease-out);
+        }
+
+        .kodassauro-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: var(--shadow-2xl);
+        }
+
+        .kodassauro-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: var(--color-error-500);
+            color: var(--white-pure);
+            font-size: var(--font-size-xs);
+            font-weight: var(--font-weight-bold);
+            min-width: 22px;
+            height: 22px;
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 var(--spacing-1);
+            border: 2px solid var(--white-pure);
+        }
+
+        .kodassauro-badge[hidden] {
+            display: none;
+        }
+
+        .kodassauro-panel {
+            position: absolute;
+            bottom: 80px;
+            right: 0;
+            width: 360px;
+            background: var(--white-pure);
+            border-radius: var(--radius-2xl);
+            box-shadow: var(--shadow-2xl);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: all var(--duration-fast) var(--ease-out);
+            border: var(--border-width-thin) solid var(--gray-light);
+        }
+
+        .kodassauro-panel[hidden] {
+            display: none;
+        }
+
+        .kodassauro-header {
+            background: linear-gradient(135deg, var(--color-primary-600), var(--color-primary-700));
+            color: var(--white-pure);
+            padding: var(--spacing-5);
+            display: flex;
+            align-items: center;
+            gap: var(--gap-md);
+        }
+
+        .kodassauro-avatar img {
+            width: 48px;
+            height: 48px;
+            border-radius: var(--radius-full);
+            border: 2px solid var(--white-pure);
+        }
+
+        .kodassauro-title {
+            font-size: var(--font-size-base);
+            margin: 0;
+            font-weight: var(--font-weight-semibold);
+        }
+
+        .kodassauro-subtitle {
+            font-size: var(--font-size-xs);
+            opacity: 0.9;
+            margin: 0;
+        }
+
+        .kodassauro-close {
+            background: none;
+            border: none;
+            color: var(--white-pure);
+            margin-left: auto;
+            cursor: pointer;
+            padding: var(--spacing-2);
+        }
+
+        .kodassauro-messages {
+            height: 300px;
+            padding: var(--spacing-5);
+            overflow-y: auto;
+            background: var(--color-neutral-100);
+            display: flex;
+            flex-direction: column;
+            gap: var(--gap-sm);
+        }
+
+        .kds-msg {
+            display: flex;
+            width: 100%;
+        }
+
+        .kds-msg.is-user {
+            justify-content: flex-end;
+        }
+
+        .kds-msg.is-bot {
+            justify-content: flex-start;
+        }
+
+        .kds-bubble {
+            max-width: 80%;
+            padding: var(--spacing-3) var(--spacing-4);
+            border-radius: 18px;
+            font-size: var(--font-size-sm);
+            line-height: var(--line-height-normal);
+            position: relative;
+            word-wrap: break-word;
+        }
+
+        .is-bot .kds-bubble {
+            background: var(--white-pure);
+            border-bottom-left-radius: 4px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .is-user .kds-bubble {
+            background: linear-gradient(135deg, var(--color-primary-600), var(--color-primary-700));
+            color: var(--white-pure);
+            border-bottom-right-radius: 4px;
+        }
+
+        .kds-time {
+            display: block;
+            font-size: var(--font-size-xs);
+            color: var(--gray-circuit);
+            margin-top: var(--spacing-1);
+        }
+
+        .is-user .kds-time {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .kodassauro-quick {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--gap-xs);
+            padding: var(--spacing-4);
+            background: var(--white-pure);
+            border-bottom: var(--border-width-thin) solid var(--gray-light);
+        }
+
+        .kodassauro-chip {
+            background: var(--color-neutral-100);
+            border: var(--border-width-thin) solid var(--gray-light);
+            border-radius: var(--radius-full);
+            padding: var(--spacing-1) var(--spacing-3);
+            font-size: var(--font-size-xs);
+            font-weight: var(--font-weight-medium);
+            color: var(--black-light);
+            cursor: pointer;
+            transition: all var(--duration-fast) var(--ease-out);
+        }
+
+        .kodassauro-chip:hover {
+            background: var(--color-primary-600);
+            color: var(--white-pure);
+            border-color: var(--color-primary-600);
+        }
+
+        .kodassauro-composer {
+            display: flex;
+            padding: var(--spacing-4);
+            background: var(--white-pure);
+            border-top: var(--border-width-thin) solid var(--gray-light);
+        }
+
+        .kodassauro-input {
+            flex: 1;
+            padding: var(--spacing-3) var(--spacing-4);
+            border: var(--border-width-thin) solid var(--gray-light);
+            border-radius: var(--radius-full);
+            font-size: var(--font-size-sm);
+            margin-right: var(--spacing-3);
+            outline: none;
+        }
+
+        .kodassauro-input:focus {
+            border-color: var(--color-primary-600);
+            box-shadow: var(--shadow-primary-sm);
+        }
+
+        .kodassauro-send {
+            padding: var(--spacing-3) var(--spacing-5);
+            background: linear-gradient(135deg, var(--color-primary-600), var(--color-primary-700));
+            color: var(--white-pure);
+            border: none;
+            border-radius: var(--radius-full);
+            font-weight: var(--font-weight-semibold);
+            cursor: pointer;
+            transition: all var(--duration-fast) var(--ease-out);
+        }
+
+        .kodassauro-send:hover {
+            transform: scale(0.95);
+            background: linear-gradient(135deg, var(--color-primary-700), var(--color-primary-800));
+        }
+
+        @media (max-width: 767px) {
+            .kodassauro-panel {
+                width: 300px;
+                right: 0;
+            }
+        }
+
+        /* ============================================================================
+           BOTÃO BACK TO TOP
+           ============================================================================ */
+        .back-to-top {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: var(--radius-full);
+            background: var(--color-neutral-900);
+            color: var(--white-pure);
+            border: none;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: var(--font-size-xl);
+            box-shadow: var(--shadow-lg);
+            transition: all var(--duration-fast) var(--ease-out);
+            z-index: var(--z-tooltip);
+            opacity: 0;
+            transform: translateY(10px);
+        }
+
+        .back-to-top.show {
+            display: flex;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .back-to-top:hover {
+            background: var(--color-primary-600);
+            transform: scale(1.1);
+        }
+
+        /* ============================================================================
+           UTILITÁRIOS
+           ============================================================================ */
+        .d-none {
+            display: none !important;
+        }
+
+        .d-block {
+            display: block !important;
+        }
+
+        .d-flex {
+            display: flex !important;
+        }
+
+        @media (min-width: 768px) {
+            .d-md-none {
+                display: none !important;
+            }
+
+            .d-md-block {
+                display: block !important;
+            }
+
+            .d-md-flex {
+                display: flex !important;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .d-lg-none {
+                display: none !important;
+            }
+
+            .d-lg-block {
+                display: block !important;
+            }
+
+            .d-lg-flex {
+                display: flex !important;
+            }
+        }
+
+        .align-items-center {
+            align-items: center;
+        }
+
+        .justify-content-between {
+            justify-content: space-between;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .mt-5 {
+            margin-top: var(--spacing-5);
+        }
+
+        .mb-5 {
+            margin-bottom: var(--spacing-5);
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, var(--color-primary-600), var(--work-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
 </head>
-<body>
-    <a class="demo-back" href="../index.html" aria-label="Voltar para a pagina inicial">
-        <i class="fas fa-arrow-left" aria-hidden="true"></i>
-        <span>Voltar para KoddaHub</span>
-    </a>
 
-    <header class="erp-header">
-        <div class="container">
-            <div class="erp-header-content">
-                <div class="erp-logo">
-                    <i class="fas fa-chart-line"></i>
-                    ERP Manager
-                </div>
-                <nav>
-                    <ul class="erp-nav">
-                        <li><a href="#modulos">Módulos</a></li>
-                        <li><a href="#integracao">Integrações</a></li>
-                        <li><a href="#preco">Preços</a></li>
-                        <li><a href="#faq">FAQ</a></li>
-                    </ul>
-                </nav>
-                <div class="erp-auth">
-                    <button class="btn-erp btn-erp-secondary">Demonstração</button>
-                    <button class="btn-erp btn-erp-primary">Login</button>
-                    <div class="profile-badge">AC</div>
+<body>
+    <h1 class="visuallyhidden">KoddaOS - Plataforma de Trabalho com IA</h1>
+
+    <!-- HEADER -->
+    <header class="header" id="mainHeader">
+        <div class="container-fluid">
+            <div class="header-main">
+                <div class="navbar-wrapper">
+                    <div class="navbar-brand">
+                        <div class="logo-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <div class="logo-text">
+                            <strong>KoddaOS</strong>
+                            <span>WORK OPERATING SYSTEM</span>
+                        </div>
+                    </div>
+
+                    <nav class="navbar-menu">
+                        <a href="#produtos" class="nav-link">Produtos</a>
+                        <a href="#ia" class="nav-link">IA</a>
+                        <a href="#precos" class="nav-link">Preços</a>
+                        <a href="#recursos" class="nav-link">Recursos</a>
+                        <a href="#contato" class="nav-link cta">Começar</a>
+                    </nav>
+
+                    <button class="navbar-toggle" id="navToggle">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
                 </div>
             </div>
         </div>
     </header>
 
-    <section class="dashboard-hero">
-        <div class="container">
-            <h1>📊 Gestão Empresarial Inteligente</h1>
-            <p>Centralize suas operações em uma única plataforma poderosa</p>
-            
-            <div class="kpi-grid">
-                <div class="kpi-card">
-                    <div class="kpi-value">R$ 2.5M</div>
-                    <div class="kpi-label">Receita do Mês</div>
-                    <div class="kpi-change kpi-positive">↑ 12% vs mês anterior</div>
+    <!-- MENU MOBILE -->
+    <div class="nav-menu" id="mobileMenu">
+        <div class="nav-menu-header">
+            <div class="nav-menu-logo">
+                <i class="fas fa-bolt" style="font-size: 32px; color: var(--color-primary-600);"></i>
+                <span>KoddaOS</span>
+            </div>
+            <button class="nav-menu-close" id="navMenuClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <ul class="nav-menu-list">
+            <li class="nav-menu-item"><a href="#produtos" class="nav-menu-link">Produtos</a></li>
+            <li class="nav-menu-item"><a href="#ia" class="nav-menu-link">IA</a></li>
+            <li class="nav-menu-item"><a href="#precos" class="nav-menu-link">Preços</a></li>
+            <li class="nav-menu-item"><a href="#recursos" class="nav-menu-link">Recursos</a></li>
+            <li class="nav-menu-item"><a href="#contato" class="nav-menu-link cta">Começar</a></li>
+        </ul>
+    </div>
+    <div class="nav-overlay" id="navOverlay"></div>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-background"></div>
+        <div class="container-fluid">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <span class="hero-badge">
+                        <i class="fas fa-robot"></i> Com a confiança de +60% da Fortune 500
+                    </span>
+                    <h1 class="hero-title">
+                        Impulsione a execução em escala com <strong>IA</strong>
+                    </h1>
+                    <p class="hero-subtitle">
+                        Entregue projetos, programas e portfólios com visibilidade total sobre recursos e detecção de
+                        riscos baseada em IA.
+                    </p>
+                    <div class="hero-stats">
+                        <div class="hero-stat">
+                            <span class="hero-stat-number">$4M</span>
+                            <span class="hero-stat-label">economizados</span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="hero-stat-number">6.970</span>
+                            <span class="hero-stat-label">horas/mês</span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="hero-stat-number">+15%</span>
+                            <span class="hero-stat-label">conversão</span>
+                        </div>
+                    </div>
+                    <div class="hero-cta">
+                        <a href="#contato" class="btn-primary">
+                            <i class="fas fa-rocket"></i> Começar
+                        </a>
+                        <a href="#demo" class="btn-secondary">
+                            <i class="fas fa-play"></i> Ver demo
+                        </a>
+                    </div>
                 </div>
-                <div class="kpi-card">
-                    <div class="kpi-value">1,250</div>
-                    <div class="kpi-label">Pedidos Processados</div>
-                    <div class="kpi-change kpi-positive">↑ 8% vs mês anterior</div>
-                </div>
-                <div class="kpi-card">
-                    <div class="kpi-value">98.7%</div>
-                    <div class="kpi-label">Taxa de Cumprimento</div>
-                    <div class="kpi-change kpi-positive">↑ 2% vs mês anterior</div>
-                </div>
-                <div class="kpi-card">
-                    <div class="kpi-value">450</div>
-                    <div class="kpi-label">Clientes Ativos</div>
-                    <div class="kpi-change kpi-positive">↑ 25 novos clientes</div>
+                <div class="hero-image">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                        alt="KoddaOS Dashboard">
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="features-section" id="modulos">
-        <div class="container">
-            <h2 class="section-title">🔧 Módulos Disponíveis</h2>
-            
-            <div class="modules-grid">
-                <div class="module-card">
-                    <div class="module-header">
-                        <div class="module-icon">📦</div>
-                        <div class="module-name">Controle de Estoque</div>
-                        <div class="module-type">Gestão de Inventário</div>
+    <!-- CLIENTES -->
+    <section class="clients">
+        <div class="container-fluid">
+            <h2 class="clients-title">Confiado por mais de 60% das empresas da Fortune 500</h2>
+            <div class="clients-grid">
+                <span class="client-item">HOLT CAT</span>
+                <span class="client-item">Zippo</span>
+                <span class="client-item">Black Mountain</span>
+                <span class="client-item">Citizens Bank</span>
+                <span class="client-item">Motorola</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUTOS -->
+    <section class="products" id="produtos">
+        <div class="container-fluid">
+            <div class="section-header">
+                <span class="section-badge">PLATAFORMA COMPLETA</span>
+                <h2>Soluções para todos os times. <br>Uma única plataforma.</h2>
+                <p>Cada produto atende às necessidades de cada área e impulsionam operações integradas.</p>
+            </div>
+
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-icon">
+                        <i class="fas fa-chart-line"></i>
                     </div>
-                    <div class="module-body">
-                        <ul class="module-features">
-                            <li><i class="fas fa-check"></i> Controle em tempo real</li>
-                            <li><i class="fas fa-check"></i> Rastreamento por lote</li>
-                            <li><i class="fas fa-check"></i> Alertas de estoque baixo</li>
-                            <li><i class="fas fa-check"></i> Múltiplos depósitos</li>
-                            <li><i class="fas fa-check"></i> Código de barras</li>
-                        </ul>
-                        <div class="module-status">✓ Operacional</div>
-                        <button class="btn-module">Acessar Módulo</button>
+                    <h3>Vendas</h3>
+                    <p>Gestão de pipeline, automação de follow-up e previsão com IA.</p>
+                    <a href="#" class="product-link">
+                        Saiba mais <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="product-card">
+                    <div class="product-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Engenharia</h3>
+                    <p>Planejamento de sprints, acompanhamento de bugs e integração com GitHub.</p>
+                    <a href="#" class="product-link">
+                        Saiba mais <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="product-card">
+                    <div class="product-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3>TI</h3>
+                    <p>Gestão de ativos, solicitações de serviço e automação de workflows.</p>
+                    <a href="#" class="product-link">
+                        Saiba mais <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="product-card">
+                    <div class="product-icon">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <h3>Marketing</h3>
+                    <p>Campanhas, calendário editorial e análise de ROI em tempo real.</p>
+                    <a href="#" class="product-link">
+                        Saiba mais <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ASSISTENTES DE IA -->
+    <section class="ai-agents" id="ia">
+        <div class="container-fluid">
+            <div class="section-header">
+                <span class="section-badge">INTELIGÊNCIA ARTIFICIAL</span>
+                <h2>Conheça seus assistentes de IA</h2>
+                <p>Descreva o trabalho. Seu assistente de IA personalizado é criado e está pronto para trabalhar 24
+                    horas por dia.</p>
+            </div>
+
+            <div class="agents-grid">
+                <div class="agent-card">
+                    <div class="agent-avatar">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3>Especialista em SDR</h3>
+                    <p>Proativamente pesquisa, enriquece e conquista novos leads, 24h por dia.</p>
+                </div>
+                <div class="agent-card">
+                    <div class="agent-avatar">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3>Analista de concorrência</h3>
+                    <p>Cria relatórios de tendência e pesquisa de mercado diariamente.</p>
+                </div>
+                <div class="agent-card">
+                    <div class="agent-avatar">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Kodda Sidekick</h3>
+                    <p>Basta pedir. O assistente cuidará do trabalho por você.</p>
+                </div>
+                <div class="agent-card">
+                    <div class="agent-avatar">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <h3>Assistente de projeto</h3>
+                    <p>Sinaliza riscos e automatiza processos em tempo real.</p>
+                </div>
+                <div class="agent-card">
+                    <div class="agent-avatar">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>Agente de serviço</h3>
+                    <p>Automaticamente seleciona e resolve tickets de suporte.</p>
+                </div>
+                <div class="agent-card">
+                    <div class="agent-avatar">
+                        <i class="fas fa-people-arrows"></i>
+                    </div>
+                    <h3>Scrum master</h3>
+                    <p>Planeja sprints, atribui tarefas e sinaliza obstáculos.</p>
+                </div>
+                <div class="agent-card">
+                    <div class="agent-avatar">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3>Analista financeiro</h3>
+                    <p>Monitora orçamentos e prevê desvios em projetos.</p>
+                </div>
+                <div class="agent-card">
+                    <div class="agent-avatar">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Assistente de RH</h3>
+                    <p>Gerencia onboarding, feedbacks e avaliações de desempenho.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BENEFÍCIOS -->
+    <section class="benefits" id="recursos">
+        <div class="container-fluid">
+            <div class="section-header">
+                <span class="section-badge">O DIFERENCIAL KODDAOS</span>
+                <h2>Flexível, mas padronizado</h2>
+                <p>Crie fluxos de trabalho no-code com controles que garantem consistência em toda a organização.</p>
+            </div>
+
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-cubes"></i>
+                    </div>
+                    <h3>No-code</h3>
+                    <p>Crie e customize fluxos de trabalho sem escrever uma linha de código.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-link"></i>
+                    </div>
+                    <h3>Integrações</h3>
+                    <p>Conecte-se com as ferramentas que você já usa: Slack, Teams, GitHub, Salesforce.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Segurança</h3>
+                    <p>Certificações ISO 27001, SOC2 e conformidade com LGPD/GDPR.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DEPOIMENTOS -->
+    <section class="testimonials">
+        <div class="container-fluid">
+            <div class="section-header">
+                <span class="section-badge" style="background: rgba(255,255,255,0.2); color: white;">DEPOIMENTOS</span>
+                <h2>Marcas líderes crescem com eficiência</h2>
+                <p>O que nossos clientes dizem sobre o KoddaOS</p>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <i class="fas fa-quote-right"></i>
+                        <p>"O KoddaOS nos dá a visibilidade necessária para alinhar as equipes e acompanhar todas as
+                            variáveis de nossos projetos."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <span>JD</span>
+                        </div>
+                        <div class="author-info">
+                            <h4>Jason Doan</h4>
+                            <p>VP de Operações, HOLT CAT</p>
+                        </div>
                     </div>
                 </div>
-
-                <div class="module-card">
-                    <div class="module-header">
-                        <div class="module-icon">🛒</div>
-                        <div class="module-name">Vendas</div>
-                        <div class="module-type">Gestão de Pedidos</div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <i class="fas fa-quote-right"></i>
+                        <p>"É como um iPhone. Você simplesmente sabe como e o que fazer em seguida. A curva de
+                            aprendizado é mínima."</p>
                     </div>
-                    <div class="module-body">
-                        <ul class="module-features">
-                            <li><i class="fas fa-check"></i> Cotações online</li>
-                            <li><i class="fas fa-check"></i> Carrinho de compras</li>
-                            <li><i class="fas fa-check"></i> Gestão de clientes</li>
-                            <li><i class="fas fa-check"></i> Histórico de pedidos</li>
-                            <li><i class="fas fa-check"></i> Relatórios avançados</li>
-                        </ul>
-                        <div class="module-status">✓ Operacional</div>
-                        <button class="btn-module">Acessar Módulo</button>
-                    </div>
-                </div>
-
-                <div class="module-card">
-                    <div class="module-header">
-                        <div class="module-icon">💰</div>
-                        <div class="module-name">Financeiro</div>
-                        <div class="module-type">Gestão Contábil</div>
-                    </div>
-                    <div class="module-body">
-                        <ul class="module-features">
-                            <li><i class="fas fa-check"></i> Conta corrente</li>
-                            <li><i class="fas fa-check"></i> Fluxo de caixa</li>
-                            <li><i class="fas fa-check"></i> Emissão de NF</li>
-                            <li><i class="fas fa-check"></i> Impostos automáticos</li>
-                            <li><i class="fas fa-check"></i> Conciliação bancária</li>
-                        </ul>
-                        <div class="module-status">✓ Operacional</div>
-                        <button class="btn-module">Acessar Módulo</button>
-                    </div>
-                </div>
-
-                <div class="module-card">
-                    <div class="module-header">
-                        <div class="module-icon">👥</div>
-                        <div class="module-name">Recursos Humanos</div>
-                        <div class="module-type">Gestão de Pessoal</div>
-                    </div>
-                    <div class="module-body">
-                        <ul class="module-features">
-                            <li><i class="fas fa-check"></i> Cadastro de funcionários</li>
-                            <li><i class="fas fa-check"></i> Folha de pagamento</li>
-                            <li><i class="fas fa-check"></i> Controle de ponto</li>
-                            <li><i class="fas fa-check"></i> Férias e ausências</li>
-                            <li><i class="fas fa-check"></i> Avaliações de desempenho</li>
-                        </ul>
-                        <div class="module-status">✓ Operacional</div>
-                        <button class="btn-module">Acessar Módulo</button>
-                    </div>
-                </div>
-
-                <div class="module-card">
-                    <div class="module-header">
-                        <div class="module-icon">📊</div>
-                        <div class="module-name">Análise e Relatórios</div>
-                        <div class="module-type">Business Intelligence</div>
-                    </div>
-                    <div class="module-body">
-                        <ul class="module-features">
-                            <li><i class="fas fa-check"></i> Dashboards customizáveis</li>
-                            <li><i class="fas fa-check"></i> Gráficos dinâmicos</li>
-                            <li><i class="fas fa-check"></i> KPIs em tempo real</li>
-                            <li><i class="fas fa-check"></i> Exportação de dados</li>
-                            <li><i class="fas fa-check"></i> Previsões com IA</li>
-                        </ul>
-                        <div class="module-status">✓ Operacional</div>
-                        <button class="btn-module">Acessar Módulo</button>
-                    </div>
-                </div>
-
-                <div class="module-card">
-                    <div class="module-header">
-                        <div class="module-icon">🔒</div>
-                        <div class="module-name">Segurança e Auditoria</div>
-                        <div class="module-type">Controle de Acesso</div>
-                    </div>
-                    <div class="module-body">
-                        <ul class="module-features">
-                            <li><i class="fas fa-check"></i> Autenticação 2FA</li>
-                            <li><i class="fas fa-check"></i> Controle de permissões</li>
-                            <li><i class="fas fa-check"></i> Auditoria de ações</li>
-                            <li><i class="fas fa-check"></i> Backup automático</li>
-                            <li><i class="fas fa-check"></i> Criptografia de dados</li>
-                        </ul>
-                        <div class="module-status">✓ Operacional</div>
-                        <button class="btn-module">Acessar Módulo</button>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <span>MC</span>
+                        </div>
+                        <div class="author-info">
+                            <h4>Maria Chen</h4>
+                            <p>Diretora de Tesouraria, Citizens Bank</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="integrations-section" id="integracao">
-        <div class="container">
-            <h2 class="section-title">🔗 Integrações Disponíveis</h2>
-            
-            <div class="integrations-grid">
-                <div class="integration-item">
-                    <div class="integration-icon">📦</div>
-                    <div class="integration-name">Shopify</div>
+    <!-- ROI -->
+    <section class="roi">
+        <div class="container-fluid">
+            <div class="roi-content">
+                <div class="roi-text">
+                    <span class="section-badge" style="background: rgba(255,255,255,0.2); color: white;">RETORNO SOBRE
+                        INVESTIMENTO</span>
+                    <h2 style="color: white; font-size: var(--font-size-h2); margin-top: var(--spacing-4);">346% de ROI
+                    </h2>
+                    <p style="color: rgba(255,255,255,0.9); font-size: var(--font-size-lg);">De acordo com a pesquisa
+                        Total Economic Impact™ da Forrester, a Motorola alcançou 346% de ROI com KoddaOS.</p>
                 </div>
-                <div class="integration-item">
-                    <div class="integration-icon">🚚</div>
-                    <div class="integration-name">Loggi</div>
-                </div>
-                <div class="integration-item">
-                    <div class="integration-icon">📧</div>
-                    <div class="integration-name">Gmail</div>
-                </div>
-                <div class="integration-item">
-                    <div class="integration-icon">🏦</div>
-                    <div class="integration-name">Itau</div>
-                </div>
-                <div class="integration-item">
-                    <div class="integration-icon">💳</div>
-                    <div class="integration-name">Stripe</div>
-                </div>
-                <div class="integration-item">
-                    <div class="integration-icon">🏢</div>
-                    <div class="integration-name">SAP</div>
-                </div>
-                <div class="integration-item">
-                    <div class="integration-icon">📱</div>
-                    <div class="integration-name">WhatsApp</div>
-                </div>
-                <div class="integration-item">
-                    <div class="integration-icon">💬</div>
-                    <div class="integration-name">Slack</div>
+                <div class="roi-stats">
+                    <div class="roi-stat">
+                        <span class="roi-stat-number">28k</span>
+                        <span class="roi-stat-label">ações manuais/mês</span>
+                    </div>
+                    <div class="roi-stat">
+                        <span class="roi-stat-number">6,970</span>
+                        <span class="roi-stat-label">horas salvas</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="pricing-section" id="preco">
-        <div class="container">
-            <h2 class="section-title">💳 Planos de Preço</h2>
-            
+    <!-- PREÇOS -->
+    <section class="pricing" id="precos">
+        <div class="container-fluid">
+            <div class="section-header">
+                <span class="section-badge">PLANOS E PREÇOS</span>
+                <h2>Escolha o plano ideal para sua equipe</h2>
+                <p>Comece gratuitamente. Escale conforme seu crescimento.</p>
+            </div>
+
             <div class="pricing-grid">
                 <div class="pricing-card">
-                    <div class="pricing-name">Startup</div>
-                    <div class="pricing-value">R$ 99</div>
-                    <div class="pricing-period">/mês</div>
+                    <div class="pricing-header">
+                        <h3>Básico</h3>
+                        <div class="pricing-price">R$ 29<span>/mês</span></div>
+                    </div>
                     <ul class="pricing-features">
-                        <li><i class="fas fa-check"></i> Até 100 produtos</li>
-                        <li><i class="fas fa-check"></i> Gestão de vendas</li>
-                        <li><i class="fas fa-check"></i> Estoque básico</li>
-                        <li><i class="fas fa-check"></i> 1 usuário</li>
-                        <li><i class="fas fa-times"></i> Integrações</li>
-                        <li><i class="fas fa-times"></i> Relatórios avançados</li>
+                        <li><i class="fas fa-check"></i> Até 10 usuários</li>
+                        <li><i class="fas fa-check"></i> 5 painéis personalizados</li>
+                        <li><i class="fas fa-check"></i> Automações básicas</li>
+                        <li><i class="fas fa-check"></i> Integrações padrão</li>
+                        <li><i class="fas fa-check"></i> Suporte por e-mail</li>
                     </ul>
-                    <button class="btn-pricing">Começar</button>
+                    <a href="#" class="btn-pricing">Começar</a>
                 </div>
 
                 <div class="pricing-card featured">
-                    <div class="featured-badge">MAIS POPULAR</div>
-                    <div class="pricing-name">Profissional</div>
-                    <div class="pricing-value">R$ 499</div>
-                    <div class="pricing-period">/mês</div>
+                    <span class="pricing-badge">MAIS POPULAR</span>
+                    <div class="pricing-header">
+                        <h3>Profissional</h3>
+                        <div class="pricing-price">R$ 59<span>/mês</span></div>
+                    </div>
                     <ul class="pricing-features">
-                        <li><i class="fas fa-check"></i> Até 10.000 produtos</li>
-                        <li><i class="fas fa-check"></i> Todos os módulos</li>
-                        <li><i class="fas fa-check"></i> Estoque avançado</li>
-                        <li><i class="fas fa-check"></i> Até 5 usuários</li>
-                        <li><i class="fas fa-check"></i> Integrações principais</li>
-                        <li><i class="fas fa-check"></i> Relatórios BI</li>
+                        <li><i class="fas fa-check"></i> Até 50 usuários</li>
+                        <li><i class="fas fa-check"></i> Painéis ilimitados</li>
+                        <li><i class="fas fa-check"></i> Automações avançadas</li>
+                        <li><i class="fas fa-check"></i> APIs personalizadas</li>
+                        <li><i class="fas fa-check"></i> Suporte prioritário</li>
+                        <li><i class="fas fa-check"></i> IA assistente</li>
                     </ul>
-                    <button class="btn-pricing">Começar</button>
+                    <a href="#" class="btn-pricing">Começar</a>
                 </div>
 
                 <div class="pricing-card">
-                    <div class="pricing-name">Enterprise</div>
-                    <div class="pricing-value">Customizado</div>
-                    <div class="pricing-period">Contatar</div>
+                    <div class="pricing-header">
+                        <h3>Enterprise</h3>
+                        <div class="pricing-price">Personalizado</div>
+                    </div>
                     <ul class="pricing-features">
-                        <li><i class="fas fa-check"></i> Produtos ilimitados</li>
-                        <li><i class="fas fa-check"></i> Todos os módulos</li>
                         <li><i class="fas fa-check"></i> Usuários ilimitados</li>
-                        <li><i class="fas fa-check"></i> API completa</li>
-                        <li><i class="fas fa-check"></i> Suporte premium 24/7</li>
-                        <li><i class="fas fa-check"></i> Consultor dedicado</li>
+                        <li><i class="fas fa-check"></i> SSO e conformidade</li>
+                        <li><i class="fas fa-check"></i> SLA garantido</li>
+                        <li><i class="fas fa-check"></i> Onboarding dedicado</li>
+                        <li><i class="fas fa-check"></i> Gerente de sucesso</li>
+                        <li><i class="fas fa-check"></i> IA customizada</li>
                     </ul>
-                    <button class="btn-pricing">Falar com Consultor</button>
+                    <a href="#" class="btn-pricing">Falar com vendas</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="faq-section" id="faq">
-        <div class="container">
-            <h2 class="section-title">❓ Perguntas Frequentes</h2>
-            
-            <div class="faq-grid">
-                <div class="faq-item">
-                    <div class="faq-question">Como posso migrar meus dados?</div>
-                    <div class="faq-answer">Oferecemos serviço de migração completo e gratuito. Nossa equipe técnica fará importação segura de todos seus dados, garantindo integridade e sem downtime.</div>
-                </div>
+    <!-- INTEGRAÇÕES -->
+    <section class="integrations">
+        <div class="container-fluid">
+            <div class="section-header">
+                <span class="section-badge">ECOSSISTEMA</span>
+                <h2>Integrações nativas</h2>
+                <p>Conecte-se com as ferramentas que você já usa todos os dias.</p>
+            </div>
 
-                <div class="faq-item">
-                    <div class="faq-question">Qual é o tempo de implementação?</div>
-                    <div class="faq-answer">Para pequenas empresas: 1-2 semanas. Médias: 2-4 semanas. Grandes: 1-3 meses. Depende da complexidade e volume de dados a migrar.</div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">Preciso de suporte técnico?</div>
-                    <div class="faq-answer">Sim! Todos os planos incluem suporte via email e chat. Clientes Enterprise têm suporte 24/7 com consultor dedicado.</div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">Posso testar antes de contratar?</div>
-                    <div class="faq-answer">Claro! Oferecemos 30 dias de avaliação gratuita com todos os recursos. Sem exigência de cartão de crédito.</div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">Qual a segurança dos meus dados?</div>
-                    <div class="faq-answer">Utilizamos criptografia de ponta a ponta, servidores em cloud segura, backups automáticos e conformidade com LGPD/GDPR.</div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">Posso integrar com meu sistema atual?</div>
-                    <div class="faq-answer">Sim! Temos integrações pré-construídas com as principais plataformas. Também oferecemos API para integrações customizadas.</div>
-                </div>
+            <div class="integrations-grid">
+                <span class="integration-item"><i class="fab fa-slack"></i> Slack</span>
+                <span class="integration-item"><i class="fab fa-microsoft"></i> Teams</span>
+                <span class="integration-item"><i class="fab fa-github"></i> GitHub</span>
+                <span class="integration-item"><i class="fab fa-google"></i> Google Drive</span>
+                <span class="integration-item"><i class="fab fa-dropbox"></i> Dropbox</span>
+                <span class="integration-item"><i class="fas fa-cloud"></i> Salesforce</span>
+                <span class="integration-item"><i class="fas fa-database"></i> Zapier</span>
             </div>
         </div>
     </section>
 
-    <section class="cta-section">
-        <h2>Transforme Sua Gestão Empresarial</h2>
-        <p>Experimente nosso ERP por 30 dias gratuitamente</p>
-        <div class="cta-buttons">
-            <button class="btn-cta btn-cta-white">🚀 Comece Agora</button>
-            <button class="btn-cta btn-cta-outline">📅 Agendar Demo</button>
+    <!-- CERTIFICAÇÕES -->
+    <section class="certifications">
+        <div class="container-fluid">
+            <div class="certifications-grid">
+                <span class="cert-item"><i class="fas fa-shield-alt"></i> ISO 27001</span>
+                <span class="cert-item"><i class="fas fa-check-circle"></i> SOC2 Tipo II</span>
+                <span class="cert-item"><i class="fas fa-gavel"></i> LGPD</span>
+                <span class="cert-item"><i class="fas fa-trophy"></i> Gartner® Leader</span>
+                <span class="cert-item"><i class="fas fa-star"></i> G2 Enterprise Grid®</span>
+            </div>
         </div>
     </section>
 
-    <footer class="erp-footer">
-        <div class="container">
-            <div class="footer-content">
+    <!-- CTA FINAL -->
+    <section class="cta-final" id="contato">
+        <div class="container-fluid">
+            <h2>Pronto para transformar sua operação?</h2>
+            <p>Junte-se a +60% das empresas da Fortune 500.</p>
+            <a href="#" class="btn-cta">
+                <i class="fas fa-bolt"></i> Começar grátis
+            </a>
+            <p style="margin-top: var(--spacing-5); font-size: var(--font-size-sm); opacity: 0.8;">Sem cartão de
+                crédito. Teste gratuito de 14 dias.</p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <i class="fas fa-bolt"></i>
+                        <span>KoddaOS</span>
+                    </div>
+                    <p>Plataforma de trabalho com IA que unifica projetos, fluxos e times em um só lugar.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
                 <div class="footer-column">
-                    <h4>Produto</h4>
+                    <h4>Produtos</h4>
                     <ul>
-                        <li><a href="#">Módulos</a></li>
-                        <li><a href="#">Integrações</a></li>
-                        <li><a href="#">Preços</a></li>
-                        <li><a href="#">Segurança</a></li>
+                        <li><a href="#">KoddaOS Work</a></li>
+                        <li><a href="#">KoddaCRM</a></li>
+                        <li><a href="#">KoddaDev</a></li>
+                        <li><a href="#">KoddaService</a></li>
+                        <li><a href="#">KoddaMark</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Soluções</h4>
+                    <ul>
+                        <li><a href="#">Gestão de Projetos</a></li>
+                        <li><a href="#">CRM</a></li>
+                        <li><a href="#">TI & Suporte</a></li>
+                        <li><a href="#">Marketing</a></li>
+                        <li><a href="#">Recursos Humanos</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
                     <h4>Recursos</h4>
                     <ul>
-                        <li><a href="#">Documentação</a></li>
-                        <li><a href="#">Tutoriais</a></li>
-                        <li><a href="#">API</a></li>
-                        <li><a href="#">Community</a></li>
+                        <li><a href="#">Central de Ajuda</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Webinars</a></li>
+                        <li><a href="#">Casos de Sucesso</a></li>
+                        <li><a href="#">API Docs</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
                     <h4>Empresa</h4>
                     <ul>
-                        <li><a href="#">Sobre Nós</a></li>
-                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Sobre nós</a></li>
                         <li><a href="#">Carreiras</a></li>
-                        <li><a href="#">Parceiros</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h4>Legal</h4>
-                    <ul>
+                        <li><a href="#">Imprensa</a></li>
                         <li><a href="#">Privacidade</a></li>
                         <li><a href="#">Termos</a></li>
-                        <li><a href="#">Contrato</a></li>
-                        <li><a href="#">Compliance</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 ERP Manager - Gestão Empresarial Inteligente. Todos os direitos reservados.</p>
+                <div>© 2026 KoddaOS, Inc. Todos os direitos reservados.</div>
+                <div class="footer-links">
+                    <a href="#">Privacidade</a>
+                    <a href="#">Termos</a>
+                    <a href="#">Cookies</a>
+                </div>
             </div>
+            <p
+                style="text-align: center; margin-top: var(--spacing-6); color: rgba(255,255,255,0.5); font-size: var(--font-size-xs);">
+                Desenvolvido por <a href="index.html" style="color: var(--color-primary-300);">KoddaHub</a>
+            </p>
         </div>
     </footer>
-    <a href="https://wa.me/554192272854?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20as%20solu%C3%A7%C3%B5es%20da%20KoddaHub"
-        class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Conversar no WhatsApp">
-        <i class="fab fa-whatsapp" aria-hidden="true"></i>
-        <span class="whatsapp-tooltip">Fale conosco!</span>
-    </a>
 
+    <!-- CHATBOT KODASSAURO -->
     <div class="kodassauro" id="kodassauroRoot">
-        <button class="kodassauro-toggle" type="button" aria-haspopup="dialog" aria-controls="kodassauroPanel"
-            aria-expanded="false" aria-label="Abrir chat Kodassauro">
-            <span class="kodassauro-badge" aria-label="Notificacoes do chat" hidden>0</span>
-            <span class="kodassauro-toggle-icon" aria-hidden="true">
-                <i class="fas fa-comment-dots" aria-hidden="true"></i>
-            </span>
+        <button class="kodassauro-toggle" type="button" id="chatToggle" aria-label="Abrir chat KoddaOS">
+            <img src="../assets/logo/KoddaHub-Chat.png" alt="Kodassauro" class="kodassauro-icon">
+            <span class="kodassauro-badge" id="chatBadge" hidden>0</span>
         </button>
 
-        <section class="kodassauro-panel" id="kodassauroPanel" role="dialog" aria-modal="false"
-            aria-labelledby="kodassauroTitle" aria-describedby="kodassauroSubtitle" tabindex="-1" hidden>
+        <section class="kodassauro-panel" id="kodassauroPanel" hidden>
             <header class="kodassauro-header">
-                <div class="kodassauro-avatar" aria-hidden="true">
-                    <svg class="kodassauro-svg" viewBox="0 0 64 64" role="img" aria-label="Kodassauro">
-                        <defs>
-                            <linearGradient id="kdsGrad" x1="0" y1="0" x2="1" y2="1">
-                                <stop offset="0%" stop-color="#2196F3" />
-                                <stop offset="100%" stop-color="#F57C00" />
-                            </linearGradient>
-                        </defs>
-                        <circle cx="32" cy="32" r="30" fill="url(#kdsGrad)" opacity="0.95" />
-                        <path d="M18 37c2-9 9-16 18-16s16 7 18 16c-6 7-13 11-18 11s-12-4-18-11z"
-                            fill="#fff" opacity="0.95" />
-                        <circle class="kds-eye" cx="28" cy="33" r="2.6" fill="#1976D2" />
-                        <circle class="kds-eye" cx="36" cy="33" r="2.6" fill="#1976D2" />
-                        <path d="M28 40c3 3 5 3 8 0" stroke="#E65100" stroke-width="3" fill="none"
-                            stroke-linecap="round" />
-                        <path d="M22 18l8 4" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity="0.9" />
-                        <path d="M42 18l-8 4" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity="0.9" />
-                    </svg>
+                <div class="kodassauro-avatar">
+                    <img src="../assets/logo/KoddaHub-Chat.png" alt="Kodassauro">
                 </div>
-
                 <div class="kodassauro-headings">
-                    <h3 class="kodassauro-title" id="kodassauroTitle">Kodassauro</h3>
-                    <p class="kodassauro-subtitle" id="kodassauroSubtitle">Assistente da KoddaHub, pronto para ajudar</p>
+                    <h4 class="kodassauro-title">Kodassauro</h4>
+                    <p class="kodassauro-subtitle">Assistente KoddaOS</p>
                 </div>
-
-                <div class="kodassauro-header-actions">
-                    <button class="kodassauro-reset" type="button">Limpar</button>
-                    <button class="kodassauro-close" type="button" aria-label="Fechar chat">
-                        <i class="fas fa-times" aria-hidden="true"></i>
-                    </button>
-                </div>
+                <button class="kodassauro-close" id="chatPanelClose">
+                    <i class="fas fa-times"></i>
+                </button>
             </header>
 
-            <div class="kodassauro-messages" id="kodassauroMessages" aria-live="polite" aria-relevant="additions">
+            <div class="kodassauro-messages" id="kodassauroMessages">
+                <div class="kds-msg is-bot">
+                    <div class="kds-bubble">
+                        🦕 Olá! Sou o Kodassauro, assistente virtual do KoddaOS.
+                        <span class="kds-time">agora</span>
+                    </div>
+                </div>
+                <div class="kds-msg is-bot">
+                    <div class="kds-bubble">
+                        Posso ajudar com demonstrações, planos, integrações ou tirar dúvidas sobre IA.
+                        <span class="kds-time">agora</span>
+                    </div>
+                </div>
             </div>
 
-            <div class="kodassauro-quick" id="kodassauroQuick" aria-label="Atalhos do chat">
-                <button type="button" class="kodassauro-chip" data-action="orcamento">Orcamento</button>
-                <button type="button" class="kodassauro-chip" data-action="duvidas">Duvidas</button>
-                <button type="button" class="kodassauro-chip" data-action="contato">Falar com vendedor</button>
-                <button type="button" class="kodassauro-chip" data-action="precos">Ver precos</button>
-                <button type="button" class="kodassauro-chip" data-action="portfolio">Ver portfolio</button>
+            <div class="kodassauro-quick">
+                <button type="button" class="kodassauro-chip" data-action="demo">Ver demo</button>
+                <button type="button" class="kodassauro-chip" data-action="precos">Preços</button>
+                <button type="button" class="kodassauro-chip" data-action="ia">Assistentes IA</button>
+                <button type="button" class="kodassauro-chip" data-action="contato">Falar com vendas</button>
             </div>
 
-            <form class="kodassauro-composer" id="kodassauroComposer" autocomplete="off">
-                <label class="kodassauro-sr-only" for="kodassauroInput">Mensagem</label>
-                <input id="kodassauroInput" class="kodassauro-input" type="text"
-                    placeholder="Digite sua mensagem..." inputmode="text" />
-                <button class="kodassauro-send" type="submit">Enviar</button>
-            </form>
+            <div class="kodassauro-composer">
+                <input type="text" class="kodassauro-input" id="kodassauroInput" placeholder="Digite sua mensagem...">
+                <button class="kodassauro-send" id="kodassauroSend">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
         </section>
     </div>
 
-    <script src="../js/kodassauro-chat.js"></script>
+    <!-- BOTÃO BACK TO TOP -->
+    <button class="back-to-top" id="backToTop" aria-label="Voltar ao topo">
+        <i class="fas fa-chevron-up"></i>
+    </button>
 
+    <!-- SCRIPTS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // ============================================================================
+        // NAVEGAÇÃO
+        // ============================================================================
+        document.addEventListener('DOMContentLoaded', function () {
+            // Header scroll
+            const header = document.getElementById('mainHeader');
+            const navToggle = document.getElementById('navToggle');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const navOverlay = document.getElementById('navOverlay');
+            const navMenuClose = document.getElementById('navMenuClose');
+            const backToTop = document.getElementById('backToTop');
+
+            window.addEventListener('scroll', function () {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+
+                // Back to top
+                if (window.scrollY > 300) {
+                    backToTop.classList.add('show');
+                } else {
+                    backToTop.classList.remove('show');
+                }
+            });
+
+            // Mobile menu toggle
+            if (navToggle) {
+                navToggle.addEventListener('click', function () {
+                    navToggle.classList.toggle('active');
+                    mobileMenu.classList.toggle('active');
+                    navOverlay.classList.toggle('active');
+                    document.body.classList.toggle('nav-open');
+                });
+            }
+
+            // Close mobile menu
+            function closeMobileMenu() {
+                navToggle?.classList.remove('active');
+                mobileMenu?.classList.remove('active');
+                navOverlay?.classList.remove('active');
+                document.body.classList.remove('nav-open');
+            }
+
+            if (navMenuClose) {
+                navMenuClose.addEventListener('click', closeMobileMenu);
+            }
+
+            if (navOverlay) {
+                navOverlay.addEventListener('click', closeMobileMenu);
+            }
+
+            // Back to top
+            if (backToTop) {
+                backToTop.addEventListener('click', function () {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+
+            // Smooth scroll
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                        closeMobileMenu();
+                    }
+                });
+            });
+
+            // ============================================================================
+            // CHATBOT KODASSAURO
+            // ============================================================================
+            const chatToggle = document.getElementById('chatToggle');
+            const chatPanel = document.getElementById('kodassauroPanel');
+            const chatClose = document.getElementById('chatPanelClose');
+            const chatInput = document.getElementById('kodassauroInput');
+            const chatSend = document.getElementById('kodassauroSend');
+            const chatMessages = document.getElementById('kodassauroMessages');
+            const chatBadge = document.getElementById('chatBadge');
+            const chatChips = document.querySelectorAll('.kodassauro-chip');
+
+            let isChatOpen = false;
+            let notificationCount = 0;
+
+            function addMessage(text, isUser = false) {
+                const msgDiv = document.createElement('div');
+                msgDiv.className = `kds-msg ${isUser ? 'is-user' : 'is-bot'}`;
+
+                const bubble = document.createElement('div');
+                bubble.className = 'kds-bubble';
+                bubble.textContent = text;
+
+                const time = document.createElement('span');
+                time.className = 'kds-time';
+                const now = new Date();
+                time.textContent = now.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
+
+                bubble.appendChild(time);
+                msgDiv.appendChild(bubble);
+                chatMessages.appendChild(msgDiv);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+
+            function setBadge(count) {
+                notificationCount = count;
+                if (count <= 0) {
+                    chatBadge.hidden = true;
+                } else {
+                    chatBadge.hidden = false;
+                    chatBadge.textContent = Math.min(count, 9);
+                }
+            }
+
+            function openChat() {
+                isChatOpen = true;
+                chatPanel.hidden = false;
+                chatToggle.setAttribute('aria-expanded', 'true');
+                setBadge(0);
+                chatInput.focus();
+            }
+
+            function closeChat() {
+                isChatOpen = false;
+                chatPanel.hidden = true;
+                chatToggle.setAttribute('aria-expanded', 'false');
+            }
+
+            function sendMessage() {
+                const text = chatInput.value.trim();
+                if (!text) return;
+
+                addMessage(text, true);
+                chatInput.value = '';
+
+                // Respostas automáticas
+                setTimeout(() => {
+                    const lowerText = text.toLowerCase();
+
+                    if (lowerText.includes('demo')) {
+                        addMessage('Ótimo! Nossos especialistas estão prontos para uma demonstração personalizada. Qual seu nome e e-mail?');
+                    } else if (lowerText.includes('preço') || lowerText.includes('preco') || lowerText.includes('valor')) {
+                        addMessage('Nossos planos começam em R$29/mês por usuário. Temos teste grátis de 14 dias sem cartão de crédito. Gostaria de mais detalhes?');
+                    } else if (lowerText.includes('ia') || lowerText.includes('inteligência') || lowerText.includes('assistente')) {
+                        addMessage('Temos 8 assistentes de IA especializados: SDR, analista de concorrência, sidekick, projetos, suporte, scrum master, financeiro e RH. Qual você gostaria de conhecer?');
+                    } else if (lowerText.includes('integração') || lowerText.includes('integracao')) {
+                        addMessage('O KoddaOS integra nativamente com Slack, Teams, GitHub, Google Drive, Salesforce e Zapier. Precisa de alguma integração específica?');
+                    } else if (lowerText.includes('vendas') || lowerText.includes('contato')) {
+                        addMessage('Vou conectar você com nosso time comercial. Por favor, informe seu nome e telefone comercial.');
+                    } else {
+                        addMessage('Obrigado pelo contato! Posso ajudar com demonstrações, preços, integrações ou nossos assistentes de IA. O que você deseja?');
+                    }
+                }, 600);
+            }
+
+            // Event listeners
+            if (chatToggle) {
+                chatToggle.addEventListener('click', function () {
+                    if (isChatOpen) closeChat();
+                    else openChat();
+                });
+            }
+
+            if (chatClose) {
+                chatClose.addEventListener('click', closeChat);
+            }
+
+            if (chatSend) {
+                chatSend.addEventListener('click', sendMessage);
+            }
+
+            if (chatInput) {
+                chatInput.addEventListener('keypress', function (e) {
+                    if (e.key === 'Enter') {
+                        e.preventDefault();
+                        sendMessage();
+                    }
+                });
+            }
+
+            // Quick actions
+            chatChips.forEach(chip => {
+                chip.addEventListener('click', function () {
+                    const action = this.dataset.action;
+                    addMessage(this.textContent, true);
+
+                    if (action === 'demo') {
+                        addMessage('Ótimo! Nossos especialistas estão prontos para uma demonstração personalizada. Qual seu nome e e-mail?');
+                    } else if (action === 'precos') {
+                        addMessage('Nossos planos começam em R$29/mês por usuário. Temos teste grátis de 14 dias sem cartão de crédito. Gostaria de mais detalhes?');
+                    } else if (action === 'ia') {
+                        addMessage('Temos 8 assistentes de IA especializados: SDR, analista de concorrência, sidekick, projetos, suporte, scrum master, financeiro e RH. Qual você gostaria de conhecer?');
+                    } else if (action === 'contato') {
+                        addMessage('Vou conectar você com nosso time comercial. Por favor, informe seu nome e telefone comercial.');
+                    }
+                });
+            });
+
+            // Atenção assistiva
+            setTimeout(() => {
+                if (!isChatOpen) {
+                    chatToggle.classList.add('kodassauro-bark');
+                    setTimeout(() => chatToggle.classList.remove('kodassauro-bark'), 900);
+                    setBadge(1);
+                }
+            }, 3000);
+
+            // Notificações periódicas
+            setInterval(() => {
+                if (!isChatOpen) {
+                    setBadge(notificationCount + 1);
+                }
+            }, 120000);
+        });
+    </script>
 </body>
+
 </html>

@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angela Machado • Portfólio de Dados</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f4f7fb;
+            font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
+            color: #0b2a3c;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 2rem;
+        }
+
+        /* header inspirado no KoddaHub */
+        .header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 3rem;
+            border-bottom: 2px solid #cbdae5;
+            padding-bottom: 2rem;
+        }
+
+        .logo {
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: #0a3b4e;
+        }
+
+        .logo span {
+            color: #2a7f6e;
+            background: #e0f0ec;
+            padding: 0.1rem 0.6rem;
+            border-radius: 30px;
+            font-size: 1.8rem;
+        }
+
+        .subhead {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #2a5f6e;
+            margin-top: 0.5rem;
+        }
+
+        .nav {
+            margin-top: 1.5rem;
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: #1e4a5b;
+            font-weight: 600;
+            border-bottom: 2px solid transparent;
+            padding-bottom: 0.3rem;
+        }
+
+        .nav a:hover {
+            border-bottom-color: #2a7f6e;
+        }
+
+        /* cards de projeto */
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #0a3b4e;
+            margin: 2.5rem 0 1.5rem 0;
+            border-left: 6px solid #2a7f6e;
+            padding-left: 1.2rem;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 6px 18px rgba(0, 40, 50, 0.05);
+            padding: 1.8rem 1.6rem;
+            transition: all 0.25s ease;
+            border: 1px solid #e2edf2;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 28px rgba(26, 90, 95, 0.12);
+            border-color: #b6d5d1;
+        }
+
+        .project-tag {
+            background: #d1e7e3;
+            color: #0e5b54;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            display: inline-block;
+            width: fit-content;
+            margin-bottom: 0.9rem;
+        }
+
+        .project-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #0b2f3a;
+            margin-bottom: 0.75rem;
+            line-height: 1.3;
+        }
+
+        .project-desc {
+            color: #2c4a55;
+            font-size: 0.95rem;
+            margin-bottom: 1.2rem;
+            flex: 1;
+        }
+
+        .tech-badge {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin: 1rem 0 1.2rem 0;
+        }
+
+        .tech {
+            background: #edf3f5;
+            padding: 0.25rem 0.9rem;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #1d5a67;
+            border: 1px solid #bfd8dc;
+        }
+
+        .result {
+            background: #f1f8f6;
+            padding: 0.8rem 1rem;
+            border-radius: 14px;
+            font-size: 0.9rem;
+            color: #0a4c4c;
+            border-left: 4px solid #2a7f6e;
+            margin-top: 0.4rem;
+        }
+
+        .btn {
+            background: transparent;
+            border: 2px solid #2a7f6e;
+            color: #2a7f6e;
+            padding: 0.5rem 1.2rem;
+            border-radius: 40px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 0.5rem;
+            align-self: flex-start;
+            transition: 0.2s;
+        }
+
+        .btn:hover {
+            background: #2a7f6e;
+            color: white;
+        }
+
+        .btn-dark {
+            background: #0a3b4e;
+            border: 2px solid #0a3b4e;
+            color: white;
+        }
+
+        .btn-dark:hover {
+            background: #0e4f63;
+            border-color: #0e4f63;
+        }
+
+        .about-section {
+            background: #e1f0ef;
+            border-radius: 40px;
+            padding: 2.5rem 2.2rem;
+            margin: 3rem 0 2rem 0;
+            color: #0a3340;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid #c9dde0;
+            font-size: 0.9rem;
+            color: #3e6a73;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <!-- Cabeçalho com identidade KoddaHub + Dados -->
+        <div class="header">
+            <div class="logo">Kodda<span>Hub</span> • Dados</div>
+            <div class="subhead">Portfólio de Análise, Automação e Dashboards</div>
+            <div class="nav">
+                <a href="https://angelamachado90.github.io/">Início KoddaHub</a>
+                <a href="#projetos">Projetos</a>
+                <a href="#sobre">Sobre</a>
+                <a href="#contato">Contato</a>
+            </div>
+        </div>
+
+        <!-- Apresentação rápida -->
+        <div style="background: #e7f3f0; padding: 1.8rem; border-radius: 32px; margin-bottom: 1.5rem;">
+            <p style="font-size:1.2rem; font-weight: 500; color: #0a424b;">📊 Mais de 10 anos unindo tecnologia, negócio
+                e dados. </p>
+            <p style="color: #1f535d;">Entreguei soluções de ponta a ponta: da extração à visualização, sempre com foco
+                em decisões mais rápidas e assertivas.</p>
+        </div>
+
+        <!-- PROJETOS DE DADOS -->
+        <div id="projetos" class="section-title">📌 Projetos em Dados</div>
+
+        <div class="project-grid">
+
+            <!-- CASE 1 – Dashboard Varejo -->
+            <div class="project-card">
+                <span class="project-tag">DASHBOARD INTERATIVO</span>
+                <div class="project-title">Análise de Vendas & Estoque</div>
+                <div class="project-desc">
+                    Painel completo para pequeno e-commerce acompanhar faturamento, produtos mais vendidos, sazonalidade
+                    e ruptura.
+                </div>
+                <div class="tech-badge">
+                    <span class="tech">Python</span>
+                    <span class="tech">Streamlit</span>
+                    <span class="tech">Pandas</span>
+                    <span class="tech">Excel/CSV</span>
+                </div>
+                <div class="result">
+                    <strong>📈 Resultado:</strong> Redução de 6h/semana em planilhas manuais. Decisões de reposição
+                    baseadas em dados em tempo real.
+                </div>
+                <a href="#" class="btn">🔍 Ver case</a>
+            </div>
+
+            <!-- CASE 2 – Automação RPA -->
+            <div class="project-card">
+                <span class="project-tag">AUTOMAÇÃO DE PROCESSOS</span>
+                <div class="project-title">Relatórios Financeiros Automáticos</div>
+                <div class="project-desc">
+                    Script em Python que consolida dados de múltiplas planilhas, aplica regras de negócio e gera
+                    relatório em PDF/Excel pronto para diretoria.
+                </div>
+                <div class="tech-badge">
+                    <span class="tech">Python</span>
+                    <span class="tech">OpenPyXL</span>
+                    <span class="tech">Pandas</span>
+                    <span class="tech">ReportLab</span>
+                </div>
+                <div class="result">
+                    <strong>⚡ Resultado:</strong> Processo de 2 dias reduzido para 8 minutos. Zero erros de digitação.
+                </div>
+                <a href="#" class="btn">🔍 Ver case</a>
+            </div>
+
+            <!-- CASE 3 – BI / ETL -->
+            <div class="project-card">
+                <span class="project-tag">ETL & MODELAGEM</span>
+                <div class="project-title">Integração de Bases Comerciais</div>
+                <div class="project-desc">
+                    Unificação de dados de CRM, planilhas de vendas e sistema legado. Construção de pipeline para
+                    análise histórica e projeções.
+                </div>
+                <div class="tech-badge">
+                    <span class="tech">Pentaho</span>
+                    <span class="tech">SQL</span>
+                    <span class="tech">Modelagem</span>
+                    <span class="tech">Power BI</span>
+                </div>
+                <div class="result">
+                    <strong>🔗 Resultado:</strong> Visão 360° de clientes e produtos. Projeção de vendas com 87% de
+                    acurácia.
+                </div>
+                <a href="#" class="btn">🔍 Ver case</a>
+            </div>
+        </div>
+
+        <!-- MAIS UM PROJETO EM DESTAQUE (linha extra) -->
+        <div
+            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 2rem; margin-top: 1.5rem;">
+            <div class="project-card">
+                <span class="project-tag">APLICAÇÃO DATA-CENTRIC</span>
+                <div class="project-title">Sistema de Acompanhamento de Metas</div>
+                <div class="project-desc">
+                    Ferramenta web em Streamlit para times comerciais acompanharem metas individuais e coletivas, com
+                    ranking e projeções.
+                </div>
+                <div class="tech-badge">
+                    <span class="tech">Streamlit</span>
+                    <span class="tech">SQLite</span>
+                    <span class="tech">Plotly</span>
+                </div>
+                <div class="result">
+                    <strong>🎯 Resultado:</strong> Adotado por equipe de 30 vendedores. Aumento de 22% no atingimento de
+                    metas.
+                </div>
+                <a href="#" class="btn">🔍 Ver case</a>
+            </div>
+            <div class="project-card">
+                <span class="project-tag">CONSULTORIA EM DADOS</span>
+                <div class="project-title">Diagnóstico de Qualidade de Dados</div>
+                <div class="project-desc">
+                    Auditoria de base de clientes: duplicidades, inconsistências, padronização. Geração de plano de
+                    limpeza e governança.
+                </div>
+                <div class="tech-badge">
+                    <span class="tech">SQL</span>
+                    <span class="tech">Excel avançado</span>
+                    <span class="tech">Análise exploratória</span>
+                </div>
+                <div class="result">
+                    <strong>🧹 Resultado:</strong> 34% de registros duplicados eliminados. Base confiável para campanhas
+                    de marketing.
+                </div>
+                <a href="#" class="btn">🔍 Ver case</a>
+            </div>
+        </div>
+
+        <!-- SEÇÃO SOBRE (ATUAÇÃO EM DADOS) -->
+        <div id="sobre" class="about-section">
+            <h2 style="font-size: 1.8rem; font-weight: 700; margin-bottom: 1rem; color: #094151;">✨ Sobre minha atuação
+                em dados</h2>
+            <p style="font-size:1.1rem; margin-bottom:1rem;">Sou <strong>Angela Machado</strong>, analista de dados com
+                mais de 10 anos de experiência em tecnologia, negócios e inteligência.</p>
+            <p style="margin-bottom:1rem;">Minha abordagem combina <strong>pensamento analítico, visão estratégica e
+                    execução técnica</strong>. Não entrego só gráficos: entrego entendimento real do negócio e
+                ferramentas que as pessoas realmente usam.</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 2rem; margin-top: 1.5rem;">
+                <div>
+                    <h3 style="color: #0e5b54;">📘 Formação</h3>
+                    <p>Análise e Desenvolvimento de Sistemas (UNINTER / FAEL)<br>Certificações em Engenharia de
+                        Requisitos, PHP, Auditoria de Dados</p>
+                </div>
+                <div>
+                    <h3 style="color: #0e5b54;">🛠️ Principais ferramentas</h3>
+                    <p>Python, SQL, Streamlit, Pentaho, Docker, Git, Excel/Power BI</p>
+                </div>
+            </div>
+            <a href="https://angelamachado90.github.io/" class="btn btn-dark" style="margin-top: 1.8rem;">← Voltar para
+                KoddaHub Studio</a>
+            <a href="#" class="btn" style="margin-left: 1rem;">📄 Baixar currículo (PDF)</a>
+        </div>
+
+        <!-- CONTATO / VAMOS CONVERSAR? -->
+        <div id="contato"
+            style="background: white; padding: 2rem; border-radius: 28px; border: 1px solid #c6e0db; margin-top: 2.5rem;">
+            <h2 style="font-size: 1.8rem; font-weight: 700; color: #0a3b4e;">Vamos conversar?</h2>
+            <p style="margin: 0.5rem 0 1.5rem; color: #1c5a60;">Precisa de um dashboard, automação ou análise sob
+                medida? Me chame para tirar dúvidas ou orçar seu projeto.</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 2rem;">
+                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                    <span
+                        style="background: #0a3b4e; color: white; padding: 0.3rem 0.8rem; border-radius: 50px;">📧</span>
+                    <span style="font-weight: 500;">angela.machado02022@gmail.com</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                    <span
+                        style="background: #0a3b4e; color: white; padding: 0.3rem 0.8rem; border-radius: 50px;">📞</span>
+                    <span style="font-weight: 500;">+55 41 9227-2854</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                    <span
+                        style="background: #0a3b4e; color: white; padding: 0.3rem 0.8rem; border-radius: 50px;">🔗</span>
+                    <a href="#" style="font-weight: 500; color: #0a3b4e;">/in/angela-nmachado</a>
+                </div>
+            </div>
+            <p style="margin-top: 1.8rem; font-size: 0.9rem; color: #1f6870;">📍 Curitiba • Atendimento remoto para todo
+                o Brasil</p>
+        </div>
+
+        <div class="footer">
+            <p>KoddaHub Studio • Dados & Automação © 2026</p>
+            <p style="margin-top: 0.5rem;">Portfólio profissional de análise de dados — feito com Python, Streamlit e
+                muito café.</p>
+        </div>
+    </div>
+</body>
+
+</html>

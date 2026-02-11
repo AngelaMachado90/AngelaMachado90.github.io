@@ -1,418 +1,2127 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Demo: Servicos - Agencia Digital e Consultoria">
-    <meta name="theme-color" content="#2196F3">
-    <title>KoddaAgency - Agencia e Servicos Digitais</title>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- SEO -->
+    <meta name="description"
+        content="KoddaServiços - Encontre e contrate profissionais de confiança perto de você. Diaristas, encanadores, eletricistas, babás e muito mais.">
+    <meta name="keywords"
+        content="serviços domésticos, diarista, encanador, eletricista, babá, pintor, pedreiro, serviços perto de mim">
+    <meta name="author" content="KoddaHub">
+    <meta name="theme-color" content="#F57C00">
+
+    <title>KoddaServiços - Profissionais de confiança perto de você</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="../assets/logo/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="../assets/logo/apple-touch-icon.png">
+
+    <!-- CSS Moderno -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
 
-    <link rel="stylesheet" href="../css/reset.css">
-    <link rel="stylesheet" href="../css/variables.css">
-    <link rel="stylesheet" href="../css/base.css">
-    <link rel="stylesheet" href="../css/kodassauro.css">
-    <link rel="stylesheet" href="../css/floating-actions.css">
-    <link rel="stylesheet" href="../css/demo-shell.css">
-    <link rel="stylesheet" href="../css/demos/demo-servicos.css">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* ============================================================================
+           VARIÁVEIS CSS - DESIGN SYSTEM KODDAHUB
+           ============================================================================ */
+        :root {
+            /* ===== CORES DA MARCA KODDAHUB ===== */
+            --color-primary-50: #fff3e0;
+            --color-primary-100: #ffe0b2;
+            --color-primary-300: #ffb74d;
+            --color-primary-500: #ff9800;
+            --color-primary-600: #f57c00;
+            --color-primary-700: #e65100;
+            --color-primary-800: #d84315;
+
+            --orange-vibrant: var(--color-primary-600);
+            --orange-dark: var(--color-primary-700);
+            --orange-light: var(--color-primary-500);
+            --primary-color: var(--color-primary-600);
+
+            /* ===== CORES SECUNDÁRIAS ===== */
+            --color-secondary-50: #e3f2fd;
+            --color-secondary-100: #e3f2fd;
+            --color-secondary-300: #64b5f6;
+            --color-secondary-600: #2196f3;
+            --color-secondary-700: #1976d2;
+            --color-secondary-800: #1565c0;
+            --color-secondary-900: #0d47a1;
+
+            --blue-electric: var(--color-secondary-600);
+            --blue-dark: var(--color-secondary-700);
+            --blue-light: var(--color-secondary-300);
+
+            /* ===== CORES NEUTRAS ===== */
+            --color-neutral-50: #fafafa;
+            --color-neutral-100: #f5f5f5;
+            --color-neutral-200: #eeeeee;
+            --color-neutral-300: #e0e0e0;
+            --color-neutral-400: #bdbdbd;
+            --color-neutral-500: #9e9e9e;
+            --color-neutral-600: #757575;
+            --color-neutral-700: #616161;
+            --color-neutral-800: #424242;
+            --color-neutral-900: #212121;
+
+            --black-deep: var(--color-neutral-900);
+            --black-light: var(--color-neutral-800);
+            --gray-circuit: var(--color-neutral-500);
+            --gray-light: var(--color-neutral-300);
+            --gray-dark: var(--color-neutral-700);
+            --white-neutral: var(--color-neutral-50);
+            --white-pure: #ffffff;
+
+            /* ===== CORES SEMÂNTICAS ===== */
+            --color-success-50: #ecfdf5;
+            --color-success-300: #6ee7b7;
+            --color-success-500: #10b981;
+            --color-success-600: #059669;
+            --color-success-700: #047857;
+            --success: var(--color-success-500);
+
+            --color-warning-50: #fffbeb;
+            --color-warning-100: #fef3c7;
+            --color-warning-300: #fcd34d;
+            --color-warning-500: #f59e0b;
+            --color-warning-600: #d97706;
+            --color-warning-700: #b45309;
+            --warning: var(--color-warning-500);
+
+            --color-error-50: #fef2f2;
+            --color-error-300: #fca5a5;
+            --color-error-500: #ef4444;
+            --color-error-600: #dc2626;
+            --color-error-700: #b91c1c;
+            --danger: var(--color-error-500);
+
+            --color-info-50: #eff6ff;
+            --color-info-500: #3b82f6;
+            --color-info-700: #1d4ed8;
+            --info: var(--color-info-500);
+
+            /* ===== TIPOGRAFIA ===== */
+            --font-heading: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+            --font-size-xs: 0.75rem;
+            --font-size-sm: 0.875rem;
+            --font-size-base: 1rem;
+            --font-size-lg: 1.125rem;
+            --font-size-xl: 1.25rem;
+            --font-size-2xl: 1.5rem;
+            --font-size-3xl: 1.875rem;
+            --font-size-4xl: 2.25rem;
+            --font-size-5xl: 3rem;
+
+            --font-size-h1: clamp(2.5rem, 5vw, 4rem);
+            --font-size-h2: clamp(2rem, 4vw, 3rem);
+            --font-size-h3: clamp(1.5rem, 3vw, 2.25rem);
+            --font-size-h4: clamp(1.25rem, 2.5vw, 1.875rem);
+            --font-size-h5: clamp(1.125rem, 2vw, 1.5rem);
+            --font-size-h6: clamp(1rem, 1.5vw, 1.25rem);
+
+            --font-weight-light: 300;
+            --font-weight-normal: 400;
+            --font-weight-medium: 500;
+            --font-weight-semibold: 600;
+            --font-weight-bold: 700;
+            --font-weight-extrabold: 800;
+
+            --line-height-tight: 1.25;
+            --line-height-normal: 1.5;
+            --line-height-relaxed: 1.75;
+            --line-height-loose: 2;
+
+            /* ===== ESPAÇAMENTO ===== */
+            --spacing-0: 0;
+            --spacing-1: 0.25rem;
+            --spacing-2: 0.5rem;
+            --spacing-3: 0.75rem;
+            --spacing-4: 1rem;
+            --spacing-5: 1.5rem;
+            --spacing-6: 2rem;
+            --spacing-8: 3rem;
+            --spacing-10: 4rem;
+            --spacing-12: 6rem;
+            --spacing-16: 8rem;
+
+            --gap-xs: var(--spacing-2);
+            --gap-sm: var(--spacing-3);
+            --gap-md: var(--spacing-4);
+            --gap-lg: var(--spacing-6);
+            --gap-xl: var(--spacing-8);
+
+            /* ===== BORDAS ===== */
+            --radius-none: 0;
+            --radius-xs: 0.125rem;
+            --radius-sm: 0.25rem;
+            --radius-md: 0.375rem;
+            --radius-lg: 0.5rem;
+            --radius-xl: 0.75rem;
+            --radius-2xl: 1rem;
+            --radius-full: 9999px;
+
+            --border-width-thin: 1px;
+            --border-width-base: 2px;
+            --border-width-thick: 3px;
+
+            /* ===== SOMBRAS ===== */
+            --shadow-none: none;
+            --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            --shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+
+            --shadow-primary-sm: 0 1px 3px 0 rgba(245, 124, 0, 0.2);
+            --shadow-primary-lg: 0 10px 15px -3px rgba(245, 124, 0, 0.2);
+
+            /* ===== Z-INDEX ===== */
+            --z-below: -1;
+            --z-base: 0;
+            --z-above: 1;
+            --z-dropdown: 100;
+            --z-sticky: 200;
+            --z-fixed: 300;
+            --z-overlay: 400;
+            --z-modal: 500;
+            --z-popover: 600;
+            --z-toast: 700;
+            --z-tooltip: 800;
+
+            /* ===== CONTAINERS ===== */
+            --container-xs: 20rem;
+            --container-sm: 33.75rem;
+            --container-md: 45rem;
+            --container-lg: 60rem;
+            --container-xl: 71.25rem;
+            --container-2xl: 82.5rem;
+            --container-full: 100%;
+
+            --container-padding-mobile: var(--spacing-4);
+            --container-padding-tablet: var(--spacing-5);
+            --container-padding-desktop: var(--spacing-6);
+
+            /* ===== ANIMAÇÕES ===== */
+            --duration-instant: 50ms;
+            --duration-fast: 150ms;
+            --duration-base: 300ms;
+            --duration-slow: 500ms;
+            --duration-slower: 700ms;
+            --duration-slowest: 1000ms;
+            --duration-200: 200ms;
+            --duration-300: 300ms;
+
+            --ease-linear: linear;
+            --ease-in: cubic-bezier(0.4, 0, 1, 1);
+            --ease-out: cubic-bezier(0, 0, 0.2, 1);
+            --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+            --ease-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        /* ============================================================================
+           RESET E ESTILOS GLOBAIS
+           ============================================================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-body);
+            font-size: var(--font-size-base);
+            font-weight: var(--font-weight-normal);
+            line-height: var(--line-height-normal);
+            color: var(--black-deep);
+            background-color: var(--white-pure);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: var(--font-heading);
+            font-weight: var(--font-weight-bold);
+            line-height: var(--line-height-tight);
+            color: var(--black-deep);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all var(--duration-fast) var(--ease-out);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container-fluid {
+            max-width: var(--container-2xl);
+            margin: 0 auto;
+            padding: 0 var(--container-padding-desktop);
+        }
+
+        @media (max-width: 1024px) {
+            .container-fluid {
+                padding: 0 var(--container-padding-tablet);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container-fluid {
+                padding: 0 var(--container-padding-mobile);
+            }
+        }
+
+        /* ============================================================================
+           HEADER KODDAHUB STYLE
+           ============================================================================ */
+        .header-services {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: var(--white-pure);
+            z-index: var(--z-fixed);
+            padding: 0;
+            transition: all var(--duration-fast) var(--ease-out);
+            border-bottom: var(--border-width-thin) solid var(--gray-light);
+        }
+
+        .header-services.scrolled {
+            box-shadow: var(--shadow-md);
+        }
+
+        .navbar-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: var(--gap-xs);
+        }
+
+        .logo-icon {
+            color: var(--primary-color);
+            font-size: 32px;
+        }
+
+        .logo-text {
+            font-size: 22px;
+            font-weight: var(--font-weight-bold);
+            color: var(--black-deep);
+            font-family: var(--font-heading);
+            letter-spacing: var(--letter-spacing-tight);
+        }
+
+        .logo-text span {
+            color: var(--primary-color);
+        }
+
+        .navbar-search {
+            display: flex;
+            align-items: center;
+            border: var(--border-width-thin) solid var(--gray-light);
+            border-radius: var(--radius-full);
+            padding: var(--spacing-2) var(--spacing-2) var(--spacing-2) var(--spacing-4);
+            box-shadow: var(--shadow-xs);
+            transition: all var(--duration-fast) var(--ease-out);
+            background: var(--white-pure);
+        }
+
+        .navbar-search:hover {
+            box-shadow: var(--shadow-md);
+        }
+
+        .search-item {
+            padding: 0 var(--spacing-4);
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-weight-semibold);
+            color: var(--black-deep);
+            border-right: var(--border-width-thin) solid var(--gray-light);
+        }
+
+        .search-item:last-child {
+            border-right: none;
+        }
+
+        .search-item span {
+            font-weight: var(--font-weight-normal);
+            color: var(--gray-circuit);
+            margin-left: var(--spacing-1);
+        }
+
+        .search-icon {
+            background: linear-gradient(135deg, var(--color-primary-600), var(--color-primary-700));
+            color: var(--white-pure);
+            width: 32px;
+            height: 32px;
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: var(--spacing-2);
+        }
+
+        .navbar-menu {
+            display: flex;
+            align-items: center;
+            gap: var(--gap-md);
+        }
+
+        .nav-link-services {
+            color: var(--black-deep);
+            font-weight: var(--font-weight-semibold);
+            font-size: var(--font-size-sm);
+            padding: var(--spacing-3) var(--spacing-4);
+            border-radius: var(--radius-full);
+            transition: all var(--duration-fast) var(--ease-out);
+        }
+
+        .nav-link-services:hover {
+            background: var(--color-neutral-100);
+            color: var(--primary-color);
+        }
+
+        .nav-link-services.cta {
+            background: linear-gradient(135deg, var(--color-primary-600), var(--color-primary-700));
+            color: var(--white-pure);
+        }
+
+        .nav-link-services.cta:hover {
+            background: linear-gradient(135deg, var(--color-primary-700), var(--color-primary-800));
+            color: var(--white-pure);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-primary-sm);
+        }
+
+        .navbar-toggle {
+            display: none;
+            flex-direction: column;
+            gap: var(--gap-xs);
+            background: transparent;
+            border: none;
+            cursor: pointer;
+        }
+
+        .navbar-toggle span {
+            width: 24px;
+            height: 2px;
+            background: var(--black-deep);
+            border-radius: var(--radius-full);
+            transition: all var(--duration-fast) var(--ease-out);
+        }
+
+        @media (max-width: 1024px) {
+            .navbar-search {
+                display: none;
+            }
+
+            .navbar-menu {
+                display: none;
+            }
+
+            .navbar-toggle {
+                display: flex;
+            }
+        }
+
+        /* ============================================================================
+           HERO SECTION
+           ============================================================================ */
+        .hero-services {
+            position: relative;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--color-primary-600), var(--color-primary-700));
+            color: var(--white-pure);
+            overflow: hidden;
+            padding: 120px 0 80px;
+            margin-top: 80px;
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: var(--z-base);
+        }
+
+        .gradient-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.15;
+        }
+
+        .blob-1 {
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, var(--color-primary-300) 0%, transparent 70%);
+            top: -200px;
+            right: -200px;
+        }
+
+        .blob-2 {
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, var(--color-secondary-600) 0%, transparent 70%);
+            bottom: -100px;
+            left: -100px;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: var(--z-above);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--gap-xl);
+            align-items: center;
+        }
+
+        .hero-kicker {
+            font-size: var(--font-size-xs);
+            font-weight: var(--font-weight-semibold);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: var(--spacing-4);
+        }
+
+        .hero-title {
+            font-size: var(--font-size-h1);
+            font-weight: var(--font-weight-extrabold);
+            line-height: var(--line-height-tight);
+            margin-bottom: var(--spacing-5);
+            color: var(--white-pure);
+        }
+
+        .hero-title strong {
+            color: var(--white-pure);
+            text-decoration: underline;
+            text-underline-offset: 8px;
+            text-decoration-color: var(--color-primary-300);
+        }
+
+        .hero-subtitle {
+            font-size: var(--font-size-lg);
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: var(--spacing-6);
+            max-width: 80%;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: var(--gap-lg);
+            margin-top: var(--spacing-8);
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stat-number {
+            font-size: var(--font-size-4xl);
+            font-weight: var(--font-weight-extrabold);
+            color: var(--white-pure);
+            line-height: 1;
+            margin-bottom: var(--spacing-2);
+        }
+
+        .stat-label {
+            font-size: var(--font-size-sm);
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: var(--gap-md);
+            margin-top: var(--spacing-6);
+        }
+
+        .btn-primary-services {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--spacing-3) var(--spacing-6);
+            background: var(--white-pure);
+            color: var(--primary-color);
+            font-weight: var(--font-weight-semibold);
+            border-radius: var(--radius-full);
+            border: none;
+            cursor: pointer;
+            transition: all var(--duration-fast) var(--ease-out);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-primary-services:hover {
+            transform: scale(1.02);
+            box-shadow: var(--shadow-lg);
+            color: var(--color-primary-700);
+        }
+
+        .btn-secondary-services {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--spacing-3) var(--spacing-6);
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white-pure);
+            font-weight: var(--font-weight-semibold);
+            border-radius: var(--radius-full);
+            border: var(--border-width-base) solid rgba(255, 255, 255, 0.3);
+            transition: all var(--duration-fast) var(--ease-out);
+        }
+
+        .btn-secondary-services:hover {
+            border-color: var(--white-pure);
+            background: rgba(255, 255, 255, 0.2);
+            color: var(--white-pure);
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image img {
+            border-radius: var(--radius-2xl);
+            box-shadow: var(--shadow-xl);
+            width: 100%;
+            height: auto;
+        }
+
+        .hero-badge {
+            position: absolute;
+            bottom: -20px;
+            left: -20px;
+            background: var(--white-pure);
+            color: var(--black-deep);
+            padding: var(--spacing-5) var(--spacing-6);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            display: flex;
+            align-items: center;
+            gap: var(--gap-md);
+        }
+
+        .hero-badge i {
+            font-size: 36px;
+            color: var(--color-secondary-600);
+        }
+
+        @media (max-width: 991px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-subtitle {
+                max-width: 100%;
+            }
+
+            .hero-stats {
+                justify-content: center;
+            }
+
+            .hero-cta {
+                justify-content: center;
+            }
+        }
+
+        /* ============================================================================
+           SEÇÃO DE CATEGORIAS
+           ============================================================================ */
+        .section-categories {
+            padding: var(--spacing-8) 0;
+            background: var(--white-pure);
+        }
+
+        .section-header {
+            margin-bottom: var(--spacing-8);
+        }
+
+        .section-header h2 {
+            font-size: var(--font-size-h2);
+            margin-bottom: var(--spacing-4);
+            color: var(--black-deep);
+        }
+
+        .section-header p {
+            font-size: var(--font-size-lg);
+            color: var(--gray-circuit);
+            max-width: 600px;
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            gap: var(--gap-md);
+        }
+
+        .category-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: var(--spacing-5) var(--spacing-4);
+            background: var(--color-neutral-100);
+            border-radius: var(--radius-lg);
+            transition: all var(--duration-fast) var(--ease-out);
+            cursor: pointer;
+        }
+
+        .category-card:hover {
+            background: var(--color-neutral-300);
+            transform: translateY(-4px);
+        }
+
+        .category-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--white-pure);
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: var(--spacing-4);
+            color: var(--primary-color);
+            font-size: 24px;
+        }
+
+        .category-title {
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-weight-semibold);
+            margin-bottom: var(--spacing-1);
+        }
+
+        @media (max-width: 1128px) {
+            .categories-grid {
+                grid-template-columns: repeat(6, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .categories-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .categories-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* ============================================================================
+           SEÇÃO DE PROFISSIONAIS EM DESTAQUE
+           ============================================================================ */
+        .section-featured {
+            padding: var(--spacing-8) 0;
+            background: var(--color-neutral-100);
+        }
+
+        .featured-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--gap-lg);
+        }
+
+        .professional-card {
+            background: var(--white-pure);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: all var(--duration-fast) var(--ease-out);
+        }
+
+        .professional-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .card-header {
+            position: relative;
+        }
+
+        .professional-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .professional-badge {
+            position: absolute;
+            top: var(--spacing-4);
+            right: var(--spacing-4);
+            background: linear-gradient(135deg, var(--color-primary-600), var(--color-primary-700));
+            color: var(--white-pure);
+            padding: var(--spacing-1) var(--spacing-3);
+            border-radius: var(--radius-full);
+            font-size: var(--font-size-xs);
+            font-weight: var(--font-weight-semibold);
+        }
+
+        .professional-info {
+            padding: var(--spacing-5);
+        }
+
+        .professional-name {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-2);
+        }
+
+        .professional-name h3 {
+            font-size: var(--font-size-lg);
+            font-weight: var(--font-weight-semibold);
+            margin: 0;
+        }
+
+        .professional-rating {
+            display: flex;
+            align-items: center;
+            gap: var(--gap-xs);
+            color: var(--black-deep);
+            font-weight: var(--font-weight-semibold);
+        }
+
+        .professional-rating i {
+            color: #FFB400;
+        }
+
+        .professional-category {
+            font-size: var(--font-size-sm);
+            color: var(--gray-circuit);
+            margin-bottom: var(--spacing-3);
+        }
+
+        .professional-price {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-4);
+            padding-bottom: var(--spacing-4);
+            border-bottom: var(--border-width-thin) solid var(--gray-light);
+        }
+
+        .price {
+            font-size: var(--font-size-xl);
+            font-weight: var(--font-weight-bold);
+            color: var(--black-deep);
+        }
+
+        .price span {
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-weight-normal);
+            color: var(--gray-circuit);
+        }
+
+        .professional-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .professional-footer i {
+            color: var(--color-secondary-600);
+        }
+
+        .btn-contract {
+            padding: var(--spacing-2) var(--spacing-4);
+            background: linear-gradient(135deg, var(--color-primary-600), var(--color-primary-700));
+            color: var(--white-pure);
+            border-radius: var(--radius-full);
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-weight-semibold);
+            transition: all var(--duration-fast) var(--ease-out);
+        }
+
+        .btn-contract:hover {
+            background: linear-gradient(135deg, var(--color-primary-700), var(--color-primary-800));
+            color: var(--white-pure);
+            transform: scale(0.95);
+        }
+
+        @media (max-width: 1128px) {
+            .featured-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .featured-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ============================================================================
+           SEÇÃO COMO FUNCIONA
+           ============================================================================ */
+        .section-howitworks {
+            padding: var(--spacing-8) 0;
+            background: var(--white-pure);
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--gap-xl);
+            margin-top: var(--spacing-8);
+        }
+
+        .step-card {
+            text-align: center;
+        }
+
+        .step-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, rgba(245, 124, 0, 0.1), rgba(33, 150, 243, 0.1));
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--spacing-5);
+            color: var(--primary-color);
+            font-size: 32px;
+        }
+
+        .step-card h3 {
+            font-size: var(--font-size-2xl);
+            margin-bottom: var(--spacing-3);
+        }
+
+        .step-card p {
+            color: var(--gray-circuit);
+            line-height: var(--line-height-relaxed);
+        }
+
+        @media (max-width: 768px) {
+            .steps-grid {
+                grid-template-columns: 1fr;
+                gap: var(--gap-lg);
+            }
+        }
+
+        /* ============================================================================
+           SEÇÃO DE AVALIAÇÕES
+           ============================================================================ */
+        .section-reviews {
+            padding: var(--spacing-8) 0;
+            background: linear-gradient(135deg, var(--color-primary-50), var(--color-secondary-50));
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--gap-lg);
+            margin-top: var(--spacing-8);
+        }
+
+        .review-card {
+            background: var(--white-pure);
+            padding: var(--spacing-5);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-md);
+            transition: all var(--duration-fast) var(--ease-out);
+        }
+
+        .review-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .review-header {
+            display: flex;
+            align-items: center;
+            gap: var(--gap-md);
+            margin-bottom: var(--spacing-4);
+        }
+
+        .review-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: var(--radius-full);
+            object-fit: cover;
+        }
+
+        .review-info h4 {
+            font-size: var(--font-size-base);
+            margin-bottom: var(--spacing-1);
+        }
+
+        .review-stars {
+            color: #FFB400;
+            font-size: var(--font-size-xs);
+        }
+
+        .review-text {
+            color: var(--black-deep);
+            line-height: var(--line-height-relaxed);
+            margin-bottom: var(--spacing-4);
+            font-style: italic;
+        }
+
+        .review-service {
+            font-size: var(--font-size-sm);
+            color: var(--gray-circuit);
+        }
+
+        @media (max-width: 768px) {
+            .reviews-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ============================================================================
+           SEÇÃO DE BUSCA AVANÇADA
+           ============================================================================ */
+        .section-search {
+            padding: var(--spacing-10) 0;
+            background: linear-gradient(135deg, var(--color-primary-700), var(--color-primary-800));
+            color: var(--white-pure);
+        }
+
+        .search-container {
+            max-width: var(--container-lg);
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .search-container h2 {
+            color: var(--white-pure);
+            font-size: var(--font-size-h2);
+            margin-bottom: var(--spacing-5);
+        }
+
+        .search-box {
+            display: flex;
+            background: var(--white-pure);
+            border-radius: var(--radius-full);
+            padding: var(--spacing-2);
+            margin-top: var(--spacing-6);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .search-input {
+            flex: 1;
+            border: none;
+            padding: var(--spacing-4) var(--spacing-5);
+            font-size: var(--font-size-base);
+            border-radius: var(--radius-full) 0 0 var(--radius-full);
+            outline: none;
+        }
+
+        .search-location {
+            display: flex;
+            align-items: center;
+            padding: 0 var(--spacing-4);
+            border-left: var(--border-width-thin) solid var(--gray-light);
+            color: var(--black-deep);
+            font-size: var(--font-size-sm);
+        }
+
+        .search-location i {
+            margin-right: var(--spacing-2);
+            color: var(--primary-color);
+        }
+
+        .search-btn {
+            background: linear-gradient(135deg, var(--color-primary-600), var(--color-primary-700));
+            color: var(--white-pure);
+            border: none;
+            padding: var(--spacing-4) var(--spacing-6);
+            border-radius: var(--radius-full);
+            font-weight: var(--font-weight-semibold);
+            cursor: pointer;
+            transition: all var(--duration-fast) var(--ease-out);
+        }
+
+        .search-btn:hover {
+            background: linear-gradient(135deg, var(--color-primary-700), var(--color-primary-800));
+            transform: scale(0.98);
+        }
+
+        /* ============================================================================
+           SEÇÃO SEJA PARCEIRO
+           ============================================================================ */
+        .section-partner {
+            padding: var(--spacing-10) 0;
+            background: linear-gradient(135deg, var(--color-secondary-600), var(--color-secondary-700));
+            color: var(--white-pure);
+        }
+
+        .partner-content {
+            max-width: var(--container-lg);
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .partner-content h2 {
+            color: var(--white-pure);
+            font-size: var(--font-size-h2);
+            margin-bottom: var(--spacing-4);
+        }
+
+        .partner-content p {
+            font-size: var(--font-size-lg);
+            margin-bottom: var(--spacing-6);
+            opacity: 0.9;
+        }
+
+        .btn-partner {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--spacing-4) var(--spacing-8);
+            background: var(--white-pure);
+            color: var(--color-secondary-700);
+            font-weight: var(--font-weight-bold);
+            border-radius: var(--radius-full);
+            font-size: var(--font-size-lg);
+            transition: all var(--duration-fast) var(--ease-out);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-partner:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-xl);
+            color: var(--color-secondary-800);
+        }
+
+        /* ============================================================================
+           FOOTER KODDAHUB STYLE
+           ============================================================================ */
+        .footer-services {
+            background: var(--color-neutral-900);
+            color: var(--white-pure);
+            padding: var(--spacing-10) 0 var(--spacing-6);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--gap-xl);
+            margin-bottom: var(--spacing-10);
+        }
+
+        .footer-column h4 {
+            font-size: var(--font-size-base);
+            margin-bottom: var(--spacing-5);
+            color: var(--white-pure);
+            font-weight: var(--font-weight-semibold);
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-column li {
+            margin-bottom: var(--spacing-3);
+        }
+
+        .footer-column a {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: var(--font-size-sm);
+            transition: all var(--duration-fast) var(--ease-out);
+        }
+
+        .footer-column a:hover {
+            color: var(--color-primary-300);
+            text-decoration: underline;
+            padding-left: var(--spacing-1);
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: var(--spacing-5);
+            border-top: var(--border-width-thin) solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: var(--font-size-sm);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: var(--gap-lg);
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .footer-links a:hover {
+            color: var(--color-primary-300);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: var(--gap-lg);
+        }
+
+        .footer-social a {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: var(--font-size-lg);
+            transition: all var(--duration-fast) var(--ease-out);
+        }
+
+        .footer-social a:hover {
+            color: var(--color-primary-300);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: var(--gap-lg);
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: var(--gap-md);
+                text-align: center;
+            }
+
+            .footer-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+
+        /* ============================================================================
+           CHATBOT KODASSAURO
+           ============================================================================ */
+        .kodassauro {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: var(--z-tooltip);
+        }
+
+        .kodassauro-toggle {
+            width: 60px;
+            height: 60px;
+            border-radius: var(--radius-full);
+            background: linear-gradient(135deg, var(--color-primary-600), var(--color-primary-700));
+            border: none;
+            cursor: pointer;
+            box-shadow: var(--shadow-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            transition: all var(--duration-fast) var(--ease-out);
+        }
+
+        .kodassauro-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .kodassauro-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: var(--radius-full);
+        }
+
+        .kodassauro-panel {
+            position: absolute;
+            bottom: 80px;
+            right: 0;
+            width: 360px;
+            background: var(--white-pure);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-2xl);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: all var(--duration-fast) var(--ease-out);
+            border: var(--border-width-thin) solid var(--gray-light);
+        }
+
+        .kodassauro-panel[hidden] {
+            display: none;
+        }
+
+        .kodassauro-header {
+            background: linear-gradient(135deg, var(--color-primary-600), var(--color-primary-700));
+            color: var(--white-pure);
+            padding: var(--spacing-5);
+            display: flex;
+            align-items: center;
+            gap: var(--gap-md);
+        }
+
+        .kodassauro-avatar svg {
+            width: 48px;
+            height: 48px;
+        }
+
+        .kodassauro-title {
+            font-size: var(--font-size-base);
+            margin: 0;
+            font-weight: var(--font-weight-semibold);
+        }
+
+        .kodassauro-subtitle {
+            font-size: var(--font-size-xs);
+            opacity: 0.9;
+            margin: 0;
+        }
+
+        .kodassauro-messages {
+            height: 300px;
+            padding: var(--spacing-5);
+            overflow-y: auto;
+            background: var(--color-neutral-100);
+            display: flex;
+            flex-direction: column;
+            gap: var(--gap-sm);
+        }
+
+        .kodassauro-message {
+            max-width: 80%;
+            padding: var(--spacing-3) var(--spacing-4);
+            border-radius: 18px;
+            font-size: var(--font-size-sm);
+            line-height: var(--line-height-normal);
+        }
+
+        .kodassauro-message.bot {
+            align-self: flex-start;
+            background: var(--white-pure);
+            border-bottom-left-radius: 4px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .kodassauro-message.user {
+            align-self: flex-end;
+            background: linear-gradient(135deg, var(--color-primary-600), var(--color-primary-700));
+            color: var(--white-pure);
+            border-bottom-right-radius: 4px;
+        }
+
+        .kodassauro-composer {
+            display: flex;
+            padding: var(--spacing-4);
+            background: var(--white-pure);
+            border-top: var(--border-width-thin) solid var(--gray-light);
+        }
+
+        .kodassauro-input {
+            flex: 1;
+            padding: var(--spacing-3) var(--spacing-4);
+            border: var(--border-width-thin) solid var(--gray-light);
+            border-radius: var(--radius-full);
+            font-size: var(--font-size-sm);
+            margin-right: var(--spacing-3);
+            outline: none;
+        }
+
+        .kodassauro-input:focus {
+            border-color: var(--color-primary-600);
+            box-shadow: var(--shadow-primary-sm);
+        }
+
+        .kodassauro-send {
+            padding: var(--spacing-3) var(--spacing-5);
+            background: linear-gradient(135deg, var(--color-primary-600), var(--color-primary-700));
+            color: var(--white-pure);
+            border: none;
+            border-radius: var(--radius-full);
+            font-weight: var(--font-weight-semibold);
+            cursor: pointer;
+            transition: all var(--duration-fast) var(--ease-out);
+        }
+
+        .kodassauro-send:hover {
+            transform: scale(0.95);
+            background: linear-gradient(135deg, var(--color-primary-700), var(--color-primary-800));
+        }
+
+        @media (max-width: 767px) {
+            .kodassauro-panel {
+                width: 300px;
+                right: 0;
+            }
+        }
+
+        /* ============================================================================
+           UTILITÁRIOS
+           ============================================================================ */
+        .hide-h1 {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0;
+        }
+
+        .pill-badge {
+            background: linear-gradient(135deg, var(--color-primary-50), var(--color-secondary-50));
+            color: var(--black-deep);
+            padding: var(--spacing-1) var(--spacing-4);
+            border-radius: var(--radius-full);
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-weight-semibold);
+            box-shadow: var(--shadow-xs);
+            border: var(--border-width-thin) solid var(--gray-light);
+        }
+
+        .pill-badge i {
+            color: var(--color-secondary-600);
+            margin-right: var(--spacing-1);
+        }
+
+        .bg-gradient-primary {
+            background: linear-gradient(135deg, var(--color-primary-50), var(--color-secondary-50));
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, var(--color-primary-600), var(--color-secondary-600));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
 </head>
-<body>
-    <a class="demo-back" href="../index.html" aria-label="Voltar para a pagina inicial">
-        <i class="fas fa-arrow-left" aria-hidden="true"></i>
-        <span>Voltar para KoddaHub</span>
-    </a>
 
-    <header class="agency-header">
-        <div class="container">
-            <div class="agency-header-content">
-                <div class="agency-logo">
-                    <i class="fas fa-palette"></i>
-                    CreativeHub
+<body>
+    <h1 class="hide-h1">KoddaServices - Profissionais de confiança perto de você</h1>
+
+    <!-- HEADER KODDAHUB STYLE -->
+    <header class="header-services" id="mainHeader">
+        <div class="container-fluid">
+            <div class="navbar-wrapper">
+                <div class="navbar-brand">
+                    <a href="../index.html" style="display: flex; align-items: center; gap: var(--gap-xs);">
+                        <img src="../assets/logo/KoddaHub-Services.png" alt="Logo" class="logo-image" style="width: 32px; height: 32px;">
+                        <span class="logo-text">Kodda<span>Service</span></span>
+                    </a>
                 </div>
-                <nav>
-                    <ul class="agency-nav">
-                        <li><a href="#servicos">Serviços</a></li>
-                        <li><a href="#portfolio">Portfólio</a></li>
-                        <li><a href="#equipe">Equipe</a></li>
-                        <li><a href="#contato">Contato</a></li>
-                    </ul>
+
+                <div class="navbar-search">
+                    <span class="search-item">Qual serviço? <span>Limpeza, reparos...</span></span>
+                    <span class="search-item">Quando? <span>Adicionar datas</span></span>
+                    <span class="search-item">Onde? <span>Digite seu endereço</span></span>
+                    <div class="search-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                </div>
+
+                <nav class="navbar-menu">
+                    <a href="#profissionais" class="nav-link-services">Profissionais</a>
+                    <a href="#como-funciona" class="nav-link-services">Como funciona</a>
+                    <a href="#parceiro" class="nav-link-services cta">Trabalhe conosco</a>
                 </nav>
-                <div class="agency-cta">
-                    <button class="btn-agency btn-agency-secondary">Conheça-nos</button>
-                    <button class="btn-agency btn-agency-primary">Solicitar Orçamento</button>
-                </div>
+
+                <button class="navbar-toggle" id="navToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
             </div>
         </div>
     </header>
 
-    <section class="agency-hero">
-        <h1>Criatividade Sem Limites</h1>
-        <p>Transforme sua marca em uma história de sucesso</p>
-        <div class="hero-cta">
-            <button class="btn-agency btn-agency-primary" style="background: white; color: #8E44AD;">Explorar Nosso Trabalho</button>
-            <button class="btn-agency btn-agency-secondary" style="border-color: white; color: white;">Converse Conosco</button>
+    <!-- HERO SECTION -->
+    <section class="hero-services" id="inicio">
+        <div class="hero-background">
+            <div class="gradient-blob blob-1"></div>
+            <div class="gradient-blob blob-2"></div>
         </div>
-    </section>
 
-    <section class="services-section" id="servicos">
-        <div class="container">
-            <h2 class="section-title">🎨 Nossos Serviços</h2>
-            <p class="section-subtitle">Oferecemos soluções completas de design e marketing digital</p>
-            
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">🎨</div>
-                    <div class="service-name">Design Gráfico</div>
-                    <div class="service-desc">Criação de identidades visuais marcantes e materiais de comunicação que refletem a essência da sua marca.</div>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Logotipos e identidade visual</li>
-                        <li><i class="fas fa-check"></i> Materiais impressos</li>
-                        <li><i class="fas fa-check"></i> Embalagens</li>
-                        <li><i class="fas fa-check"></i> Guias de estilo</li>
-                    </ul>
-                </div>
+        <div class="container-fluid">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <span class="hero-kicker">KODDASERVIÇOS</span>
+                    <h1 class="hero-title">
+                        Profissionais de <strong>confiança</strong> para todos os serviços
+                    </h1>
+                    <p class="hero-subtitle">
+                        Encontre e contrate diaristas, encanadores, eletricistas, babás e muito mais.
+                        Profissionais verificados, avaliações reais e preço justo.
+                    </p>
 
-                <div class="service-card">
-                    <div class="service-icon">🌐</div>
-                    <div class="service-name">Web Design</div>
-                    <div class="service-desc">Websites modernos, responsivos e otimizados para conversão que elevam sua presença digital.</div>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Design responsivo</li>
-                        <li><i class="fas fa-check"></i> UX/UI estratégico</li>
-                        <li><i class="fas fa-check"></i> E-commerce</li>
-                        <li><i class="fas fa-check"></i> Landing pages</li>
-                    </ul>
-                </div>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">+50k</span>
+                            <span class="stat-label">Profissionais</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">+200k</span>
+                            <span class="stat-label">Serviços</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">4.9</span>
+                            <span class="stat-label">Avaliação</span>
+                        </div>
+                    </div>
 
-                <div class="service-card">
-                    <div class="service-icon">📱</div>
-                    <div class="service-name">App Design</div>
-                    <div class="service-desc">Interfaces intuitivas e atraentes para aplicações móveis que mantêm usuários engajados.</div>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> iOS/Android</li>
-                        <li><i class="fas fa-check"></i> Wireframing</li>
-                        <li><i class="fas fa-check"></i> Protótipos interativos</li>
-                        <li><i class="fas fa-check"></i> Design system</li>
-                    </ul>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">📊</div>
-                    <div class="service-name">Marketing Digital</div>
-                    <div class="service-desc">Estratégias digitais completas para aumentar sua presença, atração de leads e vendas.</div>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> SEO/SEM</li>
-                        <li><i class="fas fa-check"></i> Social media</li>
-                        <li><i class="fas fa-check"></i> Content marketing</li>
-                        <li><i class="fas fa-check"></i> Email marketing</li>
-                    </ul>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">🎬</div>
-                    <div class="service-name">Vídeo Production</div>
-                    <div class="service-desc">Conteúdo visual profissional que conta a história da sua marca de forma impactante.</div>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Produção audiovisual</li>
-                        <li><i class="fas fa-check"></i> Animações 2D/3D</li>
-                        <li><i class="fas fa-check"></i> Motion graphics</li>
-                        <li><i class="fas fa-check"></i> Edição profissional</li>
-                    </ul>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">📈</div>
-                    <div class="service-name">Consultoria Estratégica</div>
-                    <div class="service-desc">Análise e orientação estratégica para potencializar seus resultados de marketing.</div>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Pesquisa de mercado</li>
-                        <li><i class="fas fa-check"></i> Análise de concorrência</li>
-                        <li><i class="fas fa-check"></i> Planejamento estratégico</li>
-                        <li><i class="fas fa-check"></i> Mentoria</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="portfolio-section" id="portfolio">
-        <div class="container">
-            <h2 class="section-title">💼 Portfólio de Projetos</h2>
-            <p class="section-subtitle">Alguns dos projetos que transformaram marcas</p>
-            
-            <div class="portfolio-grid">
-                <div class="portfolio-item">
-                    <div class="portfolio-image">🏢</div>
-                    <div class="portfolio-overlay">
-                        <div class="portfolio-title">FinTech Startup</div>
-                        <div class="portfolio-category">Web Design + Branding</div>
+                    <div class="hero-cta">
+                        <a href="#search" class="btn-primary-services">
+                            <i class="fas fa-search" style="margin-right: var(--spacing-2);"></i>
+                            Buscar serviços
+                        </a>
+                        <a href="#como-funciona" class="btn-secondary-services">
+                            Como funciona
+                        </a>
                     </div>
                 </div>
 
-                <div class="portfolio-item">
-                    <div class="portfolio-image">🛍️</div>
-                    <div class="portfolio-overlay">
-                        <div class="portfolio-title">E-commerce Fashion</div>
-                        <div class="portfolio-category">Web Design + App</div>
-                    </div>
-                </div>
-
-                <div class="portfolio-item">
-                    <div class="portfolio-image">🏥</div>
-                    <div class="portfolio-overlay">
-                        <div class="portfolio-title">Healthcare Platform</div>
-                        <div class="portfolio-category">UX/UI + App Design</div>
-                    </div>
-                </div>
-
-                <div class="portfolio-item">
-                    <div class="portfolio-image">🍕</div>
-                    <div class="portfolio-overlay">
-                        <div class="portfolio-title">Restaurant Chain</div>
-                        <div class="portfolio-category">Branding + Web</div>
-                    </div>
-                </div>
-
-                <div class="portfolio-item">
-                    <div class="portfolio-image">🎮</div>
-                    <div class="portfolio-overlay">
-                        <div class="portfolio-title">Gaming Studio</div>
-                        <div class="portfolio-category">Branding + Motion</div>
-                    </div>
-                </div>
-
-                <div class="portfolio-item">
-                    <div class="portfolio-image">🚗</div>
-                    <div class="portfolio-overlay">
-                        <div class="portfolio-title">Automotive Brand</div>
-                        <div class="portfolio-category">Campaign + Video</div>
+                <div class="hero-image">
+                    <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                        alt="Profissional realizando serviço">
+                    <div class="hero-badge">
+                        <i class="fas fa-shield-alt"></i>
+                        <div>
+                            <strong>Garantia Kodda</strong>
+                            <p style="margin: 0; font-size: var(--font-size-xs);">Profissionais verificados</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="testimonials-section">
-        <div class="container">
-            <h2 class="section-title" style="color: white;">💬 O que Nossos Clientes Dizem</h2>
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="testimonial-quote">"A CreativeHub transformou completamente a identidade visual da nossa empresa. O trabalho foi excelente e o processo muito profissional."</div>
-                    <div class="testimonial-author">Carlos Mendes</div>
-                    <div class="testimonial-role">CEO - Tech Solutions</div>
-                    <div class="testimonial-rating">★★★★★</div>
+    <!-- SEÇÃO DE CATEGORIAS -->
+    <section class="section-categories" id="categorias">
+        <div class="container-fluid">
+            <div class="section-header">
+                <h2>O que você precisa?</h2>
+                <p>Escolha uma categoria e encontre os melhores profissionais perto de você</p>
+            </div>
+
+            <div class="categories-grid">
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-broom"></i>
+                    </div>
+                    <span class="category-title">Diarista</span>
+                    <span style="font-size: var(--font-size-xs); color: var(--gray-circuit);">R$ 60/h</span>
                 </div>
 
-                <div class="testimonial-card">
-                    <div class="testimonial-quote">"Excelente serviço! Entregaram um website que não só é bonito, mas também convertem visitantes em clientes reais."</div>
-                    <div class="testimonial-author">Juliana Silva</div>
-                    <div class="testimonial-role">Gerente - E-commerce Plus</div>
-                    <div class="testimonial-rating">★★★★★</div>
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-wrench"></i>
+                    </div>
+                    <span class="category-title">Encanador</span>
+                    <span style="font-size: var(--font-size-xs); color: var(--gray-circuit);">R$ 80/h</span>
                 </div>
 
-                <div class="testimonial-card">
-                    <div class="testimonial-quote">"Trabalhar com a CreativeHub foi incrível. Equipe atenciosa, criativa e com prazos impecáveis. Recomendo muito!"</div>
-                    <div class="testimonial-author">Paulo Costa</div>
-                    <div class="testimonial-role">Fundador - StartUp Inovadora</div>
-                    <div class="testimonial-rating">★★★★☆</div>
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <span class="category-title">Eletricista</span>
+                    <span style="font-size: var(--font-size-xs); color: var(--gray-circuit);">R$ 90/h</span>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-paint-roller"></i>
+                    </div>
+                    <span class="category-title">Pintor</span>
+                    <span style="font-size: var(--font-size-xs); color: var(--gray-circuit);">R$ 70/h</span>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-child"></i>
+                    </div>
+                    <span class="category-title">Babá</span>
+                    <span style="font-size: var(--font-size-xs); color: var(--gray-circuit);">R$ 50/h</span>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-dog"></i>
+                    </div>
+                    <span class="category-title">Pet sitter</span>
+                    <span style="font-size: var(--font-size-xs); color: var(--gray-circuit);">R$ 45/h</span>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <span class="category-title">Marceneiro</span>
+                    <span style="font-size: var(--font-size-xs); color: var(--gray-circuit);">R$ 85/h</span>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-snowflake"></i>
+                    </div>
+                    <span class="category-title">Ar-condicionado</span>
+                    <span style="font-size: var(--font-size-xs); color: var(--gray-circuit);">R$ 120</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="team-section" id="equipe">
-        <div class="container">
-            <h2 class="section-title">👥 Nossa Equipe</h2>
-            <p class="section-subtitle">Profissionais experientes dedicados ao seu sucesso</p>
-            
-            <div class="team-grid">
-                <div class="team-member">
-                    <div class="member-image">👨‍💼</div>
-                    <div class="member-info">
-                        <div class="member-name">Marco Oliveira</div>
-                        <div class="member-role">Creative Director</div>
-                        <div class="member-bio">12 anos de experiência em design e direção criativa</div>
+    <!-- SEÇÃO DE PROFISSIONAIS EM DESTAQUE -->
+    <section class="section-featured" id="profissionais">
+        <div class="container-fluid">
+            <div class="section-header">
+                <h2>Profissionais em destaque</h2>
+                <p>Os melhores avaliados e mais bem pagos da plataforma</p>
+            </div>
+
+            <div class="featured-grid">
+                <!-- Card 1 - Diarista -->
+                <div class="professional-card">
+                    <div class="card-header">
+                        <img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="Ana Silva" class="professional-image">
+                        <span class="professional-badge">Superprofissional</span>
+                    </div>
+                    <div class="professional-info">
+                        <div class="professional-name">
+                            <h3>Ana Silva</h3>
+                            <div class="professional-rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.98</span>
+                            </div>
+                        </div>
+                        <div class="professional-category">
+                            <i class="fas fa-broom"></i> Diarista • 5 anos
+                        </div>
+                        <div class="professional-price">
+                            <span class="price">R$ 65 <span>/hora</span></span>
+                            <span class="pill-badge"
+                                style="font-size: var(--font-size-xs); padding: var(--spacing-1) var(--spacing-3);">
+                                <i class="fas fa-check-circle"></i> Verificada
+                            </span>
+                        </div>
+                        <div class="professional-footer">
+                            <span><i class="fas fa-map-marker-alt"></i> 2 km</span>
+                            <a href="#" class="btn-contract">Contratar</a>
+                        </div>
                     </div>
                 </div>
 
-                <div class="team-member">
-                    <div class="member-image">👩‍💻</div>
-                    <div class="member-info">
-                        <div class="member-name">Amanda Santos</div>
-                        <div class="member-role">UI/UX Designer</div>
-                        <div class="member-bio">Especialista em design de interfaces modernas e intuitivas</div>
+                <!-- Card 2 - Encanador -->
+                <div class="professional-card">
+                    <div class="card-header">
+                        <img src="../assets/images/KoddaHub-Services.png"
+                            alt="KoddaHub Services" class="professional-image">
+                    </div>
+                    <div class="professional-info">
+                        <div class="professional-name">
+                            <h3>Carlos Santos</h3>
+                            <div class="professional-rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.95</span>
+                            </div>
+                        </div>
+                        <div class="professional-category">
+                            <i class="fas fa-wrench"></i> Encanador • 12 anos
+                        </div>
+                        <div class="professional-price">
+                            <span class="price">R$ 85 <span>/hora</span></span>
+                            <span class="pill-badge"
+                                style="font-size: var(--font-size-xs); padding: var(--spacing-1) var(--spacing-3);">
+                                <i class="fas fa-check-circle"></i> Verificado
+                            </span>
+                        </div>
+                        <div class="professional-footer">
+                            <span><i class="fas fa-map-marker-alt"></i> 5 km</span>
+                            <a href="#" class="btn-contract">Contratar</a>
+                        </div>
                     </div>
                 </div>
 
-                <div class="team-member">
-                    <div class="member-image">👨‍💼</div>
-                    <div class="member-info">
-                        <div class="member-name">Felipe Rodrigues</div>
-                        <div class="member-role">Marketing Strategist</div>
-                        <div class="member-bio">Estratégias digitais que geram resultados mensuráveis</div>
+                <!-- Card 3 - Eletricista -->
+                <div class="professional-card">
+                    <div class="card-header">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="Marcos Oliveira" class="professional-image">
+                        <span class="professional-badge"
+                            style="background: linear-gradient(135deg, var(--color-secondary-600), var(--color-secondary-700));">Mais
+                            rápido</span>
+                    </div>
+                    <div class="professional-info">
+                        <div class="professional-name">
+                            <h3>Marcos Oliveira</h3>
+                            <div class="professional-rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.99</span>
+                            </div>
+                        </div>
+                        <div class="professional-category">
+                            <i class="fas fa-bolt"></i> Eletricista • 8 anos
+                        </div>
+                        <div class="professional-price">
+                            <span class="price">R$ 95 <span>/hora</span></span>
+                            <span class="pill-badge"
+                                style="font-size: var(--font-size-xs); padding: var(--spacing-1) var(--spacing-3);">
+                                <i class="fas fa-check-circle"></i> Verificado
+                            </span>
+                        </div>
+                        <div class="professional-footer">
+                            <span><i class="fas fa-map-marker-alt"></i> 3 km</span>
+                            <a href="#" class="btn-contract">Contratar</a>
+                        </div>
                     </div>
                 </div>
 
-                <div class="team-member">
-                    <div class="member-image">👩‍🎨</div>
-                    <div class="member-info">
-                        <div class="member-name">Beatriz Lima</div>
-                        <div class="member-role">Brand Specialist</div>
-                        <div class="member-bio">Criação de identidades de marca memoráveis</div>
+                <!-- Card 4 - Babá -->
+                <div class="professional-card">
+                    <div class="card-header">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="Juliana Costa" class="professional-image">
                     </div>
-                </div>
-
-                <div class="team-member">
-                    <div class="member-image">👨‍🎬</div>
-                    <div class="member-info">
-                        <div class="member-name">Leonardo Castro</div>
-                        <div class="member-role">Video Producer</div>
-                        <div class="member-bio">Produção audiovisual de alta qualidade</div>
-                    </div>
-                </div>
-
-                <div class="team-member">
-                    <div class="member-image">👩‍💼</div>
-                    <div class="member-info">
-                        <div class="member-name">Roberta Alves</div>
-                        <div class="member-role">Project Manager</div>
-                        <div class="member-bio">Garantia de qualidade e prazos em todos os projetos</div>
+                    <div class="professional-info">
+                        <div class="professional-name">
+                            <h3>Juliana Costa</h3>
+                            <div class="professional-rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.97</span>
+                            </div>
+                        </div>
+                        <div class="professional-category">
+                            <i class="fas fa-child"></i> Babá • 6 anos
+                        </div>
+                        <div class="professional-price">
+                            <span class="price">R$ 55 <span>/hora</span></span>
+                            <span class="pill-badge"
+                                style="font-size: var(--font-size-xs); padding: var(--spacing-1) var(--spacing-3);">
+                                <i class="fas fa-check-circle"></i> Verificada
+                            </span>
+                        </div>
+                        <div class="professional-footer">
+                            <span><i class="fas fa-map-marker-alt"></i> 1.5 km</span>
+                            <a href="#" class="btn-contract">Contratar</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="cta-section" id="contato">
-        <h2>Vamos Criar Algo Incrível?</h2>
-        <p>Entre em contato com nossa equipe e descubra como podemos transformar sua marca</p>
-        <div class="cta-buttons">
-            <button class="btn-cta btn-cta-white">💬 Solicitar Reunião</button>
-            <button class="btn-cta btn-cta-outline">📧 Enviar Email</button>
+    <!-- SEÇÃO COMO FUNCIONA -->
+    <section class="section-howitworks" id="como-funciona">
+        <div class="container-fluid">
+            <div class="section-header" style="text-align: center;">
+                <h2>Como funciona a KoddaServiços</h2>
+                <p style="margin: 0 auto;">Em três passos você encontra o profissional ideal para o seu serviço</p>
+            </div>
+
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>1. Busque</h3>
+                    <p>Encontre profissionais perto de você filtrando por categoria, preço e avaliação. Todos com perfis
+                        verificados.</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <h3>2. Agende</h3>
+                    <p>Escolha a data e horário que preferir. O profissional confirma na hora e você recebe todas as
+                        informações.</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>3. Pague com segurança</h3>
+                    <p>O pagamento é liberado apenas após a conclusão do serviço. Sua satisfação é garantida.</p>
+                </div>
+            </div>
         </div>
     </section>
 
-    <footer class="agency-footer">
-        <div class="container">
-            <div class="footer-content">
+    <!-- SEÇÃO DE AVALIAÇÕES -->
+    <section class="section-reviews">
+        <div class="container-fluid">
+            <div class="section-header" style="text-align: center;">
+                <h2>O que dizem nossos clientes</h2>
+                <p style="margin: 0 auto;">Mais de 200 mil serviços realizados com excelente avaliação</p>
+            </div>
+
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-header">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Cliente" class="review-avatar">
+                        <div class="review-info">
+                            <h4>Patrícia Mendes</h4>
+                            <div class="review-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="review-text">"A Ana foi super profissional, chegou no horário e deixou minha casa
+                        impecável. Recomendo muito!"</p>
+                    <span class="review-service">Serviço: Diarista • 4h</span>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Cliente" class="review-avatar">
+                        <div class="review-info">
+                            <h4>Ricardo Almeida</h4>
+                            <div class="review-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="review-text">"Vazamento na cozinha resolvido em menos de 1 hora. Preço justo e trabalho de
+                        qualidade. Nota 10!"</p>
+                    <span class="review-service">Serviço: Encanador • 1h</span>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Cliente" class="review-avatar">
+                        <div class="review-info">
+                            <h4>Carla Fernandes</h4>
+                            <div class="review-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="review-text">"Precisava de uma babá com urgência e encontrei a Juliana. Minha filha adorou
+                        ela, super paciente e atenciosa."</p>
+                    <span class="review-service">Serviço: Babá • 6h</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO DE BUSCA AVANÇADA -->
+    <section class="section-search" id="search">
+        <div class="container-fluid">
+            <div class="search-container">
+                <h2>Encontre o profissional ideal</h2>
+                <p style="color: rgba(255,255,255,0.9); font-size: var(--font-size-lg);">Milhares de profissionais
+                    prontos para atender você</p>
+
+                <div class="search-box">
+                    <input type="text" class="search-input" placeholder="Digite o serviço que precisa...">
+                    <div class="search-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>São Paulo, SP</span>
+                        <i class="fas fa-chevron-down"
+                            style="margin-left: var(--spacing-2); font-size: var(--font-size-xs);"></i>
+                    </div>
+                    <button class="search-btn">
+                        <i class="fas fa-search"></i> Buscar
+                    </button>
+                </div>
+
+                <div
+                    style="display: flex; gap: var(--gap-md); justify-content: center; margin-top: var(--spacing-5); flex-wrap: wrap;">
+                    <span class="pill-badge" style="background: rgba(255,255,255,0.2); color: white; border: none;">
+                        <i class="fas fa-bolt"></i> Atendimento em até 1h
+                    </span>
+                    <span class="pill-badge" style="background: rgba(255,255,255,0.2); color: white; border: none;">
+                        <i class="fas fa-check-circle"></i> Profissionais verificados
+                    </span>
+                    <span class="pill-badge" style="background: rgba(255,255,255,0.2); color: white; border: none;">
+                        <i class="fas fa-credit-card"></i> Pagamento seguro
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO SEJA PARCEIRO -->
+    <section class="section-partner" id="parceiro">
+        <div class="container-fluid">
+            <div class="partner-content">
+                <h2>Seja um parceiro KoddaServiços</h2>
+                <p>Cadastre-se gratuitamente, defina seus preços e horários, e comece a receber clientes perto de você.
+                </p>
+                <a href="#" class="btn-partner">
+                    <i class="fas fa-bolt" style="margin-right: var(--spacing-2);"></i>
+                    Quero ser um profissional
+                    <i class="fas fa-arrow-right" style="margin-left: var(--spacing-2);"></i>
+                </a>
+                <p style="margin-top: var(--spacing-5); font-size: var(--font-size-sm); opacity: 0.9;">+50 mil
+                    profissionais já estão faturando com a gente</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER KODDAHUB STYLE -->
+    <footer class="footer-services">
+        <div class="container-fluid">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h4>KoddaServiços</h4>
+                    <ul>
+                        <li><a href="#">Sobre nós</a></li>
+                        <li><a href="#">Carreiras</a></li>
+                        <li><a href="#">Imprensa</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Descubra</h4>
+                    <ul>
+                        <li><a href="#">Confiança e segurança</a></li>
+                        <li><a href="#">Depoimentos</a></li>
+                        <li><a href="#">Preços</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+
                 <div class="footer-column">
                     <h4>Serviços</h4>
                     <ul>
-                        <li><a href="#">Design Gráfico</a></li>
-                        <li><a href="#">Web Design</a></li>
-                        <li><a href="#">App Design</a></li>
-                        <li><a href="#">Marketing Digital</a></li>
+                        <li><a href="#">Diaristas</a></li>
+                        <li><a href="#">Encanadores</a></li>
+                        <li><a href="#">Eletricistas</a></li>
+                        <li><a href="#">Babás</a></li>
+                        <li><a href="#">Pintores</a></li>
                     </ul>
                 </div>
+
                 <div class="footer-column">
-                    <h4>Sobre</h4>
+                    <h4>Suporte</h4>
                     <ul>
-                        <li><a href="#">Quem Somos</a></li>
-                        <li><a href="#">Nossa História</a></li>
-                        <li><a href="#">Valores</a></li>
-                        <li><a href="#">Prêmios</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h4>Comunidade</h4>
-                    <ul>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Recursos</a></li>
-                        <li><a href="#">Cases de Sucesso</a></li>
-                        <li><a href="#">Parceiros</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h4>Contato</h4>
-                    <ul>
-                        <li><a href="#">Email</a></li>
-                        <li><a href="#">WhatsApp</a></li>
-                        <li><a href="#">Redes Sociais</a></li>
-                        <li><a href="#">Localização</a></li>
+                        <li><a href="#">Ajuda</a></li>
+                        <li><a href="#">Central de confiança</a></li>
+                        <li><a href="#">Termos</a></li>
+                        <li><a href="#">Privacidade</a></li>
                     </ul>
                 </div>
             </div>
+
             <div class="footer-bottom">
-                <p>&copy; 2024 CreativeHub - Agência de Design e Marketing. Todos os direitos reservados.</p>
+                <div>© 2026 KoddaServiços, Inc. Todos os direitos reservados.</div>
+                <div class="footer-links">
+                    <a href="#">Termos</a>
+                    <a href="#">Privacidade</a>
+                    <a href="#">Cookies</a>
+                </div>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
             </div>
+            <p
+                style="text-align: center; margin-top: var(--spacing-6); color: rgba(255,255,255,0.5); font-size: var(--font-size-xs);">
+                Desenvolvido por <a href="index.html" style="color: var(--color-primary-300);">KoddaHub</a>
+            </p>
         </div>
     </footer>
-    <a href="https://wa.me/554192272854?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20as%20solu%C3%A7%C3%B5es%20da%20KoddaHub"
-        class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Conversar no WhatsApp">
-        <i class="fab fa-whatsapp" aria-hidden="true"></i>
-        <span class="whatsapp-tooltip">Fale conosco!</span>
-    </a>
 
+    <!-- CHATBOT KODASSAURO -->
     <div class="kodassauro" id="kodassauroRoot">
-        <button class="kodassauro-toggle" type="button" aria-haspopup="dialog" aria-controls="kodassauroPanel"
-            aria-expanded="false" aria-label="Abrir chat Kodassauro">
-            <span class="kodassauro-badge" aria-label="Notificacoes do chat" hidden>0</span>
-            <span class="kodassauro-toggle-icon" aria-hidden="true">
-                <i class="fas fa-comment-dots" aria-hidden="true"></i>
-            </span>
+        <button class="kodassauro-toggle" type="button" id="chatToggle" aria-label="Abrir chat KoddaServiços">
+            <img src="../assets/logo/KoddaHub-icon-chat.png" alt="Kodassauro" class="kodassauro-icon">
         </button>
 
-        <section class="kodassauro-panel" id="kodassauroPanel" role="dialog" aria-modal="false"
-            aria-labelledby="kodassauroTitle" aria-describedby="kodassauroSubtitle" tabindex="-1" hidden>
+        <section class="kodassauro-panel" id="chatPanel" hidden>
             <header class="kodassauro-header">
-                <div class="kodassauro-avatar" aria-hidden="true">
-                    <svg class="kodassauro-svg" viewBox="0 0 64 64" role="img" aria-label="Kodassauro">
+                <div class="kodassauro-avatar">
+                    <svg class="kodassauro-svg" viewBox="0 0 64 64">
                         <defs>
-                            <linearGradient id="kdsGrad" x1="0" y1="0" x2="1" y2="1">
-                                <stop offset="0%" stop-color="#2196F3" />
-                                <stop offset="100%" stop-color="#F57C00" />
+                            <linearGradient id="kdsGradServices" x1="0" y1="0" x2="1" y2="1">
+                                <stop offset="0%" stop-color="#F57C00" />
+                                <stop offset="100%" stop-color="#E65100" />
                             </linearGradient>
                         </defs>
-                        <circle cx="32" cy="32" r="30" fill="url(#kdsGrad)" opacity="0.95" />
-                        <path d="M18 37c2-9 9-16 18-16s16 7 18 16c-6 7-13 11-18 11s-12-4-18-11z"
-                            fill="#fff" opacity="0.95" />
-                        <circle class="kds-eye" cx="28" cy="33" r="2.6" fill="#1976D2" />
-                        <circle class="kds-eye" cx="36" cy="33" r="2.6" fill="#1976D2" />
+                        <circle cx="32" cy="32" r="30" fill="url(#kdsGradServices)" opacity="0.95" />
+                        <path d="M18 37c2-9 9-16 18-16s16 7 18 16c-6 7-13 11-18 11s-12-4-18-11z" fill="#fff"
+                            opacity="0.95" />
+                        <circle cx="28" cy="33" r="2.6" fill="#212121" />
+                        <circle cx="36" cy="33" r="2.6" fill="#212121" />
                         <path d="M28 40c3 3 5 3 8 0" stroke="#E65100" stroke-width="3" fill="none"
                             stroke-linecap="round" />
-                        <path d="M22 18l8 4" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity="0.9" />
-                        <path d="M42 18l-8 4" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity="0.9" />
                     </svg>
                 </div>
-
                 <div class="kodassauro-headings">
-                    <h3 class="kodassauro-title" id="kodassauroTitle">Kodassauro</h3>
-                    <p class="kodassauro-subtitle" id="kodassauroSubtitle">Assistente da KoddaHub, pronto para ajudar</p>
+                    <h4 class="kodassauro-title" style="margin: 0;">Kodassauro</h4>
+                    <p class="kodassauro-subtitle" style="margin: 0;">Assistente KoddaServiços</p>
                 </div>
-
-                <div class="kodassauro-header-actions">
-                    <button class="kodassauro-reset" type="button">Limpar</button>
-                    <button class="kodassauro-close" type="button" aria-label="Fechar chat">
-                        <i class="fas fa-times" aria-hidden="true"></i>
-                    </button>
-                </div>
+                <button class="kodassauro-close" id="chatClose"
+                    style="background: none; border: none; color: white; margin-left: auto; cursor: pointer;">
+                    <i class="fas fa-times"></i>
+                </button>
             </header>
 
-            <div class="kodassauro-messages" id="kodassauroMessages" aria-live="polite" aria-relevant="additions">
+            <div class="kodassauro-messages" id="chatMessages">
+                <div class="kodassauro-message bot">
+                    👋 Olá! Sou o Kodassauro, assistente da KoddaServiços. Como posso ajudar?
+                </div>
+                <div class="kodassauro-message bot">
+                    Você pode buscar profissionais, tirar dúvidas sobre serviços ou se cadastrar como parceiro.
+                </div>
             </div>
 
-            <div class="kodassauro-quick" id="kodassauroQuick" aria-label="Atalhos do chat">
-                <button type="button" class="kodassauro-chip" data-action="orcamento">Orcamento</button>
-                <button type="button" class="kodassauro-chip" data-action="duvidas">Duvidas</button>
-                <button type="button" class="kodassauro-chip" data-action="contato">Falar com vendedor</button>
-                <button type="button" class="kodassauro-chip" data-action="precos">Ver precos</button>
-                <button type="button" class="kodassauro-chip" data-action="portfolio">Ver portfolio</button>
+            <div class="kodassauro-composer">
+                <input type="text" class="kodassauro-input" id="chatInput" placeholder="Digite sua mensagem..."
+                    aria-label="Mensagem">
+                <button class="kodassauro-send" id="chatSend">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
             </div>
-
-            <form class="kodassauro-composer" id="kodassauroComposer" autocomplete="off">
-                <label class="kodassauro-sr-only" for="kodassauroInput">Mensagem</label>
-                <input id="kodassauroInput" class="kodassauro-input" type="text"
-                    placeholder="Digite sua mensagem..." inputmode="text" />
-                <button class="kodassauro-send" type="submit">Enviar</button>
-            </form>
         </section>
     </div>
 
-    <script src="../js/kodassauro-chat.js"></script>
+    <!-- SCRIPTS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // ===== HEADER SCROLL =====
+        document.addEventListener('DOMContentLoaded', function () {
+            const header = document.getElementById('mainHeader');
+            const navToggle = document.getElementById('navToggle');
 
+            window.addEventListener('scroll', function () {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            // Smooth scroll
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            });
+        });
+
+        // ===== CHATBOT KODASSAURO =====
+        document.addEventListener('DOMContentLoaded', function () {
+            const chatToggle = document.getElementById('chatToggle');
+            const chatPanel = document.getElementById('chatPanel');
+            const chatClose = document.getElementById('chatClose');
+            const chatInput = document.getElementById('chatInput');
+            const chatSend = document.getElementById('chatSend');
+            const chatMessages = document.getElementById('chatMessages');
+
+            if (chatToggle) {
+                chatToggle.addEventListener('click', function () {
+                    chatPanel.hidden = !chatPanel.hidden;
+                    if (!chatPanel.hidden) {
+                        chatInput.focus();
+                    }
+                });
+            }
+
+            if (chatClose) {
+                chatClose.addEventListener('click', function () {
+                    chatPanel.hidden = true;
+                });
+            }
+
+            function addMessage(text, isUser = false) {
+                const msgDiv = document.createElement('div');
+                msgDiv.classList.add('kodassauro-message');
+                msgDiv.classList.add(isUser ? 'user' : 'bot');
+                msgDiv.textContent = text;
+                chatMessages.appendChild(msgDiv);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+
+            function handleSend() {
+                const message = chatInput.value.trim();
+                if (message) {
+                    addMessage(message, true);
+                    chatInput.value = '';
+
+                    setTimeout(() => {
+                        let response = "Obrigado pelo contato! Em breve um especialista responderá.";
+
+                        if (message.toLowerCase().includes('diarista') || message.toLowerCase().includes('faxina')) {
+                            response = "Temos excelentes diaristas disponíveis perto de você. Qual dia e horário você precisa?";
+                        } else if (message.toLowerCase().includes('encanador') || message.toLowerCase().includes('vazamento')) {
+                            response = "Encanadores disponíveis para atendimento de emergência. Qual o problema?";
+                        } else if (message.toLowerCase().includes('cadastrar') || message.toLowerCase().includes('trabalhar')) {
+                            response = "Ótimo! Para se cadastrar como profissional, acesse a seção 'Seja um parceiro' ou me informe sua área de atuação.";
+                        }
+
+                        addMessage(response);
+                    }, 800);
+                }
+            }
+
+            if (chatSend) {
+                chatSend.addEventListener('click', handleSend);
+            }
+
+            if (chatInput) {
+                chatInput.addEventListener('keypress', function (e) {
+                    if (e.key === 'Enter') {
+                        e.preventDefault();
+                        handleSend();
+                    }
+                });
+            }
+        });
+    </script>
 </body>
+
 </html>
