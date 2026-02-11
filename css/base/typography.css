@@ -256,7 +256,7 @@ a {
   transition: color var(--duration-fast) var(--ease-out);
   font-weight: var(--font-weight-medium);
 
-  /* Estados interativos */
+  /* Estados interativos 
   &:hover,
   &:focus {
     color: var(--color-secondary-700);
@@ -268,7 +268,7 @@ a {
   &:active {
     color: var(--color-secondary-800);
   }
-
+*/
   /* Links em texto corrido */
   &:not([class]) {
     color: var(--color-secondary-600);
@@ -821,7 +821,7 @@ i {
 
 /**
  * Texto para breadcrumbs
- */
+ 
 .breadcrumb-item {
   font-size: var(--font-size-sm);
   color: var(--color-neutral-600);
@@ -831,6 +831,7 @@ i {
     font-weight: var(--font-weight-medium);
   }
 }
+    */
 
 /**
  * Texto para paginação
@@ -839,11 +840,9 @@ i {
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-normal);
 }
-
 .page-item.active .page-link {
   font-weight: var(--font-weight-semibold);
 }
-
 /* Typography component: shared heading styles */
 .section-title {
   font-size: 32px;
