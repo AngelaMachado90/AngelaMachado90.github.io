@@ -415,44 +415,7 @@
 }
 
 /* ============================================================================
-   SEÇÃO 7: COMPATIBILIDADE (ALIAS)
-   ============================================================================ */
-
-/**
- * Aliases para compatibilidade com código existente
- * REMOVER GRADUALMENTE após migração completa
- */
-.cta-button,
-.btn-cta,
-.btn-primary-modern,
-.btn-secondary-modern {
-  composes: btn;
-}
-
-/* Mapeamento para migração fácil */
-.cta-button,
-.btn-cta {
-  composes: btn btn--primary btn--md;
-}
-
-.cta-button--hero {
-  composes: btn btn--primary btn--lg;
-}
-
-.btn-primary-modern {
-  composes: btn btn--white btn--md;
-}
-
-.btn-secondary-modern {
-  composes: btn btn--outline-white btn--md;
-}
-
-.cta-buttons {
-  composes: btn-wrapper btn-wrapper--center;
-}
-
-/* ============================================================================
-   SEÇÃO 8: EXEMPLOS DE USO (COMENTÁRIOS)
+   SEÇÃO 7: EXEMPLOS DE USO (COMENTÁRIOS)
    ============================================================================ */
 
 /**
