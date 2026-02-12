@@ -1,0 +1,305 @@
+/* ============================================================================
+   COMPONENT: FORMS
+   ============================================================================ */
+
+.form-modern {
+    background: var(--white-pure);
+    padding: var(--spacing-8);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-2);
+    margin-bottom: var(--spacing-4);
+}
+
+.form-alerts {
+    margin-bottom: 30px;
+}
+
+.form-success,
+.form-error {
+    padding: 16px;
+    border-radius: 12px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-weight: var(--fw-medium);
+    margin-bottom: 20px;
+    animation: slideDown 0.3s ease-out;
+}
+
+.form-success {
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    color: #047857;
+}
+
+.form-success i {
+    color: #10b981;
+    font-size: 1.2rem;
+    margin-top: 2px;
+}
+
+.form-error {
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    color: #991b1b;
+}
+
+.form-error i {
+    color: #ef4444;
+    font-size: 1.2rem;
+    margin-top: 2px;
+}
+
+/* ============================================================================
+   GRID DO FORMULÁRIO
+   ============================================================================ */
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+/* ============================================================================
+   GRUPOS DE CAMPOS
+   ============================================================================ */
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    position: relative;
+}
+
+.form-group label {
+    font-weight: var(--fw-semibold);
+    color: var(--black-deep);
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/**
+ * Asterisco para campos obrigatórios
+ * Oculto automaticamente quando campo não tem required
+ */
+.form-group label::after {
+    content: "*";
+    color: var(--color-error-500);
+    font-weight: var(--fw-bold);
+}
+
+.form-group label:has(+ input:not([required]))::after,
+.form-group label:has(+ select:not([required]))::after,
+.form-group label:has(+ textarea:not([required]))::after {
+    display: none;
+}
+
+/* ============================================================================
+   CAMPOS DE ENTRADA
+   ============================================================================ */
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 14px 16px;
+    border-radius: 12px;
+    border: 2px solid rgba(0, 0, 0, 0.08);
+    background: var(--white-pure);
+    font-size: 1rem;
+    font-family: inherit;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    color: var(--black-deep);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-primary-500);
+    box-shadow: 0 0 0 4px rgba(33, 150, 243, 0.1);
+    background: var(--white-pure);
+}
+
+.form-group input:hover,
+.form-group select:hover,
+.form-group textarea:hover {
+    border-color: rgba(0, 0, 0, 0.2);
+}
+
+/* Campos específicos */
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+    line-height: 1.5;
+    padding: 16px;
+}
+
+.form-group select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236b7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    background-size: 20px;
+    padding-right: 44px;
+    cursor: pointer;
+}
+
+/* Placeholders */
+.form-group input::placeholder,
+.form-group textarea::placeholder,
+.form-group select:invalid {
+    color: var(--color-neutral-400);
+    opacity: 0.7;
+}
+
+/* ============================================================================
+   ESTADOS DE VALIDAÇÃO
+   ============================================================================ */
+
+/* Campos válidos */
+.form-group input:valid:not(:placeholder-shown),
+.form-group textarea:valid:not(:placeholder-shown) {
+    border-color: rgba(16, 185, 129, 0.3);
+    background-color: rgba(16, 185, 129, 0.02);
+}
+
+/* Campos inválidos */
+.form-group input:invalid:not(:placeholder-shown),
+.form-group textarea:invalid:not(:placeholder-shown) {
+    border-color: rgba(239, 68, 68, 0.3);
+    background-color: rgba(239, 68, 68, 0.02);
+}
+
+/* Focus states com validação */
+.form-group input:focus:valid,
+.form-group textarea:focus:valid {
+    box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.1);
+}
+
+.form-group input:focus:invalid,
+.form-group textarea:focus:invalid {
+    box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.1);
+}
+
+/* Destaque do label quando campo está em foco */
+.form-group:focus-within label {
+    color: var(--color-primary-600);
+}
+
+/* Mensagem de erro */
+.field-error {
+    color: var(--color-error-500) !important;
+    font-size: 0.875rem;
+    margin-top: 4px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    animation: shake 0.3s ease-in-out;
+}
+
+.field-error::before {
+    content: "⚠";
+    font-size: 0.9rem;
+}
+
+/* ============================================================================
+   TOOLTIP DE AJUDA
+   ============================================================================ */
+
+.field-tooltip {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--black-deep);
+    color: var(--white-pure);
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    pointer-events: none;
+    z-index: 100;
+    margin-top: 4px;
+}
+
+.field-tooltip::before {
+    content: "";
+    position: absolute;
+    top: -6px;
+    left: 16px;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 6px solid var(--black-deep);
+}
+
+.form-group input:hover+.field-tooltip,
+.form-group select:hover+.field-tooltip,
+.form-group textarea:hover+.field-tooltip {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ============================================================================
+   CONTADOR DE CARACTERES
+   ============================================================================ */
+
+.char-counter {
+    position: absolute;
+    right: 16px;
+    bottom: 16px;
+    font-size: 0.85rem;
+    color: var(--color-neutral-400);
+    background: var(--white-pure);
+    padding: 2px 8px;
+    border-radius: 4px;
+    transition: color 0.2s ease;
+}
+
+.form-group textarea:focus+.char-counter {
+    color: var(--color-primary-600);
+}
+
+/* ============================================================================
+   LOADING SPINNER
+   ============================================================================ */
+
+.form-loading {
+    text-align: center;
+    padding: 40px 20px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 16px;
+    margin: 30px 0;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    animation: fadeIn 0.3s ease-out;
+}
+
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    margin: 0 auto 20px;
+    border: 3px solid rgba(33, 150, 243, 0.1);
+    border-top-color: var(--color-primary-500);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+.form-loading p {
+    color: var(--color-neutral-600);
+    font-weight: var(--fw-medium);
+    margin: 0;
+    font-size: 1.1rem;
+}
+

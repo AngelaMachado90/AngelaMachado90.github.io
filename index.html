@@ -21,26 +21,7 @@
     <link rel="apple-touch-icon" href="assets/logo/apple-touch-icon.png" />
 
     <!-- CSS Files -->
-    <!-- Organização modular de CSS para melhor manutenção e performance -->
-    <!-- 1- Reset CSS para normalização cross-browser -->
-    <link rel="stylesheet" href="css/base/reset.css" />
-    <!-- 2- Variáveis CSS para temas e cores -->
-    <link rel="stylesheet" href="css/base/variables.css" />
-    <!-- 3- Tipografia Base -->
-    <link rel="stylesheet" href="css/base/typography.css" />
-    <!--  Provisorio-->
-    <link rel="stylesheet" href="css/components/_buttons.css" />
-    <link rel="stylesheet" href="css/components/_cards.css" />
-    <link rel="stylesheet" href="css/components/_carousel.css" />
-    <link rel="stylesheet" href="css/layouts/_hero.css" />
-    <link rel="stylesheet" href="css/layouts/_sections.css" />
-    <link rel="stylesheet" href="css/components.css" />
     <link rel="stylesheet" href="css/main.css" />
-    <link rel="stylesheet" href="css/kodassauro.css" />
-    <link rel="stylesheet" href="css/utilities/utilities.css" />
-    <link rel="stylesheet" href="css/animations.css" />
-    <link rel="stylesheet" href="css/responsive.css" />
-
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -52,11 +33,11 @@
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      crossorigin="anonymous"
     />
   </head>
 
   <body>
-    <!-- Header/Navbar Moderno -->
     <header class="navbar-modern">
       <div class="container-fluid">
         <div class="navbar-wrapper">
@@ -172,10 +153,9 @@
                         <header class="showcase-top">
                           <div class="showcase-icon" aria-hidden="true">
                             <i class="fas fa-shopping-bag"></i>
-                            
                           </div>
                           <div class="showcase-headings">
-                            <br>
+                            <br />
                             <h3>E-Commerce</h3>
                             <p>Loja completa com carrinho e pagamentos.</p>
                           </div>
@@ -192,8 +172,11 @@
                           <a class="showcase-link" href="#contato"
                             >Pedir orçamento</a
                           >
-                          <a class="showcase-link" href="pages/demo-fabrica-software.html"
-                            >Sobre Nós</a>
+                          <a
+                            class="showcase-link"
+                            href="pages/demo-fabrica-software.html"
+                            >Sobre Nós</a
+                          >
                         </div>
                       </article>
                     </figcaption>
@@ -303,168 +286,180 @@
       </div>
     </section>
 
-  <!-- Soluções Section -->
-  <section id="solucoes" class="solutions-section">
-    <div class="container-fluid">
-      <div class="section-header">
-        <span class="section-badge">NOSSAS SOLUÇÕES</span>
-        <h2>Soluções Completas Para Cada Negócio</h2>
-        <p>
-          Escolha a solução que melhor se encaixa no seu segmento empresarial
-        </p>
+    <!-- Soluções Section -->
+    <section id="solucoes" class="solutions-section">
+      <div class="container-fluid">
+        <div class="section-header">
+          <span class="section-badge">NOSSAS SOLUÇÕES</span>
+          <h2>Soluções Completas Para Cada Negócio</h2>
+          <p>
+            Escolha a solução que melhor se encaixa no seu segmento empresarial
+          </p>
+        </div>
+
+        <div class="solutions-grid">
+          <!-- Primeira Linha - 3 Cards -->
+
+          <!-- Card 1 -->
+          <div class="solution-card modern-card">
+            <div class="card-image">
+              <i class="fas fa-building"></i>
+            </div>
+            <div class="card-content">
+              <h3>Site Institucional</h3>
+              <p>
+                Para ONGs, escolas, clínicas, associações e instituições que
+                precisam de presença profissional online.
+              </p>
+              <ul class="features-list">
+                <li><i class="fas fa-check"></i> Design Responsivo</li>
+                <li><i class="fas fa-check"></i> SEO Otimizado</li>
+                <li><i class="fas fa-check"></i> Formulários</li>
+                <li><i class="fas fa-check"></i> Galeria</li>
+              </ul>
+              <div class="card-footer">
+                <span class="price">R$ 2.500</span>
+                <a href="pages/demo-institucional.html" class="btn-link"
+                  >Ver Demo <i class="fas fa-arrow-right"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="solution-card modern-card">
+            <div class="card-image">
+              <i class="fas fa-shopping-cart"></i>
+            </div>
+            <div class="card-content">
+              <h3>E-commerce</h3>
+              <p>
+                Lojas virtuais completas com carrinho de compras, pagamento
+                integrado e gestão de produtos.
+              </p>
+              <ul class="features-list">
+                <li><i class="fas fa-check"></i> Carrinho Inteligente</li>
+                <li><i class="fas fa-check"></i> Múltiplos Pagamentos</li>
+                <li><i class="fas fa-check"></i> Estoque Automático</li>
+                <li><i class="fas fa-check"></i> Rastreamento</li>
+              </ul>
+              <div class="card-footer">
+                <span class="price">R$ 4.800</span>
+                <a href="pages/demo-ecommerce.html" class="btn-link"
+                  >Ver Demo <i class="fas fa-arrow-right"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="solution-card modern-card">
+            <div class="card-image">
+              <i class="fas fa-industry"></i>
+            </div>
+            <div class="card-content">
+              <h3>Site Industrial</h3>
+              <p>
+                Para fábricas e fornecedores B2B com catálogo de produtos,
+                especificações técnicas e contato.
+              </p>
+              <ul class="features-list">
+                <li><i class="fas fa-check"></i> Catálogo Dinâmico</li>
+                <li><i class="fas fa-check"></i> Especificações</li>
+                <li><i class="fas fa-check"></i> Sistema de Cotação</li>
+                <li><i class="fas fa-check"></i> CMS Integrado</li>
+              </ul>
+              <div class="card-footer">
+                <span class="price">R$ 3.800</span>
+                <a href="pages/demo-industrial.html" class="btn-link"
+                  >Ver Demo <i class="fas fa-arrow-right"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Segunda Linha - 3 Cards -->
+
+          <!-- Card 4 -->
+          <div class="solution-card modern-card">
+            <div class="card-image">
+              <i class="fas fa-user-tie"></i>
+            </div>
+            <div class="card-content">
+              <h3>Site de Serviços</h3>
+              <p>
+                Para consultorias, agências, profissionais liberais com
+                portfólio e agendamento online.
+              </p>
+              <ul class="features-list">
+                <li><i class="fas fa-check"></i> Portfólio Dinâmico</li>
+                <li><i class="fas fa-check"></i> Agendamento Online</li>
+                <li><i class="fas fa-check"></i> Depoimentos</li>
+                <li><i class="fas fa-check"></i> Blog Integrado</li>
+              </ul>
+              <div class="card-footer">
+                <span class="price">R$ 2.800</span>
+                <a href="pages/demo-servicos.html" class="btn-link"
+                  >Ver Demo <i class="fas fa-arrow-right"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="solution-card modern-card">
+            <div class="card-image">
+              <i class="fas fa-cogs"></i>
+            </div>
+            <div class="card-content">
+              <h3>Sistemas Empresariais</h3>
+              <p>
+                Soluções de gestão customizadas: CRM, ERP, Controle de Estoque,
+                Financeiro e muito mais.
+              </p>
+              <ul class="features-list">
+                <li><i class="fas fa-check"></i> Totalmente Customizável</li>
+                <li><i class="fas fa-check"></i> Relatórios Avançados</li>
+                <li><i class="fas fa-check"></i> Segurança de Dados</li>
+                <li><i class="fas fa-check"></i> Suporte Premium</li>
+              </ul>
+              <div class="card-footer">
+                <span class="price">Orçamento</span>
+                <a href="pages/demo-sistemas.html" class="btn-link"
+                  >Ver Demo <i class="fas fa-arrow-right"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 6 -->
+          <div class="solution-card modern-card">
+            <div class="card-image">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <div class="card-content">
+              <h3>Análise de Dados</h3>
+              <p>
+                Soluções de análise de dados, dashboards e automação para
+                decisões mais rápidas e assertivas.
+              </p>
+              <ul class="features-list">
+                <li><i class="fas fa-check"></i> Análise de Dados</li>
+                <li><i class="fas fa-check"></i> Dashboards Interativos</li>
+                <li><i class="fas fa-check"></i> Automação de Processos</li>
+                <li><i class="fas fa-check"></i> Relatórios Personalizados</li>
+              </ul>
+              <div class="card-footer">
+                <span class="price">Orçamento</span>
+                <a href="pages/demo-data-science.html" class="btn-link"
+                  >Ver Demo <i class="fas fa-arrow-right"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-  
-      <div class="solutions-grid">
-        <!-- Primeira Linha - 3 Cards -->
-  
-        <!-- Card 1 -->
-        <div class="solution-card modern-card">
-          <div class="card-image">
-            <i class="fas fa-building"></i>
-          </div>
-          <div class="card-content">
-            <h3>Site Institucional</h3>
-            <p>
-              Para ONGs, escolas, clínicas, associações e instituições que
-              precisam de presença profissional online.
-            </p>
-            <ul class="features-list">
-              <li><i class="fas fa-check"></i> Design Responsivo</li>
-              <li><i class="fas fa-check"></i> SEO Otimizado</li>
-              <li><i class="fas fa-check"></i> Formulários</li>
-              <li><i class="fas fa-check"></i> Galeria</li>
-            </ul>
-            <div class="card-footer">
-              <span class="price">R$ 2.500</span>
-              <a href="pages/demo-institucional.html" class="btn-link">Ver Demo <i class="fas fa-arrow-right"></i></a>
-            </div>
-          </div>
-        </div>
-  
-        <!-- Card 2 -->
-        <div class="solution-card modern-card">
-          <div class="card-image">
-            <i class="fas fa-shopping-cart"></i>
-          </div>
-          <div class="card-content">
-            <h3>E-commerce</h3>
-            <p>
-              Lojas virtuais completas com carrinho de compras, pagamento
-              integrado e gestão de produtos.
-            </p>
-            <ul class="features-list">
-              <li><i class="fas fa-check"></i> Carrinho Inteligente</li>
-              <li><i class="fas fa-check"></i> Múltiplos Pagamentos</li>
-              <li><i class="fas fa-check"></i> Estoque Automático</li>
-              <li><i class="fas fa-check"></i> Rastreamento</li>
-            </ul>
-            <div class="card-footer">
-              <span class="price">R$ 4.800</span>
-              <a href="pages/demo-ecommerce.html" class="btn-link">Ver Demo <i class="fas fa-arrow-right"></i></a>
-            </div>
-          </div>
-        </div>
-  
-        <!-- Card 3 -->
-        <div class="solution-card modern-card">
-          <div class="card-image">
-            <i class="fas fa-industry"></i>
-          </div>
-          <div class="card-content">
-            <h3>Site Industrial</h3>
-            <p>
-              Para fábricas e fornecedores B2B com catálogo de produtos,
-              especificações técnicas e contato.
-            </p>
-            <ul class="features-list">
-              <li><i class="fas fa-check"></i> Catálogo Dinâmico</li>
-              <li><i class="fas fa-check"></i> Especificações</li>
-              <li><i class="fas fa-check"></i> Sistema de Cotação</li>
-              <li><i class="fas fa-check"></i> CMS Integrado</li>
-            </ul>
-            <div class="card-footer">
-              <span class="price">R$ 3.800</span>
-              <a href="pages/demo-industrial.html" class="btn-link">Ver Demo <i class="fas fa-arrow-right"></i></a>
-            </div>
-          </div>
-        </div>
-  
-        <!-- Segunda Linha - 3 Cards -->
-  
-        <!-- Card 4 -->
-        <div class="solution-card modern-card">
-          <div class="card-image">
-            <i class="fas fa-user-tie"></i>
-          </div>
-          <div class="card-content">
-            <h3>Site de Serviços</h3>
-            <p>
-              Para consultorias, agências, profissionais liberais com
-              portfólio e agendamento online.
-            </p>
-            <ul class="features-list">
-              <li><i class="fas fa-check"></i> Portfólio Dinâmico</li>
-              <li><i class="fas fa-check"></i> Agendamento Online</li>
-              <li><i class="fas fa-check"></i> Depoimentos</li>
-              <li><i class="fas fa-check"></i> Blog Integrado</li>
-            </ul>
-            <div class="card-footer">
-              <span class="price">R$ 2.800</span>
-              <a href="pages/demo-servicos.html" class="btn-link">Ver Demo <i class="fas fa-arrow-right"></i></a>
-            </div>
-          </div>
-        </div>
-  
-        <!-- Card 5 -->
-        <div class="solution-card modern-card">
-          <div class="card-image">
-            <i class="fas fa-cogs"></i>
-          </div>
-          <div class="card-content">
-            <h3>Sistemas Empresariais</h3>
-            <p>
-              Soluções de gestão customizadas: CRM, ERP, Controle de Estoque,
-              Financeiro e muito mais.
-            </p>
-            <ul class="features-list">
-              <li><i class="fas fa-check"></i> Totalmente Customizável</li>
-              <li><i class="fas fa-check"></i> Relatórios Avançados</li>
-              <li><i class="fas fa-check"></i> Segurança de Dados</li>
-              <li><i class="fas fa-check"></i> Suporte Premium</li>
-            </ul>
-            <div class="card-footer">
-              <span class="price">Orçamento</span>
-              <a href="pages/demo-sistemas.html" class="btn-link">Ver Demo <i class="fas fa-arrow-right"></i></a>
-            </div>
-          </div>
-        </div>
-  
-        <!-- Card 6 -->
-        <div class="solution-card modern-card">
-          <div class="card-image">
-            <i class="fas fa-chart-line"></i>
-          </div>
-          <div class="card-content">
-            <h3>Análise de Dados</h3>
-            <p>
-              Soluções de análise de dados, dashboards e automação para
-              decisões mais rápidas e assertivas.
-            </p>
-            <ul class="features-list">
-              <li><i class="fas fa-check"></i> Análise de Dados</li>
-              <li><i class="fas fa-check"></i> Dashboards Interativos</li>
-              <li><i class="fas fa-check"></i> Automação de Processos</li>
-              <li><i class="fas fa-check"></i> Relatórios Personalizados</li>
-            </ul>
-            <div class="card-footer">
-              <span class="price">Orçamento</span>
-              <a href="pages/demo-data-science.html" class="btn-link">Ver Demo <i class="fas fa-arrow-right"></i></a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
     <!-- SEÇÃO CONTATO -->
     <section class="section-contact" id="contato">
@@ -475,134 +470,150 @@
           </span>
           <h2>Pronto para fazer parte da família KoddaHub?</h2>
           <p>
-            Preencha o formulário abaixo ou entre em contato diretamente. Estamos ansiosos
+            Seja um distribuidor, revendedor ou tire dúvidas sobre nossos
+            produtos.
           </p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-info animate-fadeInUp delay-1">
+            <h3>Informações de Contato</h3>
+            <p>
+              Nossa equipe está pronta para atender você de segunda a sexta, das
+              8h às 18h.
+            </p>
+
+            <div class="contact-details">
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div>
+                  <h4>Matriz</h4>
+                  <p>Curitiba, PR - Brasil</p>
+                  <p style="font-size: 12px">
+                    Atendimento em todo território nacional
+                  </p>
+                </div>
+              </div>
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <i class="fas fa-phone-alt"></i>
+                </div>
+                <div>
+                  <h4>Central de Vendas</h4>
+                  <p>
+                    <a href="tel:+554192272854" style="color: white"
+                      >+55 (41) 9227-2854</a
+                    >
+                  </p>
+                  <p style="font-size: 13px">WhatsApp para pedidos</p>
+                </div>
+              </div>
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <i class="fas fa-envelope"></i>
+                </div>
+                <div>
+                  <h4>E-mail Comercial</h4>
+                  <p>
+                    <a
+                      href="mailto:angelamachado02022@gmail.com"
+                      style="color: white"
+                      >angelamachado02022@gmail.com</a
+                    >
+                  </p>
+                  <p style="font-size: 12px">Resposta em até 24h</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="contact-social">
+              <a href="#" class="social-link"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="#" class="social-link"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="#" class="social-link"
+                ><i class="fab fa-whatsapp"></i
+              ></a>
+              <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+            </div>
           </div>
-        <div class="contact-content">
-          <div class="contact-form animate-fadeInUp" style="animation-delay: 0.2s">
 
-            <form id="contactForm" class="form-modern">
-              <div class="form-alerts">
-                <div id="formSuccess" class="form-success">
-                  <i class="fas fa-check-circle"></i>
-                  <span
-                    >Mensagem enviada com sucesso! Entraremos em contato em
-                    breve.</span
-                  >
-                </div>
-                <div id="formError" class="form-error">
-                  <i class="fas fa-exclamation-circle"></i>
-                  <span
-                    >Erro ao enviar. Verifique os dados e tente novamente.</span
-                  >
-                </div>
+          <div class="contact-form animate-fadeInUp delay-2">
+            <h3 style="margin-bottom: 32px">Solicite um contato</h3>
+
+            <form id="industrialContactForm">
+              <div class="form-group">
+                <label for="nome">Nome Completo *</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="nome"
+                  name="nome"
+                  required
+                  autocomplete="name"
+                />
               </div>
-
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="nome">Nome Completo *</label>
-                  <input type="text" id="nome" name="nome" required />
-                </div>
-                <div class="form-group">
-                  <label for="email">E-mail *</label>
-                  <input type="email" id="email" name="email" required />
-                </div>
+              <div class="form-group">
+                <label for="email">E-mail *</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  name="email"
+                  required
+                  autocomplete="email"
+                />
               </div>
-
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="telefone">Telefone</label>
-                  <input type="tel" id="telefone" name="telefone" />
-                </div>
-                <div class="form-group">
-                  <label for="tipo_interesse">Tipo de Solução *</label>
-                  <select id="tipo_interesse" name="tipo_interesse" required>
-                    <option value="">Selecione...</option>
-                    <option value="Site Institucional">
-                      Site Institucional
-                    </option>
-                    <option value="E-commerce">E-commerce</option>
-                    <option value="Site Industrial">Site Industrial</option>
-                    <option value="Site de Serviços">Site de Serviços</option>
-                    <option value="Sistema Empresarial">
-                      Sistema Empresarial
-                    </option>
-                    <option value="Dados">Dados</option>
-                    <option value="Outro">Outro</option>
-                  </select>
-                </div>
+              <div class="form-group">
+                <label for="telefone">Telefone *</label>
+                <input
+                  type="tel"
+                  class="form-control"
+                  id="telefone"
+                  name="telefone"
+                  required
+                  autocomplete="tel"
+                />
               </div>
-
+              <div class="form-group">
+                <label for="assunto">Tipo de Interesse</label>
+                <select
+                  class="form-control"
+                  id="assunto"
+                  name="assunto"
+                  required
+                  autocomplete="off"
+                >
+                  <option value="">Selecione...</option>
+                  <option value="distribuidor">Site Institucional</option>
+                  <option value="revendedor">Site E-commerce</option>
+                  <option value="compra">Site Industrial</option>
+                  <option value="parceria">Site de Serviços</option>
+                  <option value="outro">Sistemas Empresariais</option>
+                  <option value="outro">Análise de Dados</option>
+                </select>
+              </div>
               <div class="form-group">
                 <label for="mensagem">Mensagem *</label>
                 <textarea
+                  class="form-control"
                   id="mensagem"
                   name="mensagem"
-                  rows="5"
+                  rows="4"
+                  placeholder="Conte-nos sobre sua necessidade..."
                   required
+                  autocomplete="off"
                 ></textarea>
               </div>
-
-              <button type="submit" class="btn-primary-modern">
+              <button type="submit" class="btn-submit">
                 Enviar Mensagem
+                <i class="fas fa-paper-plane" style="margin-left: 10px"></i>
               </button>
             </form>
-          </div>
-
-          <div class="contato-info">
-            <h3>Informações de Contato</h3>
-
-            <div class="info-item">
-              <i class="fas fa-map-marker-alt"></i>
-              <div>
-                <h4>Localização</h4>
-                <p>Curitiba<br />Atendimento Nacional</p>
-              </div>
-            </div>
-
-            <div class="info-item">
-              <i class="fas fa-phone"></i>
-              <div>
-                <h4>Telefone</h4>
-                <p><a href="tel:+554192272854">+55(41)9227-2854</a></p>
-              </div>
-            </div>
-
-            <div class="info-item">
-              <i class="fas fa-envelope"></i>
-              <div>
-                <h4>E-mail</h4>
-                <p>
-                  <a href="mailto:angelamachado02022@gmail.com"
-                    >angelamachado02022@gmail.com</a
-                  >
-                </p>
-              </div>
-            </div>
-
-            <div class="social-modern">
-              <h4>Siga-nos</h4>
-              <div class="social-links">
-                <a href="https://facebook.com" target="_blank" title="Facebook"
-                  ><i class="fab fa-facebook-f"></i
-                ></a>
-                <a
-                  href="https://instagram.com"
-                  target="_blank"
-                  title="Instagram"
-                  ><i class="fab fa-instagram"></i
-                ></a>
-                <a href="https://linkedin.com" target="_blank" title="LinkedIn"
-                  ><i class="fab fa-linkedin-in"></i
-                ></a>
-                <a
-                  href="https://wa.me/554192272854"
-                  target="_blank"
-                  title="WhatsApp"
-                  ><i class="fab fa-whatsapp"></i
-                ></a>
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -807,6 +818,7 @@
             type="text"
             placeholder="Digite sua mensagem..."
             inputmode="text"
+            autocomplete="off"
           />
           <button class="kodassauro-send" type="submit">Enviar</button>
         </form>

@@ -893,5 +893,3 @@
   color: var(--black-deep);
 }
 
-/* Import consolidated components */
-@import "components/_footer.css";

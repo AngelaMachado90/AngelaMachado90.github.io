@@ -1,30 +1,23 @@
-/* ============================================================================
-   MAIN.CSS - Entry Point (Imports Only)
-   Versão: 3.0.0 | Estrutura Modular Corrigida
-   ============================================================================ */
+/* main.css - Arquivo principal */
+@import "base/variables.css";
+@import "base/reset.css";
+@import "base/typography.css";
 
-/* 1. BASE */
-@import url('base/reset.css');
-@import url('base/variables.css');
-@import url('base/typography.css');
+@import "components/buttons.css";
+@import "components/cards.css";
+@import "components/navbar.css";
+@import "components/footer.css";
+@import "components/cta.css";
+@import "components/layout-helpers.css";
 
-/* 2. COMPONENTS */
-@import url('components/_navbar.css');
-@import url('components/_buttons.css');
-@import url('components/_cards.css');
-@import url('components/_carousel.css');
-@import url('components/_footer.css');
-@import url('components/_forms.css');
+@import "layouts/hero.css";
+@import "layouts/sections.css";
+@import "layouts/contact.css";
 
-/* 3. LAYOUTS */
-@import url('layouts/_hero.css');
+@import "utilities/utilities.css";
+@import "animations.css";
+@import "responsive.css";
 
-/* 4. ANIMATIONS & UTILITIES */
-@import url('animations.css');
-
-/* 5. FEATURES */
-@import url('kodassauro.css');
-@import url('floating-actions.css');
-
-/* 6. RESPONSIVE (ÚLTIMO!) */
-@import url('responsive.css');
+@import "kodassauro.css";
+@import "layouts/sections.css";
+@import "components/footer.css";
