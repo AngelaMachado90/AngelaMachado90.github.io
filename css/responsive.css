@@ -40,8 +40,9 @@
     width: 100%;
   }
 
-  .cta-buttons .btn-primary-modern,
+
   .cta-buttons .btn-secondary-modern {
+    padding: 15px 35px;
     width: 100%;
     text-align: center;
   }
@@ -377,5 +378,69 @@
 @media (max-width: 768px) {
   .solutions-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================================================
+   FIX: BOTÕES DO HERO NO MOBILE
+   ============================================================================ */
+
+/* Ajuste específico para os botões do hero no mobile */
+@media (max-width: 767px) {
+  .hero-cta {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .hero-cta .btn-primary-modern,
+  .hero-cta .btn-secondary-modern {
+    width: 100%;
+    padding: 14px 24px;
+    /* Padding uniforme */
+    font-size: 1rem;
+    text-align: center;
+    box-sizing: border-box;
+    margin: 0;
+    /* Remove margens extras */
+  }
+
+  /* Garantir mesma largura para ambos os botões */
+  .hero-cta .btn-primary-modern {
+    padding: 14px 24px;
+    /* Mesmo padding do secundário */
+    border: 2px solid rgba(255, 255, 255, 0.45);
+    /* Ajuste para ficar igual */
+  }
+
+  .hero-cta .btn-secondary-modern {
+    padding: 14px 24px;
+    /* Padrão uniforme */
+  }
+}
+
+/* Alternativa mais simples: converter para flex com column */
+@media (max-width: 768px) {
+
+  .hero-content .btn-wrapper,
+  .hero-cta {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-content .btn,
+  .hero-content .btn-primary-modern,
+  .hero-content .btn-secondary-modern {
+    width: 100%;
+    padding: 14px 24px;
+    margin: 0;
+    box-sizing: border-box;
+    text-align: center;
   }
 }
