@@ -366,3 +366,16 @@
 .hidden {
   display: none !important;
 }
+
+/* Responsividade */
+@media (max-width: 992px) {
+  .solutions-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .solutions-grid {
+    grid-template-columns: 1fr;
+  }
+}
