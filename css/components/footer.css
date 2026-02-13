@@ -139,7 +139,7 @@
 
 /* ===== COLUNAS DE LINKS ===== */
 .footer-links h4 {
-    color: #FFFFFF;
+    color: var(--color-primary-500);
     font-size: var(--font-size-base);
     /* 16px */
     font-weight: var(--font-weight-semibold);
