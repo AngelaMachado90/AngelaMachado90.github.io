@@ -1,0 +1,829 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="KoddaHub- Soluções web completas para seu negócio. Desenvolvimento de sites institucionais, e-commerce, sites industriais, sites de serviços e sistemas empresariais." />
+  <meta name="author" content="KoddaHub" />
+  <meta name="theme-color" content="#f57c00" />
+
+  <title>KoddaHub - Orçamento Inteligente via WhatsApp</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <!-- Font Awesome 5 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+
+  <style>
+    /* RESET E VARIÁVEIS */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --color-primary-600: #25D366;
+      --color-primary-700: #128C7E;
+      --color-primary-50: #e8f5e9;
+      --color-neutral-900: #0B1020;
+      --color-neutral-800: #1a1f2e;
+      --color-neutral-700: #2a2f3e;
+      --color-neutral-600: #5a6b7c;
+      --color-neutral-500: #8a9aa8;
+      --color-neutral-400: #b0c0ce;
+      --color-neutral-300: #e0e0e0;
+      --color-neutral-200: #f0f2f5;
+      --color-neutral-100: #f8f9fa;
+      --color-success: #10b981;
+      --color-whatsapp: #25D366;
+    }
+
+    body {
+      font-family: 'Inter', 'Poppins', sans-serif;
+      background: linear-gradient(145deg, #f5f7fb, #ffffff);
+      line-height: 1.5;
+    }
+
+    .container-fluid {
+      width: 100%;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ===== HEADER SIMPLES ===== */
+    .navbar-modern {
+      background: white;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+      padding: 16px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .navbar-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-text {
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--color-neutral-900);
+      text-decoration: none;
+      letter-spacing: -0.5px;
+    }
+
+    .navbar-menu {
+      display: flex;
+      gap: 32px;
+    }
+
+    .nav-link {
+      text-decoration: none;
+      color: var(--color-neutral-700);
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+
+    .nav-link:hover {
+      color: var(--color-whatsapp);
+    }
+
+    .nav-link.active {
+      color: var(--color-whatsapp);
+    }
+
+    /* ===== SEÇÃO ORÇAMENTO WHATSAPP ===== */
+    .orcamento-whatsapp-section {
+      min-height: calc(100vh - 80px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 24px;
+      background: radial-gradient(circle at 0% 0%, rgba(37, 211, 102, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 100% 100%, rgba(37, 211, 102, 0.03) 0%, transparent 50%);
+    }
+
+    .orcamento-container {
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    /* ===== BREADCRUMB WHATSAPP ===== */
+    .breadcrumb-modern {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 48px;
+      background: white;
+      padding: 20px 32px;
+      border-radius: 100px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(37, 211, 102, 0.1);
+    }
+
+    .breadcrumb-step {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .breadcrumb-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      position: relative;
+    }
+
+    .breadcrumb-indicator {
+      width: 48px;
+      height: 48px;
+      background: var(--color-neutral-200);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-neutral-600);
+      font-weight: 700;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .breadcrumb-item.active .breadcrumb-indicator {
+      background: var(--color-whatsapp);
+      color: white;
+      box-shadow: 0 10px 20px rgba(37, 211, 102, 0.25);
+    }
+
+    .breadcrumb-item.completed .breadcrumb-indicator {
+      background: var(--color-success);
+      color: white;
+    }
+
+    .breadcrumb-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .breadcrumb-label {
+      font-size: 12px;
+      color: var(--color-neutral-600);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .breadcrumb-value {
+      font-weight: 700;
+      color: var(--color-neutral-900);
+      font-size: 16px;
+    }
+
+    .breadcrumb-separator {
+      color: var(--color-neutral-400);
+      font-size: 20px;
+      font-weight: 300;
+    }
+
+    /* ===== CARD WHATSAPP ===== */
+    .orcamento-card {
+      background: white;
+      border-radius: 48px;
+      box-shadow: 0 30px 60px -20px rgba(37, 211, 102, 0.15);
+      overflow: hidden;
+      border: 1px solid rgba(37, 211, 102, 0.2);
+      backdrop-filter: blur(10px);
+    }
+
+    .orcamento-card-header {
+      background: linear-gradient(145deg, #075E54, #128C7E);
+      padding: 48px 48px 32px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .orcamento-card-header::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .mascote-header {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .mascote-avatar {
+      width: 100px;
+      height: 100px;
+      background: white;
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+      border: 4px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .mascote-avatar i {
+      font-size: 60px;
+      color: #25D366;
+    }
+
+    .mascote-text h2 {
+      color: white;
+      font-size: 32px;
+      font-weight: 800;
+      margin-bottom: 8px;
+      letter-spacing: -1px;
+    }
+
+    .mascote-text p {
+      color: rgba(255, 255, 255, 0.95);
+      font-size: 18px;
+      margin: 0;
+    }
+
+    .highlight {
+      color: #DCF8C6;
+      font-weight: 700;
+    }
+
+    .orcamento-card-body {
+      padding: 48px;
+      background: white;
+    }
+
+    /* ===== ESTILOS DO FORMULÁRIO ===== */
+    .form-title {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--color-neutral-900);
+      margin-bottom: 32px;
+      text-align: center;
+    }
+
+    .form-title i {
+      color: #25D366;
+      margin-right: 12px;
+    }
+
+    .opcao-card-lg {
+      border: 2px solid var(--color-neutral-300);
+      border-radius: 32px;
+      padding: 32px 24px;
+      text-align: center;
+      background: white;
+      cursor: pointer;
+      width: 100%;
+      transition: all 0.3s;
+    }
+
+    .opcao-card-lg:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(37, 211, 102, 0.1);
+      border-color: #25D366;
+    }
+
+    .opcao-card-lg.selecionado {
+      border-color: #25D366;
+      background: #e8f5e9;
+      box-shadow: 0 20px 40px rgba(37, 211, 102, 0.15);
+    }
+
+    .grid-2-full {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .kodassauro-bubble-lg {
+      background: linear-gradient(145deg, #f8f9fa, #ffffff);
+      border-radius: 32px;
+      padding: 32px;
+      margin-bottom: 32px;
+      border: 2px solid #25D366;
+      position: relative;
+      box-shadow: 0 10px 30px rgba(37, 211, 102, 0.1);
+    }
+
+    .quiz-options {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .opcao-quiz-lg {
+      border: 2px solid var(--color-neutral-300);
+      border-radius: 24px;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .opcao-quiz-lg:hover {
+      border-color: #25D366;
+      background: #e8f5e9;
+    }
+
+    .orcamento-panel-full {
+      background: linear-gradient(145deg, #075E54, #128C7E);
+      border-radius: 32px;
+      padding: 32px;
+      margin: 32px 0;
+      color: white;
+    }
+
+    .valor-destaque {
+      font-size: 56px;
+      font-weight: 800;
+      line-height: 1;
+      color: white;
+      letter-spacing: -2px;
+    }
+
+    .btn-whatsapp-full {
+      padding: 20px 40px;
+      background: linear-gradient(145deg, #25D366, #128C7E);
+      color: white;
+      border: none;
+      border-radius: 60px;
+      font-weight: 700;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      width: 100%;
+      transition: all 0.3s;
+      cursor: pointer;
+    }
+
+    .btn-whatsapp-full:hover:not(:disabled) {
+      transform: scale(1.02);
+      box-shadow: 0 20px 40px rgba(37, 211, 102, 0.4);
+    }
+
+    .btn-outline-full {
+      width: 100%;
+      padding: 18px;
+      background: white;
+      border: 2px solid var(--color-neutral-300);
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+
+    .btn-outline-full:hover {
+      background: var(--color-neutral-200);
+      border-color: #25D366;
+    }
+
+    /* ===== EXTRAS GRID ===== */
+    .extras-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .opcao-extra-lg {
+      border: 2px solid var(--color-neutral-300);
+      border-radius: 20px;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .opcao-extra-lg:hover {
+      border-color: #25D366;
+      background: #e8f5e9;
+    }
+
+    /* ===== WHATSAPP FLOATING BUTTON ===== */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #25D366;
+      color: white;
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 35px;
+      box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+      text-decoration: none;
+      transition: all 0.3s;
+      z-index: 999;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+      background: #128C7E;
+    }
+
+    /* ===== ANIMAÇÕES ===== */
+    .fade-enter {
+      animation: fadeIn 0.5s ease;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    /* ===== RESPONSIVO ===== */
+    @media (max-width: 768px) {
+      .breadcrumb-modern {
+        flex-direction: column;
+        align-items: flex-start;
+        border-radius: 24px;
+      }
+
+      .breadcrumb-step {
+        width: 100%;
+      }
+
+      .grid-2-full {
+        grid-template-columns: 1fr;
+      }
+
+      .quiz-options {
+        grid-template-columns: 1fr;
+      }
+
+      .extras-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .orcamento-card-body {
+        padding: 24px;
+      }
+
+      .mascote-header {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .valor-destaque {
+        font-size: 40px;
+      }
+
+      .mascote-text h2 {
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="navbar-modern">
+    <div class="container-fluid">
+      <div class="navbar-wrapper">
+        <div class="navbar-brand">
+          <a href="index.html" class="logo-text">KoddaHub</a>
+        </div>
+        <nav class="navbar-menu">
+          <a href="#inicio" class="nav-link">Home</a>
+          <a href="#solucoes" class="nav-link">Soluções</a>
+          <a href="#orcamento" class="nav-link active">Orçamento</a>
+          <a href="#contato" class="nav-link">Contato</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- WHATSAPP FLOATING BUTTON -->
+  <a href="https://wa.me/554192272854?text=Olá!%20Gostaria%20de%20fazer%20um%20orçamento%20com%20a%20KoddaHub%20🦕"
+    class="whatsapp-float" target="_blank" aria-label="Fale conosco no WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- SEÇÃO ORÇAMENTO WHATSAPP -->
+  <section id="orcamento" class="orcamento-whatsapp-section">
+    <div class="orcamento-container">
+
+      <!-- BREADCRUMB MODERNO -->
+      <div class="breadcrumb-modern">
+        <div class="breadcrumb-step">
+          <div class="breadcrumb-item active" id="breadcrumb-1">
+            <div class="breadcrumb-indicator">1</div>
+            <div class="breadcrumb-text">
+              <span class="breadcrumb-label">PASSO 1</span>
+              <span class="breadcrumb-value">Diagnóstico</span>
+            </div>
+          </div>
+          <span class="breadcrumb-separator">→</span>
+        </div>
+
+        <div class="breadcrumb-step">
+          <div class="breadcrumb-item" id="breadcrumb-2">
+            <div class="breadcrumb-indicator">2</div>
+            <div class="breadcrumb-text">
+              <span class="breadcrumb-label">PASSO 2</span>
+              <span class="breadcrumb-value">Orçamento</span>
+            </div>
+          </div>
+          <span class="breadcrumb-separator">→</span>
+        </div>
+
+        <div class="breadcrumb-step">
+          <div class="breadcrumb-item" id="breadcrumb-3">
+            <div class="breadcrumb-indicator">3</div>
+            <div class="breadcrumb-text">
+              <span class="breadcrumb-label">PASSO 3</span>
+              <span class="breadcrumb-value">WhatsApp</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD PRINCIPAL DO ORÇAMENTO -->
+      <div class="orcamento-card">
+        <!-- HEADER COM MASCOTE WHATSAPP -->
+        <div class="orcamento-card-header">
+          <div class="mascote-header">
+            <div class="mascote-avatar">
+              <i class="fab fa-whatsapp"></i>
+            </div>
+            <div class="mascote-text">
+              <h2>🦕 Kodassauro no WhatsApp!</h2>
+              <p>Responda as perguntas e envie <span class="highlight">direto para o nosso time</span></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- CORPO DO FORMULÁRIO -->
+        <div class="orcamento-card-body">
+          <form id="formOrcamentoWhatsApp">
+
+            <!-- PASSO 1: DIAGNÓSTICO -->
+            <div id="passo1-wpp" class="fade-enter">
+              <h3 class="form-title">
+                <i class="fas fa-comments"></i>
+                Vamos descobrir o melhor projeto?
+              </h3>
+
+              <div style="margin-bottom: 48px;">
+                <div class="grid-2-full">
+                  <button type="button" class="opcao-card-lg" onclick="selecionarCertezaWPP('sim', this)">
+                    <i class="fas fa-check-circle" style="font-size: 48px; color: #25D366; margin-bottom: 16px;"></i>
+                    <span style="font-weight: 800; font-size: 24px; display: block; margin-bottom: 8px;">Sim, já
+                      sei!</span>
+                    <span style="font-size: 16px; color: #5a6b7c;">Quero enviar meu projeto</span>
+                  </button>
+                  <button type="button" class="opcao-card-lg" onclick="selecionarCertezaWPP('nao', this)">
+                    <i class="fas fa-question-circle" style="font-size: 48px; color: #f59e0b; margin-bottom: 16px;"></i>
+                    <span style="font-weight: 800; font-size: 24px; display: block; margin-bottom: 8px;">Ainda não
+                      sei</span>
+                    <span style="font-size: 16px; color: #5a6b7c;">Preciso de recomendação</span>
+                  </button>
+                </div>
+              </div>
+
+              <div id="bloco-sim-wpp" style="display: none;">
+                <div style="margin-bottom: 32px;">
+                  <label style="display: block; font-size: 20px; font-weight: 700; margin-bottom: 24px;">
+                    📌 Qual tipo de projeto?
+                  </label>
+                  <select id="tipoProjetoWPP"
+                    style="width: 100%; padding: 20px 24px; border: 2px solid #e0e0e0; border-radius: 24px; font-size: 18px; background: white; margin-bottom: 24px;"
+                    onchange="calcularOrcamentoWPP()">
+                    <option value="">Selecione uma opção</option>
+                    <option value="institucional" data-horas="12">🌐 Site Institucional</option>
+                    <option value="ecommerce" data-horas="40">🛒 E-commerce</option>
+                    <option value="industrial" data-horas="24">🏭 Site Industrial</option>
+                    <option value="servicos" data-horas="16">💼 Site de Serviços</option>
+                    <option value="sistema" data-horas="0">⚙️ Sistema Sob Medida</option>
+                    <option value="app" data-horas="60">📱 Aplicativo Mobile</option>
+                    <option value="landing" data-horas="8">🎯 Landing Page</option>
+                  </select>
+                </div>
+              </div>
+
+              <div id="bloco-nao-wpp" style="display: none;">
+                <div class="kodassauro-bubble-lg">
+                  <div style="display: flex; align-items: center; gap: 20px;">
+                    <i class="fab fa-whatsapp" style="font-size: 60px; color: #25D366;"></i>
+                    <p style="font-size: 18px; color: #0B1020; margin: 0; font-weight: 500;">
+                      "Vou te ajudar! Me conta qual seu segmento e objetivo que te dou a melhor recomendação 🦕"
+                    </p>
+                  </div>
+                </div>
+
+                <div style="display: flex; flex-direction: column; gap: 32px;">
+                  <div>
+                    <label style="display: block; font-weight: 700; font-size: 18px; margin-bottom: 20px;">Qual seu
+                      segmento?</label>
+                    <div class="quiz-options">
+                      <label class="opcao-quiz-lg">
+                        <input type="radio" name="segmento-wpp" value="Comércio / Varejo"
+                          style="width: 20px; height: 20px;" onchange="calcularSugestaoWPP()">
+                        <i class="fas fa-store" style="font-size: 24px; color: #25D366;"></i>
+                        <span style="font-weight: 600;">Comércio</span>
+                      </label>
+                      <label class="opcao-quiz-lg">
+                        <input type="radio" name="segmento-wpp" value="Prestação de Serviços"
+                          style="width: 20px; height: 20px;" onchange="calcularSugestaoWPP()">
+                        <i class="fas fa-briefcase" style="font-size: 24px; color: #25D366;"></i>
+                        <span style="font-weight: 600;">Serviços</span>
+                      </label>
+                      <label class="opcao-quiz-lg">
+                        <input type="radio" name="segmento-wpp" value="Indústria / Fábrica"
+                          style="width: 20px; height: 20px;" onchange="calcularSugestaoWPP()">
+                        <i class="fas fa-industry" style="font-size: 24px; color: #25D366;"></i>
+                        <span style="font-weight: 600;">Indústria</span>
+                      </label>
+                      <label class="opcao-quiz-lg">
+                        <input type="radio" name="segmento-wpp" value="Autônomo / Profissional Liberal"
+                          style="width: 20px; height: 20px;" onchange="calcularSugestaoWPP()">
+                        <i class="fas fa-user-tie" style="font-size: 24px; color: #25D366;"></i>
+                        <span style="font-weight: 600;">Autônomo</span>
+                      </label>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label style="display: block; font-weight: 700; font-size: 18px; margin-bottom: 20px;">Qual seu
+                      objetivo principal?</label>
+                    <div class="quiz-options">
+                      <label class="opcao-quiz-lg">
+                        <input type="radio" name="objetivo-wpp" value="Vender produtos/serviços online"
+                          style="width: 20px; height: 20px;" onchange="calcularSugestaoWPP()">
+                        <i class="fas fa-dollar-sign" style="font-size: 24px; color: #25D366;"></i>
+                        <span style="font-weight: 600;">Vender online</span>
+                      </label>
+                      <label class="opcao-quiz-lg">
+                        <input type="radio" name="objetivo-wpp" value="Presença profissional na internet"
+                          style="width: 20px; height: 20px;" onchange="calcularSugestaoWPP()">
+                        <i class="fas fa-trophy" style="font-size: 24px; color: #25D366;"></i>
+                        <span style="font-weight: 600;">Presença profissional</span>
+                      </label>
+                      <label class="opcao-quiz-lg">
+                        <input type="radio" name="objetivo-wpp" value="Gerar leads e captar clientes"
+                          style="width: 20px; height: 20px;" onchange="calcularSugestaoWPP()">
+                        <i class="fas fa-users" style="font-size: 24px; color: #25D366;"></i>
+                        <span style="font-weight: 600;">Gerar leads</span>
+                      </label>
+                      <label class="opcao-quiz-lg">
+                        <input type="radio" name="objetivo-wpp" value="Informar e comunicar"
+                          style="width: 20px; height: 20px;" onchange="calcularSugestaoWPP()">
+                        <i class="fas fa-info-circle" style="font-size: 24px; color: #25D366;"></i>
+                        <span style="font-weight: 600;">Informar</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+                <div id="sugestao-kodassauro-wpp"
+                  style="background: linear-gradient(145deg, #25D366, #128C7E); border-radius: 32px; padding: 32px; margin-top: 32px; color: white; display: none;">
+                  <div style="display: flex; flex-direction: column; align-items: center; gap: 20px;">
+                    <i class="fab fa-whatsapp" style="font-size: 60px; color: white;"></i>
+                    <h4 style="color: white; font-size: 24px; margin: 0;">Kodassauro recomenda:</h4>
+                    <p id="texto-sugestao-wpp" style="font-size: 18px; text-align: center;"></p>
+                    <button type="button" onclick="aceitarSugestaoWPP()"
+                      style="background: white; color: #128C7E; border: none; padding: 16px 32px; border-radius: 60px; font-weight: 700; font-size: 18px; display: flex; align-items: center; gap: 12px; cursor: pointer;">
+                      <i class="fas fa-check-circle"></i> Aceitar sugestão
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div style="display: flex; justify-content: center; margin-top: 48px;">
+                <button type="button" id="btn-proximo-wpp" class="btn-whatsapp-full" onclick="irParaPasso2WPP()"
+                  style="max-width: 400px;" disabled>
+                  Próximo passo <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- PASSO 2: ORÇAMENTO -->
+            <div id="passo2-wpp" style="display: none;" class="fade-enter">
+              <h3 class="form-title">
+                <i class="fas fa-calculator"></i>
+                Personalize e envie via WhatsApp
+              </h3>
+
+              <div id="resumo-projeto-wpp"
+                style="background: #e8f5e9; border-radius: 24px; padding: 24px; margin-bottom: 32px;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <div>
+                    <span style="font-size: 12px; color: #128C7E; text-transform: uppercase;">PROJETO SELECIONADO</span>
+                    <p id="projeto-selecionado-wpp"
+                      style="font-size: 24px; font-weight: 800; margin: 8px 0 0 0; color: #075E54;"></p>
+                  </div>
+                  <span id="badge-tipo-wpp"
+                    style="background: #25D366; color: white; padding: 8px 20px; border-radius: 60px; font-weight: 600;"></span>
+                </div>
+              </div>
+
+              <div id="secao-sistema-custom-wpp"
+                style="display: none; background: linear-gradient(145deg, #fff3e0, #ffe0b2); border-radius: 32px; padding: 32px; margin-bottom: 32px;">
+                <h4 style="font-size: 24px; font-weight: 800; margin-bottom: 24px; text-align: center; color: #075E54;">
+                  ⚙️ Sistema Sob Medida</h4>
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;">
+                  <label class="opcao-horas"
+                    style="border: 2px solid #25D366; border-radius: 20px; padding: 20px; display: flex; flex-direction: column; align-items: center; gap: 8px; cursor: pointer; background: white;">
+                    <input type="radio" name="horas-custom-wpp" value="40" onchange="calcularOrcamentoWPP()"
+                      style="display: none;">
+                    <span style="font-weight: 800; font-size: 20px;">40 horas</span>
+                    <span style="color: #25D366; font-weight: 700; font-size: 20px;">R$ 8.000</span>
+                    <span style="font-size: 14px;">1 semana</span>
+                  </label>
+                  <label class="opcao-horas"
+                    style="border: 2px solid #25D366; border-radius: 20px; padding: 20px; display: flex; flex-direction: column; align-items: center; gap: 8px; cursor: pointer; background: white;">
+                    <input type="radio" name="horas-custom-wpp" value="80" onchange="calcularOrcamentoWPP()"
+                      style="display: none;">
+                    <span style="font-weight: 800; font-size: 20px;">80 horas</span>
+                    <span style="color: #25D366; font-weight: 700; font-size: 20px;">R$ 16.000</span>
+                    <span style="font-size: 14px;">2 semanas</span>
+                  </label>
+                </div>
+              </div>
+
+              <div style="margin-bottom: 32px;">
+                <label style="display: block; font-weight: 700; font-size: 18px; margin-bottom: 20px;">✨ Funcionalidades
+                  extras</label>
+                <div class="extras-grid">
+                  <label class="opcao-extra-lg">
+                    <input type="checkbox" name="extra-wpp" value="4" data-horas="4" data-nome="Blog"
+                      onchange="calcularOrcamentoWPP()" style="width: 20px; height: 20px;">
+                    <div>
+                      <span style="font-weight: 700; display: block;">Blog</span>
+                      <span style="color: #25D366;">+4h (R$ 800)</span>
+                    </div>
+                  </label>
+                  <label class="opcao-extra-lg">
+                    <input type="checkbox" name="extra-wpp" value="6" data-horas="6" data-nome="Área de membros"
+                      onchange="calcularOrcamentoWPP()" style="width: 20px; height: 20px;">
+                    <div>
+                      <span style="font-weight: 700; display: block;">Área de membros</span>
+                      <span style="color: #25D366;">+6h (R$ 1.200)</span>
+                    </div>
+                  </label>
+                  <label class="opcao-extra-lg">
+                    <input type="checkbox" name="extra-wpp" value="5" data-horas="5" data-nome="Agendamento online"
+                      onchange="calcularOrcamentoWPP()" style="width: 20px; height: 20px;">
+                    <div>
+                      <span style="font-weight: 700; display: block;">Agendamento</span>
+                      <span style="color: #25D366;">+5h (R$ 1.000)</span>
+                    </div>
+                  </label>
+                  <label class="opcao-extra-lg">
+                    <input type="checkbox" name="extra-wpp" value="6" data-horas="6" data-nome="Multilíngue"
+                      onchange="calcularOrcamentoWPP()" style="width: 20px; height: 20px;">
+                    <div>
+                      <span style="font-weight: 700; display: block;">Multilíngue</span>
+                      <span style="color: #25D366;">+6h (R$ 1.200)</span>
+                    </div>
+                  </label>
+                  <label class="opcao-extra-lg">
+                    <input type="checkbox" name="extra-wpp" value
