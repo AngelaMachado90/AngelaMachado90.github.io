@@ -28,8 +28,6 @@
   <!-- Font Awesome 5 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
     crossorigin="anonymous" />
-  <!--CSS -->
-  <link rel="stylesheet" href="css/main.css" />
 </head>
 
 <body>
@@ -753,6 +751,69 @@
         clearInterval(autoplayInterval);
       });
     });
+  </script>
+
+  <script>
+    // Script para o menu mobile
+    document.addEventListener('DOMContentLoaded', function () {
+      const navToggle = document.getElementById('navToggle');
+      const navMenu = document.getElementById('navMenu');
+
+      if (navToggle && navMenu) {
+        navToggle.addEventListener('click', function () {
+          const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
+          navToggle.setAttribute('aria-expanded', !isExpanded);
+          navMenu.classList.toggle('active');
+        });
+      }
+    });
+  </script>
+  <script>
+    // Script para o formulário de contato
+    document.addEventListener('DOMContentLoaded', function () {
+      const contactForm = document.getElementById('industrialContactForm');
+
+      if (contactForm) {
+        contactForm.addEventListener('submit', function (e) {
+          e.preventDefault();
+
+          // Coletar dados do formulário
+          const formData = new FormData(contactForm);
+          const data = {};
+          formData.forEach((value, key) => {
+            data[key] = value;
+          });
+
+          // Simular envio (aqui você pode integrar com backend ou serviço de email)
+          console.log('Dados do formulário:', data);
+          alert('Obrigado por entrar em contato! Responderemos em breve.');
+
+          // Resetar formulário
+          contactForm.reset();
+        });
+      }
+    });
+  </script>
+  <script>
+    // Tornar os cards de solução clicáveis
+      document.addEventListener('DOMContentLoaded', function () {
+        const solutionCards = document.querySelectorAll('.solution-card');
+
+        solutionCards.forEach(card => {
+          card.addEventListener('click', function (e) {
+            // Verifica se o clique não foi em um link dentro do card
+            if (!e.target.closest('a')) {
+              const link = this.querySelector('.btn-link');
+              if (link) {
+                window.location.href = link.getAttribute('href');
+              }
+            }
+          });
+
+          // Adiciona cursor pointer para indicar que é clicável
+          card.style.cursor = 'pointer';
+        });
+      });
   </script>
 
   <!-- Scripts existentes -->
