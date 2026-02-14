@@ -1,12 +1,27 @@
-/* ====================================================
- * COMPONENTE: Hero Carrossel (CSS Puro com Autoplay)
- * ARQUIVO: _hero-carrossel.css
- * ====================================================
- *
- * DESCRIÇÃO:
+/* ============================================================================
+   COMPONENT: HERO CAROUSEL
+   Arquivo: css/components/hero-carousel.css
+   Versão: 3.1.0 | CSS Puro com Autoplay
+   Data: 14/02/2026 | Autor: Angela Machado
+   ============================================================================ */
+
+/**
+ * OBJETIVO:
  * Carrossel de imagens para a seção hero, implementado apenas com CSS
  * utilizando radio buttons para controle. Inclui navegação por setas,
  * indicadores de posição (dots) e autoplay a cada 5 segundos.
+ *
+ * HIERARQUIA:
+ * 1. .hero-carousel - Container principal
+ * 2. .hero-carousel-viewport - Área visível do carrossel
+ * 3. .hero-carousel-track - Trilho que contém os slides
+ * 4. .hero-slide - Slide individual
+ * 5. .hero-slide-overlay - Overlay de conteúdo
+ * 6. .hero-carousel-controls - Controles de navegação
+ * 7. .hero-carousel-dots - Indicadores de posição
+ *
+ * DEPENDÊNCIAS:
+ * - variables.css (obrigatório, para variáveis do carrossel)
  *
  * ESTRUTURA HTML RECOMENDADA:
  * <div class="hero-carousel">
@@ -27,27 +42,34 @@
  *   <div class="hero-carousel-controls">...</div>
  *   <div class="hero-carousel-dots">...</div>
  * </div>
- *
- * AUTOR: Angela Machado
- * DATA: 13-02-2026
- * VERSÃO: 3.0.0
- * 
- * ====================================================
  */
 
+/* ============================================================================
+   SEÇÃO 1: CONTAINER PRINCIPAL
+   ============================================================================ */
 
-/* ============ CONTAINER PRINCIPAL ============ */
+/**
+ * .hero-carousel - Container principal do carrossel
+ * Define dimensões, sombra e bordas arredondadas
+ */
 .hero-carousel {
     position: relative;
     width: 100%;
-    max-width: var(--carousel-max-width);
+    max-width: var(--carousel-max-width, 1100px);
     margin: 0 auto;
     overflow: hidden;
-    border-radius: var(--carousel-radius);
-    box-shadow: var(--carousel-shadow);
+    border-radius: var(--carousel-radius, 28px);
+    box-shadow: var(--carousel-shadow, 0 30px 60px rgba(0, 0, 0, 0.5));
 }
 
-/* ============ INPUTS DE CONTROLE ============ */
+/* ============================================================================
+   SEÇÃO 2: INPUTS DE CONTROLE
+   ============================================================================ */
+
+/**
+ * Inputs radio para controle dos slides
+ * Escondidos visualmente mas funcionais
+ */
 .hero-carousel input[type="radio"] {
     position: absolute;
     opacity: 0;
@@ -56,18 +78,32 @@
     pointer-events: none;
 }
 
-/* ============ VIEWPORT ============ */
+/* ============================================================================
+   SEÇÃO 3: VIEWPORT
+   ============================================================================ */
+
+/**
+ * .hero-carousel-viewport - Área visível do carrossel
+ * Container que esconde os slides fora da área visível
+ */
 .hero-carousel-viewport {
     position: relative;
     overflow: hidden;
     width: 100%;
-    border-radius: var(--carousel-radius);
+    border-radius: var(--carousel-radius, 28px);
     min-height: 100%;
     -webkit-backdrop-filter: blur(14px);
     backdrop-filter: blur(14px);
 }
 
-/* ============ TRACK ============ */
+/* ============================================================================
+   SEÇÃO 4: TRACK (TRILHO DOS SLIDES)
+   ============================================================================ */
+
+/**
+ * .hero-carousel-track - Trilho que contém todos os slides
+ * Largura total baseada em 6 slides (600%)
+ */
 .hero-carousel-track {
     display: flex;
     width: 600%;
@@ -77,7 +113,14 @@
     will-change: transform;
 }
 
-/* ============ SLIDES COM IMAGEM ADAPTÁVEL ============ */
+/* ============================================================================
+   SEÇÃO 5: SLIDES
+   ============================================================================ */
+
+/**
+ * .hero-slide - Slide individual do carrossel
+ * Cada slide ocupa 1/6 da largura total (16.666%)
+ */
 .hero-slide {
     position: relative;
     margin: 0;
@@ -85,21 +128,26 @@
     width: 16.666%;
     flex-shrink: 0;
     background: linear-gradient(135deg, #1a1a2e, #16213e);
-    border-radius: var(--carousel-radius);
+    border-radius: var(--carousel-radius, 28px);
     overflow: hidden;
     transition: all 0.5s cubic-bezier(0.2, 0.9, 0.3, 1);
     box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.6);
-    min-height: 650px; /* AUMENTADO para dar espaço */
+    min-height: 650px;
+    /* Espaço para overlay */
 }
 
-/* Efeito de hover no slide inteiro */
+/**
+ * Efeito hover no slide inteiro
+ */
 .hero-slide:hover {
     transform: scale(1.02);
     box-shadow: 0 30px 40px -10px rgba(245, 124, 0, 0.4);
     z-index: 20;
 }
 
-/* BRILHO NO CANTO */
+/**
+ * Brilho no canto superior esquerdo
+ */
 .hero-slide::after {
     content: '';
     position: absolute;
@@ -120,44 +168,18 @@
     opacity: 1;
 }
 
-/* IMAGEM - TOTALMENTE ADAPTÁVEL */
-.hero-slide img {
-    width: 100%;
-    height: auto;
-    /* Altura automática para manter proporção */
-    display: block;
-    object-fit: contain;
-    /* Mostra a imagem inteira sem cortar */
-    object-position: center;
-    background: linear-gradient(135deg, #1a1a2e, #16213e);
-    /* Fundo para espaços vazios */
-    transition: all 0.5s ease;
-    filter: brightness(0.98) contrast(1.05);
-    max-height: 600px;
-    /* Limite máximo */
-}
-
-/* Para imagens mais altas que largas */
-.hero-slide img.portrait {
-    width: auto;
-    height: 100%;
-    max-width: 100%;
-    margin: 0 auto;
-}
-
-/* Efeito hover na imagem */
-.hero-slide:hover img {
-    filter: brightness(1.05) contrast(1.1) saturate(1.1);
-    transform: scale(1.02);
-}
-
-/* BORDA GRADIENTE ANIMADA */
+/**
+ * Borda gradiente animada
+ */
 .hero-slide::before {
     content: '';
     position: absolute;
     inset: -2px;
-    background: linear-gradient(135deg, #2196F3, #F57C00, #2196F3);
-    border-radius: calc(var(--carousel-radius) + 2px);
+    background: linear-gradient(135deg,
+            var(--color-secondary-600, #2196F3),
+            var(--color-primary-600, #F57C00),
+            var(--color-secondary-600, #2196F3));
+    border-radius: calc(var(--carousel-radius, 28px) + 2px);
     z-index: -1;
     opacity: 0;
     transition: opacity 0.5s ease;
@@ -169,21 +191,51 @@
     opacity: 0.8;
 }
 
-@keyframes gradientMove {
-    0% {
-        background-position: 0% 50%;
-    }
+/* ============================================================================
+   SEÇÃO 6: IMAGENS DOS SLIDES
+   ============================================================================ */
 
-    50% {
-        background-position: 100% 50%;
-    }
-
-    100% {
-        background-position: 0% 50%;
-    }
+/**
+ * Imagem do slide - adaptável e responsiva
+ */
+.hero-slide img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+    object-position: center;
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    transition: all 0.5s ease;
+    filter: brightness(0.98) contrast(1.05);
+    max-height: 600px;
 }
 
-/* OVERLAY - SEMPRE VISÍVEL */
+/**
+ * Para imagens no formato retrato (mais altas que largas)
+ */
+.hero-slide img.portrait {
+    width: auto;
+    height: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+/**
+ * Efeito hover na imagem
+ */
+.hero-slide:hover img {
+    filter: brightness(1.05) contrast(1.1) saturate(1.1);
+    transform: scale(1.02);
+}
+
+/* ============================================================================
+   SEÇÃO 7: OVERLAY DE CONTEÚDO
+   ============================================================================ */
+
+/**
+ * .hero-slide-overlay - Overlay principal
+ * Posicionado sobre o slide com conteúdo
+ */
 .hero-slide-overlay {
     bottom: 30px;
     left: 30px;
@@ -191,46 +243,29 @@
     background: rgba(0, 0, 0, 0.7);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border-radius: var(--carousel-radius);
+    border-radius: var(--carousel-radius, 28px);
     padding: 30px;
     border: 1px solid rgba(245, 124, 0, 0.3);
     box-shadow: 0 25px 40px -15px rgba(0, 0, 0, 0.5);
     z-index: 10;
     transition: all 0.4s ease;
+
+    /* Overlay interno para gradiente */
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(135deg,
+                rgba(33, 150, 243, 0.2),
+                rgba(245, 124, 0, 0.2));
+        border-radius: var(--carousel-radius, 28px);
+        z-index: -1;
+    }
 }
 
-
-/* Overlay mais escuro para melhor contraste */
-.hero-slide-overlay::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, rgba(33, 150, 243, 0.2), rgba(245, 124, 0, 0.2));
-    border-radius: var(--carousel-radius);
-    z-index: -1;
-}
-.hero-slide-card {
-    pointer-events: auto;
-    width: min(420px, 100%);
-    margin: 0;
-}
-
-/* Versão alternativa do overlay (bottom) */
-.hero-slide-overlay-alt {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: var(--carousel-overlay);
-    color: white;
-    padding: 40px 25px 25px;
-    margin: 0;
-    border-bottom-left-radius: var(--carousel-radius);
-    border-bottom-right-radius: var(--carousel-radius);
-    z-index: 5;
-    pointer-events: none;
-}
-
+/**
+ * Efeito hover no overlay
+ */
 .hero-slide:hover .hero-slide-overlay {
     background: rgba(0, 0, 0, 0.8);
     border-color: rgba(245, 124, 0, 0.6);
@@ -238,7 +273,48 @@
     transform: translateY(-5px);
 }
 
-/* CABEÇALHO DO OVERLAY */
+/**
+ * Versão alternativa do overlay (apenas na parte inferior)
+ */
+.hero-slide-overlay-alt {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--carousel-overlay, linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3)));
+    color: white;
+    padding: 40px 25px 25px;
+    margin: 0;
+    border-bottom-left-radius: var(--carousel-radius, 28px);
+    border-bottom-right-radius: var(--carousel-radius, 28px);
+    z-index: 5;
+    pointer-events: none;
+}
+
+/**
+ * Garante que elementos internos sejam interativos
+ */
+.hero-slide-overlay-alt *,
+.hero-slide-overlay * {
+    pointer-events: auto;
+}
+
+/**
+ * Card interno do overlay
+ */
+.hero-slide-card {
+    pointer-events: auto;
+    width: min(420px, 100%);
+    margin: 0;
+}
+
+/* ============================================================================
+   SEÇÃO 8: CABEÇALHO DO OVERLAY
+   ============================================================================ */
+
+/**
+ * Container para título e ícone
+ */
 .hero-slide-overlay .showcase-headings {
     display: flex;
     align-items: center;
@@ -246,11 +322,15 @@
     margin-bottom: 15px;
 }
 
-/* ÍCONE */
+/**
+ * Ícone do título
+ */
 .hero-slide-overlay .showcase-headings .title-icon {
     width: 70px;
     height: 70px;
-    background: linear-gradient(135deg, #2196F3, #F57C00);
+    background: linear-gradient(135deg,
+            var(--color-secondary-600, #2196F3),
+            var(--color-primary-600, #F57C00));
     border-radius: 18px;
     display: flex;
     align-items: center;
@@ -261,13 +341,62 @@
     flex-shrink: 0;
 }
 
-
-.hero-slide-overlay-alt *,
-.hero-slide-overlay * {
-    pointer-events: auto;
+/**
+ * Título principal (laranja)
+ */
+.hero-slide-overlay .showcase-headings h3 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin: 0;
+    color: var(--color-primary-600, #F57C00);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    line-height: 1.2;
+    flex: 1;
 }
 
-/* Ícone do slide */
+/**
+ * Efeito neon no hover
+ */
+.hero-slide:hover .showcase-headings h3 {
+    text-shadow:
+        0 0 10px var(--color-primary-600, #F57C00),
+        0 0 20px var(--color-primary-600, #F57C00);
+}
+
+/**
+ * Linha decorativa sob o título
+ */
+.hero-slide-overlay .showcase-headings h3::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg,
+            var(--color-primary-600, #F57C00),
+            var(--color-secondary-600, #2196F3));
+    border-radius: 2px;
+}
+
+/**
+ * Subtítulo
+ */
+.hero-slide-overlay .showcase-headings p {
+    font-size: 1.2rem;
+    color: white;
+    margin: 0 0 20px 0;
+    opacity: 0.95;
+    font-weight: 400;
+}
+
+/* ============================================================================
+   SEÇÃO 9: ÍCONES DO SLIDE
+   ============================================================================ */
+
+/**
+ * Ícone do slide
+ */
 .hero-slide-overlay .showcase-icon,
 .hero-slide-overlay-alt .showcase-icon {
     width: 50px;
@@ -279,54 +408,79 @@
     align-items: center;
     justify-content: center;
     font-size: 24px;
-    color: var(--carousel-accent);
+    color: var(--carousel-accent, var(--color-secondary-700));
     margin-bottom: 15px;
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Títulos */
-.hero-slide-overlay .showcase-headings h3,
-.hero-slide-overlay-alt .showcase-headings h3 {
-    margin: 0 0 5px;
-    font-size: 1.4rem;
-    font-weight: 600;
-    color: white;
-    line-height: 1.2;
-    text-align:center;
-}
+/* ============================================================================
+   SEÇÃO 10: LINKS E BOTÕES
+   ============================================================================ */
 
-
-/* Links */
+/**
+ * Container dos links
+ */
 .hero-slide-overlay .showcase-links,
 .hero-slide-overlay-alt .showcase-links {
     display: flex;
     flex-wrap: wrap;
-    gap: 12px;
+    gap: 15px;
 }
 
+/**
+ * Links individuais
+ */
 .hero-slide-overlay .showcase-link,
 .hero-slide-overlay-alt .showcase-link {
-    padding: 8px 18px;
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(5px);
-    border-radius: 30px;
+    padding: 12px 30px;
+    background: linear-gradient(135deg,
+            var(--color-secondary-600, #2196F3),
+            var(--color-primary-600, #F57C00));
+    border-radius: 40px;
     color: white;
     text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 500;
+    font-size: 1.1rem;
+    font-weight: 600;
     transition: all 0.3s ease;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 2px solid transparent;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
+/**
+ * Último link (estilo outline)
+ */
+.hero-slide-overlay .showcase-link:last-child,
+.hero-slide-overlay-alt .showcase-link:last-child {
+    background: transparent;
+    border: 2px solid var(--color-primary-600, #F57C00);
+}
+
+.hero-slide-overlay .showcase-link:last-child:hover,
+.hero-slide-overlay-alt .showcase-link:last-child:hover {
+    background: var(--color-primary-600, #F57C00);
+    color: white;
+}
+
+/**
+ * Hover em todos os links
+ */
 .hero-slide-overlay .showcase-link:hover,
 .hero-slide-overlay-alt .showcase-link:hover {
-    background: var(--carousel-accent);
+    background: var(--carousel-accent, var(--color-secondary-700));
     color: #000;
     transform: translateY(-2px);
     border-color: transparent;
 }
 
-/* ============ CONTROLES DE NAVEGAÇÃO ============ */
+/* ============================================================================
+   SEÇÃO 11: CONTROLES DE NAVEGAÇÃO (SETAS)
+   ============================================================================ */
+
+/**
+ * Container dos controles
+ */
 .hero-carousel-controls {
     position: absolute;
     top: 50%;
@@ -340,23 +494,40 @@
     z-index: 10;
 }
 
-/* ============ CONTROLES ============ */
+/**
+ * Botões de controle
+ */
 .hero-ctrl {
-    width: 60px;
-    height: 60px;
-    background: linear-gradient(135deg, #2196F3, #F57C00);
+    width: 44px;
+    height: 44px;
+    background: linear-gradient(135deg,
+            var(--carousel-accent-start, var(--color-secondary-700)),
+            var(--carousel-accent-end, var(--color-primary-600)));
+    backdrop-filter: blur(5px);
     color: white;
     border-radius: 50%;
-    display: flex !important;
+    display: none;
+    /* Controlado via radio */
     align-items: center;
     justify-content: center;
-    font-size: 40px;
+    font-size: 32px;
+    font-weight: bold;
     cursor: pointer;
-    transition: 0.3s;
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    pointer-events: auto;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 15;
+
+    &:hover {
+        transform: scale(1.1);
+        box-shadow: 0 15px 30px rgba(245, 124, 0, 0.5);
+    }
 }
-/* Esconder as setas que não são necessárias ainda */
+
+/**
+ * Esconder todas as setas inicialmente
+ */
 .hero-ctrl[for="hc1"],
 .hero-ctrl[for="hc2"],
 .hero-ctrl[for="hc3"],
@@ -365,7 +536,10 @@
 .hero-ctrl[for="hc6"] {
     display: none !important;
 }
-/* Mostrar apenas as setas do slide atual */
+
+/**
+ * Mostrar apenas as setas do slide atual
+ */
 #hc1:checked~.hero-carousel-viewport .hero-ctrl[for="hc6"],
 #hc1:checked~.hero-carousel-viewport .hero-ctrl[for="hc2"] {
     display: flex !important;
@@ -396,46 +570,13 @@
     display: flex !important;
 }
 
-/* Botões de navegação */
-.hero-ctrl {
-    width: 44px;
-    height: 44px;
-    background: linear-gradient(135deg,
-            var(--carousel-accent-start),
-            var(--carousel-accent-end));
-    backdrop-filter: blur(5px);
-    color: white;
-    border-radius: 50%;
-    display: none;
-    /* Controlado via radio */
-    align-items: center;
-    justify-content: center;
-    font-size: 32px;
-    font-weight: bold;
-    cursor: pointer;
-    pointer-events: auto;
-    transition: all 0.3s ease;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    z-index: 15;
-}
+/* ============================================================================
+   SEÇÃO 12: INDICADORES (DOTS)
+   ============================================================================ */
 
-.hero-ctrl:hover {
-    transform: scale(1.1);
-    box-shadow: 0 15px 30px rgba(245, 124, 0, 0.5);
-}
-
-.hero-prev {
-    position: relative;
-    left: 0;
-}
-
-.hero-next {
-    position: relative;
-    right: 0;
-}
-
-/* ============ DOTS ============ */
+/**
+ * Container dos dots
+ */
 .hero-carousel-dots {
     position: absolute;
     left: 50%;
@@ -451,6 +592,9 @@
     z-index: 10;
 }
 
+/**
+ * Botão dot individual
+ */
 .hero-dotbtn {
     width: 14px;
     height: 14px;
@@ -459,16 +603,22 @@
     border: 2px solid transparent;
     cursor: pointer;
     transition: all 0.3s ease;
+
+    &.active {
+        background: var(--color-primary-600, #F57C00);
+        transform: scale(1.4);
+        border-color: white;
+        box-shadow: 0 0 15px var(--color-primary-600, #F57C00);
+    }
 }
 
-.hero-dotbtn.active {
-    background: #F57C00;
-    transform: scale(1.4);
-    border-color: white;
-    box-shadow: 0 0 15px #F57C00;
-}
+/* ============================================================================
+   SEÇÃO 13: AUTOPLAY
+   ============================================================================ */
 
-/* ============ AUTOPLAY ============ */
+/**
+ * Animação de autoplay para 6 slides
+ */
 @keyframes autoplay-hc1 {
 
     0%,
@@ -502,18 +652,24 @@
     }
 }
 
-/* Pausar autoplay no hover */
+/**
+ * Pausar autoplay no hover
+ */
 .hero-carousel:hover .hero-carousel-track {
     animation-play-state: paused;
 }
 
-/* Autoplay apenas quando nenhum input focado e não está em hover */
+/**
+ * Autoplay quando não está em hover e nenhum input focado
+ */
 .hero-carousel:not(:hover) .hero-carousel-track {
-    animation: autoplay-hc1 calc(6 * var(--carousel-autoplay-delay)) infinite;
+    animation: autoplay-hc1 calc(6 * var(--carousel-autoplay-delay, 5000ms)) infinite;
     animation-timing-function: step-end;
 }
 
-/* Sincronizar com os inputs */
+/**
+ * Sincronizar posição com os inputs
+ */
 #hc1:checked~.hero-carousel-viewport .hero-carousel-track {
     animation: none;
     transform: translateX(0);
@@ -544,17 +700,61 @@
     transform: translateX(-83.33%);
 }
 
-/* ============ UTILITÁRIOS ============ */
+/* ============================================================================
+   SEÇÃO 14: KEYFRAMES ADICIONAIS
+   ============================================================================ */
 
-/* Classe para o container do carrossel no hero */
+/**
+ * Animação do gradiente na borda
+ */
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/**
+ * Animação de neon pulsante
+ */
+@keyframes neonPulse {
+
+    0%,
+    100% {
+        text-shadow: 0 0 10px var(--color-primary-600, #F57C00),
+            0 0 20px var(--color-primary-600, #F57C00);
+    }
+
+    50% {
+        text-shadow: 0 0 20px var(--color-primary-600, #F57C00),
+            0 0 40px var(--color-primary-600, #F57C00),
+            0 0 60px var(--color-primary-600, #F57C00);
+    }
+}
+
+/* ============================================================================
+   SEÇÃO 15: UTILITÁRIOS E FALLBACKS
+   ============================================================================ */
+
+/**
+ * Container do carrossel no hero
+ */
 .hero-visual {
     position: relative;
     z-index: 5;
     padding: 20px;
 }
 
-
-/* Fallback para backdrop-filter */
+/**
+ * Fallback para navegadores sem suporte a backdrop-filter
+ */
 @supports not ((backdrop-filter: blur(10px)) or (-webkit-backdrop-filter: blur(10px))) {
 
     .hero-carousel-viewport,
@@ -568,89 +768,62 @@
     }
 }
 
-/* SUBTÍTULO */
-.hero-slide-overlay .showcase-headings p {
-    font-size: 1.2rem;
-    color: white;
-    margin: 0 0 20px 0;
-    opacity: 0.95;
-    font-weight: 400;
-}
+/* ============================================================================
+   SEÇÃO 16: EXEMPLO DE USO NO HTML
+   ============================================================================ */
 
-/* BOTÕES */
-.hero-slide-overlay .showcase-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-}
+/**
+ * EXEMPLO DE USO:
+ *
+ * <div class="hero-carousel">
+ *   <!-- Inputs de controle -->
+ *   <input type="radio" name="heroCarousel" id="hc1" checked />
+ *   <input type="radio" name="heroCarousel" id="hc2" />
+ *   <input type="radio" name="heroCarousel" id="hc3" />
+ *   <input type="radio" name="heroCarousel" id="hc4" />
+ *   <input type="radio" name="heroCarousel" id="hc5" />
+ *   <input type="radio" name="heroCarousel" id="hc6" />
+ *   
+ *   <div class="hero-carousel-viewport">
+ *     <div class="hero-carousel-track">
+ *       <!-- Slide 1 -->
+ *       <figure class="hero-slide">
+ *         <img src="slide1.jpg" alt="Descrição">
+ *         <div class="hero-slide-overlay">
+ *           <div class="showcase-headings">
+ *             <div class="title-icon">🚀</div>
+ *             <h3>Título do Slide</h3>
+ *           </div>
+ *           <p>Descrição do slide</p>
+ *           <div class="showcase-links">
+ *             <a href="#" class="showcase-link">Saiba Mais</a>
+ *             <a href="#" class="showcase-link">Contato</a>
+ *           </div>
+ *         </div>
+ *       </figure>
+ *       
+ *       <!-- Mais slides... -->
+ *     </div>
+ *   </div>
+ *   
+ *   <!-- Controles de navegação -->
+ *   <div class="hero-carousel-controls">
+ *     <label for="hc1" class="hero-ctrl hero-prev" for="hc6">‹</label>
+ *     <label for="hc2" class="hero-ctrl hero-next" for="hc2">›</label>
+ *   </div>
+ *   
+ *   <!-- Dots -->
+ *   <div class="hero-carousel-dots">
+ *     <label for="hc1" class="hero-dotbtn"></label>
+ *     <label for="hc2" class="hero-dotbtn"></label>
+ *     <label for="hc3" class="hero-dotbtn"></label>
+ *     <label for="hc4" class="hero-dotbtn"></label>
+ *     <label for="hc5" class="hero-dotbtn"></label>
+ *     <label for="hc6" class="hero-dotbtn"></label>
+ *   </div>
+ * </div>
+ */
 
-.hero-slide-overlay .showcase-link {
-    padding: 12px 30px;
-    background: linear-gradient(135deg, #2196F3, #F57C00);
-    border-radius: 40px;
-    color: white;
-    text-decoration: none;
-    font-size: 1.1rem;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    border: 2px solid transparent;
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.hero-slide-overlay .showcase-link:last-child {
-    background: transparent;
-    border: 2px solid #F57C00;
-}
-
-.hero-slide-overlay .showcase-link:last-child:hover {
-    background: #F57C00;
-    color: white;
-}
-
-/* Segundo botão com estilo diferente */
-.hero-slide-overlay .showcase-link:last-child {
-    background: transparent;
-    border: 2px solid #F57C00;
-}
-
-/* TÍTULO LARANJA */
-.hero-slide-overlay .showcase-headings h3 {
-    font-size: 2.5rem;
-    font-weight: 800;
-    margin: 0;
-    color: #F57C00;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    line-height: 1.2;
-    flex: 1;
-}
-
-.hero-slide:hover .showcase-headings h3 {
-    text-shadow:
-        0 0 10px #F57C00,
-        0 0 20px #F57C00;
-}
-
-@keyframes neonPulse {
-
-    0%,
-    100% {
-        text-shadow: 0 0 10px #F57C00, 0 0 20px #F57C00;
-    }
-
-    50% {
-        text-shadow: 0 0 20px #F57C00, 0 0 40px #F57C00, 0 0 60px #F57C00;
-    }
-}
-
-.hero-slide-overlay .showcase-headings h3::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 60px;
-    height: 4px;
-    background: linear-gradient(90deg, #F57C00, #2196F3);
-    border-radius: 2px;
-}
+/* ============================================================================
+   FIM DO COMPONENT: HERO CAROUSEL
+   ============================================================================ */
