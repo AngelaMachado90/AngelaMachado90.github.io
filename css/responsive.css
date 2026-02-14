@@ -1,7 +1,34 @@
 /* ============================================================================
    RESPONSIVE.CSS - Media Queries and Responsive Adjustments - ATUALIZADO
    ============================================================================ */
+/* Este arquivo contém todas as media queries e ajustes responsivos para garantir que o site seja visualmente atraente e funcional em uma ampla variedade de dispositivos, desde smartphones até desktops grandes. */
+/* As media queries são organizadas por tipo de dispositivo e tamanho de tela, seguindo uma abordagem mobile-first para garantir que o conteúdo seja otimizado para dispositivos móveis antes de ser adaptado para telas maiores. */
+/* ========== MEDIA QUERIES PARA DISPOSITIVOS MÓVEIS ========== */
+/* Esta seção inclui media queries específicas para smartphones, tablets e ajustes para landscape mobile, garantindo que o layout se adapte de forma fluida a diferentes tamanhos de tela e orientações. */
+/* As media queries são cuidadosamente testadas para garantir que o conteúdo seja legível, os elementos
+/* IPAD: 768px x 1024px */
+/* IPAD PRO 11": 834px x 1194px */
+/* IPAD PRO 12.9": 1024px x 1366px */
 
+/* IPHONE 12 PRO: 390px x 844px */
+/* IPHONE 12 PRO MAX: 428px x 926px */
+/* IPHONE 13 PRO: 390px x 844px */
+/* IPHONE 13 PRO MAX: 428px x 926px */
+/* IPHONE 14 PRO: 393px x 852px */
+/* IPHONE 14 PRO MAX: 430px x 932px */
+/* SAMSUNG GALAXY S21: 360px x 800px */
+/* SAMSUNG GALAXY A51/71: 412px x 914px */
+/* Mobile pequeno (até 374px) */
+@media (max-width: 374px) {
+  :root {
+    font-size: 14px;
+    /* Reduz tamanho base da fonte */
+  }
+  .navbar-modern {
+    padding: 8px 0;
+  }
+
+}
 /* ========== ABORDAGEM MOBILE FIRST ========== */
 /* Mobile pequeno (até 374px) */
 @media (max-width: 374px) {
@@ -444,3 +471,66 @@
     text-align: center;
   }
 }
+
+/* Responsividade */
+@media (max-width: 720px) {
+            .hero-carousel {
+                max-width: 100%;
+              }
+      
+              .hero-slide-overlay {
+                padding: 15px;
+              }
+      
+              .hero-slide-overlay .showcase-headings h3 {
+                font-size: 1rem;
+              }
+            }
+
+
+                        /* Responsividade */
+                        @media (max-width: 720px) {
+                          .hero-slide-overlay {
+                            padding: 35px 20px 20px;
+                          }
+            
+                          .hero-slide-overlay .showcase-headings h3 {
+                            font-size: 1.6rem;
+                          }
+            
+                          .hero-slide-overlay .showcase-headings p {
+                            font-size: 1rem;
+                            margin-bottom: 15px;
+                          }
+            
+                          .hero-slide-overlay .showcase-link {
+                            padding: 8px 18px;
+                            font-size: 0.9rem;
+                          }
+                        }
+            
+                        @media (max-width: 480px) {
+                          .hero-slide-overlay {
+                            padding: 30px 15px 15px;
+                          }
+            
+                          .hero-slide-overlay .showcase-headings h3 {
+                            font-size: 1.4rem;
+                          }
+            
+                          .hero-slide-overlay .showcase-headings p {
+                            font-size: 0.9rem;
+                            margin-bottom: 12px;
+                          }
+            
+                          .hero-slide-overlay .showcase-links {
+                            flex-direction: column;
+                            gap: 8px;
+                          }
+            
+                          .hero-slide-overlay .showcase-link {
+                            text-align: center;
+                            padding: 8px;
+                          }
+                        }
+                      

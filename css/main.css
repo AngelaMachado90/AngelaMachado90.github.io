@@ -7,6 +7,7 @@
 @import "components/cards.css";
 @import "components/navbar.css";
 @import "components/footer.css";
+@import "components/hero-carousel.css";
 @import "components/cta.css";
 @import "components/layout-helpers.css";
 
@@ -17,6 +18,7 @@
 @import "utilities/utilities.css";
 @import "animations.css";
 @import "responsive.css";
+
 
 @import "kodassauro.css";
 @import "layouts/sections.css";

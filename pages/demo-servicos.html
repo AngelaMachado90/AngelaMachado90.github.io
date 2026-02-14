@@ -7,17 +7,16 @@
 
     <!-- SEO -->
     <meta name="description"
-        content="KoddaServiços - Encontre e contrate profissionais de confiança perto de você. Diaristas, encanadores, eletricistas, babás e muito mais.">
+        content="KoddaServices - Plataforma completa para médicos e profissionais de saúde. Agendamento online, prontuário eletrônico, telemedicina e gestão de clínicas.">
     <meta name="keywords"
-        content="serviços domésticos, diarista, encanador, eletricista, babá, pintor, pedreiro, serviços perto de mim">
+        content="médicos, agendamento online, telemedicina, prontuário eletrônico, gestão de clínicas, software para médicos, KoddaServices">
     <meta name="author" content="KoddaHub">
     <meta name="theme-color" content="#F57C00">
 
-    <title>KoddaServiços - Profissionais de confiança perto de você</title>
+    <title>KoddaServices - Soluções para Profissionais de Saúde</title>
 
     <!-- Favicon -->
     <link rel="icon" href="../assets/logo/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="../assets/logo/apple-touch-icon.png">
 
     <!-- CSS Moderno -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -25,1369 +24,51 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
 
     <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        /* ============================================================================
-           VARIÁVEIS CSS - DESIGN SYSTEM KODDAHUB
-           ============================================================================ */
         :root {
-            /* ===== CORES DA MARCA KODDAHUB ===== */
-            --color-primary-50: #fff3e0;
-            --color-primary-100: #ffe0b2;
-            --color-primary-300: #ffb74d;
-            --color-primary-500: #ff9800;
-            --color-primary-600: #f57c00;
-            --color-primary-700: #e65100;
-            --color-primary-800: #d84315;
-
-            --orange-vibrant: var(--color-primary-600);
-            --orange-dark: var(--color-primary-700);
-            --orange-light: var(--color-primary-500);
-            --primary-color: var(--color-primary-600);
-
-            /* ===== CORES SECUNDÁRIAS ===== */
-            --color-secondary-50: #e3f2fd;
-            --color-secondary-100: #e3f2fd;
-            --color-secondary-300: #64b5f6;
-            --color-secondary-600: #2196f3;
-            --color-secondary-700: #1976d2;
-            --color-secondary-800: #1565c0;
-            --color-secondary-900: #0d47a1;
-
-            --blue-electric: var(--color-secondary-600);
-            --blue-dark: var(--color-secondary-700);
-            --blue-light: var(--color-secondary-300);
-
-            /* ===== CORES NEUTRAS ===== */
-            --color-neutral-50: #fafafa;
-            --color-neutral-100: #f5f5f5;
-            --color-neutral-200: #eeeeee;
-            --color-neutral-300: #e0e0e0;
-            --color-neutral-400: #bdbdbd;
-            --color-neutral-500: #9e9e9e;
-            --color-neutral-600: #757575;
-            --color-neutral-700: #616161;
-            --color-neutral-800: #424242;
-            --color-neutral-900: #212121;
-
-            --black-deep: var(--color-neutral-900);
-            --black-light: var(--color-neutral-800);
-            --gray-circuit: var(--color-neutral-500);
-            --gray-light: var(--color-neutral-300);
-            --gray-dark: var(--color-neutral-700);
-            --white-neutral: var(--color-neutral-50);
-            --white-pure: #ffffff;
-
-            /* ===== CORES SEMÂNTICAS ===== */
-            --color-success-50: #ecfdf5;
-            --color-success-300: #6ee7b7;
-            --color-success-500: #10b981;
-            --color-success-600: #059669;
-            --color-success-700: #047857;
-            --success: var(--color-success-500);
-
-            --color-warning-50: #fffbeb;
-            --color-warning-100: #fef3c7;
-            --color-warning-300: #fcd34d;
-            --color-warning-500: #f59e0b;
-            --color-warning-600: #d97706;
-            --color-warning-700: #b45309;
-            --warning: var(--color-warning-500);
-
-            --color-error-50: #fef2f2;
-            --color-error-300: #fca5a5;
-            --color-error-500: #ef4444;
-            --color-error-600: #dc2626;
-            --color-error-700: #b91c1c;
-            --danger: var(--color-error-500);
-
-            --color-info-50: #eff6ff;
-            --color-info-500: #3b82f6;
-            --color-info-700: #1d4ed8;
-            --info: var(--color-info-500);
-
-            /* ===== TIPOGRAFIA ===== */
-            --font-heading: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-
-            --font-size-xs: 0.75rem;
-            --font-size-sm: 0.875rem;
-            --font-size-base: 1rem;
-            --font-size-lg: 1.125rem;
-            --font-size-xl: 1.25rem;
-            --font-size-2xl: 1.5rem;
-            --font-size-3xl: 1.875rem;
-            --font-size-4xl: 2.25rem;
-            --font-size-5xl: 3rem;
-
-            --font-size-h1: clamp(2.5rem, 5vw, 4rem);
-            --font-size-h2: clamp(2rem, 4vw, 3rem);
-            --font-size-h3: clamp(1.5rem, 3vw, 2.25rem);
-            --font-size-h4: clamp(1.25rem, 2.5vw, 1.875rem);
-            --font-size-h5: clamp(1.125rem, 2vw, 1.5rem);
-            --font-size-h6: clamp(1rem, 1.5vw, 1.25rem);
-
-            --font-weight-light: 300;
-            --font-weight-normal: 400;
-            --font-weight-medium: 500;
-            --font-weight-semibold: 600;
-            --font-weight-bold: 700;
-            --font-weight-extrabold: 800;
-
-            --line-height-tight: 1.25;
-            --line-height-normal: 1.5;
-            --line-height-relaxed: 1.75;
-            --line-height-loose: 2;
-
-            /* ===== ESPAÇAMENTO ===== */
-            --spacing-0: 0;
-            --spacing-1: 0.25rem;
-            --spacing-2: 0.5rem;
-            --spacing-3: 0.75rem;
-            --spacing-4: 1rem;
-            --spacing-5: 1.5rem;
-            --spacing-6: 2rem;
-            --spacing-8: 3rem;
-            --spacing-10: 4rem;
-            --spacing-12: 6rem;
-            --spacing-16: 8rem;
-
-            --gap-xs: var(--spacing-2);
-            --gap-sm: var(--spacing-3);
-            --gap-md: var(--spacing-4);
-            --gap-lg: var(--spacing-6);
-            --gap-xl: var(--spacing-8);
-
-            /* ===== BORDAS ===== */
-            --radius-none: 0;
-            --radius-xs: 0.125rem;
-            --radius-sm: 0.25rem;
-            --radius-md: 0.375rem;
-            --radius-lg: 0.5rem;
-            --radius-xl: 0.75rem;
-            --radius-2xl: 1rem;
-            --radius-full: 9999px;
-
-            --border-width-thin: 1px;
-            --border-width-base: 2px;
-            --border-width-thick: 3px;
-
-            /* ===== SOMBRAS ===== */
-            --shadow-none: none;
-            --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-            --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-            --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-            --shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
-
-            --shadow-primary-sm: 0 1px 3px 0 rgba(245, 124, 0, 0.2);
-            --shadow-primary-lg: 0 10px 15px -3px rgba(245, 124, 0, 0.2);
-
-            /* ===== Z-INDEX ===== */
-            --z-below: -1;
-            --z-base: 0;
-            --z-above: 1;
-            --z-dropdown: 100;
-            --z-sticky: 200;
-            --z-fixed: 300;
-            --z-overlay: 400;
-            --z-modal: 500;
-            --z-popover: 600;
-            --z-toast: 700;
-            --z-tooltip: 800;
-
-            /* ===== CONTAINERS ===== */
-            --container-xs: 20rem;
-            --container-sm: 33.75rem;
-            --container-md: 45rem;
-            --container-lg: 60rem;
-            --container-xl: 71.25rem;
-            --container-2xl: 82.5rem;
-            --container-full: 100%;
-
-            --container-padding-mobile: var(--spacing-4);
-            --container-padding-tablet: var(--spacing-5);
-            --container-padding-desktop: var(--spacing-6);
-
-            /* ===== ANIMAÇÕES ===== */
-            --duration-instant: 50ms;
-            --duration-fast: 150ms;
-            --duration-base: 300ms;
-            --duration-slow: 500ms;
-            --duration-slower: 700ms;
-            --duration-slowest: 1000ms;
-            --duration-200: 200ms;
-            --duration-300: 300ms;
-
-            --ease-linear: linear;
-            --ease-in: cubic-bezier(0.4, 0, 1, 1);
-            --ease-out: cubic-bezier(0, 0, 0.2, 1);
-            --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
-            --ease-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            --primary: #F57C00;
+            --primary-light: #FFB74D;
+            --primary-dark: #E65100;
+            --secondary: #2196F3;
+            --secondary-light: #64B5F6;
+            --secondary-dark: #1976D2;
+            --success: #4CAF50;
+            --danger: #F44336;
+            --warning: #FFC107;
+            --info: #00BCD4;
+            --dark: #1A1A1A;
+            --gray-dark: #333333;
+            --gray: #666666;
+            --gray-light: #999999;
+            --light: #F5F5F5;
+            --white: #FFFFFF;
+            --gradient-primary: linear-gradient(135deg, #F57C00, #FFB74D);
+            --gradient-secondary: linear-gradient(135deg, #2196F3, #64B5F6);
+            --gradient-dark: linear-gradient(135deg, #1A1A1A, #333333);
+            --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --box-shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.15);
+            --transition: all 0.3s ease;
         }
 
-        /* ============================================================================
-           RESET E ESTILOS GLOBAIS
-           ============================================================================ */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        html {
-            font-size: 16px;
-        }
-
         body {
-            font-family: var(--font-body);
-            font-size: var(--font-size-base);
-            font-weight: var(--font-weight-normal);
-            line-height: var(--line-height-normal);
-            color: var(--black-deep);
-            background-color: var(--white-pure);
+            font-family: 'Poppins', sans-serif;
+            color: var(--gray-dark);
             overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
+            line-height: 1.6;
         }
 
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            font-family: var(--font-heading);
-            font-weight: var(--font-weight-bold);
-            line-height: var(--line-height-tight);
-            color: var(--black-deep);
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-            transition: all var(--duration-fast) var(--ease-out);
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .container-fluid {
-            max-width: var(--container-2xl);
-            margin: 0 auto;
-            padding: 0 var(--container-padding-desktop);
-        }
-
-        @media (max-width: 1024px) {
-            .container-fluid {
-                padding: 0 var(--container-padding-tablet);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .container-fluid {
-                padding: 0 var(--container-padding-mobile);
-            }
-        }
-
-        /* ============================================================================
-           HEADER KODDAHUB STYLE
-           ============================================================================ */
-        .header-services {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: var(--white-pure);
-            z-index: var(--z-fixed);
-            padding: 0;
-            transition: all var(--duration-fast) var(--ease-out);
-            border-bottom: var(--border-width-thin) solid var(--gray-light);
-        }
-
-        .header-services.scrolled {
-            box-shadow: var(--shadow-md);
-        }
-
-        .navbar-wrapper {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            height: 80px;
-        }
-
-        .navbar-brand {
-            display: flex;
-            align-items: center;
-            gap: var(--gap-xs);
-        }
-
-        .logo-icon {
-            color: var(--primary-color);
-            font-size: 32px;
-        }
-
-        .logo-text {
-            font-size: 22px;
-            font-weight: var(--font-weight-bold);
-            color: var(--black-deep);
-            font-family: var(--font-heading);
-            letter-spacing: var(--letter-spacing-tight);
-        }
-
-        .logo-text span {
-            color: var(--primary-color);
-        }
-
-        .navbar-search {
-            display: flex;
-            align-items: center;
-            border: var(--border-width-thin) solid var(--gray-light);
-            border-radius: var(--radius-full);
-            padding: var(--spacing-2) var(--spacing-2) var(--spacing-2) var(--spacing-4);
-            box-shadow: var(--shadow-xs);
-            transition: all var(--duration-fast) var(--ease-out);
-            background: var(--white-pure);
-        }
-
-        .navbar-search:hover {
-            box-shadow: var(--shadow-md);
-        }
-
-        .search-item {
-            padding: 0 var(--spacing-4);
-            font-size: var(--font-size-sm);
-            font-weight: var(--font-weight-semibold);
-            color: var(--black-deep);
-            border-right: var(--border-width-thin) solid var(--gray-light);
-        }
-
-        .search-item:last-child {
-            border-right: none;
-        }
-
-        .search-item span {
-            font-weight: var(--font-weight-normal);
-            color: var(--gray-circuit);
-            margin-left: var(--spacing-1);
-        }
-
-        .search-icon {
-            background: linear-gradient(135deg, var(--color-primary-600), var(--color-primary-700));
-            color: var(--white-pure);
-            width: 32px;
-            height: 32px;
-            border-radius: var(--radius-full);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-left: var(--spacing-2);
-        }
-
-        .navbar-menu {
-            display: flex;
-            align-items: center;
-            gap: var(--gap-md);
-        }
-
-        .nav-link-services {
-            color: var(--black-deep);
-            font-weight: var(--font-weight-semibold);
-            font-size: var(--font-size-sm);
-            padding: var(--spacing-3) var(--spacing-4);
-            border-radius: var(--radius-full);
-            transition: all var(--duration-fast) var(--ease-out);
-        }
-
-        .nav-link-services:hover {
-            background: var(--color-neutral-100);
-            color: var(--primary-color);
-        }
-
-        .nav-link-services.cta {
-            background: linear-gradient(135deg, var(--color-primary-600), var(--color-primary-700));
-            color: var(--white-pure);
-        }
-
-        .nav-link-services.cta:hover {
-            background: linear-gradient(135deg, var(--color-primary-700), var(--color-primary-800));
-            color: var(--white-pure);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-primary-sm);
-        }
-
-        .navbar-toggle {
-            display: none;
-            flex-direction: column;
-            gap: var(--gap-xs);
-            background: transparent;
-            border: none;
-            cursor: pointer;
-        }
-
-        .navbar-toggle span {
-            width: 24px;
-            height: 2px;
-            background: var(--black-deep);
-            border-radius: var(--radius-full);
-            transition: all var(--duration-fast) var(--ease-out);
-        }
-
-        @media (max-width: 1024px) {
-            .navbar-search {
-                display: none;
-            }
-
-            .navbar-menu {
-                display: none;
-            }
-
-            .navbar-toggle {
-                display: flex;
-            }
-        }
-
-        /* ============================================================================
-           HERO SECTION
-           ============================================================================ */
-        .hero-services {
-            position: relative;
-            min-height: 600px;
-            display: flex;
-            align-items: center;
-            background: linear-gradient(135deg, var(--color-primary-600), var(--color-primary-700));
-            color: var(--white-pure);
-            overflow: hidden;
-            padding: 120px 0 80px;
-            margin-top: 80px;
-        }
-
-        .hero-background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: var(--z-base);
-        }
-
-        .gradient-blob {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(80px);
-            opacity: 0.15;
-        }
-
-        .blob-1 {
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, var(--color-primary-300) 0%, transparent 70%);
-            top: -200px;
-            right: -200px;
-        }
-
-        .blob-2 {
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, var(--color-secondary-600) 0%, transparent 70%);
-            bottom: -100px;
-            left: -100px;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: var(--z-above);
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: var(--gap-xl);
-            align-items: center;
-        }
-
-        .hero-kicker {
-            font-size: var(--font-size-xs);
-            font-weight: var(--font-weight-semibold);
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: var(--spacing-4);
-        }
-
-        .hero-title {
-            font-size: var(--font-size-h1);
-            font-weight: var(--font-weight-extrabold);
-            line-height: var(--line-height-tight);
-            margin-bottom: var(--spacing-5);
-            color: var(--white-pure);
-        }
-
-        .hero-title strong {
-            color: var(--white-pure);
-            text-decoration: underline;
-            text-underline-offset: 8px;
-            text-decoration-color: var(--color-primary-300);
-        }
-
-        .hero-subtitle {
-            font-size: var(--font-size-lg);
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: var(--spacing-6);
-            max-width: 80%;
-        }
-
-        .hero-stats {
-            display: flex;
-            gap: var(--gap-lg);
-            margin-top: var(--spacing-8);
-        }
-
-        .stat-item {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .stat-number {
-            font-size: var(--font-size-4xl);
-            font-weight: var(--font-weight-extrabold);
-            color: var(--white-pure);
-            line-height: 1;
-            margin-bottom: var(--spacing-2);
-        }
-
-        .stat-label {
-            font-size: var(--font-size-sm);
-            color: rgba(255, 255, 255, 0.8);
-        }
-
-        .hero-cta {
-            display: flex;
-            gap: var(--gap-md);
-            margin-top: var(--spacing-6);
-        }
-
-        .btn-primary-services {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: var(--spacing-3) var(--spacing-6);
-            background: var(--white-pure);
-            color: var(--primary-color);
-            font-weight: var(--font-weight-semibold);
-            border-radius: var(--radius-full);
-            border: none;
-            cursor: pointer;
-            transition: all var(--duration-fast) var(--ease-out);
-            box-shadow: var(--shadow-md);
-        }
-
-        .btn-primary-services:hover {
-            transform: scale(1.02);
-            box-shadow: var(--shadow-lg);
-            color: var(--color-primary-700);
-        }
-
-        .btn-secondary-services {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: var(--spacing-3) var(--spacing-6);
-            background: rgba(255, 255, 255, 0.1);
-            color: var(--white-pure);
-            font-weight: var(--font-weight-semibold);
-            border-radius: var(--radius-full);
-            border: var(--border-width-base) solid rgba(255, 255, 255, 0.3);
-            transition: all var(--duration-fast) var(--ease-out);
-        }
-
-        .btn-secondary-services:hover {
-            border-color: var(--white-pure);
-            background: rgba(255, 255, 255, 0.2);
-            color: var(--white-pure);
-        }
-
-        .hero-image {
-            position: relative;
-        }
-
-        .hero-image img {
-            border-radius: var(--radius-2xl);
-            box-shadow: var(--shadow-xl);
-            width: 100%;
-            height: auto;
-        }
-
-        .hero-badge {
-            position: absolute;
-            bottom: -20px;
-            left: -20px;
-            background: var(--white-pure);
-            color: var(--black-deep);
-            padding: var(--spacing-5) var(--spacing-6);
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow-lg);
-            display: flex;
-            align-items: center;
-            gap: var(--gap-md);
-        }
-
-        .hero-badge i {
-            font-size: 36px;
-            color: var(--color-secondary-600);
-        }
-
-        @media (max-width: 991px) {
-            .hero-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .hero-subtitle {
-                max-width: 100%;
-            }
-
-            .hero-stats {
-                justify-content: center;
-            }
-
-            .hero-cta {
-                justify-content: center;
-            }
-        }
-
-        /* ============================================================================
-           SEÇÃO DE CATEGORIAS
-           ============================================================================ */
-        .section-categories {
-            padding: var(--spacing-8) 0;
-            background: var(--white-pure);
-        }
-
-        .section-header {
-            margin-bottom: var(--spacing-8);
-        }
-
-        .section-header h2 {
-            font-size: var(--font-size-h2);
-            margin-bottom: var(--spacing-4);
-            color: var(--black-deep);
-        }
-
-        .section-header p {
-            font-size: var(--font-size-lg);
-            color: var(--gray-circuit);
-            max-width: 600px;
-        }
-
-        .categories-grid {
-            display: grid;
-            grid-template-columns: repeat(8, 1fr);
-            gap: var(--gap-md);
-        }
-
-        .category-card {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            padding: var(--spacing-5) var(--spacing-4);
-            background: var(--color-neutral-100);
-            border-radius: var(--radius-lg);
-            transition: all var(--duration-fast) var(--ease-out);
-            cursor: pointer;
-        }
-
-        .category-card:hover {
-            background: var(--color-neutral-300);
-            transform: translateY(-4px);
-        }
-
-        .category-icon {
-            width: 48px;
-            height: 48px;
-            background: var(--white-pure);
-            border-radius: var(--radius-full);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: var(--spacing-4);
-            color: var(--primary-color);
-            font-size: 24px;
-        }
-
-        .category-title {
-            font-size: var(--font-size-sm);
-            font-weight: var(--font-weight-semibold);
-            margin-bottom: var(--spacing-1);
-        }
-
-        @media (max-width: 1128px) {
-            .categories-grid {
-                grid-template-columns: repeat(6, 1fr);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .categories-grid {
-                grid-template-columns: repeat(4, 1fr);
-            }
-        }
-
-        @media (max-width: 480px) {
-            .categories-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        /* ============================================================================
-           SEÇÃO DE PROFISSIONAIS EM DESTAQUE
-           ============================================================================ */
-        .section-featured {
-            padding: var(--spacing-8) 0;
-            background: var(--color-neutral-100);
-        }
-
-        .featured-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: var(--gap-lg);
-        }
-
-        .professional-card {
-            background: var(--white-pure);
-            border-radius: var(--radius-xl);
-            overflow: hidden;
-            box-shadow: var(--shadow-sm);
-            transition: all var(--duration-fast) var(--ease-out);
-        }
-
-        .professional-card:hover {
-            transform: translateY(-6px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .card-header {
-            position: relative;
-        }
-
-        .professional-image {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .professional-badge {
-            position: absolute;
-            top: var(--spacing-4);
-            right: var(--spacing-4);
-            background: linear-gradient(135deg, var(--color-primary-600), var(--color-primary-700));
-            color: var(--white-pure);
-            padding: var(--spacing-1) var(--spacing-3);
-            border-radius: var(--radius-full);
-            font-size: var(--font-size-xs);
-            font-weight: var(--font-weight-semibold);
-        }
-
-        .professional-info {
-            padding: var(--spacing-5);
-        }
-
-        .professional-name {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: var(--spacing-2);
-        }
-
-        .professional-name h3 {
-            font-size: var(--font-size-lg);
-            font-weight: var(--font-weight-semibold);
-            margin: 0;
-        }
-
-        .professional-rating {
-            display: flex;
-            align-items: center;
-            gap: var(--gap-xs);
-            color: var(--black-deep);
-            font-weight: var(--font-weight-semibold);
-        }
-
-        .professional-rating i {
-            color: #FFB400;
-        }
-
-        .professional-category {
-            font-size: var(--font-size-sm);
-            color: var(--gray-circuit);
-            margin-bottom: var(--spacing-3);
-        }
-
-        .professional-price {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: var(--spacing-4);
-            padding-bottom: var(--spacing-4);
-            border-bottom: var(--border-width-thin) solid var(--gray-light);
-        }
-
-        .price {
-            font-size: var(--font-size-xl);
-            font-weight: var(--font-weight-bold);
-            color: var(--black-deep);
-        }
-
-        .price span {
-            font-size: var(--font-size-sm);
-            font-weight: var(--font-weight-normal);
-            color: var(--gray-circuit);
-        }
-
-        .professional-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .professional-footer i {
-            color: var(--color-secondary-600);
-        }
-
-        .btn-contract {
-            padding: var(--spacing-2) var(--spacing-4);
-            background: linear-gradient(135deg, var(--color-primary-600), var(--color-primary-700));
-            color: var(--white-pure);
-            border-radius: var(--radius-full);
-            font-size: var(--font-size-sm);
-            font-weight: var(--font-weight-semibold);
-            transition: all var(--duration-fast) var(--ease-out);
-        }
-
-        .btn-contract:hover {
-            background: linear-gradient(135deg, var(--color-primary-700), var(--color-primary-800));
-            color: var(--white-pure);
-            transform: scale(0.95);
-        }
-
-        @media (max-width: 1128px) {
-            .featured-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .featured-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* ============================================================================
-           SEÇÃO COMO FUNCIONA
-           ============================================================================ */
-        .section-howitworks {
-            padding: var(--spacing-8) 0;
-            background: var(--white-pure);
-        }
-
-        .steps-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: var(--gap-xl);
-            margin-top: var(--spacing-8);
-        }
-
-        .step-card {
-            text-align: center;
-        }
-
-        .step-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, rgba(245, 124, 0, 0.1), rgba(33, 150, 243, 0.1));
-            border-radius: var(--radius-full);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto var(--spacing-5);
-            color: var(--primary-color);
-            font-size: 32px;
-        }
-
-        .step-card h3 {
-            font-size: var(--font-size-2xl);
-            margin-bottom: var(--spacing-3);
-        }
-
-        .step-card p {
-            color: var(--gray-circuit);
-            line-height: var(--line-height-relaxed);
-        }
-
-        @media (max-width: 768px) {
-            .steps-grid {
-                grid-template-columns: 1fr;
-                gap: var(--gap-lg);
-            }
-        }
-
-        /* ============================================================================
-           SEÇÃO DE AVALIAÇÕES
-           ============================================================================ */
-        .section-reviews {
-            padding: var(--spacing-8) 0;
-            background: linear-gradient(135deg, var(--color-primary-50), var(--color-secondary-50));
-        }
-
-        .reviews-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: var(--gap-lg);
-            margin-top: var(--spacing-8);
-        }
-
-        .review-card {
-            background: var(--white-pure);
-            padding: var(--spacing-5);
-            border-radius: var(--radius-xl);
-            box-shadow: var(--shadow-md);
-            transition: all var(--duration-fast) var(--ease-out);
-        }
-
-        .review-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .review-header {
-            display: flex;
-            align-items: center;
-            gap: var(--gap-md);
-            margin-bottom: var(--spacing-4);
-        }
-
-        .review-avatar {
-            width: 48px;
-            height: 48px;
-            border-radius: var(--radius-full);
-            object-fit: cover;
-        }
-
-        .review-info h4 {
-            font-size: var(--font-size-base);
-            margin-bottom: var(--spacing-1);
-        }
-
-        .review-stars {
-            color: #FFB400;
-            font-size: var(--font-size-xs);
-        }
-
-        .review-text {
-            color: var(--black-deep);
-            line-height: var(--line-height-relaxed);
-            margin-bottom: var(--spacing-4);
-            font-style: italic;
-        }
-
-        .review-service {
-            font-size: var(--font-size-sm);
-            color: var(--gray-circuit);
-        }
-
-        @media (max-width: 768px) {
-            .reviews-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* ============================================================================
-           SEÇÃO DE BUSCA AVANÇADA
-           ============================================================================ */
-        .section-search {
-            padding: var(--spacing-10) 0;
-            background: linear-gradient(135deg, var(--color-primary-700), var(--color-primary-800));
-            color: var(--white-pure);
-        }
-
-        .search-container {
-            max-width: var(--container-lg);
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .search-container h2 {
-            color: var(--white-pure);
-            font-size: var(--font-size-h2);
-            margin-bottom: var(--spacing-5);
-        }
-
-        .search-box {
-            display: flex;
-            background: var(--white-pure);
-            border-radius: var(--radius-full);
-            padding: var(--spacing-2);
-            margin-top: var(--spacing-6);
-            box-shadow: var(--shadow-xl);
-        }
-
-        .search-input {
-            flex: 1;
-            border: none;
-            padding: var(--spacing-4) var(--spacing-5);
-            font-size: var(--font-size-base);
-            border-radius: var(--radius-full) 0 0 var(--radius-full);
-            outline: none;
-        }
-
-        .search-location {
-            display: flex;
-            align-items: center;
-            padding: 0 var(--spacing-4);
-            border-left: var(--border-width-thin) solid var(--gray-light);
-            color: var(--black-deep);
-            font-size: var(--font-size-sm);
-        }
-
-        .search-location i {
-            margin-right: var(--spacing-2);
-            color: var(--primary-color);
-        }
-
-        .search-btn {
-            background: linear-gradient(135deg, var(--color-primary-600), var(--color-primary-700));
-            color: var(--white-pure);
-            border: none;
-            padding: var(--spacing-4) var(--spacing-6);
-            border-radius: var(--radius-full);
-            font-weight: var(--font-weight-semibold);
-            cursor: pointer;
-            transition: all var(--duration-fast) var(--ease-out);
-        }
-
-        .search-btn:hover {
-            background: linear-gradient(135deg, var(--color-primary-700), var(--color-primary-800));
-            transform: scale(0.98);
-        }
-
-        /* ============================================================================
-           SEÇÃO SEJA PARCEIRO
-           ============================================================================ */
-        .section-partner {
-            padding: var(--spacing-10) 0;
-            background: linear-gradient(135deg, var(--color-secondary-600), var(--color-secondary-700));
-            color: var(--white-pure);
-        }
-
-        .partner-content {
-            max-width: var(--container-lg);
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .partner-content h2 {
-            color: var(--white-pure);
-            font-size: var(--font-size-h2);
-            margin-bottom: var(--spacing-4);
-        }
-
-        .partner-content p {
-            font-size: var(--font-size-lg);
-            margin-bottom: var(--spacing-6);
-            opacity: 0.9;
-        }
-
-        .btn-partner {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: var(--spacing-4) var(--spacing-8);
-            background: var(--white-pure);
-            color: var(--color-secondary-700);
-            font-weight: var(--font-weight-bold);
-            border-radius: var(--radius-full);
-            font-size: var(--font-size-lg);
-            transition: all var(--duration-fast) var(--ease-out);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .btn-partner:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-xl);
-            color: var(--color-secondary-800);
-        }
-
-        /* ============================================================================
-           FOOTER KODDAHUB STYLE
-           ============================================================================ */
-        .footer-services {
-            background: var(--color-neutral-900);
-            color: var(--white-pure);
-            padding: var(--spacing-10) 0 var(--spacing-6);
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: var(--gap-xl);
-            margin-bottom: var(--spacing-10);
-        }
-
-        .footer-column h4 {
-            font-size: var(--font-size-base);
-            margin-bottom: var(--spacing-5);
-            color: var(--white-pure);
-            font-weight: var(--font-weight-semibold);
-        }
-
-        .footer-column ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .footer-column li {
-            margin-bottom: var(--spacing-3);
-        }
-
-        .footer-column a {
-            color: rgba(255, 255, 255, 0.7);
-            font-size: var(--font-size-sm);
-            transition: all var(--duration-fast) var(--ease-out);
-        }
-
-        .footer-column a:hover {
-            color: var(--color-primary-300);
-            text-decoration: underline;
-            padding-left: var(--spacing-1);
-        }
-
-        .footer-bottom {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-top: var(--spacing-5);
-            border-top: var(--border-width-thin) solid rgba(255, 255, 255, 0.1);
-            color: rgba(255, 255, 255, 0.7);
-            font-size: var(--font-size-sm);
-        }
-
-        .footer-links {
-            display: flex;
-            gap: var(--gap-lg);
-        }
-
-        .footer-links a {
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        .footer-links a:hover {
-            color: var(--color-primary-300);
-        }
-
-        .footer-social {
-            display: flex;
-            gap: var(--gap-lg);
-        }
-
-        .footer-social a {
-            color: rgba(255, 255, 255, 0.7);
-            font-size: var(--font-size-lg);
-            transition: all var(--duration-fast) var(--ease-out);
-        }
-
-        .footer-social a:hover {
-            color: var(--color-primary-300);
-            transform: translateY(-2px);
-        }
-
-        @media (max-width: 768px) {
-            .footer-grid {
-                grid-template-columns: 1fr;
-                gap: var(--gap-lg);
-            }
-
-            .footer-bottom {
-                flex-direction: column;
-                gap: var(--gap-md);
-                text-align: center;
-            }
-
-            .footer-links {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-        }
-
-        /* ============================================================================
-           CHATBOT KODASSAURO
-           ============================================================================ */
-        .kodassauro {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            z-index: var(--z-tooltip);
-        }
-
-        .kodassauro-toggle {
-            width: 60px;
-            height: 60px;
-            border-radius: var(--radius-full);
-            background: linear-gradient(135deg, var(--color-primary-600), var(--color-primary-700));
-            border: none;
-            cursor: pointer;
-            box-shadow: var(--shadow-lg);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            transition: all var(--duration-fast) var(--ease-out);
-        }
-
-        .kodassauro-toggle:hover {
-            transform: scale(1.1);
-            box-shadow: var(--shadow-xl);
-        }
-
-        .kodassauro-icon {
-            width: 60px;
-            height: 60px;
-            border-radius: var(--radius-full);
-        }
-
-        .kodassauro-panel {
-            position: absolute;
-            bottom: 80px;
-            right: 0;
-            width: 360px;
-            background: var(--white-pure);
-            border-radius: var(--radius-xl);
-            box-shadow: var(--shadow-2xl);
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            transition: all var(--duration-fast) var(--ease-out);
-            border: var(--border-width-thin) solid var(--gray-light);
-        }
-
-        .kodassauro-panel[hidden] {
-            display: none;
-        }
-
-        .kodassauro-header {
-            background: linear-gradient(135deg, var(--color-primary-600), var(--color-primary-700));
-            color: var(--white-pure);
-            padding: var(--spacing-5);
-            display: flex;
-            align-items: center;
-            gap: var(--gap-md);
-        }
-
-        .kodassauro-avatar svg {
-            width: 48px;
-            height: 48px;
-        }
-
-        .kodassauro-title {
-            font-size: var(--font-size-base);
-            margin: 0;
-            font-weight: var(--font-weight-semibold);
-        }
-
-        .kodassauro-subtitle {
-            font-size: var(--font-size-xs);
-            opacity: 0.9;
-            margin: 0;
-        }
-
-        .kodassauro-messages {
-            height: 300px;
-            padding: var(--spacing-5);
-            overflow-y: auto;
-            background: var(--color-neutral-100);
-            display: flex;
-            flex-direction: column;
-            gap: var(--gap-sm);
-        }
-
-        .kodassauro-message {
-            max-width: 80%;
-            padding: var(--spacing-3) var(--spacing-4);
-            border-radius: 18px;
-            font-size: var(--font-size-sm);
-            line-height: var(--line-height-normal);
-        }
-
-        .kodassauro-message.bot {
-            align-self: flex-start;
-            background: var(--white-pure);
-            border-bottom-left-radius: 4px;
-            box-shadow: var(--shadow-sm);
-        }
-
-        .kodassauro-message.user {
-            align-self: flex-end;
-            background: linear-gradient(135deg, var(--color-primary-600), var(--color-primary-700));
-            color: var(--white-pure);
-            border-bottom-right-radius: 4px;
-        }
-
-        .kodassauro-composer {
-            display: flex;
-            padding: var(--spacing-4);
-            background: var(--white-pure);
-            border-top: var(--border-width-thin) solid var(--gray-light);
-        }
-
-        .kodassauro-input {
-            flex: 1;
-            padding: var(--spacing-3) var(--spacing-4);
-            border: var(--border-width-thin) solid var(--gray-light);
-            border-radius: var(--radius-full);
-            font-size: var(--font-size-sm);
-            margin-right: var(--spacing-3);
-            outline: none;
-        }
-
-        .kodassauro-input:focus {
-            border-color: var(--color-primary-600);
-            box-shadow: var(--shadow-primary-sm);
-        }
-
-        .kodassauro-send {
-            padding: var(--spacing-3) var(--spacing-5);
-            background: linear-gradient(135deg, var(--color-primary-600), var(--color-primary-700));
-            color: var(--white-pure);
-            border: none;
-            border-radius: var(--radius-full);
-            font-weight: var(--font-weight-semibold);
-            cursor: pointer;
-            transition: all var(--duration-fast) var(--ease-out);
-        }
-
-        .kodassauro-send:hover {
-            transform: scale(0.95);
-            background: linear-gradient(135deg, var(--color-primary-700), var(--color-primary-800));
-        }
-
-        @media (max-width: 767px) {
-            .kodassauro-panel {
-                width: 300px;
-                right: 0;
-            }
-        }
-
-        /* ============================================================================
-           UTILITÁRIOS
-           ============================================================================ */
         .hide-h1 {
             position: absolute;
             width: 1px;
@@ -1399,62 +80,1240 @@
             border: 0;
         }
 
-        .pill-badge {
-            background: linear-gradient(135deg, var(--color-primary-50), var(--color-secondary-50));
-            color: var(--black-deep);
-            padding: var(--spacing-1) var(--spacing-4);
-            border-radius: var(--radius-full);
-            font-size: var(--font-size-sm);
-            font-weight: var(--font-weight-semibold);
-            box-shadow: var(--shadow-xs);
-            border: var(--border-width-thin) solid var(--gray-light);
+        /* Header Moderno */
+        .header-modern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: transparent;
+            padding: 20px 0;
+            transition: var(--transition);
         }
 
-        .pill-badge i {
-            color: var(--color-secondary-600);
-            margin-right: var(--spacing-1);
+        .header-modern.scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--box-shadow);
+            padding: 10px 0;
         }
 
-        .bg-gradient-primary {
-            background: linear-gradient(135deg, var(--color-primary-50), var(--color-secondary-50));
+        .navbar-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
 
-        .text-gradient {
-            background: linear-gradient(135deg, var(--color-primary-600), var(--color-secondary-600));
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-image img {
+            height: 60px;
+            width: auto;
+            transition: var(--transition);
+        }
+
+        .scrolled .logo-image img {
+            height: 50px;
+        }
+
+        .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+            text-decoration: none;
+            color: var(--white);
+        }
+
+        .scrolled .logo-text {
+            color: var(--dark);
+        }
+
+        .logo-text span {
+            color: var(--primary-light);
+        }
+
+        .navbar-menu {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .nav-link {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            padding: 5px 0;
+            transition: var(--transition);
+        }
+
+        .scrolled .nav-link {
+            color: var(--dark);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        .nav-link.cta-nav {
+            background: var(--gradient-primary);
+            color: var(--white) !important;
+            padding: 10px 25px;
+            border-radius: 50px;
+        }
+
+        .nav-link.cta-nav::after {
+            display: none;
+        }
+
+        .navbar-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .navbar-toggle span {
+            width: 30px;
+            height: 3px;
+            background: var(--white);
+            border-radius: 3px;
+            transition: var(--transition);
+        }
+
+        .scrolled .navbar-toggle span {
+            background: var(--dark);
+        }
+
+        .navbar-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .navbar-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .navbar-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        /* Hero Section */
+        .hero-services {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding: 120px 0 80px;
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-dark);
+            z-index: -2;
+        }
+
+        .gradient-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.3;
+            animation: float 20s infinite;
+        }
+
+        .blob-1 {
+            width: 600px;
+            height: 600px;
+            background: var(--primary);
+            top: -200px;
+            right: -200px;
+        }
+
+        .blob-2 {
+            width: 500px;
+            height: 500px;
+            background: var(--secondary);
+            bottom: -150px;
+            left: -150px;
+            animation-delay: -5s;
+        }
+
+        .blob-3 {
+            width: 400px;
+            height: 400px;
+            background: var(--primary-light);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation-delay: -10s;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            25% {
+                transform: translate(50px, -50px) scale(1.1);
+            }
+
+            50% {
+                transform: translate(-30px, 30px) scale(0.9);
+            }
+
+            75% {
+                transform: translate(-50px, -30px) scale(1.05);
+            }
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            color: var(--white);
+        }
+
+        .hero-text {
+            max-width: 600px;
+        }
+
+        .hero-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 500;
+            margin-bottom: 30px;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-kicker i {
+            color: var(--primary-light);
+        }
+
+        .hero-title {
+            font-size: 56px;
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero-title strong {
+            background: var(--gradient-primary);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
+            display: inline-block;
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 40px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stat-number {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--primary-light);
+        }
+
+        .stat-label {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 20px;
+        }
+
+        .btn-primary-modern {
+            display: inline-flex;
+            align-items: center;
+            background: var(--gradient-primary);
+            color: var(--white);
+            text-decoration: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary-modern:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--box-shadow-hover);
+        }
+
+        .btn-secondary-modern {
+            display: inline-flex;
+            align-items: center;
+            background: transparent;
+            color: var(--white);
+            text-decoration: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            transition: var(--transition);
+        }
+
+        .btn-secondary-modern:hover {
+            border-color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: var(--box-shadow-hover);
+        }
+
+        .hero-badge {
+            position: absolute;
+            bottom: -20px;
+            left: -20px;
+            background: var(--white);
+            color: var(--dark);
+            padding: 20px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            box-shadow: var(--box-shadow);
+        }
+
+        .hero-badge i {
+            font-size: 40px;
+            color: var(--primary);
+        }
+
+        /* Animações */
+        .animate-fadeInUp {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.6s forwards;
+        }
+
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+
+        .delay-4 {
+            animation-delay: 0.8s;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Seções */
+        section {
+            padding: 100px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+
+        .section-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(245, 124, 0, 0.1);
+            color: var(--primary);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .section-header h2 {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+
+        .section-header p {
+            font-size: 18px;
+            color: var(--gray);
+        }
+
+        /* Sobre */
+        .section-about {
+            background: var(--white);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-content h3 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+
+        .about-text {
+            color: var(--gray);
+            margin-bottom: 30px;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-primary);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 20px;
+        }
+
+        .feature-text h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .feature-text p {
+            font-size: 14px;
+            color: var(--gray);
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+        }
+
+        .about-certified {
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            background: var(--white);
+            padding: 20px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            box-shadow: var(--box-shadow);
+        }
+
+        .certified-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-primary);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 24px;
+        }
+
+        /* Cards de Serviços */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--box-shadow-hover);
+        }
+
+        .service-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .service-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--gradient-primary);
+            color: var(--white);
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .service-info {
+            padding: 25px;
+        }
+
+        .service-category {
+            display: inline-block;
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .service-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .service-description {
+            color: var(--gray);
+            margin-bottom: 15px;
+        }
+
+        .service-features {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+
+        .service-features li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--gray);
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .service-features i {
+            color: var(--primary);
+        }
+
+        .service-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .service-link:hover {
+            gap: 15px;
+            color: var(--primary-dark);
+        }
+
+        /* Benefícios */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .benefit-card {
+            text-align: center;
+            padding: 30px;
+            border-radius: 20px;
+            background: var(--white);
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--box-shadow-hover);
+        }
+
+        .benefit-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 32px;
+            margin: 0 auto 20px;
+        }
+
+        .benefit-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .benefit-description {
+            color: var(--gray);
+        }
+
+        /* Planos e Preços */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .pricing-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 40px 30px;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-card.popular {
+            transform: scale(1.05);
+            border: 2px solid var(--primary);
+        }
+
+        .pricing-card.popular::before {
+            content: 'MAIS POPULAR';
+            position: absolute;
+            top: 20px;
+            right: -30px;
+            background: var(--gradient-primary);
+            color: var(--white);
+            padding: 5px 40px;
+            transform: rotate(45deg);
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--box-shadow-hover);
+        }
+
+        .pricing-card.popular:hover {
+            transform: scale(1.05) translateY(-10px);
+        }
+
+        .pricing-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .pricing-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .pricing-price {
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .pricing-price span {
+            font-size: 16px;
+            font-weight: 400;
+            color: var(--gray);
+        }
+
+        .pricing-features {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 30px;
+        }
+
+        .pricing-features li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--gray);
+            margin-bottom: 15px;
+        }
+
+        .pricing-features i {
+            color: var(--primary);
+        }
+
+        .pricing-btn {
+            width: 100%;
+            padding: 15px;
+            background: var(--gradient-primary);
+            color: var(--white);
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .pricing-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--box-shadow);
+        }
+
+        /* Depoimentos */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: var(--box-shadow);
+        }
+
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .testimonial-author h4 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .testimonial-author p {
+            color: var(--gray);
+            font-size: 14px;
+        }
+
+        .testimonial-text {
+            color: var(--gray);
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-rating {
+            color: var(--warning);
+        }
+
+        /* Contato */
+        .section-contact {
+            background: var(--gradient-dark);
+            color: var(--white);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-info h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .contact-details {
+            margin: 40px 0;
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .contact-item h4 {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .contact-item a {
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        .contact-social {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .contact-form {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 20px;
+        }
+
+        .contact-form h3 {
+            color: var(--dark);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            color: var(--gray-dark);
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid var(--light);
+            border-radius: 10px;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 15px;
+            background: var(--gradient-primary);
+            color: var(--white);
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--box-shadow);
+        }
+
+        /* Footer */
+        .footer-modern {
+            background: var(--dark);
+            color: var(--white);
+            padding: 80px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .footer-about h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .footer-about p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 20px;
+        }
+
+        .footer-links h4 {
+            margin-bottom: 20px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-light);
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .footer-bottom a {
+            color: var(--primary-light);
+            text-decoration: none;
+        }
+
+        /* Chatbot */
+        .kodassauro {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 999;
+        }
+
+        .kodassauro-toggle {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-primary);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+
+        .kodassauro-toggle:hover {
+            transform: scale(1.1);
+        }
+
+        .kodassauro-icon {
+            width: 40px;
+            height: 40px;
+        }
+
+        .kodassauro-panel {
+            position: absolute;
+            bottom: 80px;
+            right: 0;
+            width: 350px;
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--box-shadow-hover);
+        }
+
+        .kodassauro-header {
+            background: var(--gradient-primary);
+            color: var(--white);
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .kodassauro-avatar {
+            width: 40px;
+            height: 40px;
+        }
+
+        .kodassauro-avatar svg {
+            width: 40px;
+            height: 40px;
+        }
+
+        .kodassauro-headings h4 {
+            margin: 0;
+            font-size: 16px;
+        }
+
+        .kodassauro-headings p {
+            margin: 0;
+            font-size: 12px;
+            opacity: 0.9;
+        }
+
+        .kodassauro-close {
+            margin-left: auto;
+            background: none;
+            border: none;
+            color: var(--white);
+            cursor: pointer;
+        }
+
+        .kodassauro-messages {
+            height: 300px;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .kodassauro-message {
+            margin-bottom: 15px;
+            padding: 10px 15px;
+            border-radius: 10px;
+            max-width: 80%;
+        }
+
+        .kodassauro-message.bot {
+            background: var(--light);
+            align-self: flex-start;
+        }
+
+        .kodassauro-message.user {
+            background: var(--gradient-primary);
+            color: var(--white);
+            margin-left: auto;
+        }
+
+        .kodassauro-quick {
+            padding: 15px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+
+        .kodassauro-chip {
+            background: var(--light);
+            border: none;
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .kodassauro-chip:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .kodassauro-composer {
+            display: flex;
+            padding: 15px;
+            border-top: 1px solid var(--light);
+        }
+
+        .kodassauro-input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid var(--light);
+            border-radius: 10px 0 0 10px;
+        }
+
+        .kodassauro-send {
+            background: var(--gradient-primary);
+            color: var(--white);
+            border: none;
+            padding: 10px 15px;
+            border-radius: 0 10px 10px 0;
+            cursor: pointer;
+        }
+
+        /* Responsividade */
+        @media (max-width: 992px) {
+            .navbar-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 300px;
+                height: 100vh;
+                background: var(--white);
+                flex-direction: column;
+                justify-content: center;
+                transition: var(--transition);
+                box-shadow: var(--box-shadow);
+            }
+
+            .navbar-menu.active {
+                right: 0;
+            }
+
+            .nav-link {
+                color: var(--dark) !important;
+            }
+
+            .navbar-toggle {
+                display: flex;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-title {
+                font-size: 40px;
+            }
+
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding: 60px 0;
+            }
+
+            .hero-title {
+                font-size: 32px;
+            }
+
+            .hero-stats {
+                flex-wrap: wrap;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Container fluido */
+        .container-fluid {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 30px;
         }
     </style>
 </head>
 
 <body>
-    <h1 class="hide-h1">KoddaServices - Profissionais de confiança perto de você</h1>
+    <h1 class="hide-h1">KoddaServices - Soluções para Profissionais de Saúde</h1>
 
-    <!-- HEADER KODDAHUB STYLE -->
-    <header class="header-services" id="mainHeader">
+    <!-- HEADER MODERNO -->
+    <header class="header-modern" id="mainHeader">
         <div class="container-fluid">
             <div class="navbar-wrapper">
                 <div class="navbar-brand">
-                    <a href="../index.html" style="display: flex; align-items: center; gap: var(--gap-xs);">
-                        <img src="../assets/logo/KoddaHub-Services.png" alt="Logo" class="logo-image" style="width: 32px; height: 32px;">
-                        <span class="logo-text">Kodda<span>Service</span></span>
+                    <a href="../index.html" class="logo-image">
+                        <img src="../assets/logo/KoddaHub-Services.png" alt="KoddaServices Logo">
                     </a>
+                    <a href="#" class="logo-text"> <span>Kodda</span>Services </a>
                 </div>
 
-                <div class="navbar-search">
-                    <span class="search-item">Qual serviço? <span>Limpeza, reparos...</span></span>
-                    <span class="search-item">Quando? <span>Adicionar datas</span></span>
-                    <span class="search-item">Onde? <span>Digite seu endereço</span></span>
-                    <div class="search-icon">
-                        <i class="fas fa-search"></i>
-                    </div>
-                </div>
-
-                <nav class="navbar-menu">
-                    <a href="#profissionais" class="nav-link-services">Profissionais</a>
-                    <a href="#como-funciona" class="nav-link-services">Como funciona</a>
-                    <a href="#parceiro" class="nav-link-services cta">Trabalhe conosco</a>
+                <nav class="navbar-menu" id="navMenu">
+                    <a href="#inicio" class="nav-link active">Início</a>
+                    <a href="#sobre" class="nav-link">Sobre</a>
+                    <a href="#servicos" class="nav-link">Serviços</a>
+                    <a href="#planos" class="nav-link">Planos</a>
+                    <a href="#contato" class="nav-link cta-nav">Fale Conosco</a>
                 </nav>
 
                 <button class="navbar-toggle" id="navToggle">
@@ -1466,59 +1325,62 @@
         </div>
     </header>
 
-    <!-- HERO SECTION -->
+    <!-- HERO KODDASERVICES -->
     <section class="hero-services" id="inicio">
         <div class="hero-background">
             <div class="gradient-blob blob-1"></div>
             <div class="gradient-blob blob-2"></div>
+            <div class="gradient-blob blob-3"></div>
         </div>
 
         <div class="container-fluid">
             <div class="hero-content">
-                <div class="hero-text">
-                    <span class="hero-kicker">KODDASERVIÇOS</span>
+                <div class="hero-text animate-fadeInUp">
+                    <span class="hero-kicker">
+                        <i class="fas fa-stethoscope"></i> KODDASERVICES
+                    </span>
                     <h1 class="hero-title">
-                        Profissionais de <strong>confiança</strong> para todos os serviços
+                        Tecnologia que <strong>transforma</strong> a gestão da sua clínica
                     </h1>
                     <p class="hero-subtitle">
-                        Encontre e contrate diaristas, encanadores, eletricistas, babás e muito mais.
-                        Profissionais verificados, avaliações reais e preço justo.
+                        Plataforma completa para médicos e profissionais de saúde: agendamento online,
+                        prontuário eletrônico, telemedicina e gestão financeira em um só lugar.
                     </p>
 
                     <div class="hero-stats">
                         <div class="stat-item">
-                            <span class="stat-number">+50k</span>
-                            <span class="stat-label">Profissionais</span>
+                            <span class="stat-number">+15k</span>
+                            <span class="stat-label">Médicos cadastrados</span>
                         </div>
                         <div class="stat-item">
-                            <span class="stat-number">+200k</span>
-                            <span class="stat-label">Serviços</span>
+                            <span class="stat-number">+2M</span>
+                            <span class="stat-label">Consultas/mês</span>
                         </div>
                         <div class="stat-item">
-                            <span class="stat-number">4.9</span>
-                            <span class="stat-label">Avaliação</span>
+                            <span class="stat-number">98%</span>
+                            <span class="stat-label">Satisfação</span>
                         </div>
                     </div>
 
                     <div class="hero-cta">
-                        <a href="#search" class="btn-primary-services">
-                            <i class="fas fa-search" style="margin-right: var(--spacing-2);"></i>
-                            Buscar serviços
+                        <a href="#planos" class="btn-primary-modern">
+                            Começar Agora
+                            <i class="fas fa-arrow-right" style="margin-left: 10px"></i>
                         </a>
-                        <a href="#como-funciona" class="btn-secondary-services">
-                            Como funciona
+                        <a href="#contato" class="btn-secondary-modern">
+                            Falar com Consultor
                         </a>
                     </div>
                 </div>
 
-                <div class="hero-image">
-                    <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
-                        alt="Profissional realizando serviço">
+                <div class="hero-image animate-fadeInUp delay-1">
+                    <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                        alt="Médico utilizando tablet">
                     <div class="hero-badge">
                         <i class="fas fa-shield-alt"></i>
                         <div>
-                            <strong>Garantia Kodda</strong>
-                            <p style="margin: 0; font-size: var(--font-size-xs);">Profissionais verificados</p>
+                            <strong>100% seguro</strong>
+                            <p style="margin: 0; font-size: 12px">Conforme LGPD</p>
                         </div>
                     </div>
                 </div>
@@ -1526,479 +1388,725 @@
         </div>
     </section>
 
-    <!-- SEÇÃO DE CATEGORIAS -->
-    <section class="section-categories" id="categorias">
+    <!-- SEÇÃO SOBRE -->
+    <section class="section-about" id="sobre">
         <div class="container-fluid">
-            <div class="section-header">
-                <h2>O que você precisa?</h2>
-                <p>Escolha uma categoria e encontre os melhores profissionais perto de você</p>
+            <div class="section-header animate-fadeInUp">
+                <span class="section-badge">
+                    <i class="fas fa-stethoscope"></i> SOBRE NÓS
+                </span>
+                <h2>Plataforma completa para sua prática médica</h2>
+                <p>
+                    Mais de 15 mil profissionais de saúde confiam na KoddaServices para
+                    gerenciar suas clínicas e consultórios com eficiência e segurança.
+                </p>
             </div>
 
-            <div class="categories-grid">
-                <div class="category-card">
-                    <div class="category-icon">
-                        <i class="fas fa-broom"></i>
-                    </div>
-                    <span class="category-title">Diarista</span>
-                    <span style="font-size: var(--font-size-xs); color: var(--gray-circuit);">R$ 60/h</span>
-                </div>
+            <div class="about-grid">
+                <div class="about-content animate-fadeInUp delay-1">
+                    <h3>Nossa missão é simplificar a gestão da saúde</h3>
+                    <p class="about-text">
+                        A KoddaServices nasceu da necessidade de oferecer aos profissionais de saúde
+                        ferramentas modernas e intuitivas para gerenciar seus consultórios. Hoje,
+                        somos referência em software médico no Brasil, com soluções completas que
+                        otimizam o tempo e melhoram a experiência dos pacientes.
+                    </p>
 
-                <div class="category-card">
-                    <div class="category-icon">
-                        <i class="fas fa-wrench"></i>
-                    </div>
-                    <span class="category-title">Encanador</span>
-                    <span style="font-size: var(--font-size-xs); color: var(--gray-circuit);">R$ 80/h</span>
-                </div>
-
-                <div class="category-card">
-                    <div class="category-icon">
-                        <i class="fas fa-bolt"></i>
-                    </div>
-                    <span class="category-title">Eletricista</span>
-                    <span style="font-size: var(--font-size-xs); color: var(--gray-circuit);">R$ 90/h</span>
-                </div>
-
-                <div class="category-card">
-                    <div class="category-icon">
-                        <i class="fas fa-paint-roller"></i>
-                    </div>
-                    <span class="category-title">Pintor</span>
-                    <span style="font-size: var(--font-size-xs); color: var(--gray-circuit);">R$ 70/h</span>
-                </div>
-
-                <div class="category-card">
-                    <div class="category-icon">
-                        <i class="fas fa-child"></i>
-                    </div>
-                    <span class="category-title">Babá</span>
-                    <span style="font-size: var(--font-size-xs); color: var(--gray-circuit);">R$ 50/h</span>
-                </div>
-
-                <div class="category-card">
-                    <div class="category-icon">
-                        <i class="fas fa-dog"></i>
-                    </div>
-                    <span class="category-title">Pet sitter</span>
-                    <span style="font-size: var(--font-size-xs); color: var(--gray-circuit);">R$ 45/h</span>
-                </div>
-
-                <div class="category-card">
-                    <div class="category-icon">
-                        <i class="fas fa-tools"></i>
-                    </div>
-                    <span class="category-title">Marceneiro</span>
-                    <span style="font-size: var(--font-size-xs); color: var(--gray-circuit);">R$ 85/h</span>
-                </div>
-
-                <div class="category-card">
-                    <div class="category-icon">
-                        <i class="fas fa-snowflake"></i>
-                    </div>
-                    <span class="category-title">Ar-condicionado</span>
-                    <span style="font-size: var(--font-size-xs); color: var(--gray-circuit);">R$ 120</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SEÇÃO DE PROFISSIONAIS EM DESTAQUE -->
-    <section class="section-featured" id="profissionais">
-        <div class="container-fluid">
-            <div class="section-header">
-                <h2>Profissionais em destaque</h2>
-                <p>Os melhores avaliados e mais bem pagos da plataforma</p>
-            </div>
-
-            <div class="featured-grid">
-                <!-- Card 1 - Diarista -->
-                <div class="professional-card">
-                    <div class="card-header">
-                        <img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                            alt="Ana Silva" class="professional-image">
-                        <span class="professional-badge">Superprofissional</span>
-                    </div>
-                    <div class="professional-info">
-                        <div class="professional-name">
-                            <h3>Ana Silva</h3>
-                            <div class="professional-rating">
-                                <i class="fas fa-star"></i>
-                                <span>4.98</span>
+                    <div class="about-features">
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-calendar-check"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Agendamento Online</h4>
+                                <p>24/7, sem taxas extras</p>
                             </div>
                         </div>
-                        <div class="professional-category">
-                            <i class="fas fa-broom"></i> Diarista • 5 anos
-                        </div>
-                        <div class="professional-price">
-                            <span class="price">R$ 65 <span>/hora</span></span>
-                            <span class="pill-badge"
-                                style="font-size: var(--font-size-xs); padding: var(--spacing-1) var(--spacing-3);">
-                                <i class="fas fa-check-circle"></i> Verificada
-                            </span>
-                        </div>
-                        <div class="professional-footer">
-                            <span><i class="fas fa-map-marker-alt"></i> 2 km</span>
-                            <a href="#" class="btn-contract">Contratar</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 2 - Encanador -->
-                <div class="professional-card">
-                    <div class="card-header">
-                        <img src="../assets/images/KoddaHub-Services.png"
-                            alt="KoddaHub Services" class="professional-image">
-                    </div>
-                    <div class="professional-info">
-                        <div class="professional-name">
-                            <h3>Carlos Santos</h3>
-                            <div class="professional-rating">
-                                <i class="fas fa-star"></i>
-                                <span>4.95</span>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-file-medical"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Prontuário Eletrônico</h4>
+                                <p>100% digital e seguro</p>
                             </div>
                         </div>
-                        <div class="professional-category">
-                            <i class="fas fa-wrench"></i> Encanador • 12 anos
-                        </div>
-                        <div class="professional-price">
-                            <span class="price">R$ 85 <span>/hora</span></span>
-                            <span class="pill-badge"
-                                style="font-size: var(--font-size-xs); padding: var(--spacing-1) var(--spacing-3);">
-                                <i class="fas fa-check-circle"></i> Verificado
-                            </span>
-                        </div>
-                        <div class="professional-footer">
-                            <span><i class="fas fa-map-marker-alt"></i> 5 km</span>
-                            <a href="#" class="btn-contract">Contratar</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 3 - Eletricista -->
-                <div class="professional-card">
-                    <div class="card-header">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                            alt="Marcos Oliveira" class="professional-image">
-                        <span class="professional-badge"
-                            style="background: linear-gradient(135deg, var(--color-secondary-600), var(--color-secondary-700));">Mais
-                            rápido</span>
-                    </div>
-                    <div class="professional-info">
-                        <div class="professional-name">
-                            <h3>Marcos Oliveira</h3>
-                            <div class="professional-rating">
-                                <i class="fas fa-star"></i>
-                                <span>4.99</span>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-video"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Telemedicina</h4>
+                                <p>Consultas online integradas</p>
                             </div>
                         </div>
-                        <div class="professional-category">
-                            <i class="fas fa-bolt"></i> Eletricista • 8 anos
-                        </div>
-                        <div class="professional-price">
-                            <span class="price">R$ 95 <span>/hora</span></span>
-                            <span class="pill-badge"
-                                style="font-size: var(--font-size-xs); padding: var(--spacing-1) var(--spacing-3);">
-                                <i class="fas fa-check-circle"></i> Verificado
-                            </span>
-                        </div>
-                        <div class="professional-footer">
-                            <span><i class="fas fa-map-marker-alt"></i> 3 km</span>
-                            <a href="#" class="btn-contract">Contratar</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 4 - Babá -->
-                <div class="professional-card">
-                    <div class="card-header">
-                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                            alt="Juliana Costa" class="professional-image">
-                    </div>
-                    <div class="professional-info">
-                        <div class="professional-name">
-                            <h3>Juliana Costa</h3>
-                            <div class="professional-rating">
-                                <i class="fas fa-star"></i>
-                                <span>4.97</span>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Gestão Financeira</h4>
+                                <p>Controle total de receitas</p>
                             </div>
                         </div>
-                        <div class="professional-category">
-                            <i class="fas fa-child"></i> Babá • 6 anos
+                    </div>
+
+                    <a href="#" class="btn-primary-modern" style="display: inline-flex">
+                        Conheça Nossa História
+                        <i class="fas fa-arrow-right" style="margin-left: 10px"></i>
+                    </a>
+                </div>
+
+                <div class="about-image animate-fadeInUp delay-2">
+                    <img src="https://images.unsplash.com/photo-1666214280391-4ff3d7c02e3d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="Equipe médica">
+                    <div class="about-certified">
+                        <div class="certified-icon">
+                            <i class="fas fa-certificate"></i>
                         </div>
-                        <div class="professional-price">
-                            <span class="price">R$ 55 <span>/hora</span></span>
-                            <span class="pill-badge"
-                                style="font-size: var(--font-size-xs); padding: var(--spacing-1) var(--spacing-3);">
-                                <i class="fas fa-check-circle"></i> Verificada
-                            </span>
-                        </div>
-                        <div class="professional-footer">
-                            <span><i class="fas fa-map-marker-alt"></i> 1.5 km</span>
-                            <a href="#" class="btn-contract">Contratar</a>
-                        </div>
+                        <strong>LGPD</strong>
+                        <span style="font-size: 12px">100% conforme</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SEÇÃO COMO FUNCIONA -->
-    <section class="section-howitworks" id="como-funciona">
+    <!-- SEÇÃO BENEFÍCIOS -->
+    <section style="background: var(--light);">
         <div class="container-fluid">
-            <div class="section-header" style="text-align: center;">
-                <h2>Como funciona a KoddaServiços</h2>
-                <p style="margin: 0 auto;">Em três passos você encontra o profissional ideal para o seu serviço</p>
+            <div class="section-header animate-fadeInUp">
+                <span class="section-badge">
+                    <i class="fas fa-stethoscope"></i> BENEFÍCIOS
+                </span>
+                <h2>Por que escolher a KoddaServices?</h2>
+                <p>
+                    Soluções completas para otimizar sua rotina e oferecer a melhor experiência aos seus pacientes.
+                </p>
             </div>
 
-            <div class="steps-grid">
-                <div class="step-card">
-                    <div class="step-icon">
-                        <i class="fas fa-search"></i>
+            <div class="benefits-grid">
+                <div class="benefit-card animate-fadeInUp delay-1">
+                    <div class="benefit-icon">
+                        <i class="fas fa-clock"></i>
                     </div>
-                    <h3>1. Busque</h3>
-                    <p>Encontre profissionais perto de você filtrando por categoria, preço e avaliação. Todos com perfis
-                        verificados.</p>
+                    <h3 class="benefit-title">Economia de Tempo</h3>
+                    <p class="benefit-description">
+                        Automatize agendamentos, lembretes e prontuários. Foque no que realmente importa: seus
+                        pacientes.
+                    </p>
                 </div>
 
-                <div class="step-card">
-                    <div class="step-icon">
-                        <i class="fas fa-calendar-check"></i>
-                    </div>
-                    <h3>2. Agende</h3>
-                    <p>Escolha a data e horário que preferir. O profissional confirma na hora e você recebe todas as
-                        informações.</p>
-                </div>
-
-                <div class="step-card">
-                    <div class="step-icon">
+                <div class="benefit-card animate-fadeInUp delay-1">
+                    <div class="benefit-icon">
                         <i class="fas fa-shield-alt"></i>
                     </div>
-                    <h3>3. Pague com segurança</h3>
-                    <p>O pagamento é liberado apenas após a conclusão do serviço. Sua satisfação é garantida.</p>
+                    <h3 class="benefit-title">Segurança de Dados</h3>
+                    <p class="benefit-description">
+                        Criptografia de ponta a ponta e conformidade total com a LGPD. Seus dados estão protegidos.
+                    </p>
+                </div>
+
+                <div class="benefit-card animate-fadeInUp delay-2">
+                    <div class="benefit-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 class="benefit-title">Acesso Mobile</h3>
+                    <p class="benefit-description">
+                        Gerencie sua agenda de qualquer lugar através do nosso aplicativo para iOS e Android.
+                    </p>
+                </div>
+
+                <div class="benefit-card animate-fadeInUp delay-2">
+                    <div class="benefit-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3 class="benefit-title">Suporte Especializado</h3>
+                    <p class="benefit-description">
+                        Equipe de suporte disponível 24/7 para ajudar você com qualquer dúvida ou problema.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SEÇÃO DE AVALIAÇÕES -->
-    <section class="section-reviews">
+    <!-- SEÇÃO SERVIÇOS -->
+    <section class="section-products" id="servicos" style="background: var(--white);">
         <div class="container-fluid">
-            <div class="section-header" style="text-align: center;">
-                <h2>O que dizem nossos clientes</h2>
-                <p style="margin: 0 auto;">Mais de 200 mil serviços realizados com excelente avaliação</p>
-            </div>
-
-            <div class="reviews-grid">
-                <div class="review-card">
-                    <div class="review-header">
-                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Cliente" class="review-avatar">
-                        <div class="review-info">
-                            <h4>Patrícia Mendes</h4>
-                            <div class="review-stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="review-text">"A Ana foi super profissional, chegou no horário e deixou minha casa
-                        impecável. Recomendo muito!"</p>
-                    <span class="review-service">Serviço: Diarista • 4h</span>
-                </div>
-
-                <div class="review-card">
-                    <div class="review-header">
-                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Cliente" class="review-avatar">
-                        <div class="review-info">
-                            <h4>Ricardo Almeida</h4>
-                            <div class="review-stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="review-text">"Vazamento na cozinha resolvido em menos de 1 hora. Preço justo e trabalho de
-                        qualidade. Nota 10!"</p>
-                    <span class="review-service">Serviço: Encanador • 1h</span>
-                </div>
-
-                <div class="review-card">
-                    <div class="review-header">
-                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Cliente" class="review-avatar">
-                        <div class="review-info">
-                            <h4>Carla Fernandes</h4>
-                            <div class="review-stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="review-text">"Precisava de uma babá com urgência e encontrei a Juliana. Minha filha adorou
-                        ela, super paciente e atenciosa."</p>
-                    <span class="review-service">Serviço: Babá • 6h</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SEÇÃO DE BUSCA AVANÇADA -->
-    <section class="section-search" id="search">
-        <div class="container-fluid">
-            <div class="search-container">
-                <h2>Encontre o profissional ideal</h2>
-                <p style="color: rgba(255,255,255,0.9); font-size: var(--font-size-lg);">Milhares de profissionais
-                    prontos para atender você</p>
-
-                <div class="search-box">
-                    <input type="text" class="search-input" placeholder="Digite o serviço que precisa...">
-                    <div class="search-location">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>São Paulo, SP</span>
-                        <i class="fas fa-chevron-down"
-                            style="margin-left: var(--spacing-2); font-size: var(--font-size-xs);"></i>
-                    </div>
-                    <button class="search-btn">
-                        <i class="fas fa-search"></i> Buscar
-                    </button>
-                </div>
-
-                <div
-                    style="display: flex; gap: var(--gap-md); justify-content: center; margin-top: var(--spacing-5); flex-wrap: wrap;">
-                    <span class="pill-badge" style="background: rgba(255,255,255,0.2); color: white; border: none;">
-                        <i class="fas fa-bolt"></i> Atendimento em até 1h
-                    </span>
-                    <span class="pill-badge" style="background: rgba(255,255,255,0.2); color: white; border: none;">
-                        <i class="fas fa-check-circle"></i> Profissionais verificados
-                    </span>
-                    <span class="pill-badge" style="background: rgba(255,255,255,0.2); color: white; border: none;">
-                        <i class="fas fa-credit-card"></i> Pagamento seguro
-                    </span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SEÇÃO SEJA PARCEIRO -->
-    <section class="section-partner" id="parceiro">
-        <div class="container-fluid">
-            <div class="partner-content">
-                <h2>Seja um parceiro KoddaServiços</h2>
-                <p>Cadastre-se gratuitamente, defina seus preços e horários, e comece a receber clientes perto de você.
+            <div class="section-header animate-fadeInUp">
+                <span class="section-badge">
+                    <i class="fas fa-stethoscope"></i> NOSSOS SERVIÇOS
+                </span>
+                <h2>Soluções completas para sua clínica</h2>
+                <p>
+                    Tudo o que você precisa para gerenciar seu consultório em uma única plataforma integrada.
                 </p>
-                <a href="#" class="btn-partner">
-                    <i class="fas fa-bolt" style="margin-right: var(--spacing-2);"></i>
-                    Quero ser um profissional
-                    <i class="fas fa-arrow-right" style="margin-left: var(--spacing-2);"></i>
+            </div>
+
+            <div class="services-grid">
+                <!-- 1. Agendamento Online -->
+                <div class="service-card animate-fadeInUp delay-1">
+                    <div class="service-image"
+                        style="background-image: url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+                        <span class="service-badge">Mais usado</span>
+                    </div>
+                    <div class="service-info">
+                        <span class="service-category">GESTÃO</span>
+                        <h3 class="service-title">Agendamento Online</h3>
+                        <p class="service-description">
+                            Sistema inteligente de agendamento que permite aos pacientes marcarem consultas 24/7.
+                        </p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check-circle"></i> Calendário sincronizado</li>
+                            <li><i class="fas fa-check-circle"></i> Lembretes automáticos</li>
+                            <li><i class="fas fa-check-circle"></i> Gestão de horários</li>
+                            <li><i class="fas fa-check-circle"></i> Confirmação por WhatsApp</li>
+                        </ul>
+                        <a href="#" class="service-link">
+                            Saiba mais <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 2. Prontuário Eletrônico -->
+                <div class="service-card animate-fadeInUp delay-1">
+                    <div class="service-image"
+                        style="background-image: url('https://images.unsplash.com/photo-1581056771107-24ca5f033842?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+                        <span class="service-badge">Novo</span>
+                    </div>
+                    <div class="service-info">
+                        <span class="service-category">DOCUMENTAÇÃO</span>
+                        <h3 class="service-title">Prontuário Eletrônico</h3>
+                        <p class="service-description">
+                            Prontuário digital completo com histórico do paciente, exames e prescrições.
+                        </p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check-circle"></i> Acesso de qualquer lugar</li>
+                            <li><i class="fas fa-check-circle"></i> Modelos personalizáveis</li>
+                            <li><i class="fas fa-check-circle"></i> Assinatura digital</li>
+                            <li><i class="fas fa-check-circle"></i> Backup automático</li>
+                        </ul>
+                        <a href="#" class="service-link">
+                            Saiba mais <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 3. Telemedicina -->
+                <div class="service-card animate-fadeInUp delay-2">
+                    <div class="service-image"
+                        style="background-image: url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+                        <span class="service-badge">Em alta</span>
+                    </div>
+                    <div class="service-info">
+                        <span class="service-category">CONSULTAS REMOTAS</span>
+                        <h3 class="service-title">Telemedicina</h3>
+                        <p class="service-description">
+                            Plataforma de videochamadas integrada para consultas online seguras e de qualidade.
+                        </p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check-circle"></i> HD de áudio e vídeo</li>
+                            <li><i class="fas fa-check-circle"></i> Compartilhamento de tela</li>
+                            <li><i class="fas fa-check-circle"></i> Gravação autorizada</li>
+                            <li><i class="fas fa-check-circle"></i> Chat integrado</li>
+                        </ul>
+                        <a href="#" class="service-link">
+                            Saiba mais <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 4. Gestão Financeira -->
+                <div class="service-card animate-fadeInUp delay-2">
+                    <div class="service-image"
+                        style="background-image: url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+                        <span class="service-badge">Completo</span>
+                    </div>
+                    <div class="service-info">
+                        <span class="service-category">FINANCEIRO</span>
+                        <h3 class="service-title">Gestão Financeira</h3>
+                        <p class="service-description">
+                            Controle total das finanças do consultório: contas a receber, pagamentos e relatórios.
+                        </p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check-circle"></i> Emissão de boletos</li>
+                            <li><i class="fas fa-check-circle"></i> Integração com bancos</li>
+                            <li><i class="fas fa-check-circle"></i> Relatórios gerenciais</li>
+                            <li><i class="fas fa-check-circle"></i> Controle de inadimplência</li>
+                        </ul>
+                        <a href="#" class="service-link">
+                            Saiba mais <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 5. Marketing Médico -->
+                <div class="service-card animate-fadeInUp delay-3">
+                    <div class="service-image"
+                        style="background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+                        <span class="service-badge">Destaque</span>
+                    </div>
+                    <div class="service-info">
+                        <span class="service-category">MARKETING</span>
+                        <h3 class="service-title">Marketing Médico</h3>
+                        <p class="service-description">
+                            Ferramentas para atrair novos pacientes e fortalecer sua presença online.
+                        </p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check-circle"></i> Perfil profissional</li>
+                            <li><i class="fas fa-check-circle"></i> Avaliações de pacientes</li>
+                            <li><i class="fas fa-check-circle"></i> Conteúdo educativo</li>
+                            <li><i class="fas fa-check-circle"></i> Métricas de desempenho</li>
+                        </ul>
+                        <a href="#" class="service-link">
+                            Saiba mais <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 6. App para Pacientes -->
+                <div class="service-card animate-fadeInUp delay-3">
+                    <div class="service-image"
+                        style="background-image: url('https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+                        <span class="service-badge">Exclusivo</span>
+                    </div>
+                    <div class="service-info">
+                        <span class="service-category">APLICATIVO</span>
+                        <h3 class="service-title">App para Pacientes</h3>
+                        <p class="service-description">
+                            Aplicativo white label para seus pacientes agendarem e acompanharem consultas.
+                        </p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check-circle"></i> Marca personalizada</li>
+                            <li><i class="fas fa-check-circle"></i> Notificações push</li>
+                            <li><i class="fas fa-check-circle"></i> Histórico de consultas</li>
+                            <li><i class="fas fa-check-circle"></i> Chat com o consultório</li>
+                        </ul>
+                        <a href="#" class="service-link">
+                            Saiba mais <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 48px">
+                <a href="#" class="btn-primary-modern">
+                    Ver Todos os Serviços
+                    <i class="fas fa-arrow-right" style="margin-left: 10px"></i>
                 </a>
-                <p style="margin-top: var(--spacing-5); font-size: var(--font-size-sm); opacity: 0.9;">+50 mil
-                    profissionais já estão faturando com a gente</p>
             </div>
         </div>
     </section>
 
-    <!-- FOOTER KODDAHUB STYLE -->
-    <footer class="footer-services">
+    <!-- SEÇÃO PLANOS -->
+    <section class="section-categories" id="planos" style="background: var(--light);">
+        <div class="container-fluid">
+            <div class="section-header animate-fadeInUp">
+                <span class="section-badge">
+                    <i class="fas fa-stethoscope"></i> PLANOS E PREÇOS
+                </span>
+                <h2>Escolha o plano ideal para você</h2>
+                <p>
+                    Planos flexíveis que se adaptam ao tamanho da sua clínica e às suas necessidades.
+                </p>
+            </div>
+
+            <div class="pricing-grid">
+                <!-- Plano Básico -->
+                <div class="pricing-card animate-fadeInUp delay-1">
+                    <div class="pricing-header">
+                        <h3 class="pricing-title">Básico</h3>
+                        <div class="pricing-price">
+                            R$ 97 <span>/mês</span>
+                        </div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Agendamento online</li>
+                        <li><i class="fas fa-check"></i> Até 50 pacientes/mês</li>
+                        <li><i class="fas fa-check"></i> Lembretes automáticos</li>
+                        <li><i class="fas fa-check"></i> Suporte por email</li>
+                        <li><i class="fas fa-check"></i> 1 profissional</li>
+                        <li class="text-muted"><i class="fas fa-times"></i> Prontuário eletrônico</li>
+                        <li class="text-muted"><i class="fas fa-times"></i> Telemedicina</li>
+                    </ul>
+                    <button class="pricing-btn">Começar Agora</button>
+                </div>
+
+                <!-- Plano Profissional (Popular) -->
+                <div class="pricing-card popular animate-fadeInUp delay-2">
+                    <div class="pricing-header">
+                        <h3 class="pricing-title">Profissional</h3>
+                        <div class="pricing-price">
+                            R$ 197 <span>/mês</span>
+                        </div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Agendamento online</li>
+                        <li><i class="fas fa-check"></i> Pacientes ilimitados</li>
+                        <li><i class="fas fa-check"></i> Lembretes automáticos</li>
+                        <li><i class="fas fa-check"></i> Suporte prioritário</li>
+                        <li><i class="fas fa-check"></i> Até 3 profissionais</li>
+                        <li><i class="fas fa-check"></i> Prontuário eletrônico</li>
+                        <li><i class="fas fa-check"></i> Telemedicina (50h/mês)</li>
+                    </ul>
+                    <button class="pricing-btn">Começar Agora</button>
+                </div>
+
+                <!-- Plano Clínica -->
+                <div class="pricing-card animate-fadeInUp delay-3">
+                    <div class="pricing-header">
+                        <h3 class="pricing-title">Clínica</h3>
+                        <div class="pricing-price">
+                            R$ 347 <span>/mês</span>
+                        </div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Agendamento online</li>
+                        <li><i class="fas fa-check"></i> Pacientes ilimitados</li>
+                        <li><i class="fas fa-check"></i> Lembretes automáticos</li>
+                        <li><i class="fas fa-check"></i> Gerente de conta dedicado</li>
+                        <li><i class="fas fa-check"></i> Profissionais ilimitados</li>
+                        <li><i class="fas fa-check"></i> Prontuário eletrônico</li>
+                        <li><i class="fas fa-check"></i> Telemedicina ilimitada</li>
+                        <li><i class="fas fa-check"></i> App white label</li>
+                    </ul>
+                    <button class="pricing-btn">Começar Agora</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO DEPOIMENTOS -->
+    <section style="padding: 100px 0; background: var(--white);">
+        <div class="container-fluid">
+            <div class="section-header animate-fadeInUp">
+                <span class="section-badge">
+                    <i class="fas fa-stethoscope"></i> DEPOIMENTOS
+                </span>
+                <h2>O que nossos clientes dizem</h2>
+                <p>
+                    Profissionais de saúde que já transformaram suas práticas com a KoddaServices.
+                </p>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card animate-fadeInUp delay-1">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar"
+                            style="background-image: url('https://randomuser.me/api/portraits/women/44.jpg');"></div>
+                        <div class="testimonial-author">
+                            <h4>Dra. Carla Mendes</h4>
+                            <p>Ginecologista</p>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">
+                        "A KoddaServices revolucionou a gestão do meu consultório. Economizo horas por semana com o
+                        agendamento automático e os lembretes reduziram em 90% as faltas."
+                    </p>
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+
+                <div class="testimonial-card animate-fadeInUp delay-1">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar"
+                            style="background-image: url('https://randomuser.me/api/portraits/men/32.jpg');"></div>
+                        <div class="testimonial-author">
+                            <h4>Dr. Ricardo Santos</h4>
+                            <p>Cardiologista</p>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">
+                        "O prontuário eletrônico é fantástico! Consigo acessar o histórico dos meus pacientes de
+                        qualquer lugar e a integração com a telemedicina foi essencial na pandemia."
+                    </p>
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+
+                <div class="testimonial-card animate-fadeInUp delay-2">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar"
+                            style="background-image: url('https://randomuser.me/api/portraits/women/68.jpg');"></div>
+                        <div class="testimonial-author">
+                            <h4>Dra. Patrícia Oliveira</h4>
+                            <p>Dermatologista</p>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">
+                        "A gestão financeira integrada me dá uma visão completa das receitas da clínica. O suporte é
+                        excelente e sempre muito rápido para resolver qualquer questão."
+                    </p>
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO PARCEIROS -->
+    <section style="padding: 60px 0; background: var(--light);">
+        <div class="container-fluid">
+            <div class="section-header animate-fadeInUp">
+                <span class="section-badge">
+                    <i class="fas fa-stethoscope"></i> PARCEIROS
+                </span>
+                <h2>Instituições que confiam em nós</h2>
+            </div>
+
+            <div class="d-flex flex-wrap justify-content-center align-items-center gap-5">
+                <img src="https://via.placeholder.com/150x50/2196F3/FFFFFF?text=CFM" alt="CFM"
+                    style="height: 40px; width: auto;">
+                <img src="https://via.placeholder.com/150x50/4CAF50/FFFFFF?text=AMB" alt="AMB"
+                    style="height: 40px; width: auto;">
+                <img src="https://via.placeholder.com/150x50/F57C00/FFFFFF?text=CRM" alt="CRM"
+                    style="height: 40px; width: auto;">
+                <img src="https://via.placeholder.com/150x50/9C27B0/FFFFFF?text=CFO" alt="CFO"
+                    style="height: 40px; width: auto;">
+                <img src="https://via.placeholder.com/150x50/00BCD4/FFFFFF?text=CFP" alt="CFP"
+                    style="height: 40px; width: auto;">
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO CONTATO -->
+    <section class="section-contact" id="contato">
+        <div class="container-fluid">
+            <div class="section-header animate-fadeInUp">
+                <span class="section-badge">
+                    <i class="fas fa-stethoscope"></i> FALE CONOSCO
+                </span>
+                <h2 style="color: var(--white)">Pronto para transformar sua prática?</h2>
+                <p style="color: rgba(255, 255, 255, 0.8)">
+                    Tire suas dúvidas, solicite uma demonstração ou comece agora mesmo.
+                </p>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-info animate-fadeInUp delay-1">
+                    <h3>Informações de Contato</h3>
+                    <p style="opacity: 0.9; margin-bottom: 40px">
+                        Nossa equipe está pronta para atender você de segunda a sexta, das 8h às 20h.
+                    </p>
+
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4>Sede</h4>
+                                <p>Curitiba, PR - Brasil</p>
+                                <p style="font-size: 12px">
+                                    Atendimento em todo território nacional
+                                </p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div>
+                                <h4>Central de Vendas</h4>
+                                <p>
+                                    <a href="tel:+554192272854">(41) 9227-2854</a>
+                                </p>
+                                <p style="font-size: 13px">WhatsApp para atendimento</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4>E-mail Comercial</h4>
+                                <p>
+                                    <a href="mailto:comercial@koddaservices.com.br">comercial@koddaservices.com.br</a>
+                                </p>
+                                <p style="font-size: 12px">Resposta em até 2h</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-social">
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <div class="contact-form animate-fadeInUp delay-2">
+                    <h3 style="margin-bottom: 32px">Solicite uma demonstração</h3>
+
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="nome">Nome Completo *</label>
+                            <input type="text" class="form-control" id="nome" name="nome" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-mail *</label>
+                            <input type="email" class="form-control" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="telefone">Telefone *</label>
+                            <input type="tel" class="form-control" id="telefone" name="telefone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="assunto">Área de Interesse</label>
+                            <select class="form-control" id="assunto" name="assunto">
+                                <option value="">Selecione...</option>
+                                <option value="agendamento">Agendamento Online</option>
+                                <option value="prontuario">Prontuário Eletrônico</option>
+                                <option value="telemedicina">Telemedicina</option>
+                                <option value="financeiro">Gestão Financeira</option>
+                                <option value="marketing">Marketing Médico</option>
+                                <option value="outro">Outro</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="mensagem">Mensagem *</label>
+                            <textarea class="form-control" id="mensagem" name="mensagem" rows="4"
+                                placeholder="Conte-nos sobre sua necessidade..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">
+                            Enviar Mensagem
+                            <i class="fas fa-paper-plane" style="margin-left: 10px"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO CTA FINAL -->
+    <section style="padding: 80px 0; background: var(--gradient-primary);">
+        <div class="container-fluid text-center">
+            <h2 style="color: var(--white); font-size: 36px; font-weight: 700; margin-bottom: 20px;">
+                Comece hoje mesmo a transformar sua prática médica
+            </h2>
+            <p style="color: rgba(255,255,255,0.9); font-size: 18px; max-width: 600px; margin: 0 auto 30px;">
+                Teste grátis por 30 dias, sem compromisso. Suporte completo durante todo o período.
+            </p>
+            <a href="#" class="btn-primary-modern" style="background: var(--white); color: var(--primary);">
+                <i class="fas fa-calendar-check"></i>
+                Agendar Demonstração Gratuita
+            </a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer-modern">
         <div class="container-fluid">
             <div class="footer-grid">
-                <div class="footer-column">
-                    <h4>KoddaServiços</h4>
-                    <ul>
-                        <li><a href="#">Sobre nós</a></li>
-                        <li><a href="#">Carreiras</a></li>
-                        <li><a href="#">Imprensa</a></li>
-                        <li><a href="#">Blog</a></li>
-                    </ul>
+                <div class="footer-about">
+                    <h3>Kodda<span style="color: #ffb74d">Services</span></h3>
+                    <p>
+                        Plataforma completa para médicos e profissionais de saúde. Agendamento online,
+                        prontuário eletrônico, telemedicina e gestão financeira em um só lugar.
+                    </p>
+                    <div class="contact-social" style="justify-content: flex-start">
+                        <a href="#" class="social-link" style="background: rgba(255, 255, 255, 0.1)"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link" style="background: rgba(255, 255, 255, 0.1)"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link" style="background: rgba(255, 255, 255, 0.1)"><i
+                                class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link" style="background: rgba(255, 255, 255, 0.1)"><i
+                                class="fab fa-youtube"></i></a>
+                    </div>
                 </div>
 
-                <div class="footer-column">
-                    <h4>Descubra</h4>
-                    <ul>
-                        <li><a href="#">Confiança e segurança</a></li>
-                        <li><a href="#">Depoimentos</a></li>
-                        <li><a href="#">Preços</a></li>
-                        <li><a href="#">FAQ</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-column">
+                <div class="footer-links">
                     <h4>Serviços</h4>
                     <ul>
-                        <li><a href="#">Diaristas</a></li>
-                        <li><a href="#">Encanadores</a></li>
-                        <li><a href="#">Eletricistas</a></li>
-                        <li><a href="#">Babás</a></li>
-                        <li><a href="#">Pintores</a></li>
+                        <li><a href="#">Agendamento Online</a></li>
+                        <li><a href="#">Prontuário Eletrônico</a></li>
+                        <li><a href="#">Telemedicina</a></li>
+                        <li><a href="#">Gestão Financeira</a></li>
+                        <li><a href="#">Marketing Médico</a></li>
+                        <li><a href="#">App para Pacientes</a></li>
                     </ul>
                 </div>
 
-                <div class="footer-column">
-                    <h4>Suporte</h4>
+                <div class="footer-links">
+                    <h4>Institucional</h4>
                     <ul>
-                        <li><a href="#">Ajuda</a></li>
-                        <li><a href="#">Central de confiança</a></li>
-                        <li><a href="#">Termos</a></li>
-                        <li><a href="#">Privacidade</a></li>
+                        <li><a href="#">Sobre Nós</a></li>
+                        <li><a href="#">Política de Privacidade</a></li>
+                        <li><a href="#">Termos de Uso</a></li>
+                        <li><a href="#">LGPD</a></li>
+                        <li><a href="#">Trabalhe Conosco</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Atendimento</h4>
+                    <ul>
+                        <li><a href="#">Central de Ajuda</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Suporte Técnico</a></li>
+                        <li><a href="#">Fale Conosco</a></li>
                     </ul>
                 </div>
             </div>
 
             <div class="footer-bottom">
-                <div>© 2026 KoddaServiços, Inc. Todos os direitos reservados.</div>
-                <div class="footer-links">
-                    <a href="#">Termos</a>
-                    <a href="#">Privacidade</a>
-                    <a href="#">Cookies</a>
-                </div>
-                <div class="footer-social">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                </div>
+                <p>
+                    &copy; 2026 KoddaServices - Tecnologia para Profissionais de Saúde. Todos os direitos reservados.
+                </p>
+                <p style="margin-top: 8px; font-size: 12px">
+                    Desenvolvido por
+                    <a href="index.html">KoddaHub</a>
+                </p>
             </div>
-            <p
-                style="text-align: center; margin-top: var(--spacing-6); color: rgba(255,255,255,0.5); font-size: var(--font-size-xs);">
-                Desenvolvido por <a href="index.html" style="color: var(--color-primary-300);">KoddaHub</a>
-            </p>
         </div>
     </footer>
 
     <!-- CHATBOT KODASSAURO -->
     <div class="kodassauro" id="kodassauroRoot">
-        <button class="kodassauro-toggle" type="button" id="chatToggle" aria-label="Abrir chat KoddaServiços">
+        <button class="kodassauro-toggle" type="button" id="chatToggle" aria-label="Abrir chat KoddaServices">
             <img src="../assets/logo/KoddaHub-icon-chat.png" alt="Kodassauro" class="kodassauro-icon">
         </button>
 
         <section class="kodassauro-panel" id="chatPanel" hidden>
             <header class="kodassauro-header">
                 <div class="kodassauro-avatar">
-                    <svg class="kodassauro-svg" viewBox="0 0 64 64">
+                    <svg viewBox="0 0 64 64" width="40" height="40">
                         <defs>
-                            <linearGradient id="kdsGradServices" x1="0" y1="0" x2="1" y2="1">
+                            <linearGradient id="kdsGrad" x1="0" y1="0" x2="1" y2="1">
                                 <stop offset="0%" stop-color="#F57C00" />
-                                <stop offset="100%" stop-color="#E65100" />
+                                <stop offset="100%" stop-color="#FFB74D" />
                             </linearGradient>
                         </defs>
-                        <circle cx="32" cy="32" r="30" fill="url(#kdsGradServices)" opacity="0.95" />
+                        <circle cx="32" cy="32" r="30" fill="url(#kdsGrad)" opacity="0.95" />
                         <path d="M18 37c2-9 9-16 18-16s16 7 18 16c-6 7-13 11-18 11s-12-4-18-11z" fill="#fff"
                             opacity="0.95" />
-                        <circle cx="28" cy="33" r="2.6" fill="#212121" />
-                        <circle cx="36" cy="33" r="2.6" fill="#212121" />
+                        <circle cx="28" cy="33" r="2.6" fill="#2D3E50" />
+                        <circle cx="36" cy="33" r="2.6" fill="#2D3E50" />
                         <path d="M28 40c3 3 5 3 8 0" stroke="#E65100" stroke-width="3" fill="none"
                             stroke-linecap="round" />
                     </svg>
                 </div>
                 <div class="kodassauro-headings">
-                    <h4 class="kodassauro-title" style="margin: 0;">Kodassauro</h4>
-                    <p class="kodassauro-subtitle" style="margin: 0;">Assistente KoddaServiços</p>
+                    <h4 class="kodassauro-title" style="margin: 0">Kodassauro</h4>
+                    <p class="kodassauro-subtitle" style="margin: 0">Assistente KoddaServices</p>
                 </div>
                 <button class="kodassauro-close" id="chatClose"
                     style="background: none; border: none; color: white; margin-left: auto; cursor: pointer;">
@@ -2008,11 +2116,19 @@
 
             <div class="kodassauro-messages" id="chatMessages">
                 <div class="kodassauro-message bot">
-                    👋 Olá! Sou o Kodassauro, assistente da KoddaServiços. Como posso ajudar?
+                    🩺 Olá! Sou o Kodassauro, assistente virtual da KoddaServices. Como posso ajudar?
                 </div>
                 <div class="kodassauro-message bot">
-                    Você pode buscar profissionais, tirar dúvidas sobre serviços ou se cadastrar como parceiro.
+                    Você pode tirar dúvidas sobre nossos serviços, planos ou solicitar uma demonstração.
                 </div>
+            </div>
+
+            <div class="kodassauro-quick" id="kodassauroQuick">
+                <button type="button" class="kodassauro-chip" data-action="planos">Planos e Preços</button>
+                <button type="button" class="kodassauro-chip" data-action="agendamento">Agendamento</button>
+                <button type="button" class="kodassauro-chip" data-action="telemedicina">Telemedicina</button>
+                <button type="button" class="kodassauro-chip" data-action="demonstracao">Quero uma demonstração</button>
+                <button type="button" class="kodassauro-chip" data-action="contato">Falar com atendente</button>
             </div>
 
             <div class="kodassauro-composer">
@@ -2029,41 +2145,74 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         // ===== HEADER SCROLL =====
-        document.addEventListener('DOMContentLoaded', function () {
-            const header = document.getElementById('mainHeader');
-            const navToggle = document.getElementById('navToggle');
+        document.addEventListener("DOMContentLoaded", function () {
+            const header = document.getElementById("mainHeader");
+            const navToggle = document.getElementById("navToggle");
+            const navMenu = document.getElementById("navMenu");
 
-            window.addEventListener('scroll', function () {
+            window.addEventListener("scroll", function () {
                 if (window.scrollY > 50) {
-                    header.classList.add('scrolled');
+                    header.classList.add("scrolled");
                 } else {
-                    header.classList.remove('scrolled');
+                    header.classList.remove("scrolled");
                 }
             });
 
+            // Mobile menu toggle
+            if (navToggle) {
+                navToggle.addEventListener("click", function () {
+                    navToggle.classList.toggle("active");
+                    navMenu.classList.toggle("active");
+                });
+            }
+
             // Smooth scroll
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
+            document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+                anchor.addEventListener("click", function (e) {
                     e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
+                    const target = document.querySelector(this.getAttribute("href"));
                     if (target) {
-                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        target.scrollIntoView({ behavior: "smooth", block: "start" });
+                        navToggle?.classList.remove("active");
+                        navMenu?.classList.remove("active");
+                    }
+                });
+            });
+
+            // Active link
+            const sections = document.querySelectorAll("section[id]");
+            window.addEventListener("scroll", function () {
+                let current = "";
+                sections.forEach((section) => {
+                    const sectionTop = section.offsetTop - 100;
+                    const sectionHeight = section.clientHeight;
+                    if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                        current = section.getAttribute("id");
+                    }
+                });
+
+                document.querySelectorAll(".nav-link").forEach((link) => {
+                    link.classList.remove("active");
+                    if (link.getAttribute("href") === `#${current}`) {
+                        link.classList.add("active");
                     }
                 });
             });
         });
 
         // ===== CHATBOT KODASSAURO =====
-        document.addEventListener('DOMContentLoaded', function () {
-            const chatToggle = document.getElementById('chatToggle');
-            const chatPanel = document.getElementById('chatPanel');
-            const chatClose = document.getElementById('chatClose');
-            const chatInput = document.getElementById('chatInput');
-            const chatSend = document.getElementById('chatSend');
-            const chatMessages = document.getElementById('chatMessages');
+        document.addEventListener("DOMContentLoaded", function () {
+            const chatToggle = document.getElementById("chatToggle");
+            const chatPanel = document.getElementById("chatPanel");
+            const chatClose = document.getElementById("chatClose");
+            const chatInput = document.getElementById("chatInput");
+            const chatSend = document.getElementById("chatSend");
+            const chatMessages = document.getElementById("chatMessages");
+            const chips = document.querySelectorAll('.kodassauro-chip');
 
+            // Abrir/fechar chat
             if (chatToggle) {
-                chatToggle.addEventListener('click', function () {
+                chatToggle.addEventListener("click", function () {
                     chatPanel.hidden = !chatPanel.hidden;
                     if (!chatPanel.hidden) {
                         chatInput.focus();
@@ -2072,35 +2221,41 @@
             }
 
             if (chatClose) {
-                chatClose.addEventListener('click', function () {
+                chatClose.addEventListener("click", function () {
                     chatPanel.hidden = true;
                 });
             }
 
+            // Enviar mensagem
             function addMessage(text, isUser = false) {
-                const msgDiv = document.createElement('div');
-                msgDiv.classList.add('kodassauro-message');
-                msgDiv.classList.add(isUser ? 'user' : 'bot');
+                const msgDiv = document.createElement("div");
+                msgDiv.classList.add("kodassauro-message");
+                msgDiv.classList.add(isUser ? "user" : "bot");
                 msgDiv.textContent = text;
                 chatMessages.appendChild(msgDiv);
                 chatMessages.scrollTop = chatMessages.scrollHeight;
             }
 
-            function handleSend() {
-                const message = chatInput.value.trim();
+            function handleSend(messageText) {
+                const message = messageText || chatInput.value.trim();
                 if (message) {
                     addMessage(message, true);
-                    chatInput.value = '';
+                    chatInput.value = "";
 
+                    // Resposta automática
                     setTimeout(() => {
-                        let response = "Obrigado pelo contato! Em breve um especialista responderá.";
+                        let response = "Obrigado pelo contato! Um de nossos consultores responderá em breve. Enquanto isso, posso ajudar com informações sobre nossos serviços, planos ou agendar uma demonstração.";
 
-                        if (message.toLowerCase().includes('diarista') || message.toLowerCase().includes('faxina')) {
-                            response = "Temos excelentes diaristas disponíveis perto de você. Qual dia e horário você precisa?";
-                        } else if (message.toLowerCase().includes('encanador') || message.toLowerCase().includes('vazamento')) {
-                            response = "Encanadores disponíveis para atendimento de emergência. Qual o problema?";
-                        } else if (message.toLowerCase().includes('cadastrar') || message.toLowerCase().includes('trabalhar')) {
-                            response = "Ótimo! Para se cadastrar como profissional, acesse a seção 'Seja um parceiro' ou me informe sua área de atuação.";
+                        if (message.toLowerCase().includes("plano") || message.toLowerCase().includes("preço") || message.toLowerCase().includes("preco")) {
+                            response = "Temos planos a partir de R$97/mês para profissionais individuais e planos especiais para clínicas. Gostaria de mais detalhes sobre algum plano específico?";
+                        } else if (message.toLowerCase().includes("agendamento") || message.toLowerCase().includes("marcar")) {
+                            response = "Nosso sistema de agendamento online permite que seus pacientes marquem consultas 24/7. Enviamos lembretes automáticos por WhatsApp e SMS. Deseja uma demonstração?";
+                        } else if (message.toLowerCase().includes("telemedicina") || message.toLowerCase().includes("online")) {
+                            response = "Oferecemos uma plataforma completa de telemedicina com videochamadas em HD, compartilhamento de tela e integração com prontuário. Temos planos com horas inclusas. Posso ajudar com mais informações?";
+                        } else if (message.toLowerCase().includes("demonstração") || message.toLowerCase().includes("demo") || message.toLowerCase().includes("demonstracao")) {
+                            response = "Ótimo! Adoraria agendar uma demonstração personalizada para você. Para isso, preciso do seu nome, e-mail e telefone. Pode me passar esses dados?";
+                        } else if (message.toLowerCase().includes("prontuário") || message.toLowerCase().includes("prontuario")) {
+                            response = "Nosso prontuário eletrônico é 100% digital, seguro e conforme a LGPD. Você pode acessar de qualquer lugar e incluir anexos, prescrições e muito mais. Quer saber mais?";
                         }
 
                         addMessage(response);
@@ -2109,15 +2264,57 @@
             }
 
             if (chatSend) {
-                chatSend.addEventListener('click', handleSend);
+                chatSend.addEventListener("click", function () {
+                    handleSend();
+                });
             }
 
             if (chatInput) {
-                chatInput.addEventListener('keypress', function (e) {
-                    if (e.key === 'Enter') {
+                chatInput.addEventListener("keypress", function (e) {
+                    if (e.key === "Enter") {
                         e.preventDefault();
                         handleSend();
                     }
+                });
+            }
+
+            // Chips de ação rápida
+            chips.forEach(chip => {
+                chip.addEventListener('click', function () {
+                    const action = this.dataset.action;
+                    let message = '';
+                    switch (action) {
+                        case 'planos':
+                            message = 'Quero informações sobre os planos e preços';
+                            break;
+                        case 'agendamento':
+                            message = 'Como funciona o sistema de agendamento online?';
+                            break;
+                        case 'telemedicina':
+                            message = 'Quero saber mais sobre a telemedicina';
+                            break;
+                        case 'demonstracao':
+                            message = 'Gostaria de agendar uma demonstração';
+                            break;
+                        case 'contato':
+                            message = 'Quero falar com um atendente';
+                            break;
+                    }
+                    if (message) {
+                        handleSend(message);
+                    }
+                });
+            });
+        });
+
+        // ===== FORMULÁRIO DE CONTATO =====
+        document.addEventListener("DOMContentLoaded", function () {
+            const form = document.getElementById("contactForm");
+            if (form) {
+                form.addEventListener("submit", function (e) {
+                    e.preventDefault();
+                    alert("Formulário enviado com sucesso! Em breve entraremos em contato para agendar sua demonstração.");
+                    form.reset();
                 });
             }
         });
