@@ -1,8 +1,8 @@
 /* ============================================================================
    COMPONENT: CARDS
-   Arquivo: css/components/_cards.css
-   Versão: 3.0.0 | Sistema Unificado de Cards
-   Data: 2024 | Baseado no: KoddaHub Design System
+   Arquivo: css/components/cards.css
+   Versão: 3.1.0 | Sistema Unificado de Cards
+   Data: 14/02/2026 | Baseado no: KoddaHub Design System
    ============================================================================ */
 
 /**
@@ -399,8 +399,6 @@
     }
 }
 
-}
-
 /**
  * .card--solution - Card para soluções (solution-card antigo)
  */
@@ -501,9 +499,11 @@
  */
 .cards-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: var(--spacing-6);
     margin: var(--spacing-6) 0;
+
+    /* Grid responsivo padrão */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 
     /* Modificadores para quantidade de colunas */
     &--2cols {
@@ -604,218 +604,178 @@
 }
 
 /* ============================================================================
-   SEÇÃO 8: EXEMPLOS DE USO (COMENTÁRIOS)
+   SEÇÃO 8: ESTILOS LEGADOS (MANTIDOS PARA COMPATIBILIDADE)
    ============================================================================ */
 
 /**
- * EXEMPLOS DE USO:
- *
- * 1. Card básico:
- *    <div class="card">
- *      <div class="card__body">
- *        <h3 class="card__title">Título</h3>
- *        <p class="card__text">Conteúdo...</p>
- *      </div>
- *    </div>
- *
- * 2. Card completo (BEM):
- *    <div class="card card--elevated">
- *      <div class="card__header">
- *        <h3 class="card__title">Plano Pro</h3>
- *        <p class="card__subtitle">Para empresas</p>
- *      </div>
- *      <div class="card__body">
- *        <ul class="card__list">
- *          <li class="card__list-item">Recurso 1</li>
- *          <li class="card__list-item">Recurso 2</li>
- *        </ul>
- *      </div>
- *      <div class="card__footer">
- *        <button class="btn btn--primary">Contratar</button>
- *      </div>
- *    </div>
- *
- * 3. Card showcase com tipo:
- *    <div class="card card--showcase" data-type="ecommerce">
- *      <div class="card__body">
- *        <div class="card__icon">🛒</div>
- *        <h3 class="card__title">E-commerce</h3>
- *        <p class="card__text">Lojas virtuais completas</p>
- *      </div>
- *    </div>
- *
- * 4. Grid de cards:
- *    <div class="cards-grid cards-grid--3cols">
- *      <div class="card">...</div>
- *      <div class="card">...</div>
- *      <div class="card">...</div>
- *    </div>
+ * Estilos específicos mantidos para garantir compatibilidade
+ * com código existente que ainda não foi migrado para BEM
  */
 
+.card-image {
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.2rem;
+    color: var(--orange-vibrant);
+    background: linear-gradient(135deg,
+            rgba(33, 150, 243, 0.08),
+            rgba(245, 124, 0, 0.08));
+}
+
+.card-content {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 16px;
+}
+
+.modern-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--orange-vibrant);
+}
+
 /* ============================================================================
-   FIM DO COMPONENT: CARDS
+   SEÇÃO 9: SHOWCASE CARD - ESTILOS COMPLETOS
    ============================================================================ */
-   .card-image {
-       height: 90px;
-       display: flex;
-       align-items: center;
-       justify-content: center;
-       font-size: 2.2rem;
-       color: var(--orange-vibrant);
-       background: linear-gradient(135deg,
-               rgba(33, 150, 243, 0.08),
-               rgba(245, 124, 0, 0.08));
-   }
 
-   .card-content {
-       padding: 24px;
-       display: flex;
-       flex-direction: column;
-       height: 100%;
-   }
+/**
+ * Estilos completos do showcase-card (mantidos para compatibilidade)
+ */
 
-   .card-footer {
-       display: flex;
-       align-items: center;
-       justify-content: space-between;
-       margin-top: 16px;
-   }
+.showcase-card {
+    position: relative;
+    border-radius: 16px;
+    padding: 14px;
+    min-height: 190px;
+    color: var(--black-deep);
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid rgba(255, 255, 255, 0.24);
+    box-shadow: 0 22px 60px rgba(0, 0, 0, 0.18);
+    overflow: hidden;
+    transform: translate3d(0, 0, 0);
+    will-change: transform;
+    animation: showcase-float 7s ease-in-out infinite;
+}
 
-   .modern-card:hover {
-       transform: translateY(-6px);
-       box-shadow: var(--shadow-xl);
-       border-color: var(--orange-vibrant);
-   }
+@supports ((-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px))) {
+    .showcase-card {
+        background: rgba(255, 255, 255, 0.14);
+        color: rgba(255, 255, 255, 0.92);
+        -webkit-backdrop-filter: blur(14px);
+        backdrop-filter: blur(14px);
+        border: 1px solid rgba(255, 255, 255, 0.22);
+    }
+}
 
-   .showcase-card {
-       position: relative;
-       /* -30% overall sizing (after width reduction): radius/padding/fonts/icons */
-       border-radius: 16px;
-       padding: 14px;
-       min-height: 190px;
-       color: var(--black-deep);
-       background: rgba(255, 255, 255, 0.92);
-       border: 1px solid rgba(255, 255, 255, 0.24);
-       box-shadow: 0 22px 60px rgba(0, 0, 0, 0.18);
-       overflow: hidden;
-       transform: translate3d(0, 0, 0);
-       will-change: transform;
-       animation: showcase-float 7s ease-in-out infinite;
-   }
+.showcase-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(220px 160px at 15% 10%,
+            var(--accent-a, rgba(33, 150, 243, 0.38)),
+            transparent 60%),
+        radial-gradient(260px 180px at 85% 90%,
+            var(--accent-b, rgba(245, 124, 0, 0.34)),
+            transparent 62%),
+        repeating-linear-gradient(135deg,
+            rgba(255, 255, 255, 0.14) 0px,
+            rgba(255, 255, 255, 0.14) 1px,
+            transparent 1px,
+            transparent 10px);
+    opacity: 0.78;
+    pointer-events: none;
+}
 
-   @supports ((-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px))) {
-       .showcase-card {
-           background: rgba(255, 255, 255, 0.14);
-           color: rgba(255, 255, 255, 0.92);
-           -webkit-backdrop-filter: blur(14px);
-           backdrop-filter: blur(14px);
-           border: 1px solid rgba(255, 255, 255, 0.22);
-       }
-   }
+.showcase-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg,
+            var(--accent-a, rgba(33, 150, 243, 0.92)),
+            var(--accent-b, rgba(245, 124, 0, 0.92)));
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    opacity: 0.92;
+}
 
-   .showcase-card::before {
-       content: "";
-       position: absolute;
-       inset: 0;
-       background:
-           radial-gradient(220px 160px at 15% 10%,
-               var(--accent-a, rgba(33, 150, 243, 0.38)),
-               transparent 60%),
-           radial-gradient(260px 180px at 85% 90%,
-               var(--accent-b, rgba(245, 124, 0, 0.34)),
-               transparent 62%),
-           repeating-linear-gradient(135deg,
-               rgba(255, 255, 255, 0.14) 0px,
-               rgba(255, 255, 255, 0.14) 1px,
-               transparent 1px,
-               transparent 10px);
-       opacity: 0.78;
-       pointer-events: none;
-   }
+.showcase-card.is-sites {
+    --accent-a: rgba(33, 150, 243, 0.98);
+    --accent-b: rgba(100, 181, 246, 0.92);
+    --fx: 8px;
+    --fy: 10px;
+    --fr: 0.8deg;
+}
 
-   .showcase-card::after {
-       content: "";
-       position: absolute;
-       inset: 0;
-       border-radius: inherit;
-       padding: 1px;
-       background: linear-gradient(135deg,
-               var(--accent-a, rgba(33, 150, 243, 0.92)),
-               var(--accent-b, rgba(245, 124, 0, 0.92)));
-       -webkit-mask:
-           linear-gradient(#000 0 0) content-box,
-           linear-gradient(#000 0 0);
-       -webkit-mask-composite: xor;
-       mask-composite: exclude;
-       pointer-events: none;
-       opacity: 0.92;
-   }
+.showcase-card.is-ecom {
+    --accent-a: rgba(245, 124, 0, 0.98);
+    --accent-b: rgba(255, 152, 0, 0.92);
+    --fx: -10px;
+    --fy: 12px;
+    --fr: -0.7deg;
+    animation-delay: -1.8s;
+}
 
-   .showcase-card.is-sites {
-       --accent-a: rgba(33, 150, 243, 0.98);
-       --accent-b: rgba(100, 181, 246, 0.92);
-       --fx: 8px;
-       --fy: 10px;
-       --fr: 0.8deg;
-   }
+.showcase-card.is-systems {
+    --accent-a: rgba(33, 150, 243, 0.98);
+    --accent-b: rgba(245, 124, 0, 0.98);
+    --fx: 9px;
+    --fy: 14px;
+    --fr: 0.6deg;
+    animation-delay: -3.2s;
+}
 
-   .showcase-card.is-ecom {
-       --accent-a: rgba(245, 124, 0, 0.98);
-       --accent-b: rgba(255, 152, 0, 0.92);
-       --fx: -10px;
-       --fy: 12px;
-       --fr: -0.7deg;
-       animation-delay: -1.8s;
-   }
+/* Bolder, more colorful contour + glow (uses palette accents) */
+.showcase-card {
+    border: 2px solid rgba(255, 255, 255, 0.24);
+    box-shadow:
+        0 22px 60px rgba(0, 0, 0, 0.18),
+        0 0 0 1px rgba(0, 0, 0, 0.08),
+        0 18px 52px rgba(33, 150, 243, 0.16);
+    filter: saturate(1.12) contrast(1.04);
+}
 
-   .showcase-card.is-systems {
-       --accent-a: rgba(33, 150, 243, 0.98);
-       --accent-b: rgba(245, 124, 0, 0.98);
-       --fx: 9px;
-       --fy: 14px;
-       --fr: 0.6deg;
-       animation-delay: -3.2s;
-   }
+@supports (color: color-mix(in srgb, #000 50%, #fff)) {
+    .showcase-card {
+        border-color: color-mix(in srgb,
+                var(--accent-a, rgba(33, 150, 243, 0.92)) 42%,
+                rgba(255, 255, 255, 0.28));
+        box-shadow:
+            0 22px 60px rgba(0, 0, 0, 0.18),
+            0 0 0 1px rgba(0, 0, 0, 0.08),
+            0 18px 52px color-mix(in srgb,
+                var(--accent-a, rgba(33, 150, 243, 0.92)) 30%,
+                transparent);
+    }
+}
 
-   /* Bolder, more colorful contour + glow (uses palette accents) */
-   .showcase-card {
-       border: 2px solid rgba(255, 255, 255, 0.24);
-       box-shadow:
-           0 22px 60px rgba(0, 0, 0, 0.18),
-           0 0 0 1px rgba(0, 0, 0, 0.08),
-           0 18px 52px rgba(33, 150, 243, 0.16);
-       filter: saturate(1.12) contrast(1.04);
-   }
-
-   @supports (color: color-mix(in srgb, #000 50%, #fff)) {
-       .showcase-card {
-           border-color: color-mix(in srgb,
-                   var(--accent-a, rgba(33, 150, 243, 0.92)) 42%,
-                   rgba(255, 255, 255, 0.28));
-           box-shadow:
-               0 22px 60px rgba(0, 0, 0, 0.18),
-               0 0 0 1px rgba(0, 0, 0, 0.08),
-               0 18px 52px color-mix(in srgb,
-                   var(--accent-a, rgba(33, 150, 243, 0.92)) 30%,
-                   transparent);
-       }
-   }
-
-   }
-
-   .showcase-top {
-       position: relative;
-       z-index: 1;
-       display: grid;
-       grid-template-columns: auto 1fr;
-       gap: 10px;
-       align-items: center;
-       margin-bottom: 10px;
-   }
+.showcase-top {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 10px;
+}
 
 /* Responsive overrides for .modern-card centralized here to avoid duplicate
-     selector definitions across multiple files. These rules mirror legacy
-     responsive adjustments previously declared in responsive.css. */
+   selector definitions across multiple files. These rules mirror legacy
+   responsive adjustments previously declared in responsive.css. */
 
 @media (max-width: 374px) {
     .modern-card {
@@ -825,6 +785,7 @@
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {
+
     /* Tablet adjustments */
     .modern-card {
         height: auto;
@@ -832,112 +793,116 @@
     }
 }
 
-   .showcase-icon {
-       width: 38px;
-       height: 38px;
-       border-radius: 13px;
-       display: inline-flex;
-       align-items: center;
-       justify-content: center;
-       background: rgba(255, 255, 255, 0.22);
-       border: 1px solid rgba(255, 255, 255, 0.22);
-       color: #fff;
-   }
+.showcase-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 13px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.22);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    color: #fff;
+}
 
-   /* Palette-driven icon treatment (more punch) */
-   .showcase-card .showcase-icon {
-       background: linear-gradient(135deg,
-               var(--accent-a, rgba(33, 150, 243, 0.95)),
-               var(--accent-b, rgba(245, 124, 0, 0.95)));
-       border: 2px solid rgba(255, 255, 255, 0.22);
-       box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
-   }
+/* Palette-driven icon treatment (more punch) */
+.showcase-card .showcase-icon {
+    background: linear-gradient(135deg,
+            var(--accent-a, rgba(33, 150, 243, 0.95)),
+            var(--accent-b, rgba(245, 124, 0, 0.95)));
+    border: 2px solid rgba(255, 255, 255, 0.22);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
+}
 
-   @supports not ((-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px))) {
-       .showcase-icon {
-           background: rgba(33, 150, 243, 0.12);
-           border: 1px solid rgba(0, 0, 0, 0.08);
-           color: var(--blue-dark);
-       }
-   }
+@supports not ((-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px))) {
+    .showcase-icon {
+        background: rgba(33, 150, 243, 0.12);
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        color: var(--blue-dark);
+    }
+}
 
-   .showcase-headings h3 {
-       margin: 0;
-       font-size: 1rem;
-       letter-spacing: -0.02em;
-       color: inherit;
-   }
+.showcase-headings h3 {
+    margin: 0;
+    font-size: 1rem;
+    letter-spacing: -0.02em;
+    color: inherit;
+}
 
-   .showcase-headings p {
-       margin: 4px 0 0 0;
-       font-size: 0.88rem;
-       line-height: 1.4;
-       color: rgba(255, 255, 255, 0.82);
-   }
+.showcase-headings p {
+    margin: 4px 0 0 0;
+    font-size: 0.88rem;
+    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.82);
+}
 
-   @supports not ((-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px))) {
-       .showcase-headings p {
-           color: rgba(0, 0, 0, 0.62);
-       }
-   }
+@supports not ((-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px))) {
+    .showcase-headings p {
+        color: rgba(0, 0, 0, 0.62);
+    }
+}
 
-   .showcase-links {
-       position: relative;
-       z-index: 1;
-       display: flex;
-       flex-wrap: wrap;
-       flex-direction: column;
-       gap: 8px;
-   }
+.showcase-links {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 8px;
+}
 
-   .showcase-link {
-       display: inline-flex;
-       align-items: center;
-       justify-content: center;
-       gap: 8px;
-       width: 100%;
-       padding: 9px 12px;
-       border-radius: 999px;
-       font-weight: var(--fw-semibold);
-       font-size: 0.88rem;
-       text-decoration: none;
-       color: rgba(255, 255, 255, 0.94);
-       background: rgba(0, 0, 0, 0.1);
-       border: 2px solid rgba(255, 255, 255, 0.22);
-       transition:
-           transform var(--duration-200) var(--ease-out),
-           background var(--duration-200) var(--ease-out);
-   }
+.showcase-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 9px 12px;
+    border-radius: 999px;
+    font-weight: var(--fw-semibold);
+    font-size: 0.88rem;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.94);
+    background: rgba(0, 0, 0, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.22);
+    transition:
+        transform var(--duration-200) var(--ease-out),
+        background var(--duration-200) var(--ease-out);
+}
 
-   @supports (color: color-mix(in srgb, #000 50%, #fff)) {
-       .showcase-card .showcase-link {
-           background: linear-gradient(135deg,
-                   color-mix(in srgb,
-                       var(--accent-a, rgba(33, 150, 243, 0.92)) 26%,
-                       rgba(0, 0, 0, 0.1)),
-                   color-mix(in srgb,
-                       var(--accent-b, rgba(245, 124, 0, 0.92)) 18%,
-                       rgba(0, 0, 0, 0.1)));
-           border-color: color-mix(in srgb,
-                   var(--accent-a, rgba(33, 150, 243, 0.92)) 24%,
-                   rgba(255, 255, 255, 0.22));
-       }
-   }
+@supports (color: color-mix(in srgb, #000 50%, #fff)) {
+    .showcase-card .showcase-link {
+        background: linear-gradient(135deg,
+                color-mix(in srgb,
+                    var(--accent-a, rgba(33, 150, 243, 0.92)) 26%,
+                    rgba(0, 0, 0, 0.1)),
+                color-mix(in srgb,
+                    var(--accent-b, rgba(245, 124, 0, 0.92)) 18%,
+                    rgba(0, 0, 0, 0.1)));
+        border-color: color-mix(in srgb,
+                var(--accent-a, rgba(33, 150, 243, 0.92)) 24%,
+                rgba(255, 255, 255, 0.22));
+    }
+}
 
-   @supports not ((-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px))) {
-       .showcase-link {
-           color: var(--black-deep);
-           background: rgba(255, 255, 255, 0.86);
-           border: 1px solid rgba(0, 0, 0, 0.08);
-       }
-   }
+@supports not ((-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px))) {
+    .showcase-link {
+        color: var(--black-deep);
+        background: rgba(255, 255, 255, 0.86);
+        border: 1px solid rgba(0, 0, 0, 0.08);
+    }
+}
 
-   .showcase-link:hover {
-       transform: translateY(-1px);
-       background: rgba(0, 0, 0, 0.18);
-   }
+.showcase-link:hover {
+    transform: translateY(-1px);
+    background: rgba(0, 0, 0, 0.18);
+}
 
-   .showcase-link:focus-visible {
-       outline: 3px solid rgba(255, 255, 255, 0.7);
-       outline-offset: 3px;
-   }
+.showcase-link:focus-visible {
+    outline: 3px solid rgba(255, 255, 255, 0.7);
+    outline-offset: 3px;
+}
+
+/* ============================================================================
+   FIM DO COMPONENT: CARDS
+   ============================================================================ */
