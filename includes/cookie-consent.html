@@ -1,0 +1,110 @@
+<!-- ===== COOKIE CONSENT BANNER ===== -->
+<div class="cookie-consent" id="cookieConsent">
+    <div class="cookie-consent-content">
+        <div class="cookie-icon">
+            <i class="fas fa-cookie-bite"></i>
+        </div>
+        <div class="cookie-text">
+            <h4>🍪 Política de Cookies</h4>
+            <p>
+                Usamos cookies para permitir o bom funcionamento e a segurança dos nossos sites
+                e para oferecer a melhor experiência possível. Ao clicar em "Aceitar", você concorda
+                com o uso desses cookies para publicidade e análises. Você pode alterar suas
+                configurações de cookies a qualquer momento. Para mais informações, leia a nossa
+                <a href="/politica-de-cookies" class="cookie-link">Política de Cookies</a>.
+            </p>
+        </div>
+        <div class="cookie-buttons">
+            <button class="cookie-btn cookie-btn-config" id="cookieConfig">
+                <i class="fas fa-cog"></i> Configurar
+            </button>
+            <button class="cookie-btn cookie-btn-accept" id="cookieAccept">
+                Aceitar <i class="fas fa-check"></i>
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL DE CONFIGURAÇÃO DE COOKIES -->
+<div class="cookie-modal" id="cookieModal">
+    <div class="cookie-modal-content">
+        <div class="cookie-modal-header">
+            <h3><i class="fas fa-cookie"></i> Configurações de Cookies</h3>
+            <button class="cookie-modal-close" id="cookieModalClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="cookie-modal-body">
+            <p>Personalize suas preferências de cookies:</p>
+
+            <div class="cookie-option">
+                <div class="cookie-option-header">
+                    <div>
+                        <strong>Cookies Necessários</strong>
+                        <span class="cookie-badge">Sempre ativos</span>
+                    </div>
+                    <label class="cookie-switch">
+                        <input type="checkbox" checked disabled>
+                        <span class="cookie-slider"></span>
+                    </label>
+                </div>
+                <p class="cookie-option-description">
+                    Essenciais para o funcionamento básico do site.
+                </p>
+            </div>
+
+            <div class="cookie-option">
+                <div class="cookie-option-header">
+                    <div>
+                        <strong>Cookies de Análise</strong>
+                    </div>
+                    <label class="cookie-switch">
+                        <input type="checkbox" id="analyticsCookies" checked>
+                        <span class="cookie-slider"></span>
+                    </label>
+                </div>
+                <p class="cookie-option-description">
+                    Nos ajudam a entender como você interage com nosso site.
+                </p>
+            </div>
+
+            <div class="cookie-option">
+                <div class="cookie-option-header">
+                    <div>
+                        <strong>Cookies de Publicidade</strong>
+                    </div>
+                    <label class="cookie-switch">
+                        <input type="checkbox" id="advertisingCookies">
+                        <span class="cookie-slider"></span>
+                    </label>
+                </div>
+                <p class="cookie-option-description">
+                    Utilizados para entregar anúncios relevantes.
+                </p>
+            </div>
+
+            <div class="cookie-option">
+                <div class="cookie-option-header">
+                    <div>
+                        <strong>Cookies de Funcionalidade</strong>
+                    </div>
+                    <label class="cookie-switch">
+                        <input type="checkbox" id="functionalCookies" checked>
+                        <span class="cookie-slider"></span>
+                    </label>
+                </div>
+                <p class="cookie-option-description">
+                    Permitem funcionalidades avançadas e personalização.
+                </p>
+            </div>
+        </div>
+        <div class="cookie-modal-footer">
+            <button class="cookie-btn cookie-btn-save" id="cookieSave">
+                Salvar Preferências
+            </button>
+            <button class="cookie-btn cookie-btn-accept" id="cookieAcceptAll">
+                Aceitar Todos
+            </button>
+        </div>
+    </div>
+</div>
