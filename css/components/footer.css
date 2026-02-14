@@ -1,6 +1,8 @@
 /* ============================================================================
-   FOOTER COMPONENT - DESIGN SYSTEM INTEGRATION
-   Versão: 2.0.0 | Data: 13/02/2026
+   COMPONENT: FOOTER
+   Arquivo: css/components/footer.css
+   Versão: 2.1.0 | Design System Integration
+   Data: 14/02/2026 | Baseado no: KoddaHub Design System
    ============================================================================ */
 
 /**
@@ -8,47 +10,59 @@
  * Footer unificado que utiliza as variáveis do design system (variables.css)
  * para garantir consistência visual em todas as páginas do site.
  *
- * USO:
- * .footer-modern - Classe principal do footer
- * .footer-grid - Layout em grid para desktop
- * .footer-about - Coluna com informações da empresa
- * .footer-links - Colunas de links
- * .footer-social - Container de ícones sociais
- * .footer-bottom - Rodapé inferior com copyright
+ * HIERARQUIA:
+ * 1. .footer-modern - Classe principal do footer
+ * 2. .footer-grid - Layout em grid para desktop
+ * 3. .footer-about - Coluna com informações da empresa
+ * 4. .footer-links - Colunas de links
+ * 5. .footer-social - Container de ícones sociais
+ * 6. .footer-bottom - Rodapé inferior com copyright
+ * 7. .footer-content - Classe legada para compatibilidade
+ *
+ * DEPENDÊNCIAS:
+ * - variables.css (obrigatório)
+ * - reset.css (para normalização)
+ *
+ * BREAKPOINTS:
+ * - Mobile: até 480px
+ * - Mobile pequeno: até 360px
+ * - Tablet/Desktop: 768px+ (definido em responsive.css)
  */
 
-/* ===== ESTRUTURA BASE DO FOOTER ===== */
+/* ============================================================================
+   SEÇÃO 1: ESTRUTURA BASE DO FOOTER
+   ============================================================================ */
+
+/**
+ * .footer-modern - Classe principal do footer
+ * Define o container principal com fundo escuro e padding adequado
+ */
 .footer-modern {
-    background: #2D3E50;
-    color: #FFFFFF;
-    /* #FFFFFF - Texto principal */
+    /* Cores */
+    background: var(--color-neutral-800, #2D3E50);
+    color: var(--white-pure, #FFFFFF);
+
+    /* Espaçamento */
     padding: var(--spacing-10) 0 var(--spacing-5);
     /* 64px 0 24px */
+
+    /* Posicionamento */
     position: relative;
     z-index: var(--z-fixed, 300);
+
+    /* Bordas */
     border-top: var(--border-width-thin) solid rgba(255, 255, 255, 0.1);
 }
 
-/* Container interno com padding responsivo */
-.footer-modern .container-fluid {
-    max-width: var(--container-2xl);
-    margin: 0 auto;
-    padding: 0 var(--container-padding-mobile);
-}
+/* ============================================================================
+   SEÇÃO 2: GRID PRINCIPAL
+   ============================================================================ */
 
-@media (min-width: 768px) {
-    .footer-modern .container-fluid {
-        padding: 0 var(--container-padding-tablet);
-    }
-}
-
-@media (min-width: 1024px) {
-    .footer-modern .container-fluid {
-        padding: 0 var(--container-padding-desktop);
-    }
-}
-
-/* ===== GRID PRINCIPAL ===== */
+/**
+ * .footer-grid - Layout em grid para organizar as colunas
+ * Mobile-first: 1 coluna por padrão
+ * Tablet/Desktop: definido no responsive.css
+ */
 .footer-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -58,47 +72,24 @@
     /* 48px */
 }
 
-@media (min-width: 768px) {
-    .footer-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: var(--spacing-6);
-        /* 32px */
-    }
-}
+/* ============================================================================
+   SEÇÃO 3: COLUNA SOBRE
+   ============================================================================ */
 
-@media (min-width: 1024px) {
-    .footer-grid {
-        grid-template-columns: 2fr 1fr 1fr 1fr;
-        gap: var(--spacing-8);
-        /* 48px */
-        margin-bottom: var(--spacing-10);
-        /* 64px */
-    }
-}
-
-/* ===== COLUNA SOBRE ===== */
+/**
+ * .footer-about - Coluna com informações da empresa
+ * Contém logo, descrição e ícones sociais
+ */
 .footer-about {
     grid-column: span 1;
 }
 
-@media (min-width: 768px) {
-    .footer-about {
-        grid-column: span 2;
-        /* Ocupa 2 colunas no tablet */
-    }
-}
-
-@media (min-width: 1024px) {
-    .footer-about {
-        grid-column: span 1;
-        /* Volta a ser 1 coluna no desktop */
-    }
-}
-
-/* Logo/ Título da empresa */
+/**
+ * Título da empresa com gradiente laranja
+ */
 .footer-about h3 {
     font-size: 24px;
-    /* 24px */
+    /* 24px - mantido para compatibilidade */
     margin-bottom: 20px;
     /* 24px */
     font-weight: var(--font-weight-bold);
@@ -117,10 +108,12 @@
     display: inline-block;
 }
 
-/* Descrição da empresa */
+/**
+ * Descrição da empresa
+ */
 .footer-about p {
-    color: #FFFFFF;
-    /* #BDBDBD - Texto secundário */
+    color: rgba(255, 255, 255, 0.7);
+    /* Texto com opacidade */
     line-height: var(--line-height-relaxed);
     /* 1.75 - Mais espaçado */
     margin-bottom: var(--spacing-5);
@@ -130,16 +123,16 @@
     max-width: 350px;
 }
 
-@media (max-width: 767px) {
-    .footer-about p {
-        max-width: 100%;
-        /* Remove limite no mobile */
-    }
-}
+/* ============================================================================
+   SEÇÃO 4: COLUNAS DE LINKS
+   ============================================================================ */
 
-/* ===== COLUNAS DE LINKS ===== */
+/**
+ * .footer-links - Colunas de navegação
+ * Contém títulos e listas de links
+ */
 .footer-links h4 {
-    color: var(--color-primary-500);
+    color: var(--color-primary-500, #FF9800);
     font-size: var(--font-size-base);
     /* 16px */
     font-weight: var(--font-weight-semibold);
@@ -163,8 +156,7 @@
 }
 
 .footer-links a {
-    color: #FFFFFF;
-    /* #BDBDBD */
+    color: rgba(255, 255, 255, 0.7);
     text-decoration: none;
     font-size: var(--font-size-sm);
     /* 14px */
@@ -175,7 +167,9 @@
     padding-left: 0;
 }
 
-/* Efeito hover com underline animado */
+/**
+ * Efeito hover com underline animado
+ */
 .footer-links a::before {
     content: '';
     position: absolute;
@@ -190,7 +184,7 @@
 }
 
 .footer-links a:hover {
-    color: #FFFFFF;
+    color: var(--white-pure, #FFFFFF);
     transform: translateX(5px);
 }
 
@@ -198,7 +192,13 @@
     width: 100%;
 }
 
-/* ===== ÍCONES SOCIAIS ===== */
+/* ============================================================================
+   SEÇÃO 5: ÍCONES SOCIAIS
+   ============================================================================ */
+
+/**
+ * .footer-social - Container para ícones de redes sociais
+ */
 .footer-social {
     display: flex;
     gap: var(--spacing-3);
@@ -208,6 +208,9 @@
     flex-wrap: wrap;
 }
 
+/**
+ * .social-link - Estilo para cada ícone social
+ */
 .footer-social .social-link {
     width: 40px;
     height: 40px;
@@ -218,7 +221,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #FFFFFF;
+    color: var(--white-pure, #FFFFFF);
     font-size: var(--font-size-lg);
     /* 18px */
     transition: all var(--duration-300) var(--ease-out);
@@ -227,7 +230,9 @@
     overflow: hidden;
 }
 
-/* Overlay gradiente no hover */
+/**
+ * Overlay gradiente no hover
+ */
 .footer-social .social-link::before {
     content: '';
     position: absolute;
@@ -257,14 +262,19 @@
     opacity: 1;
 }
 
-/* ===== RODAPÉ INFERIOR ===== */
+/* ============================================================================
+   SEÇÃO 6: RODAPÉ INFERIOR
+   ============================================================================ */
+
+/**
+ * .footer-bottom - Rodapé inferior com copyright
+ */
 .footer-bottom {
     border-top: var(--border-width-thin) solid rgba(255, 255, 255, 0.08);
     padding-top: var(--spacing-5);
     /* 24px */
     text-align: center;
-    color: #FFFFFF;
-    /* #9E9E9E */
+    color: rgba(255, 255, 255, 0.6);
     font-size: var(--font-size-sm);
     /* 14px */
 }
@@ -280,20 +290,27 @@
 }
 
 .footer-bottom a {
-    color: #FFFFFF;
-    /* #FFB74D - Laranja claro */
+    color: var(--color-primary-300, #FFB74D);
     text-decoration: none;
     font-weight: var(--font-weight-medium);
     transition: color var(--duration-200) var(--ease-out);
 }
 
 .footer-bottom a:hover {
-    color: #FFFFFF;
-    /* #F57C00 - Laranja vibrante */
+    color: var(--color-primary-600, #F57C00);
     text-decoration: underline;
 }
 
-/* ===== COMPATIBILIDADE COM FOOTER.CONTENT (legado) ===== */
+/* ============================================================================
+   SEÇÃO 7: COMPATIBILIDADE LEGADA (.footer-content)
+   ============================================================================ */
+
+/**
+ * Classes legadas mantidas para compatibilidade com código existente
+ * REMOVER GRADUALMENTE após migração completa para .footer-modern
+ */
+
+/* .footer-content - Container principal legado */
 .footer-content {
     display: grid;
     grid-template-columns: 1fr;
@@ -301,24 +318,14 @@
     margin-bottom: var(--spacing-8);
 }
 
-@media (min-width: 768px) {
-    .footer-content {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (min-width: 1024px) {
-    .footer-content {
-        grid-template-columns: 2fr 1fr 1fr 1fr;
-    }
-}
-
 /* Colunas individuais do footer legado */
 .footer-column h3 {
     font-size: var(--font-size-2xl);
     margin-bottom: var(--spacing-5);
     font-weight: var(--font-weight-bold);
-    background: linear-gradient(135deg, var(--color-primary-600), var(--color-primary-300));
+    background: linear-gradient(135deg,
+            var(--color-primary-600),
+            var(--color-primary-300));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -326,7 +333,7 @@
 }
 
 .footer-column h4 {
-    color: #FFFFFF;
+    color: var(--white-pure, #FFFFFF);
     font-size: var(--font-size-base);
     font-weight: var(--font-weight-semibold);
     margin-bottom: var(--spacing-5);
@@ -335,7 +342,7 @@
 }
 
 .footer-column p {
-    color: #FFFFFF;
+    color: rgba(255, 255, 255, 0.7);
     line-height: var(--line-height-relaxed);
     margin-bottom: var(--spacing-5);
     font-size: var(--font-size-sm);
@@ -351,7 +358,7 @@
 }
 
 .footer-column a {
-    color: #FFFFFF;
+    color: rgba(255, 255, 255, 0.7);
     text-decoration: none;
     font-size: var(--font-size-sm);
     transition: all var(--duration-200) var(--ease-out);
@@ -359,11 +366,20 @@
 }
 
 .footer-column a:hover {
-    color: #FFFFFF;
+    color: var(--white-pure, #FFFFFF);
     transform: translateX(5px);
 }
 
-/* ===== RESPONSIVIDADE FINA ===== */
+/* ============================================================================
+   SEÇÃO 8: RESPONSIVIDADE
+   ============================================================================ */
+
+/**
+ * Ajustes responsivos específicos do footer
+ * Media queries organizadas por breakpoint
+ */
+
+/* Mobile (até 480px) */
 @media (max-width: 480px) {
     .footer-modern {
         padding: var(--spacing-8) 0 var(--spacing-4);
@@ -404,7 +420,7 @@
     }
 }
 
-/* Ajuste para telas muito pequenas */
+/* Mobile muito pequeno (até 360px) */
 @media (max-width: 360px) {
     .footer-social {
         gap: var(--spacing-1);
@@ -417,8 +433,14 @@
     }
 }
 
-/* ===== UTILITÁRIOS ===== */
-/* Classe para elementos acessíveis apenas para leitores de tela */
+/* ============================================================================
+   SEÇÃO 9: UTILITÁRIOS
+   ============================================================================ */
+
+/**
+ * .sr-only - Classe para elementos acessíveis apenas para leitores de tela
+ * Esconde visualmente mas mantém acessível
+ */
 .sr-only {
     position: absolute;
     width: 1px;
@@ -430,8 +452,13 @@
     border: 0;
 }
 
-/* ===== EXEMPLO DE USO NO HTML ===== */
+/* ============================================================================
+   SEÇÃO 10: EXEMPLO DE USO NO HTML
+   ============================================================================ */
+
 /**
+ * EXEMPLO DE USO:
+ *
  * <footer class="footer-modern">
  *   <div class="container-fluid">
  *     <div class="footer-grid">
@@ -443,7 +470,12 @@
  *           <a href="#" class="social-link" aria-label="Instagram">
  *             <i class="fab fa-instagram"></i>
  *           </a>
- *           <!-- mais ícones -->
+ *           <a href="#" class="social-link" aria-label="LinkedIn">
+ *             <i class="fab fa-linkedin-in"></i>
+ *           </a>
+ *           <a href="#" class="social-link" aria-label="GitHub">
+ *             <i class="fab fa-github"></i>
+ *           </a>
  *         </div>
  *       </div>
  *       
@@ -451,14 +483,39 @@
  *       <div class="footer-links">
  *         <h4>Soluções</h4>
  *         <ul>
- *           <li><a href="#">Link</a></li>
+ *           <li><a href="#">Sites Institucionais</a></li>
+ *           <li><a href="#">E-commerce</a></li>
+ *           <li><a href="#">Sistemas Web</a></li>
+ *         </ul>
+ *       </div>
+ *
+ *       <div class="footer-links">
+ *         <h4>Empresa</h4>
+ *         <ul>
+ *           <li><a href="#">Sobre Nós</a></li>
+ *           <li><a href="#">Blog</a></li>
+ *           <li><a href="#">Carreiras</a></li>
+ *         </ul>
+ *       </div>
+ *
+ *       <div class="footer-links">
+ *         <h4>Suporte</h4>
+ *         <ul>
+ *           <li><a href="#">FAQ</a></li>
+ *           <li><a href="#">Contato</a></li>
+ *           <li><a href="#">Política de Privacidade</a></li>
  *         </ul>
  *       </div>
  *     </div>
  *     
  *     <div class="footer-bottom">
  *       <p>&copy; 2026 KoddaHub. Todos os direitos reservados.</p>
+ *       <p>Desenvolvido com <span aria-label="amor"></span> por Angela Machado</p>
  *     </div>
  *   </div>
  * </footer>
  */
+
+/* ============================================================================
+   FIM DO COMPONENT: FOOTER
+   ============================================================================ */
