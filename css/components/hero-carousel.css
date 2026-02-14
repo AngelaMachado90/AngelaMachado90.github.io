@@ -35,16 +35,6 @@
  * ====================================================
  */
 
-/* ============ VARIÁVEIS DO COMPONENTE ============ */
-:root {
-    --carousel-accent: var(--color-secondary-700);
-    --carousel-accent-start: var(--color-secondary-700);;
-    --carousel-accent-end: #F57C00;
-    --carousel-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
-    --carousel-radius: 28px;
-    --carousel-max-width: 1100px;
-    --carousel-max-width-desktop: 1200px;
-}
 
 /* ============ CONTAINER PRINCIPAL ============ */
 .hero-carousel {

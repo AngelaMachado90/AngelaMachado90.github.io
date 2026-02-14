@@ -16,14 +16,14 @@
  */
 
 /* ============================================================================
-   SEÇÃO 1: ROOT & BOX MODEL
+   SEÇÃO 1: HTML & BOX MODEL
    ============================================================================ */
 
 /**
  * Define box-sizing como border-box para todo o documento
  * Isso faz com que padding e border sejam incluídos na largura/altura
  */
-:root {
+html {
   box-sizing: border-box;
 
   /* Previne ajuste automático de texto em iOS */
@@ -49,7 +49,6 @@
 *::before,
 *::after {
   box-sizing: inherit;
-  /* Herda do elemento pai (html) */
   margin: 0;
   padding: 0;
 }
@@ -60,6 +59,7 @@
    evitar duplicidade entre arquivos.
 */
 @media (prefers-reduced-motion: reduce) {
+
   *,
   *::before,
   *::after {
@@ -78,7 +78,7 @@
  * Body - Elemento raiz da página
  * Remove estilos padrões e prepara para herança controlada
  */
-:where(:root) body {
+body {
   margin: 0;
   padding: 0;
   font-family: inherit;
@@ -99,12 +99,8 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Typographic element resets (headings, paragraphs, lists) were moved
-   to css/base/typography.css to avoid duplicate selectors across files.
-   Reset now focuses on box-model and form element normalization. */
-
 /* ============================================================================
-   SEÇÃO 4: ELEMENTOS DE MÍDIA
+   SEÇÃO 3: ELEMENTOS DE MÍDIA
    ============================================================================ */
 
 /**
@@ -113,13 +109,9 @@
  */
 img {
   max-width: 100%;
-  /* Não ultrapassa o container pai */
   height: auto;
-  /* Mantém proporção */
   display: block;
-  /* Remove espaço abaixo da imagem */
   border: 0;
-  /* Remove borda padrão em links */
   background-color: transparent;
 
   /* Evita "buraco" enquanto carrega */
@@ -132,16 +124,10 @@ img {
  */
 .logo-image img,
 .navbar-brand img,
-.logo img,
-:where(:root) .logo-image img,
-:where(:root) .navbar-brand img,
-:where(:root) .logo img {
+.logo img {
   height: auto !important;
-  /* Mantém proporção */
   max-height: 50px;
-  /* Limite máximo para logos */
   width: auto;
-  /* Mantém largura proporcional */
 }
 
 /**
@@ -149,7 +135,6 @@ img {
  */
 picture {
   display: block;
-  /* Remove espaço abaixo */
 }
 
 svg {
@@ -157,11 +142,10 @@ svg {
   height: auto;
   display: block;
   fill: currentColor;
-  /* Herda cor do texto */
 }
 
 /* ============================================================================
-   SEÇÃO 5: FORMULÁRIOS
+   SEÇÃO 4: FORMULÁRIOS
    ============================================================================ */
 
 /**
@@ -175,13 +159,9 @@ textarea {
   margin: 0;
   padding: 0;
   font-family: inherit;
-  /* Herda fonte do body */
   font-size: inherit;
-  /* Herda tamanho do body */
   line-height: inherit;
-  /* Herda line-height do body */
   color: inherit;
-  /* Herda cor do texto */
   background-color: transparent;
   border: 0;
 
@@ -203,9 +183,8 @@ button {
   text-transform: none;
 }
 
-/* Focus-visible default for native buttons — qualified to avoid exact
-   selector duplication with component styles */
-:where(:root) button:focus-visible {
+/* Focus-visible para botões nativos */
+button:focus-visible {
   outline: 2px solid var(--color-focus, #0056b3);
   outline-offset: 2px;
 }
@@ -229,7 +208,7 @@ input[type="time"],
 input[type="datetime-local"],
 input[type="month"] {
   -webkit-appearance: listbox;
-  appearance: listbox; /* Mantém aparência nativa para melhor usabilidade */
+  appearance: listbox;
 }
 
 /**
@@ -237,13 +216,9 @@ input[type="month"] {
  */
 textarea {
   overflow: auto;
-  /* Adiciona scroll quando necessário */
   resize: vertical;
-  /* Permite redimensionar apenas verticalmente */
   font-family: inherit;
-  /* Herda fonte, não monospace */
   min-height: 3em;
-  /* Altura mínima razoável */
 }
 
 /**
@@ -260,6 +235,7 @@ input[type="radio"] {
  * Previne zoom automático no iOS
  */
 @media screen and (max-width: 768px) {
+
   input[type="text"],
   input[type="email"],
   input[type="password"],
@@ -270,17 +246,15 @@ input[type="radio"] {
   textarea,
   select {
     font-size: 16px;
-    /* Previne zoom no iOS */
   }
 }
 
 /* ============================================================================
-   SEÇÃO 6: TABELAS
+   SEÇÃO 5: TABELAS
    ============================================================================ */
 
 table {
   border-collapse: collapse;
-  /* Remove espaços entre células */
   border-spacing: 0;
   max-width: 100%;
   width: 100%;
@@ -291,11 +265,10 @@ td {
   padding: 0;
   text-align: left;
   vertical-align: top;
-  /* Alinha conteúdo ao topo */
 }
 
 /* ============================================================================
-   SEÇÃO 7: ELEMENTOS INTERATIVOS
+   SEÇÃO 6: ELEMENTOS INTERATIVOS
    ============================================================================ */
 
 /**
@@ -308,8 +281,6 @@ details {
 summary {
   display: list-item;
   cursor: pointer;
-
-  /* Remove marcador padrão em alguns navegadores */
   list-style: none;
 
   &::-webkit-details-marker {
@@ -317,16 +288,14 @@ summary {
   }
 }
 
-
-/* Focus-visible for unclassed anchors — qualified to avoid exact-selector
-   duplication with typography.css */
-:where(:root) a:not([class]):not([data-reset]):focus-visible {
+/* Focus-visible para links sem classe */
+a:not([class]):not([data-reset]):focus-visible {
   outline: 2px solid var(--color-focus, #0056b3);
   outline-offset: 2px;
 }
 
 /* ============================================================================
-   SEÇÃO 8: ELEMENTOS ESPECIAIS
+   SEÇÃO 7: ELEMENTOS ESPECIAIS
    ============================================================================ */
 
 /**
@@ -340,8 +309,7 @@ hr {
 }
 
 /**
- * Blockquote - Reset (limited to blockquotes without classes)
- * to avoid collisions with typographic rules in typography.css
+ * Blockquote - Reset
  */
 blockquote:not([class]) {
   margin: 0;
@@ -383,14 +351,12 @@ sup {
 }
 
 /* ============================================================================
-   SEÇÃO 9: UTILITÁRIOS & ACESSIBILIDADE
+   SEÇÃO 8: UTILITÁRIOS & ACESSIBILIDADE
    ============================================================================ */
 
 /**
  * Ocultar elementos - Métodos diferentes para diferentes casos
  */
-
-/* Ocultar visualmente mas manter para leitores de tela */
 .visually-hidden {
   position: absolute !important;
   width: 1px !important;
@@ -420,10 +386,11 @@ textarea {
 }
 
 /* ============================================================================
-   SEÇÃO 10: ESTILOS DE IMPRESSÃO
+   SEÇÃO 9: ESTILOS DE IMPRESSÃO
    ============================================================================ */
 
 @media print {
+
   /**
      * Reset para impressão - Foco em legibilidade
      */
@@ -432,7 +399,6 @@ textarea {
   *::after {
     background: transparent !important;
     color: #000 !important;
-    /* Preto puro para melhor contraste */
     box-shadow: none !important;
     text-shadow: none !important;
   }
@@ -476,9 +442,9 @@ textarea {
   /**
      * Evitar quebra de cabeçalhos
      */
-  :where(:root) h1,
-  :where(:root) h2,
-  :where(:root) h3 {
+  h1,
+  h2,
+  h3 {
     page-break-after: avoid;
     orphans: 3;
     widows: 3;
