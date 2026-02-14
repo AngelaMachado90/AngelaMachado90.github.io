@@ -468,74 +468,6 @@
     box-shadow: 0 0 15px #F57C00;
 }
 
-/* ============ RESPONSIVIDADE ============ */
-@media (max-width: 920px) {
-    .hero-carousel {
-        max-width: 100%;
-    }
-
-    .hero-slide-overlay {
-        bottom: 20px;
-        left: 20px;
-        right: 20px;
-        padding: 25px;
-    }
-
-    .hero-slide-overlay .showcase-headings h3 {
-        font-size: 2rem;
-    }
-
-    .hero-slide img {
-        max-height: 500px;
-    }
-}
-
-@media (max-width: 720px) {
-    .hero-slide-overlay {
-        padding: 20px;
-    }
-
-    .hero-slide-overlay .showcase-headings .title-icon {
-        width: 50px;
-        height: 50px;
-        font-size: 25px;
-    }
-
-    .hero-slide-overlay .showcase-headings h3 {
-        font-size: 1.6rem;
-    }
-
-    .hero-slide-overlay .showcase-headings p {
-        font-size: 1rem;
-    }
-
-    .hero-slide-overlay .showcase-link {
-        padding: 10px 20px;
-        font-size: 0.9rem;
-    }
-
-    .hero-ctrl {
-        width: 44px;
-        height: 44px;
-        font-size: 30px;
-    }
-}
-
-@media (min-width: 1400px) {
-    .hero-carousel {
-        max-width: 1200px;
-    }
-
-    .hero-slide-overlay .showcase-headings h3 {
-        font-size: 3rem;
-    }
-
-    .hero-slide img {
-        max-height: 700px;
-    }
-}
-/*
-
 /* ============ AUTOPLAY ============ */
 @keyframes autoplay-hc1 {
 
@@ -621,20 +553,6 @@
     padding: 20px;
 }
 
-/* Suporte a prefers-reduced-motion */
-@media (prefers-reduced-motion: reduce) {
-
-    .hero-carousel-track,
-    .hero-ctrl,
-    .hero-dotbtn,
-    .showcase-link {
-        transition: none;
-    }
-
-    .hero-carousel:not(:hover) .hero-carousel-track {
-        animation: none;
-    }
-}
 
 /* Fallback para backdrop-filter */
 @supports not ((backdrop-filter: blur(10px)) or (-webkit-backdrop-filter: blur(10px))) {
@@ -735,51 +653,4 @@
     height: 4px;
     background: linear-gradient(90deg, #F57C00, #2196F3);
     border-radius: 2px;
-}
-
-/* Responsividade */
-@media (max-width: 720px) {
-    .hero-slide-overlay {
-        padding: 30px 20px 20px;
-    }
-
-    .hero-slide-overlay .showcase-headings h3 {
-        font-size: 1.4rem;
-    }
-
-    .hero-slide-overlay .showcase-headings p {
-        font-size: 1rem;
-        margin-bottom: 15px;
-    }
-
-    .hero-slide-overlay .showcase-link {
-        padding: 8px 16px;
-        font-size: 0.9rem;
-    }
-}
-
-/* Para telas muito pequenas */
-@media (max-width: 480px) {
-    .hero-slide-overlay {
-        padding: 25px 15px 15px;
-    }
-
-    .hero-slide-overlay .showcase-headings h3 {
-        font-size: 1.2rem;
-    }
-
-    .hero-slide-overlay .showcase-headings p {
-        font-size: 0.9rem;
-        margin-bottom: 12px;
-    }
-
-    .hero-slide-overlay .showcase-links {
-        flex-direction: column;
-        gap: 8px;
-    }
-
-    .hero-slide-overlay .showcase-link {
-        text-align: center;
-        padding: 8px;
-    }
 }
