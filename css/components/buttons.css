@@ -1,7 +1,8 @@
 /* ============================================================================
    COMPONENT: BUTTONS
-   Arquivo: css/components/_buttons.css
-   Versão: 3.0.0 | Sistema Unificado de Botões
+   Arquivo: css/components/buttons.css
+   Versão: 3.1.0 | Sistema Unificado de Botões
+   Data: 14/02/2026 | Baseado no: KoddaHub Design System
    ============================================================================ */
 
 /**
@@ -15,11 +16,16 @@
  * 3. .btn--{size} (sm, md, lg)
  * 4. .btn--{state} (disabled, loading)
  * 5. Classes contextuais (.hero .btn)
+ * 6. Estilos legados mantidos para compatibilidade
  *
  * CONVENÇÕES:
  * - Prefixo .btn para todos os botões
  * - Modificadores com -- (BEM)
  * - Sempre use variáveis CSS do sistema
+ *
+ * DEPENDÊNCIAS:
+ * - variables.css (obrigatório)
+ * - animations.css (opcional, para animações)
  */
 
 /* ============================================================================
@@ -103,21 +109,17 @@
  * Uso: Call-to-actions, ações mais importantes
  */
 .btn--primary {
-  background: linear-gradient(
-    135deg,
-    var(--color-primary-600),
-    var(--color-primary-700)
-  );
+  background: linear-gradient(135deg,
+      var(--color-primary-600),
+      var(--color-primary-700));
   color: var(--white-pure);
   border-color: transparent;
   box-shadow: var(--shadow-md);
 
   &:hover {
-    background: linear-gradient(
-      135deg,
-      var(--color-primary-700),
-      var(--color-primary-800)
-    );
+    background: linear-gradient(135deg,
+        var(--color-primary-700),
+        var(--color-primary-800));
     box-shadow: var(--shadow-lg);
   }
 
@@ -180,7 +182,7 @@
 }
 
 /**
- * .btn--success, .btn--warning, .btn--error - Estados semânticos
+ * .btn--success - Botão de sucesso (verde)
  */
 .btn--success {
   background-color: var(--color-success-500);
@@ -191,6 +193,9 @@
   }
 }
 
+/**
+ * .btn--warning - Botão de aviso (amarelo/laranja)
+ */
 .btn--warning {
   background-color: var(--color-warning-500);
   color: var(--white-pure);
@@ -200,6 +205,9 @@
   }
 }
 
+/**
+ * .btn--error - Botão de erro/perigo (vermelho)
+ */
 .btn--error {
   background-color: var(--color-error-500);
   color: var(--white-pure);
@@ -216,6 +224,10 @@
 /**
  * Sistema de tamanhos baseado no espaçamento
  */
+
+/**
+ * .btn--sm - Botão pequeno
+ */
 .btn--sm {
   padding: var(--spacing-2) var(--spacing-4);
   /* 0.5rem 1rem / 8px 16px */
@@ -225,6 +237,9 @@
   /* 0.25rem / 4px */
 }
 
+/**
+ * .btn--md - Botão médio (padrão)
+ */
 .btn--md {
   /* Tamanho padrão já definido em .btn */
   padding: var(--spacing-3) var(--spacing-6);
@@ -233,6 +248,9 @@
   /* 1rem / 16px */
 }
 
+/**
+ * .btn--lg - Botão grande
+ */
 .btn--lg {
   padding: var(--spacing-4) var(--spacing-8);
   /* 1rem 2rem / 16px 32px */
@@ -244,6 +262,9 @@
   /* 0.75rem / 12px */
 }
 
+/**
+ * .btn--xl - Botão extra grande
+ */
 .btn--xl {
   padding: var(--spacing-5) var(--spacing-10);
   /* 1.5rem 2.5rem / 24px 40px */
@@ -260,6 +281,7 @@
 
 /**
  * .btn--loading - Estado de carregamento
+ * Mostra um spinner e esconde o texto
  */
 .btn--loading {
   position: relative;
@@ -295,6 +317,7 @@
 
 /**
  * .btn--icon-only - Botão apenas com ícone
+ * Para botões que contêm apenas um ícone
  */
 .btn--icon-only {
   width: 2.5rem;
@@ -322,6 +345,7 @@
 
 /**
  * .btn-group - Container para grupos de botões
+ * Cria um grupo de botões conectados
  */
 .btn-group {
   display: inline-flex;
@@ -330,7 +354,7 @@
   overflow: hidden;
   box-shadow: var(--shadow-sm);
 
-  & > .btn {
+  &>.btn {
     border-radius: 0;
     margin: 0;
 
@@ -372,17 +396,6 @@
   &--between {
     justify-content: space-between;
   }
-
-  /* Responsivo */
-  @media (max-width: 768px) {
-    flex-direction: column;
-    gap: var(--spacing-3);
-    width: 100%;
-
-    & > .btn {
-      width: 100%;
-    }
-  }
 }
 
 /* ============================================================================
@@ -415,7 +428,152 @@
 }
 
 /* ============================================================================
-   SEÇÃO 7: EXEMPLOS DE USO (COMENTÁRIOS)
+   SEÇÃO 7: ESTILOS LEGADOS (MANTIDOS PARA COMPATIBILIDADE)
+   ============================================================================ */
+
+/**
+ * Botões modernos do hero
+ * Mantidos para compatibilidade com código existente
+ */
+
+/* Botão primário moderno */
+.btn-primary-modern {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 32px;
+  background: linear-gradient(135deg,
+      var(--color-primary-600),
+      var(--color-secondary-600));
+  color: var(--white-pure);
+  border-radius: 40px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(245, 124, 0, 0.3);
+  font-size: 1rem;
+  font-weight: var(--fw-semibold);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  margin-top: 8px;
+  width: 100%;
+
+  /* Efeito de brilho ao passar o mouse */
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent);
+    transition: left 0.6s ease;
+  }
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow:
+      0 12px 28px rgba(245, 124, 0, 0.4),
+      0 0 0 1px rgba(255, 255, 255, 0.1);
+    color: var(--white);
+
+    &::after {
+      left: 100%;
+    }
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+/* Botão secundário moderno */
+.btn-secondary-modern {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 36px;
+  background: transparent;
+  color: var(--white);
+  font-weight: 600;
+  border-radius: 40px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  transition: var(--transition);
+  width: 100%;
+
+  &:hover {
+    border-color: #FFB74D;
+    color: var(--white);
+    transform: translateY(-4px);
+  }
+}
+
+/* Botão de submit (formulários) */
+.btn-submit {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, var(--primary), #FFB74D);
+  color: var(--white);
+  border: none;
+  border-radius: 40px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: var(--transition);
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(245, 124, 0, 0.3);
+  }
+}
+
+/* Botão link */
+.btn-link {
+  color: var(--blue-electric);
+  text-decoration: none;
+  font-weight: var(--fw-semibold);
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: all var(--duration-300) var(--ease-out);
+
+  &:hover {
+    gap: 10px;
+    color: var(--blue-dark);
+  }
+}
+
+/* Hero title (mantido por referência) */
+.hero-title {
+  font-size: clamp(2.2rem, 4.5vw, 4rem);
+  line-height: 1.1;
+  color: var(--white-pure);
+  margin-bottom: 1rem;
+}
+
+/* ============================================================================
+   SEÇÃO 8: KEYFRAMES (ANIMAÇÕES)
+   ============================================================================ */
+
+/**
+ * Animação de spin para botões em loading
+ */
+@keyframes btn-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ============================================================================
+   SEÇÃO 9: EXEMPLOS DE USO (COMENTÁRIOS)
    ============================================================================ */
 
 /**
@@ -441,128 +599,14 @@
  *
  * 5. Botão de loading:
  *    <button class="btn btn--primary btn--loading">Processing</button>
+ *
+ * 6. Botão moderno (legado):
+ *    <button class="btn-primary-modern">Ação Moderna</button>
+ *
+ * 7. Botão de submit:
+ *    <button class="btn-submit">Enviar</button>
  */
 
 /* ============================================================================
    FIM DO COMPONENT: BUTTONS
    ============================================================================ */
-/* Hero Buttons */
-.btn-primary-modern {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 16px 32px;
-  background: linear-gradient(135deg,
-        var(--color-primary-600),
-        var(--color-secondary-600));
-  color: var(--white-pure);
-  border-radius: 40px;
-  border: none;
-  cursor: pointer;
-  box-shadow: 0 8px 20px rgba(245, 124, 0, 0.3);
-  font-size: 1rem;
-  font-weight: var(--fw-semibold);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  overflow: hidden;
-  margin-top: 8px;
-  width: 100%;
-}
-
-.btn-primary-modern:hover {
-  transform: translateY(-2px);
-  box-shadow:
-    0 10px 30px rgba(33, 150, 243, 0.3),
-    0 0 0 1px rgba(255, 255, 255, 0.1);
-}
-
-.btn-primary-modern:active {
-  transform: translateY(0);
-}
-
-.btn-primary-modern::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg,
-      transparent,
-      rgba(255, 255, 255, 0.2),
-      transparent);
-  transition: left 0.6s ease;
-}
-
-.btn-submit {
-  width: 100%;
-  padding: 16px;
-  background: linear-gradient(135deg, var(--primary), #FFB74D);
-  color: var(--white);
-  border: none;
-  border-radius: 40px;
-  font-weight: 600;
-  font-size: 16px;
-  cursor: pointer;
-  transition: var(--transition);
-}
-
-.btn-primary-modern:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 28px rgba(245, 124, 0, 0.4);
-  color: var(--white);
-}
-
-.btn-secondary-modern {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 16px 36px;
-  background: transparent;
-  color: var(--white);
-  font-weight: 600;
-  border-radius: 40px;
-  border: 2px solid rgba(255, 255, 255, 0.2);
-  transition: var(--transition);
-  width: 100%;
-}
-
-.btn-secondary-modern:hover {
-  border-color: #FFB74D;
-  color: var(--white);
-  transform: translateY(-4px);
-}
-.hero-title {
-  font-size: clamp(2.2rem, 4.5vw, 4rem);
-  line-height: 1.1;
-  color: var(--white-pure);
-  margin-bottom: 1rem;
-}
-
-.btn-link {
-  color: var(--blue-electric);
-  text-decoration: none;
-  font-weight: var(--fw-semibold);
-  font-size: 0.875rem;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  transition: all var(--duration-300) var(--ease-out);
-}
-
-.btn-link:hover {
-  gap: 10px;
-  color: var(--blue-dark);
-}
-
-
-
-.btn-primary-modern:active {
-  transform: translateY(0);
-}
-
-
-.btn-primary-modern:hover::after {
-  left: 100%;
-}
-
