@@ -1,55 +1,128 @@
 /* ============================================================================
-   RESPONSIVE.CSS - Media Queries and Responsive Adjustments - ATUALIZADO
+   RESPONSIVE.CSS - Sistema de Media Queries e Ajustes Responsivos
+   Versão: 2.0.0 | Data: 14/02/2026 | Autor: Angela Machado
    ============================================================================ */
-/* Este arquivo contém todas as media queries e ajustes responsivos para garantir que o site seja visualmente atraente e funcional em uma ampla variedade de dispositivos, desde smartphones até desktops grandes. */
-/* As media queries são organizadas por tipo de dispositivo e tamanho de tela, seguindo uma abordagem mobile-first para garantir que o conteúdo seja otimizado para dispositivos móveis antes de ser adaptado para telas maiores. */
-/* ========== MEDIA QUERIES PARA DISPOSITIVOS MÓVEIS ========== */
-/* Esta seção inclui media queries específicas para smartphones, tablets e ajustes para landscape mobile, garantindo que o layout se adapte de forma fluida a diferentes tamanhos de tela e orientações. */
-/* As media queries são cuidadosamente testadas para garantir que o conteúdo seja legível, os elementos
-/* IPAD: 768px x 1024px */
-/* IPAD PRO 11": 834px x 1194px */
-/* IPAD PRO 12.9": 1024px x 1366px */
 
-/* IPHONE 12 PRO: 390px x 844px */
-/* IPHONE 12 PRO MAX: 428px x 926px */
-/* IPHONE 13 PRO: 390px x 844px */
-/* IPHONE 13 PRO MAX: 428px x 926px */
-/* IPHONE 14 PRO: 393px x 852px */
-/* IPHONE 14 PRO MAX: 430px x 932px */
-/* SAMSUNG GALAXY S21: 360px x 800px */
-/* SAMSUNG GALAXY A51/71: 412px x 914px */
-/* Mobile pequeno (até 374px) */
-@media (max-width: 374px) {
-  :root {
-    font-size: 14px;
-    /* Reduz tamanho base da fonte */
-  }
-  .navbar-modern {
-    padding: 8px 0;
+/**
+ * OBJETIVO:
+ * Centralizar TODAS as media queries do projeto em um único arquivo.
+ * Segue abordagem mobile-first com breakpoints baseados nas variáveis.
+ *
+ * BREAKPOINTS (do variables.css):
+ * --breakpoint-xs: 320px  - Smartphones muito pequenos
+ * --breakpoint-sm: 480px  - Smartphones
+ * --breakpoint-md: 768px  - Tablets
+ * --breakpoint-lg: 1024px - Desktops pequenos
+ * --breakpoint-xl: 1280px - Desktops
+ * --breakpoint-2xl: 1536px - Desktops grandes
+ *
+ * ORGANIZAÇÃO:
+ * 1. Preferências do usuário (reduced-motion, etc.)
+ * 2. Ajustes de fonte base
+ * 3. Mobile First (até 767px)
+ * 4. Tablet (768px - 1023px)
+ * 5. Desktop (1024px - 1439px)
+ * 6. Large Desktop (1440px+)
+ * 7. Ajustes específicos de altura
+ * 8. Utilitários responsivos
+ */
+
+/* ============================================================================
+   SEÇÃO 1: PREFERÊNCIAS DO USUÁRIO
+   ============================================================================ */
+
+/**
+ * Respeita a preferência do usuário por movimento reduzido
+ * Desativa todas as animações e transições
+ */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 
+  /* Overrides específicos para componentes */
+  .kodassauro-toggle,
+  .kodassauro-panel,
+  .kodassauro-send,
+  .kodassauro-chip,
+  .kodassauro-svg .kds-eye,
+  .hero-carousel-track,
+  .hero-ctrl,
+  .hero-dotbtn,
+  .showcase-link {
+    transition: none !important;
+    animation: none !important;
+  }
 }
-/* ========== ABORDAGEM MOBILE FIRST ========== */
-/* Mobile pequeno (até 374px) */
-@media (max-width: 374px) {
-  :root {
+
+/* ============================================================================
+   SEÇÃO 2: AJUSTES DE FONTE BASE
+   ============================================================================ */
+
+/**
+ * Ajustes de tamanho base da fonte para diferentes breakpoints
+ * Mantém a proporção rem consistente em todos os dispositivos
+ */
+
+/* Telas muito pequenas (até 360px) */
+@media (max-width: 360px) {
+  html {
     font-size: 14px;
-    /* Reduz tamanho base da fonte */
+    /* 1rem = 14px */
+  }
+}
+
+/* Tablets (768px - 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+  html {
+    font-size: 17px;
+    /* 1rem = 17px */
+  }
+}
+
+/* Desktops grandes (1920px+) */
+@media (min-width: 1920px) {
+  html {
+    font-size: 18px;
+    /* 1rem = 18px */
+  }
+}
+
+/* ============================================================================
+   SEÇÃO 3: MOBILE FIRST (até 767px)
+   ============================================================================ */
+
+/* Mobile muito pequeno (até 374px) */
+@media (max-width: 374px) {
+
+  /* Container */
+  .container,
+  .container-fluid {
+    padding-left: 16px;
+    padding-right: 16px;
   }
 
+  /* Navbar */
   .navbar-modern {
     padding: 8px 0;
   }
 
+  /* Hero */
   .hero-modern {
     padding: 40px 0;
     min-height: auto;
-    /* Remover altura fixa */
   }
 
   .hero-content {
     grid-template-columns: 1fr;
     text-align: center;
+    gap: 30px;
   }
 
   .hero-text h1 {
@@ -61,44 +134,77 @@
     font-size: 0.9rem;
   }
 
-  .cta-buttons {
-    flex-direction: column;
-    gap: 10px;
-    width: 100%;
-  }
-
-
-  .cta-buttons .btn-secondary-modern {
-    padding: 15px 35px;
-    width: 100%;
-    text-align: center;
-  }
-
   .hero-visual {
     display: block;
     margin-top: 22px;
   }
 
+  /* Hero Carousel */
+  .hero-carousel {
+    max-width: 100%;
+  }
+
   .hero-carousel-viewport {
     min-height: 260px;
   }
+
   .hero-slide img {
     min-height: 260px;
+    max-height: 300px;
   }
+
   .hero-slide-overlay {
     padding: 12px 12px 56px;
   }
+
   .hero-slide-card {
     width: min(360px, 100%);
   }
 
+  /* Hero CTA Buttons */
+  .hero-cta,
+  .hero-content .btn-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-cta .btn-primary-modern,
+  .hero-cta .btn-secondary-modern,
+  .hero-content .btn-primary-modern,
+  .hero-content .btn-secondary-modern {
+    width: 100%;
+    padding: 14px 24px;
+    margin: 0;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 1rem;
+  }
+
+  .hero-cta .btn-primary-modern {
+    border: 2px solid rgba(255, 255, 255, 0.45);
+  }
+
+  /* Grids */
   .solutions-section .solutions-grid {
     grid-template-columns: 1fr;
     gap: 15px;
   }
 
-  /* mobile-specific modern-card adjustments moved to components/_cards.css */
+  .solutions-grid {
+    grid-template-columns: 1fr;
+  }
 
+  .diferenciais-section .diferenciais-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  /* Timeline */
   .timeline::before {
     display: none;
   }
@@ -119,191 +225,44 @@
   .timeline-content {
     grid-column: 2;
   }
-
-  /* Garantir que imagens sejam responsivas (definido em base/reset.css) */
 }
 
 /* Mobile (375px - 767px) */
 @media (min-width: 375px) and (max-width: 767px) {
+
+  /* Container */
   .container,
   .container-fluid {
     padding-left: 20px;
     padding-right: 20px;
   }
 
-  .navbar-wrapper {
-    gap: 15px;
-  }
-
-  .hero-modern {
-    min-height: auto;
-    padding: 80px 0 60px;
-  }
-
-  .hero-content {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-
-  .hero-visual {
-    display: block;
-    margin-top: 22px;
-  }
-
-  .hero-content {
-    gap: 30px;
-  }
-
-  .hero-carousel-viewport {
-    min-height: 300px;
-  }
-  .hero-slide img {
-    min-height: 300px;
-  }
-  .hero-slide-overlay {
-    padding: 12px 14px 58px;
-  }
-  .hero-slide-card {
-    width: min(380px, 100%);
-  }
-
-  .diferenciais-section .diferenciais-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-
-  .timeline::before {
-    display: none;
-  }
-
-  .timeline .timeline-item {
-    grid-template-columns: 40px 1fr;
-    gap: 14px;
-    align-items: start;
-  }
-
-  .timeline-number {
-    width: 44px;
-    height: 44px;
-    font-size: 1.1rem;
-    grid-column: 1;
-  }
-
-  .timeline-content {
-    grid-column: 2;
-  }
-
-  /* Melhorar espaçamento em mobile */
+  /* Seções */
   .section-modern {
     padding: 40px 0;
   }
 
-  .section-title h2 {
-    font-size: 1.8rem;
-  }
-}
-
-/* Tablet (768px - 1023px) */
-@media (min-width: 768px) and (max-width: 1023px) {
-  .navbar-menu {
-    gap: 20px;
+  .section-contact {
+    padding: var(--spacing-8) 0;
   }
 
-  .hero-content {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    text-align: left;
+  .section-header {
+    margin-bottom: var(--spacing-6);
   }
 
-  .hero-visual {
-    margin-top: 0;
+  .section-header h2 {
+    font-size: var(--font-size-3xl, 32px);
   }
 
-  .hero-carousel-viewport {
-    min-height: 340px;
-  }
-  .hero-slide img {
-    min-height: 340px;
-  }
-  .hero-slide-overlay {
-    padding: 14px 20px 62px;
-  }
-  .hero-slide-card {
-    width: min(420px, 100%);
+  .section-header p {
+    font-size: var(--font-size-base, 16px);
   }
 
-  .solutions-section .solutions-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
+  /* Navbar */
+  .navbar-wrapper {
+    gap: 15px;
   }
 
-  .contato-wrapper {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-
-  /* tablet-specific modern-card adjustments moved to components/_cards.css */
-}
-
-/* Desktop com pouca altura: comprimir o hero para caber melhor acima da dobra */
-@media (max-height: 760px) and (min-width: 1024px) {
-  .hero-modern {
-    padding: 56px 0 48px;
-  }
-
-  .hero-title {
-    font-size: clamp(1.9rem, 3.4vw, 3.2rem);
-  }
-
-  .hero-subtitle {
-    font-size: 0.98rem;
-    margin-bottom: 18px;
-  }
-
-  .hero-carousel-viewport {
-    min-height: 300px;
-  }
-
-  .hero-slide img {
-    min-height: 300px;
-  }
-}
-
-/* Desktop (1024px - 1439px) */
-@media (min-width: 1024px) and (max-width: 1439px) {
-  .container {
-    max-width: 1200px;
-    padding: 0 30px;
-  }
-
-  .hero-modern {
-    min-height: 600px;
-    /* Reduzir um pouco */
-  }
-
-  .solutions-section .solutions-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-  }
-
-  .diferenciais-section .diferenciais-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-/* Large Desktop (1440px+) */
-@media (min-width: 1440px) {
-  .hero-modern {
-    min-height: 750px;
-    /* Ajustar valor */
-  }
-
-  .solutions-section .solutions-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
-/* ========== NAVBAR RESPONSIVA (MELHORADA) ========== */
-@media (max-width: 768px) {
   .navbar-toggle {
     display: flex;
     width: 40px;
@@ -314,7 +273,6 @@
 
   .navbar-menu {
     position: fixed;
-    /* Mudar para fixed para melhor experiência */
     top: 70px;
     left: 0;
     right: 0;
@@ -331,8 +289,7 @@
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-    transition:
-      transform var(--duration-300) var(--ease-out),
+    transition: transform var(--duration-300) var(--ease-out),
       opacity var(--duration-300) var(--ease-out),
       visibility var(--duration-300) var(--ease-out);
   }
@@ -362,96 +319,75 @@
     border-radius: 8px;
     text-align: center;
   }
-}
 
-/* ========== AJUSTES ESPECÍFICOS ========== */
-
-/* Ajustes para landscape mobile */
-@media (max-height: 500px) and (max-width: 768px) {
+  /* Hero */
   .hero-modern {
     min-height: auto;
-    padding: 40px 0;
+    padding: 80px 0 60px;
   }
-}
 
-/* Prevenir zoom em input em iOS */
-@media (max-width: 767px) {
-  /* Prevenir zoom em inputs no iOS — qualificado com `html` to avoid duplicate simple selectors */
-  html input,
-  html select,
-  html textarea {
-    font-size: 16px;
-    /* Prevenir zoom automático do iOS */
-  }
-}
-
-/* ========== MELHORIAS DE ACESSIBILIDADE ==========
-   Preferência de reduzir movimento centralizada em css/base/reset.css
-*/
-
-/* ========== AJUSTES PARA O MENU MOBILE ========== */
-/* Esta classe pode ser adicionada para esconder o menu */
-.hidden {
-  display: none !important;
-}
-
-/* Responsividade */
-@media (max-width: 992px) {
-  .solutions-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 768px) {
-  .solutions-grid {
+  .hero-content {
     grid-template-columns: 1fr;
-  }
-}
-
-/* ============================================================================
-   FIX: BOTÕES DO HERO NO MOBILE
-   ============================================================================ */
-
-/* Ajuste específico para os botões do hero no mobile */
-@media (max-width: 767px) {
-  .hero-cta {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    width: 100%;
-  }
-
-  .hero-cta .btn-primary-modern,
-  .hero-cta .btn-secondary-modern {
-    width: 100%;
-    padding: 14px 24px;
-    /* Padding uniforme */
-    font-size: 1rem;
     text-align: center;
-    box-sizing: border-box;
-    margin: 0;
-    /* Remove margens extras */
+    gap: 30px;
   }
 
-  /* Garantir mesma largura para ambos os botões */
-  .hero-cta .btn-primary-modern {
-    padding: 14px 24px;
-    /* Mesmo padding do secundário */
-    border: 2px solid rgba(255, 255, 255, 0.45);
-    /* Ajuste para ficar igual */
+  .hero-visual {
+    display: block;
+    margin-top: 22px;
   }
 
-  .hero-cta .btn-secondary-modern {
-    padding: 14px 24px;
-    /* Padrão uniforme */
+  /* Hero Carousel */
+  .hero-carousel {
+    max-width: 100%;
   }
-}
 
-/* Alternativa mais simples: converter para flex com column */
-@media (max-width: 768px) {
+  .hero-carousel-viewport {
+    min-height: 300px;
+  }
 
-  .hero-content .btn-wrapper,
-  .hero-cta {
+  .hero-slide img {
+    min-height: 300px;
+    max-height: 400px;
+  }
+
+  .hero-slide-overlay {
+    padding: 20px 14px 58px;
+  }
+
+  .hero-slide-card {
+    width: min(380px, 100%);
+  }
+
+  .hero-slide-overlay .showcase-headings h3 {
+    font-size: 1.6rem;
+  }
+
+  .hero-slide-overlay .showcase-headings .title-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 25px;
+  }
+
+  .hero-slide-overlay .showcase-headings p {
+    font-size: 1rem;
+    margin-bottom: 15px;
+  }
+
+  .hero-slide-overlay .showcase-link {
+    padding: 8px 18px;
+    font-size: 0.9rem;
+  }
+
+  .hero-ctrl {
+    width: 44px;
+    height: 44px;
+    font-size: 30px;
+  }
+
+  /* Hero CTA Buttons (reforço) */
+  .hero-cta,
+  .hero-content .btn-wrapper {
     display: flex;
     flex-direction: column;
     gap: 12px;
@@ -461,7 +397,8 @@
     margin-right: auto;
   }
 
-  .hero-content .btn,
+  .hero-cta .btn-primary-modern,
+  .hero-cta .btn-secondary-modern,
   .hero-content .btn-primary-modern,
   .hero-content .btn-secondary-modern {
     width: 100%;
@@ -470,67 +407,551 @@
     box-sizing: border-box;
     text-align: center;
   }
+
+  /* Botões */
+  .btn-wrapper {
+    flex-direction: column;
+    gap: var(--spacing-3);
+    width: 100%;
+  }
+
+  .btn-wrapper>.btn {
+    width: 100%;
+  }
+
+  /* Grids */
+  .solutions-section .solutions-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .solutions-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .diferenciais-section .diferenciais-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .blog-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Timeline */
+  .timeline::before {
+    display: none;
+  }
+
+  .timeline .timeline-item {
+    grid-template-columns: 40px 1fr;
+    gap: 14px;
+    align-items: start;
+  }
+
+  .timeline-number {
+    width: 44px;
+    height: 44px;
+    font-size: 1.1rem;
+    grid-column: 1;
+  }
+
+  .timeline-content {
+    grid-column: 2;
+  }
+
+  /* Contact */
+  .contact-info,
+  .contact-form {
+    padding: var(--spacing-6, 32px);
+  }
+
+  .contact-info h3 {
+    font-size: var(--font-size-2xl, 24px);
+  }
+
+  .contact-item {
+    flex-direction: column;
+    gap: var(--spacing-3, 12px);
+    margin-bottom: var(--spacing-5, 24px);
+    padding-bottom: var(--spacing-5, 24px);
+  }
+
+  .contact-icon {
+    width: 40px;
+    height: 40px;
+    font-size: var(--font-size-lg, 18px);
+  }
+
+  .contact-form h3 {
+    font-size: var(--font-size-xl, 22px);
+    margin-bottom: var(--spacing-5, 24px);
+  }
+
+  .form-group {
+    margin-bottom: var(--spacing-4, 20px);
+  }
+
+  .form-control {
+    padding: var(--spacing-3, 12px) var(--spacing-4, 16px);
+  }
+
+  .btn-submit {
+    padding: var(--spacing-3, 14px) var(--spacing-5, 28px);
+  }
+
+  /* Footer */
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-8);
+  }
+
+  .footer-about p {
+    max-width: 100%;
+  }
+
+  /* Chatbot Kodassauro */
+  .kodassauro {
+    right: 18px;
+    bottom: 18px;
+  }
+
+  .kodassauro-panel {
+    width: calc(100vw - 36px);
+    max-height: calc(100vh - 120px);
+  }
+
+  /* Modal */
+  .modal-content {
+    max-width: 95%;
+    padding: var(--space-4);
+  }
+
+  /* Tipografia responsiva */
+  h1,
+  .h1 {
+    margin-bottom: var(--spacing-4);
+  }
+
+  h2,
+  .h2 {
+    margin-bottom: var(--spacing-3);
+  }
+
+  h3,
+  .h3 {
+    margin-bottom: var(--spacing-3);
+  }
+
+  p.lead {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--spacing-4);
+  }
+
+  blockquote {
+    margin: var(--spacing-4) 0;
+    padding-left: var(--spacing-4);
+    font-size: var(--font-size-base);
+  }
 }
 
-/* Responsividade */
+/* Mobile muito pequeno e mobile combinados (até 767px) */
+@media (max-width: 767px) {
+
+  /* Prevenir zoom em inputs no iOS */
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="search"],
+  input[type="url"],
+  input[type="number"],
+  input[type="tel"],
+  textarea,
+  select {
+    font-size: 16px;
+    /* Previne zoom automático do iOS */
+  }
+
+  /* Botões flutuantes */
+  .whatsapp-float {
+    bottom: 20px;
+    right: 20px;
+    width: 56px;
+    height: 56px;
+    font-size: 1.6rem;
+  }
+
+  .whatsapp-tooltip {
+    display: none;
+  }
+
+  /* Gallery */
+  .demo-stage {
+    max-width: 100%;
+    height: 100vh;
+    padding: 0;
+    border-radius: 0;
+  }
+
+  .demo-frame {
+    min-height: 60vh;
+  }
+
+  /* Kodassauro - esconder quando menu aberto */
+  body.nav-open .kodassauro-toggle,
+  body.nav-open .kodassauro-panel {
+    display: none;
+  }
+}
+
+/* ============================================================================
+   SEÇÃO 4: TABLET (768px - 1023px)
+   ============================================================================ */
+
+@media (min-width: 768px) and (max-width: 1023px) {
+
+  /* Container */
+  .container-fluid,
+  .container {
+    padding: 0 var(--container-padding-tablet, 24px);
+  }
+
+  /* Seções */
+  .section-contact {
+    padding: var(--spacing-10) 0;
+  }
+
+  .section-header h2 {
+    font-size: var(--font-size-4xl, 36px);
+  }
+
+  /* Navbar */
+  .navbar-menu {
+    gap: 20px;
+  }
+
+  /* Hero */
+  .hero-content {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    text-align: left;
+  }
+
+  .hero-visual {
+    margin-top: 0;
+  }
+
+  .hero-carousel-viewport {
+    min-height: 340px;
+  }
+
+  .hero-slide img {
+    min-height: 340px;
+    max-height: 450px;
+  }
+
+  .hero-slide-overlay {
+    padding: 14px 20px 62px;
+  }
+
+  .hero-slide-card {
+    width: min(420px, 100%);
+  }
+
+  /* Grids */
+  .solutions-section .solutions-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+  }
+
+  .solutions-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .blog-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-6);
+  }
+
+  .footer-about {
+    grid-column: span 2;
+  }
+
+  /* Contact */
+  .contato-wrapper {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  /* Tipografia */
+  h1,
+  .h1 {
+    margin-bottom: var(--spacing-5);
+  }
+}
+
+/* ============================================================================
+   SEÇÃO 5: DESKTOP (1024px - 1439px)
+   ============================================================================ */
+
+@media (min-width: 1024px) and (max-width: 1439px) {
+
+  /* Container */
+  .container-fluid,
+  .container {
+    max-width: 1200px;
+    padding: 0 var(--container-padding-desktop, 32px);
+  }
+
+  /* Seções */
+  .section-contact {
+    padding: var(--spacing-12) 0;
+  }
+
+  /* Hero */
+  .hero-modern {
+    min-height: 600px;
+  }
+
+  /* Grids */
+  .solutions-section .solutions-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
+
+  .diferenciais-section .diferenciais-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .footer-grid {
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: var(--spacing-8);
+    margin-bottom: var(--spacing-10);
+  }
+
+  .footer-about {
+    grid-column: span 1;
+  }
+
+  .footer-content {
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+  }
+
+  /* Contact */
+  .contact-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-8, 60px);
+  }
+
+  /* Tipografia */
+  h1,
+  .h1 {
+    margin-bottom: var(--spacing-8);
+  }
+
+  h2,
+  .h2 {
+    margin-bottom: var(--spacing-6);
+  }
+
+  blockquote {
+    margin: var(--spacing-8) 0;
+    padding-left: var(--spacing-8);
+    font-size: var(--font-size-xl);
+  }
+}
+
+/* ============================================================================
+   SEÇÃO 6: LARGE DESKTOP (1440px+)
+   ============================================================================ */
+
+@media (min-width: 1440px) {
+
+  /* Hero */
+  .hero-modern {
+    min-height: 750px;
+  }
+
+  /* Grids */
+  .solutions-section .solutions-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* ============================================================================
+   SEÇÃO 7: HERO CAROUSEL - AJUSTES ESPECÍFICOS
+   ============================================================================ */
+
+@media (max-width: 920px) {
+  .hero-carousel {
+    max-width: 100%;
+  }
+
+  .hero-slide-overlay {
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    padding: 25px;
+  }
+
+  .hero-slide-overlay .showcase-headings h3 {
+    font-size: 2rem;
+  }
+
+  .hero-slide img {
+    max-height: 500px;
+  }
+}
+
 @media (max-width: 720px) {
-            .hero-carousel {
-                max-width: 100%;
-              }
-      
-              .hero-slide-overlay {
-                padding: 15px;
-              }
-      
-              .hero-slide-overlay .showcase-headings h3 {
-                font-size: 1rem;
-              }
-            }
+  .hero-slide-overlay {
+    padding: 35px 20px 20px;
+  }
 
+  .hero-slide-overlay .showcase-headings h3 {
+    font-size: 1.6rem;
+  }
 
-                        /* Responsividade */
-                        @media (max-width: 720px) {
-                          .hero-slide-overlay {
-                            padding: 35px 20px 20px;
-                          }
-            
-                          .hero-slide-overlay .showcase-headings h3 {
-                            font-size: 1.6rem;
-                          }
-            
-                          .hero-slide-overlay .showcase-headings p {
-                            font-size: 1rem;
-                            margin-bottom: 15px;
-                          }
-            
-                          .hero-slide-overlay .showcase-link {
-                            padding: 8px 18px;
-                            font-size: 0.9rem;
-                          }
-                        }
-            
-                        @media (max-width: 480px) {
-                          .hero-slide-overlay {
-                            padding: 30px 15px 15px;
-                          }
-            
-                          .hero-slide-overlay .showcase-headings h3 {
-                            font-size: 1.4rem;
-                          }
-            
-                          .hero-slide-overlay .showcase-headings p {
-                            font-size: 0.9rem;
-                            margin-bottom: 12px;
-                          }
-            
-                          .hero-slide-overlay .showcase-links {
-                            flex-direction: column;
-                            gap: 8px;
-                          }
-            
-                          .hero-slide-overlay .showcase-link {
-                            text-align: center;
-                            padding: 8px;
-                          }
-                        }
-                      
+  .hero-slide-overlay .showcase-headings p {
+    font-size: 1rem;
+    margin-bottom: 15px;
+  }
+
+  .hero-slide-overlay .showcase-link {
+    padding: 8px 18px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-slide-overlay {
+    padding: 30px 15px 15px;
+  }
+
+  .hero-slide-overlay .showcase-headings h3 {
+    font-size: 1.4rem;
+  }
+
+  .hero-slide-overlay .showcase-headings p {
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+  }
+
+  .hero-slide-overlay .showcase-links {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .hero-slide-overlay .showcase-link {
+    text-align: center;
+    padding: 8px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .hero-carousel {
+    max-width: 1200px;
+  }
+
+  .hero-slide-overlay .showcase-headings h3 {
+    font-size: 3rem;
+  }
+
+  .hero-slide img {
+    max-height: 700px;
+  }
+}
+
+/* ============================================================================
+   SEÇÃO 8: AJUSTES DE ALTURA ESPECÍFICOS
+   ============================================================================ */
+
+/* Desktop com pouca altura */
+@media (max-height: 760px) and (min-width: 1024px) {
+  .hero-modern {
+    padding: 56px 0 48px;
+  }
+
+  .hero-title {
+    font-size: clamp(1.9rem, 3.4vw, 3.2rem);
+  }
+
+  .hero-subtitle {
+    font-size: 0.98rem;
+    margin-bottom: 18px;
+  }
+
+  .hero-carousel-viewport {
+    min-height: 300px;
+  }
+
+  .hero-slide img {
+    min-height: 300px;
+  }
+}
+
+/* Landscape mobile */
+@media (max-height: 500px) and (max-width: 768px) {
+  .hero-modern {
+    min-height: auto;
+    padding: 40px 0;
+  }
+}
+
+/* ============================================================================
+   SEÇÃO 9: UTILITÁRIOS RESPONSIVOS
+   ============================================================================ */
+
+/* Display utilities */
+@media (min-width: 768px) {
+  .d-md-none {
+    display: none !important;
+  }
+
+  .d-md-block {
+    display: block !important;
+  }
+
+  .d-md-flex {
+    display: flex !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .d-lg-none {
+    display: none !important;
+  }
+
+  .d-lg-block {
+    display: block !important;
+  }
+
+  .d-lg-flex {
+    display: flex !important;
+  }
+}
+
+/* Hidden utility */
+.hidden {
+  display: none !important;
+}
+
+/* ============================================================================
+   FIM DO RESPONSIVE.CSS
+   ============================================================================ */
