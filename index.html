@@ -612,7 +612,49 @@
     </section>
   </div>
   
+    <!-- ===== COOKIE CONSENT ===== -->
+    <!-- Container para o cookie -->
+    <div id="cookie-container"></div>
+    
+    <!-- CSS do Cookie -->
+    <link rel="stylesheet" href="css/utilities/cookie-consent.css" />
+    
+    <!-- Script para carregar o cookie -->
+    <script>
+      fetch('includes/cookie-consent.html')
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Arquivo não encontrado');
+          }
+          return response.text();
+        })
+        .then(data => {
+          document.getElementById('cookie-container').innerHTML = data;
+          console.log('HTML do cookie carregado!');
 
+          // Carrega o script do cookie
+          const script = document.createElement('script');
+          script.src = 'js/cookie-consent.js';
+          script.onload = () => console.log('Script do cookie carregado!');
+          script.onerror = () => console.error('Erro ao carregar script do cookie');
+          document.body.appendChild(script);
+        })
+        .catch(error => {
+          console.error('Erro ao carregar cookie:', error);
+          // Fallback simples
+          document.getElementById('cookie-container').innerHTML = `
+              <div class="cookie-consent" id="cookieConsent" style="position:fixed;bottom:20px;left:20px;right:20px;background:white;padding:20px;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,0.2);z-index:9999;">
+                <div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap;">
+                  <div style="flex:1;min-width:300px;">
+                    <p style="margin:0;">Usamos cookies para melhorar sua experiência. <a href="#" style="color:#F57C00;">Política de Cookies</a></p>
+                  </div>
+                  <button onclick="this.parentElement.parentElement.style.display='none'" style="background:#F57C00;color:white;border:none;padding:10px 30px;border-radius:40px;cursor:pointer;">Aceitar</button>
+                </div>
+              </div>
+            `;
+        });
+    </script>
+    
   <!-- Script principal do carrossel -->
   <script>
     document.addEventListener('DOMContentLoaded', function () {
