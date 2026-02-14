@@ -64,6 +64,7 @@
   /* Azul escuro (blue-dark) */
   --color-secondary-900: #0d47a1;
   /* Azul mais escuro */
+  --secondary-color: var(--color-secondary-600);
 
   /* Aliases */
   --blue-electric: var(--color-secondary-600);
@@ -107,6 +108,15 @@
   --gray-dark: var(--color-neutral-700);
   --white-neutral: var(--color-neutral-50);
   --white-pure: #ffffff;
+
+  /* Adicionando variaveis faltantes */
+   --box-shadow-hover: 0 8px 16px rgba(0, 0, 0, 0.2);
+   --carousel-autoplay-delay: 5000ms;
+   --carousel-overlay: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3));
+   --gradient-primary: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+   --light: #f8f9fa;
+
+
 
   /* ============================================================================
        SEÇÃO 3: CORES SEMÂNTICAS (FEEDBACK)
