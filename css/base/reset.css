@@ -13,6 +13,7 @@
  * 2. Performance (mínimo de propriedades)
  * 3. Acessibilidade
  * 4. Consistência entre navegadores
+ * 5. Removi a responsividade pois será ajustado em responsividade.css
  */
 
 /* ============================================================================
@@ -53,22 +54,7 @@ html {
   padding: 0;
 }
 
-/* ========== ACESSIBILIDADE: PREFERE-REDUCED-MOTION ==========
-   Centraliza a regra que reduz animações/transições quando o usuário
-   sinaliza preferência por movimento reduzido. Mantido em reset para
-   evitar duplicidade entre arquivos.
-*/
-@media (prefers-reduced-motion: reduce) {
 
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-}
 
 /* ============================================================================
    SEÇÃO 2: ELEMENTOS DE BLOCO
@@ -230,24 +216,7 @@ input[type="radio"] {
   padding: 0;
 }
 
-/**
- * Inputs em dispositivos móveis - Tamanho de fonte adequado
- * Previne zoom automático no iOS
- */
-@media screen and (max-width: 768px) {
 
-  input[type="text"],
-  input[type="email"],
-  input[type="password"],
-  input[type="search"],
-  input[type="url"],
-  input[type="number"],
-  input[type="tel"],
-  textarea,
-  select {
-    font-size: 16px;
-  }
-}
 
 /* ============================================================================
    SEÇÃO 5: TABELAS

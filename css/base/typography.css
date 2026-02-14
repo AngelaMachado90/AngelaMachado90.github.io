@@ -13,6 +13,7 @@
  * 2. Escala modular: Use variáveis para consistência
  * 3. Hierarquia clara: H1 > H2 > H3 > H4 > H5 > H6 > body
  * 4. Legibilidade: Contraste, espaçamento e alinhamento adequados
+ * * 5. Removi a responsividade pois será ajustado em responsividade.css
  *
  * DEPENDÊNCIAS:
  * Este arquivo DEPENDE de variables.css estar carregado antes.
@@ -22,33 +23,6 @@
 /* ============================================================================
    SEÇÃO 1: CONFIGURAÇÕES GERAIS DE TIPOGRAFIA
    ============================================================================ */
-
-/**
- * Aplica estilos base ao elemento raiz (html)
- * Define o tamanho base da fonte para cálculo de rem
- */
-html {
-  font-size: 16px;
-  /* 1rem = 16px (padrão do navegador) */
-
-  /* Ajuste para dispositivos muito pequenos */
-  @media (max-width: 360px) {
-    font-size: 14px;
-    /* 1rem = 14px */
-  }
-
-  /* Ajuste para tablets */
-  @media (min-width: 768px) and (max-width: 1024px) {
-    font-size: 17px;
-    /* 1rem = 17px */
-  }
-
-  /* Ajuste para desktops grandes */
-  @media (min-width: 1920px) {
-    font-size: 18px;
-    /* 1rem = 18px */
-  }
-}
 
 /**
  * Estilos base para o corpo do documento
@@ -679,69 +653,6 @@ i {
     box-orient: vertical;
     overflow: hidden;
     max-height: none;
-  }
-}
-/* ============================================================================
-   SEÇÃO 6: TIPOGRAFIA RESPONSIVA
-   ============================================================================ */
-
-/**
- * Ajustes tipográficos para diferentes breakpoints
- */
-
-@media (max-width: 768px) {
-  /* Mobile: ajusta espaçamentos e tamanhos */
-  h1,
-  .h1 {
-    margin-bottom: var(--spacing-4);
-  }
-
-  h2,
-  .h2 {
-    margin-bottom: var(--spacing-3);
-  }
-
-  h3,
-  .h3 {
-    margin-bottom: var(--spacing-3);
-  }
-
-  p.lead {
-    font-size: var(--font-size-lg);
-    margin-bottom: var(--spacing-4);
-  }
-
-  blockquote {
-    margin: var(--spacing-4) 0;
-    padding-left: var(--spacing-4);
-    font-size: var(--font-size-base);
-  }
-}
-
-@media (min-width: 769px) and (max-width: 1024px) {
-  /* Tablet: ajustes intermediários */
-  h1,
-  .h1 {
-    margin-bottom: var(--spacing-5);
-  }
-}
-
-@media (min-width: 1025px) {
-  /* Desktop: hierarquia mais pronunciada */
-  h1,
-  .h1 {
-    margin-bottom: var(--spacing-8);
-  }
-
-  h2,
-  .h2 {
-    margin-bottom: var(--spacing-6);
-  }
-
-  blockquote {
-    margin: var(--spacing-8) 0;
-    padding-left: var(--spacing-8);
-    font-size: var(--font-size-xl);
   }
 }
 
