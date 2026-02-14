@@ -1,4 +1,46 @@
-/* ===== COOKIE CONSENT STYLES ===== */
+/* ============================================================================
+   UTILITY: COOKIE CONSENT
+   Arquivo: css/utilities/cookie-consent.css
+   Versão: 2.1.0 | Design System Integration
+   Data: 14/02/2026 | Baseado no: KoddaHub Design System
+   ============================================================================ */
+
+/**
+ * OBJETIVO:
+ * Componente de consentimento de cookies com design moderno e acessível.
+ * Inclui banner de consentimento e modal de configurações detalhadas.
+ *
+ * CARACTERÍSTICAS:
+ * - Banner fixo na parte inferior
+ * - Modal de configurações com opções de cookies
+ * - Toggles switches modernos
+ * - Design glassmorphism com gradientes
+ * - Totalmente responsivo
+ *
+ * HIERARQUIA:
+ * 1. .cookie-consent - Banner principal
+ * 2. .cookie-consent-content - Container do conteúdo
+ * 3. .cookie-icon - Ícone decorativo
+ * 4. .cookie-text - Texto explicativo
+ * 5. .cookie-buttons - Container dos botões
+ * 6. .cookie-btn - Botões de ação
+ * 7. .cookie-modal - Modal de configurações
+ * 8. .cookie-option - Opções individuais de cookie
+ * 9. .cookie-switch - Toggle switch
+ *
+ * DEPENDÊNCIAS:
+ * - variables.css (opcional, para consistência com design system)
+ * - animations.css (para animações)
+ */
+
+/* ============================================================================
+   SEÇÃO 1: COOKIE CONSENT BANNER
+   ============================================================================ */
+
+/**
+ * .cookie-consent - Banner principal de consentimento
+ * Posicionado fixo na parte inferior da tela
+ */
 .cookie-consent {
     position: fixed;
     bottom: 30px;
@@ -6,24 +48,43 @@
     right: 30px;
     max-width: 1200px;
     margin: 0 auto;
+
+    /* Estilo visual */
     background: #1a1f2e;
     background: linear-gradient(135deg, #1e2436 0%, #2a3042 100%);
     border-radius: 20px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    /* Efeito glassmorphism */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    /* Posicionamento e animação */
     z-index: 10001;
     padding: 24px 32px;
     transform: translateY(0);
     transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
     color: #fff;
+
+    /* Animação de entrada */
+    animation: slideUp 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+
+    /**
+     * Estado oculto
+     */
+    &.hidden {
+        transform: translateY(200%);
+    }
 }
 
-.cookie-consent.hidden {
-    transform: translateY(200%);
-}
+/* ============================================================================
+   SEÇÃO 2: CONTEÚDO DO BANNER
+   ============================================================================ */
 
+/**
+ * .cookie-consent-content - Container flexível para o conteúdo
+ */
 .cookie-consent-content {
     display: flex;
     align-items: center;
@@ -31,110 +92,152 @@
     flex-wrap: wrap;
 }
 
+/**
+ * .cookie-icon - Ícone decorativo do banner
+ */
 .cookie-icon {
     width: 56px;
     height: 56px;
-    background: linear-gradient(135deg, #2196F3, #F57C00);
-    border-radius: 50%;
+    background: linear-gradient(135deg,
+            var(--color-secondary-600, #2196F3),
+            var(--color-primary-600, #F57C00));
+    border-radius: var(--radius-full, 50%);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
+    color: var(--white-pure, #FFFFFF);
     font-size: 28px;
     flex-shrink: 0;
     box-shadow: 0 8px 20px rgba(33, 150, 243, 0.3);
 }
 
+/**
+ * .cookie-text - Container do texto explicativo
+ */
 .cookie-text {
     flex: 1;
     min-width: 350px;
+
+    /**
+     * Título do banner
+     */
+    h4 {
+        margin: 0 0 8px 0;
+        font-size: 18px;
+        font-weight: var(--font-weight-semibold, 600);
+        color: var(--white-pure, #FFFFFF);
+        font-family: var(--font-heading, 'Poppins', sans-serif);
+        letter-spacing: -0.3px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        /* Ícone de cookie via pseudoelemento */
+        &::before {
+            content: "🍪";
+            font-size: 20px;
+        }
+    }
+
+    /**
+     * Texto descritivo
+     */
+    p {
+        margin: 0;
+        font-size: var(--font-size-sm, 14px);
+        color: rgba(255, 255, 255, 0.8);
+        line-height: var(--line-height-normal, 1.6);
+        font-family: var(--font-body, 'Inter', sans-serif);
+    }
 }
 
-.cookie-text h4 {
-    margin: 0 0 8px 0;
-    font-size: 18px;
-    font-weight: 600;
-    color: white;
-    font-family: 'Poppins', sans-serif;
-    letter-spacing: -0.3px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.cookie-text h4::before {
-    content: "🍪";
-    font-size: 20px;
-}
-
-.cookie-text p {
-    margin: 0;
-    font-size: 14px;
-    color: rgba(255, 255, 255, 0.8);
-    line-height: 1.6;
-    font-family: 'Inter', sans-serif;
-}
-
+/**
+ * .cookie-link - Links dentro do texto
+ */
 .cookie-link {
-    color: #F57C00;
+    color: var(--color-primary-600, #F57C00);
     text-decoration: none;
-    font-weight: 600;
-    transition: all 0.3s ease;
+    font-weight: var(--font-weight-semibold, 600);
+    transition: all var(--duration-300) var(--ease-out);
     border-bottom: 1px solid transparent;
+
+    &:hover {
+        color: var(--color-primary-300, #FFB74D);
+        border-bottom-color: var(--color-primary-600, #F57C00);
+    }
 }
 
-.cookie-link:hover {
-    color: #FFB74D;
-    border-bottom-color: #F57C00;
-}
+/* ============================================================================
+   SEÇÃO 3: BOTÕES DO BANNER
+   ============================================================================ */
 
+/**
+ * .cookie-buttons - Container dos botões de ação
+ */
 .cookie-buttons {
     display: flex;
     gap: 12px;
     flex-wrap: wrap;
 }
 
+/**
+ * .cookie-btn - Botão base para ações de cookie
+ */
 .cookie-btn {
     padding: 14px 32px;
     border: none;
-    border-radius: 40px;
-    font-weight: 600;
-    font-size: 14px;
+    border-radius: var(--radius-full, 40px);
+    font-weight: var(--font-weight-semibold, 600);
+    font-size: var(--font-size-sm, 14px);
     cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all var(--duration-300) cubic-bezier(0.4, 0, 0.2, 1);
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-body, 'Inter', sans-serif);
     letter-spacing: 0.3px;
 }
 
+/**
+ * .cookie-btn-config - Botão de configurações
+ */
 .cookie-btn-config {
     background: rgba(255, 255, 255, 0.1);
-    color: white;
+    color: var(--white-pure, #FFFFFF);
     border: 1px solid rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(5px);
+
+    &:hover {
+        background: rgba(255, 255, 255, 0.15);
+        border-color: rgba(255, 255, 255, 0.3);
+        transform: translateY(-2px);
+    }
 }
 
-.cookie-btn-config:hover {
-    background: rgba(255, 255, 255, 0.15);
-    border-color: rgba(255, 255, 255, 0.3);
-    transform: translateY(-2px);
-}
-
+/**
+ * .cookie-btn-accept - Botão de aceitar todos
+ */
 .cookie-btn-accept {
-    background: linear-gradient(135deg, #F57C00, #FFB74D);
-    color: white;
+    background: linear-gradient(135deg,
+            var(--color-primary-600, #F57C00),
+            var(--color-primary-300, #FFB74D));
+    color: var(--white-pure, #FFFFFF);
     box-shadow: 0 8px 20px rgba(245, 124, 0, 0.3);
     border: 1px solid rgba(255, 255, 255, 0.2);
+
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 28px rgba(245, 124, 0, 0.4);
+    }
 }
 
-.cookie-btn-accept:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 12px 28px rgba(245, 124, 0, 0.4);
-}
+/* ============================================================================
+   SEÇÃO 4: COOKIE MODAL (CONFIGURAÇÕES)
+   ============================================================================ */
 
-/* ===== COOKIE MODAL ===== */
+/**
+ * .cookie-modal - Modal de configurações de cookies
+ */
 .cookie-modal {
     position: fixed;
     top: 0;
@@ -150,14 +253,20 @@
     z-index: 10001;
     opacity: 0;
     visibility: hidden;
-    transition: all 0.3s ease;
+    transition: all var(--duration-300) var(--ease-out);
+
+    /**
+     * Estado visível do modal
+     */
+    &.show {
+        opacity: 1;
+        visibility: visible;
+    }
 }
 
-.cookie-modal.show {
-    opacity: 1;
-    visibility: visible;
-}
-
+/**
+ * .cookie-modal-content - Container do conteúdo do modal
+ */
 .cookie-modal-content {
     background: #1a1f2e;
     background: linear-gradient(135deg, #1e2436, #2a3042);
@@ -168,126 +277,196 @@
     overflow-y: auto;
     box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.08);
-    color: white;
+    color: var(--white-pure, #FFFFFF);
 }
 
+/* ============================================================================
+   SEÇÃO 5: MODAL HEADER
+   ============================================================================ */
+
+/**
+ * Cabeçalho do modal
+ */
 .cookie-modal-header {
     padding: 24px 28px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    /**
+     * Título do modal
+     */
+    h3 {
+        margin: 0;
+        font-size: 22px;
+        color: var(--white-pure, #FFFFFF);
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-family: var(--font-heading, 'Poppins', sans-serif);
+        font-weight: var(--font-weight-semibold, 600);
+
+        i {
+            color: var(--color-primary-600, #F57C00);
+            font-size: 24px;
+        }
+    }
 }
 
-.cookie-modal-header h3 {
-    margin: 0;
-    font-size: 22px;
-    color: white;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-}
-
-.cookie-modal-header h3 i {
-    color: #F57C00;
-    font-size: 24px;
-}
-
+/**
+ * Botão de fechar
+ */
 .cookie-modal-close {
     background: rgba(255, 255, 255, 0.1);
     border: none;
     font-size: 18px;
     cursor: pointer;
-    color: white;
+    color: var(--white-pure, #FFFFFF);
     width: 40px;
     height: 40px;
-    border-radius: 50%;
+    border-radius: var(--radius-full, 50%);
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.3s ease;
+    transition: all var(--duration-300) var(--ease-out);
     border: 1px solid rgba(255, 255, 255, 0.1);
+
+    &:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: rotate(90deg);
+    }
 }
 
-.cookie-modal-close:hover {
-    background: rgba(255, 255, 255, 0.2);
-    transform: rotate(90deg);
-}
+/* ============================================================================
+   SEÇÃO 6: MODAL BODY
+   ============================================================================ */
 
+/**
+ * Corpo do modal
+ */
 .cookie-modal-body {
     padding: 28px;
+
+    /**
+     * Texto introdutório
+     */
+    >p {
+        color: rgba(255, 255, 255, 0.9);
+        margin-bottom: 24px;
+        font-size: var(--font-size-sm, 15px);
+        line-height: var(--line-height-normal, 1.6);
+    }
 }
 
-.cookie-modal-body>p {
-    color: rgba(255, 255, 255, 0.9);
-    margin-bottom: 24px;
-    font-size: 15px;
-    line-height: 1.6;
-}
-
+/**
+ * .cookie-option - Opção individual de cookie
+ */
 .cookie-option {
     background: rgba(255, 255, 255, 0.05);
     border-radius: 16px;
     padding: 20px;
     margin-bottom: 16px;
     border: 1px solid rgba(255, 255, 255, 0.05);
-    transition: all 0.3s ease;
+    transition: all var(--duration-300) var(--ease-out);
+
+    &:hover {
+        background: rgba(255, 255, 255, 0.08);
+        border-color: rgba(255, 255, 255, 0.1);
+    }
 }
 
-.cookie-option:hover {
-    background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(255, 255, 255, 0.1);
-}
-
+/**
+ * Cabeçalho da opção (título + badge)
+ */
 .cookie-option-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-bottom: 12px;
+
+    strong {
+        color: var(--white-pure, #FFFFFF);
+        font-size: 16px;
+        font-weight: var(--font-weight-semibold, 600);
+        font-family: var(--font-heading, 'Poppins', sans-serif);
+    }
 }
 
-.cookie-option-header strong {
-    color: white;
-    font-size: 16px;
-    font-weight: 600;
-    font-family: 'Poppins', sans-serif;
-}
-
+/**
+ * Badge para indicar cookies obrigatórios
+ */
 .cookie-badge {
-    background: linear-gradient(135deg, #F57C00, #FFB74D);
-    color: white;
+    background: linear-gradient(135deg,
+            var(--color-primary-600, #F57C00),
+            var(--color-primary-300, #FFB74D));
+    color: var(--white-pure, #FFFFFF);
     font-size: 11px;
     padding: 4px 10px;
     border-radius: 30px;
     margin-left: 12px;
-    font-weight: 600;
+    font-weight: var(--font-weight-semibold, 600);
     letter-spacing: 0.3px;
     text-transform: uppercase;
 }
 
+/**
+ * Descrição da opção
+ */
 .cookie-option-description {
     margin: 0;
     font-size: 13px;
     color: rgba(255, 255, 255, 0.7);
-    line-height: 1.6;
+    line-height: var(--line-height-normal, 1.6);
 }
 
-/* Toggle Switch Moderno */
+/* ============================================================================
+   SEÇÃO 7: TOGGLE SWITCH MODERNO
+   ============================================================================ */
+
+/**
+ * .cookie-switch - Container do toggle switch
+ */
 .cookie-switch {
     position: relative;
     display: inline-block;
     width: 52px;
     height: 28px;
+
+    /**
+     * Input escondido
+     */
+    input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+
+        /* Estado checked */
+        &:checked+.cookie-slider {
+            background: linear-gradient(135deg,
+                    var(--color-primary-600, #F57C00),
+                    var(--color-primary-300, #FFB74D));
+        }
+
+        &:checked+.cookie-slider:before {
+            transform: translateX(24px);
+        }
+
+        /* Estado disabled */
+        &:disabled+.cookie-slider {
+            opacity: 0.5;
+            cursor: not-allowed;
+
+            &:before {
+                background: #ccc;
+            }
+        }
+    }
 }
 
-.cookie-switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-}
-
+/**
+ * .cookie-slider - Track do toggle
+ */
 .cookie-slider {
     position: absolute;
     cursor: pointer;
@@ -299,38 +478,31 @@
     transition: .3s;
     border-radius: 34px;
     border: 1px solid rgba(255, 255, 255, 0.1);
+
+    /**
+     * Botão deslizante
+     */
+    &:before {
+        position: absolute;
+        content: "";
+        height: 22px;
+        width: 22px;
+        left: 3px;
+        bottom: 2px;
+        background-color: var(--white-pure, #FFFFFF);
+        transition: .3s;
+        border-radius: 50%;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
 }
 
-.cookie-slider:before {
-    position: absolute;
-    content: "";
-    height: 22px;
-    width: 22px;
-    left: 3px;
-    bottom: 2px;
-    background-color: white;
-    transition: .3s;
-    border-radius: 50%;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
+/* ============================================================================
+   SEÇÃO 8: MODAL FOOTER
+   ============================================================================ */
 
-input:checked+.cookie-slider {
-    background: linear-gradient(135deg, #F57C00, #FFB74D);
-}
-
-input:checked+.cookie-slider:before {
-    transform: translateX(24px);
-}
-
-input:disabled+.cookie-slider {
-    opacity: 0.5;
-    cursor: not-allowed;
-}
-
-input:disabled+.cookie-slider:before {
-    background: #ccc;
-}
-
+/**
+ * Rodapé do modal
+ */
 .cookie-modal-footer {
     padding: 24px 28px;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -339,25 +511,52 @@ input:disabled+.cookie-slider:before {
     justify-content: flex-end;
 }
 
+/**
+ * Botão de salvar configurações
+ */
 .cookie-btn-save {
     background: rgba(255, 255, 255, 0.1);
-    color: white;
+    color: var(--white-pure, #FFFFFF);
     border: 1px solid rgba(255, 255, 255, 0.2);
     padding: 14px 28px;
-    border-radius: 40px;
-    font-weight: 600;
+    border-radius: var(--radius-full, 40px);
+    font-weight: var(--font-weight-semibold, 600);
     cursor: pointer;
-    transition: all 0.3s ease;
-    font-size: 14px;
+    transition: all var(--duration-300) var(--ease-out);
+    font-size: var(--font-size-sm, 14px);
+
+    &:hover {
+        background: rgba(255, 255, 255, 0.15);
+        transform: translateY(-2px);
+    }
 }
 
-.cookie-btn-save:hover {
-    background: rgba(255, 255, 255, 0.15);
-    transform: translateY(-2px);
+/* ============================================================================
+   SEÇÃO 9: ANIMAÇÕES
+   ============================================================================ */
+
+/**
+ * Animação de entrada do banner
+ */
+@keyframes slideUp {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
-/* Responsividade */
+/* ============================================================================
+   SEÇÃO 10: RESPONSIVIDADE
+   ============================================================================ */
+
 @media (max-width: 768px) {
+
+    /* Banner */
     .cookie-consent {
         left: 20px;
         right: 20px;
@@ -373,10 +572,10 @@ input:disabled+.cookie-slider:before {
 
     .cookie-text {
         min-width: auto;
-    }
 
-    .cookie-text h4 {
-        justify-content: center;
+        h4 {
+            justify-content: center;
+        }
     }
 
     .cookie-buttons {
@@ -390,33 +589,140 @@ input:disabled+.cookie-slider:before {
         padding: 12px 20px;
     }
 
-    .cookie-modal-footer {
-        flex-direction: column;
-    }
-
-    .cookie-modal-footer .cookie-btn {
-        width: 100%;
-        justify-content: center;
-    }
-
+    /* Modal */
     .cookie-modal-content {
         width: 95%;
     }
-}
 
-/* Animação de entrada */
-@keyframes slideUp {
-    from {
-        transform: translateY(100%);
-        opacity: 0;
-    }
+    .cookie-modal-footer {
+        flex-direction: column;
 
-    to {
-        transform: translateY(0);
-        opacity: 1;
+        .cookie-btn {
+            width: 100%;
+            justify-content: center;
+        }
     }
 }
 
-.cookie-consent {
-    animation: slideUp 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+@media (max-width: 480px) {
+    .cookie-consent {
+        left: 16px;
+        right: 16px;
+        padding: 16px;
+        bottom: 16px;
+    }
+
+    .cookie-icon {
+        width: 48px;
+        height: 48px;
+        font-size: 24px;
+    }
+
+    .cookie-text h4 {
+        font-size: 16px;
+    }
+
+    .cookie-text p {
+        font-size: 13px;
+    }
+
+    .cookie-btn {
+        padding: 10px 16px;
+        font-size: 13px;
+    }
+
+    .cookie-modal-header {
+        padding: 20px;
+    }
+
+    .cookie-modal-body {
+        padding: 20px;
+    }
+
+    .cookie-option {
+        padding: 16px;
+    }
 }
+
+/* ============================================================================
+   SEÇÃO 11: EXEMPLO DE USO NO HTML
+   ============================================================================ */
+
+/**
+ * EXEMPLO DE USO:
+ *
+ * <!-- Banner de cookies -->
+ * <div class="cookie-consent" id="cookieConsent">
+ *   <div class="cookie-consent-content">
+ *     <div class="cookie-icon">
+ *       <i class="fas fa-cookie-bite"></i>
+ *     </div>
+ *     <div class="cookie-text">
+ *       <h4>Cookies e Privacidade</h4>
+ *       <p>
+ *         Utilizamos cookies para melhorar sua experiência. 
+ *         Ao continuar, você concorda com nossa 
+ *         <a href="/privacidade" class="cookie-link">Política de Privacidade</a>.
+ *       </p>
+ *     </div>
+ *     <div class="cookie-buttons">
+ *       <button class="cookie-btn cookie-btn-config" onclick="openCookieModal()">
+ *         <i class="fas fa-cog"></i>
+ *         Configurar
+ *       </button>
+ *       <button class="cookie-btn cookie-btn-accept" onclick="acceptAllCookies()">
+ *         <i class="fas fa-check"></i>
+ *         Aceitar todos
+ *       </button>
+ *     </div>
+ *   </div>
+ * </div>
+ *
+ * <!-- Modal de configurações -->
+ * <div class="cookie-modal" id="cookieModal">
+ *   <div class="cookie-modal-content">
+ *     <div class="cookie-modal-header">
+ *       <h3>
+ *         <i class="fas fa-cookie-bite"></i>
+ *         Configurações de Cookies
+ *       </h3>
+ *       <button class="cookie-modal-close" onclick="closeCookieModal()">
+ *         <i class="fas fa-times"></i>
+ *       </button>
+ *     </div>
+ *     
+ *     <div class="cookie-modal-body">
+ *       <p>Personalize suas preferências de cookies:</p>
+ *       
+ *       <div class="cookie-option">
+ *         <div class="cookie-option-header">
+ *           <strong>
+ *             Cookies Necessários
+ *             <span class="cookie-badge">Obrigatório</span>
+ *           </strong>
+ *           <label class="cookie-switch">
+ *             <input type="checkbox" checked disabled>
+ *             <span class="cookie-slider"></span>
+ *           </label>
+ *         </div>
+ *         <p class="cookie-option-description">
+ *           Essenciais para o funcionamento do site.
+ *         </p>
+ *       </div>
+ *     </div>
+ *     
+ *     <div class="cookie-modal-footer">
+ *       <button class="cookie-btn cookie-btn-save" onclick="saveCookieSettings()">
+ *         Salvar configurações
+ *       </button>
+ *       <button class="cookie-btn cookie-btn-accept" onclick="acceptAllCookies()">
+ *         Aceitar todos
+ *       </button>
+ *     </div>
+ *   </div>
+ * </div>
+ */
+
+/* ============================================================================
+   FIM DO UTILITY: COOKIE CONSENT
+   ============================================================================ */
