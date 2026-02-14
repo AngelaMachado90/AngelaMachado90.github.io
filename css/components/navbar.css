@@ -1,248 +1,426 @@
-/* Unified navbar component — visual matching provided design */
+/* ============================================================================
+   COMPONENT: NAVBAR
+   Arquivo: css/components/navbar.css
+   Versão: 2.1.0 | Design System Integration
+   Data: 14/02/2026 | Baseado no: KoddaHub Design System
+   ============================================================================ */
 
-.navbar-modern {
-  background: transparent;
-  padding: 10px 0;
-}
+/**
+ * OBJETIVO:
+ * Navbar unificada que fornece estilos consistentes para navegação em todo o site.
+ * Inclui versão desktop com underline animado e versão mobile com toggle.
+ *
+ * HIERARQUIA:
+ * 1. .navbar-modern - Container principal da navbar
+ * 2. .navbar-wrapper - Wrapper interno para alinhamento
+ * 3. .navbar-brand - Container do logo/marca
+ * 4. .navbar-menu - Container dos links de navegação
+ * 5. .nav-link - Links individuais
+ * 6. .cta-nav - Link especial com estilo de botão
+ * 7. .navbar-toggle - Botão do menu mobile
+ *
+ * DEPENDÊNCIAS:
+ * - variables.css (obrigatório)
+ * - responsive.css (para media queries)
+ */
 
-.navbar-wrapper {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-  justify-content: space-between;
-}
+/* ============================================================================
+   SEÇÃO 1: ESTRUTURA BASE DA NAVBAR
+   ============================================================================ */
 
-.navbar-brand {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-.navbar-brand .logo-image img {
-  height: 28px;
-  width: auto;
-  display: block;
-}
-.navbar-brand .logo-text {
-  font-weight: 700;
-  color: var(--black-deep);
-  text-decoration: none;
-}
-
-.navbar-menu {
-  display: flex;
-  gap: 26px;
-  align-items: center;
-}
-
-.nav-link {
-  color: #6b7280; /* muted gray */
-  text-decoration: none;
-  padding: 6px 4px;
-  position: relative;
-  font-weight: 500;
-}
-
-.nav-link:hover {
-  color: var(--black-deep);
-}
-
-.nav-link.active {
-  color: var(--orange-vibrant);
-}
-
-.nav-link.active::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  margin: 0 auto;
-  bottom: -10px;
-  width: 48px;
-  height: 3px;
-  background: var(--orange-vibrant);
-  border-radius: 3px;
-}
-
-/* CTA link styled as button on the right */
-.nav-link.cta-nav {
-  background: var(--orange-vibrant);
-  color: #fff !important;
-  padding: 10px 16px;
-  border-radius: 10px;
-  box-shadow: 0 6px 18px rgba(245, 124, 0, 0.12);
-}
-
-/* Mobile toggle (kept simple) */
-.navbar-toggle {
-  display: none;
-}
-
-@media (max-width: 900px) {
-  .navbar-menu {
-    display: none;
-  }
-  .navbar-toggle {
-    display: inline-flex;
-  }
-}
-/* Consolidated navbar component (base styles used across themes)
-   - Provides `.navbar-modern`, `.navbar-wrapper`, `.navbar-menu`, `.nav-link`, and `.cta-nav`.
-   - Theme-specific modifiers (.navbar-modern.scrolled, .navbar-brand, etc.) can remain in theme files if needed.
-*/
-
+/**
+ * .navbar-modern - Container principal da navbar
+ * Sticky no topo com efeito glassmorphism
+ */
 .navbar-modern {
   position: sticky;
   top: 0;
-  z-index: var(--z-fixed);
+  z-index: var(--z-fixed, 300);
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   box-shadow: 0 2px 20px rgba(33, 33, 33, 0.05);
   padding: 15px 0;
   transition: all var(--duration-300) var(--ease-out);
-}
 
-@supports not (
-  (-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px))
-) {
-  .navbar-modern {
+  /**
+     * Fallback para navegadores sem suporte a backdrop-filter
+     */
+  @supports not ((-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px))) {
     background: rgba(255, 255, 255, 0.98);
+  }
+
+  /**
+     * Estado quando a página é rolada
+     * Reduz o padding e aumenta a sombra
+     */
+  &.scrolled {
+    padding: 10px 0;
+    box-shadow: 0 4px 30px rgba(33, 33, 33, 0.1);
   }
 }
 
-.navbar-modern.scrolled {
-  padding: 10px 0;
-  box-shadow: 0 4px 30px rgba(33, 33, 33, 0.1);
-}
+/* ============================================================================
+   SEÇÃO 2: WRAPPER E ALINHAMENTO
+   ============================================================================ */
 
+/**
+ * .navbar-wrapper - Container interno para alinhamento
+ * Distribui os elementos com space-between
+ */
 .navbar-wrapper {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 40px;
+
+  /* Responsividade */
+  @media (max-width: 900px) {
+    gap: 24px;
+  }
 }
 
+/* ============================================================================
+   SEÇÃO 3: BRAND / LOGO
+   ============================================================================ */
+
+/**
+ * .navbar-brand - Container do logo/marca
+ */
 .navbar-brand {
   display: flex;
   align-items: center;
-  gap: var(--space-2);
+  gap: var(--spacing-2, 12px);
+
+  /**
+     * Logo image
+     */
+  .logo-image img {
+    width: 46px;
+    height: 46px;
+    object-fit: contain;
+    display: block;
+
+    /* Versão mais compacta para telas menores */
+    @media (max-width: 900px) {
+      height: 28px;
+      width: auto;
+    }
+  }
+
+  /**
+     * Texto da marca (quando não usa imagem)
+     */
+  .logo-text {
+    font-weight: var(--fw-bold, 700);
+    font-size: 1.1rem;
+    color: var(--black-deep);
+    text-decoration: none;
+    letter-spacing: -0.01em;
+  }
 }
 
-.logo-image img {
-  width: 46px;
-  height: 46px;
-  object-fit: contain;
-}
+/* ============================================================================
+   SEÇÃO 4: MENU DE NAVEGAÇÃO
+   ============================================================================ */
 
-.logo-text {
-  font-weight: var(--fw-bold);
-  font-size: 1.1rem;
-  color: var(--black-deep);
-  text-decoration: none;
-  letter-spacing: -0.01em;
-}
-
-.navbar-toggle {
-  display: none;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 8px;
-  border-radius: var(--radius-sm);
-  transition: background-color var(--duration-200) var(--ease-out);
-}
-
-.navbar-toggle:hover {
-  background: rgba(0, 0, 0, 0.05);
-}
-
-.navbar-toggle:focus-visible {
-  outline: 3px solid rgba(245, 124, 0, 0.55);
-  outline-offset: 3px;
-}
-
-.navbar-toggle span {
-  display: block;
-  width: 24px;
-  height: 2px;
-  background: var(--black-deep);
-  margin: 5px 0;
-  transition: all var(--duration-300) var(--ease-out);
-}
-
-.navbar-toggle.active span:nth-child(1) {
-  transform: translateY(7px) rotate(45deg);
-}
-.navbar-toggle.active span:nth-child(2) {
-  opacity: 0;
-}
-.navbar-toggle.active span:nth-child(3) {
-  transform: translateY(-7px) rotate(-45deg);
-}
-
+/**
+ * .navbar-menu - Container dos links de navegação
+ */
 .navbar-menu {
   display: flex;
   align-items: center;
   gap: 35px;
   flex: 1;
   justify-content: center;
+
+  /* Responsividade mobile */
+  @media (max-width: 900px) {
+    display: none;
+    gap: 26px;
+  }
 }
 
+/* ============================================================================
+   SEÇÃO 5: LINKS DE NAVEGAÇÃO
+   ============================================================================ */
+
+/**
+ * .nav-link - Estilo base para links do menu
+ */
 .nav-link {
-  color: var(--gray-dark);
+  color: var(--gray-dark, #6b7280);
   text-decoration: none;
-  font-weight: var(--fw-medium);
+  font-weight: var(--fw-medium, 500);
   font-size: 0.938rem;
   transition: all var(--duration-300) var(--ease-out);
   position: relative;
   padding: 8px 0;
+
+  /* Focus state para acessibilidade */
+  &:focus-visible {
+    outline: 3px solid rgba(245, 124, 0, 0.55);
+    outline-offset: 6px;
+    border-radius: 6px;
+  }
+
+  /* Hover state */
+  &:hover {
+    color: var(--orange-vibrant, #F57C00);
+  }
+
+  /**
+     * Underline animado (efeito padrão)
+     */
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--orange-vibrant, #F57C00);
+    transition: width var(--duration-300) var(--ease-out);
+  }
+
+  /* Mostra underline no hover e active */
+  &:hover::after,
+  &.active::after {
+    width: 100%;
+  }
+
+  /**
+     * Estado ativo (página atual)
+     */
+  &.active {
+    color: var(--orange-vibrant, #F57C00);
+    font-weight: var(--fw-semibold, 600);
+  }
+
+  /**
+     * Indica página atual (classe alternativa)
+     */
+  &.current-page {
+    color: var(--orange-vibrant, #F57C00);
+    font-weight: var(--fw-semibold, 600);
+  }
 }
 
-.nav-link:focus-visible {
-  outline: 3px solid rgba(245, 124, 0, 0.55);
-  outline-offset: 6px;
-  border-radius: 6px;
-}
-
-.nav-link::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: var(--orange-vibrant);
-  transition: width var(--duration-300) var(--ease-out);
-}
-
-.nav-link:hover,
-.nav-link.active {
-  color: var(--orange-vibrant);
-}
-
-.nav-link:hover::after,
+/**
+ * Versão alternativa do underline (centrado)
+ * Usado em alguns temas específicos
+ */
 .nav-link.active::after {
-  width: 100%;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 48px;
+  /* Versão mais curta */
 }
 
-.nav-link.current-page {
-  color: var(--orange-vibrant);
-  font-weight: var(--fw-semibold);
-}
+/* ============================================================================
+   SEÇÃO 6: CTA LINK (BOTÃO DE DESTAQUE)
+   ============================================================================ */
 
+/**
+ * .cta-nav - Link com estilo de botão (Call to Action)
+ */
 .cta-nav {
-  background: var(--orange-vibrant);
-  color: var(--white-neutral) !important;
+  background: var(--orange-vibrant, #F57C00);
+  color: var(--white-neutral, #FFFFFF) !important;
   padding: 10px 20px;
-  border-radius: var(--radius-base);
+  border-radius: var(--radius-base, 10px);
   transition: all var(--duration-300) var(--ease-out);
+
+  /* Remove underline padrão dos links */
+  &::after {
+    display: none;
+  }
+
+  /* Hover state */
+  &:hover {
+    background: var(--orange-dark, #E65100);
+    box-shadow: 0 8px 20px rgba(245, 124, 0, 0.3);
+    transform: translateY(-2px);
+    color: var(--white-neutral, #FFFFFF) !important;
+  }
+
+  /* Versão para mobile (quando usado no menu dropdown) */
+  @media (max-width: 900px) {
+    background: var(--orange-vibrant, #F57C00);
+    color: #fff !important;
+    padding: 10px 16px;
+    border-radius: 10px;
+    box-shadow: 0 6px 18px rgba(245, 124, 0, 0.12);
+  }
 }
 
-.cta-nav:hover {
-  background: var(--orange-dark);
-  box-shadow: 0 8px 20px rgba(245, 124, 0, 0.3);
-  transform: translateY(-2px);
-}
+/* ============================================================================
+   SEÇÃO 7: TOGGLE MOBILE
+   ============================================================================ */
 
-.cta-nav::after {
+/**
+ * .navbar-toggle - Botão do menu mobile (hamburger)
+ */
+.navbar-toggle {
   display: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: var(--radius-sm, 6px);
+  transition: background-color var(--duration-200) var(--ease-out);
+
+  /* Hover state */
+  &:hover {
+    background: rgba(0, 0, 0, 0.05);
+  }
+
+  /* Focus state para acessibilidade */
+  &:focus-visible {
+    outline: 3px solid rgba(245, 124, 0, 0.55);
+    outline-offset: 3px;
+  }
+
+  /**
+     * Linhas do ícone hamburger
+     */
+  span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--black-deep, #212121);
+    margin: 5px 0;
+    transition: all var(--duration-300) var(--ease-out);
+  }
+
+  /**
+     * Animação quando ativo (transforma em X)
+     */
+  &.active {
+    span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    span:nth-child(2) {
+      opacity: 0;
+    }
+
+    span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+  }
+
+  /* Mostra apenas em mobile */
+  @media (max-width: 900px) {
+    display: inline-flex;
+  }
 }
+
+/* ============================================================================
+   SEÇÃO 8: RESPONSIVIDADE MOBILE
+   ============================================================================ */
+
+/**
+ * Ajustes para telas menores que 900px
+ */
+@media (max-width: 900px) {
+
+  /* Menu fica oculto por padrão */
+  .navbar-menu {
+    display: none;
+  }
+
+  /* Quando ativo, pode ser mostrado via JavaScript */
+  .navbar-menu.active {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--white-pure, #FFFFFF);
+    padding: 20px;
+    box-shadow: var(--shadow-lg, 0 10px 30px rgba(0, 0, 0, 0.1));
+    z-index: var(--z-dropdown, 100);
+  }
+
+  /* Ajuste nos links para mobile */
+  .nav-link {
+    width: 100%;
+    text-align: center;
+    padding: 12px 0;
+  }
+
+  /* Underline animado no mobile */
+  .nav-link.active::after {
+    width: 48px;
+    bottom: 4px;
+  }
+}
+
+/* ============================================================================
+   SEÇÃO 9: UTILITÁRIOS E FALLBACKS
+   ============================================================================ */
+
+/**
+ * Fallback para navegadores antigos
+ */
+@supports not (backdrop-filter: blur(10px)) {
+  .navbar-modern {
+    background: rgba(255, 255, 255, 0.98);
+  }
+}
+
+/* ============================================================================
+   SEÇÃO 10: EXEMPLO DE USO NO HTML
+   ============================================================================ */
+
+/**
+ * EXEMPLO DE USO:
+ *
+ * <!-- Navbar básica -->
+ * <nav class="navbar-modern">
+ *   <div class="container-fluid">
+ *     <div class="navbar-wrapper">
+ *       <!-- Logo -->
+ *       <a href="/" class="navbar-brand">
+ *         <div class="logo-image">
+ *           <img src="logo.svg" alt="KoddaHub">
+ *         </div>
+ *         <span class="logo-text">KoddaHub</span>
+ *       </a>
+ *
+ *       <!-- Menu de navegação -->
+ *       <div class="navbar-menu">
+ *         <a href="/" class="nav-link active">Home</a>
+ *         <a href="/sobre" class="nav-link">Sobre</a>
+ *         <a href="/solucoes" class="nav-link">Soluções</a>
+ *         <a href="/contato" class="nav-link">Contato</a>
+ *         <a href="/orcamento" class="nav-link cta-nav">Orçamento</a>
+ *       </div>
+ *
+ *       <!-- Botão mobile -->
+ *       <button class="navbar-toggle" aria-label="Menu">
+ *         <span></span>
+ *         <span></span>
+ *         <span></span>
+ *       </button>
+ *     </div>
+ *   </div>
+ * </nav>
+ *
+ * <!-- Navbar com estado scrolled (adicionar classe via JavaScript) -->
+ * <nav class="navbar-modern scrolled">
+ *   <!-- ... -->
+ * </nav>
+ *
+ * <!-- Menu mobile ativo -->
+ * <div class="navbar-menu active">
+ *   <!-- ... -->
+ * </div>
+ */
+
+/* ============================================================================
+   FIM DO COMPONENT: NAVBAR
+   ============================================================================ */
