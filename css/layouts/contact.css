@@ -1,9 +1,15 @@
 /* ============================================================================
    LAYOUT: CONTACT SECTION
    Arquivo: css/layouts/contact.css
-   Versão: 2.1.0 | Design System Integration
-   Data: 14/02/2026 | Baseado no: KoddaHub Design System
+  Versão: 2.1.1 | Design System Integration
+  Data: 15/02/2026 | Baseado no: KoddaHub Design System
    ============================================================================ */
+
+/*
+ * NOTA TÉCNICA:
+ * Este arquivo utiliza CSS Nesting (seletores aninhados com `&`).
+ * Requer pipeline de build com suporte a Nesting (PostCSS ou equivalente).
+ */
 
 /**
  * OBJETIVO:
@@ -36,7 +42,18 @@
  * Aplica padding responsivo e posicionamento relativo
  */
 .section-contact {
-  padding: var(--spacing-8) 0;
+  /* Tokens locais da seção (evita duplicidade de valores em múltiplos blocos) */
+  --contact-gradient-primary: linear-gradient(
+    135deg,
+    var(--color-primary-600),
+    var(--color-primary-300)
+  );
+  --contact-text-on-dark: rgba(255, 255, 255, 0.9);
+  --contact-border-on-dark: rgba(255, 255, 255, 0.1);
+  --contact-icon-bg: rgba(255, 255, 255, 0.12);
+  --contact-social-bg: rgba(255, 255, 255, 0.1);
+
+  padding: 100px 0;
   /* 48px - ajustado via media queries */
   background: var(--white-pure);
   position: relative;
@@ -53,10 +70,12 @@
     left: 0;
     right: 0;
     height: var(--border-width-thick, 3px);
-    background: linear-gradient(90deg,
-        transparent,
-        var(--color-primary-500),
-        transparent);
+    background: linear-gradient(
+      90deg,
+      transparent,
+      var(--color-primary-500),
+      transparent
+    );
   }
 }
 
@@ -149,9 +168,11 @@
  * Fundo gradiente escuro com texto branco
  */
 .contact-info {
-  background: linear-gradient(135deg,
-      var(--color-neutral-800),
-      var(--color-neutral-700));
+  background: linear-gradient(
+    135deg,
+    var(--color-neutral-800),
+    var(--color-neutral-700)
+  );
   color: var(--white-pure);
   padding: var(--spacing-8, 48px);
   border-radius: var(--radius-2xl, 30px);
@@ -161,42 +182,52 @@
   box-shadow: var(--shadow-lg);
 
   /**
+   * Texto de descrição
+   */
+  > p {
+    opacity: 0.9;
+    margin-bottom: var(--spacing-8, 40px);
+    font-size: var(--font-size-base, 16px);
+    line-height: var(--line-height-normal, 1.6);
+    color: var(--contact-text-on-dark);
+  }
+
+  /**
    * Título da seção de informações
    */
   h3 {
     font-size: var(--font-size-3xl, 28px);
     margin-bottom: var(--spacing-5, 24px);
-    font-family: var(--font-heading);
-    font-weight: var(--font-weight-bold, 700);
-    position: relative;
-    padding-bottom: var(--spacing-4, 16px);
     color: var(--white-pure);
 
     /* Linha decorativa sob o título */
     &::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 0;
       width: 60px;
       height: 4px;
-      background: linear-gradient(90deg,
-          var(--color-primary-600),
-          var(--color-primary-300));
       border-radius: var(--radius-full, 4px);
     }
   }
+}
 
-  /**
-   * Texto de descrição
-   */
-  >p {
-    opacity: 0.9;
-    margin-bottom: var(--spacing-8, 40px);
-    font-size: var(--font-size-base, 16px);
-    line-height: var(--line-height-normal, 1.6);
-    color: rgba(255, 255, 255, 0.9);
-  }
+/**
+ * Títulos internos dos cards de contato e formulário
+ * (base compartilhada para reduzir duplicidade)
+ */
+.contact-info h3,
+.contact-form h3 {
+  font-family: var(--font-heading);
+  font-weight: var(--font-weight-bold, 700);
+  position: relative;
+  padding-bottom: var(--spacing-4, 16px);
+}
+
+.contact-info h3::after,
+.contact-form h3::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: var(--contact-gradient-primary);
 }
 
 /* ============================================================================
@@ -220,7 +251,7 @@
   gap: var(--spacing-5, 20px);
   margin-bottom: var(--spacing-6, 32px);
   padding-bottom: var(--spacing-6, 32px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid var(--contact-border-on-dark);
 
   /* Remove borda do último item */
   &:last-child {
@@ -253,7 +284,7 @@
    */
   p,
   a {
-    color: rgba(255, 255, 255, 0.9);
+    color: var(--contact-text-on-dark);
     margin: 0;
     line-height: var(--line-height-normal, 1.5);
     font-size: var(--font-size-sm, 15px);
@@ -288,7 +319,7 @@
 .contact-icon {
   width: 48px;
   height: 48px;
-  background: rgba(255, 255, 255, 0.12);
+  background: var(--contact-icon-bg);
   border-radius: var(--radius-full, 50%);
   display: flex;
   align-items: center;
@@ -319,7 +350,7 @@
 .social-link {
   width: 44px;
   height: 44px;
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--contact-social-bg);
   border-radius: var(--radius-full, 50%);
   display: flex;
   align-items: center;
@@ -339,9 +370,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg,
-        var(--color-primary-600),
-        var(--color-primary-300));
+    background: var(--contact-gradient-primary);
     opacity: 0;
     transition: opacity var(--duration-300) var(--ease-out);
   }
@@ -389,22 +418,11 @@
     font-size: var(--font-size-2xl, 24px);
     margin-bottom: var(--spacing-6, 32px);
     color: var(--color-neutral-900);
-    font-family: var(--font-heading);
-    font-weight: var(--font-weight-bold, 700);
-    position: relative;
-    padding-bottom: var(--spacing-4, 16px);
 
     /* Linha decorativa sob o título */
     &::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 0;
       width: 50px;
       height: 3px;
-      background: linear-gradient(90deg,
-          var(--color-primary-600),
-          var(--color-primary-300));
       border-radius: var(--radius-full, 3px);
     }
   }
@@ -498,9 +516,7 @@ select.form-control {
 .btn-submit {
   width: 100%;
   padding: var(--spacing-4, 16px) var(--spacing-6, 32px);
-  background: linear-gradient(135deg,
-      var(--color-primary-600),
-      var(--color-primary-300));
+  background: var(--contact-gradient-primary);
   color: var(--white-pure);
   border: none;
   border-radius: var(--radius-full, 40px);
@@ -520,9 +536,11 @@ select.form-control {
   &:hover {
     transform: translateY(-4px);
     box-shadow: var(--shadow-primary-lg);
-    background: linear-gradient(135deg,
-        var(--color-primary-700),
-        var(--color-primary-600));
+    background: linear-gradient(
+      135deg,
+      var(--color-primary-700),
+      var(--color-primary-600)
+    );
 
     i {
       transform: translateX(4px);
@@ -538,6 +556,15 @@ select.form-control {
   i {
     transition: transform var(--duration-300) var(--ease-out);
   }
+}
+
+/**
+ * Estado desabilitado do botão de envio
+ * (melhora feedback de usabilidade/acessibilidade)
+ */
+.btn-submit:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
 }
 
 /* ============================================================================
@@ -594,6 +621,42 @@ select.form-control {
 
 .delay-3 {
   animation-delay: 0.6s;
+}
+
+/* Loading spinner */
+.fa-spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Mensagens de erro/sucesso */
+.form-message {
+  padding: 15px;
+  margin-top: 20px;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 500;
+}
+
+.form-message.success {
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.form-message.error {
+  background: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
 }
 
 /* ============================================================================

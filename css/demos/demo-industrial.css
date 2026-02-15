@@ -1460,3 +1460,27 @@ textarea.form-control {
 .paw-print {
   color: #FFB74D;
 }
+
+
+/* Inline styles migrated from demo-industrial.html */
+.inline-migrated-1 { margin-left: 10px; }
+.inline-migrated-2 { margin: 0; font-size: 12px; }
+.inline-migrated-3 { display: inline-flex; }
+.inline-migrated-4 { font-size: 12px; }
+.inline-migrated-5 { text-align: center; margin-top: 48px; }
+.inline-migrated-6 { color: var(--white); }
+.inline-migrated-7 { color: #ffb74d; }
+.inline-migrated-8 { color: rgba(255, 255, 255, 0.8); }
+.inline-migrated-9 { opacity: 0.9; margin-bottom: 40px; }
+.inline-migrated-10 { color: white; }
+.inline-migrated-11 { font-size: 13px; }
+.inline-migrated-12 { margin-bottom: 32px; }
+.inline-migrated-13 { justify-content: flex-start; }
+.inline-migrated-14 { background: rgba(255, 255, 255, 0.1); }
+.inline-migrated-15 { margin-top: 8px; font-size: 12px; }
+.inline-migrated-16 { margin: 0; }
+.inline-migrated-17 { background: none;
+              border: none;
+              color: white;
+              margin-left: auto;
+              cursor: pointer; }

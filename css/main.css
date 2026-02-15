@@ -9,18 +9,32 @@
 @import "components/footer.css";
 @import "components/hero-carousel.css";
 @import "components/cta.css";
-@import "components/layout-helpers.css";
 
 @import "layouts/hero.css";
 @import "layouts/sections.css";
 @import "layouts/contact.css";
 
 @import "utilities/utilities.css";
+@import "utilities/floating-actions.css";
+@import "utilities/gallery.css";
+@import "utilities/cookie-consent.css";
 @import "animations.css";
 @import "responsive.css";
 
 
 @import "kodassauro.css";
-@import "layouts/sections.css";
-@import "components/footer.css";
-@import "utilities/cookie-consent.css";
+
+
+/* Inline styles migrated from index.html */
+.inline-index-1 { animation-delay: 0.2s; }
+.inline-index-2 { font-size: 12px; }
+.inline-index-3 { color: white; }
+.inline-index-4 { font-size: 13px; }
+.inline-index-5 { margin-bottom: 32px; }
+.inline-index-6 { margin-left: 10px; }
+.inline-index-7 { position:fixed;bottom:20px;left:20px;right:20px;background:white;padding:20px;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,0.2);z-index:9999; }
+.inline-index-8 { display:flex;align-items:center;gap:20px;flex-wrap:wrap; }
+.inline-index-9 { flex:1;min-width:300px; }
+.inline-index-10 { margin:0; }
+.inline-index-11 { color:#F57C00; }
+.inline-index-12 { background:#F57C00;color:white;border:none;padding:10px 30px;border-radius:40px;cursor:pointer; }

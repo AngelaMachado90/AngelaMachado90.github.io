@@ -1,179 +1,239 @@
 <!doctype html>
 <html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="KoddaHub- Soluções web completas para seu negócio. Desenvolvimento de sites institucionais, e-commerce, sites industriais, sites de serviços e sistemas empresariais."
+    />
+    <meta
+      name="keywords"
+      content="desenvolvimento web, site institucional, e-commerce, site industrial, site de serviços, sistemas empresariais"
+    />
+    <meta name="author" content="KoddaHub" />
+    <meta name="theme-color" content="#0c8ce0" />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description"
-    content="KoddaHub- Soluções web completas para seu negócio. Desenvolvimento de sites institucionais, e-commerce, sites industriais, sites de serviços e sistemas empresariais." />
-  <meta name="keywords"
-    content="desenvolvimento web, site institucional, e-commerce, site industrial, site de serviços, sistemas empresariais" />
-  <meta name="author" content="KoddaHub" />
-  <meta name="theme-color" content="#0c8ce0" />
+    <title>KoddaHub - Soluções Web Completas para seu Negócio</title>
 
-  <title>KoddaHub - Soluções Web Completas para seu Negócio</title>
+    <!-- Favicon -->
+    <link rel="icon" href="assets/logo/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="assets/logo/apple-touch-icon.png" />
 
-  <!-- Favicon -->
-  <link rel="icon" href="assets/logo/favicon.ico" type="image/x-icon" />
-  <link rel="apple-touch-icon" href="assets/logo/apple-touch-icon.png" />
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/main.css" />
+    <!-- Bootstrap CSS (obrigatório para os switches) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome (para os ícones que você já usa) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome 5 -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      crossorigin="anonymous"
+    />
+  </head>
 
-  <!-- CSS Files -->
-  <link rel="stylesheet" href="css/main.css" />
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Inter:wght@400;500;600;700&display=swap"
-    rel="stylesheet" />
-  <!-- Font Awesome 5 -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-    crossorigin="anonymous" />
-</head>
-
-<body>
-  <header class="navbar-modern">
-    <div class="container-fluid">
-      <div class="navbar-wrapper">
-        <div class="navbar-brand">
-          <a href="assets/logo/KoddaHub.png" class="logo-image">
-            <img src="assets/logo/KoddaHub.png" alt="KoddaHub Logo" />
-          </a>
-          <a href="index.html" class="logo-text">
-            <span>KoddaHub</span>
-          </a>
-        </div>
-
-        <nav class="navbar-menu" id="navMenu">
-          <a href="index.html" class="nav-link active">Home</a>
-          <a href="#solucoes" class="nav-link">Soluções</a>
-          <a href="#contato" class="nav-link cta-nav">Contato</a>
-          <a href="#sobrenos" class="nav-link">Sobre Nós</a>
-        </nav>
-
-        <button class="navbar-toggle" id="navToggle">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-      </div>
-    </div>
-  </header>
-
-  <!-- Hero Section -->
-  <section class="hero-modern" id="inicio">
-    <div class="hero-background">
-      <div class="gradient-blob blob-1"></div>
-      <div class="gradient-blob blob-2"></div>
-      <div class="gradient-blob blob-3"></div>
-    </div>
-
-    <div class="container-fluid">
-      <div class="hero-content">
-        <div class="hero-text animate-slideInUp">
-          <p class="hero-kicker">KODDAHUB STUDIO</p>
-          <h1 class="hero-title">Soluções Web Modernas Para Seu Negócio</h1>
-          <p class="hero-subtitle">
-            Desenvolvemos sites, e-commerce e sistemas que transformam
-            empresas. Responsivo, rápido, seguro e escalável.
-          </p>
-
-          <div class="hero-cta">
-            <a href="#solucoes" class="btn-primary-modern">Explorar Soluções</a>
-            <a href="#contato" class="btn-secondary-modern">Fale Conosco</a>
+  <body>
+    <header class="navbar-modern">
+      <div class="container-fluid">
+        <div class="navbar-wrapper">
+          <div class="navbar-brand">
+            <a href="assets/logo/KoddaHub.png" class="logo-image">
+              <img src="assets/logo/KoddaHub.png" alt="KoddaHub Logo" />
+            </a>
+            <a href="index.html" class="logo-text">
+              <span>KoddaHub</span>
+            </a>
           </div>
+
+          <nav class="navbar-menu" id="navMenu">
+            <a href="index.html" class="nav-link active">Home</a>
+            <a href="#solucoes" class="nav-link">Soluções</a>
+            <a href="#contato" class="nav-link cta-nav">Contato</a>
+            <a href="#sobrenos" class="nav-link">Sobre Nós</a>
+          </nav>
+
+          <button class="navbar-toggle" id="navToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
         </div>
+      </div>
+    </header>
 
-        <div class="hero-visual animate-slideInLeft" style="animation-delay: 0.2s">
-          <!-- Carrossel com JavaScript -->
-          <div class="hero-carousel" aria-label="Carrossel de projetos desenvolvidos">
-            <!-- Inputs para controle 6 slides -->
-            <input type="radio" name="heroCarousel" id="hc1" checked />
-            <input type="radio" name="heroCarousel" id="hc2" />
-            <input type="radio" name="heroCarousel" id="hc3" />
-            <input type="radio" name="heroCarousel" id="hc4" />
-            <!--<input type="radio" name="heroCarousel" id="hc5" />-->
-            <!--<input type="radio" name="heroCarousel" id="hc6" />-->
+    <!-- Hero Section -->
+    <section class="hero-modern" id="inicio">
+      <div class="hero-background">
+        <div class="gradient-blob blob-1"></div>
+        <div class="gradient-blob blob-2"></div>
+        <div class="gradient-blob blob-3"></div>
+      </div>
 
-            <div class="hero-carousel-viewport">
-              <div class="hero-carousel-track">
-                <!-- Slide 1: Industrial -->
-                <figure class="hero-slide">
-                  <img src="assets/backgrounds/card-01-demo-industria.jpg" alt="Site para indústria" loading="lazy" />
-                  <figcaption class="hero-slide-overlay">
-                    <div class="showcase-headings">
-                      <h3>Site Industrial</h3>
-                      <p>Catálogo de produtos, especificações e contato.</p>
-                    </div>
-                    <div class="showcase-links">
-                      <a class="showcase-link" href="pages/demo-industrial.html">Ver demo</a>
-                      <a class="showcase-link" href="#contato">Pedir orçamento</a>
-                    </div>
-                  </figcaption>
-                </figure>
+      <div class="container-fluid">
+        <div class="hero-content">
+          <div class="hero-text animate-slideInUp">
+            <p class="hero-kicker">KODDAHUB STUDIO</p>
+            <h1 class="hero-title">Soluções Web Modernas Para Seu Negócio</h1>
+            <p class="hero-subtitle">
+              Desenvolvemos sites, e-commerce e sistemas que transformam
+              empresas. Responsivo, rápido, seguro e escalável.
+            </p>
 
-                <!-- Slide 2: Institucional -->
-                <figure class="hero-slide">
-                  <img src="assets/backgrounds/card-02-demo-institucional.jpg" alt="Site Institucional"
-                    loading="lazy" />
-                  <figcaption class="hero-slide-overlay">
-                    <div class="showcase-headings">
-                      <h3>Site Institucional</h3>
-                      <p>Apresentação corporativa</p>
-                    </div>
-                    <div class="showcase-links">
-                      <a class="showcase-link" href="pages/demo-institucional.html">Ver projeto</a>
-                      <a class="showcase-link" href="#contato">Orçamento</a>
-                    </div>
-                  </figcaption>
-                </figure>
+            <div class="hero-cta">
+              <a href="#solucoes" class="btn-primary-modern"
+                >Explorar Soluções</a
+              >
+              <a href="#contato" class="btn-secondary-modern">Fale Conosco</a>
+            </div>
+          </div>
 
-                <!-- Slide 3: Serviços -->
-                <figure class="hero-slide">
-                  <img src="assets/backgrounds/card-03-demo-servicos.jpg" alt="Site de Serviços" loading="lazy" />
-                  <figcaption class="hero-slide-overlay">
-                    <div class="showcase-headings">
-                      <h3>Site de Serviços</h3>
-                      <p>Prestadores e profissionais</p>
-                    </div>
-                    <div class="showcase-links">
-                      <a class="showcase-link" href="pages/demo-servicos.html">Ver projeto</a>
-                      <a class="showcase-link" href="#contato">Orçamento</a>
-                    </div>
-                  </figcaption>
-                </figure>
+          <div
+            class="hero-visual animate-slideInLeft inline-index-1"
+           
+          >
+            <!-- Carrossel com JavaScript -->
+            <div
+              class="hero-carousel"
+              aria-label="Carrossel de projetos desenvolvidos"
+            >
+              <!-- Inputs para controle 6 slides -->
+              <input type="radio" name="heroCarousel" id="hc1" checked />
+              <input type="radio" name="heroCarousel" id="hc2" />
+              <input type="radio" name="heroCarousel" id="hc3" />
+              <input type="radio" name="heroCarousel" id="hc4" />
+              <!--<input type="radio" name="heroCarousel" id="hc5" />-->
+              <!--<input type="radio" name="heroCarousel" id="hc6" />-->
 
-                <!-- Slide 4: Data Science -->
+              <div class="hero-carousel-viewport">
+                <div class="hero-carousel-track">
+                  <!-- Slide 1: Industrial -->
                   <figure class="hero-slide">
-                  <img src="assets/backgrounds/card-04-demo-data-science.jpg" alt="Site Data Science" loading="lazy" />
-                  <figcaption class="hero-slide-overlay">
-                    <div class="showcase-headings">
-                      <h3>Data Science</h3>
-                      <p>Análise e visualização de dados</p>
-                    </div>
-                    <div class="showcase-links">
-                      <a class="showcase-link" href="pages/demo-data-science.html">Ver projeto</a>
-                      <a class="showcase-link" href="#contato">Orçamento</a>
-                    </div>
-                  </figcaption>
-                </figure>
+                    <img
+                      src="assets/backgrounds/card-01-demo-industria.jpg"
+                      alt="Site para indústria"
+                      loading="lazy"
+                    />
+                    <figcaption class="hero-slide-overlay">
+                      <div class="showcase-headings">
+                        <h3>Site Industrial</h3>
+                        <p>Catálogo de produtos, especificações e contato.</p>
+                      </div>
+                      <div class="showcase-links">
+                        <a
+                          class="showcase-link"
+                          href="pages/demo-industrial.html"
+                          >Ver demo</a
+                        >
+                        <a class="showcase-link" href="#contato"
+                          >Pedir orçamento</a
+                        >
+                      </div>
+                    </figcaption>
+                  </figure>
 
-                <!-- Slide 5: Sistemas -->
-                <figure class="hero-slide">
-                  <img src="assets/backgrounds/card-05-demo-ecommerce.png" alt="Lojas Virtuais" loading="lazy" />
-                  <figcaption class="hero-slide-overlay">
-                    <div class="showcase-headings">
-                      <h3>Lojas Virtuais</h3>
-                      <p>CRM, ERP e sistemas</p>
-                    </div>
-                    <div class="showcase-links">
-                      <a class="showcase-link" href="pages/demo-ecommerce.html">Ver projeto</a>
-                      <a class="showcase-link" href="#solucoes">Soluções</a>
-                    </div>
-                  </figcaption>
-                </figure>  
+                  <!-- Slide 2: Institucional -->
+                  <figure class="hero-slide">
+                    <img
+                      src="assets/backgrounds/card-02-demo-institucional.jpg"
+                      alt="Site Institucional"
+                      loading="lazy"
+                    />
+                    <figcaption class="hero-slide-overlay">
+                      <div class="showcase-headings">
+                        <h3>Site Institucional</h3>
+                        <p>Apresentação corporativa</p>
+                      </div>
+                      <div class="showcase-links">
+                        <a
+                          class="showcase-link"
+                          href="pages/demo-institucional.html"
+                          >Ver projeto</a
+                        >
+                        <a class="showcase-link" href="#contato">Orçamento</a>
+                      </div>
+                    </figcaption>
+                  </figure>
 
-                <!-- Slide 6: Landing Page -->
-                <!--<figure class="hero-slide">
+                  <!-- Slide 3: Serviços -->
+                  <figure class="hero-slide">
+                    <img
+                      src="assets/backgrounds/card-03-demo-servicos.jpg"
+                      alt="Site de Serviços"
+                      loading="lazy"
+                    />
+                    <figcaption class="hero-slide-overlay">
+                      <div class="showcase-headings">
+                        <h3>Site de Serviços</h3>
+                        <p>Prestadores e profissionais</p>
+                      </div>
+                      <div class="showcase-links">
+                        <a class="showcase-link" href="pages/demo-servicos.html"
+                          >Ver projeto</a
+                        >
+                        <a class="showcase-link" href="#contato">Orçamento</a>
+                      </div>
+                    </figcaption>
+                  </figure>
+
+                  <!-- Slide 4: Data Science -->
+                  <figure class="hero-slide">
+                    <img
+                      src="assets/backgrounds/card-04-demo-data-science.jpg"
+                      alt="Site Data Science"
+                      loading="lazy"
+                    />
+                    <figcaption class="hero-slide-overlay">
+                      <div class="showcase-headings">
+                        <h3>Data Science</h3>
+                        <p>Análise e visualização de dados</p>
+                      </div>
+                      <div class="showcase-links">
+                        <a
+                          class="showcase-link"
+                          href="pages/demo-data-science.html"
+                          >Ver projeto</a
+                        >
+                        <a class="showcase-link" href="#contato">Orçamento</a>
+                      </div>
+                    </figcaption>
+                  </figure>
+
+                  <!-- Slide 5: Sistemas -->
+                  <figure class="hero-slide">
+                    <img
+                      src="assets/backgrounds/card-05-demo-ecommerce.jpg"
+                      alt="Lojas Virtuais"
+                      loading="lazy"
+                    />
+                    <figcaption class="hero-slide-overlay">
+                      <div class="showcase-headings">
+                        <h3>Lojas Virtuais</h3>
+                        <p>CRM, ERP e sistemas</p>
+                      </div>
+                      <div class="showcase-links">
+                        <a
+                          class="showcase-link"
+                          href="pages/demo-ecommerce.html"
+                          >Ver projeto</a
+                        >
+                        <a class="showcase-link" href="#solucoes">Soluções</a>
+                      </div>
+                    </figcaption>
+                  </figure>
+
+                  <!-- Slide 6: Landing Page -->
+                  <!--<figure class="hero-slide">
                   <img src="assets/backgrounds/card-06-demo-landingpage.png" alt="Landing Page" loading="lazy" />
                   <figcaption class="hero-slide-overlay">
                     <div class="showcase-headings">
@@ -186,553 +246,688 @@
                     </div>
                   </figcaption>
                 </figure>-->
-              </div>
+                </div>
 
-              <!-- Controles de navegação - APENAS 2 BOTÕES -->
-              <div class="hero-carousel-controls">
-                <button class="hero-ctrl hero-prev" id="carouselPrev" aria-label="Slide anterior">‹</button>
-                <button class="hero-ctrl hero-next" id="carouselNext" aria-label="Próximo slide">›</button>
-              </div>
+                <!-- Controles de navegação - APENAS 2 BOTÕES -->
+                <div class="hero-carousel-controls">
+                  <button
+                    class="hero-ctrl hero-prev"
+                    id="carouselPrev"
+                    aria-label="Slide anterior"
+                  >
+                    ‹
+                  </button>
+                  <button
+                    class="hero-ctrl hero-next"
+                    id="carouselNext"
+                    aria-label="Próximo slide"
+                  >
+                    ›
+                  </button>
+                </div>
 
-              <!-- Indicadores (dots) -->
-              <div class="hero-carousel-dots" id="carouselDots">
-                <label class="hero-dotbtn" for="hc1"></label>
-                <label class="hero-dotbtn" for="hc2"></label>
-                <label class="hero-dotbtn" for="hc3"></label>
-                <label class="hero-dotbtn" for="hc4"></label>
-                <label class="hero-dotbtn" for="hc5"></label>
-                <label class="hero-dotbtn" for="hc6"></label>
+                <!-- Indicadores (dots) -->
+                <div class="hero-carousel-dots" id="carouselDots">
+                  <label class="hero-dotbtn" for="hc1"></label>
+                  <label class="hero-dotbtn" for="hc2"></label>
+                  <label class="hero-dotbtn" for="hc3"></label>
+                  <label class="hero-dotbtn" for="hc4"></label>
+                  <label class="hero-dotbtn" for="hc5"></label>
+                  <label class="hero-dotbtn" for="hc6"></label>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Soluções Section -->
-  <section id="solucoes" class="solutions-section">
-    <div class="container-fluid">
-      <div class="section-header">
-        <span class="section-badge">NOSSAS SOLUÇÕES</span>
-        <h2>Soluções Completas Para Cada Negócio</h2>
-        <p>
-          Escolha a solução que melhor se encaixa no seu segmento empresarial
-        </p>
+    <!-- Soluções Section -->
+    <section id="solucoes" class="solutions-section">
+      <div class="container-fluid">
+        <div class="section-header">
+          <span class="section-badge">NOSSAS SOLUÇÕES</span>
+          <h2>Soluções Completas Para Cada Negócio</h2>
+          <p>
+            Escolha a solução que melhor se encaixa no seu segmento empresarial
+          </p>
+        </div>
+
+        <div class="solutions-grid">
+          <!-- Card 1 -->
+          <div class="solution-card modern-card">
+            <div class="card-image">
+              <i class="fas fa-building"></i>
+            </div>
+            <div class="card-content">
+              <h3>Site Institucional</h3>
+              <p>
+                Para ONGs, escolas, clínicas, associações e instituições que
+                precisam de presença profissional online.
+              </p>
+              <ul class="features-list">
+                <li><i class="fas fa-check"></i> Design Responsivo</li>
+                <li><i class="fas fa-check"></i> SEO Otimizado</li>
+                <li><i class="fas fa-check"></i> Formulários</li>
+                <li><i class="fas fa-check"></i> Galeria</li>
+              </ul>
+              <div class="card-footer">
+                <span class="price">R$ 2.500</span>
+                <a href="pages/demo-institucional.html" class="btn-link"
+                  >Ver Demo <i class="fas fa-arrow-right"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="solution-card modern-card">
+            <div class="card-image">
+              <i class="fas fa-shopping-cart"></i>
+            </div>
+            <div class="card-content">
+              <h3>E-commerce</h3>
+              <p>
+                Lojas virtuais completas com carrinho de compras, pagamento
+                integrado e gestão de produtos.
+              </p>
+              <ul class="features-list">
+                <li><i class="fas fa-check"></i> Carrinho Inteligente</li>
+                <li><i class="fas fa-check"></i> Múltiplos Pagamentos</li>
+                <li><i class="fas fa-check"></i> Estoque Automático</li>
+                <li><i class="fas fa-check"></i> Rastreamento</li>
+              </ul>
+              <div class="card-footer">
+                <span class="price">R$ 4.800</span>
+                <a href="pages/demo-ecommerce.html" class="btn-link"
+                  >Ver Demo <i class="fas fa-arrow-right"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="solution-card modern-card">
+            <div class="card-image">
+              <i class="fas fa-industry"></i>
+            </div>
+            <div class="card-content">
+              <h3>Site Industrial</h3>
+              <p>
+                Para fábricas e fornecedores B2B com catálogo de produtos,
+                especificações técnicas e contato.
+              </p>
+              <ul class="features-list">
+                <li><i class="fas fa-check"></i> Catálogo Dinâmico</li>
+                <li><i class="fas fa-check"></i> Especificações</li>
+                <li><i class="fas fa-check"></i> Sistema de Cotação</li>
+                <li><i class="fas fa-check"></i> CMS Integrado</li>
+              </ul>
+              <div class="card-footer">
+                <span class="price">R$ 3.800</span>
+                <a href="pages/demo-industrial.html" class="btn-link"
+                  >Ver Demo <i class="fas fa-arrow-right"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="solution-card modern-card">
+            <div class="card-image">
+              <i class="fas fa-user-tie"></i>
+            </div>
+            <div class="card-content">
+              <h3>Site de Serviços</h3>
+              <p>
+                Para consultorias, agências, profissionais liberais com
+                portfólio e agendamento online.
+              </p>
+              <ul class="features-list">
+                <li><i class="fas fa-check"></i> Portfólio Dinâmico</li>
+                <li><i class="fas fa-check"></i> Agendamento Online</li>
+                <li><i class="fas fa-check"></i> Depoimentos</li>
+                <li><i class="fas fa-check"></i> Blog Integrado</li>
+              </ul>
+              <div class="card-footer">
+                <span class="price">R$ 2.800</span>
+                <a href="pages/demo-servicos.html" class="btn-link"
+                  >Ver Demo <i class="fas fa-arrow-right"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="solution-card modern-card">
+            <div class="card-image">
+              <i class="fas fa-cogs"></i>
+            </div>
+            <div class="card-content">
+              <h3>Sistemas Empresariais</h3>
+              <p>
+                Soluções de gestão customizadas: CRM, ERP, Controle de Estoque,
+                Financeiro e muito mais.
+              </p>
+              <ul class="features-list">
+                <li><i class="fas fa-check"></i> Totalmente Customizável</li>
+                <li><i class="fas fa-check"></i> Relatórios Avançados</li>
+                <li><i class="fas fa-check"></i> Segurança de Dados</li>
+                <li><i class="fas fa-check"></i> Suporte Premium</li>
+              </ul>
+              <div class="card-footer">
+                <span class="price">Orçamento</span>
+                <a href="pages/demo-sistemas.html" class="btn-link"
+                  >Ver Demo <i class="fas fa-arrow-right"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 6 -->
+          <div class="solution-card modern-card">
+            <div class="card-image">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <div class="card-content">
+              <h3>Análise de Dados</h3>
+              <p>
+                Soluções de análise de dados, dashboards e automação para
+                decisões mais rápidas e assertivas.
+              </p>
+              <ul class="features-list">
+                <li><i class="fas fa-check"></i> Análise de Dados</li>
+                <li><i class="fas fa-check"></i> Dashboards Interativos</li>
+                <li><i class="fas fa-check"></i> Automação de Processos</li>
+                <li><i class="fas fa-check"></i> Relatórios Personalizados</li>
+              </ul>
+              <div class="card-footer">
+                <span class="price">Orçamento</span>
+                <a href="pages/demo-data-science.html" class="btn-link"
+                  >Ver Demo <i class="fas fa-arrow-right"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <div class="solutions-grid">
-        <!-- Card 1 -->
-        <div class="solution-card modern-card">
-          <div class="card-image">
-            <i class="fas fa-building"></i>
-          </div>
-          <div class="card-content">
-            <h3>Site Institucional</h3>
-            <p>
-              Para ONGs, escolas, clínicas, associações e instituições que
-              precisam de presença profissional online.
-            </p>
-            <ul class="features-list">
-              <li><i class="fas fa-check"></i> Design Responsivo</li>
-              <li><i class="fas fa-check"></i> SEO Otimizado</li>
-              <li><i class="fas fa-check"></i> Formulários</li>
-              <li><i class="fas fa-check"></i> Galeria</li>
-            </ul>
-            <div class="card-footer">
-              <span class="price">R$ 2.500</span>
-              <a href="pages/demo-institucional.html" class="btn-link">Ver Demo <i class="fas fa-arrow-right"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 2 -->
-        <div class="solution-card modern-card">
-          <div class="card-image">
-            <i class="fas fa-shopping-cart"></i>
-          </div>
-          <div class="card-content">
-            <h3>E-commerce</h3>
-            <p>
-              Lojas virtuais completas com carrinho de compras, pagamento
-              integrado e gestão de produtos.
-            </p>
-            <ul class="features-list">
-              <li><i class="fas fa-check"></i> Carrinho Inteligente</li>
-              <li><i class="fas fa-check"></i> Múltiplos Pagamentos</li>
-              <li><i class="fas fa-check"></i> Estoque Automático</li>
-              <li><i class="fas fa-check"></i> Rastreamento</li>
-            </ul>
-            <div class="card-footer">
-              <span class="price">R$ 4.800</span>
-              <a href="pages/demo-ecommerce.html" class="btn-link">Ver Demo <i class="fas fa-arrow-right"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 3 -->
-        <div class="solution-card modern-card">
-          <div class="card-image">
-            <i class="fas fa-industry"></i>
-          </div>
-          <div class="card-content">
-            <h3>Site Industrial</h3>
-            <p>
-              Para fábricas e fornecedores B2B com catálogo de produtos,
-              especificações técnicas e contato.
-            </p>
-            <ul class="features-list">
-              <li><i class="fas fa-check"></i> Catálogo Dinâmico</li>
-              <li><i class="fas fa-check"></i> Especificações</li>
-              <li><i class="fas fa-check"></i> Sistema de Cotação</li>
-              <li><i class="fas fa-check"></i> CMS Integrado</li>
-            </ul>
-            <div class="card-footer">
-              <span class="price">R$ 3.800</span>
-              <a href="pages/demo-industrial.html" class="btn-link">Ver Demo <i class="fas fa-arrow-right"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 4 -->
-        <div class="solution-card modern-card">
-          <div class="card-image">
-            <i class="fas fa-user-tie"></i>
-          </div>
-          <div class="card-content">
-            <h3>Site de Serviços</h3>
-            <p>
-              Para consultorias, agências, profissionais liberais com
-              portfólio e agendamento online.
-            </p>
-            <ul class="features-list">
-              <li><i class="fas fa-check"></i> Portfólio Dinâmico</li>
-              <li><i class="fas fa-check"></i> Agendamento Online</li>
-              <li><i class="fas fa-check"></i> Depoimentos</li>
-              <li><i class="fas fa-check"></i> Blog Integrado</li>
-            </ul>
-            <div class="card-footer">
-              <span class="price">R$ 2.800</span>
-              <a href="pages/demo-servicos.html" class="btn-link">Ver Demo <i class="fas fa-arrow-right"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 5 -->
-        <div class="solution-card modern-card">
-          <div class="card-image">
-            <i class="fas fa-cogs"></i>
-          </div>
-          <div class="card-content">
-            <h3>Sistemas Empresariais</h3>
-            <p>
-              Soluções de gestão customizadas: CRM, ERP, Controle de Estoque,
-              Financeiro e muito mais.
-            </p>
-            <ul class="features-list">
-              <li><i class="fas fa-check"></i> Totalmente Customizável</li>
-              <li><i class="fas fa-check"></i> Relatórios Avançados</li>
-              <li><i class="fas fa-check"></i> Segurança de Dados</li>
-              <li><i class="fas fa-check"></i> Suporte Premium</li>
-            </ul>
-            <div class="card-footer">
-              <span class="price">Orçamento</span>
-              <a href="pages/demo-sistemas.html" class="btn-link">Ver Demo <i class="fas fa-arrow-right"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 6 -->
-        <div class="solution-card modern-card">
-          <div class="card-image">
-            <i class="fas fa-chart-line"></i>
-          </div>
-          <div class="card-content">
-            <h3>Análise de Dados</h3>
-            <p>
-              Soluções de análise de dados, dashboards e automação para
-              decisões mais rápidas e assertivas.
-            </p>
-            <ul class="features-list">
-              <li><i class="fas fa-check"></i> Análise de Dados</li>
-              <li><i class="fas fa-check"></i> Dashboards Interativos</li>
-              <li><i class="fas fa-check"></i> Automação de Processos</li>
-              <li><i class="fas fa-check"></i> Relatórios Personalizados</li>
-            </ul>
-            <div class="card-footer">
-              <span class="price">Orçamento</span>
-              <a href="pages/demo-data-science.html" class="btn-link">Ver Demo <i class="fas fa-arrow-right"></i></a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SEÇÃO CONTATO -->
+  <!-- SEÇÃO CONTATO OTIMIZADA PARA CONVERSÃO -->
   <section class="section-contact" id="contato">
     <div class="container-fluid">
       <div class="section-header animate-fadeInUp">
         <span class="section-badge">
-          <i class="fas fa-paw"></i> FALE CONOSCO
+          <i class="fas fa-paw"></i> INICIE SEU PROJETO
         </span>
-        <h2>Pronto para fazer parte da família KoddaHub?</h2>
+        <h2>Vamos construir algo incrível juntos?</h2>
         <p>
-          Seja um distribuidor, revendedor ou tire dúvidas sobre nossos
-          produtos.
+          Conte-nos sobre sua ideia. Nossa equipe fará um diagnóstico gratuito e apresentará a melhor solução para o seu
+          negócio.
         </p>
       </div>
-
+  
       <div class="contact-grid">
         <div class="contact-info animate-fadeInUp delay-1">
-          <h3>Informações de Contato</h3>
+          <h3>Por que ter um site profissional?</h3>
           <p>
-            Nossa equipe está pronta para atender você de segunda a sexta, das
-            8h às 18h.
+            Enquanto você cuida do seu negócio, nós criamos uma presença digital que atrai e converte clientes 24 horas
+            por dia.
           </p>
-
+  
           <div class="contact-details">
             <div class="contact-item">
               <div class="contact-icon">
-                <i class="fas fa-map-marker-alt"></i>
+                <i class="fas fa-rocket"></i>
               </div>
               <div>
-                <h4>Matriz</h4>
-                <p>Curitiba, PR - Brasil</p>
-                <p style="font-size: 12px">
-                  Atendimento em todo território nacional
-                </p>
+                <h4>Atendimento Rápido</h4>
+                <p>Respondemos em até 24h.</p>
               </div>
             </div>
             <div class="contact-item">
               <div class="contact-icon">
-                <i class="fas fa-phone-alt"></i>
+                <i class="fas fa-chart-line"></i>
               </div>
               <div>
-                <h4>Central de Vendas</h4>
-                <p>
-                  <a href="tel:+554192272854" style="color: white">+55 (41) 9227-2854</a>
-                </p>
-                <p style="font-size: 13px">WhatsApp para pedidos</p>
+                <h4>Diagnóstico Estratégico</h4>
+                <p>Análise gratuita do seu projeto.</p>
               </div>
             </div>
             <div class="contact-item">
               <div class="contact-icon">
-                <i class="fas fa-envelope"></i>
+                <i class="fas fa-shield-alt"></i>
               </div>
               <div>
-                <h4>E-mail Comercial</h4>
-                <p>
-                  <a href="mailto:angelamachado02022@gmail.com" style="color: white">angelamachado02022@gmail.com</a>
-                </p>
-                <p style="font-size: 12px">Resposta em até 24h</p>
+                <h4>Dados Seguros (LGPD)</h4>
+                <p>Seus dados estão protegidos conosco.</p>
               </div>
             </div>
           </div>
-
+  
           <div class="contact-social">
-            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
-            <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+            <a href="#" class="social-link" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link" title="Portfólio no Behance"><i class="fab fa-behance"></i></a>
+            <a href="#" class="social-link" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
           </div>
         </div>
-
+  
         <div class="contact-form animate-fadeInUp delay-2">
-          <h3 style="margin-bottom: 32px">Solicite um contato</h3>
-
-          <form id="industrialContactForm">
+          <h3>👉 Solicite seu orçamento ou diagnóstico gratuito</h3>
+  
+          <form id="contactForm" data-form-handler="true" data-script-url="https://script.google.com/macros/s/AKfycbzL1cRLo7qBMGfwSaF6UF_nuv6qiPF0TdF36UD11A0RHpVohCeB7VW0y2I0F-ny0GkL/exec" data-redirect="padrao/obrigado.html" data-brand-name="KoddaHub" data-brand-logo="assets/logo/KoddaHub.png" data-welcome-subject="Bem-vindo(a) à KoddaHub! Recebemos seu contato">
+            <!-- Nome -->
             <div class="form-group">
               <label for="nome">Nome Completo *</label>
-              <input type="text" class="form-control" id="nome" name="nome" required autocomplete="name" />
+              <input type="text" class="form-control" id="nome" name="nome" placeholder="Ex: João da Silva" required
+                autocomplete="name" />
             </div>
+  
+            <!-- Email -->
             <div class="form-group">
               <label for="email">E-mail *</label>
-              <input type="email" class="form-control" id="email" name="email" required autocomplete="email" />
+              <input type="email" class="form-control" id="email" name="email" placeholder="Ex: joao@email.com" required
+                autocomplete="email" />
             </div>
+  
+            <!-- Telefone/WhatsApp -->
             <div class="form-group">
-              <label for="telefone">Telefone *</label>
-              <input type="tel" class="form-control" id="telefone" name="telefone" required autocomplete="tel" />
+              <label for="telefone">WhatsApp (com DDD) *</label>
+              <input type="tel" class="form-control" id="telefone" name="telefone" placeholder="Ex: (41) 99999-9999"
+                required autocomplete="tel" />
+              <small>É por aqui que enviamos propostas e tiramos dúvidas rápidas.</small>
             </div>
+  
+            <!-- Orçamento e Prazo (lado a lado) -->
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="orcamento_estimado">Orçamento Estimado (R$) *</label>
+                <select class="form-control" id="orcamento_estimado" name="orcamento_estimado" required>
+                  <option value="">Selecione uma faixa...</option>
+                  <option value="ate-2000">Até R$ 2.000</option>
+                  <option value="2000-5000">R$ 2.000 a R$ 5.000</option>
+                  <option value="5000-10000">R$ 5.000 a R$ 10.000</option>
+                  <option value="acima-10000">Acima de R$ 10.000</option>
+                  <option value="indefinido">Ainda não defini / Preciso de ajuda</option>
+                </select>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="prazo">Prazo Desejado</label>
+                <select class="form-control" id="prazo" name="prazo">
+                  <option value="">Selecione...</option>
+                  <option value="urgente">Urgente (até 2 semanas)</option>
+                  <option value="normal">Planejado (1 a 2 meses)</option>
+                  <option value="pesquisa">Apenas pesquisando / Sem prazo</option>
+                </select>
+              </div>
+            </div>
+  
+            <!-- Tipo de Solução -->
             <div class="form-group">
-              <label for="assunto">Tipo de Interesse</label>
-              <select class="form-control" id="assunto" name="assunto" required autocomplete="off">
+              <label for="assunto">Qual tipo de solução você precisa? *</label>
+              <select class="form-control" id="assunto" name="assunto" required>
                 <option value="">Selecione...</option>
-                <option value="distribuidor">Site Institucional</option>
-                <option value="revendedor">Site E-commerce</option>
-                <option value="compra">Site Industrial</option>
-                <option value="parceria">Site de Serviços</option>
-                <option value="outro">Sistemas Empresariais</option>
-                <option value="outro">Análise de Dados</option>
+                <option value="institucional">🌐 Site Institucional (Para apresentar sua empresa)</option>
+                <option value="ecommerce">🛒 Site E-commerce (Loja virtual para vender online)</option>
+                <option value="landing-page">📢 Landing Page (Página de vendas para uma campanha)</option>
+                <option value="blog-portal">✍️ Blog ou Portal de Conteúdo</option>
+                <option value="sistema">⚙️ Sistema Web Personalizado (Sob medida)</option>
+                <option value="redesign">🔄 Redesign de Site (Já tenho um site, mas quero modernizá-lo)</option>
+                <option value="duvida">❓ Ainda tenho dúvidas / Quero entender melhor</option>
               </select>
             </div>
+  
+            <!-- Mensagem -->
             <div class="form-group">
-              <label for="mensagem">Mensagem *</label>
-              <textarea class="form-control" id="mensagem" name="mensagem" rows="4"
-                placeholder="Conte-nos sobre sua necessidade..." required autocomplete="off"></textarea>
+              <label for="mensagem">Conte-nos mais sobre seu projeto ou desafio *</label>
+              <textarea class="form-control" id="mensagem" name="mensagem" rows="5"
+                placeholder="Ex: Preciso de um site para minha clínica de estética que mostre meus serviços, permita agendamento online e tenha um blog com dicas de cuidados. Meu público-alvo são mulheres de 30 a 50 anos..."
+                required></textarea>
+              <small>Quanto mais detalhes, mais precisa será nossa análise inicial.</small>
             </div>
+  
+            <!-- ===== CAMPOS LGPD COM SWITCHES VERTICAIS ===== -->
+            <div class="form-group lgpd-consent-group">
+              <label class="consent-title fw-bold mb-3">🔘 Como prefere que entremos em contato?</label>
+  
+              <!-- Switch Email (OBRIGATÓRIO) -->
+              <div class="form-check form-switch mb-3">
+                <input class="form-check-input" type="checkbox" role="switch" id="consent_email" name="consent_email"
+                  value="sim" checked required style="cursor: pointer; width: 3em; height: 1.5em;">
+                <label class="form-check-label fw-bold" for="consent_email" style="cursor: pointer;">
+                  E-mail <span class="text-danger">*</span>
+                </label>
+                <div class="text-muted small" style="margin-left: 3.5em; margin-top: -5px;">
+                  Para enviar a proposta e informações formais
+                </div>
+              </div>
+  
+              <!-- Switch WhatsApp -->
+              <div class="form-check form-switch mb-3">
+                <input class="form-check-input" type="checkbox" role="switch" id="consent_whatsapp"
+                  name="consent_whatsapp" value="sim" checked style="cursor: pointer; width: 3em; height: 1.5em;">
+                <label class="form-check-label fw-bold" for="consent_whatsapp" style="cursor: pointer;">
+                  WhatsApp
+                </label>
+                <div class="text-muted small" style="margin-left: 3.5em; margin-top: -5px;">
+                  Atendimento mais rápido e envio da proposta
+                </div>
+              </div>
+  
+              <!-- Switch Newsletter -->
+              <div class="form-check form-switch mb-3">
+                <input class="form-check-input" type="checkbox" role="switch" id="consent_newsletter"
+                  name="consent_newsletter" value="sim" checked style="cursor: pointer; width: 3em; height: 1.5em;">
+                <label class="form-check-label fw-bold" for="consent_newsletter" style="cursor: pointer;">
+                  Newsletter
+                </label>
+                <div class="text-muted small" style="margin-left: 3.5em; margin-top: -5px;">
+                  Receber dicas, novidades e cases de sucesso
+                </div>
+              </div>
+            </div>
+  
+            <!-- Termo LGPD com Switch -->
+            <div class="form-group lgpd-termo mb-4">
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" id="lgpd_consent" name="lgpd_consent"
+                  value="sim" checked required style="cursor: pointer; width: 3em; height: 1.5em;">
+                <label class="form-check-label fw-bold" for="lgpd_consent" style="cursor: pointer;">
+                  Li e concordo com a Política de Privacidade <span class="text-danger">*</span>
+                </label>
+                <div class="text-muted small" style="margin-left: 3.5em; margin-top: -5px;">
+                  Seus dados serão usados apenas para lhe atender da melhor forma, conforme nossa
+                  <a href="/politica-de-privacidade" target="_blank" class="lgpd-link">Política de Privacidade</a>
+                </div>
+              </div>
+            </div>
+  
+            <!-- Campos ocultos para auditoria LGPD -->
+            <input type="hidden" name="consent_timestamp" id="consent_timestamp" value="">
+            <input type="hidden" name="consent_ip" id="consent_ip" value="">
+            <input type="hidden" name="consent_user_agent" id="consent_user_agent" value="">
+            
+            <!-- Container para mensagens de feedback do Bootstrap -->
+            <div id="formFeedback" class="mb-3"></div>
+  
             <button type="submit" class="btn-submit">
-              Enviar Mensagem
-              <i class="fas fa-paper-plane" style="margin-left: 10px"></i>
+              <i class="fas fa-paper-plane"></i> Quero Receber minha Proposta Grátis
             </button>
           </form>
+  
+          <!-- Aviso LGPD Rodapé -->
+          <p class="lgpd-footer-note">
+            <i class="fas fa-shield-alt"></i>
+            Seguimos a LGPD (Lei 13.709/18). Seus dados estão seguros.
+          </p>
         </div>
       </div>
     </div>
   </section>
-
+  
   <!-- Footer -->
-  <footer class="footer-modern">
-    <div class="container-fluid">
-      <div class="footer-content">
-        <div class="footer-column">
-          <h3>KoddaHub</h3>
-          <p>
-            Transformando ideias em soluções web que funcionam e crescem com
-            seu negócio.
-          </p>
+    <footer class="footer-modern">
+      <div class="container-fluid">
+        <div class="footer-content">
+          <div class="footer-column">
+            <h3>KoddaHub</h3>
+            <p>
+              Transformando ideias em soluções web que funcionam e crescem com
+              seu negócio.
+            </p>
+          </div>
+
+          <div class="footer-column">
+            <h4>Soluções</h4>
+            <ul>
+              <li>
+                <a href="pages/demo-institucional.html">Site Institucional</a>
+              </li>
+              <li><a href="pages/demo-ecommerce.html">E-commerce</a></li>
+              <li><a href="pages/demo-industrial.html">Site Industrial</a></li>
+              <li><a href="pages/demo-servicos.html">Site de Serviços</a></li>
+              <li><a href="pages/demo-sistemas.html">Sistemas</a></li>
+              <li><a href="pages/demo-data-science.html">Dados</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h4>Links</h4>
+            <ul>
+              <li><a href="#solucoes">Soluções</a></li>
+              <li><a href="#diferenciais">Diferenciais</a></li>
+              <li><a href="#processos">Processos</a></li>
+              <li><a href="#contato">Contato</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h4>Legais</h4>
+            <ul>
+              <li><a href="#">Privacidade</a></li>
+              <li><a href="#">Termos de Uso</a></li>
+              <li><a href="#">Cookies</a></li>
+            </ul>
+          </div>
         </div>
 
-        <div class="footer-column">
-          <h4>Soluções</h4>
-          <ul>
-            <li>
-              <a href="pages/demo-institucional.html">Site Institucional</a>
-            </li>
-            <li><a href="pages/demo-ecommerce.html">E-commerce</a></li>
-            <li><a href="pages/demo-industrial.html">Site Industrial</a></li>
-            <li><a href="pages/demo-servicos.html">Site de Serviços</a></li>
-            <li><a href="pages/demo-sistemas.html">Sistemas</a></li>
-            <li><a href="pages/demo-data-science.html">Dados</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-column">
-          <h4>Links</h4>
-          <ul>
-            <li><a href="#solucoes">Soluções</a></li>
-            <li><a href="#diferenciais">Diferenciais</a></li>
-            <li><a href="#processos">Processos</a></li>
-            <li><a href="#contato">Contato</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-column">
-          <h4>Legais</h4>
-          <ul>
-            <li><a href="#">Privacidade</a></li>
-            <li><a href="#">Termos de Uso</a></li>
-            <li><a href="#">Cookies</a></li>
-          </ul>
+        <div class="footer-bottom">
+          <p>&copy; 2026 KoddaHub. Todos os direitos reservados.</p>
         </div>
       </div>
+    </footer>
 
-      <div class="footer-bottom">
-        <p>&copy; 2026 KoddaHub. Todos os direitos reservados.</p>
-      </div>
-    </div>
-  </footer>
-
-  <!-- ============================================
+    <!-- ============================================
          CHATBOT KODDAHUB (Local, sem IA)
          ============================================ -->
-  <div class="kodassauro" id="kodassauroRoot">
-    <button class="kodassauro-toggle" type="button" aria-haspopup="dialog" aria-controls="kodassauroPanel"
-      aria-expanded="false" aria-label="Abrir chat KoddaHub">
-      <img src="assets/logo/KoddaHub-Chat.png" alt="Ícone do KoddaHub" class="kodassauro-icon" />
-      <span class="kodassauro-badge" aria-label="Notificações do chat" hidden>0</span>
-      <span class="kodassauro-toggle-icon" aria-hidden="true"> </span>
-    </button>
+    <div class="kodassauro" id="kodassauroRoot">
+      <button
+        class="kodassauro-toggle"
+        type="button"
+        aria-haspopup="dialog"
+        aria-controls="kodassauroPanel"
+        aria-expanded="false"
+        aria-label="Abrir chat KoddaHub"
+      >
+        <img
+          src="assets/logo/KoddaHub-Chat.png"
+          alt="Ícone do KoddaHub"
+          class="kodassauro-icon"
+        />
+        <span class="kodassauro-badge" aria-label="Notificações do chat" hidden
+          >0</span
+        >
+        <span class="kodassauro-toggle-icon" aria-hidden="true"> </span>
+      </button>
 
-    <section class="kodassauro-panel" id="kodassauroPanel" role="dialog" aria-modal="false"
-      aria-labelledby="kodassauroTitle" aria-describedby="kodassauroSubtitle" tabindex="-1" hidden>
-      <header class="kodassauro-header">
-        <div class="kodassauro-avatar" aria-hidden="true">
-          <svg class="kodassauro-svg" viewBox="0 0 64 64" role="img" aria-label="Kodassauro">
-            <defs>
-              <linearGradient id="kdsGrad" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0%" stop-color="#2196F3" />
-                <stop offset="100%" stop-color="#F57C00" />
-              </linearGradient>
-            </defs>
-            <circle cx="32" cy="32" r="30" fill="url(#kdsGrad)" opacity="0.95" />
-            <path d="M18 37c2-9 9-16 18-16s16 7 18 16c-6 7-13 11-18 11s-12-4-18-11z" fill="#fff" opacity="0.95" />
-            <circle class="kds-eye" cx="28" cy="33" r="2.6" fill="#1976D2" />
-            <circle class="kds-eye" cx="36" cy="33" r="2.6" fill="#1976D2" />
-            <path d="M28 40c3 3 5 3 8 0" stroke="#E65100" stroke-width="3" fill="none" stroke-linecap="round" />
-            <path d="M22 18l8 4" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity="0.9" />
-            <path d="M42 18l-8 4" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity="0.9" />
-          </svg>
-        </div>
+      <section
+        class="kodassauro-panel"
+        id="kodassauroPanel"
+        role="dialog"
+        aria-modal="false"
+        aria-labelledby="kodassauroTitle"
+        aria-describedby="kodassauroSubtitle"
+        tabindex="-1"
+        hidden
+      >
+        <header class="kodassauro-header">
+          <div class="kodassauro-avatar" aria-hidden="true">
+            <svg
+              class="kodassauro-svg"
+              viewBox="0 0 64 64"
+              role="img"
+              aria-label="Kodassauro"
+            >
+              <defs>
+                <linearGradient id="kdsGrad" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#2196F3" />
+                  <stop offset="100%" stop-color="#F57C00" />
+                </linearGradient>
+              </defs>
+              <circle
+                cx="32"
+                cy="32"
+                r="30"
+                fill="url(#kdsGrad)"
+                opacity="0.95"
+              />
+              <path
+                d="M18 37c2-9 9-16 18-16s16 7 18 16c-6 7-13 11-18 11s-12-4-18-11z"
+                fill="#fff"
+                opacity="0.95"
+              />
+              <circle class="kds-eye" cx="28" cy="33" r="2.6" fill="#1976D2" />
+              <circle class="kds-eye" cx="36" cy="33" r="2.6" fill="#1976D2" />
+              <path
+                d="M28 40c3 3 5 3 8 0"
+                stroke="#E65100"
+                stroke-width="3"
+                fill="none"
+                stroke-linecap="round"
+              />
+              <path
+                d="M22 18l8 4"
+                stroke="#fff"
+                stroke-width="3"
+                stroke-linecap="round"
+                opacity="0.9"
+              />
+              <path
+                d="M42 18l-8 4"
+                stroke="#fff"
+                stroke-width="3"
+                stroke-linecap="round"
+                opacity="0.9"
+              />
+            </svg>
+          </div>
 
-        <div class="kodassauro-headings">
-          <h3 class="kodassauro-title" id="kodassauroTitle">Kodassauro</h3>
-          <p class="kodassauro-subtitle" id="kodassauroSubtitle">
-            Assistente da KoddaHub, pronto para ajudar
-          </p>
-        </div>
+          <div class="kodassauro-headings">
+            <h3 class="kodassauro-title" id="kodassauroTitle">Kodassauro</h3>
+            <p class="kodassauro-subtitle" id="kodassauroSubtitle">
+              Assistente da KoddaHub, pronto para ajudar
+            </p>
+          </div>
 
-        <div class="kodassauro-header-actions">
-          <button class="kodassauro-reset" type="button">Limpar</button>
-          <button class="kodassauro-close" type="button" aria-label="Fechar chat">
-            <i class="fas fa-times" aria-hidden="true"></i>
+          <div class="kodassauro-header-actions">
+            <button class="kodassauro-reset" type="button">Limpar</button>
+            <button
+              class="kodassauro-close"
+              type="button"
+              aria-label="Fechar chat"
+            >
+              <i class="fas fa-times" aria-hidden="true"></i>
+            </button>
+          </div>
+        </header>
+
+        <div
+          class="kodassauro-messages"
+          id="kodassauroMessages"
+          aria-live="polite"
+          aria-relevant="additions"
+        ></div>
+
+        <div
+          class="kodassauro-quick"
+          id="kodassauroQuick"
+          aria-label="Atalhos do chat"
+        >
+          <button type="button" class="kodassauro-chip" data-action="orcamento">
+            Orçamento
+          </button>
+          <button type="button" class="kodassauro-chip" data-action="duvidas">
+            Dúvidas
+          </button>
+          <button type="button" class="kodassauro-chip" data-action="contato">
+            Falar com vendedor
+          </button>
+          <button type="button" class="kodassauro-chip" data-action="precos">
+            Ver preços
+          </button>
+          <button type="button" class="kodassauro-chip" data-action="portfolio">
+            Ver portfólio
           </button>
         </div>
-      </header>
 
-      <div class="kodassauro-messages" id="kodassauroMessages" aria-live="polite" aria-relevant="additions"></div>
+        <form
+          class="kodassauro-composer"
+          id="kodassauroComposer"
+          autocomplete="off"
+        >
+          <label class="kodassauro-sr-only" for="kodassauroInput"
+            >Mensagem</label
+          >
+          <input
+            id="kodassauroInput"
+            class="kodassauro-input"
+            type="text"
+            placeholder="Digite sua mensagem..."
+            inputmode="text"
+            autocomplete="off"
+          />
+          <button class="kodassauro-send" type="submit">Enviar</button>
+        </form>
+      </section>
+    </div>
 
-      <div class="kodassauro-quick" id="kodassauroQuick" aria-label="Atalhos do chat">
-        <button type="button" class="kodassauro-chip" data-action="orcamento">
-          Orçamento
-        </button>
-        <button type="button" class="kodassauro-chip" data-action="duvidas">
-          Dúvidas
-        </button>
-        <button type="button" class="kodassauro-chip" data-action="contato">
-          Falar com vendedor
-        </button>
-        <button type="button" class="kodassauro-chip" data-action="precos">
-          Ver preços
-        </button>
-        <button type="button" class="kodassauro-chip" data-action="portfolio">
-          Ver portfólio
-        </button>
-      </div>
-
-      <form class="kodassauro-composer" id="kodassauroComposer" autocomplete="off">
-        <label class="kodassauro-sr-only" for="kodassauroInput">Mensagem</label>
-        <input id="kodassauroInput" class="kodassauro-input" type="text" placeholder="Digite sua mensagem..."
-          inputmode="text" autocomplete="off" />
-        <button class="kodassauro-send" type="submit">Enviar</button>
-      </form>
-    </section>
-  </div>
-  
     <!-- ===== COOKIE CONSENT ===== -->
     <!-- Container para o cookie -->
     <div id="cookie-container"></div>
-    
+
     <!-- CSS do Cookie -->
     <link rel="stylesheet" href="css/utilities/cookie-consent.css" />
-    
+
     <!-- Script para carregar o cookie -->
     <script>
-      fetch('includes/cookie-consent.html')
-        .then(response => {
+      fetch("includes/cookie-consent.html")
+        .then((response) => {
           if (!response.ok) {
-            throw new Error('Arquivo não encontrado');
+            throw new Error("Arquivo não encontrado");
           }
           return response.text();
         })
-        .then(data => {
-          document.getElementById('cookie-container').innerHTML = data;
-          console.log('HTML do cookie carregado!');
+        .then((data) => {
+          document.getElementById("cookie-container").innerHTML = data;
+          console.log("HTML do cookie carregado!");
 
           // Carrega o script do cookie
-          const script = document.createElement('script');
-          script.src = 'js/cookie-consent.js';
-          script.onload = () => console.log('Script do cookie carregado!');
-          script.onerror = () => console.error('Erro ao carregar script do cookie');
+          const script = document.createElement("script");
+          script.src = "js/cookie-consent.js";
+          script.onload = () => console.log("Script do cookie carregado!");
+          script.onerror = () =>
+            console.error("Erro ao carregar script do cookie");
           document.body.appendChild(script);
         })
-        .catch(error => {
-          console.error('Erro ao carregar cookie:', error);
+        .catch((error) => {
+          console.error("Erro ao carregar cookie:", error);
           // Fallback simples
-          document.getElementById('cookie-container').innerHTML = `
-              <div class="cookie-consent" id="cookieConsent" style="position:fixed;bottom:20px;left:20px;right:20px;background:white;padding:20px;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,0.2);z-index:9999;">
-                <div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap;">
-                  <div style="flex:1;min-width:300px;">
-                    <p style="margin:0;">Usamos cookies para melhorar sua experiência. <a href="#" style="color:#F57C00;">Política de Cookies</a></p>
+          document.getElementById("cookie-container").innerHTML = `
+              <div class="cookie-consent inline-index-7" id="cookieConsent">
+                <div class="inline-index-8">
+                  <div class="inline-index-9">
+                    <p class="inline-index-10">Usamos cookies para melhorar sua experiência. <a href="#" class="inline-index-11">Política de Cookies</a></p>
                   </div>
-                  <button onclick="this.parentElement.parentElement.style.display='none'" style="background:#F57C00;color:white;border:none;padding:10px 30px;border-radius:40px;cursor:pointer;">Aceitar</button>
+                  <button onclick="this.parentElement.parentElement.style.display='none'" class="inline-index-12">Aceitar</button>
                 </div>
               </div>
             `;
         });
     </script>
-    
-  <!-- Script principal do carrossel -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      // Elementos do carrossel
-      const radios = document.querySelectorAll('input[name="heroCarousel"]');
-      const prevBtn = document.getElementById('carouselPrev');
-      const nextBtn = document.getElementById('carouselNext');
-      const dots = document.querySelectorAll('.hero-dotbtn');
 
-      if (!radios.length || !prevBtn || !nextBtn) return;
+    <!-- Script principal do carrossel -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Elementos do carrossel
+        const radios = document.querySelectorAll('input[name="heroCarousel"]');
+        const prevBtn = document.getElementById("carouselPrev");
+        const nextBtn = document.getElementById("carouselNext");
+        const dots = document.querySelectorAll(".hero-dotbtn");
 
-      // Função para atualizar os dots ativos
-      function updateActiveDot() {
-        let currentIndex = 0;
-        for (let i = 0; i < radios.length; i++) {
-          if (radios[i].checked) {
-            currentIndex = i;
-            break;
-          }
-        }
+        if (!radios.length || !prevBtn || !nextBtn) return;
 
-        dots.forEach((dot, index) => {
-          if (index === currentIndex) {
-            dot.classList.add('active');
-          } else {
-            dot.classList.remove('active');
-          }
-        });
-      }
-
-      // Navegação anterior
-      prevBtn.addEventListener('click', function () {
-        let currentIndex = 0;
-        for (let i = 0; i < radios.length; i++) {
-          if (radios[i].checked) {
-            currentIndex = i;
-            break;
-          }
-        }
-
-        let prevIndex = (currentIndex - 1 + radios.length) % radios.length;
-        radios[prevIndex].checked = true;
-        updateActiveDot();
-      });
-
-      // Navegação próxima
-      nextBtn.addEventListener('click', function () {
-        let currentIndex = 0;
-        for (let i = 0; i < radios.length; i++) {
-          if (radios[i].checked) {
-            currentIndex = i;
-            break;
-          }
-        }
-
-        let nextIndex = (currentIndex + 1) % radios.length;
-        radios[nextIndex].checked = true;
-        updateActiveDot();
-      });
-
-      // Atualizar dots quando clicar diretamente neles
-      dots.forEach((dot, index) => {
-        dot.addEventListener('click', function () {
-          radios[index].checked = true;
-          updateActiveDot();
-        });
-      });
-
-      // Atualizar dots quando mudar via teclado (caso alguém use)
-      radios.forEach((radio, index) => {
-        radio.addEventListener('change', updateActiveDot);
-      });
-
-      // Inicializar dots
-      updateActiveDot();
-
-      // Autoplay a cada 5 segundos (opcional)
-      let autoplayInterval = setInterval(() => {
-        // Só avança se o mouse não estiver sobre o carrossel
-        const carousel = document.querySelector('.hero-carousel');
-        if (!carousel.matches(':hover')) {
+        // Função para atualizar os dots ativos
+        function updateActiveDot() {
           let currentIndex = 0;
           for (let i = 0; i < radios.length; i++) {
             if (radios[i].checked) {
@@ -740,89 +935,133 @@
               break;
             }
           }
+
+          dots.forEach((dot, index) => {
+            if (index === currentIndex) {
+              dot.classList.add("active");
+            } else {
+              dot.classList.remove("active");
+            }
+          });
+        }
+
+        // Navegação anterior
+        prevBtn.addEventListener("click", function () {
+          let currentIndex = 0;
+          for (let i = 0; i < radios.length; i++) {
+            if (radios[i].checked) {
+              currentIndex = i;
+              break;
+            }
+          }
+
+          let prevIndex = (currentIndex - 1 + radios.length) % radios.length;
+          radios[prevIndex].checked = true;
+          updateActiveDot();
+        });
+
+        // Navegação próxima
+        nextBtn.addEventListener("click", function () {
+          let currentIndex = 0;
+          for (let i = 0; i < radios.length; i++) {
+            if (radios[i].checked) {
+              currentIndex = i;
+              break;
+            }
+          }
+
           let nextIndex = (currentIndex + 1) % radios.length;
           radios[nextIndex].checked = true;
           updateActiveDot();
-        }
-      }, 5000);
-
-      // Limpar intervalo se necessário (boas práticas)
-      window.addEventListener('beforeunload', function () {
-        clearInterval(autoplayInterval);
-      });
-    });
-  </script>
-
-  <script>
-    // Script para o menu mobile
-    document.addEventListener('DOMContentLoaded', function () {
-      const navToggle = document.getElementById('navToggle');
-      const navMenu = document.getElementById('navMenu');
-
-      if (navToggle && navMenu) {
-        navToggle.addEventListener('click', function () {
-          const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
-          navToggle.setAttribute('aria-expanded', !isExpanded);
-          navMenu.classList.toggle('active');
         });
-      }
-    });
-  </script>
-  <script>
-    // Script para o formulário de contato
-    document.addEventListener('DOMContentLoaded', function () {
-      const contactForm = document.getElementById('industrialContactForm');
 
-      if (contactForm) {
-        contactForm.addEventListener('submit', function (e) {
-          e.preventDefault();
-
-          // Coletar dados do formulário
-          const formData = new FormData(contactForm);
-          const data = {};
-          formData.forEach((value, key) => {
-            data[key] = value;
+        // Atualizar dots quando clicar diretamente neles
+        dots.forEach((dot, index) => {
+          dot.addEventListener("click", function () {
+            radios[index].checked = true;
+            updateActiveDot();
           });
-
-          // Simular envio (aqui você pode integrar com backend ou serviço de email)
-          console.log('Dados do formulário:', data);
-          alert('Obrigado por entrar em contato! Responderemos em breve.');
-
-          // Resetar formulário
-          contactForm.reset();
         });
-      }
-    });
-  </script>
-  <script>
-    // Tornar os cards de solução clicáveis
-      document.addEventListener('DOMContentLoaded', function () {
-        const solutionCards = document.querySelectorAll('.solution-card');
 
-        solutionCards.forEach(card => {
-          card.addEventListener('click', function (e) {
+        // Atualizar dots quando mudar via teclado (caso alguém use)
+        radios.forEach((radio, index) => {
+          radio.addEventListener("change", updateActiveDot);
+        });
+
+        // Inicializar dots
+        updateActiveDot();
+
+        // Autoplay a cada 5 segundos (opcional)
+        let autoplayInterval = setInterval(() => {
+          // Só avança se o mouse não estiver sobre o carrossel
+          const carousel = document.querySelector(".hero-carousel");
+          if (!carousel.matches(":hover")) {
+            let currentIndex = 0;
+            for (let i = 0; i < radios.length; i++) {
+              if (radios[i].checked) {
+                currentIndex = i;
+                break;
+              }
+            }
+            let nextIndex = (currentIndex + 1) % radios.length;
+            radios[nextIndex].checked = true;
+            updateActiveDot();
+          }
+        }, 5000);
+
+        // Limpar intervalo se necessário (boas práticas)
+        window.addEventListener("beforeunload", function () {
+          clearInterval(autoplayInterval);
+        });
+      });
+    </script>
+
+    <script>
+      // Script para o menu mobile
+      document.addEventListener("DOMContentLoaded", function () {
+        const navToggle = document.getElementById("navToggle");
+        const navMenu = document.getElementById("navMenu");
+
+        if (navToggle && navMenu) {
+          navToggle.addEventListener("click", function () {
+            const isExpanded =
+              navToggle.getAttribute("aria-expanded") === "true";
+            navToggle.setAttribute("aria-expanded", !isExpanded);
+            navMenu.classList.toggle("active");
+          });
+        }
+      });
+    </script>
+    <script>
+      // Tornar os cards de solução clicáveis
+      document.addEventListener("DOMContentLoaded", function () {
+        const solutionCards = document.querySelectorAll(".solution-card");
+
+        solutionCards.forEach((card) => {
+          card.addEventListener("click", function (e) {
             // Verifica se o clique não foi em um link dentro do card
-            if (!e.target.closest('a')) {
-              const link = this.querySelector('.btn-link');
+            if (!e.target.closest("a")) {
+              const link = this.querySelector(".btn-link");
               if (link) {
-                window.location.href = link.getAttribute('href');
+                window.location.href = link.getAttribute("href");
               }
             }
           });
 
           // Adiciona cursor pointer para indicar que é clicável
-          card.style.cursor = 'pointer';
+          card.style.cursor = "pointer";
         });
       });
-  </script>
+    </script>
 
-  <!-- Scripts existentes -->
-  <script src="js/main.js"></script>
-  <script src="js/navigation.js"></script>
-  <script src="js/form-handler.js"></script>
-  <script src="js/kodassauro-chat.js"></script>
-  <!-- Bootstrap 5 JS Bundle with Popper -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+    <!-- Scripts existentes -->
+    <script src="js/main.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/form-handler.js"></script>
+    <script src="js/kodassauro-chat.js"></script>
+    <!-- Bootstrap 5 JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
+    
+  </body>
 </html>

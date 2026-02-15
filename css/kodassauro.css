@@ -217,15 +217,6 @@
   transform: translateY(0) scale(1);
 }
 
-@media (max-width: 480px) {
-  .kodassauro-callout {
-    right: 6px;
-    bottom: 80px;
-    font-size: 0.9rem;
-    padding: 8px 12px;
-  }
-}
-
 .kodassauro-toggle:hover {
   transform: translateY(-2px) scale(1.03);
   box-shadow: var(--shadow-2xl);
@@ -520,45 +511,3 @@
   border: 0;
 }
 
-/* Hide chat only on narrow viewports when navigation overlays the screen */
-@media (max-width: 900px) {
-  body.nav-open .kodassauro-toggle,
-  body.nav-open .kodassauro-panel {
-    display: none;
-  }
-}
-
-@media (max-width: 768px) {
-  .kodassauro {
-    right: 18px;
-    bottom: 18px;
-  }
-}
-
-@media (max-width: 480px) {
-  .kodassauro {
-    right: 18px;
-    bottom: 18px;
-  }
-
-  .kodassauro-toggle {
-    width: 62px;
-    height: 62px;
-  }
-
-  .kodassauro-panel {
-    width: calc(100vw - 36px);
-    max-height: calc(100vh - 120px);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .kodassauro-toggle,
-  .kodassauro-panel,
-  .kodassauro-send,
-  .kodassauro-chip,
-  .kodassauro-svg .kds-eye {
-    transition: none !important;
-    animation: none !important;
-  }
-}

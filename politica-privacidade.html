@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO -->
+    <meta name="description" content="Política de Privacidade da KoddaHub - Saiba como coletamos, usamos e protegemos seus dados pessoais em conformidade com a LGPD.">
+    <meta name="keywords" content="política de privacidade, LGPD, proteção de dados, cookies, direitos do usuário, KoddaHub">
+    <meta name="author" content="KoddaHub">
+    <meta name="theme-color" content="#F57C00">
+    
+    <title>KoddaHub · Política de Privacidade</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #F57C00;
+            --primary-light: #FFB74D;
+            --primary-dark: #E65100;
+            --secondary: #2196F3;
+            --secondary-light: #64B5F6;
+            --dark: #1A1A1A;
+            --gray-dark: #333333;
+            --gray: #666666;
+            --gray-light: #999999;
+            --light: #F5F5F5;
+            --white: #FFFFFF;
+            --gradient-primary: linear-gradient(135deg, #F57C00, #FFB74D);
+            --box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--gray-dark);
+            overflow-x: hidden;
+            line-height: 1.6;
+            background: var(--light);
+        }
+
+        /* Header */
+        .header-modern {
+            background: linear-gradient(135deg, var(--dark), #2c3e50);
+            padding: 20px 0;
+            box-shadow: var(--box-shadow);
+        }
+
+        .navbar-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-image img {
+            height: 50px;
+            width: auto;
+        }
+
+        .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+            text-decoration: none;
+            color: var(--white);
+        }
+
+        .logo-text span {
+            color: var(--primary-light);
+        }
+
+        .back-link {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 20px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 50px;
+            transition: var(--transition);
+        }
+
+        .back-link:hover {
+            background: var(--gradient-primary);
+            border-color: transparent;
+        }
+
+        /* Container Principal */
+        .privacy-container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* Card de Conteúdo */
+        .privacy-card {
+            background: var(--white);
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+        }
+
+        /* Header da Política */
+        .privacy-header {
+            background: var(--gradient-primary);
+            padding: 60px 40px;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .privacy-header h1 {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .privacy-header p {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+
+        .last-updated {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 8px 25px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        /* Índice */
+        .privacy-index {
+            background: #f8fafd;
+            padding: 40px;
+            border-bottom: 1px solid #eef2f6;
+        }
+
+        .privacy-index h2 {
+            font-size: 24px;
+            color: var(--dark);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .privacy-index h2 i {
+            color: var(--primary);
+        }
+
+        .index-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .index-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--gray);
+            text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 10px;
+            transition: var(--transition);
+        }
+
+        .index-item:hover {
+            background: rgba(245,124,0,0.1);
+            color: var(--primary);
+        }
+
+        .index-item i {
+            font-size: 14px;
+        }
+
+        /* Corpo da Política */
+        .privacy-body {
+            padding: 40px;
+        }
+
+        .privacy-section {
+            margin-bottom: 50px;
+            scroll-margin-top: 30px;
+        }
+
+        .privacy-section h2 {
+            font-size: 28px;
+            color: var(--dark);
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--primary-light);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .privacy-section h2 i {
+            color: var(--primary);
+            font-size: 24px;
+        }
+
+        .privacy-section h3 {
+            font-size: 20px;
+            color: var(--dark);
+            margin: 25px 0 15px;
+        }
+
+        .privacy-section p {
+            color: var(--gray);
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        .privacy-section ul, 
+        .privacy-section ol {
+            margin: 15px 0 15px 30px;
+            color: var(--gray);
+        }
+
+        .privacy-section li {
+            margin-bottom: 10px;
+        }
+
+        /* Destaques e Alertas */
+        .highlight-box {
+            background: #fff7ed;
+            border-left: 6px solid var(--primary);
+            padding: 25px;
+            border-radius: 16px;
+            margin: 25px 0;
+        }
+
+        .info-box {
+            background: #e8f4fd;
+            border-left: 6px solid var(--secondary);
+            padding: 25px;
+            border-radius: 16px;
+            margin: 25px 0;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .data-table th {
+            background: var(--gradient-primary);
+            color: var(--white);
+            font-weight: 600;
+            padding: 15px;
+            text-align: left;
+        }
+
+        .data-table td {
+            padding: 15px;
+            border-bottom: 1px solid #eef2f6;
+            background: var(--white);
+        }
+
+        .data-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .data-table tr:hover td {
+            background: #f8fafd;
+        }
+
+        /* Badges */
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-right: 8px;
+        }
+
+        .badge-primary {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .badge-secondary {
+            background: var(--secondary);
+            color: var(--white);
+        }
+
+        /* Cards de Direitos */
+        .rights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .right-card {
+            background: #f8fafd;
+            padding: 25px;
+            border-radius: 20px;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .right-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--box-shadow);
+        }
+
+        .right-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-primary);
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 24px;
+            margin: 0 auto 15px;
+        }
+
+        .right-card h4 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .right-card p {
+            font-size: 14px;
+            color: var(--gray);
+            margin: 0;
+        }
+
+        /* Footer da Política */
+        .privacy-footer {
+            background: #2c3e50;
+            color: var(--white);
+            padding: 60px 40px;
+            text-align: center;
+        }
+
+        .privacy-footer h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin: 30px 0;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: rgba(255,255,255,0.9);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .contact-item:hover {
+            color: var(--primary-light);
+        }
+
+        .contact-item i {
+            font-size: 20px;
+        }
+
+        .footer-note {
+            font-size: 14px;
+            opacity: 0.7;
+            margin-top: 30px;
+        }
+
+        /* Botões */
+        .btn-primary {
+            display: inline-block;
+            background: var(--gradient-primary);
+            color: var(--white);
+            text-decoration: none;
+            padding: 15px 35px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--box-shadow);
+        }
+
+        .btn-outline {
+            display: inline-block;
+            background: transparent;
+            color: var(--white);
+            text-decoration: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            border: 2px solid rgba(255,255,255,0.3);
+            transition: var(--transition);
+        }
+
+        .btn-outline:hover {
+            background: var(--white);
+            color: var(--dark);
+        }
+
+        /* Cookies Bar */
+        .cookie-bar {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            right: 30px;
+            background: var(--white);
+            padding: 20px;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            max-width: 1200px;
+            margin: 0 auto;
+            display: none;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+            z-index: 999;
+            border: 1px solid #eef2f6;
+        }
+
+        .cookie-bar.show {
+            display: flex;
+        }
+
+        .cookie-text {
+            flex: 1;
+            color: var(--gray);
+        }
+
+        .cookie-text a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .cookie-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .privacy-header {
+                padding: 40px 20px;
+            }
+
+            .privacy-header h1 {
+                font-size: 32px;
+            }
+
+            .privacy-body {
+                padding: 25px;
+            }
+
+            .privacy-index {
+                padding: 25px;
+            }
+
+            .index-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .rights-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cookie-bar {
+                left: 15px;
+                right: 15px;
+                bottom: 15px;
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .cookie-buttons {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        /* Print styles */
+        @media print {
+            .header-modern,
+            .privacy-index,
+            .cookie-bar,
+            .btn-primary {
+                display: none;
+            }
+
+            .privacy-card {
+                box-shadow: none;
+            }
+
+            .privacy-section {
+                page-break-inside: avoid;
+            }
+        }
+
+        /* Utility */
+        .text-center {
+            text-align: center;
+        }
+
+        .mt-4 {
+            margin-top: 40px;
+        }
+
+        .mb-2 {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="header-modern">
+        <div class="navbar-wrapper">
+            <div class="navbar-brand">
+                <a href="../index.html" class="logo-image">
+                    <img src="../assets/logo/KoddaHub.png" alt="KoddaHub Logo">
+                </a>
+                <a href="../index.html" class="logo-text">
+                    Kodda<span>Hub</span>
+                </a>
+            </div>
+            <a href="../index.html" class="back-link">
+                <i class="fas fa-arrow-left"></i> Voltar para Home
+            </a>
+        </div>
+    </header>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <div class="privacy-container">
+        <div class="privacy-card">
+            
+            <!-- HEADER DA POLÍTICA -->
+            <div class="privacy-header">
+                <h1>Política de Privacidade</h1>
+                <p>Sua privacidade é importante para nós</p>
+                <div class="last-updated">
+                    <i class="fas fa-calendar-alt"></i> Última atualização: 15 de fevereiro de 2026
+                </div>
+            </div>
+
+            <!-- ÍNDICE -->
+            <div class="privacy-index">
+                <h2><i class="fas fa-list"></i> Nesta página</h2>
+                <div class="index-grid">
+                    <a href="#introducao" class="index-item"><i class="fas fa-chevron-right"></i> Introdução</a>
+                    <a href="#dados-coletados" class="index-item"><i class="fas fa-chevron-right"></i> Dados Coletados</a>
+                    <a href="#uso-dados" class="index-item"><i class="fas fa-chevron-right"></i> Como Usamos</a>
+                    <a href="#compartilhamento" class="index-item"><i class="fas fa-chevron-right"></i> Compartilhamento</a>
+                    <a href="#cookies" class="index-item"><i class="fas fa-chevron-right"></i> Cookies</a>
+                    <a href="#direitos" class="index-item"><i class="fas fa-chevron-right"></i> Seus Direitos</a>
+                    <a href="#seguranca" class="index-item"><i class="fas fa-chevron-right"></i> Segurança</a>
+                    <a href="#contato" class="index-item"><i class="fas fa-chevron-right"></i> Contato</a>
+                </div>
+            </div>
+
+            <!-- CORPO DA POLÍTICA -->
+            <div class="privacy-body">
+
+                <!-- INTRODUÇÃO -->
+                <section id="introducao" class="privacy-section">
+                    <h2><i class="fas fa-info-circle"></i> 1. Introdução</h2>
+                    <p>A KoddaHub está comprometida em proteger sua privacidade. Esta Política de Privacidade explica como coletamos, usamos, compartilhamos e protegemos suas informações pessoais em conformidade com a <strong>Lei Geral de Proteção de Dados (LGPD - Lei nº 13.709/2018)</strong> e outras legislações aplicáveis [citation:1][citation:7].</p>
+                    
+                    <div class="highlight-box">
+                        <i class="fas fa-shield-alt" style="color: var(--primary); font-size: 24px; margin-right: 10px;"></i>
+                        <strong>Nosso compromisso:</strong> A KoddaHub atua como controladora dos seus dados pessoais, determinando como e por que suas informações são utilizadas [citation:5].
+                    </div>
+
+                    <p>Ao utilizar nossos serviços, você concorda com as práticas descritas nesta política. Se você não concordar com qualquer parte desta política, solicitamos que não utilize nossos serviços.</p>
+                </section>
+
+                <!-- DADOS COLETADOS -->
+                <section id="dados-coletados" class="privacy-section">
+                    <h2><i class="fas fa-database"></i> 2. Dados que Coletamos</h2>
+                    
+                    <p>Coletamos informações pessoais que você nos fornece diretamente, além de dados coletados automaticamente quando você interage com nossos serviços [citation:6].</p>
+
+                    <h3>2.1 Dados fornecidos por você</h3>
+                    
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Categoria</th>
+                                <th>Exemplos de dados</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="badge badge-primary">Identificação</span></td>
+                                <td>Nome completo, CPF, RG, data de nascimento</td>
+                            </tr>
+                            <tr>
+                                <td><span class="badge badge-primary">Contato</span></td>
+                                <td>E-mail, telefone, endereço</td>
+                            </tr>
+                            <tr>
+                                <td><span class="badge badge-primary">Profissional</span></td>
+                                <td>Empresa, cargo, área de atuação</td>
+                            </tr>
+                            <tr>
+                                <td><span class="badge badge-primary">Financeiro</span></td>
+                                <td>Dados de pagamento, histórico de compras</td>
+                            </tr>
+                            <tr>
+                                <td><span class="badge badge-primary">Comunicações</span></td>
+                                <td>Mensagens enviadas, feedbacks, solicitações de suporte</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3>2.2 Dados coletados automaticamente</h3>
+                    
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Categoria</th>
+                                <th>Exemplos de dados</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="badge badge-secondary">Navegação</span></td>
+                                <td>Endereço IP, tipo de navegador, páginas visitadas</td>
+                            </tr>
+                            <tr>
+                                <td><span class="badge badge-secondary">Dispositivo</span></td>
+                                <td>Sistema operacional, identificadores únicos do dispositivo</td>
+                            </tr>
+                            <tr>
+                                <td><span class="badge badge-secondary">Localização</span></td>
+                                <td>Localização aproximada baseada no IP</td>
+                            </tr>
+                            <tr>
+                                <td><span class="badge badge-secondary">Cookies</span></td>
+                                <td>Preferências de navegação, sessões</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="info-box">
+                        <i class="fas fa-info-circle" style="color: var(--secondary); font-size: 20px; margin-right: 10px;"></i>
+                        <strong>Base legal:</strong> Coletamos seus dados com base no seu consentimento, para execução de contrato, cumprimento de obrigações legais ou para atender nossos legítimos interesses, sempre respeitando seus direitos fundamentais [citation:1][citation:7].
+                    </div>
+                </section>
+
+                <!-- USO DOS DADOS -->
+                <section id="uso-dados" class="privacy-section">
+                    <h2><i class="fas fa-chart-line"></i> 3. Como Utilizamos seus Dados</h2>
+                    
+                    <p>Utilizamos suas informações pessoais para as seguintes finalidades [citation:5][citation:6]:</p>
+
+                    <ul>
+                        <li><strong>Prestação de serviços:</strong> Para fornecer, manter e melhorar nossos serviços, incluindo suporte ao cliente e personalização da sua experiência.</li>
+                        <li><strong>Comunicação:</strong> Para enviar informações importantes sobre sua conta, atualizações de serviços e responder suas solicitações.</li>
+                        <li><strong>Marketing:</strong> Para enviar comunicações sobre novidades e ofertas (sempre com seu consentimento prévio).</li>
+                        <li><strong>Análises e melhorias:</strong> Para entender como nossos serviços são utilizados e desenvolver novas funcionalidades.</li>
+                        <li><strong>Segurança:</strong> Para proteger nossos sistemas, prevenir fraudes e garantir a integridade de nossos serviços [citation:6].</li>
+                        <li><strong>Cumprimento legal:</strong> Para atender obrigações legais e regulatórias.</li>
+                    </ul>
+
+                    <div class="highlight-box">
+                        <strong>📊 Análise de dados:</strong> Em nossos serviços de Data Science, utilizamos dados agregados e anonimizados para gerar insights de mercado. Estes dados não permitem identificação pessoal [citation:5].
+                    </div>
+                </section>
+
+                <!-- COMPARTILHAMENTO -->
+                <section id="compartilhamento" class="privacy-section">
+                    <h2><i class="fas fa-share-alt"></i> 4. Compartilhamento de Dados</h2>
+                    
+                    <p>Podemos compartilhar suas informações nas seguintes situações [citation:1][citation:5]:</p>
+
+                    <ul>
+                        <li><strong>Com seu consentimento:</strong> Quando você autoriza expressamente o compartilhamento.</li>
+                        <li><strong>Parceiros de serviço:</strong> Com empresas que nos auxiliam na prestação dos serviços (processadores de pagamento, hospedagem, analytics), sempre sob contrato que garanta a proteção adequada dos dados.</li>
+                        <li><strong>Obrigações legais:</strong> Para cumprir exigências de autoridades regulatórias, ordem judicial ou outras obrigações legais.</li>
+                        <li><strong>Proteção de direitos:</strong> Para proteger os direitos, propriedade e segurança da KoddaHub, nossos usuários ou o público.</li>
+                    </ul>
+
+                    <div class="info-box">
+                        <i class="fas fa-gavel"></i>
+                        <strong>Transferências internacionais:</strong> Seus dados podem ser transferidos e armazenados em servidores localizados fora do Brasil, sempre em conformidade com a LGPD e utilizando salvaguardas adequadas [citation:1].
+                    </div>
+                </section>
+
+                <!-- COOKIES -->
+                <section id="cookies" class="privacy-section">
+                    <h2><i class="fas fa-cookie-bite"></i> 5. Cookies e Tecnologias Semelhantes</h2>
+                    
+                    <p>Utilizamos cookies e tecnologias semelhantes para melhorar sua experiência em nossos sites [citation:4][citation:6].</p>
+
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Tipo de Cookie</th>
+                                <th>Finalidade</th>
+                                <th>Duração</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Essenciais</strong></td>
+                                <td>Necessários para o funcionamento do site, como autenticação e segurança</td>
+                                <td>Sessão</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Preferências</strong></td>
+                                <td>Lembram suas escolhas e personalizam sua experiência</td>
+                                <td>1 ano</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Analíticos</strong></td>
+                                <td>Coletam informações anônimas sobre como você usa o site (Google Analytics)</td>
+                                <td>2 anos</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Marketing</strong></td>
+                                <td>Rastreiam sua navegação para mostrar anúncios relevantes</td>
+                                <td>90 dias</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <p>Você pode gerenciar suas preferências de cookies a qualquer momento através das configurações do seu navegador ou clicando no botão abaixo.</p>
+                    
+                    <button class="btn-primary" style="margin: 20px 0;" onclick="alert('Funcionalidade de gerenciamento de cookies será implementada.')">
+                        <i class="fas fa-cog"></i> Gerenciar Cookies
+                    </button>
+                </section>
+
+                <!-- DIREITOS DO USUÁRIO -->
+                <section id="direitos" class="privacy-section">
+                    <h2><i class="fas fa-user-check"></i> 6. Seus Direitos (LGPD)</h2>
+                    
+                    <p>A LGPD garante a você diversos direitos sobre seus dados pessoais [citation:1][citation:7]. Você pode exercê-los a qualquer momento entrando em contato conosco.</p>
+
+                    <div class="rights-grid">
+                        <div class="right-card">
+                            <div class="right-icon"><i class="fas fa-check-circle"></i></div>
+                            <h4>Confirmação e Acesso</h4>
+                            <p>Confirmar se tratamos seus dados e acessar as informações que temos sobre você</p>
+                        </div>
+                        <div class="right-card">
+                            <div class="right-icon"><i class="fas fa-pen"></i></div>
+                            <h4>Correção</h4>
+                            <p>Corrigir dados incompletos, inexatos ou desatualizados</p>
+                        </div>
+                        <div class="right-card">
+                            <div class="right-icon"><i class="fas fa-ban"></i></div>
+                            <h4>Anonimização e Bloqueio</h4>
+                            <p>Solicitar a anonimização ou bloqueio de dados desnecessários</p>
+                        </div>
+                        <div class="right-card">
+                            <div class="right-icon"><i class="fas fa-trash"></i></div>
+                            <h4>Eliminação</h4>
+                            <p>Solicitar a exclusão de dados tratados com seu consentimento</p>
+                        </div>
+                        <div class="right-card">
+                            <div class="right-icon"><i class="fas fa-download"></i></div>
+                            <h4>Portabilidade</h4>
+                            <p>Receber seus dados em formato estruturado para transferência</p>
+                        </div>
+                        <div class="right-card">
+                            <div class="right-icon"><i class="fas fa-times-circle"></i></div>
+                            <h4>Revogação de Consentimento</h4>
+                            <p>Revogar seu consentimento a qualquer momento</p>
+                        </div>
+                    </div>
+
+                    <div class="highlight-box">
+                        <strong>📝 Como exercer seus direitos:</strong> Envie um e-mail para <strong>lgpd@koddahub.com.br</strong> com o assunto "Direitos LGPD" e sua solicitação. Responderemos em até 15 dias úteis, conforme prazo legal.
+                    </div>
+                </section>
+
+                <!-- SEGURANÇA -->
+                <section id="seguranca" class="privacy-section">
+                    <h2><i class="fas fa-lock"></i> 7. Segurança dos Dados</h2>
+                    
+                    <p>Adotamos medidas técnicas e organizacionais para proteger seus dados pessoais contra acessos não autorizados, destruição, perda ou alteração [citation:5][citation:8].</p>
+
+                    <ul>
+                        <li><strong>Criptografia:</strong> Utilizamos SSL/TLS para proteger dados em trânsito</li>
+                        <li><strong>Controle de acesso:</strong> Acesso restrito a funcionários autorizados</li>
+                        <li><strong>Monitoramento:</strong> Sistemas de detecção de intrusão e análise de vulnerabilidades</li>
+                        <li><strong>Backups:</strong> Cópias de segurança regulares para garantir disponibilidade</li>
+                        <li><strong>Treinamento:</strong> Nossa equipe é treinada em boas práticas de proteção de dados</li>
+                    </ul>
+
+                    <div class="info-box">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <strong>Em caso de incidente:</strong> Se identificarmos qualquer violação de segurança que possa causar risco significativo a você, notificaremos dentro de prazo razoável, conforme exigido pela LGPD [citation:4].
+                    </div>
+                </section>
+
+                <!-- RETENÇÃO -->
+                <section id="retencao" class="privacy-section">
+                    <h2><i class="fas fa-clock"></i> 8. Retenção de Dados</h2>
+                    
+                    <p>Mantemos seus dados pessoais apenas pelo tempo necessário para cumprir as finalidades para as quais foram coletados, incluindo obrigações legais e contratuais [citation:5].</p>
+
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Tipo de Dado</th>
+                                <th>Período de Retenção</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Dados de conta ativa</td>
+                                <td>Enquanto a conta estiver ativa</td>
+                            </tr>
+                            <tr>
+                                <td>Dados contratuais</td>
+                                <td>5 anos após o término do contrato (prazo prescricional)</td>
+                            </tr>
+                            <tr>
+                                <td>Dados de marketing</td>
+                                <td>Até revogação do consentimento</td>
+                            </tr>
+                            <tr>
+                                <td>Logs de navegação</td>
+                                <td>6 meses</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <!-- MENORES DE IDADE -->
+                <section id="menores" class="privacy-section">
+                    <h2><i class="fas fa-child"></i> 9. Menores de Idade</h2>
+                    
+                    <p>Nossos serviços não são direcionados a menores de 18 anos. Não coletamos intencionalmente informações de crianças ou adolescentes [citation:5].</p>
+                    
+                    <div class="highlight-box">
+                        Se você é pai/mãe ou responsável e acredita que seu filho nos forneceu dados pessoais sem seu consentimento, entre em contato para que possamos eliminar estas informações.
+                    </div>
+                </section>
+
+                <!-- ALTERAÇÕES -->
+                <section id="alteracoes" class="privacy-section">
+                    <h2><i class="fas fa-sync-alt"></i> 10. Alterações nesta Política</h2>
+                    
+                    <p>Podemos atualizar esta Política de Privacidade periodicamente para refletir mudanças em nossas práticas ou requisitos legais [citation:1].</p>
+                    
+                    <p>A versão mais recente estará sempre disponível em nosso site, com a data de atualização no topo da página. Quando fizermos alterações significativas, notificaremos você por e-mail ou através de um aviso em destaque em nossos serviços.</p>
+                    
+                    <p>Recomendamos que você revise esta política regularmente para se manter informado sobre como protegemos suas informações.</p>
+                </section>
+
+                <!-- CONTATO E ENCARREGADO -->
+                <section id="contato" class="privacy-section">
+                    <h2><i class="fas fa-envelope"></i> 11. Fale Conosco</h2>
+                    
+                    <p>Se você tiver dúvidas, preocupações ou solicitações relacionadas a esta Política de Privacidade ou ao tratamento de seus dados pessoais, entre em contato com nosso <strong>Encarregado de Proteção de Dados (DPO)</strong> [citation:7][citation:8]:</p>
+
+                    <div style="background: #f8fafd; padding: 30px; border-radius: 20px; margin: 25px 0;">
+                        <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+                            <i class="fas fa-user-shield" style="font-size: 40px; color: var(--primary);"></i>
+                            <div>
+                                <h4 style="margin: 0;">Encarregado de Dados</h4>
+                                <p style="margin: 0;">Angela Machado</p>
+                            </div>
+                        </div>
+                        
+                        <div style="display: grid; gap: 15px;">
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <i class="fas fa-envelope" style="color: var(--primary);"></i>
+                                <a href="mailto:lgpd@koddahub.com.br" style="color: var(--dark); text-decoration: none;">lgpd@koddahub.com.br</a>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <i class="fas fa-phone-alt" style="color: var(--primary);"></i>
+                                <a href="tel:+554192272854" style="color: var(--dark); text-decoration: none;">(41) 9227-2854</a>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <i class="fas fa-map-marker-alt" style="color: var(--primary);"></i>
+                                <span>R. Dr. Brasílio Vicente de Castro, 111 - S801, Curitiba - PR</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p>Você também pode entrar em contato com a <strong>Autoridade Nacional de Proteção de Dados (ANPD)</strong> caso não fique satisfeito com nossa resposta [citation:1].</p>
+                </section>
+            </div>
+
+            <!-- FOOTER DA POLÍTICA -->
+            <div class="privacy-footer">
+                <h3>Transparência e respeito com seus dados</h3>
+                
+                <div class="contact-info">
+                    <a href="mailto:lgpd@koddahub.com.br" class="contact-item">
+                        <i class="fas fa-envelope"></i> lgpd@koddahub.com.br
+                    </a>
+                    <a href="tel:+554192272854" class="contact-item">
+                        <i class="fas fa-phone-alt"></i> (41) 9227-2854
+                    </a>
+                    <a href="#" class="contact-item" onclick="window.print()">
+                        <i class="fas fa-print"></i> Imprimir Política
+                    </a>
+                </div>
+
+                <div style="margin: 30px 0;">
+                    <a href="../index.html" class="btn-outline">
+                        <i class="fas fa-home"></i> Voltar para Home
+                    </a>
+                </div>
+
+                <div class="footer-note">
+                    <p>© 2026 KoddaHub. Todos os direitos reservados.</p>
+                    <p style="margin-top: 10px;">Esta política está em conformidade com a Lei Geral de Proteção de Dados (LGPD - Lei nº 13.709/2018) e o Marco Civil da Internet.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- COOKIE BAR -->
+    <div class="cookie-bar" id="cookieBar">
+        <div class="cookie-text">
+            <i class="fas fa-cookie-bite" style="color: var(--primary); margin-right: 10px;"></i>
+            Utilizamos cookies para melhorar sua experiência. Ao continuar navegando, você concorda com nossa <a href="#cookies">Política de Privacidade</a>.
+        </div>
+        <div class="cookie-buttons">
+            <button class="btn-primary" onclick="acceptCookies()">Aceitar</button>
+            <button class="btn-outline" onclick="rejectCookies()" style="color: var(--dark); border-color: var(--gray-light);">Recusar</button>
+        </div>
+    </div>
+
+    <script>
+        // Cookie bar
+        function acceptCookies() {
+            document.getElementById('cookieBar').style.display = 'none';
+            localStorage.setItem('cookiesAccepted', 'true');
+        }
+
+        function rejectCookies() {
+            document.getElementById('cookieBar').style.display = 'none';
+            localStorage.setItem('cookiesAccepted', 'false');
+        }
+
+        // Verificar se já aceitou cookies
+        window.onload = function() {
+            if (!localStorage.getItem('cookiesAccepted')) {
+                setTimeout(function() {
+                    document.getElementById('cookieBar').classList.add('show');
+                }, 1000);
+            }
+        };
+
+        // Smooth scroll para âncoras
+        document.querySelectorAll('.index-item').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Destacar seção ativa durante scroll
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('.privacy-section');
+            const navItems = document.querySelectorAll('.index-item');
+            
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navItems.forEach(item => {
+                item.classList.remove('active');
+                if (item.getAttribute('href') === `#${current}`) {
+                    item.classList.add('active');
+                    item.style.color = 'var(--primary)';
+                    item.style.background = 'rgba(245,124,0,0.1)';
+                } else {
+                    item.style.color = '';
+                    item.style.background = '';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

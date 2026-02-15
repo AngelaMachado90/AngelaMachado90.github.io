@@ -1757,3 +1757,21 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
+
+
+/* Inline styles migrated from demo-sistemas.html */
+.inline-migrated-1 { font-size: 32px; color: var(--color-primary-600); }
+.inline-migrated-2 { background: rgba(255, 255, 255, 0.2); color: white; }
+.inline-migrated-3 { color: white;
+                font-size: var(--font-size-h2);
+                margin-top: var(--spacing-4); }
+.inline-migrated-4 { color: rgba(255, 255, 255, 0.9);
+                font-size: var(--font-size-lg); }
+.inline-migrated-5 { margin-top: var(--spacing-5);
+            font-size: var(--font-size-sm);
+            opacity: 0.8; }
+.inline-migrated-6 { text-align: center;
+            margin-top: var(--spacing-6);
+            color: rgba(255, 255, 255, 0.5);
+            font-size: var(--font-size-xs); }
+.inline-migrated-7 { color: var(--color-primary-300); }

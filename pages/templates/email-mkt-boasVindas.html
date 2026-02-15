@@ -10,7 +10,7 @@
         .ExternalClass,
         .ReadMsgBody {
             width: 100%;
-            background-color: #f2f5fa;
+            background-color: var(--color-neutral-50, #fafafa);
         }
 
         body,
@@ -40,13 +40,73 @@
         body {
             margin: 0;
             padding: 0;
-            background-color: #f2f5fa;
-            font-family: Helvetica, Arial, sans-serif;
+            background-color: var(--color-neutral-100, #f5f5f5);
+            font-family: var(--font-body, Helvetica, Arial, sans-serif);
+        }
+
+        /* Ajuste para a logo */
+        .logo-container {
+            background: var(--white-pure, #ffffff);
+            width: 80px;
+            height: 80px;
+            border-radius: var(--radius-full, 50px);
+            display: inline-block;
+            vertical-align: middle;
+            padding: 5px;
+            box-shadow: var(--shadow-md, 0 4px 6px -1px rgba(0, 0, 0, 0.1));
+        }
+
+        .logo-container img {
+            width: 70px;
+            height: 70px;
+            border-radius: var(--radius-full, 35px);
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* Estilos baseados nas variáveis CSS */
+        .header-gradient {
+            background: linear-gradient(145deg, var(--color-primary-600, #f57c00), var(--color-primary-500, #ff9800));
+        }
+
+        .highlight-box {
+            background: var(--color-primary-50, #fff3e0);
+            border-left: 6px solid var(--color-primary-600, #f57c00);
+        }
+
+        .feature-bg {
+            background: var(--color-secondary-50, #e3f2fd);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--color-primary-600, #f57c00), var(--color-primary-500, #ff9800));
+            box-shadow: var(--shadow-primary-lg, 0 10px 15px -3px rgba(245, 124, 0, 0.2));
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, var(--color-primary-700, #e65100), var(--color-primary-600, #f57c00));
+        }
+
+        .social-bg {
+            background: var(--color-neutral-200, #eeeeee);
+        }
+
+        .footer-text {
+            color: var(--color-neutral-600, #757575);
+            border-top-color: var(--color-neutral-300, #e0e0e0);
+        }
+
+        .link-kodda {
+            color: var(--color-primary-600, #f57c00);
+        }
+
+        .preheader-text {
+            color: var(--color-neutral-500, #9e9e9e);
         }
     </style>
 </head>
 
-<body style="margin:0; padding:0; background:#f2f5fa;">
+<body style="margin:0; padding:0; background-color:#f5f5f5; font-family: 'Inter', Helvetica, Arial, sans-serif;">
 
     <!-- fallback para fontes -->
     <center style="width:100%;table-layout:fixed;">
@@ -54,32 +114,37 @@
 
             <!-- tabela principal -->
             <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%"
-                style="max-width:600px; background:white; border-radius:30px; overflow:hidden; margin:20px 10px; box-shadow:0 20px 40px -10px rgba(0,0,0,0.15);">
+                style="max-width:600px; background:#ffffff; border-radius:30px; overflow:hidden; margin:20px 10px; box-shadow:0 20px 40px -10px rgba(0,0,0,0.15);">
 
                 <!-- header laranja KoddaHub -->
                 <tr>
                     <td bgcolor="#F57C00" align="center"
-                        style="padding:35px 20px 25px; background:linear-gradient(145deg, #F57C00, #FFB347);">
+                        style="padding:35px 20px 25px; background: linear-gradient(135deg, #2196f3 0%, #f57c00 100% /* orange-vibrant */);">
                         <table border="0" cellpadding="0" cellspacing="0" width="100%">
                             <tr>
                                 <td align="center" style="padding-bottom:15px;">
-                                    <div
-                                        style="background:white; width:75px; height:75px; border-radius:50px; display:inline-block; vertical-align:middle;">
-                                        <div
-                                            style="background:#F57C00; width:50px; height:50px; border-radius:30px; margin:12px auto 0; font-size:32px; font-weight:bold; color:white; line-height:50px;">
-                                            K</div>
+                                    <!-- LOGO KoddaHub -->
+                                    <div class="logo-container"
+                                        style="background:#ffffff; width:80px; height:80px; border-radius:50px; display:inline-block; vertical-align:middle; padding:5px; box-shadow:0 4px 6px -1px rgba(0,0,0,0.1);">
+                                        <a href="https://angelamachado90.github.io/index.html">
+                                            <img src="https://angelamachado90.github.io/assets/logo/KoddaHub.png"
+                                                alt="KoddaHub Logo" width="70" height="70"
+                                                style="width:70px; height:70px; border-radius:35px; display:block; margin:0 auto;"
+                                                onerror="this.onerror=null; this.src='https://via.placeholder.com/70x70/f57c00/ffffff?text=KH';">
+                                        </a>
                                     </div>
                                 </td>
                             </tr>
                             <tr>
                                 <td align="center"
-                                    style="color:white; font-size:36px; font-weight:800; letter-spacing:-1px;">
-                                    Bem-vindo!</td>
+                                    style="color:#ffffff; font-size:36px; font-weight:800; letter-spacing:-1px;">
+                                    Bem-vindo à KoddaHub!</td>
                             </tr>
                             <tr>
                                 <td align="center"
-                                    style="color:rgba(255,255,255,0.9); font-size:18px; padding-top:5px;">KoddaHub ·
-                                    comece sua jornada</td>
+                                    style="color:rgba(255,255,255,0.9); font-size:18px; padding-top:5px;">
+                                    Sua jornada começa agora
+                                </td>
                             </tr>
                         </table>
                     </td>
@@ -90,19 +155,27 @@
                     <td style="padding:40px 35px;" bgcolor="#ffffff">
                         <table border="0" cellpadding="0" cellspacing="0" width="100%">
                             <tr>
-                                <td style="font-size:22px; font-weight:600; color:#1e293b; padding-bottom:15px;">👋 Olá,
-                                    [Nome]!</td>
+                                <td style="font-size:22px; font-weight:600; color:#212121; padding-bottom:15px;">
+                                    👋 Olá, [Nome do Cliente]!
+                                </td>
                             </tr>
                             <tr>
-                                <td style="color:#3f4a5a; font-size:16px; line-height:1.6; padding-bottom:20px;">Sua
-                                    conta foi ativada com sucesso. Você agora faz parte da família KoddaHub, onde
-                                    inovação e sucesso caminham juntos.</td>
+                                <td style="color:#616161; font-size:16px; line-height:1.6; padding-bottom:20px;">
+                                    <strong>Seu cadastro foi recebido com sucesso!</strong> <br>Agradecemos pelo interesse
+                                    em nossas soluções web.
+                                </td>
                             </tr>
                             <tr>
                                 <td
-                                    style="background:#fff7ed; border-left:6px solid #F57C00; padding:20px; border-radius:14px; margin:20px 0; font-size:15px; color:#2d3e50;">
-                                    <strong>📌 Primeiro passo:</strong> Complete seu perfil e agende uma call de
-                                    onboarding com nossa equipe.
+                                    style="background:#fff3e0; border-left:6px solid #f57c00; padding:20px; border-radius:14px; margin:20px 0; font-size:15px; color:#2d3e50;">
+                                    <strong style="color:#e65100;">📞 Próximos passos:</strong> Um de nossos
+                                    especialistas entrará em contato em até <strong>24 horas</strong> para entender
+                                    melhor seu projeto e necessidades. Fique atento ao seu e-mail e telefone!
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="color:#616161; font-size:16px; line-height:1.6; padding-top:15px;">
+                                    Enquanto isso, conheça um pouco mais sobre o que podemos fazer pelo seu negócio:
                                 </td>
                             </tr>
                         </table>
@@ -111,22 +184,23 @@
                         <table border="0" cellpadding="0" cellspacing="0" width="100%" style="margin:25px 0;">
                             <tr>
                                 <td width="48%"
-                                    style="vertical-align:top; background:#f8faff; border-radius:18px; padding:18px;"
+                                    style="vertical-align:top; background:#e3f2fd; border-radius:18px; padding:18px;"
                                     valign="top">
-                                    <img src="https://img.icons8.com/ios-filled/40/F57C00/rocket.png" width="32"
+                                    <img src="https://img.icons8.com/ios-filled/40/f57c00/rocket.png" width="32"
                                         height="32" alt="🚀" style="display:block;">
-                                    <p style="font-weight:700; margin:8px 0 3px;">Onboarding</p>
-                                    <p style="font-size:13px; color:#5f6c80;">Suporte individual para configurar tudo.
+                                    <p style="font-weight:700; margin:8px 0 3px; color:#212121;">Sites Institucionais
+                                    </p>
+                                    <p style="font-size:13px; color:#616161;">Presença profissional para sua empresa.
                                     </p>
                                 </td>
                                 <td width="4%"></td>
                                 <td width="48%"
-                                    style="vertical-align:top; background:#f8faff; border-radius:18px; padding:18px;"
+                                    style="vertical-align:top; background:#e3f2fd; border-radius:18px; padding:18px;"
                                     valign="top">
-                                    <img src="https://img.icons8.com/ios-filled/40/F57C00/document.png" width="32"
-                                        height="32" alt="📄" style="display:block;">
-                                    <p style="font-weight:700; margin:8px 0 3px;">Docs</p>
-                                    <p style="font-size:13px; color:#5f6c80;">Guias e tutoriais sempre atualizados.</p>
+                                    <img src="https://img.icons8.com/ios-filled/40/f57c00/shopping-cart.png" width="32"
+                                        height="32" alt="🛒" style="display:block;">
+                                    <p style="font-weight:700; margin:8px 0 3px; color:#212121;">E-commerce</p>
+                                    <p style="font-size:13px; color:#616161;">Lojas virtuais completas.</p>
                                 </td>
                             </tr>
                             <tr style="line-height:15px;">
@@ -134,56 +208,82 @@
                             </tr>
                             <tr>
                                 <td width="48%"
-                                    style="vertical-align:top; background:#f8faff; border-radius:18px; padding:18px;"
+                                    style="vertical-align:top; background:#e3f2fd; border-radius:18px; padding:18px;"
                                     valign="top">
-                                    <img src="https://img.icons8.com/ios-filled/40/F57C00/headset.png" width="32"
-                                        height="32" alt="🎧" style="display:block;">
-                                    <p style="font-weight:700; margin:8px 0 3px;">Suporte</p>
-                                    <p style="font-size:13px; color:#5f6c80;">Chat e e-mail com resposta rápida.</p>
+                                    <img src="https://img.icons8.com/ios-filled/40/f57c00/code.png" width="32"
+                                        height="32" alt="💻" style="display:block;">
+                                    <p style="font-weight:700; margin:8px 0 3px; color:#212121;">Sistemas Web</p>
+                                    <p style="font-size:13px; color:#616161;">Soluções personalizadas para gestão.</p>
                                 </td>
                                 <td width="4%"></td>
                                 <td width="48%"
-                                    style="vertical-align:top; background:#f8faff; border-radius:18px; padding:18px;"
+                                    style="vertical-align:top; background:#e3f2fd; border-radius:18px; padding:18px;"
                                     valign="top">
-                                    <img src="https://img.icons8.com/ios-filled/40/F57C00/conference.png" width="32"
-                                        height="32" alt="👥" style="display:block;">
-                                    <p style="font-weight:700; margin:8px 0 3px;">Comunidade</p>
-                                    <p style="font-size:13px; color:#5f6c80;">Grupo exclusivo de clientes.</p>
+                                    <img src="https://img.icons8.com/ios-filled/40/f57c00/bar-chart.png" width="32"
+                                        height="32" alt="📊" style="display:block;">
+                                    <p style="font-weight:700; margin:8px 0 3px; color:#212121;">Análise de Dados</p>
+                                    <p style="font-size:13px; color:#616161;">Insights estratégicos para decisões.</p>
                                 </td>
                             </tr>
                         </table>
 
-                        <!-- CTA principal -->
+                        <!-- CTA secundário -->
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%" style="margin:20px 0;">
+                            <tr>
+                                <td align="center" style="background:#f5f5f5; padding:25px; border-radius:18px;">
+                                    <p style="margin:0 0 10px; color:#212121; font-weight:600;">
+                                        ⚡ Quer adiantar seu projeto?
+                                    </p>
+                                    <p style="margin:0 0 15px; color:#616161; font-size:14px;">
+                                        Enquanto aguarda nosso contato, você pode explorar nossos cases de sucesso.
+                                    </p>
+                                    <a href="https://angelamachado90.github.io/index.html#portfolio"
+                                        style="background:linear-gradient(135deg,#f57c00,#ff9800); color:white; text-decoration:none; font-weight:600; font-size:14px; padding:12px 25px; border-radius:50px; display:inline-block; box-shadow:0 5px 10px -5px rgba(245,124,0,0.3);">
+                                        VER PORTFÓLIO
+                                    </a>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <!-- CTA principal (Acessar conta) -->
                         <table border="0" cellpadding="0" cellspacing="0" width="100%">
                             <tr>
                                 <td align="center" style="padding:20px 0 10px;">
                                     <a href="https://angelamachado90.github.io/index.html"
-                                        style="background:linear-gradient(135deg,#F57C00,#FF9900); color:white; text-decoration:none; font-weight:700; font-size:18px; padding:16px 40px; border-radius:50px; display:inline-block; box-shadow:0 12px 20px -8px #F57C00;">ACESSAR
-                                        MINHA CONTA</a>
+                                        style="background:linear-gradient(135deg,#f57c00,#ff9800); color:white; text-decoration:none; font-weight:700; font-size:18px; padding:16px 40px; border-radius:50px; display:inline-block; box-shadow:0 12px 20px -8px rgba(245,124,0,0.3);">
+                                        ACESSAR MINHA CONTA
+                                    </a>
                                 </td>
                             </tr>
                         </table>
 
-                        <!-- rede social (linha fina) -->
+                        <!-- rede social -->
                         <table border="0" cellpadding="0" cellspacing="0" width="100%" style="margin:35px 0 20px;">
                             <tr>
-                                <td align="center" style="color:#8a99ab; font-size:13px;">Conecte-se com a gente</td>
+                                <td align="center" style="color:#9e9e9e; font-size:13px;">Conecte-se com a gente</td>
                             </tr>
                             <tr>
                                 <td align="center" style="padding:10px 0;">
-                                    <!--Ajustar as redes sociais, depois que criar elas-->
-                                    <a href="#"
-                                        style="display:inline-block; margin:0 6px; background:#eef3f8; width:38px; height:38px; border-radius:40px; line-height:40px;"><img
-                                            src="https://img.icons8.com/ios-filled/20/F57C00/instagram-new.png"
-                                            style="vertical-align:middle;"></a>
-                                    <a href="#"
-                                        style="display:inline-block; margin:0 6px; background:#eef3f8; width:38px; height:38px; border-radius:40px; line-height:40px;"><img
-                                            src="https://img.icons8.com/ios-filled/20/F57C00/facebook-new.png"
-                                            style="vertical-align:middle;"></a>
-                                    <a href="#"
-                                        style="display:inline-block; margin:0 6px; background:#eef3f8; width:38px; height:38px; border-radius:40px; line-height:40px;"><img
-                                            src="https://img.icons8.com/ios-filled/20/F57C00/linkedin.png"
-                                            style="vertical-align:middle;"></a>
+                                    <a href="https://instagram.com/koddahub"
+                                        style="display:inline-block; margin:0 6px; background:#eeeeee; width:38px; height:38px; border-radius:40px; line-height:40px; text-align:center;">
+                                        <img src="https://img.icons8.com/ios-filled/20/f57c00/instagram-new.png"
+                                            style="vertical-align:middle;" alt="Instagram">
+                                    </a>
+                                    <a href="https://facebook.com/koddahub"
+                                        style="display:inline-block; margin:0 6px; background:#eeeeee; width:38px; height:38px; border-radius:40px; line-height:40px; text-align:center;">
+                                        <img src="https://img.icons8.com/ios-filled/20/f57c00/facebook-new.png"
+                                            style="vertical-align:middle;" alt="Facebook">
+                                    </a>
+                                    <a href="https://linkedin.com/company/koddahub"
+                                        style="display:inline-block; margin:0 6px; background:#eeeeee; width:38px; height:38px; border-radius:40px; line-height:40px; text-align:center;">
+                                        <img src="https://img.icons8.com/ios-filled/20/f57c00/linkedin.png"
+                                            style="vertical-align:middle;" alt="LinkedIn">
+                                    </a>
+                                    <a href="https://wa.me/554192272854"
+                                        style="display:inline-block; margin:0 6px; background:#eeeeee; width:38px; height:38px; border-radius:40px; line-height:40px; text-align:center;">
+                                        <img src="https://img.icons8.com/ios-filled/20/f57c00/whatsapp.png"
+                                            style="vertical-align:middle;" alt="WhatsApp">
+                                    </a>
                                 </td>
                             </tr>
                         </table>
@@ -192,10 +292,10 @@
                         <table border="0" cellpadding="0" cellspacing="0" width="100%">
                             <tr>
                                 <td align="center"
-                                    style="border-top:2px solid #e2e8f0; padding:20px 0 5px; color:#7e8d9e; font-size:12px;">
-                                    © 2026 KoddaHub · <a href="#"
-                                        style="color:#F57C00; text-decoration:underline;">Ajuda</a> · <a href="#"
-                                        style="color:#F57C00; text-decoration:underline;">Privacidade</a>
+                                    style="border-top:2px solid #e0e0e0; padding:20px 0 5px; color:#757575; font-size:12px;">
+                                    © 2026 KoddaHub ·
+                                    <a href="#" style="color:#f57c00; text-decoration:underline;">Ajuda</a> ·
+                                    <a href="#" style="color:#f57c00; text-decoration:underline;">Privacidade</a>
                                 </td>
                             </tr>
                         </table>
@@ -206,8 +306,24 @@
             <!-- pré-header (tiny) -->
             <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:600px;">
                 <tr>
-                    <td align="center" style="color:#9aaaba; font-size:11px; padding:15px 10px;">Se você não criou uma
-                        conta na KoddaHub, ignore este e-mail.</td>
+                    <td align="center" style="color:#9e9e9e; font-size:11px; padding:15px 10px;">
+                        Se você não solicitou contato ou não tem interesse em nossos serviços, ignore este e-mail.
+                    </td>
+                </tr>
+            </table>
+
+            <!-- contato direto -->
+            <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%"
+                style="max-width:600px; margin-top:10px;">
+                <tr>
+                    <td align="center"
+                        style="background:#ffffff; padding:15px; border-radius:50px; font-size:13px; color:#616161; box-shadow:0 2px 5px rgba(0,0,0,0.05);">
+                        📱 Atendimento rápido:
+                        <a href="https://wa.me/554192272854"
+                            style="color:#25D366; font-weight:bold; text-decoration:none;">WhatsApp (41) 9227-2854</a> ·
+                        <a href="mailto:contato@koddahub.com.br"
+                            style="color:#f57c00; text-decoration:none;">contato@koddahub.com.br</a>
+                    </td>
                 </tr>
             </table>
         </div>

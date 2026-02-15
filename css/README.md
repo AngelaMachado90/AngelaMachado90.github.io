@@ -1,66 +1,39 @@
 # Arquitetura CSS - KoddaHub
 
-Utilizamos uma base modular com tokens, base styles, componentes, utilitários e layouts. A prioridade é manter a cascata previsível e evitar duplicação.
+Base CSS modular para facilitar manutenção e reduzir regressões.
 
-## Estrutura de Arquivos
+## Estrutura Atual
 
-├── README.md # Esta documentação
-├── reset.css # Reset global de estilos
-├── variables.css # Design tokens (cores, espaçamento, etc.)
-├── base.css # Estilos base para elementos HTML
-├── components.css # Componentes reutilizáveis globais
-├── main.css # Layouts e seções principais do site
-├── kodassauro.css # Chatbot local (UI)
-├── floating-actions.css # Ações flutuantes (WhatsApp, etc.)
-├── demo-shell.css # Camada de marca para demos
-├── demos/ # CSS das demos (extraído do HTML)
-├── utilities.css # Classes utilitárias (helpers)
-├── animations.css # Animações e keyframes
-└── responsive.css # Media queries responsivas
+- `main.css` → ponto de entrada global da home (`index.html`)
+- `base/` → tokens, reset e tipografia base
+- `components/` → componentes reutilizáveis (botões, cards, navbar, footer, cta, hero-carousel)
+- `layouts/` → seções estruturais (hero, sections, contact)
+- `utilities/` → utilitários e helpers (`utilities.css`, `cookie-consent.css`, `floating-actions.css`, `gallery.css`)
+- `demos/` → CSS dedicado para cada página demo
+- `animations.css` e `responsive.css` → animações e responsividade global
+- `kodassauro.css` → chatbot
 
+## Ordem de Importação (main.css)
 
-## Ordem de Carregamento (CRÍTICO)
+1. `base/variables.css`
+2. `base/reset.css`
+3. `base/typography.css`
+4. `components/*`
+5. `layouts/*`
+6. `utilities/*`
+7. `animations.css`
+8. `responsive.css`
+9. `kodassauro.css`
 
-1. **reset.css** - Normaliza navegadores
-2. **variables.css** - Define variáveis CSS
-3. **base.css** - Estilos elementares
-4. **components.css** - Componentes reutilizáveis
-5. **main.css** - Layouts e seções
-6. **utilities.css** - Classes helpers
-7. **animations.css** - Animações
-8. **responsive.css** - Responsividade
+## Observações
 
-## Convenções de Nomenclatura (BEM Modificado)
+- Demos não dependem de `main.css`; cada demo carrega seu CSS próprio em `css/demos/`.
+- Arquivos legados removidos nesta limpeza:
+  - `css/components.css`
+  - `css/gallery.css`
+  - `css/floating-actions.css`
+  - `css/demos/_shared-demo-styles.css`
 
-- `.card` - Bloco
-- `.card__title` - Elemento
-- `.card--floating` - Modificador
-- `.card--floating:hover` - Estado
+## Mapa de Dependências
 
-## Dependências Entre Arquivos
-
-| Arquivo | Depende de | Fornece para |
-|---------|------------|--------------|
-| variables.css | Nenhuma | TODOS os arquivos |
-| components.css | variables.css | main.css |
-| utilities.css | variables.css | main.css |
-| animations.css | variables.css | main.css |
-
-## Como Adicionar Novo Componente
-
-1. Crie `components/_novo-componente.css`
-2. Adicione em `components/_index.css`
-3. Documente dependências no topo do arquivo
-4. Use variáveis do `variables.css`
-
-
-SEU PROJETO KODDAHUB              ≈ ITCSS
-─────────────────────────────────────────────────
-css/reset.css                    → GENERIC
-css/variables.css                → SETTINGS
-css/base.css                     → ELEMENTS
-css/components.css               → COMPONENTS
-css/main.css                     → OBJECTS (layout patterns)
-css/utilities.css                → UTILITIES
-css/animations.css               → TOOLS (animações)
-css/responsive.css               → (cross-layer)
+Consulte `doc/css-dependency-map.md` para o mapa HTML → CSS atualizado.

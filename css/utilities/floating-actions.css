@@ -1,7 +1,7 @@
 /* ==========================================================================
-   FLOATING-ACTIONS.CSS
-   Elementos flutuantes compartilhados (ex.: WhatsApp).
-   ========================================================================== */
+	 FLOATING-ACTIONS.CSS
+	 Elementos flutuantes compartilhados (ex.: WhatsApp).
+	 ========================================================================== */
 
 .whatsapp-float {
   position: fixed;
@@ -9,7 +9,7 @@
   right: 30px;
   width: 60px;
   height: 60px;
-  background-color: #25D366;
+  background-color: #25d366;
   color: #fff;
   border-radius: 50%;
   display: flex;
@@ -24,7 +24,7 @@
 }
 
 .whatsapp-float:hover {
-  background-color: #128C7E;
+  background-color: #128c7e;
   transform: scale(1.1) rotate(5deg);
   box-shadow: 0 8px 30px rgba(37, 211, 102, 0.5);
   animation: none;
@@ -47,7 +47,7 @@
 }
 
 .whatsapp-tooltip::after {
-  content: '';
+  content: "";
   position: absolute;
   right: -6px;
   top: 50%;
@@ -59,19 +59,4 @@
 .whatsapp-float:hover .whatsapp-tooltip {
   opacity: 1;
   transform: translateX(0);
-}
-
-
-@media (max-width: 768px) {
-  .whatsapp-float {
-    bottom: 20px;
-    right: 20px;
-    width: 56px;
-    height: 56px;
-    font-size: 1.6rem;
-  }
-
-  .whatsapp-tooltip {
-    display: none;
-  }
 }
