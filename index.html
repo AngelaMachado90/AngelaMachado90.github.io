@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO -->
+    <meta name="description" content="Angela Machado - Desenvolvedora Web e Analista de Dados. Especialista em criação de sites institucionais, e-commerce, landing pages e sistemas web.">
+    <meta name="keywords" content="desenvolvimento web, sites institucionais, e-commerce, landing pages, sistemas web, análise de dados, portfólio">
+    <meta name="author" content="Angela Machado">
+    
+    <title>Angela Machado • Desenvolvimento Web & Dados</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👩‍💻</text></svg>">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #f8fafc;
+            color: #0f2b3c;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header com gradiente KoddaHub */
+        .header {
+            background: linear-gradient(135deg, #F57C00 0%, #FFB74D 50%, #F57C00 100%);
+            color: white;
+            padding: 3rem 0 5rem 0;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -30px;
+            right: -30px;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            left: -50px;
+            width: 400px;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .header h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .header h2 {
+            font-size: 1.8rem;
+            font-weight: 500;
+            opacity: 0.95;
+            margin-bottom: 1.5rem;
+            color: rgba(255,255,255,0.9);
+        }
+
+        .header-contact {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .header-contact a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1rem;
+            background: rgba(255,255,255,0.15);
+            padding: 0.7rem 1.5rem;
+            border-radius: 50px;
+            transition: 0.2s;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .header-contact a:hover {
+            background: rgba(255,255,255,0.25);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px -8px rgba(0,0,0,0.3);
+        }
+
+        /* Seções */
+        .section {
+            margin: 5rem 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #F57C00;
+            margin-bottom: 2.5rem;
+            position: relative;
+            padding-bottom: 0.8rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(135deg, #F57C00, #FFB74D);
+            border-radius: 2px;
+        }
+
+        .section-title-center {
+            text-align: center;
+        }
+
+        .section-title-center::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Cards de projetos */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(245,124,0,0.08);
+            transition: 0.3s;
+            border: 1px solid #ffeed9;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(245,124,0,0.15);
+        }
+
+        .project-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            background-color: #f0f0f0;
+            position: relative;
+        }
+
+        .project-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: #F57C00;
+            color: white;
+            padding: 0.4rem 1.2rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            box-shadow: 0 4px 10px rgba(245,124,0,0.3);
+        }
+
+        .project-content {
+            padding: 2rem;
+            flex: 1;
+        }
+
+        .project-tag {
+            background: #fff0e0;
+            color: #F57C00;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            display: inline-block;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1a2b3c;
+            margin-bottom: 1rem;
+        }
+
+        .project-description {
+            color: #4a5c6b;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-item {
+            background: #f5f5f5;
+            color: #F57C00;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            border: 1px solid #ffe0b2;
+        }
+
+        .project-result {
+            background: #fff9f0;
+            border-left: 4px solid #F57C00;
+            padding: 1rem;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn {
+            background: transparent;
+            border: 2px solid #F57C00;
+            color: #F57C00;
+            padding: 0.7rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: 0.2s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background: #F57C00;
+            color: white;
+        }
+
+        .btn-primary {
+            background: #F57C00;
+            border: 2px solid #F57C00;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #e65100;
+            border-color: #e65100;
+        }
+
+        /* Habilidades */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .skill-category {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(245,124,0,0.05);
+            border: 1px solid #ffeed9;
+        }
+
+        .skill-category h3 {
+            color: #F57C00;
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+            border-bottom: 2px solid #ffeed9;
+            padding-bottom: 0.8rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background: #fff5e8;
+            color: #F57C00;
+            padding: 0.4rem 1rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            border: 1px solid #ffe0b2;
+        }
+
+        /* Sobre */
+        .about {
+            background: linear-gradient(135deg, #fff5e8, #fff9f0);
+            border-radius: 40px;
+            padding: 4rem;
+            margin: 5rem 0;
+            border: 1px solid #ffe0b2;
+        }
+
+        .about-text {
+            font-size: 1.2rem;
+            color: #2c3e50;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-text strong {
+            color: #F57C00;
+        }
+
+        .about-highlight {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .about-highlight-item {
+            background: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .about-highlight-item span {
+            font-size: 2rem;
+        }
+
+        /* Timeline experiências */
+        .timeline {
+            margin: 3rem 0;
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(245,124,0,0.03);
+            border: 1px solid #ffeed9;
+            transition: 0.2s;
+        }
+
+        .timeline-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 10px 25px rgba(245,124,0,0.1);
+        }
+
+        .timeline-date {
+            min-width: 150px;
+            font-weight: 700;
+            color: #F57C00;
+            font-size: 1.1rem;
+        }
+
+        .timeline-content h4 {
+            color: #1a2b3c;
+            margin-bottom: 0.3rem;
+            font-size: 1.2rem;
+        }
+
+        .timeline-content p {
+            color: #4a5c6b;
+        }
+
+        .timeline-content strong {
+            color: #F57C00;
+        }
+
+        /* Contato */
+        .contact-section {
+            background: linear-gradient(135deg, #F57C00, #FFB74D);
+            color: white;
+            border-radius: 40px;
+            padding: 4rem;
+            text-align: center;
+            margin: 5rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-section::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+        }
+
+        .contact-section::after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            left: -50px;
+            width: 300px;
+            height: 300px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 50%;
+        }
+
+        .contact-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact-section p {
+            opacity: 0.95;
+            margin-bottom: 2.5rem;
+            font-size: 1.2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact-links a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            background: rgba(255,255,255,0.15);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            transition: 0.2s;
+            font-size: 1.1rem;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .contact-links a:hover {
+            background: rgba(255,255,255,0.25);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 25px -10px rgba(0,0,0,0.3);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 3rem 0;
+            color: #7f8c8d;
+            border-top: 1px solid #ffeed9;
+        }
+
+        .footer a {
+            color: #F57C00;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* KPI Cards */
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .kpi-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(245,124,0,0.05);
+            border: 1px solid #ffeed9;
+        }
+
+        .kpi-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #F57C00;
+            margin-bottom: 0.5rem;
+        }
+
+        .kpi-label {
+            color: #2c3e50;
+            font-weight: 600;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5rem;
+            }
+            .header h2 {
+                font-size: 1.3rem;
+            }
+            .header-contact {
+                flex-direction: column;
+            }
+            .timeline-item {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .timeline-date {
+                min-width: auto;
+            }
+            .contact-links {
+                flex-direction: column;
+            }
+            .about {
+                padding: 2rem;
+            }
+            .about-highlight {
+                flex-direction: column;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <h1>Angela Machado</h1>
+            <h2>Desenvolvimento Web • Análise de Dados • Automação</h2>
+            <div class="header-contact">
+                <a href="mailto:angela.machado02022@gmail.com">
+                    <span>📧</span> angela.machado02022@gmail.com
+                </a>
+                <a href="tel:+554192272854">
+                    <span>📞</span> (41) 9227-2854
+                </a>
+                <a href="https://linkedin.com/in/angela-nmachado" target="_blank">
+                    <span>🔗</span> LinkedIn
+                </a>
+                <a href="https://github.com/angela-nmachado" target="_blank">
+                    <span>🐙</span> GitHub
+                </a>
+                <a href="https://angelamachado90.github.io" target="_blank">
+                    <span>🌐</span> KoddaHub Studio
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Sobre -->
+        <section class="about">
+            <div class="about-text">
+                <h2 style="color: #F57C00; margin-bottom: 1.5rem; font-size: 2rem;">👩‍💻 Sobre mim</h2>
+                <p><strong>+10 anos de experiência</strong> na interseção entre tecnologia, dados e negócios. Especialista em <strong>desenvolvimento web</strong> e <strong>análise de dados</strong>, fundadora da <strong>KoddaHub</strong> - estúdio de soluções digitais que já entregou mais de <strong>150 projetos</strong> para empresas de todos os portes.</p>
+            </div>
+            
+            <div class="kpi-grid">
+                <div class="kpi-card">
+                    <div class="kpi-number">150+</div>
+                    <div class="kpi-label">Projetos entregues</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-number">10+</div>
+                    <div class="kpi-label">Anos de experiência</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-number">98%</div>
+                    <div class="kpi-label">Clientes satisfeitos</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-number">15</div>
+                    <div class="kpi-label">dias prazo médio</div>
+                </div>
+            </div>
+            
+            <div class="about-highlight">
+                <div class="about-highlight-item">
+                    <span>🎯</span> Foco em resultados
+                </div>
+                <div class="about-highlight-item">
+                    <span>🚀</span> Entrega ágil
+                </div>
+                <div class="about-highlight-item">
+                    <span>📱</span> Design responsivo
+                </div>
+                <div class="about-highlight-item">
+                    <span>🔒</span> Segurança e LGPD
+                </div>
+            </div>
+        </section>
+
+        <!-- Soluções Web -->
+        <section class="section">
+            <h2 class="section-title">🌐 Soluções Web - KoddaHub</h2>
+            <div class="projects-grid">
+                <!-- Projeto 1 - Site Institucional -->
+                <div class="project-card">
+                    <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+                        <span class="project-badge">Destaque</span>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-tag">Site Institucional</span>
+                        <h3 class="project-title">Emewe Energia</h3>
+                        <p class="project-description">
+                            Site institucional para empresa de comercialização de energia elétrica, com design moderno e foco em conversão.
+                        </p>
+                        <div class="tech-stack">
+                            <span class="tech-item">HTML5</span>
+                            <span class="tech-item">CSS3</span>
+                            <span class="tech-item">Responsivo</span>
+                            <span class="tech-item">SEO</span>
+                        </div>
+                        <div class="project-result">
+                            <strong>📈 Resultado:</strong> +40% de leads qualificados e posicionamento nas primeiras páginas do Google.
+                        </div>
+                        <a href="#" class="btn">Ver projeto →</a>
+                    </div>
+                </div>
+
+                <!-- Projeto 2 - E-commerce -->
+                <div class="project-card">
+                    <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1556742031-c6961e8560b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+                        <span class="project-badge">E-commerce</span>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-tag">Loja Virtual</span>
+                        <h3 class="project-title">KoddaStore</h3>
+                        <p class="project-description">
+                            E-commerce completo com carrinho de compras, pagamentos integrados e gestão de produtos.
+                        </p>
+                        <div class="tech-stack">
+                            <span class="tech-item">HTML5</span>
+                            <span class="tech-item">CSS3</span>
+                            <span class="tech-item">JavaScript</span>
+                            <span class="tech-item">API Pagamentos</span>
+                        </div>
+                        <div class="project-result">
+                            <strong>💰 Resultado:</strong> +150% de aumento nas vendas online no primeiro trimestre.
+                        </div>
+                        <a href="#" class="btn">Ver projeto →</a>
+                    </div>
+                </div>
+
+                <!-- Projeto 3 - Landing Page -->
+                <div class="project-card">
+                    <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+                        <span class="project-badge">Conversão</span>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-tag">Landing Page</span>
+                        <h3 class="project-title">Campanha de Lançamento</h3>
+                        <p class="project-description">
+                            Landing page otimizada para conversão com integração a WhatsApp e formulários.
+                        </p>
+                        <div class="tech-stack">
+                            <span class="tech-item">HTML5</span>
+                            <span class="tech-item">CSS3</span>
+                            <span class="tech-item">WhatsApp API</span>
+                            <span class="tech-item">Analytics</span>
+                        </div>
+                        <div class="project-result">
+                            <strong>📊 Resultado:</strong> 35% de taxa de conversão e +2.000 leads captados.
+                        </div>
+                        <a href="#" class="btn">Ver projeto →</a>
+                    </div>
+                </div>
+
+                <!-- Projeto 4 - Data Science -->
+                <div class="project-card">
+                    <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+                        <span class="project-badge">Dados</span>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-tag">Dashboard Interativo</span>
+                        <h3 class="project-title">Buscador de Leads CNPJ</h3>
+                        <p class="project-description">
+                            Dashboard em Streamlit para consulta de +50 milhões de empresas com filtros avançados.
+                        </p>
+                        <div class="tech-stack">
+                            <span class="tech-item">Python</span>
+                            <span class="tech-item">Streamlit</span>
+                            <span class="tech-item">Pandas</span>
+                            <span class="tech-item">SQL</span>
+                        </div>
+                        <div class="project-result">
+                            <strong>🎯 Resultado:</strong> Ferramenta usada por +500 empresas para prospecção de clientes.
+                        </div>
+                        <a href="#" class="btn">Ver projeto →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projetos de Dados -->
+        <section class="section">
+            <h2 class="section-title">📊 Projetos em Dados</h2>
+            <div class="projects-grid">
+                <!-- Projeto 1 - Análise de Vendas -->
+                <div class="project-card">
+                    <div class="project-content">
+                        <span class="project-tag">Dashboard</span>
+                        <h3 class="project-title">Análise de Vendas para E-commerce</h3>
+                        <p class="project-description">
+                            Painel completo para acompanhamento de vendas, produtos mais vendidos, sazonalidade e estoque.
+                        </p>
+                        <div class="tech-stack">
+                            <span class="tech-item">Python</span>
+                            <span class="tech-item">Streamlit</span>
+                            <span class="tech-item">Pandas</span>
+                            <span class="tech-item">SQL</span>
+                        </div>
+                        <div class="project-result">
+                            <strong>📈 Resultado:</strong> Redução de 6h/semana em consolidação manual.
+                        </div>
+                        <a href="#" class="btn">Ver detalhes →</a>
+                    </div>
+                </div>
+
+                <!-- Projeto 2 - Automação RPA -->
+                <div class="project-card">
+                    <div class="project-content">
+                        <span class="project-tag">Automação</span>
+                        <h3 class="project-title">Relatórios Financeiros Automatizados</h3>
+                        <p class="project-description">
+                            Script em Python que consolida múltiplas planilhas e gera relatórios em PDF e Excel.
+                        </p>
+                        <div class="tech-stack">
+                            <span class="tech-item">Python</span>
+                            <span class="tech-item">Pandas</span>
+                            <span class="tech-item">OpenPyXL</span>
+                            <span class="tech-item">ReportLab</span>
+                        </div>
+                        <div class="project-result">
+                            <strong>⚡ Resultado:</strong> Processo de 2 dias reduzido para 8 minutos.
+                        </div>
+                        <a href="#" class="btn">Ver detalhes →</a>
+                    </div>
+                </div>
+
+                <!-- Projeto 3 - ETL -->
+                <div class="project-card">
+                    <div class="project-content">
+                        <span class="project-tag">ETL & Modelagem</span>
+                        <h3 class="project-title">Integração de Bases Comerciais</h3>
+                        <p class="project-description">
+                            Unificação de dados de CRM, planilhas de vendas e sistema legado.
+                        </p>
+                        <div class="tech-stack">
+                            <span class="tech-item">Pentaho</span>
+                            <span class="tech-item">SQL</span>
+                            <span class="tech-item">Modelagem</span>
+                            <span class="tech-item">Power BI</span>
+                        </div>
+                        <div class="project-result">
+                            <strong>🔗 Resultado:</strong> 34% de registros duplicados eliminados.
+                        </div>
+                        <a href="#" class="btn">Ver detalhes →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Habilidades -->
+        <section class="section">
+            <h2 class="section-title">🛠️ Habilidades</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Desenvolvimento Web</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">HTML5</span>
+                        <span class="skill-tag">CSS3</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">Bootstrap</span>
+                        <span class="skill-tag">Responsividade</span>
+                        <span class="skill-tag">SEO</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Análise de Dados</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Pandas</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">Excel Avançado</span>
+                        <span class="skill-tag">VBA</span>
+                        <span class="skill-tag">Power BI</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Ferramentas & Frameworks</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Streamlit</span>
+                        <span class="skill-tag">Pentaho</span>
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">Power Query</span>
+                        <span class="skill-tag">ETL</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Metodologias</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Ágil/Scrum</span>
+                        <span class="skill-tag">Análise de Requisitos</span>
+                        <span class="skill-tag">QA</span>
+                        <span class="skill-tag">Documentação</span>
+                        <span class="skill-tag">LGPD</span>
+                        <span class="skill-tag">UX/UI</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experiência Profissional -->
+        <section class="section">
+            <h2 class="section-title">💼 Trajetória Profissional</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">2024 - 2025</div>
+                    <div class="timeline-content">
+                        <h4>Analista Administrativo de TI</h4>
+                        <p><strong>BBM</strong> • Automação de processos e suporte à área de dados</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">2023 - 2024</div>
+                    <div class="timeline-content">
+                        <h4>Analista MIS</h4>
+                        <p><strong>Bellinati Perez</strong> • Extração, tratamento, dashboards, automação RPA</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">2017 - 2022</div>
+                    <div class="timeline-content">
+                        <h4>Analista de Requisitos | QA | Programadora</h4>
+                        <p><strong>Nexcore Tecnologia</strong> • Especificação de soluções, testes, metodologias ágeis, documentação</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">2013 - 2017</div>
+                    <div class="timeline-content">
+                        <h4>Analista de Inteligência</h4>
+                        <p><strong>SoftMarketing</strong> • Monitoramento, análises estratégicas, relatórios executivos</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Formação e Certificações -->
+        <section class="section">
+            <h2 class="section-title">📚 Formação & Certificações</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                <div style="background: white; padding: 2rem; border-radius: 20px; border: 1px solid #ffeed9;">
+                    <h3 style="color: #F57C00; margin-bottom: 1rem;">🎓 Graduações</h3>
+                    <ul style="list-style: none;">
+                        <li style="margin-bottom: 1rem;">• <strong>Análise e Desenvolvimento de Sistemas</strong> (UNINTER, 2021-2023)</li>
+                        <li>• <strong>Análise e Desenvolvimento de Sistemas</strong> (FAEL, 2016-2019)</li>
+                    </ul>
+                </div>
+                <div style="background: white; padding: 2rem; border-radius: 20px; border: 1px solid #ffeed9;">
+                    <h3 style="color: #F57C00; margin-bottom: 1rem;">📜 Certificações</h3>
+                    <ul style="list-style: none;">
+                        <li style="margin-bottom: 0.8rem;">• Auditoria</li>
+                        <li style="margin-bottom: 0.8rem;">• Engenharia de Requisitos</li>
+                        <li style="margin-bottom: 0.8rem;">• PHP (Strings, Arrays, Web)</li>
+                        <li>• Streamlit, Docker, Modelagem de Dados</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contato -->
+        <section class="contact-section">
+            <h2>Vamos conversar sobre seu projeto?</h2>
+            <p>Estou disponível para novos desafios como Desenvolvedora Web, Analista de Dados ou Automação.<br>Modelos remoto, híbrido ou presencial (Curitiba/PR).</p>
+            <div class="contact-links">
+                <a href="mailto:angela.machado02022@gmail.com">
+                    <span>📧</span> Enviar e-mail
+                </a>
+                <a href="https://wa.me/554192272854" target="_blank">
+                    <span>📱</span> WhatsApp
+                </a>
+                <a href="https://linkedin.com/in/angela-nmachado" target="_blank">
+                    <span>🔗</span> LinkedIn
+                </a>
+                <a href="https://github.com/angela-nmachado" target="_blank">
+                    <span>🐙</span> GitHub
+                </a>
+                <a href="https://angelamachado90.github.io" target="_blank">
+                    <span>🌐</span> KoddaHub Studio
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>© 2026 Angela Machado • Desenvolvimento Web & Análise de Dados</p>
+        <p style="margin-top: 1rem; font-size: 0.9rem;">Fundadora da <a href="https://angelamachado90.github.io">KoddaHub</a> • +150 projetos entregues • Atualizado em fevereiro/2026</p>
+        <p style="margin-top: 1rem; font-size: 0.8rem; color: #aaa;">Desenvolvido com 💜 e muito café ☕</p>
+    </footer>
+</body>
+</html>
